@@ -142,7 +142,7 @@ export const sidebar = numberSidebarItems(
           children: [
             {
               type: "link",
-              title: "Add Widgets",
+              title: "Add Widget",
               path: "/learn/customization/customize-admin/widget",
             },
             {
