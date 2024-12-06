@@ -192,12 +192,15 @@ export const useUpdateProductVariantsBatch = (
 
 export const useProductVariantsInventoryItemsBatch = (
   productId: string,
-  options?: UseMutationOptions<any, FetchError, any>
+  options?: UseMutationOptions<
+    HttpTypes.AdminBatchProductVariantInventoryItemResponse,
+    FetchError,
+    HttpTypes.AdminBatchProductVariantInventoryItemRequest
+  >
 ) => {
   return useMutation({
-    mutationFn: (
-      payload: HttpTypes.AdminBatchProductVariantInventoryItemRequest
-    ) => sdk.admin.product.batchVariantInventoryItems(productId, payload),
+    mutationFn: (payload) =>
+      sdk.admin.product.batchVariantInventoryItems(productId, payload),
     onSuccess: (data: any, variables: any, context: any) => {
       queryClient.invalidateQueries({ queryKey: variantsQueryKeys.lists() })
       queryClient.invalidateQueries({ queryKey: variantsQueryKeys.details() })

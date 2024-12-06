@@ -51,6 +51,7 @@ export type KnownDataTypes =
  */
 export type RelationshipTypes =
   | "hasOne"
+  | "hasOneWithFK"
   | "hasMany"
   | "belongsTo"
   | "manyToMany"
@@ -111,7 +112,7 @@ export type RelationshipMetadata = {
   name: string
   type: RelationshipTypes
   entity: unknown
-  nullable: boolean
+  nullable?: boolean
   mappedBy?: string
   searchable: boolean
   options: Record<string, any>
@@ -142,9 +143,9 @@ export interface EntityConstructor<Props> extends Function {
  * "belongsTo" relation meaning "hasOne" and "ManyToOne"
  */
 export type InferForeignKeys<Schema extends DMLSchema> = {
-  [K in keyof Schema as Schema[K] extends { type: "belongsTo" }
+  [K in keyof Schema as Schema[K] extends { $foreignKey: true }
     ? `${K & string}_id`
-    : never]: Schema[K] extends { type: "belongsTo" }
+    : never]: Schema[K] extends { $foreignKey: true }
     ? null extends Schema[K]["$dataType"]
       ? string | null
       : string
@@ -191,7 +192,7 @@ export type InferSchemaFields<Schema extends DMLSchema> = Prettify<
     [K in keyof Schema]: Schema[K] extends RelationshipType<any>
       ? Schema[K]["type"] extends "belongsTo"
         ? InferBelongsToFields<Schema[K]["$dataType"]>
-        : Schema[K]["type"] extends "hasOne"
+        : Schema[K]["type"] extends "hasOne" | "hasOneWithFK"
         ? InferHasOneFields<Schema[K]["$dataType"]>
         : Schema[K]["type"] extends "hasMany"
         ? InferHasManyFields<Schema[K]["$dataType"]>

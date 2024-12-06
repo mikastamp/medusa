@@ -9,8 +9,6 @@ import { TypeList } from "docs-ui"
 - [PaymentCollectionStatus](../../utils/enums/utils.PaymentCollectionStatus/page.mdx)
 - [PaymentSessionStatus](../../utils/enums/utils.PaymentSessionStatus/page.mdx)
 - [PaymentWebhookEvents](../../utils/enums/utils.PaymentWebhookEvents/page.mdx)
-- [PriceListStatus](../../utils/enums/utils.PriceListStatus/page.mdx)
-- [PriceListType](../../utils/enums/utils.PriceListType/page.mdx)
 
 ## Interfaces
 
@@ -26,6 +24,7 @@ import { TypeList } from "docs-ui"
 - [InventoryUtils](../../utils/utils.InventoryUtils/page.mdx)
 - [LinkUtils](../../utils/utils.LinkUtils/page.mdx)
 - [OrderUtils](../../utils/utils.OrderUtils/page.mdx)
+- [PricingUtils](../../utils/utils.PricingUtils/page.mdx)
 - [ProductUtils](../../utils/utils.ProductUtils/page.mdx)
 - [PromotionUtils](../../utils/utils.PromotionUtils/page.mdx)
 - [ShippingProfileUtils](../../utils/utils.ShippingProfileUtils/page.mdx)
@@ -37,7 +36,6 @@ import { TypeList } from "docs-ui"
 - [MedusaModuleType](page.mdx#medusamoduletype)
 - [NotificationEvents](page.mdx#notificationevents)
 - [PaymentEvents](page.mdx#paymentevents)
-- [PricingEvents](page.mdx#pricingevents)
 
 ___
 
@@ -62,7 +60,3 @@ ___
 #### Properties
 
 <TypeList types={[{"name":"CAPTURED","type":"`string`","description":"","optional":false,"defaultValue":"\"payment.captured\"","expandable":false,"children":[]},{"name":"REFUNDED","type":"`string`","description":"","optional":false,"defaultValue":"\"payment.refunded\"","expandable":false,"children":[]}]} expandUrl="https://docs.medusajs.com/v2/advanced-development/data-models/manage-relationships#retrieve-records-of-relation" sectionTitle="PaymentEvents"/>
-
-### PricingEvents
-
- `Const` **PricingEvents**: ReturnType&#60;["priceListRule", "priceList", "priceRule", "priceSet", "price"]&#62;

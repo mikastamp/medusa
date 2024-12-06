@@ -24,6 +24,7 @@ import {
 import {
   Badge,
   Button,
+  clx,
   Container,
   Copy,
   Heading,
@@ -32,9 +33,9 @@ import {
   toast,
   Tooltip,
   usePrompt,
-  clx,
 } from "@medusajs/ui"
 
+import { AdminReservation } from "@medusajs/types/src/http"
 import { AdminPaymentCollection } from "../../../../../../../../core/types/dist/http/payment/admin/entities"
 import { ActionMenu } from "../../../../../components/common/action-menu"
 import { ButtonMenu } from "../../../../../components/common/button-menu/button-menu"
@@ -56,7 +57,6 @@ import { getReturnableQuantity } from "../../../../../lib/rma"
 import { CopyPaymentLink } from "../copy-payment-link/copy-payment-link"
 import ReturnInfoPopover from "./return-info-popover"
 import ShippingInfoPopover from "./shipping-info-popover"
-import { AdminReservation } from "@medusajs/types/src/http"
 
 type OrderSummarySectionProps = {
   order: AdminOrder
@@ -341,7 +341,7 @@ const Header = ({
                   shouldDisableReturn ||
                   isOrderEditActive ||
                   (!!orderPreview?.order_change?.return_id &&
-                    !!!orderPreview?.order_change?.exchange_id) ||
+                    !orderPreview?.order_change?.exchange_id) ||
                   !!orderPreview?.order_change?.claim_id,
               },
               {
@@ -356,7 +356,7 @@ const Header = ({
                   shouldDisableReturn ||
                   isOrderEditActive ||
                   (!!orderPreview?.order_change?.return_id &&
-                    !!!orderPreview?.order_change?.claim_id) ||
+                    !orderPreview?.order_change?.claim_id) ||
                   !!orderPreview?.order_change?.exchange_id,
               },
             ],
@@ -555,7 +555,7 @@ const Cost = ({
 const CostBreakdown = ({
   order,
 }: {
-  order: AdminOrder & { region: AdminRegion }
+  order: AdminOrder & { region?: AdminRegion | null }
 }) => {
   const { t } = useTranslation()
   const [isTaxOpen, setIsTaxOpen] = useState(false)
@@ -590,7 +590,7 @@ const CostBreakdown = ({
     return taxCodeMap
   }, [order])
 
-  const automaticTaxesOn = !!order.region!.automatic_taxes
+  const automaticTaxesOn = !!order.region?.automatic_taxes
   const hasTaxLines = !!Object.keys(taxCodes).length
 
   const discountTotal = automaticTaxesOn

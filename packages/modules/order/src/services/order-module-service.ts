@@ -20,6 +20,7 @@ import {
 } from "@medusajs/framework/types"
 import {
   BigNumber,
+  ChangeActionType,
   createRawPropertiesFromBigNumber,
   DecorateCartLikeInputDTO,
   decorateCartTotals,
@@ -2231,6 +2232,59 @@ export default class OrderModuleService<
     })
 
     await this.orderChangeService_.update(updates as any, sharedContext)
+  }
+
+  async registerOrderChange(
+    data: OrderTypes.RegisterOrderChangeDTO,
+    sharedContext?: Context
+  ): Promise<OrderTypes.OrderChangeDTO>
+  async registerOrderChange(
+    data: OrderTypes.RegisterOrderChangeDTO[],
+    sharedContext?: Context
+  ): Promise<OrderTypes.OrderChangeDTO[]>
+
+  @InjectManager()
+  async registerOrderChange(
+    data:
+      | OrderTypes.RegisterOrderChangeDTO
+      | OrderTypes.RegisterOrderChangeDTO[],
+    sharedContext?: Context
+  ): Promise<OrderTypes.OrderChangeDTO | OrderTypes.OrderChangeDTO[]> {
+    const inputData = Array.isArray(data) ? data : [data]
+
+    const orders = await this.orderService_.list(
+      { id: inputData.map((d) => d.order_id) },
+      { select: ["id", "version"] },
+      sharedContext
+    )
+
+    const orderVersionsMap = new Map(orders.map((o) => [o.id, o.version]))
+
+    const changes = (await this.orderChangeService_.create(
+      inputData.map((d) => ({
+        order_id: d.order_id,
+        change_type: d.change_type,
+        internal_note: d.internal_note,
+        description: d.description,
+        metadata: d.metadata,
+        confirmed_at: new Date(),
+        created_by: d.created_by,
+        confirmed_by: d.confirmed_by,
+        status: OrderChangeStatus.CONFIRMED,
+        version: orderVersionsMap.get(d.order_id)!,
+        actions: [
+          {
+            action: ChangeActionType.UPDATE_ORDER_PROPERTIES,
+            details: d.details,
+            version: orderVersionsMap.get(d.order_id)!,
+            applied: true,
+          },
+        ],
+      })) as CreateOrderChangeDTO[],
+      sharedContext
+    )) as OrderTypes.OrderChangeDTO[]
+
+    return Array.isArray(data) ? changes : changes[0]
   }
 
   @InjectManager()

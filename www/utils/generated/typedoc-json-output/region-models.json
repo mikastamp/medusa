@@ -1,5 +1,5 @@
 {
-	"id": 14688,
+	"id": 15359,
 	"name": "region-models",
 	"variant": "project",
 	"kind": 1,
@@ -18,7 +18,7 @@
 	},
 	"children": [
 		{
-			"id": 14689,
+			"id": 15360,
 			"name": "Country",
 			"variant": "declaration",
 			"kind": 32,
@@ -36,14 +36,14 @@
 							{
 								"type": "reflection",
 								"declaration": {
-									"id": 14690,
+									"id": 15361,
 									"name": "__type",
 									"variant": "declaration",
 									"kind": 65536,
 									"flags": {},
 									"children": [
 										{
-											"id": 14691,
+											"id": 15362,
 											"name": "iso_2",
 											"variant": "declaration",
 											"kind": 1024,
@@ -79,7 +79,7 @@
 											"defaultValue": "..."
 										},
 										{
-											"id": 14692,
+											"id": 15363,
 											"name": "iso_3",
 											"variant": "declaration",
 											"kind": 1024,
@@ -104,7 +104,7 @@
 											"defaultValue": "..."
 										},
 										{
-											"id": 14693,
+											"id": 15364,
 											"name": "num_code",
 											"variant": "declaration",
 											"kind": 1024,
@@ -129,7 +129,7 @@
 											"defaultValue": "..."
 										},
 										{
-											"id": 14694,
+											"id": 15365,
 											"name": "name",
 											"variant": "declaration",
 											"kind": 1024,
@@ -154,7 +154,7 @@
 											"defaultValue": "..."
 										},
 										{
-											"id": 14695,
+											"id": 15366,
 											"name": "display_name",
 											"variant": "declaration",
 											"kind": 1024,
@@ -179,7 +179,7 @@
 											"defaultValue": "..."
 										},
 										{
-											"id": 14696,
+											"id": 15367,
 											"name": "region",
 											"variant": "declaration",
 											"kind": 1024,
@@ -205,14 +205,14 @@
 													{
 														"type": "reflection",
 														"declaration": {
-															"id": 14697,
+															"id": 15368,
 															"name": "__type",
 															"variant": "declaration",
 															"kind": 65536,
 															"flags": {},
 															"signatures": [
 																{
-																	"id": 14698,
+																	"id": 15369,
 																	"name": "__type",
 																	"variant": "signature",
 																	"kind": 4096,
@@ -230,14 +230,14 @@
 																					{
 																						"type": "reflection",
 																						"declaration": {
-																							"id": 14699,
+																							"id": 15370,
 																							"name": "__type",
 																							"variant": "declaration",
 																							"kind": 65536,
 																							"flags": {},
 																							"children": [
 																								{
-																									"id": 14700,
+																									"id": 15371,
 																									"name": "id",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -265,7 +265,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 14701,
+																									"id": 15372,
 																									"name": "name",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -282,7 +282,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 14702,
+																									"id": 15373,
 																									"name": "currency_code",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -299,7 +299,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 14703,
+																									"id": 15374,
 																									"name": "automatic_taxes",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -316,7 +316,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 14704,
+																									"id": 15375,
 																									"name": "countries",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -331,14 +331,14 @@
 																											{
 																												"type": "reflection",
 																												"declaration": {
-																													"id": 14705,
+																													"id": 15376,
 																													"name": "__type",
 																													"variant": "declaration",
 																													"kind": 65536,
 																													"flags": {},
 																													"signatures": [
 																														{
-																															"id": 14706,
+																															"id": 15377,
 																															"name": "__type",
 																															"variant": "signature",
 																															"kind": 4096,
@@ -358,7 +358,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 14707,
+																									"id": 15378,
 																									"name": "metadata",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -381,12 +381,12 @@
 																								{
 																									"title": "Properties",
 																									"children": [
-																										14700,
-																										14701,
-																										14702,
-																										14703,
-																										14704,
-																										14707
+																										15371,
+																										15372,
+																										15373,
+																										15374,
+																										15375,
+																										15378
 																									]
 																								}
 																							]
@@ -395,14 +395,14 @@
 																					{
 																						"type": "reflection",
 																						"declaration": {
-																							"id": 14708,
+																							"id": 15379,
 																							"name": "__type",
 																							"variant": "declaration",
 																							"kind": 65536,
 																							"flags": {},
 																							"children": [
 																								{
-																									"id": 14709,
+																									"id": 15380,
 																									"name": "id",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -430,7 +430,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 14710,
+																									"id": 15381,
 																									"name": "name",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -447,7 +447,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 14711,
+																									"id": 15382,
 																									"name": "currency_code",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -464,7 +464,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 14712,
+																									"id": 15383,
 																									"name": "automatic_taxes",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -481,7 +481,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 14713,
+																									"id": 15384,
 																									"name": "countries",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -496,14 +496,14 @@
 																											{
 																												"type": "reflection",
 																												"declaration": {
-																													"id": 14714,
+																													"id": 15385,
 																													"name": "__type",
 																													"variant": "declaration",
 																													"kind": 65536,
 																													"flags": {},
 																													"signatures": [
 																														{
-																															"id": 14715,
+																															"id": 15386,
 																															"name": "__type",
 																															"variant": "signature",
 																															"kind": 4096,
@@ -523,7 +523,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 14716,
+																									"id": 15387,
 																									"name": "metadata",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -546,12 +546,12 @@
 																								{
 																									"title": "Properties",
 																									"children": [
-																										14709,
-																										14710,
-																										14711,
-																										14712,
-																										14713,
-																										14716
+																										15380,
+																										15381,
+																										15382,
+																										15383,
+																										15384,
+																										15387
 																									]
 																								}
 																							]
@@ -560,7 +560,7 @@
 																					{
 																						"type": "reflection",
 																						"declaration": {
-																							"id": 14717,
+																							"id": 15388,
 																							"name": "__type",
 																							"variant": "declaration",
 																							"kind": 65536,
@@ -600,14 +600,14 @@
 															{
 																"type": "reflection",
 																"declaration": {
-																	"id": 14718,
+																	"id": 15389,
 																	"name": "__type",
 																	"variant": "declaration",
 																	"kind": 65536,
 																	"flags": {},
 																	"signatures": [
 																		{
-																			"id": 14719,
+																			"id": 15390,
 																			"name": "__type",
 																			"variant": "signature",
 																			"kind": 4096,
@@ -625,14 +625,14 @@
 																							{
 																								"type": "reflection",
 																								"declaration": {
-																									"id": 14720,
+																									"id": 15391,
 																									"name": "__type",
 																									"variant": "declaration",
 																									"kind": 65536,
 																									"flags": {},
 																									"children": [
 																										{
-																											"id": 14721,
+																											"id": 15392,
 																											"name": "id",
 																											"variant": "declaration",
 																											"kind": 1024,
@@ -660,7 +660,7 @@
 																											"defaultValue": "..."
 																										},
 																										{
-																											"id": 14722,
+																											"id": 15393,
 																											"name": "name",
 																											"variant": "declaration",
 																											"kind": 1024,
@@ -677,7 +677,7 @@
 																											"defaultValue": "..."
 																										},
 																										{
-																											"id": 14723,
+																											"id": 15394,
 																											"name": "currency_code",
 																											"variant": "declaration",
 																											"kind": 1024,
@@ -694,7 +694,7 @@
 																											"defaultValue": "..."
 																										},
 																										{
-																											"id": 14724,
+																											"id": 15395,
 																											"name": "automatic_taxes",
 																											"variant": "declaration",
 																											"kind": 1024,
@@ -711,7 +711,7 @@
 																											"defaultValue": "..."
 																										},
 																										{
-																											"id": 14725,
+																											"id": 15396,
 																											"name": "countries",
 																											"variant": "declaration",
 																											"kind": 1024,
@@ -726,14 +726,14 @@
 																													{
 																														"type": "reflection",
 																														"declaration": {
-																															"id": 14726,
+																															"id": 15397,
 																															"name": "__type",
 																															"variant": "declaration",
 																															"kind": 65536,
 																															"flags": {},
 																															"signatures": [
 																																{
-																																	"id": 14727,
+																																	"id": 15398,
 																																	"name": "__type",
 																																	"variant": "signature",
 																																	"kind": 4096,
@@ -753,7 +753,7 @@
 																											"defaultValue": "..."
 																										},
 																										{
-																											"id": 14728,
+																											"id": 15399,
 																											"name": "metadata",
 																											"variant": "declaration",
 																											"kind": 1024,
@@ -776,12 +776,12 @@
 																										{
 																											"title": "Properties",
 																											"children": [
-																												14721,
-																												14722,
-																												14723,
-																												14724,
-																												14725,
-																												14728
+																												15392,
+																												15393,
+																												15394,
+																												15395,
+																												15396,
+																												15399
 																											]
 																										}
 																									]
@@ -790,14 +790,14 @@
 																							{
 																								"type": "reflection",
 																								"declaration": {
-																									"id": 14729,
+																									"id": 15400,
 																									"name": "__type",
 																									"variant": "declaration",
 																									"kind": 65536,
 																									"flags": {},
 																									"children": [
 																										{
-																											"id": 14730,
+																											"id": 15401,
 																											"name": "id",
 																											"variant": "declaration",
 																											"kind": 1024,
@@ -825,7 +825,7 @@
 																											"defaultValue": "..."
 																										},
 																										{
-																											"id": 14731,
+																											"id": 15402,
 																											"name": "name",
 																											"variant": "declaration",
 																											"kind": 1024,
@@ -842,7 +842,7 @@
 																											"defaultValue": "..."
 																										},
 																										{
-																											"id": 14732,
+																											"id": 15403,
 																											"name": "currency_code",
 																											"variant": "declaration",
 																											"kind": 1024,
@@ -859,7 +859,7 @@
 																											"defaultValue": "..."
 																										},
 																										{
-																											"id": 14733,
+																											"id": 15404,
 																											"name": "automatic_taxes",
 																											"variant": "declaration",
 																											"kind": 1024,
@@ -876,7 +876,7 @@
 																											"defaultValue": "..."
 																										},
 																										{
-																											"id": 14734,
+																											"id": 15405,
 																											"name": "countries",
 																											"variant": "declaration",
 																											"kind": 1024,
@@ -891,14 +891,14 @@
 																													{
 																														"type": "reflection",
 																														"declaration": {
-																															"id": 14735,
+																															"id": 15406,
 																															"name": "__type",
 																															"variant": "declaration",
 																															"kind": 65536,
 																															"flags": {},
 																															"signatures": [
 																																{
-																																	"id": 14736,
+																																	"id": 15407,
 																																	"name": "__type",
 																																	"variant": "signature",
 																																	"kind": 4096,
@@ -918,7 +918,7 @@
 																											"defaultValue": "..."
 																										},
 																										{
-																											"id": 14737,
+																											"id": 15408,
 																											"name": "metadata",
 																											"variant": "declaration",
 																											"kind": 1024,
@@ -941,12 +941,12 @@
 																										{
 																											"title": "Properties",
 																											"children": [
-																												14730,
-																												14731,
-																												14732,
-																												14733,
-																												14734,
-																												14737
+																												15401,
+																												15402,
+																												15403,
+																												15404,
+																												15405,
+																												15408
 																											]
 																										}
 																									]
@@ -955,7 +955,7 @@
 																							{
 																								"type": "reflection",
 																								"declaration": {
-																									"id": 14738,
+																									"id": 15409,
 																									"name": "__type",
 																									"variant": "declaration",
 																									"kind": 65536,
@@ -996,7 +996,7 @@
 											"defaultValue": "..."
 										},
 										{
-											"id": 14739,
+											"id": 15410,
 											"name": "metadata",
 											"variant": "declaration",
 											"kind": 1024,
@@ -1027,13 +1027,13 @@
 										{
 											"title": "Properties",
 											"children": [
-												14691,
-												14692,
-												14693,
-												14694,
-												14695,
-												14696,
-												14739
+												15362,
+												15363,
+												15364,
+												15365,
+												15366,
+												15367,
+												15410
 											]
 										}
 									]
@@ -1042,14 +1042,14 @@
 							{
 								"type": "reflection",
 								"declaration": {
-									"id": 14740,
+									"id": 15411,
 									"name": "__type",
 									"variant": "declaration",
 									"kind": 65536,
 									"flags": {},
 									"children": [
 										{
-											"id": 14741,
+											"id": 15412,
 											"name": "iso_2",
 											"variant": "declaration",
 											"kind": 1024,
@@ -1077,7 +1077,7 @@
 											"defaultValue": "..."
 										},
 										{
-											"id": 14742,
+											"id": 15413,
 											"name": "iso_3",
 											"variant": "declaration",
 											"kind": 1024,
@@ -1094,7 +1094,7 @@
 											"defaultValue": "..."
 										},
 										{
-											"id": 14743,
+											"id": 15414,
 											"name": "num_code",
 											"variant": "declaration",
 											"kind": 1024,
@@ -1111,7 +1111,7 @@
 											"defaultValue": "..."
 										},
 										{
-											"id": 14744,
+											"id": 15415,
 											"name": "name",
 											"variant": "declaration",
 											"kind": 1024,
@@ -1128,7 +1128,7 @@
 											"defaultValue": "..."
 										},
 										{
-											"id": 14745,
+											"id": 15416,
 											"name": "display_name",
 											"variant": "declaration",
 											"kind": 1024,
@@ -1145,7 +1145,7 @@
 											"defaultValue": "..."
 										},
 										{
-											"id": 14746,
+											"id": 15417,
 											"name": "region",
 											"variant": "declaration",
 											"kind": 1024,
@@ -1160,14 +1160,14 @@
 													{
 														"type": "reflection",
 														"declaration": {
-															"id": 14747,
+															"id": 15418,
 															"name": "__type",
 															"variant": "declaration",
 															"kind": 65536,
 															"flags": {},
 															"signatures": [
 																{
-																	"id": 14748,
+																	"id": 15419,
 																	"name": "__type",
 																	"variant": "signature",
 																	"kind": 4096,
@@ -1185,14 +1185,14 @@
 																					{
 																						"type": "reflection",
 																						"declaration": {
-																							"id": 14749,
+																							"id": 15420,
 																							"name": "__type",
 																							"variant": "declaration",
 																							"kind": 65536,
 																							"flags": {},
 																							"children": [
 																								{
-																									"id": 14750,
+																									"id": 15421,
 																									"name": "id",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -1220,7 +1220,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 14751,
+																									"id": 15422,
 																									"name": "name",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -1237,7 +1237,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 14752,
+																									"id": 15423,
 																									"name": "currency_code",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -1254,7 +1254,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 14753,
+																									"id": 15424,
 																									"name": "automatic_taxes",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -1271,7 +1271,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 14754,
+																									"id": 15425,
 																									"name": "countries",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -1286,14 +1286,14 @@
 																											{
 																												"type": "reflection",
 																												"declaration": {
-																													"id": 14755,
+																													"id": 15426,
 																													"name": "__type",
 																													"variant": "declaration",
 																													"kind": 65536,
 																													"flags": {},
 																													"signatures": [
 																														{
-																															"id": 14756,
+																															"id": 15427,
 																															"name": "__type",
 																															"variant": "signature",
 																															"kind": 4096,
@@ -1313,7 +1313,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 14757,
+																									"id": 15428,
 																									"name": "metadata",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -1336,12 +1336,12 @@
 																								{
 																									"title": "Properties",
 																									"children": [
-																										14750,
-																										14751,
-																										14752,
-																										14753,
-																										14754,
-																										14757
+																										15421,
+																										15422,
+																										15423,
+																										15424,
+																										15425,
+																										15428
 																									]
 																								}
 																							]
@@ -1350,14 +1350,14 @@
 																					{
 																						"type": "reflection",
 																						"declaration": {
-																							"id": 14758,
+																							"id": 15429,
 																							"name": "__type",
 																							"variant": "declaration",
 																							"kind": 65536,
 																							"flags": {},
 																							"children": [
 																								{
-																									"id": 14759,
+																									"id": 15430,
 																									"name": "id",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -1385,7 +1385,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 14760,
+																									"id": 15431,
 																									"name": "name",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -1402,7 +1402,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 14761,
+																									"id": 15432,
 																									"name": "currency_code",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -1419,7 +1419,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 14762,
+																									"id": 15433,
 																									"name": "automatic_taxes",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -1436,7 +1436,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 14763,
+																									"id": 15434,
 																									"name": "countries",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -1451,14 +1451,14 @@
 																											{
 																												"type": "reflection",
 																												"declaration": {
-																													"id": 14764,
+																													"id": 15435,
 																													"name": "__type",
 																													"variant": "declaration",
 																													"kind": 65536,
 																													"flags": {},
 																													"signatures": [
 																														{
-																															"id": 14765,
+																															"id": 15436,
 																															"name": "__type",
 																															"variant": "signature",
 																															"kind": 4096,
@@ -1478,7 +1478,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 14766,
+																									"id": 15437,
 																									"name": "metadata",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -1501,12 +1501,12 @@
 																								{
 																									"title": "Properties",
 																									"children": [
-																										14759,
-																										14760,
-																										14761,
-																										14762,
-																										14763,
-																										14766
+																										15430,
+																										15431,
+																										15432,
+																										15433,
+																										15434,
+																										15437
 																									]
 																								}
 																							]
@@ -1515,7 +1515,7 @@
 																					{
 																						"type": "reflection",
 																						"declaration": {
-																							"id": 14767,
+																							"id": 15438,
 																							"name": "__type",
 																							"variant": "declaration",
 																							"kind": 65536,
@@ -1555,14 +1555,14 @@
 															{
 																"type": "reflection",
 																"declaration": {
-																	"id": 14768,
+																	"id": 15439,
 																	"name": "__type",
 																	"variant": "declaration",
 																	"kind": 65536,
 																	"flags": {},
 																	"signatures": [
 																		{
-																			"id": 14769,
+																			"id": 15440,
 																			"name": "__type",
 																			"variant": "signature",
 																			"kind": 4096,
@@ -1580,14 +1580,14 @@
 																							{
 																								"type": "reflection",
 																								"declaration": {
-																									"id": 14770,
+																									"id": 15441,
 																									"name": "__type",
 																									"variant": "declaration",
 																									"kind": 65536,
 																									"flags": {},
 																									"children": [
 																										{
-																											"id": 14771,
+																											"id": 15442,
 																											"name": "id",
 																											"variant": "declaration",
 																											"kind": 1024,
@@ -1615,7 +1615,7 @@
 																											"defaultValue": "..."
 																										},
 																										{
-																											"id": 14772,
+																											"id": 15443,
 																											"name": "name",
 																											"variant": "declaration",
 																											"kind": 1024,
@@ -1632,7 +1632,7 @@
 																											"defaultValue": "..."
 																										},
 																										{
-																											"id": 14773,
+																											"id": 15444,
 																											"name": "currency_code",
 																											"variant": "declaration",
 																											"kind": 1024,
@@ -1649,7 +1649,7 @@
 																											"defaultValue": "..."
 																										},
 																										{
-																											"id": 14774,
+																											"id": 15445,
 																											"name": "automatic_taxes",
 																											"variant": "declaration",
 																											"kind": 1024,
@@ -1666,7 +1666,7 @@
 																											"defaultValue": "..."
 																										},
 																										{
-																											"id": 14775,
+																											"id": 15446,
 																											"name": "countries",
 																											"variant": "declaration",
 																											"kind": 1024,
@@ -1681,14 +1681,14 @@
 																													{
 																														"type": "reflection",
 																														"declaration": {
-																															"id": 14776,
+																															"id": 15447,
 																															"name": "__type",
 																															"variant": "declaration",
 																															"kind": 65536,
 																															"flags": {},
 																															"signatures": [
 																																{
-																																	"id": 14777,
+																																	"id": 15448,
 																																	"name": "__type",
 																																	"variant": "signature",
 																																	"kind": 4096,
@@ -1708,7 +1708,7 @@
 																											"defaultValue": "..."
 																										},
 																										{
-																											"id": 14778,
+																											"id": 15449,
 																											"name": "metadata",
 																											"variant": "declaration",
 																											"kind": 1024,
@@ -1731,12 +1731,12 @@
 																										{
 																											"title": "Properties",
 																											"children": [
-																												14771,
-																												14772,
-																												14773,
-																												14774,
-																												14775,
-																												14778
+																												15442,
+																												15443,
+																												15444,
+																												15445,
+																												15446,
+																												15449
 																											]
 																										}
 																									]
@@ -1745,14 +1745,14 @@
 																							{
 																								"type": "reflection",
 																								"declaration": {
-																									"id": 14779,
+																									"id": 15450,
 																									"name": "__type",
 																									"variant": "declaration",
 																									"kind": 65536,
 																									"flags": {},
 																									"children": [
 																										{
-																											"id": 14780,
+																											"id": 15451,
 																											"name": "id",
 																											"variant": "declaration",
 																											"kind": 1024,
@@ -1780,7 +1780,7 @@
 																											"defaultValue": "..."
 																										},
 																										{
-																											"id": 14781,
+																											"id": 15452,
 																											"name": "name",
 																											"variant": "declaration",
 																											"kind": 1024,
@@ -1797,7 +1797,7 @@
 																											"defaultValue": "..."
 																										},
 																										{
-																											"id": 14782,
+																											"id": 15453,
 																											"name": "currency_code",
 																											"variant": "declaration",
 																											"kind": 1024,
@@ -1814,7 +1814,7 @@
 																											"defaultValue": "..."
 																										},
 																										{
-																											"id": 14783,
+																											"id": 15454,
 																											"name": "automatic_taxes",
 																											"variant": "declaration",
 																											"kind": 1024,
@@ -1831,7 +1831,7 @@
 																											"defaultValue": "..."
 																										},
 																										{
-																											"id": 14784,
+																											"id": 15455,
 																											"name": "countries",
 																											"variant": "declaration",
 																											"kind": 1024,
@@ -1846,14 +1846,14 @@
 																													{
 																														"type": "reflection",
 																														"declaration": {
-																															"id": 14785,
+																															"id": 15456,
 																															"name": "__type",
 																															"variant": "declaration",
 																															"kind": 65536,
 																															"flags": {},
 																															"signatures": [
 																																{
-																																	"id": 14786,
+																																	"id": 15457,
 																																	"name": "__type",
 																																	"variant": "signature",
 																																	"kind": 4096,
@@ -1873,7 +1873,7 @@
 																											"defaultValue": "..."
 																										},
 																										{
-																											"id": 14787,
+																											"id": 15458,
 																											"name": "metadata",
 																											"variant": "declaration",
 																											"kind": 1024,
@@ -1896,12 +1896,12 @@
 																										{
 																											"title": "Properties",
 																											"children": [
-																												14780,
-																												14781,
-																												14782,
-																												14783,
-																												14784,
-																												14787
+																												15451,
+																												15452,
+																												15453,
+																												15454,
+																												15455,
+																												15458
 																											]
 																										}
 																									]
@@ -1910,7 +1910,7 @@
 																							{
 																								"type": "reflection",
 																								"declaration": {
-																									"id": 14788,
+																									"id": 15459,
 																									"name": "__type",
 																									"variant": "declaration",
 																									"kind": 65536,
@@ -1951,7 +1951,7 @@
 											"defaultValue": "..."
 										},
 										{
-											"id": 14789,
+											"id": 15460,
 											"name": "metadata",
 											"variant": "declaration",
 											"kind": 1024,
@@ -1974,13 +1974,13 @@
 										{
 											"title": "Properties",
 											"children": [
-												14741,
-												14742,
-												14743,
-												14744,
-												14745,
-												14746,
-												14789
+												15412,
+												15413,
+												15414,
+												15415,
+												15416,
+												15417,
+												15460
 											]
 										}
 									]
@@ -1989,7 +1989,7 @@
 							{
 								"type": "reflection",
 								"declaration": {
-									"id": 14790,
+									"id": 15461,
 									"name": "__type",
 									"variant": "declaration",
 									"kind": 65536,
@@ -2010,14 +2010,14 @@
 					{
 						"type": "reflection",
 						"declaration": {
-							"id": 14791,
+							"id": 15462,
 							"name": "__type",
 							"variant": "declaration",
 							"kind": 65536,
 							"flags": {},
 							"children": [
 								{
-									"id": 14792,
+									"id": 15463,
 									"name": "name",
 									"variant": "declaration",
 									"kind": 1024,
@@ -2031,7 +2031,7 @@
 									"defaultValue": "\"Country\""
 								},
 								{
-									"id": 14793,
+									"id": 15464,
 									"name": "tableName",
 									"variant": "declaration",
 									"kind": 1024,
@@ -2049,8 +2049,8 @@
 								{
 									"title": "Properties",
 									"children": [
-										14792,
-										14793
+										15463,
+										15464
 									]
 								}
 							]
@@ -2062,7 +2062,7 @@
 			}
 		},
 		{
-			"id": 14794,
+			"id": 15465,
 			"name": "Region",
 			"variant": "declaration",
 			"kind": 32,
@@ -2080,14 +2080,14 @@
 							{
 								"type": "reflection",
 								"declaration": {
-									"id": 14795,
+									"id": 15466,
 									"name": "__type",
 									"variant": "declaration",
 									"kind": 65536,
 									"flags": {},
 									"children": [
 										{
-											"id": 14796,
+											"id": 15467,
 											"name": "id",
 											"variant": "declaration",
 											"kind": 1024,
@@ -2123,7 +2123,7 @@
 											"defaultValue": "..."
 										},
 										{
-											"id": 14797,
+											"id": 15468,
 											"name": "name",
 											"variant": "declaration",
 											"kind": 1024,
@@ -2148,7 +2148,7 @@
 											"defaultValue": "..."
 										},
 										{
-											"id": 14798,
+											"id": 15469,
 											"name": "currency_code",
 											"variant": "declaration",
 											"kind": 1024,
@@ -2173,7 +2173,7 @@
 											"defaultValue": "..."
 										},
 										{
-											"id": 14799,
+											"id": 15470,
 											"name": "automatic_taxes",
 											"variant": "declaration",
 											"kind": 1024,
@@ -2198,7 +2198,7 @@
 											"defaultValue": "..."
 										},
 										{
-											"id": 14800,
+											"id": 15471,
 											"name": "countries",
 											"variant": "declaration",
 											"kind": 1024,
@@ -2223,7 +2223,7 @@
 												"typeArguments": [
 													{
 														"type": "reference",
-														"target": 14689,
+														"target": 15360,
 														"name": "Country"
 													}
 												],
@@ -2233,7 +2233,7 @@
 											"defaultValue": "..."
 										},
 										{
-											"id": 14831,
+											"id": 15502,
 											"name": "metadata",
 											"variant": "declaration",
 											"kind": 1024,
@@ -2264,12 +2264,12 @@
 										{
 											"title": "Properties",
 											"children": [
-												14796,
-												14797,
-												14798,
-												14799,
-												14800,
-												14831
+												15467,
+												15468,
+												15469,
+												15470,
+												15471,
+												15502
 											]
 										}
 									]
@@ -2278,14 +2278,14 @@
 							{
 								"type": "reflection",
 								"declaration": {
-									"id": 14832,
+									"id": 15503,
 									"name": "__type",
 									"variant": "declaration",
 									"kind": 65536,
 									"flags": {},
 									"children": [
 										{
-											"id": 14833,
+											"id": 15504,
 											"name": "id",
 											"variant": "declaration",
 											"kind": 1024,
@@ -2313,7 +2313,7 @@
 											"defaultValue": "..."
 										},
 										{
-											"id": 14834,
+											"id": 15505,
 											"name": "name",
 											"variant": "declaration",
 											"kind": 1024,
@@ -2330,7 +2330,7 @@
 											"defaultValue": "..."
 										},
 										{
-											"id": 14835,
+											"id": 15506,
 											"name": "currency_code",
 											"variant": "declaration",
 											"kind": 1024,
@@ -2347,7 +2347,7 @@
 											"defaultValue": "..."
 										},
 										{
-											"id": 14836,
+											"id": 15507,
 											"name": "automatic_taxes",
 											"variant": "declaration",
 											"kind": 1024,
@@ -2364,7 +2364,7 @@
 											"defaultValue": "..."
 										},
 										{
-											"id": 14837,
+											"id": 15508,
 											"name": "countries",
 											"variant": "declaration",
 											"kind": 1024,
@@ -2379,14 +2379,14 @@
 													{
 														"type": "reflection",
 														"declaration": {
-															"id": 14838,
+															"id": 15509,
 															"name": "__type",
 															"variant": "declaration",
 															"kind": 65536,
 															"flags": {},
 															"signatures": [
 																{
-																	"id": 14839,
+																	"id": 15510,
 																	"name": "__type",
 																	"variant": "signature",
 																	"kind": 4096,
@@ -2404,14 +2404,14 @@
 																					{
 																						"type": "reflection",
 																						"declaration": {
-																							"id": 14840,
+																							"id": 15511,
 																							"name": "__type",
 																							"variant": "declaration",
 																							"kind": 65536,
 																							"flags": {},
 																							"children": [
 																								{
-																									"id": 14841,
+																									"id": 15512,
 																									"name": "iso_2",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -2439,7 +2439,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 14842,
+																									"id": 15513,
 																									"name": "iso_3",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -2456,7 +2456,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 14843,
+																									"id": 15514,
 																									"name": "num_code",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -2473,7 +2473,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 14844,
+																									"id": 15515,
 																									"name": "name",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -2490,7 +2490,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 14845,
+																									"id": 15516,
 																									"name": "display_name",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -2507,7 +2507,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 14846,
+																									"id": 15517,
 																									"name": "region",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -2522,14 +2522,14 @@
 																											{
 																												"type": "reflection",
 																												"declaration": {
-																													"id": 14847,
+																													"id": 15518,
 																													"name": "__type",
 																													"variant": "declaration",
 																													"kind": 65536,
 																													"flags": {},
 																													"signatures": [
 																														{
-																															"id": 14848,
+																															"id": 15519,
 																															"name": "__type",
 																															"variant": "signature",
 																															"kind": 4096,
@@ -2552,14 +2552,14 @@
 																													{
 																														"type": "reflection",
 																														"declaration": {
-																															"id": 14849,
+																															"id": 15520,
 																															"name": "__type",
 																															"variant": "declaration",
 																															"kind": 65536,
 																															"flags": {},
 																															"signatures": [
 																																{
-																																	"id": 14850,
+																																	"id": 15521,
 																																	"name": "__type",
 																																	"variant": "signature",
 																																	"kind": 4096,
@@ -2583,7 +2583,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 14851,
+																									"id": 15522,
 																									"name": "metadata",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -2606,13 +2606,13 @@
 																								{
 																									"title": "Properties",
 																									"children": [
-																										14841,
-																										14842,
-																										14843,
-																										14844,
-																										14845,
-																										14846,
-																										14851
+																										15512,
+																										15513,
+																										15514,
+																										15515,
+																										15516,
+																										15517,
+																										15522
 																									]
 																								}
 																							]
@@ -2621,14 +2621,14 @@
 																					{
 																						"type": "reflection",
 																						"declaration": {
-																							"id": 14852,
+																							"id": 15523,
 																							"name": "__type",
 																							"variant": "declaration",
 																							"kind": 65536,
 																							"flags": {},
 																							"children": [
 																								{
-																									"id": 14853,
+																									"id": 15524,
 																									"name": "iso_2",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -2656,7 +2656,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 14854,
+																									"id": 15525,
 																									"name": "iso_3",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -2673,7 +2673,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 14855,
+																									"id": 15526,
 																									"name": "num_code",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -2690,7 +2690,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 14856,
+																									"id": 15527,
 																									"name": "name",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -2707,7 +2707,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 14857,
+																									"id": 15528,
 																									"name": "display_name",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -2724,7 +2724,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 14858,
+																									"id": 15529,
 																									"name": "region",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -2739,14 +2739,14 @@
 																											{
 																												"type": "reflection",
 																												"declaration": {
-																													"id": 14859,
+																													"id": 15530,
 																													"name": "__type",
 																													"variant": "declaration",
 																													"kind": 65536,
 																													"flags": {},
 																													"signatures": [
 																														{
-																															"id": 14860,
+																															"id": 15531,
 																															"name": "__type",
 																															"variant": "signature",
 																															"kind": 4096,
@@ -2769,14 +2769,14 @@
 																													{
 																														"type": "reflection",
 																														"declaration": {
-																															"id": 14861,
+																															"id": 15532,
 																															"name": "__type",
 																															"variant": "declaration",
 																															"kind": 65536,
 																															"flags": {},
 																															"signatures": [
 																																{
-																																	"id": 14862,
+																																	"id": 15533,
 																																	"name": "__type",
 																																	"variant": "signature",
 																																	"kind": 4096,
@@ -2800,7 +2800,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 14863,
+																									"id": 15534,
 																									"name": "metadata",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -2823,13 +2823,13 @@
 																								{
 																									"title": "Properties",
 																									"children": [
-																										14853,
-																										14854,
-																										14855,
-																										14856,
-																										14857,
-																										14858,
-																										14863
+																										15524,
+																										15525,
+																										15526,
+																										15527,
+																										15528,
+																										15529,
+																										15534
 																									]
 																								}
 																							]
@@ -2838,7 +2838,7 @@
 																					{
 																						"type": "reflection",
 																						"declaration": {
-																							"id": 14864,
+																							"id": 15535,
 																							"name": "__type",
 																							"variant": "declaration",
 																							"kind": 65536,
@@ -2859,14 +2859,14 @@
 																			{
 																				"type": "reflection",
 																				"declaration": {
-																					"id": 14865,
+																					"id": 15536,
 																					"name": "__type",
 																					"variant": "declaration",
 																					"kind": 65536,
 																					"flags": {},
 																					"children": [
 																						{
-																							"id": 14866,
+																							"id": 15537,
 																							"name": "name",
 																							"variant": "declaration",
 																							"kind": 1024,
@@ -2880,7 +2880,7 @@
 																							"defaultValue": "\"Country\""
 																						},
 																						{
-																							"id": 14867,
+																							"id": 15538,
 																							"name": "tableName",
 																							"variant": "declaration",
 																							"kind": 1024,
@@ -2898,8 +2898,8 @@
 																						{
 																							"title": "Properties",
 																							"children": [
-																								14866,
-																								14867
+																								15537,
+																								15538
 																							]
 																						}
 																					]
@@ -2920,7 +2920,7 @@
 											"defaultValue": "..."
 										},
 										{
-											"id": 14868,
+											"id": 15539,
 											"name": "metadata",
 											"variant": "declaration",
 											"kind": 1024,
@@ -2943,12 +2943,12 @@
 										{
 											"title": "Properties",
 											"children": [
-												14833,
-												14834,
-												14835,
-												14836,
-												14837,
-												14868
+												15504,
+												15505,
+												15506,
+												15507,
+												15508,
+												15539
 											]
 										}
 									]
@@ -2957,7 +2957,7 @@
 							{
 								"type": "reflection",
 								"declaration": {
-									"id": 14869,
+									"id": 15540,
 									"name": "__type",
 									"variant": "declaration",
 									"kind": 65536,
@@ -2989,738 +2989,738 @@
 		{
 			"title": "Variables",
 			"children": [
-				14689,
-				14794
+				15360,
+				15465
 			]
 		}
 	],
 	"packageName": "@medusajs/region",
 	"symbolIdMap": {
-		"14688": {
+		"15359": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/index.ts",
 			"qualifiedName": ""
 		},
-		"14689": {
+		"15360": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "default"
 		},
-		"14690": {
+		"15361": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "__object"
 		},
-		"14691": {
+		"15362": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "__object.iso_2"
 		},
-		"14692": {
+		"15363": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "__object.iso_3"
 		},
-		"14693": {
+		"15364": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "__object.num_code"
 		},
-		"14694": {
+		"15365": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "__object.name"
 		},
-		"14695": {
+		"15366": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "__object.display_name"
 		},
-		"14696": {
+		"15367": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "__object.region"
 		},
-		"14697": {
+		"15368": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "__function"
 		},
-		"14698": {
+		"15369": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "__function"
 		},
-		"14699": {
+		"15370": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "__object"
 		},
-		"14700": {
+		"15371": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "__object.id"
 		},
-		"14701": {
+		"15372": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "__object.name"
 		},
-		"14702": {
+		"15373": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "__object.currency_code"
 		},
-		"14703": {
+		"15374": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "__object.automatic_taxes"
 		},
-		"14704": {
+		"15375": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "__object.countries"
 		},
-		"14705": {
+		"15376": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "__function"
 		},
-		"14706": {
+		"15377": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "__function"
 		},
-		"14707": {
+		"15378": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "__object.metadata"
 		},
-		"14708": {
+		"15379": {
 			"sourceFileName": "../../../../packages/core/utils/src/dml/helpers/entity-builder/create-big-number-properties.ts",
 			"qualifiedName": "__type"
 		},
-		"14709": {
+		"15380": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "id"
 		},
-		"14710": {
+		"15381": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "name"
 		},
-		"14711": {
+		"15382": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "currency_code"
 		},
-		"14712": {
+		"15383": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "automatic_taxes"
 		},
-		"14713": {
+		"15384": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "countries"
 		},
-		"14714": {
+		"15385": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "__function"
 		},
-		"14715": {
+		"15386": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "__function"
 		},
-		"14716": {
+		"15387": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "metadata"
 		},
-		"14717": {
+		"15388": {
 			"sourceFileName": "../../../../packages/core/utils/src/dml/helpers/entity-builder/create-big-number-properties.ts",
 			"qualifiedName": "__type"
 		},
-		"14718": {
+		"15389": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "__function"
 		},
-		"14719": {
+		"15390": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "__function"
 		},
-		"14720": {
+		"15391": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "__object"
 		},
-		"14721": {
+		"15392": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "__object.id"
 		},
-		"14722": {
+		"15393": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "__object.name"
 		},
-		"14723": {
+		"15394": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "__object.currency_code"
 		},
-		"14724": {
+		"15395": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "__object.automatic_taxes"
 		},
-		"14725": {
+		"15396": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "__object.countries"
 		},
-		"14726": {
+		"15397": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "__function"
 		},
-		"14727": {
+		"15398": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "__function"
 		},
-		"14728": {
+		"15399": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "__object.metadata"
 		},
-		"14729": {
+		"15400": {
 			"sourceFileName": "../../../../packages/core/utils/src/dml/helpers/entity-builder/create-big-number-properties.ts",
 			"qualifiedName": "__type"
 		},
-		"14730": {
+		"15401": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "id"
 		},
-		"14731": {
+		"15402": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "name"
 		},
-		"14732": {
+		"15403": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "currency_code"
 		},
-		"14733": {
+		"15404": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "automatic_taxes"
 		},
-		"14734": {
+		"15405": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "countries"
 		},
-		"14735": {
+		"15406": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "__function"
 		},
-		"14736": {
+		"15407": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "__function"
 		},
-		"14737": {
+		"15408": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "metadata"
 		},
-		"14738": {
+		"15409": {
 			"sourceFileName": "../../../../packages/core/utils/src/dml/helpers/entity-builder/create-big-number-properties.ts",
 			"qualifiedName": "__type"
 		},
-		"14739": {
+		"15410": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "__object.metadata"
 		},
-		"14740": {
+		"15411": {
 			"sourceFileName": "../../../../packages/core/utils/src/dml/helpers/entity-builder/create-big-number-properties.ts",
 			"qualifiedName": "__type"
 		},
-		"14741": {
+		"15412": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "iso_2"
 		},
-		"14742": {
+		"15413": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "iso_3"
 		},
-		"14743": {
+		"15414": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "num_code"
 		},
-		"14744": {
+		"15415": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "name"
 		},
-		"14745": {
+		"15416": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "display_name"
 		},
-		"14746": {
+		"15417": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "region"
 		},
-		"14747": {
+		"15418": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "__function"
 		},
-		"14748": {
+		"15419": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "__function"
 		},
-		"14749": {
+		"15420": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "__object"
 		},
-		"14750": {
+		"15421": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "__object.id"
 		},
-		"14751": {
+		"15422": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "__object.name"
 		},
-		"14752": {
+		"15423": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "__object.currency_code"
 		},
-		"14753": {
+		"15424": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "__object.automatic_taxes"
 		},
-		"14754": {
+		"15425": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "__object.countries"
 		},
-		"14755": {
+		"15426": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "__function"
 		},
-		"14756": {
+		"15427": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "__function"
 		},
-		"14757": {
+		"15428": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "__object.metadata"
 		},
-		"14758": {
+		"15429": {
 			"sourceFileName": "../../../../packages/core/utils/src/dml/helpers/entity-builder/create-big-number-properties.ts",
 			"qualifiedName": "__type"
 		},
-		"14759": {
+		"15430": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "id"
 		},
-		"14760": {
+		"15431": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "name"
 		},
-		"14761": {
+		"15432": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "currency_code"
 		},
-		"14762": {
+		"15433": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "automatic_taxes"
 		},
-		"14763": {
+		"15434": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "countries"
 		},
-		"14764": {
+		"15435": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "__function"
 		},
-		"14765": {
+		"15436": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "__function"
 		},
-		"14766": {
+		"15437": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "metadata"
 		},
-		"14767": {
+		"15438": {
 			"sourceFileName": "../../../../packages/core/utils/src/dml/helpers/entity-builder/create-big-number-properties.ts",
 			"qualifiedName": "__type"
 		},
-		"14768": {
+		"15439": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "__function"
 		},
-		"14769": {
+		"15440": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "__function"
 		},
-		"14770": {
+		"15441": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "__object"
 		},
-		"14771": {
+		"15442": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "__object.id"
 		},
-		"14772": {
+		"15443": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "__object.name"
 		},
-		"14773": {
+		"15444": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "__object.currency_code"
 		},
-		"14774": {
+		"15445": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "__object.automatic_taxes"
 		},
-		"14775": {
+		"15446": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "__object.countries"
 		},
-		"14776": {
+		"15447": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "__function"
 		},
-		"14777": {
+		"15448": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "__function"
 		},
-		"14778": {
+		"15449": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "__object.metadata"
 		},
-		"14779": {
+		"15450": {
 			"sourceFileName": "../../../../packages/core/utils/src/dml/helpers/entity-builder/create-big-number-properties.ts",
 			"qualifiedName": "__type"
 		},
-		"14780": {
+		"15451": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "id"
 		},
-		"14781": {
+		"15452": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "name"
 		},
-		"14782": {
+		"15453": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "currency_code"
 		},
-		"14783": {
+		"15454": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "automatic_taxes"
 		},
-		"14784": {
+		"15455": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "countries"
 		},
-		"14785": {
+		"15456": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "__function"
 		},
-		"14786": {
+		"15457": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "__function"
 		},
-		"14787": {
+		"15458": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "metadata"
 		},
-		"14788": {
+		"15459": {
 			"sourceFileName": "../../../../packages/core/utils/src/dml/helpers/entity-builder/create-big-number-properties.ts",
 			"qualifiedName": "__type"
 		},
-		"14789": {
+		"15460": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "metadata"
 		},
-		"14790": {
+		"15461": {
 			"sourceFileName": "../../../../packages/core/utils/src/dml/helpers/entity-builder/create-big-number-properties.ts",
 			"qualifiedName": "__type"
 		},
-		"14791": {
+		"15462": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "__object"
 		},
-		"14792": {
+		"15463": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "__object.name"
 		},
-		"14793": {
+		"15464": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "__object.tableName"
 		},
-		"14794": {
+		"15465": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "default"
 		},
-		"14795": {
+		"15466": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "__object"
 		},
-		"14796": {
+		"15467": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "__object.id"
 		},
-		"14797": {
+		"15468": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "__object.name"
 		},
-		"14798": {
+		"15469": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "__object.currency_code"
 		},
-		"14799": {
+		"15470": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "__object.automatic_taxes"
 		},
-		"14800": {
+		"15471": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "__object.countries"
 		},
-		"14801": {
+		"15472": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "__function"
 		},
-		"14802": {
+		"15473": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "__function"
 		},
-		"14803": {
+		"15474": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "__object"
 		},
-		"14804": {
+		"15475": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "__object.iso_2"
 		},
-		"14805": {
+		"15476": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "__object.iso_3"
 		},
-		"14806": {
+		"15477": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "__object.num_code"
 		},
-		"14807": {
+		"15478": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "__object.name"
 		},
-		"14808": {
+		"15479": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "__object.display_name"
 		},
-		"14809": {
+		"15480": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "__object.region"
 		},
-		"14810": {
+		"15481": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "__function"
 		},
-		"14811": {
+		"15482": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "__function"
 		},
-		"14812": {
+		"15483": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "__function"
 		},
-		"14813": {
+		"15484": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "__function"
 		},
-		"14814": {
+		"15485": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "__object.metadata"
 		},
-		"14815": {
+		"15486": {
 			"sourceFileName": "../../../../packages/core/utils/src/dml/helpers/entity-builder/create-big-number-properties.ts",
 			"qualifiedName": "__type"
 		},
-		"14816": {
+		"15487": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "iso_2"
 		},
-		"14817": {
+		"15488": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "iso_3"
 		},
-		"14818": {
+		"15489": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "num_code"
 		},
-		"14819": {
+		"15490": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "name"
 		},
-		"14820": {
+		"15491": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "display_name"
 		},
-		"14821": {
+		"15492": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "region"
 		},
-		"14822": {
+		"15493": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "__function"
 		},
-		"14823": {
+		"15494": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "__function"
 		},
-		"14824": {
+		"15495": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "__function"
 		},
-		"14825": {
+		"15496": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "__function"
 		},
-		"14826": {
+		"15497": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "metadata"
 		},
-		"14827": {
+		"15498": {
 			"sourceFileName": "../../../../packages/core/utils/src/dml/helpers/entity-builder/create-big-number-properties.ts",
 			"qualifiedName": "__type"
 		},
-		"14828": {
+		"15499": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "__object"
 		},
-		"14829": {
+		"15500": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "__object.name"
 		},
-		"14830": {
+		"15501": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "__object.tableName"
 		},
-		"14831": {
+		"15502": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "__object.metadata"
 		},
-		"14832": {
+		"15503": {
 			"sourceFileName": "../../../../packages/core/utils/src/dml/helpers/entity-builder/create-big-number-properties.ts",
 			"qualifiedName": "__type"
 		},
-		"14833": {
+		"15504": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "id"
 		},
-		"14834": {
+		"15505": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "name"
 		},
-		"14835": {
+		"15506": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "currency_code"
 		},
-		"14836": {
+		"15507": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "automatic_taxes"
 		},
-		"14837": {
+		"15508": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "countries"
 		},
-		"14838": {
+		"15509": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "__function"
 		},
-		"14839": {
+		"15510": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "__function"
 		},
-		"14840": {
+		"15511": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "__object"
 		},
-		"14841": {
+		"15512": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "__object.iso_2"
 		},
-		"14842": {
+		"15513": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "__object.iso_3"
 		},
-		"14843": {
+		"15514": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "__object.num_code"
 		},
-		"14844": {
+		"15515": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "__object.name"
 		},
-		"14845": {
+		"15516": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "__object.display_name"
 		},
-		"14846": {
+		"15517": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "__object.region"
 		},
-		"14847": {
+		"15518": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "__function"
 		},
-		"14848": {
+		"15519": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "__function"
 		},
-		"14849": {
+		"15520": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "__function"
 		},
-		"14850": {
+		"15521": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "__function"
 		},
-		"14851": {
+		"15522": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "__object.metadata"
 		},
-		"14852": {
+		"15523": {
 			"sourceFileName": "../../../../packages/core/utils/src/dml/helpers/entity-builder/create-big-number-properties.ts",
 			"qualifiedName": "__type"
 		},
-		"14853": {
+		"15524": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "iso_2"
 		},
-		"14854": {
+		"15525": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "iso_3"
 		},
-		"14855": {
+		"15526": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "num_code"
 		},
-		"14856": {
+		"15527": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "name"
 		},
-		"14857": {
+		"15528": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "display_name"
 		},
-		"14858": {
+		"15529": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "region"
 		},
-		"14859": {
+		"15530": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "__function"
 		},
-		"14860": {
+		"15531": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "__function"
 		},
-		"14861": {
+		"15532": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "__function"
 		},
-		"14862": {
+		"15533": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "__function"
 		},
-		"14863": {
+		"15534": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "metadata"
 		},
-		"14864": {
+		"15535": {
 			"sourceFileName": "../../../../packages/core/utils/src/dml/helpers/entity-builder/create-big-number-properties.ts",
 			"qualifiedName": "__type"
 		},
-		"14865": {
+		"15536": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "__object"
 		},
-		"14866": {
+		"15537": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "__object.name"
 		},
-		"14867": {
+		"15538": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/country.ts",
 			"qualifiedName": "__object.tableName"
 		},
-		"14868": {
+		"15539": {
 			"sourceFileName": "../../../../packages/modules/region/src/models/region.ts",
 			"qualifiedName": "metadata"
 		},
-		"14869": {
+		"15540": {
 			"sourceFileName": "../../../../packages/core/utils/src/dml/helpers/entity-builder/create-big-number-properties.ts",
 			"qualifiedName": "__type"
 		}
@@ -3730,7 +3730,7 @@
 			"1": "../../../../packages/modules/region/src/models/index.ts"
 		},
 		"reflections": {
-			"1": 14688
+			"1": 15359
 		}
 	}
 }

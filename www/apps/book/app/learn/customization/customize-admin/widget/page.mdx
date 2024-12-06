@@ -14,15 +14,6 @@ This chapter covers how to show the brand of a product in the Medusa Admin using
 
 ## Widget to Show Brand in Product Details
 
-<Prerequisites
-  items={[
-    {
-      text: "Retrieve Brand of Product API Route",
-      link: "/learn/customization/extend-models/query-linked-records"
-    }
-  ]}
-/>
-
 To create a widget that shows a product's brand in its details page, create the file `src/admin/widgets/product-brand.tsx` with the following content:
 
 export const highlights = [
@@ -51,12 +42,12 @@ const ProductBrandWidget = ({
       return
     }
 
-    fetch(`/admin/products/${data.id}/brand`, {
+    fetch(`/admin/products/${data.id}?fields=+brand.*`, {
       credentials: "include",
     })
     .then((res) => res.json())
-    .then(({ brand }) => {
-      setBrand(brand)
+    .then(({ product }) => {
+      setBrand(product.brand)
       setLoading(false)
     })
   }, [loading])
@@ -89,7 +80,7 @@ Learn more about widgets [in this guide](../../../basics/admin-customizations/pa
 
 Widgets created in a details page receive the targetted item in a `data` prop. So, the `ProductBrandWidget` receives the product's details in the `data` prop.
 
-In the widget, you fetch the product's brand from the `/admin/products/:id/brand` API route and display it.
+In the widget, you fetch the product's brand using the [Get Product API route](!api!/admin#products_getproductsid), passing it the query parameter `fields=+brand.*` to retrieve the product's brand.
 
 <Note>
 

@@ -70,9 +70,13 @@ export const listShippingOptionsForCartWorkflow = createWorkflow(
       }
     )
 
-    const customerGroupIds = when({ cart }, ({ cart }) => {
-      return !!cart.id
-    }).then(() => {
+    const customerGroupIds = when(
+      "get-customer-group",
+      { cart },
+      ({ cart }) => {
+        return !!cart.id
+      }
+    ).then(() => {
       const customerQuery = useQueryGraphStep({
         entity: "customer",
         filters: { id: cart.customer_id },
@@ -99,6 +103,8 @@ export const listShippingOptionsForCartWorkflow = createWorkflow(
         customer_group_id: customerGroupIds,
       })
     )
+
+    const isReturn = transform({ input }, ({ input }) => !!input.is_return)
 
     const shippingOptions = useRemoteQueryStep({
       entry_point: "shipping_options",
@@ -128,7 +134,7 @@ export const listShippingOptionsForCartWorkflow = createWorkflow(
       ],
       variables: {
         context: {
-          is_return: !!input.is_return,
+          is_return: isReturn,
           enabled_in_store: "true",
         },
         filters: {

@@ -8,7 +8,7 @@ In this chapter, you'll build a Brand Module that adds a `brand` table to the da
 
 A module is a reusable package of functionalities related to a single domain or integration. Medusa comes with multiple pre-built modules for core commerce needs, such as the [Cart Module](!resources!/commerce-modules/cart) that holds the data models and business logic for cart operations.
 
-You create in a module new tables in the database, and expose a class that provides data-management methods on those tables. In the next chapters, you'll see how you use the module's functionalities to expose commerce features.
+In a module, you create data models and business logic to manage them. In the next chapters, you'll see how you use the module to build commerce features.
 
 <Note>
 
@@ -19,6 +19,8 @@ Learn more about modules in [this chapter](../../../basics/modules/page.mdx).
 ## 1. Create Module Directory
 
 Modules are created in a sub-directory of `src/modules`. So, start by creating the directory `src/modules/brand` that will hold the Brand Module's files.
+
+![Directory structure in Medusa project after adding the brand directory](https://res.cloudinary.com/dza7lstvk/image/upload/v1732868844/Medusa%20Book/brand-dir-overview-1_hxwvgx.jpg)
 
 ---
 
@@ -33,6 +35,8 @@ Learn more about data models in [this chapter](../../../basics/modules/page.mdx#
 </Note>
 
 You create a data model in a TypeScript or JavaScript file under the `models` directory of a module. So, to create a data model that represents a new `brand` table in the database, create the file `src/modules/brand/models/brand.ts` with the following content:
+
+![Directory structure in module after adding the brand data model](https://res.cloudinary.com/dza7lstvk/image/upload/v1732868920/Medusa%20Book/brand-dir-overview-2_lexhdl.jpg)
 
 ```ts title="src/modules/brand/models/brand.ts"
 import { model } from "@medusajs/framework/utils"
@@ -72,6 +76,8 @@ Learn more about services in [this chapter](../../../basics/modules/page.mdx#2-c
 
 You define a service in a `service.ts` or `service.js` file at the root of your module's directory. So, create the file `src/modules/brand/service.ts` with the following content:
 
+![Directory structure in module after adding the service](https://res.cloudinary.com/dza7lstvk/image/upload/v1732868984/Medusa%20Book/brand-dir-overview-3_jo7baj.jpg)
+
 export const serviceHighlights = [
   ["4", "MedusaService", "A service factory that generates data-management methods."]
 ]
@@ -108,6 +114,8 @@ Find a reference of all generated methods in [this guide](!resources!/service-fa
 A module must export a definition that tells Medusa the name of the module and its main service. This definition is exported in an `index.ts` file at the module's root directory.
 
 So, to export the Brand Module's definition, create the file `src/modules/brand/index.ts` with the following content:
+
+![Directory structure in module after adding the definition file](https://res.cloudinary.com/dza7lstvk/image/upload/v1732869045/Medusa%20Book/brand-dir-overview-4_nf8ymw.jpg)
 
 ```ts title="src/modules/brand/index.ts"
 import { Module } from "@medusajs/framework/utils"

@@ -34,4 +34,5 @@ export * from "./update-order-change-actions"
 export * from "./update-order-changes"
 export * from "./update-order-exchanges"
 export * from "./update-shipping-methods"
-
+export * from "./update-orders"
+export * from "./register-order-changes"

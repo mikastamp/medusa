@@ -58,11 +58,17 @@ const normalizeRequest = (
     body = JSON.stringify(body)
   }
 
+  const isFetchCredentialsSupported = "credentials" in Request.prototype
+
   return {
     ...init,
     headers,
     // TODO: Setting this to "include" poses some security risks, as it will send cookies to any domain. We should consider making this configurable.
-    credentials: config.auth?.type === "session" ? "include" : "omit",
+    credentials: isFetchCredentialsSupported
+      ? config.auth?.type === "session"
+        ? "include"
+        : "omit"
+      : undefined,
     ...(body ? { body: body as RequestInit["body"] } : {}),
   } as RequestInit
 }

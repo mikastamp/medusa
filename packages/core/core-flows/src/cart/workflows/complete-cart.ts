@@ -65,7 +65,7 @@ export const completeCartWorkflow = createWorkflow(
     })
 
     // If order ID does not exist, we are completing the cart for the first time
-    const order = when({ orderId }, ({ orderId }) => {
+    const order = when("create-order", { orderId }, ({ orderId }) => {
       return !orderId
     }).then(() => {
       const cart = useRemoteQueryStep({

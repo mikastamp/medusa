@@ -1,10 +1,8 @@
-import { Button, IconButton, Text, Tooltip, clx, usePrompt } from "@medusajs/ui"
+import { Button, Text, Tooltip, clx, usePrompt } from "@medusajs/ui"
 import * as Collapsible from "@radix-ui/react-collapsible"
 
 import { PropsWithChildren, ReactNode, useMemo, useState } from "react"
-import { Link } from "react-router-dom"
 
-import { XMarkMini } from "@medusajs/icons"
 import {
   AdminClaim,
   AdminExchange,
@@ -16,6 +14,7 @@ import {
 import { useTranslation } from "react-i18next"
 
 import { AdminOrderLineItem } from "@medusajs/types"
+import { By } from "../../../../../components/common/user-link"
 import {
   useCancelOrderTransfer,
   useCustomer,
@@ -29,9 +28,11 @@ import {
 } from "../../../../../hooks/api/exchanges"
 import { useCancelReturn, useReturns } from "../../../../../hooks/api/returns"
 import { useDate } from "../../../../../hooks/use-date"
+import { getFormattedAddress } from "../../../../../lib/addresses"
 import { getStylizedAmount } from "../../../../../lib/money-amount-helpers"
 import { getPaymentsFromOrder } from "../order-payment-section"
 import ActivityItems from "./activity-items"
+import ChangeDetailsTooltip from "./change-details-tooltip"
 
 type OrderTimelineProps = {
   order: AdminOrder
@@ -41,6 +42,11 @@ type OrderTimelineProps = {
  * Arbitrary high limit to ensure all notes are fetched
  */
 const NOTE_LIMIT = 9999
+
+/**
+ * Order Changes that are not related to RMA flows
+ */
+const NON_RMA_CHANGE_TYPES = ["transfer", "update_order"]
 
 export const OrderTimeline = ({ order }: OrderTimelineProps) => {
   const items = useActivityItems(order)
@@ -118,10 +124,19 @@ const useActivityItems = (order: AdminOrder): Activity[] => {
   const { t } = useTranslation()
 
   const { order_changes: orderChanges = [] } = useOrderChanges(order.id, {
-    change_type: ["edit", "claim", "exchange", "return", "transfer"],
+    change_type: [
+      "edit",
+      "claim",
+      "exchange",
+      "return",
+      "transfer",
+      "update_order",
+    ],
   })
 
-  const rmaChanges = orderChanges.filter((oc) => oc.change_type !== "transfer")
+  const rmaChanges = orderChanges.filter(
+    (oc) => !NON_RMA_CHANGE_TYPES.includes(oc.change_type)
+  )
 
   const missingLineItemIds = getMissingLineItemIds(order, rmaChanges)
   const { order_items: removedLineItems = [] } = useOrderLineItems(
@@ -377,12 +392,12 @@ const useActivityItems = (order: AdminOrder): Activity[] => {
           edit.status === "requested"
             ? edit.requested_at
             : edit.status === "confirmed"
-              ? edit.confirmed_at
-              : edit.status === "declined"
-                ? edit.declined_at
-                : edit.status === "canceled"
-                  ? edit.canceled_at
-                  : edit.created_at,
+            ? edit.confirmed_at
+            : edit.status === "declined"
+            ? edit.declined_at
+            : edit.status === "canceled"
+            ? edit.canceled_at
+            : edit.created_at,
         children: isConfirmed ? <OrderEditBody edit={edit} /> : null,
       })
     }
@@ -414,6 +429,74 @@ const useActivityItems = (order: AdminOrder): Activity[] => {
             transferId: transfer.id.slice(-7),
           }),
           timestamp: transfer.declined_at,
+        })
+      }
+    }
+
+    for (const update of orderChanges.filter(
+      (oc) => oc.change_type === "update_order"
+    )) {
+      const updateType = update.actions[0]?.details?.type
+
+      if (updateType === "shipping_address") {
+        items.push({
+          title: (
+            <ChangeDetailsTooltip
+              title={t(`orders.activity.events.update_order.shipping_address`)}
+              previous={getFormattedAddress({
+                address: update.actions[0].details.old,
+              }).join(", ")}
+              next={getFormattedAddress({
+                address: update.actions[0].details.new,
+              }).join(", ")}
+            />
+          ),
+          timestamp: update.created_at,
+          children: (
+            <div className="text-ui-fg-subtle mt-2 flex gap-x-2 text-sm">
+              {t("fields.by")} <By id={update.created_by} />
+            </div>
+          ),
+        })
+      }
+
+      if (updateType === "billing_address") {
+        items.push({
+          title: (
+            <ChangeDetailsTooltip
+              title={t(`orders.activity.events.update_order.billing_address`)}
+              previous={getFormattedAddress({
+                address: update.actions[0].details.old,
+              }).join(", ")}
+              next={getFormattedAddress({
+                address: update.actions[0].details.new,
+              }).join(", ")}
+            />
+          ),
+          timestamp: update.created_at,
+          children: (
+            <div className="text-ui-fg-subtle mt-2 flex gap-x-2 text-sm">
+              {t("fields.by")} <By id={update.created_by} />
+            </div>
+          ),
+        })
+      }
+
+      if (updateType === "email") {
+        items.push({
+          title: (
+            <ChangeDetailsTooltip
+              title={t(`orders.activity.events.update_order.email`)}
+              previous={update.actions[0].details.old}
+              next={update.actions[0].details.new}
+            />
+          ),
+          timestamp: update.created_at,
+          children: (
+            <div className="text-ui-fg-subtle mt-2 flex gap-x-2 text-sm">
+              {t("fields.by")} <By id={update.created_by} />
+            </div>
+          ),
         })
       }
     }
@@ -589,64 +672,67 @@ const OrderActivityCollapsible = ({
   )
 }
 
-const NoteBody = ({ note }: { note: Note }) => {
-  const { t } = useTranslation()
-  const prompt = usePrompt()
+/**
+ * TODO: Add once notes are supported.
+ */
+// const NoteBody = ({ note }: { note: Note }) => {
+//   const { t } = useTranslation()
+//   const prompt = usePrompt()
 
-  const { first_name, last_name, email } = note.author || {}
-  const name = [first_name, last_name].filter(Boolean).join(" ")
+//   const { first_name, last_name, email } = note.author || {}
+//   const name = [first_name, last_name].filter(Boolean).join(" ")
 
-  const byLine = t("orders.activity.events.note.byLine", {
-    author: name || email,
-  })
+//   const byLine = t("orders.activity.events.note.byLine", {
+//     author: name || email,
+//   })
 
-  const { mutateAsync } = {} // useAdminDeleteNote(note.id)
+//   const { mutateAsync } = {} // useAdminDeleteNote(note.id)
 
-  const handleDelete = async () => {
-    const res = await prompt({
-      title: t("general.areYouSure"),
-      description: "This action cannot be undone",
-      confirmText: t("actions.delete"),
-      cancelText: t("actions.cancel"),
-    })
+//   const handleDelete = async () => {
+//     const res = await prompt({
+//       title: t("general.areYouSure"),
+//       description: "This action cannot be undone",
+//       confirmText: t("actions.delete"),
+//       cancelText: t("actions.cancel"),
+//     })
 
-    if (!res) {
-      return
-    }
+//     if (!res) {
+//       return
+//     }
 
-    await mutateAsync()
-  }
+//     await mutateAsync()
+//   }
 
-  return (
-    <div className="flex flex-col gap-y-2 pt-2">
-      <div className="bg-ui-bg-component shadow-borders-base group grid grid-cols-[1fr_20px] items-start gap-x-2 text-pretty rounded-r-2xl rounded-bl-md rounded-tl-xl px-3 py-1.5">
-        <div className="flex h-full min-h-7 items-center">
-          <Text size="xsmall" className="text-ui-fg-subtle">
-            {note.value}
-          </Text>
-        </div>
-        <IconButton
-          size="small"
-          variant="transparent"
-          className="transition-fg invisible opacity-0 group-hover:visible group-hover:opacity-100"
-          type="button"
-          onClick={handleDelete}
-        >
-          <span className="sr-only">
-            {t("orders.activity.comment.deleteButtonText")}
-          </span>
-          <XMarkMini className="text-ui-fg-muted" />
-        </IconButton>
-      </div>
-      <Link
-        to={`/settings/users/${note.author_id}`}
-        className="text-ui-fg-subtle hover:text-ui-fg-base transition-fg w-fit"
-      >
-        <Text size="small">{byLine}</Text>
-      </Link>
-    </div>
-  )
-}
+//   return (
+//     <div className="flex flex-col gap-y-2 pt-2">
+//       <div className="bg-ui-bg-component shadow-borders-base group grid grid-cols-[1fr_20px] items-start gap-x-2 text-pretty rounded-r-2xl rounded-bl-md rounded-tl-xl px-3 py-1.5">
+//         <div className="flex h-full min-h-7 items-center">
+//           <Text size="xsmall" className="text-ui-fg-subtle">
+//             {note.value}
+//           </Text>
+//         </div>
+//         <IconButton
+//           size="small"
+//           variant="transparent"
+//           className="transition-fg invisible opacity-0 group-hover:visible group-hover:opacity-100"
+//           type="button"
+//           onClick={handleDelete}
+//         >
+//           <span className="sr-only">
+//             {t("orders.activity.comment.deleteButtonText")}
+//           </span>
+//           <XMarkMini className="text-ui-fg-muted" />
+//         </IconButton>
+//       </div>
+//       <Link
+//         to={`/settings/users/${note.author_id}`}
+//         className="text-ui-fg-subtle hover:text-ui-fg-base transition-fg w-fit"
+//       >
+//         <Text size="small">{byLine}</Text>
+//       </Link>
+//     </div>
+//   )
+// }
 
 const FulfillmentCreatedBody = ({
   fulfillment,
@@ -1000,11 +1086,15 @@ function getMissingLineItemIds(order: AdminOrder, changes: AdminOrderChange[]) {
 
   changes.forEach((change) => {
     change.actions.forEach((action) => {
+      if (!action.details?.reference_id) {
+        return
+      }
+
       if (
-        (action.details!.reference_id as string).startsWith("ordli_") &&
-        !existingItemsMap.has(action.details!.reference_id as string)
+        (action.details.reference_id as string).startsWith("ordli_") &&
+        !existingItemsMap.has(action.details.reference_id as string)
       ) {
-        retIds.add(action.details!.reference_id as string)
+        retIds.add(action.details.reference_id as string)
       }
     })
   })

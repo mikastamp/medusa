@@ -6,9 +6,9 @@ export const metadata = {
 
 # {metadata.title}
 
-This chapter is a follow-up to the [previous one](../module/page.mdx) where you created a Brand Module. In this chapter, you'll create a workflow that creates a brand.
+This chapter builds on the work from the [previous chapter](../module/page.mdx) where you created a Brand Module.
 
-You implement commerce features within workflows. A workflow is a series of queries and actions, called steps, that complete a task. You construct a workflow similar to a regular function, but it's a special function that allows you to define roll-back logic, retry configurations, and more advanced features.
+After adding custom brands to your application, you build commerce features around them using workflows. A workflow is a series of queries and actions, called steps, that complete a task spanning across modules. You construct a workflow similar to a regular function, but it's a special function that allows you to define roll-back logic, retry configurations, and more advanced features.
 
 The workflow you'll create in this chapter will use the Brand Module's service to implement the feature of creating a brand. In the [next chapter](../api-route/page.mdx), you'll expose an API route that allows admin users to create a brand, and you'll use this workflow in the route's implementation.
 
@@ -33,9 +33,11 @@ Learn more about workflows in [this chapter](../../../basics/workflows/page.mdx)
 
 A workflow consists of a series of steps, each step created in a TypeScript or JavaScript file under the `src/workflows` directory. A step is defined using the `createStep` utility function imported from `@medusajs/framework/workflows-sdk`.
 
-The workflow you're creating in this guide has one step to create the brand. So, create the file `src/workflows/create-brand/steps/create-brand.ts` with the following content:
+The workflow you're creating in this guide has one step to create the brand. So, create the file `src/workflows/create-brand.ts` with the following content:
 
-```ts title="src/workflows/create-brand/steps/create-brand.ts"
+![Directory structure in the Medusa project after adding the file for createBrandStep](https://res.cloudinary.com/dza7lstvk/image/upload/v1732869184/Medusa%20Book/brand-workflow-dir-overview-1_fjvf5j.jpg)
+
+```ts title="src/workflows/create-brand.ts"
 import {
   createStep,
   StepResponse,
@@ -89,7 +91,7 @@ Learn more about the compensation function in [this chapter](../../../advanced-d
 
 To add a compensation function to the `createBrandStep`, pass it as a third parameter to `createStep`:
 
-```ts title="src/workflows/create-brand/steps/create-brand.ts"
+```ts title="src/workflows/create-brand.ts"
 export const createBrandStep = createStep(
   // ...
   async (id: string, { container }) => {
@@ -120,22 +122,25 @@ So, if an error occurs during the workflow's execution, the brand that was creat
 
 You can now create the workflow that runs the `createBrandStep`. A workflow is created in a TypeScript or JavaScript file under the `src/workflows` directory. In the file, you use the `createWorkflow` function imported from `@medusajs/framework/workflows-sdk` to create the workflow.
 
-So, create the file `src/workflows/create-brand/index.ts` with the following content:
+Add the following content in the same `src/workflows/create-brand.ts` file:
 
 ```ts
+// other imports...
 import {
+  // ...
   createWorkflow,
   WorkflowResponse,
 } from "@medusajs/framework/workflows-sdk"
-import { createBrandStep } from "./steps/create-brand"
 
-type CreateBrandInput = {
+// ...
+
+type CreateBrandWorkflowInput = {
   name: string
 }
 
 export const createBrandWorkflow = createWorkflow(
   "create-brand",
-  (input: CreateBrandInput) => {
+  (input: CreateBrandWorkflowInput) => {
     const brand = createBrandStep(input)
 
     return new WorkflowResponse(brand)

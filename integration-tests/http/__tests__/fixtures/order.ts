@@ -199,6 +199,14 @@ export async function createOrderSeeder({
           province: "ny",
           postal_code: "94016",
         },
+        billing_address: {
+          address_1: "test billing address 1",
+          address_2: "test billing address 2",
+          city: "ny",
+          country_code: "us",
+          province: "ny",
+          postal_code: "94016",
+        },
         sales_channel_id: salesChannel.id,
         items: [
           { quantity: 1, variant_id: product.variants[0].id },

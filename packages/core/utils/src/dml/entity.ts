@@ -139,7 +139,7 @@ export class DmlEntity<
    */
   cascades(
     options: EntityCascades<
-      ExtractEntityRelations<Schema, "hasOne" | "hasMany">
+      ExtractEntityRelations<Schema, "hasOne" | "hasOneWithFK" | "hasMany">
     >
   ) {
     const childToParentCascades = options.delete?.filter((relationship) => {

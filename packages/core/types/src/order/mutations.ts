@@ -10,6 +10,15 @@ import {
   ReturnDTO,
 } from "./common"
 
+type OrderChangeType =
+  | "return_request"
+  | "return_receive"
+  | "exchange"
+  | "claim"
+  | "edit"
+  | "transfer"
+  | "update_order"
+
 /** ADDRESS START */
 /**
  * The data to create or update in the address.
@@ -860,13 +869,7 @@ export interface CreateOrderChangeDTO {
   /**
    * The type of the order change.
    */
-  change_type?:
-    | "return_request"
-    | "return_receive"
-    | "exchange"
-    | "claim"
-    | "edit"
-    | "transfer"
+  change_type?: OrderChangeType
 
   /**
    * The description of the order change.
@@ -1049,6 +1052,62 @@ export interface ConfirmOrderChangeDTO {
   metadata?: Record<string, unknown> | null
 }
 
+/**
+ * The details of the order change registration.
+ */
+export interface RegisterOrderChangeDTO {
+  /**
+   * The associated order's ID.
+   */
+  order_id: string
+
+  /**
+   * The type of the order change.
+   */
+  change_type?: OrderChangeType
+
+  /**
+   * The description of the order change.
+   */
+  description?: string
+
+  /**
+   * The internal note of the order change.
+   */
+  internal_note?: string | null
+
+  /**
+   * The user that created the order change.
+   */
+  created_by?: string
+
+  /**
+   * The user or customer that confirmed the order change.
+   */
+  confirmed_by?: string
+
+  /**
+   * Holds custom data in key-value pairs.
+   */
+  metadata?: Record<string, unknown> | null
+
+  /**
+   * The details of the order change action
+   */
+  details?: Record<string, unknown>
+
+  /**
+   * The name of the data model that this change
+   * references. For example, `shipping_address`.
+   */
+  reference?: string
+
+  /**
+   * The ID of the data model's record referenced.
+   */
+  reference_id?: string
+}
+
 /** ORDER CHANGE END */
 /** ORDER CHANGE ACTION START */
 /**
@@ -1124,6 +1183,11 @@ export interface CreateOrderChangeActionDTO {
    * quantity, based on the type of this action.
    */
   details?: Record<string, unknown>
+
+  /**
+   * Whether the action has been applied.
+   */
+  applied?: boolean
 }
 
 /**

@@ -4,7 +4,7 @@ import {
   refetchEntities,
 } from "@medusajs/framework/http"
 import { HttpTypes } from "@medusajs/framework/types"
-import { wrapVariantsWithInventoryQuantity } from "../../utils/middlewares"
+import { wrapVariantsWithTotalInventoryQuantity } from "../../utils/middlewares"
 import { remapKeysForVariant, remapVariantResponse } from "../products/helpers"
 
 export const GET = async (
@@ -30,7 +30,7 @@ export const GET = async (
   )
 
   if (withInventoryQuantity) {
-    await wrapVariantsWithInventoryQuantity(req, variants || [])
+    await wrapVariantsWithTotalInventoryQuantity(req, variants || [])
   }
 
   res.json({

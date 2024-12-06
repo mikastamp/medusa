@@ -50,6 +50,7 @@ export const useComboboxData = <
     enabled: !!defaultValue,
   })
 
+
   const { data, ...rest } = useInfiniteQuery({
     queryKey: [...queryKey, query],
     queryFn: async ({ pageParam = 0 }) => {

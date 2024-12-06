@@ -12,6 +12,8 @@ export const CustomerWorkflowEvents = {
 }
 
 export const OrderWorkflowEvents = {
+  UPDATED: "order.updated",
+
   PLACED: "order.placed",
   CANCELED: "order.canceled",
   COMPLETED: "order.completed",

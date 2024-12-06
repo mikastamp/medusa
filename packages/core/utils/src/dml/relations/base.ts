@@ -56,8 +56,6 @@ export abstract class BaseRelationship<T> implements RelationshipType<T> {
    * })
    *
    * export default Product
-   *
-   * @customNamespace Property Configuration Methods
    */
   searchable() {
     this.#searchable = true
@@ -71,7 +69,9 @@ export abstract class BaseRelationship<T> implements RelationshipType<T> {
     return {
       name: relationshipName,
       nullable: false,
-      mappedBy: this.options.mappedBy,
+      ...("mappedBy" in this.options
+        ? { mappedBy: this.options.mappedBy }
+        : {}),
       options: this.options,
       searchable: this.#searchable,
       entity: this.#referencedEntity,

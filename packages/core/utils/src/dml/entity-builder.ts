@@ -25,6 +25,7 @@ import { BelongsTo } from "./relations/belongs-to"
 import { HasMany } from "./relations/has-many"
 import { HasOne } from "./relations/has-one"
 import { ManyToMany } from "./relations/many-to-many"
+import { HasOneWithForeignKey } from "./relations/has-one-fk"
 
 /**
  * The implicit properties added by EntityBuilder in every schema
@@ -345,7 +346,27 @@ export class EntityBuilder {
    *
    * @customNamespace Relationship Methods
    */
-  hasOne<T>(entityBuilder: T, options?: RelationshipOptions) {
+  hasOne<T>(
+    entityBuilder: T,
+    options: RelationshipOptions & {
+      foreignKey: true
+    }
+  ): HasOneWithForeignKey<T>
+  hasOne<T>(
+    entityBuilder: T,
+    options?: RelationshipOptions & {
+      foreignKey?: false
+    }
+  ): HasOne<T>
+  hasOne<T>(
+    entityBuilder: T,
+    options?: RelationshipOptions & {
+      foreignKey?: boolean
+    }
+  ): HasOneWithForeignKey<T> | HasOne<T> {
+    if (options?.foreignKey) {
+      return new HasOneWithForeignKey<T>(entityBuilder, options || {})
+    }
     return new HasOne<T>(entityBuilder, options || {})
   }
 

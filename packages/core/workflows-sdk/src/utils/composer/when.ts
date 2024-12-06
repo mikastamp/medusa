@@ -1,4 +1,4 @@
-import { OrchestrationUtils } from "@medusajs/utils"
+import { isDefined, OrchestrationUtils } from "@medusajs/utils"
 import { ulid } from "ulid"
 import { createStep } from "./create-step"
 import { StepResponse } from "./helpers/step-response"
@@ -26,7 +26,26 @@ export function when<T extends object | WorkflowData, Then extends Function>(
   then: ThenFunc
 }
 
-export function when(input, condition) {
+export function when<T extends object | WorkflowData, Then extends Function>(
+  name: string,
+  values: T,
+  condition: ConditionFunction<T>
+): {
+  then: ThenFunc
+}
+
+export function when(...args) {
+  let [name, input, condition] = args
+  if (args.length === 2) {
+    condition = input
+    input = name
+    name = undefined
+  }
+
+  if (typeof condition !== "function") {
+    throw new Error(`"when condition" must be a function`)
+  }
+
   global[OrchestrationUtils.SymbolMedusaWorkflowComposerCondition] = {
     input,
     condition,
@@ -49,9 +68,23 @@ export function when(input, condition) {
       const applyCondition =
         global[OrchestrationUtils.SymbolMedusaWorkflowComposerCondition].steps
 
-      if (ret?.__type !== OrchestrationUtils.SymbolWorkflowStep) {
+      if (
+        isDefined(ret) &&
+        ret?.__type !== OrchestrationUtils.SymbolWorkflowStep
+      ) {
+        if (!isDefined(name)) {
+          name = "when-then-" + ulid()
+          const context =
+            global[OrchestrationUtils.SymbolMedusaWorkflowComposerContext]
+
+          console.warn(
+            `${context.workflowId}: "when" name should be defined. A random one will be assigned to it, which is not recommended for production.\n`,
+            condition.toString()
+          )
+        }
+
         const retStep = createStep(
-          "when-then-" + ulid(),
+          name,
           ({ input }: { input: any }) => new StepResponse(input)
         )
         returnStep = retStep({ input: ret })

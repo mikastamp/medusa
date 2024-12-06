@@ -1,8 +1,4 @@
-import {
-  MedusaRequest,
-  refetchEntities,
-  refetchEntity,
-} from "@medusajs/framework/http"
+import { MedusaStoreRequest, refetchEntity } from "@medusajs/framework/http"
 import {
   HttpTypes,
   ItemTaxLineDTO,
@@ -13,7 +9,7 @@ import {
 import { calculateAmountsWithTax, Modules } from "@medusajs/framework/utils"
 import { TaxModuleService } from "@medusajs/tax/dist/services"
 
-export type RequestWithContext<T> = MedusaRequest<T> & {
+export type RequestWithContext<T> = MedusaStoreRequest<T> & {
   taxContext: {
     taxLineContext?: TaxCalculationContext
     taxInclusivityContext?: {
@@ -28,27 +24,6 @@ export const refetchProduct = async (
   fields: string[]
 ) => {
   return await refetchEntity("product", idOrFilter, scope, fields)
-}
-
-export const maybeApplyStockLocationId = async (req: MedusaRequest, ctx) => {
-  const withInventoryQuantity = req.remoteQueryConfig.fields.some((field) =>
-    field.includes("variants.inventory_quantity")
-  )
-
-  if (!withInventoryQuantity) {
-    return
-  }
-
-  const salesChannelId = req.filterableFields.sales_channel_id || []
-
-  const entities = await refetchEntities(
-    "sales_channel_location",
-    { sales_channel_id: salesChannelId },
-    req.scope,
-    ["stock_location_id"]
-  )
-
-  return entities.map((entity) => entity.stock_location_id)
 }
 
 export const wrapProductsWithTaxPrices = async <T>(

@@ -2596,4 +2596,42 @@ describe("Workflow composer", function () {
       }),
     })
   })
+
+  it("should compose the workflow passing nested references to objects", async () => {
+    const mockStep1Fn = jest.fn().mockImplementation(() => {
+      return [1, 2, 3, 4, { obj: "return from 1" }]
+    })
+    const mockStep2Fn = jest.fn().mockImplementation((inp) => {
+      return {
+        a: {
+          b: {
+            c: [
+              0,
+              [
+                {
+                  inp,
+                },
+              ],
+            ],
+          },
+        },
+      }
+    })
+
+    const step1 = createStep("step1", mockStep1Fn) as any
+    const step2 = createStep("step2", mockStep2Fn) as any
+
+    const workflow = createWorkflow("workflow1", function () {
+      const returnStep1 = step1()
+      const ret2 = step2(returnStep1[4])
+      return new WorkflowResponse(ret2.a.b.c[1][0].inp.obj)
+    })
+
+    const workflowInput = { test: "payload1" }
+    const { result: workflowResult } = await workflow().run({
+      input: workflowInput,
+    })
+
+    expect(workflowResult).toEqual("return from 1")
+  })
 })

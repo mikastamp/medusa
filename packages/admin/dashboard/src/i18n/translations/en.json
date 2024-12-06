@@ -790,6 +790,11 @@
         "quantityOutOfRange": "Minimum quantity is 1 and maximum quantity is {{max}}"
       }
     },
+    "adjustInventory": {
+      "errors": {
+        "stockedQuantity": "Stocked quantity cannot be updated to less than the reserved quantity of {{quantity}}."
+      }
+    },
     "toast": {
       "updateLocations": "Locations updated successfully.",
       "updateLevel": "Inventory level updated successfully.",
@@ -995,6 +1000,20 @@
       },
       "validation": {
         "quantityLowerThanFulfillment": "Cannot set quantity to be less then or equal to fulfilled quantity"
+      }
+    },
+    "edit": {
+      "email": {
+        "title": "Edit email",
+        "requestSuccess": "Order email updated to {{email}}."
+      },
+      "shippingAddress": {
+        "title": "Edit shipping address",
+        "requestSuccess": "Order shipping address updated."
+      },
+      "billingAddress": {
+        "title": "Edit billing address",
+        "requestSuccess": "Order billing address updated."
       }
     },
     "returns": {
@@ -1296,6 +1315,11 @@
           "requested": "Order transfer #{{transferId}} requested",
           "confirmed": "Order transfer #{{transferId}} confirmed",
           "declined": "Order transfer #{{transferId}} declined"
+        },
+        "update_order": {
+          "shipping_address": "Shipping address updated",
+          "billing_address": "Billing address updated",
+          "email": "Email updated"
         }
       }
     },
@@ -2310,6 +2334,9 @@
       "update": "Sales channel updated successfully",
       "delete": "Sales channel deleted successfully"
     },
+    "tooltip": {
+      "cannotDeleteDefault": "Cannot delete default sales channel"
+    },
     "products": {
       "list": {
         "noRecordsMessage": "There are no products in the sales channel."
@@ -2593,7 +2620,9 @@
     "available": "Available",
     "inStock": "In stock",
     "added": "Added",
-    "removed": "Removed"
+    "removed": "Removed",
+    "from": "From",
+    "to": "To"
   },
   "fields": {
     "amount": "Amount",
@@ -2625,6 +2654,7 @@
     "discountable": "Discountable",
     "handle": "Handle",
     "subtitle": "Subtitle",
+    "by": "By",
     "item": "Item",
     "qty": "qty.",
     "limit": "Limit",

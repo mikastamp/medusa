@@ -80,6 +80,32 @@ export const useShippingProfiles = (
   return { ...data, ...rest }
 }
 
+export const useUpdateShippingProfile = (
+  id: string,
+  options?: UseMutationOptions<
+    HttpTypes.AdminShippingProfileResponse,
+    FetchError,
+    HttpTypes.AdminUpdateShippingProfile
+  >
+) => {
+  const { data, ...rest } = useMutation({
+    mutationFn: (payload) => sdk.admin.shippingProfile.update(id, payload),
+    onSuccess: (data, variables, context) => {
+      queryClient.invalidateQueries({
+        queryKey: shippingProfileQueryKeys.detail(id),
+      })
+      queryClient.invalidateQueries({
+        queryKey: shippingProfileQueryKeys.lists(),
+      })
+
+      options?.onSuccess?.(data, variables, context)
+    },
+    ...options,
+  })
+
+  return { ...data, ...rest }
+}
+
 export const useDeleteShippingProfile = (
   id: string,
   options?: UseMutationOptions<

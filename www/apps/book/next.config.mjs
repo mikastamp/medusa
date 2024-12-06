@@ -160,18 +160,29 @@ const nextConfig = {
       {
         source: "/recipes/:path*",
         destination: "/resources/recipes",
-        permanent: true
+        permanent: true,
       },
       {
         source: "/plugins/:path*",
         destination: "/v1/plugins/:path*",
-        permanent: true
+        permanent: true,
       },
       {
         source: "/medusa-react/:path*",
         destination: "/v1/medusa-react/:path*",
-        permanent: true
-      }
+        permanent: true,
+      },
+      {
+        source: "/learn/customization/extend-models/:path*",
+        destination: "/learn/customization/extend-features/:path*",
+        permanent: true,
+      },
+      {
+        source: "/learn/customization/extend-features/create-links",
+        destination:
+          "/learn/customization/extend-features/extend-create-product",
+        permanent: true,
+      },
     ]
   },
 }

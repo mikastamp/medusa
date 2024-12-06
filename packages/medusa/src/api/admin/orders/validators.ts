@@ -5,6 +5,7 @@ import {
   createSelectParams,
   WithAdditionalData,
 } from "../../utils/validators"
+import { AddressPayload } from "../../utils/common-validators"
 
 export const AdminGetOrdersOrderParams = createSelectParams().merge(
   z.object({
@@ -136,3 +137,10 @@ export type AdminCancelOrderTransferRequestType = z.infer<
   typeof AdminCancelOrderTransferRequest
 >
 export const AdminCancelOrderTransferRequest = z.object({})
+
+export type AdminUpdateOrderType = z.infer<typeof AdminUpdateOrder>
+export const AdminUpdateOrder = z.object({
+  email: z.string().optional(),
+  shipping_address: AddressPayload.optional(),
+  billing_address: AddressPayload.optional(),
+})

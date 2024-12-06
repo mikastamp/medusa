@@ -680,6 +680,7 @@ import { createStep, StepResponse } from "@medusajs/framework/workflows-sdk"
 import { ProductDTO } from "@medusajs/framework/types"
 import { 
   ContainerRegistrationKeys,
+  promiseAll,
 } from "@medusajs/framework/utils"
 import SanityModuleService from "../../../modules/sanity/service"
 import { SANITY_MODULE } from "../../../modules/sanity"
@@ -694,15 +695,15 @@ export const syncStep = createStep(
     const sanityModule: SanityModuleService = container.resolve(SANITY_MODULE)
     const query = container.resolve(ContainerRegistrationKeys.QUERY)
 
-    const total = 0
+    let total = 0;
     const upsertMap: {
       before: any
       after: any
     }[] = []
 
-    const batchSize = 200
-    const hasMore = true
-    const offset = 0
+    const batchSize = 200;
+    let hasMore = true;
+    let offset = 0;
     let filters = input.product_ids ? {
       id: input.product_ids
     } : {}
@@ -760,54 +761,39 @@ Notice that you pass `sanity_product.*` in the `fields` array. Medusa will retri
 }
 ```
 
-Next, you want to sync the retrieved products. So, replace the `TODO` with the following:
+Next, you want to sync the retrieved products. So, replace the `TODO` in the `while` loop with the following:
 
 ```ts title="src/workflows/sanity-sync-products/steps/sync.ts"
-// other imports...
-import { 
+while (hasMore) {
   // ...
-  promiseAll,
-} from "@medusajs/framework/utils"
+  try {
+    await promiseAll(
+      products.map(async (prod) => {
+        const after = await sanityModule.upsertSyncDocument(
+          "product", 
+          prod as ProductDTO
+        );
 
-export const syncStep = createStep(
-  { name: "sync-step", async: true },
-  async (input: SyncStepInput, { container }) => {
-    // ...
+        upsertMap.push({
+          // @ts-ignore
+          before: prod.sanity_product,
+          after
+        })
 
-    while (hasMore) {
-      // ...
-      try {
-        await promiseAll(
-          products.map(async (prod) => {
-            const after = await sanityModule.upsertSyncDocument(
-              "product", 
-              prod as ProductDTO
-            );
-  
-            upsertMap.push({
-              // @ts-ignore
-              before: prod.sanity_product,
-              after
-            })
-  
-            return after
-          }),
-        )
-      } catch (e) {
-        return StepResponse.permanentFailure(
-          `An error occurred while syncing documents: ${e}`,
-          upsertMap
-        )
-      }
-
-      offset += batchSize
-      hasMore = offset < count
-      total += products.length
-    }
-
-    return new StepResponse({ total }, upsertMap)
+        return after
+      }),
+    )
+  } catch (e) {
+    return StepResponse.permanentFailure(
+      `An error occurred while syncing documents: ${e}`,
+      upsertMap
+    )
   }
-)
+
+  offset += batchSize
+  hasMore = offset < count
+  total += products.length
+}
 ```
 
 In the `while` loop, you loop over the array of products to sync them to Sanity. You use the `promiseAll` Medusa utility that loops over an array of promises and ensures that all transactions within these promises are rolled back in case an error occurs.
@@ -815,6 +801,12 @@ In the `while` loop, you loop over the array of products to sync them to Sanity.
 For each product, you upsert it into Sanity, then push its document before and after the update to the `upsertMap`. You'll learn more about its use later.
 
 You also wrap the `promiseAll` function within a try-catch block. In the catch block, you invoke and return `StepResponse.permanentFailure` which indicates that the step has failed but still invokes the rollback mechanism that you'll implement in a bit. The first parameter of `permanentFailure` is the error message, and the second is the data to use in the rollback mechanism.
+
+Finally, after the `while` loop and at the end of the step, add the following return statement:
+
+```ts title="src/workflows/sanity-sync-products/steps/sync.ts"
+return new StepResponse({ total }, upsertMap);
+```
 
 If no errors occur, the step returns an instance of `StepResponse`, which must be returned by any step. It accepts as a first parameter the data to return to the workflow that executed this step.
 

@@ -2073,6 +2073,160 @@ medusaIntegrationTestRunner({
           ])
         })
 
+        it("should exclude return shipping options for cart by default", async () => {
+          const salesChannel = await scModuleService.createSalesChannels({
+            name: "Webshop",
+          })
+
+          const location = await stockLocationModule.createStockLocations({
+            name: "Europe",
+          })
+
+          let cart = await cartModuleService.createCarts({
+            currency_code: "usd",
+            region_id: region.id,
+            sales_channel_id: salesChannel.id,
+            shipping_address: {
+              city: "CPH",
+              province: "Sjaelland",
+              country_code: "dk",
+            },
+          })
+
+          const shippingProfile =
+            await fulfillmentModule.createShippingProfiles({
+              name: "Test",
+              type: "default",
+            })
+
+          const fulfillmentSet = await fulfillmentModule.createFulfillmentSets({
+            name: "Test",
+            type: "test-type",
+            service_zones: [
+              {
+                name: "Test",
+                geo_zones: [
+                  {
+                    type: "country",
+                    country_code: "dk",
+                  },
+                ],
+              },
+            ],
+          })
+
+          const shippingOption = await fulfillmentModule.createShippingOptions([
+            {
+              name: "Return shipping option",
+              service_zone_id: fulfillmentSet.service_zones[0].id,
+              shipping_profile_id: shippingProfile.id,
+              provider_id: "manual_test-provider",
+              rules: [
+                {
+                  operator: RuleOperator.EQ,
+                  attribute: "is_return",
+                  value: "true",
+                },
+              ],
+              price_type: "flat",
+              type: {
+                label: "Test type",
+                description: "Test description",
+                code: "test-code",
+              },
+            },
+            {
+              name: "Test shipping option",
+              service_zone_id: fulfillmentSet.service_zones[0].id,
+              shipping_profile_id: shippingProfile.id,
+              provider_id: "manual_test-provider",
+              price_type: "flat",
+              type: {
+                label: "Test type",
+                description: "Test description",
+                code: "test-code",
+              },
+            },
+          ])
+
+          const priceSet = await pricingModule.createPriceSets({
+            prices: [
+              {
+                amount: 3000,
+                currency_code: "usd",
+              },
+            ],
+          })
+
+          const priceSetTwo = await pricingModule.createPriceSets({
+            prices: [
+              {
+                amount: 3000,
+                currency_code: "usd",
+              },
+            ],
+          })
+
+          await remoteLink.create([
+            {
+              [Modules.SALES_CHANNEL]: {
+                sales_channel_id: salesChannel.id,
+              },
+              [Modules.STOCK_LOCATION]: {
+                stock_location_id: location.id,
+              },
+            },
+            {
+              [Modules.STOCK_LOCATION]: {
+                stock_location_id: location.id,
+              },
+              [Modules.FULFILLMENT]: {
+                fulfillment_set_id: fulfillmentSet.id,
+              },
+            },
+            {
+              [Modules.FULFILLMENT]: {
+                shipping_option_id: shippingOption.find(
+                  (o) => o.name === "Test shipping option"
+                )?.id,
+              },
+              [Modules.PRICING]: {
+                price_set_id: priceSet.id,
+              },
+            },
+            {
+              [Modules.FULFILLMENT]: {
+                shipping_option_id: shippingOption.find(
+                  (o) => o.name === "Return shipping option"
+                )?.id,
+              },
+              [Modules.PRICING]: {
+                price_set_id: priceSetTwo.id,
+              },
+            },
+          ])
+
+          cart = await cartModuleService.retrieveCart(cart.id, {
+            select: ["id"],
+            relations: ["shipping_address"],
+          })
+
+          const { result } = await listShippingOptionsForCartWorkflow(
+            appContainer
+          ).run({
+            input: {
+              cart_id: cart.id,
+            },
+          })
+
+          expect(result.length).toEqual(1)
+          expect(result).toEqual([
+            expect.objectContaining({
+              name: "Test shipping option",
+            }),
+          ])
+        })
+
         it("should list no shipping options for cart, if sales channel is not associated with location", async () => {
           const salesChannel = await scModuleService.createSalesChannels({
             name: "Webshop",

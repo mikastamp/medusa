@@ -135,14 +135,14 @@ export const slugChanges = [
     "filePath": "/www/apps/resources/references/auth/interfaces/auth.IAuthModuleService/page.mdx"
   },
   {
-    "origSlug": "/references/auth_models/classes/auth_models.AuthIdentity",
+    "origSlug": "/references/auth_models/variables/auth_models.AuthIdentity",
     "newSlug": "/references/auth/models/AuthIdentity",
-    "filePath": "/www/apps/resources/references/auth_models/classes/auth_models.AuthIdentity/page.mdx"
+    "filePath": "/www/apps/resources/references/auth_models/variables/auth_models.AuthIdentity/page.mdx"
   },
   {
-    "origSlug": "/references/auth_models/classes/auth_models.ProviderIdentity",
+    "origSlug": "/references/auth_models/variables/auth_models.ProviderIdentity",
     "newSlug": "/references/auth/models/ProviderIdentity",
-    "filePath": "/www/apps/resources/references/auth_models/classes/auth_models.ProviderIdentity/page.mdx"
+    "filePath": "/www/apps/resources/references/auth_models/variables/auth_models.ProviderIdentity/page.mdx"
   },
   {
     "origSlug": "/references/auth_provider/classes/auth_provider.AbstractAuthModuleProvider",
@@ -3890,6 +3890,11 @@ export const slugChanges = [
     "filePath": "/www/apps/resources/references/helper_steps/functions/helper_steps.useRemoteQueryStep/page.mdx"
   },
   {
+    "origSlug": "/references/helper_steps/functions/helper_steps.validatePresenceOfStep",
+    "newSlug": "/references/helper-steps/validatePresenceOfStep",
+    "filePath": "/www/apps/resources/references/helper_steps/functions/helper_steps.validatePresenceOfStep/page.mdx"
+  },
+  {
     "origSlug": "/references/inventory_next/IInventoryService/methods/inventory_next.IInventoryService.adjustInventory",
     "newSlug": "/references/inventory-next/adjustInventory",
     "filePath": "/www/apps/resources/references/inventory_next/IInventoryService/methods/inventory_next.IInventoryService.adjustInventory/page.mdx"
@@ -4870,6 +4875,11 @@ export const slugChanges = [
     "filePath": "/www/apps/resources/references/order/IOrderModuleService/methods/order.IOrderModuleService.registerFulfillment/page.mdx"
   },
   {
+    "origSlug": "/references/order/IOrderModuleService/methods/order.IOrderModuleService.registerOrderChange",
+    "newSlug": "/references/order/registerOrderChange",
+    "filePath": "/www/apps/resources/references/order/IOrderModuleService/methods/order.IOrderModuleService.registerOrderChange/page.mdx"
+  },
+  {
     "origSlug": "/references/order/IOrderModuleService/methods/order.IOrderModuleService.registerShipment",
     "newSlug": "/references/order/registerShipment",
     "filePath": "/www/apps/resources/references/order/IOrderModuleService/methods/order.IOrderModuleService.registerShipment/page.mdx"
@@ -5700,34 +5710,34 @@ export const slugChanges = [
     "filePath": "/www/apps/resources/references/pricing/interfaces/pricing.IPricingModuleService/page.mdx"
   },
   {
-    "origSlug": "/references/pricing_models/classes/pricing_models.Price",
+    "origSlug": "/references/pricing_models/variables/pricing_models.Price",
     "newSlug": "/references/pricing/models/Price",
-    "filePath": "/www/apps/resources/references/pricing_models/classes/pricing_models.Price/page.mdx"
+    "filePath": "/www/apps/resources/references/pricing_models/variables/pricing_models.Price/page.mdx"
   },
   {
-    "origSlug": "/references/pricing_models/classes/pricing_models.PriceList",
+    "origSlug": "/references/pricing_models/variables/pricing_models.PriceList",
     "newSlug": "/references/pricing/models/PriceList",
-    "filePath": "/www/apps/resources/references/pricing_models/classes/pricing_models.PriceList/page.mdx"
+    "filePath": "/www/apps/resources/references/pricing_models/variables/pricing_models.PriceList/page.mdx"
   },
   {
-    "origSlug": "/references/pricing_models/classes/pricing_models.PriceListRule",
+    "origSlug": "/references/pricing_models/variables/pricing_models.PriceListRule",
     "newSlug": "/references/pricing/models/PriceListRule",
-    "filePath": "/www/apps/resources/references/pricing_models/classes/pricing_models.PriceListRule/page.mdx"
+    "filePath": "/www/apps/resources/references/pricing_models/variables/pricing_models.PriceListRule/page.mdx"
   },
   {
-    "origSlug": "/references/pricing_models/classes/pricing_models.PricePreference",
+    "origSlug": "/references/pricing_models/variables/pricing_models.PricePreference",
     "newSlug": "/references/pricing/models/PricePreference",
-    "filePath": "/www/apps/resources/references/pricing_models/classes/pricing_models.PricePreference/page.mdx"
+    "filePath": "/www/apps/resources/references/pricing_models/variables/pricing_models.PricePreference/page.mdx"
   },
   {
-    "origSlug": "/references/pricing_models/classes/pricing_models.PriceRule",
+    "origSlug": "/references/pricing_models/variables/pricing_models.PriceRule",
     "newSlug": "/references/pricing/models/PriceRule",
-    "filePath": "/www/apps/resources/references/pricing_models/classes/pricing_models.PriceRule/page.mdx"
+    "filePath": "/www/apps/resources/references/pricing_models/variables/pricing_models.PriceRule/page.mdx"
   },
   {
-    "origSlug": "/references/pricing_models/classes/pricing_models.PriceSet",
+    "origSlug": "/references/pricing_models/variables/pricing_models.PriceSet",
     "newSlug": "/references/pricing/models/PriceSet",
-    "filePath": "/www/apps/resources/references/pricing_models/classes/pricing_models.PriceSet/page.mdx"
+    "filePath": "/www/apps/resources/references/pricing_models/variables/pricing_models.PriceSet/page.mdx"
   },
   {
     "origSlug": "/references/product/IProductModuleService/methods/product.IProductModuleService.createProductCategories",
@@ -6085,11 +6095,6 @@ export const slugChanges = [
     "filePath": "/www/apps/resources/references/product/interfaces/product.IProductModuleService/page.mdx"
   },
   {
-    "origSlug": "/references/product_models/variables/product_models.Image",
-    "newSlug": "/references/product/models/Image",
-    "filePath": "/www/apps/resources/references/product_models/variables/product_models.Image/page.mdx"
-  },
-  {
     "origSlug": "/references/product_models/variables/product_models.Product",
     "newSlug": "/references/product/models/Product",
     "filePath": "/www/apps/resources/references/product_models/variables/product_models.Product/page.mdx"
@@ -6103,6 +6108,11 @@ export const slugChanges = [
     "origSlug": "/references/product_models/variables/product_models.ProductCollection",
     "newSlug": "/references/product/models/ProductCollection",
     "filePath": "/www/apps/resources/references/product_models/variables/product_models.ProductCollection/page.mdx"
+  },
+  {
+    "origSlug": "/references/product_models/variables/product_models.ProductImage",
+    "newSlug": "/references/product/models/ProductImage",
+    "filePath": "/www/apps/resources/references/product_models/variables/product_models.ProductImage/page.mdx"
   },
   {
     "origSlug": "/references/product_models/variables/product_models.ProductOption",
@@ -6795,14 +6805,14 @@ export const slugChanges = [
     "filePath": "/www/apps/resources/references/user/interfaces/user.IUserModuleService/page.mdx"
   },
   {
-    "origSlug": "/references/user_models/classes/user_models.Invite",
+    "origSlug": "/references/user_models/variables/user_models.Invite",
     "newSlug": "/references/user/models/Invite",
-    "filePath": "/www/apps/resources/references/user_models/classes/user_models.Invite/page.mdx"
+    "filePath": "/www/apps/resources/references/user_models/variables/user_models.Invite/page.mdx"
   },
   {
-    "origSlug": "/references/user_models/classes/user_models.User",
+    "origSlug": "/references/user_models/variables/user_models.User",
     "newSlug": "/references/user/models/User",
-    "filePath": "/www/apps/resources/references/user_models/classes/user_models.User/page.mdx"
+    "filePath": "/www/apps/resources/references/user_models/variables/user_models.User/page.mdx"
   },
   {
     "origSlug": "/references/workflows/functions/workflows.createHook",
