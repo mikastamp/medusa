@@ -1,10 +1,12 @@
 import {
+  DistributedTransactionType,
   TransactionStepTimeoutError,
   TransactionTimeoutError,
   WorkflowManager,
 } from "@medusajs/framework/orchestration"
 import {
   IWorkflowEngineService,
+  Logger,
   MedusaContainer,
   RemoteQueryFunction,
 } from "@medusajs/framework/types"
@@ -99,6 +101,20 @@ moduleIntegrationTestRunner<IWorkflowEngineService>({
               serviceName: "workflows",
               field: "workflowExecution",
             },
+            transaction_id: {
+              entity: "WorkflowExecution",
+              field: "workflowExecution",
+              linkable: "workflow_execution_transaction_id",
+              primaryKey: "transaction_id",
+              serviceName: "workflows",
+            },
+            workflow_id: {
+              entity: "WorkflowExecution",
+              field: "workflowExecution",
+              linkable: "workflow_execution_workflow_id",
+              primaryKey: "workflow_id",
+              serviceName: "workflows",
+            },
           },
         })
       })
@@ -112,10 +128,9 @@ moduleIntegrationTestRunner<IWorkflowEngineService>({
             throwOnError: true,
           })
 
-          let executionsList = await query({
-            workflow_executions: {
-              fields: ["workflow_id", "transaction_id", "state"],
-            },
+          let { data: executionsList } = await query.graph({
+            entity: "workflow_executions",
+            fields: ["workflow_id", "transaction_id", "state"],
           })
 
           expect(executionsList).toHaveLength(1)
@@ -130,11 +145,10 @@ moduleIntegrationTestRunner<IWorkflowEngineService>({
             stepResponse: { uhuuuu: "yeaah!" },
           })
 
-          executionsList = await query({
-            workflow_executions: {
-              fields: ["id"],
-            },
-          })
+          ;({ data: executionsList } = await query.graph({
+            entity: "workflow_executions",
+            fields: ["id"],
+          }))
 
           expect(executionsList).toHaveLength(0)
           expect(result).toEqual({
@@ -153,10 +167,9 @@ moduleIntegrationTestRunner<IWorkflowEngineService>({
             transactionId: "transaction_1",
           })
 
-          let executionsList = await query({
-            workflow_executions: {
-              fields: ["id"],
-            },
+          let { data: executionsList } = await query.graph({
+            entity: "workflow_executions",
+            fields: ["id"],
           })
 
           expect(executionsList).toHaveLength(1)
@@ -170,12 +183,10 @@ moduleIntegrationTestRunner<IWorkflowEngineService>({
             },
             stepResponse: { uhuuuu: "yeaah!" },
           })
-
-          executionsList = await query({
-            workflow_executions: {
-              fields: ["id"],
-            },
-          })
+          ;({ data: executionsList } = await query.graph({
+            entity: "workflow_executions",
+            fields: ["id"],
+          }))
 
           expect(executionsList).toHaveLength(1)
         })
@@ -188,10 +199,9 @@ moduleIntegrationTestRunner<IWorkflowEngineService>({
             transactionId: "transaction_1",
           })
 
-          let executionsList = await query({
-            workflow_executions: {
-              fields: ["id"],
-            },
+          let { data: executionsList } = await query.graph({
+            entity: "workflow_executions",
+            fields: ["id"],
           })
 
           expect(executionsList).toHaveLength(1)
@@ -205,12 +215,10 @@ moduleIntegrationTestRunner<IWorkflowEngineService>({
             },
             stepResponse: { uhuuuu: "yeaah!" },
           })
-
-          executionsList = await query({
-            workflow_executions: {
-              fields: ["id", "state"],
-            },
-          })
+          ;({ data: executionsList } = await query.graph({
+            entity: "workflow_executions",
+            fields: ["id", "state"],
+          }))
 
           expect(executionsList).toHaveLength(1)
           expect(executionsList[0].state).toEqual("reverted")
@@ -237,10 +245,9 @@ moduleIntegrationTestRunner<IWorkflowEngineService>({
             },
           })
 
-          let executionsList = await query({
-            workflow_executions: {
-              fields: ["id"],
-            },
+          let { data: executionsList } = await query.graph({
+            entity: "workflow_executions",
+            fields: ["id"],
           })
 
           expect(executionsList).toHaveLength(1)
@@ -260,12 +267,10 @@ moduleIntegrationTestRunner<IWorkflowEngineService>({
             })
 
           expect(setStepError).toEqual({ uhuuuu: "yeaah!" })
-
-          executionsList = await query({
-            workflow_executions: {
-              fields: ["id", "state", "context"],
-            },
-          })
+          ;({ data: executionsList } = await query.graph({
+            entity: "workflow_executions",
+            fields: ["id", "state", "context"],
+          }))
 
           expect(executionsList).toHaveLength(1)
           expect(executionsList[0].state).toEqual("failed")
@@ -273,7 +278,7 @@ moduleIntegrationTestRunner<IWorkflowEngineService>({
         })
 
         it("should revert the entire transaction when a step timeout expires", async () => {
-          const { transaction, result, errors } = await workflowOrcModule.run(
+          const { transaction, result, errors } = (await workflowOrcModule.run(
             "workflow_step_timeout",
             {
               input: {
@@ -282,9 +287,13 @@ moduleIntegrationTestRunner<IWorkflowEngineService>({
               throwOnError: false,
               logOnError: true,
             }
-          )
+          )) as Awaited<{
+            transaction: DistributedTransactionType
+            result: any
+            errors: any
+          }>
 
-          expect(transaction.flow.state).toEqual("reverted")
+          expect(transaction.getFlow().state).toEqual("reverted")
           expect(result).toEqual({
             myInput: "123",
           })
@@ -294,16 +303,20 @@ moduleIntegrationTestRunner<IWorkflowEngineService>({
         })
 
         it("should revert the entire transaction when the transaction timeout expires", async () => {
-          const { transaction, result, errors } = await workflowOrcModule.run(
+          const { transaction, result, errors } = (await workflowOrcModule.run(
             "workflow_transaction_timeout",
             {
               input: {},
               transactionId: "trx",
               throwOnError: false,
             }
-          )
+          )) as Awaited<{
+            transaction: DistributedTransactionType
+            result: any
+            errors: any
+          }>
 
-          expect(transaction.flow.state).toEqual("reverted")
+          expect(transaction.getFlow().state).toEqual("reverted")
           expect(result).toEqual({ executed: true })
           expect(errors).toHaveLength(1)
           expect(errors[0].action).toEqual("step_1")
@@ -323,7 +336,7 @@ moduleIntegrationTestRunner<IWorkflowEngineService>({
 
           await setTimeout(200)
 
-          const { transaction, result, errors } = await workflowOrcModule.run(
+          const { transaction, result, errors } = (await workflowOrcModule.run(
             "workflow_step_timeout_async",
             {
               input: {
@@ -332,9 +345,13 @@ moduleIntegrationTestRunner<IWorkflowEngineService>({
               transactionId: "transaction_1",
               throwOnError: false,
             }
-          )
+          )) as Awaited<{
+            transaction: DistributedTransactionType
+            result: any
+            errors: any
+          }>
 
-          expect(transaction.flow.state).toEqual("reverted")
+          expect(transaction.getFlow().state).toEqual("reverted")
           expect(result).toEqual(undefined)
           expect(errors).toHaveLength(1)
           expect(errors[0].action).toEqual("step_1_async")
@@ -354,16 +371,20 @@ moduleIntegrationTestRunner<IWorkflowEngineService>({
 
           await setTimeout(200)
 
-          const { transaction, result, errors } = await workflowOrcModule.run(
+          const { transaction, result, errors } = (await workflowOrcModule.run(
             "workflow_transaction_timeout_async",
             {
               input: {},
               transactionId: "transaction_1",
               throwOnError: false,
             }
-          )
+          )) as Awaited<{
+            transaction: DistributedTransactionType
+            result: any
+            errors: any
+          }>
 
-          expect(transaction.flow.state).toEqual("reverted")
+          expect(transaction.getFlow().state).toEqual("reverted")
           expect(result).toEqual(undefined)
           expect(errors).toHaveLength(1)
           expect(errors[0].action).toEqual("step_1")

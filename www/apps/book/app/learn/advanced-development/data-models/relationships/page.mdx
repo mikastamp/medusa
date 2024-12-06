@@ -152,7 +152,7 @@ const Order = model.define("order", {
     mappedBy: "orders",
     pivotTable: "order_product",
     joinColumn: "order_id",
-    inverseJoinColumn: "product_id"
+    inverseJoinColumn: "product_id",
   }),
 })
 
