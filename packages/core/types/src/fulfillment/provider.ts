@@ -12,6 +12,11 @@ export type FulfillmentOption = {
   [k: string]: unknown
 }
 
+export type CalculaterShippingOptionPrice = {
+  calculated_amount: number
+  is_calculated_price_tax_inclusive: boolean
+}
+
 export interface IFulfillmentProvider {
   /**
    *
@@ -41,7 +46,7 @@ export interface IFulfillmentProvider {
    *
    * Check if the provider can calculate the fulfillment price.
    */
-  canCalculate(data: Record<string, unknown>): Promise<any>
+  canCalculate(data: Record<string, unknown>): Promise<boolean>
   /**
    *
    * Calculate the price for the given fulfillment option.
@@ -50,7 +55,7 @@ export interface IFulfillmentProvider {
     optionData: Record<string, unknown>,
     data: Record<string, unknown>,
     context: Record<string, unknown>
-  ): Promise<any>
+  ): Promise<CalculaterShippingOptionPrice>
   /**
    *
    * Create a fulfillment for the given data.

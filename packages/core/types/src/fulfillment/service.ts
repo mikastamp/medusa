@@ -2626,6 +2626,28 @@ export interface IFulfillmentModuleService extends IModuleService {
   ): Promise<boolean>
 
   /**
+   * This method checks whether a shipping option can have calculated price.
+   *
+   * @param {FulfillmentTypes.CreateShippingOptionDTO[]} shippingOptionsData - The shipping options data to check.
+   * @returns {Promise<boolean[]>} Whether the shipping options can have calculated price.
+   *
+   * @example
+   * const isValid =
+   *   await fulfillmentModuleService.validateShippingOptionsForPriceCalculation(
+   *     [
+   *       {
+   *         provider_id: "webshipper",
+   *         price_type: "calculated",
+   *       },
+   *     ]
+   *   )
+   */
+  validateShippingOptionsForPriceCalculation(
+    shippingOptionsData: CreateShippingOptionDTO[],
+    sharedContext?: Context
+  ): Promise<boolean[]>
+
+  /**
    * This method retrieves a paginated list of fulfillment providers based on optional filters and configuration.
    *
    * @param {FilterableFulfillmentProviderProps} filters - The filters to apply on the retrieved fulfillment providers.

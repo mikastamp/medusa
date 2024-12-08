@@ -1,26 +1,50 @@
 import { FulfillmentWorkflow } from "@medusajs/framework/types"
-import { MedusaError, Modules } from "@medusajs/framework/utils"
+import {
+  MedusaError,
+  Modules,
+  ShippingOptionPriceType,
+} from "@medusajs/framework/utils"
 import { StepResponse, createStep } from "@medusajs/framework/workflows-sdk"
 
 export const validateShippingOptionPricesStepId =
   "validate-shipping-option-prices"
 
 /**
- * Validate that regions exist for the shipping option prices.
+ * Validate that shipping options can be crated based on provided price configuration.
+ *
+ * For flat rate prices, it validates that regions exist for the shipping option prices.
+ * For calculated prices, it validates with the fulfillment provider if the price can be calculated.
  */
 export const validateShippingOptionPricesStep = createStep(
   validateShippingOptionPricesStepId,
   async (
-    options: {
-      prices?: FulfillmentWorkflow.UpdateShippingOptionsWorkflowInput["prices"]
-    }[],
+    options: (
+      | FulfillmentWorkflow.CreateShippingOptionsWorkflowInput
+      | FulfillmentWorkflow.UpdateShippingOptionsWorkflowInput
+    )[],
     { container }
   ) => {
-    const allPrices = options.flatMap((option) => option.prices ?? [])
+    const fulfillmentModuleService = container.resolve(Modules.FULFILLMENT)
+
+    const flatRatePrices = options.flatMap((option) =>
+      option.price_type === ShippingOptionPriceType.FLAT
+        ? ((option.prices ?? []) as { region_id: string; amount: number }[])
+        : []
+    )
+
+    const calculatedOptions = options
+      .filter(
+        (option) => option.price_type === ShippingOptionPriceType.CALCULATED
+      )
+      .flatMap((option) => option ?? [])
+
+    await fulfillmentModuleService.validateShippingOptionsForPriceCalculation(
+      calculatedOptions as FulfillmentWorkflow.CreateShippingOptionsWorkflowInput[]
+    )
 
     const regionIdSet = new Set<string>()
 
-    allPrices.forEach((price) => {
+    flatRatePrices.forEach((price) => {
       if ("region_id" in price && price.region_id) {
         regionIdSet.add(price.region_id)
       }

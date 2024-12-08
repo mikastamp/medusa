@@ -1,4 +1,8 @@
-import { FulfillmentOption, IFulfillmentProvider } from "@medusajs/types"
+import {
+  CalculaterShippingOptionPrice,
+  FulfillmentOption,
+  IFulfillmentProvider,
+} from "@medusajs/types"
 
 /**
  * ### constructor
@@ -221,7 +225,7 @@ export class AbstractFulfillmentProviderService
     optionData: Record<string, unknown>,
     data: Record<string, unknown>,
     context: Record<string, unknown>
-  ): Promise<number> {
+  ): Promise<CalculaterShippingOptionPrice> {
     throw Error("calculatePrice must be overridden by the child class")
   }
 
@@ -345,7 +349,9 @@ export class AbstractFulfillmentProviderService
    *   }
    * }
    */
-  async createReturnFulfillment(fulfillment: Record<string, unknown>): Promise<any> {
+  async createReturnFulfillment(
+    fulfillment: Record<string, unknown>
+  ): Promise<any> {
     throw Error("createReturn must be overridden by the child class")
   }
 

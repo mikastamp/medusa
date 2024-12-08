@@ -100,6 +100,21 @@ export default class FulfillmentProviderService extends ModulesSdkUtils.MedusaIn
     return await provider.validateOption(data)
   }
 
+  async canCalculate(providerId: string, data: Record<string, unknown>) {
+    const provider = this.retrieveProviderRegistration(providerId)
+    return await provider.canCalculate(data)
+  }
+
+  async calculatePrice(
+    providerId: string,
+    optionData: Record<string, unknown>,
+    data: Record<string, unknown>,
+    context: Record<string, unknown>
+  ) {
+    const provider = this.retrieveProviderRegistration(providerId)
+    return await provider.calculatePrice(optionData, data, context)
+  }
+
   async createFulfillment(
     providerId: string,
     data: object,

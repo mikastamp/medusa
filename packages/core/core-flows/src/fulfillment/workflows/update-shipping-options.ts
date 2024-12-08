@@ -6,6 +6,7 @@ import {
   WorkflowData,
   WorkflowResponse,
 } from "@medusajs/framework/workflows-sdk"
+import { ShippingOptionPriceType } from "@medusajs/framework/utils"
 import {
   setShippingOptionsPricesStep,
   upsertShippingOptionsStep,
@@ -31,14 +32,17 @@ export const updateShippingOptionsWorkflow = createWorkflow(
     )
 
     const data = transform(input, (data) => {
-      const shippingOptionsIndexToPrices = data.map((option, index) => {
-        const prices = option.prices
-        delete option.prices
-        return {
-          shipping_option_index: index,
-          prices,
-        }
-      })
+      const shippingOptionsIndexToPrices = data
+        .filter((option) => option.price_type === ShippingOptionPriceType.FLAT)
+        .map((option, index) => {
+          const prices = (option as any).prices
+          delete (option as any).prices
+
+          return {
+            shipping_option_index: index,
+            prices,
+          }
+        })
 
       return {
         shippingOptions: data,
@@ -56,10 +60,14 @@ export const updateShippingOptionsWorkflow = createWorkflow(
         shippingOptionsIndexToPrices: data.shippingOptionsIndexToPrices,
       },
       (data) => {
+        const flatRateShippingOptions = data.shippingOptions.filter(
+          (option) => option.price_type === ShippingOptionPriceType.FLAT
+        )
+
         const shippingOptionsPrices = data.shippingOptionsIndexToPrices.map(
           ({ shipping_option_index, prices }) => {
             return {
-              id: data.shippingOptions[shipping_option_index].id,
+              id: flatRateShippingOptions[shipping_option_index].id,
               prices,
             }
           }

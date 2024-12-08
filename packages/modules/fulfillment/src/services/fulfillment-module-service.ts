@@ -1970,6 +1970,34 @@ export default class FulfillmentModuleService
     return !!shippingOptions.length
   }
 
+  @InjectManager()
+  async validateShippingOptionsForPriceCalculation(
+    shippingOptionsData: FulfillmentTypes.CreateShippingOptionDTO[],
+    @MedusaContext() sharedContext: Context = {}
+  ): Promise<boolean[]> {
+    const nonCalculatedOptions = shippingOptionsData.filter(
+      (option) => option.price_type !== "calculated"
+    )
+
+    if (nonCalculatedOptions.length) {
+      throw new MedusaError(
+        MedusaError.Types.INVALID_DATA,
+        `Cannot calculate price for non-calculated shipping options: ${nonCalculatedOptions
+          .map((o) => o.name)
+          .join(", ")}`
+      )
+    }
+
+    const promises = shippingOptionsData.map((option) =>
+      this.fulfillmentProviderService_.canCalculate(
+        option.provider_id,
+        option as unknown as Record<string, unknown>
+      )
+    )
+
+    return await promiseAll(promises)
+  }
+
   @InjectTransactionManager()
   // @ts-expect-error
   async deleteShippingProfiles(
