@@ -1,0 +1,23 @@
+{
+	"StoreCurrency": {
+		"filePath": "packages/modules/store/src/models/currency.ts",
+		"properties": {
+			"id": "The ID of the store currency.",
+			"currency_code": "The currency code of the store currency",
+			"is_default": "Whether the store currency is default.",
+			"store": "The store of the store currency"
+		}
+	},
+	"Store": {
+		"filePath": "packages/modules/store/src/models/store.ts",
+		"properties": {
+			"id": "The ID of the store.",
+			"name": "The name of the store",
+			"default_sales_channel_id": "The default sales channel id of the store",
+			"default_region_id": "The default region id of the store",
+			"default_location_id": "The default location id of the store",
+			"metadata": "Holds custom data in key-value pairs.",
+			"supported_currencies": "The associated supported_currencies.\n\n@expandable"
+		}
+	}
+}

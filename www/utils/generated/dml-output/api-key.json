@@ -1,0 +1,17 @@
+{
+	"ApiKey": {
+		"filePath": "packages/modules/api-key/src/models/api-key.ts",
+		"properties": {
+			"id": "The ID of the api key.",
+			"token": "The token of the api key",
+			"salt": "The salt of the api key",
+			"redacted": "The redacted of the api key",
+			"title": "The title of the api key",
+			"type": "The type of the api key",
+			"last_used_at": "The last used at of the api key",
+			"created_by": "The created by of the api key",
+			"revoked_by": "The revoked by of the api key",
+			"revoked_at": "The revoked at of the api key"
+		}
+	}
+}
