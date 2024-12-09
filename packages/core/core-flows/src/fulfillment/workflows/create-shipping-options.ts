@@ -33,6 +33,12 @@ export const createShippingOptionsWorkflow = createWorkflow(
 
     const data = transform(input, (data) => {
       const shippingOptionsIndexToPrices = data.map((option, index) => {
+        /**
+         * Flat rate ShippingOptions always needs to provide a price array.
+         *
+         * For calculated pricing we create an "empty" price set
+         * so we can have simpler update flow for both cases and allow updating price_type.
+         */
         const prices = (option as any).prices ?? []
         return {
           shipping_option_index: index,

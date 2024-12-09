@@ -37,7 +37,7 @@ export const updateShippingOptionsWorkflow = createWorkflow(
 
         return {
           shipping_option_index: index,
-          prices: prices,
+          prices,
         }
       })
 
@@ -57,16 +57,16 @@ export const updateShippingOptionsWorkflow = createWorkflow(
         shippingOptionsIndexToPrices: data.shippingOptionsIndexToPrices,
       },
       (data) => {
-        const shippingOptionsPrices = data.shippingOptionsIndexToPrices
-          .map(({ shipping_option_index, prices }) => {
+        const shippingOptionsPrices = data.shippingOptionsIndexToPrices.map(
+          ({ shipping_option_index, prices }) => {
             const option = data.shippingOptions[shipping_option_index]
 
             return {
               id: option.id,
               prices,
             }
-          })
-          .filter((o) => o !== null)
+          }
+        )
 
         return {
           shippingOptionsPrices,
