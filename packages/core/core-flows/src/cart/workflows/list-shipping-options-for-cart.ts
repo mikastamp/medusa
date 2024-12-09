@@ -127,6 +127,8 @@ export const listShippingOptionsForCartWorkflow = createWorkflow(
         "rules.operator",
 
         "calculated_price.*",
+        "prices.*",
+        "prices.price_rules.*",
       ],
       variables: queryVariables,
     }).config({ name: "shipping-options-query" })
