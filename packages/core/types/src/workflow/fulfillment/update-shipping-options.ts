@@ -19,7 +19,7 @@ export type UpdateShippingOptionsWorkflowInput = {
     value: string | string[]
   }[]
 } & (
-  | { price_type?: "calculated" } // TODO: should we allow changing of price type
+  | { price_type?: "calculated" }
   | {
       price_type?: "flat"
       prices?: UpdateShippingOptionPriceRecord[]
