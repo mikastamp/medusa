@@ -6,7 +6,6 @@ import {
   WorkflowData,
   WorkflowResponse,
 } from "@medusajs/framework/workflows-sdk"
-import { ShippingOptionPriceType } from "@medusajs/framework/utils"
 import {
   setShippingOptionsPricesStep,
   upsertShippingOptionsStep,
@@ -61,12 +60,9 @@ export const updateShippingOptionsWorkflow = createWorkflow(
         const shippingOptionsPrices = data.shippingOptionsIndexToPrices
           .map(({ shipping_option_index, prices }) => {
             const option = data.shippingOptions[shipping_option_index]
-            if (option.price_type !== ShippingOptionPriceType.FLAT || !prices) {
-              return null
-            }
 
             return {
-              id: data.shippingOptions[shipping_option_index].id,
+              id: option.id,
               prices,
             }
           })

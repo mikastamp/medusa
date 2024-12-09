@@ -44,14 +44,20 @@ export const validateShippingOptionPricesStep = createStep(
           {
             id: optionIds,
           },
-          { select: ["id", "price_type"] }
+          { select: ["id", "price_type", "provider_id"] }
         )
+
       const optionsMap = new Map(
-        shippingOptions.map((option) => [option.id, option.price_type])
+        shippingOptions.map((option) => [option.id, option])
       )
 
-      options.forEach((option) => {
-        option.price_type = option.price_type ?? optionsMap.get(option.id)
+      ;(
+        options as FulfillmentWorkflow.UpdateShippingOptionsWorkflowInput[]
+      ).forEach((option) => {
+        option.price_type =
+          option.price_type ?? optionsMap.get(option.id)?.price_type
+        option.provider_id =
+          option.provider_id ?? optionsMap.get(option.id)?.provider_id
       })
     }
 

@@ -13,7 +13,6 @@ import {
 import { setShippingOptionsPriceSetsStep } from "../steps/set-shipping-options-price-sets"
 import { validateFulfillmentProvidersStep } from "../steps/validate-fulfillment-providers"
 import { validateShippingOptionPricesStep } from "../steps/validate-shipping-option-prices"
-import { ShippingOptionPriceType } from "@medusajs/framework/utils"
 
 export const createShippingOptionsWorkflowId =
   "create-shipping-options-workflow"
@@ -33,15 +32,13 @@ export const createShippingOptionsWorkflow = createWorkflow(
     )
 
     const data = transform(input, (data) => {
-      const shippingOptionsIndexToPrices = data
-        .filter((option) => option.price_type === ShippingOptionPriceType.FLAT)
-        .map((option, index) => {
-          const prices = option.prices
-          return {
-            shipping_option_index: index,
-            prices,
-          }
-        })
+      const shippingOptionsIndexToPrices = data.map((option, index) => {
+        const prices = (option as any).prices ?? []
+        return {
+          shipping_option_index: index,
+          prices,
+        }
+      })
 
       return {
         shippingOptions: data,
@@ -59,14 +56,10 @@ export const createShippingOptionsWorkflow = createWorkflow(
         shippingOptionsIndexToPrices: data.shippingOptionsIndexToPrices,
       },
       (data) => {
-        const flatRateShippingOptions = data.shippingOptions.filter(
-          (option) => option.price_type === ShippingOptionPriceType.FLAT
-        )
-
         const shippingOptionsPrices = data.shippingOptionsIndexToPrices.map(
           ({ shipping_option_index, prices }) => {
             return {
-              id: flatRateShippingOptions[shipping_option_index].id,
+              id: data.shippingOptions[shipping_option_index].id,
               prices,
             }
           }
