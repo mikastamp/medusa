@@ -12,6 +12,7 @@ import {
 } from "../steps"
 import { validateFulfillmentProvidersStep } from "../steps/validate-fulfillment-providers"
 import { validateShippingOptionPricesStep } from "../steps/validate-shipping-option-prices"
+import { ShippingOptionPriceType } from "@medusajs/framework/utils"
 
 export const updateShippingOptionsWorkflowId =
   "update-shipping-options-workflow"
@@ -35,9 +36,15 @@ export const updateShippingOptionsWorkflow = createWorkflow(
         const prices = (option as any).prices
         delete (option as any).prices
 
+        /**
+         * When we are updating an option to be calculated, remove the prices.
+         */
+        const isCalculatedOption =
+          option.price_type === ShippingOptionPriceType.CALCULATED
+
         return {
           shipping_option_index: index,
-          prices,
+          prices: isCalculatedOption ? [] : prices,
         }
       })
 
@@ -74,7 +81,6 @@ export const updateShippingOptionsWorkflow = createWorkflow(
       }
     )
 
-    // TODO: cleanup prices if price_type is changed to calculated
     setShippingOptionsPricesStep(
       normalizedShippingOptionsPrices.shippingOptionsPrices
     )
