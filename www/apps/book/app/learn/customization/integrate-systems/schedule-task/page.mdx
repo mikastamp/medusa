@@ -14,7 +14,7 @@ You can create an action to be automatically executed at a specified interval us
 
 <Note>
 
-Learn more about scheduled jobs in [this chapter](../../../basics/scheduled-jobs/page.mdx).
+Learn more about scheduled jobs in [this chapter](../../../fundamentals/scheduled-jobs/page.mdx).
 
 </Note>
 
@@ -39,7 +39,7 @@ Workflows have a built-in durable execution engine that helps you complete tasks
 
 <Note>
 
-Learn more about workflows in [this chapter](../../../basics/workflows/page.mdx).
+Learn more about workflows in [this chapter](../../../fundamentals/workflows/page.mdx).
 
 </Note>
 
@@ -134,7 +134,7 @@ The step passes the created brands to the compensation function, which deletes t
 
 <Note>
 
-Learn more about compensation functions in [this chapter](../../../advanced-development/workflows/compensation-function/page.mdx).
+Learn more about compensation functions in [this chapter](../../../fundamentals/workflows/compensation-function/page.mdx).
 
 </Note>
 
@@ -220,11 +220,11 @@ export const syncBrandsFromSystemWorkflow = createWorkflow(
 
 In the workflow, you only use the `retrieveBrandsFromSystemStep` for now, which retrieves the brands from the third-party CMS.
 
-Next, you need to identify which brands must be created or updated. Since workflows are constructed internally and are only evaluated during execution, you can't access values to perform data manipulation directly. Instead, use [transform](../../../advanced-development/workflows/variable-manipulation/page.mdx) from the Workflows SDK that gives you access to the real-time values of the data, allowing you to create new variables using those values.
+Next, you need to identify which brands must be created or updated. Since workflows are constructed internally and are only evaluated during execution, you can't access values to perform data manipulation directly. Instead, use [transform](../../../fundamentals/workflows/variable-manipulation/page.mdx) from the Workflows SDK that gives you access to the real-time values of the data, allowing you to create new variables using those values.
 
 <Note>
 
-Learn more about data manipulation using `transform` in [this chapter](../../../advanced-development/workflows/variable-manipulation/page.mdx).
+Learn more about data manipulation using `transform` in [this chapter](../../../fundamentals/workflows/variable-manipulation/page.mdx).
 
 </Note>
 
@@ -320,7 +320,7 @@ A scheduled job file must export:
     - `name`: A unique name for the scheduled job.
     - `schedule`: A string that holds a [cron expression](https://crontab.guru/) indicating the schedule to run the job.
 
-The scheduled job function accepts as a parameter the [Medusa container](../../../basics/medusa-container/page.mdx) used to resolve framework and commerce tools. You then execute the `syncBrandsFromCmsWorkflow` and use its result to log how many brands were created or updated.
+The scheduled job function accepts as a parameter the [Medusa container](../../../fundamentals/medusa-container/page.mdx) used to resolve framework and commerce tools. You then execute the `syncBrandsFromCmsWorkflow` and use its result to log how many brands were created or updated.
 
 Based on the cron expression specified in `config.schedule`, Medusa will run the scheduled job every day at midnight. You can also change it to `* * * * *` to run it every minute for easier debugging.
 

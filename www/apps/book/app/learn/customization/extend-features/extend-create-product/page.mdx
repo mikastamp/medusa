@@ -8,7 +8,7 @@ export const metadata = {
 
 After linking the [custom Brand data model](../../custom-features/module/page.mdx) and Medusa's [Product Module](!resources!/commerce-modules/product) in the [previous chapter](../define-link/page.mdx), you'll extend the create product workflow and API route to allow associating a brand with a product.
 
-Some API routes, including the [Create Product API route](!api!/admin#products_postproducts), accept an `additional_data` request body parameter. This parameter can hold custom data that's passed to the [hooks](../../../advanced-development/workflows/workflow-hooks/page.mdx) of the workflow executed in the API route, allowing you to consume those hooks and perform actions with the custom data.
+Some API routes, including the [Create Product API route](!api!/admin#products_postproducts), accept an `additional_data` request body parameter. This parameter can hold custom data that's passed to the [hooks](../../../fundamentals/workflows/workflow-hooks/page.mdx) of the workflow executed in the API route, allowing you to consume those hooks and perform actions with the custom data.
 
 So, in this chapter, to extend the create product flow and associate a brand with a product, you will:
 
@@ -17,7 +17,7 @@ So, in this chapter, to extend the create product flow and associate a brand wit
 
 <Note>
 
-To learn more about the `additional_data` property and the API routes that accept additional data, refer to [this chapter](../../../advanced-development/api-routes/additional-data/page.mdx).
+To learn more about the `additional_data` property and the API routes that accept additional data, refer to [this chapter](../../../fundamentals/api-routes/additional-data/page.mdx).
 
 </Note>
 
@@ -42,7 +42,7 @@ A workflow hook is a point in a workflow where you can inject a step to perform 
 
 <Note>
 
-Learn more about the workflow hooks in [this chapter](../../../advanced-development/workflows/workflow-hooks/page.mdx).
+Learn more about the workflow hooks in [this chapter](../../../fundamentals/workflows/workflow-hooks/page.mdx).
 
 </Note>
 
@@ -87,7 +87,7 @@ createProductsWorkflow.hooks.productsCreated(
 Workflows have a special `hooks` property to access its hooks and consume them. Each hook, such as `productCreated`, accepts a step function as a parameter. The step function accepts the following parameters:
 
 1. An object having an `additional_data` property, which is the custom data passed in the request body under `additional_data`. The object will also have properties passed from the workflow to the hook, which in this case is the `products` property that holds an array of the created products.
-2. An object of properties related to the step's context. It has a `container` property whose value is the [Medusa container](../../../basics/medusa-container/page.mdx) to resolve framework and commerce tools.
+2. An object of properties related to the step's context. It has a `container` property whose value is the [Medusa container](../../../fundamentals/medusa-container/page.mdx) to resolve framework and commerce tools.
 
 In the step, if a brand ID is passed in `additional_data`, you resolve the Brand Module's service and use its generated `retrieveBrand` method to retrieve the brand by its ID. The `retrieveBrand` method will throw an error if the brand doesn't exist.
 
@@ -97,7 +97,7 @@ Next, you want to create a link between the created products and the brand. To d
 
 <Note>
 
-Learn more about the remote link in [this chapter](../../../advanced-development/module-links/remote-link/page.mdx).
+Learn more about the remote link in [this chapter](../../../fundamentals/module-links/remote-link/page.mdx).
 
 </Note>
 
@@ -176,7 +176,7 @@ You configure the properties accepted in `additional_data` in the `src/api/middl
 ![Directory structure after adding the middelwares file](https://res.cloudinary.com/dza7lstvk/image/upload/v1733386868/Medusa%20Book/brands-middleware-dir-overview_uczos1.jpg)
 
 ```ts title="src/api/middlewares.ts"
-import { defineMiddlewares } from "@medusajs/medusa"
+import { defineMiddlewares } from "@medusajs/framework/http"
 import { z } from "zod"
 
 export default defineMiddlewares({

@@ -10,11 +10,11 @@ In the [previous chapter](../service/page.mdx), you created a CMS Module that in
 
 In another previous chapter, you [added a workflow](../../custom-features/workflow/page.mdx) that creates a brand. After integrating the CMS, you want to sync that brand to the third-party system as well.
 
-Medusa has an event system that emits events when an operation is performed. It allows you to listen to those events and perform an asynchronous action in a function called a [subscriber](../../../basics/events-and-subscribers/page.mdx). This is useful to perform actions that aren't integral to the original flow, such as syncing data to a third-party system.
+Medusa has an event system that emits events when an operation is performed. It allows you to listen to those events and perform an asynchronous action in a function called a [subscriber](../../../fundamentals/events-and-subscribers/page.mdx). This is useful to perform actions that aren't integral to the original flow, such as syncing data to a third-party system.
 
 <Note>
 
-Learn more about Medusa's event system and subscribers in [this chapter](../../../basics/events-and-subscribers/page.mdx).
+Learn more about Medusa's event system and subscribers in [this chapter](../../../fundamentals/events-and-subscribers/page.mdx).
 
 </Note>
 
@@ -87,13 +87,13 @@ Workflows have a built-in durable execution engine that helps you complete tasks
 
 <Note>
 
-Learn more about workflows in [this chapter](../../../basics/workflows/page.mdx).
+Learn more about workflows in [this chapter](../../../fundamentals/workflows/page.mdx).
 
 </Note>
 
 You'll create a `syncBrandToSystemWorkflow` that has two steps:
 
-- `useQueryGraphStep`: a step that Medusa provides to retrieve data using [Query](../../../advanced-development/module-links/query/page.mdx). You'll use this to retrieve the brand's details using its ID.
+- `useQueryGraphStep`: a step that Medusa provides to retrieve data using [Query](../../../fundamentals/module-links/query/page.mdx). You'll use this to retrieve the brand's details using its ID.
 - `syncBrandToCmsStep`: a step that you'll create to sync the brand to the CMS.
 
 ### syncBrandToCmsStep
@@ -142,13 +142,13 @@ const syncBrandToCmsStep = createStep(
 )
 ```
 
-You create the `syncBrandToCmsStep` that accepts a brand as an input. In the step, you resolve the CMS Module's service from the [Medusa container](../../../basics/medusa-container/page.mdx) and use its `createBrand` method. This method will create the brand in the third-party CMS.
+You create the `syncBrandToCmsStep` that accepts a brand as an input. In the step, you resolve the CMS Module's service from the [Medusa container](../../../fundamentals/medusa-container/page.mdx) and use its `createBrand` method. This method will create the brand in the third-party CMS.
 
 You also pass the brand's ID to the step's compensation function. In this function, you delete the brand in the third-party CMS if an error occurs during the workflow's execution.
 
 <Note>
 
-Learn more about compensation functions in [this chapter](../../../advanced-development/workflows/compensation-function/page.mdx).
+Learn more about compensation functions in [this chapter](../../../fundamentals/workflows/compensation-function/page.mdx).
 
 </Note>
 
@@ -270,7 +270,7 @@ In the function, you execute the `syncBrandToCmsWorkflow`, passing it the data p
 
 <Note>
 
-Learn more about subscribers in [this chapter](../../../basics/events-and-subscribers/page.mdx).
+Learn more about subscribers in [this chapter](../../../fundamentals/events-and-subscribers/page.mdx).
 
 </Note>
 

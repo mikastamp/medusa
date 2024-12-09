@@ -10,6 +10,7 @@ import {
 } from "remark-rehype-plugins"
 import { sidebar } from "./sidebar.mjs"
 import path from "path"
+import redirects from "./utils/redirects.mjs"
 
 const withMDX = mdx({
   extension: /\.mdx?$/,
@@ -165,41 +166,7 @@ const nextConfig = {
       ],
     }
   },
-  async redirects() {
-    return [
-      {
-        source: "/v2/:path*",
-        destination: "/:path*",
-        permanent: true,
-      },
-      {
-        source: "/recipes/:path*",
-        destination: "/resources/recipes",
-        permanent: true,
-      },
-      {
-        source: "/plugins/:path*",
-        destination: "/v1/plugins/:path*",
-        permanent: true,
-      },
-      {
-        source: "/medusa-react/:path*",
-        destination: "/v1/medusa-react/:path*",
-        permanent: true,
-      },
-      {
-        source: "/learn/customization/extend-models/:path*",
-        destination: "/learn/customization/extend-features/:path*",
-        permanent: true,
-      },
-      {
-        source: "/learn/customization/extend-features/create-links",
-        destination:
-          "/learn/customization/extend-features/extend-create-product",
-        permanent: true,
-      },
-    ]
-  },
+  redirects,
 }
 
 export default withMDX(nextConfig)

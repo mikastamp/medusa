@@ -174,7 +174,7 @@ class DigitalProductModuleService extends MedusaService({
 export default DigitalProductModuleService
 ```
 
-The service extends the [service factory](!docs!/learn/advanced-development/modules/service-factory), which provides basic data-management features.
+The service extends the [service factory](!docs!/learn/fundamentals/modules/service-factory), which provides basic data-management features.
 
 ### Create Module Definition
 
@@ -208,8 +208,8 @@ module.exports = defineConfig({
 
 ### Further Reads
 
-- [How to Create a Module](!docs!/learn/basics/modules)
-- [How to Create a Data Model](!docs!/learn/basics/modules#1-create-data-model)
+- [How to Create a Module](!docs!/learn/fundamentals/modules)
+- [How to Create a Data Model](!docs!/learn/fundamentals/modules#1-create-data-model)
 
 ---
 
@@ -268,7 +268,7 @@ This defines a link between `DigitalProductOrder` and the Order Module’s `Orde
 
 ### Further Read
 
-- [How to Define Module Links](!docs!/learn/advanced-development/module-links)
+- [How to Define Module Links](!docs!/learn/fundamentals/module-links)
 
 ---
 
@@ -376,8 +376,8 @@ Make sure to replace `{token}` with the JWT token you retrieved.
 
 ### Further Reads
 
-- [How to Create an API Route](!docs!/learn/basics/api-routes)
-- [Learn more about Query](!docs!/learn/advanced-development/module-links/query)
+- [How to Create an API Route](!docs!/learn/fundamentals/api-routes)
+- [Learn more about Query](!docs!/learn/fundamentals/module-links/query)
 
 ---
 
@@ -626,9 +626,9 @@ You’ll test out the workflow in the next section.
 
 ### Further Reads
 
-- [How to Create a Workflow](!docs!/learn/basics/workflows)
-- [What is the Compensation Function](!docs!/learn/advanced-development/workflows/compensation-function)
-- [Learn more about the remote link function](!docs!/learn/advanced-development/module-links/remote-link)
+- [How to Create a Workflow](!docs!/learn/fundamentals/workflows)
+- [What is the Compensation Function](!docs!/learn/fundamentals/workflows/compensation-function)
+- [Learn more about the remote link function](!docs!/learn/fundamentals/module-links/remote-link)
 
 ---
 
@@ -704,10 +704,10 @@ This defines the expected request body schema.
 Finally, create the file `src/api/middlewares.ts` with the following content:
 
 ```ts title="src/api/middlewares.ts"
-import { defineMiddlewares } from "@medusajs/medusa"
 import { 
+  defineMiddlewares,
   validateAndTransformBody,
-} from "@medusajs/framework"
+} from "@medusajs/framework/http"
 import { createDigitalProductsSchema } from "./validation-schemas"
 
 export default defineMiddlewares({
@@ -727,7 +727,7 @@ This adds a validation middleware to ensure that the body of `POST` requests sen
 
 ### Further Read
 
-- [How to Create a Middleware](!docs!/learn/advanced-development/api-routes/middlewares)
+- [How to Create a Middleware](!docs!/learn/fundamentals/api-routes/middlewares)
 
 ---
 
@@ -1062,8 +1062,8 @@ Once you log in, you’ll find a new sidebar item, “Digital Products.” If yo
 
 ### Further Reads
 
-- [How to Create UI Routes](!docs!/learn/advanced-development/admin/ui-routes)
-- [How to Create Admin Widgets](!docs!/learn/advanced-development/admin/widgets)
+- [How to Create UI Routes](!docs!/learn/fundamentals/admin/ui-routes)
+- [How to Create Admin Widgets](!docs!/learn/fundamentals/admin/widgets)
 
 ---
 
@@ -1836,7 +1836,7 @@ In a later step, you’ll add an API route to allow customers to view and downlo
 
 ### Further Read
 
-- [Conditions in Workflows with When-Then](!docs!/learn/advanced-development/workflows/conditions)
+- [Conditions in Workflows with When-Then](!docs!/learn/fundamentals/workflows/conditions)
 
 ---
 
@@ -2319,7 +2319,7 @@ You’ll test out these API routes in the next step.
 
 ### Further Reads
 
-- [What are protected API routes](!docs!/learn/advanced-development/api-routes/protected-routes)
+- [What are protected API routes](!docs!/learn/fundamentals/api-routes/protected-routes)
 
 ---
 
@@ -2746,4 +2746,4 @@ Aside from customizing the Next.js Starter storefront, you can also create a cus
 
 ### Admin Development
 
-In this recipe, you learned how to customize the admin with UI routes. You can also do further customization using widgets. Learn more in [this documentation](!docs!/learn/advanced-development/admin).
+In this recipe, you learned how to customize the admin with UI routes. You can also do further customization using widgets. Learn more in [this documentation](!docs!/learn/fundamentals/admin).

@@ -12,7 +12,7 @@ Before creating an actor type, you must have a module with a data model represen
 
 <Note title="Tip">
 
-Learn how to create a module in [this guide](!docs!/learn/basics/modules).
+Learn how to create a module in [this guide](!docs!/learn/fundamentals/modules).
 
 </Note>
 
@@ -192,7 +192,7 @@ export const middlewareHighlights = [
 import { 
   defineMiddlewares,
   authenticate,
-} from "@medusajs/medusa"
+} from "@medusajs/framework/http"
 
 export default defineMiddlewares({
   routes: [

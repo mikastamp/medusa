@@ -68,6 +68,10 @@ class WorkflowsPlugin {
    * @param context - The project's context.
    */
   handleResolve(context: Context) {
+    const isEnabled = this.app.options.getValue("enableWorkflowsPlugins")
+    if (!isEnabled) {
+      return
+    }
     for (const reflection of context.project.getReflectionsByKind(
       ReflectionKind.All
     )) {
@@ -84,6 +88,7 @@ class WorkflowsPlugin {
 
         if (
           !initializer ||
+          !initializer.arguments ||
           (!ts.isArrowFunction(initializer.arguments[1]) &&
             !ts.isFunctionExpression(initializer.arguments[1]))
         ) {
