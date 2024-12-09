@@ -26,6 +26,35 @@ export const validateShippingOptionPricesStep = createStep(
   ) => {
     const fulfillmentModuleService = container.resolve(Modules.FULFILLMENT)
 
+    const optionIds = options.map(
+      (option) =>
+        (option as FulfillmentWorkflow.UpdateShippingOptionsWorkflowInput).id
+    )
+
+    if (optionIds.length) {
+      /**
+       * This means we are validating an update of shipping options.
+       * We need to ensure that all shipping options have price_type set
+       * to correctly determine price updates.
+       *
+       * (On create, price_type must be defined already.)
+       */
+      const shippingOptions =
+        await fulfillmentModuleService.listShippingOptions(
+          {
+            id: optionIds,
+          },
+          { select: ["id", "price_type"] }
+        )
+      const optionsMap = new Map(
+        shippingOptions.map((option) => [option.id, option.price_type])
+      )
+
+      options.forEach((option) => {
+        option.price_type = option.price_type ?? optionsMap.get(option.id)
+      })
+    }
+
     const flatRatePrices = options.flatMap((option) =>
       option.price_type === ShippingOptionPriceType.FLAT
         ? ((option.prices ?? []) as { region_id: string; amount: number }[])

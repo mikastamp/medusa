@@ -32,17 +32,15 @@ export const updateShippingOptionsWorkflow = createWorkflow(
     )
 
     const data = transform(input, (data) => {
-      const shippingOptionsIndexToPrices = data
-        .filter((option) => option.price_type === ShippingOptionPriceType.FLAT)
-        .map((option, index) => {
-          const prices = (option as any).prices
-          delete (option as any).prices
+      const shippingOptionsIndexToPrices = data.map((option, index) => {
+        const prices = (option as any).prices
+        delete (option as any).prices
 
-          return {
-            shipping_option_index: index,
-            prices,
-          }
-        })
+        return {
+          shipping_option_index: index,
+          prices: prices,
+        }
+      })
 
       return {
         shippingOptions: data,
@@ -60,18 +58,19 @@ export const updateShippingOptionsWorkflow = createWorkflow(
         shippingOptionsIndexToPrices: data.shippingOptionsIndexToPrices,
       },
       (data) => {
-        const flatRateShippingOptions = data.shippingOptions.filter(
-          (option) => option.price_type === ShippingOptionPriceType.FLAT
-        )
+        const shippingOptionsPrices = data.shippingOptionsIndexToPrices
+          .map(({ shipping_option_index, prices }) => {
+            const option = data.shippingOptions[shipping_option_index]
+            if (option.price_type !== ShippingOptionPriceType.FLAT || !prices) {
+              return null
+            }
 
-        const shippingOptionsPrices = data.shippingOptionsIndexToPrices.map(
-          ({ shipping_option_index, prices }) => {
             return {
-              id: flatRateShippingOptions[shipping_option_index].id,
+              id: data.shippingOptions[shipping_option_index].id,
               prices,
             }
-          }
-        )
+          })
+          .filter((o) => o !== null)
 
         return {
           shippingOptionsPrices,
