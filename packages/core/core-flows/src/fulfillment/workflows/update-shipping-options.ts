@@ -74,6 +74,7 @@ export const updateShippingOptionsWorkflow = createWorkflow(
       }
     )
 
+    // TODO: cleanup prices if price_type is changed to calculated
     setShippingOptionsPricesStep(
       normalizedShippingOptionsPrices.shippingOptionsPrices
     )
