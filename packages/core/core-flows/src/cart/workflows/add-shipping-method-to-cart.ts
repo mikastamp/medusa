@@ -14,7 +14,9 @@ import {
 } from "../steps"
 import { validateCartStep } from "../steps/validate-cart"
 import { validateAndReturnShippingMethodsDataStep } from "../steps/validate-shipping-methods-data"
+import { validateCartShippingOptionsPriceStep } from "../steps/validate-shipping-options-price"
 import { cartFieldsForRefreshSteps } from "../utils/fields"
+import { listShippingOptionsForCartWorkflow } from "./list-shipping-options-for-cart"
 import { updateCartPromotionsWorkflow } from "./update-cart-promotions"
 import { updateTaxLinesWorkflow } from "./update-tax-lines"
 
@@ -54,30 +56,24 @@ export const addShippingMethodToCartWorkflow = createWorkflow(
       shippingOptionsContext: { is_return: "false", enabled_in_store: "true" },
     })
 
-    const shippingOptions = useRemoteQueryStep({
-      entry_point: "shipping_option",
-      fields: [
-        "id",
-        "name",
-        "calculated_price.calculated_amount",
-        "calculated_price.is_calculated_price_tax_inclusive",
-        "provider_id",
-      ],
-      variables: {
-        id: optionIds,
-        calculated_price: {
-          context: { currency_code: cart.currency_code },
-        },
+    const shippingOptions = listShippingOptionsForCartWorkflow.runAsStep({
+      input: {
+        option_ids: optionIds,
+        cart_id: cart.id,
+        is_return: false,
       },
-    }).config({ name: "fetch-shipping-option" })
+    })
+
+    validateCartShippingOptionsPriceStep({ shippingOptions })
 
     const validateShippingMethodsDataInput = transform(
       { input, shippingOptions },
-      (data) => {
-        return data.input.options.map((inputOption) => {
-          const shippingOption = data.shippingOptions.find(
+      ({ input, shippingOptions }) => {
+        return input.options.map((inputOption) => {
+          const shippingOption = shippingOptions.find(
             (so) => so.id === inputOption.id
           )
+
           return {
             id: inputOption.id,
             provider_id: shippingOption?.provider_id,

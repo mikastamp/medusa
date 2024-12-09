@@ -3,6 +3,7 @@ export const cartFieldsForRefreshSteps = [
   "currency_code",
   "quantity",
   "subtotal",
+  "total",
   "item_subtotal",
   "shipping_subtotal",
   "region_id",

@@ -8,27 +8,20 @@ import {
   parallelize,
   transform,
   WorkflowData,
-  WorkflowResponse,
 } from "@medusajs/framework/workflows-sdk"
 import { emitEventStep } from "../../common/steps/emit-event"
 import { useRemoteQueryStep } from "../../common/steps/use-remote-query"
 import {
   createLineItemsStep,
   getLineItemActionsStep,
-  refreshCartShippingMethodsStep,
   updateLineItemsStep,
 } from "../steps"
 import { validateCartStep } from "../steps/validate-cart"
 import { validateVariantPricesStep } from "../steps/validate-variant-prices"
-import {
-  cartFieldsForRefreshSteps,
-  productVariantsFields,
-} from "../utils/fields"
+import { productVariantsFields } from "../utils/fields"
 import { prepareLineItemData } from "../utils/prepare-line-item-data"
 import { confirmVariantInventoryWorkflow } from "./confirm-variant-inventory"
-import { refreshPaymentCollectionForCartWorkflow } from "./refresh-payment-collection"
-import { updateCartPromotionsWorkflow } from "./update-cart-promotions"
-import { updateTaxLinesWorkflow } from "./update-tax-lines"
+import { refreshCartItemsWorkflow } from "./refresh-cart-items"
 
 export const addToCartWorkflowId = "add-to-cart"
 /**
@@ -44,6 +37,7 @@ export const addToCartWorkflow = createWorkflow(
     })
 
     // TODO: This is on par with the context used in v1.*, but we can be more flexible.
+    // TODO: create a common workflow to fetch variants and its prices
     const pricingContext = transform({ cart: input.cart }, (data) => {
       return {
         currency_code: data.cart.currency_code,
@@ -100,7 +94,7 @@ export const addToCartWorkflow = createWorkflow(
       },
     })
 
-    const [createdItems, updatedItems] = parallelize(
+    parallelize(
       createLineItemsStep({
         id: input.cart.id,
         items: itemsToCreate,
@@ -111,43 +105,13 @@ export const addToCartWorkflow = createWorkflow(
       })
     )
 
-    const items = transform({ createdItems, updatedItems }, (data) => {
-      return [...(data.createdItems || []), ...(data.updatedItems || [])]
+    refreshCartItemsWorkflow.runAsStep({
+      input: { cart_id: input.cart.id },
     })
 
-    const cart = useRemoteQueryStep({
-      entry_point: "cart",
-      fields: cartFieldsForRefreshSteps,
-      variables: { id: input.cart.id },
-      list: false,
-    }).config({ name: "refetch–cart" })
-
-    parallelize(
-      refreshCartShippingMethodsStep({ cart }),
-      emitEventStep({
-        eventName: CartWorkflowEvents.UPDATED,
-        data: { id: input.cart.id },
-      })
-    )
-
-    updateTaxLinesWorkflow.runAsStep({
-      input: {
-        cart_id: input.cart.id,
-      },
+    emitEventStep({
+      eventName: CartWorkflowEvents.UPDATED,
+      data: { id: input.cart.id },
     })
-
-    updateCartPromotionsWorkflow.runAsStep({
-      input: {
-        cart_id: input.cart.id,
-      },
-    })
-
-    refreshPaymentCollectionForCartWorkflow.runAsStep({
-      input: {
-        cart_id: input.cart.id,
-      },
-    })
-
-    return new WorkflowResponse(items)
   }
 )

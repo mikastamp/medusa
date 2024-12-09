@@ -34,8 +34,11 @@ import {
 import {
   adminHeaders,
   createAdminUser,
+  generatePublishableKey,
+  generateStoreHeaders,
 } from "../../../../helpers/create-admin-user"
 import { seedStorefrontDefaults } from "../../../../helpers/seed-storefront-defaults"
+import { createAuthenticatedCustomer } from "../../../helpers/create-authenticated-customer"
 
 jest.setTimeout(200000)
 
@@ -56,9 +59,10 @@ medusaIntegrationTestRunner({
       let stockLocationModule: IStockLocationService
       let inventoryModule: IInventoryService
       let fulfillmentModule: IFulfillmentModuleService
-      let remoteLink, remoteQuery
-
+      let remoteLink, remoteQuery, storeHeaders
+      let salesChannel
       let defaultRegion
+      let customer, storeHeadersWithCustomer
 
       beforeAll(async () => {
         appContainer = getContainer()
@@ -69,9 +73,9 @@ medusaIntegrationTestRunner({
         productModule = appContainer.resolve(Modules.PRODUCT)
         pricingModule = appContainer.resolve(Modules.PRICING)
         paymentModule = appContainer.resolve(Modules.PAYMENT)
+        fulfillmentModule = appContainer.resolve(Modules.FULFILLMENT)
         inventoryModule = appContainer.resolve(Modules.INVENTORY)
         stockLocationModule = appContainer.resolve(Modules.STOCK_LOCATION)
-        fulfillmentModule = appContainer.resolve(Modules.FULFILLMENT)
         remoteLink = appContainer.resolve(ContainerRegistrationKeys.REMOTE_LINK)
         remoteQuery = appContainer.resolve(
           ContainerRegistrationKeys.REMOTE_QUERY
@@ -79,11 +83,35 @@ medusaIntegrationTestRunner({
       })
 
       beforeEach(async () => {
+        const publishableKey = await generatePublishableKey(appContainer)
+        storeHeaders = generateStoreHeaders({ publishableKey })
         await createAdminUser(dbConnection, adminHeaders, appContainer)
+
+        const result = await createAuthenticatedCustomer(api, storeHeaders, {
+          first_name: "tony",
+          last_name: "stark",
+          email: "tony@test-industries.com",
+        })
+
+        customer = result.customer
+        storeHeadersWithCustomer = {
+          headers: {
+            ...storeHeaders.headers,
+            authorization: `Bearer ${result.jwt}`,
+          },
+        }
 
         const { region } = await seedStorefrontDefaults(appContainer, "dkk")
 
         defaultRegion = region
+
+        salesChannel = (
+          await api.post(
+            "/admin/sales-channels",
+            { name: "test sales channel", description: "channel" },
+            adminHeaders
+          )
+        ).data.sales_channel
       })
 
       describe("CreateCartWorkflow", () => {
@@ -985,9 +1013,7 @@ medusaIntegrationTestRunner({
 
           const item = cart.items?.[0]!
 
-          const { errors } = await updateLineItemInCartWorkflow(
-            appContainer
-          ).run({
+          await updateLineItemInCartWorkflow(appContainer).run({
             input: {
               cart,
               item,
@@ -1660,45 +1686,23 @@ medusaIntegrationTestRunner({
         let shippingProfile
         let fulfillmentSet
         let priceSet
+        let region
+        let stockLocation
 
         beforeEach(async () => {
-          cart = await cartModuleService.createCarts({
-            currency_code: "usd",
-            shipping_address: {
-              country_code: "us",
-              province: "ny",
-            },
-          })
-
-          shippingProfile = await fulfillmentModule.createShippingProfiles({
-            name: "Test",
-            type: "default",
-          })
-
-          fulfillmentSet = await fulfillmentModule.createFulfillmentSets({
-            name: "Test",
-            type: "test-type",
-            service_zones: [
+          region = (
+            await api.post(
+              "/admin/regions",
               {
-                name: "Test",
-                geo_zones: [{ type: "country", country_code: "us" }],
+                name: "test-region",
+                currency_code: "usd",
+                countries: ["us"],
               },
-            ],
-          })
+              adminHeaders
+            )
+          ).data.region
 
-          priceSet = await pricingModule.createPriceSets({
-            prices: [{ amount: 3000, currency_code: "usd" }],
-          })
-
-          await pricingModule.createPricePreferences({
-            attribute: "currency_code",
-            value: "usd",
-            is_tax_inclusive: true,
-          })
-        })
-
-        it("should add shipping method to cart", async () => {
-          const stockLocation = (
+          stockLocation = (
             await api.post(
               `/admin/stock-locations`,
               { name: "test location" },
@@ -1706,16 +1710,41 @@ medusaIntegrationTestRunner({
             )
           ).data.stock_location
 
-          await remoteLink.create([
-            {
-              [Modules.STOCK_LOCATION]: {
-                stock_location_id: stockLocation.id,
+          await api.post(
+            `/admin/stock-locations/${stockLocation.id}/sales-channels`,
+            { add: [salesChannel.id] },
+            adminHeaders
+          )
+
+          shippingProfile = (
+            await api.post(
+              `/admin/shipping-profiles`,
+              { name: "Test", type: "default" },
+              adminHeaders
+            )
+          ).data.shipping_profile
+
+          const fulfillmentSets = (
+            await api.post(
+              `/admin/stock-locations/${stockLocation.id}/fulfillment-sets?fields=*fulfillment_sets`,
+              {
+                name: "Test",
+                type: "test-type",
               },
-              [Modules.FULFILLMENT]: {
-                fulfillment_set_id: fulfillmentSet.id,
+              adminHeaders
+            )
+          ).data.stock_location.fulfillment_sets
+
+          fulfillmentSet = (
+            await api.post(
+              `/admin/fulfillment-sets/${fulfillmentSets[0].id}/service-zones`,
+              {
+                name: "Test",
+                geo_zones: [{ type: "country", country_code: "us" }],
               },
-            },
-          ])
+              adminHeaders
+            )
+          ).data.fulfillment_set
 
           await api.post(
             `/admin/stock-locations/${stockLocation.id}/fulfillment-providers`,
@@ -1723,37 +1752,61 @@ medusaIntegrationTestRunner({
             adminHeaders
           )
 
-          const shippingOption = await fulfillmentModule.createShippingOptions({
-            name: "Test shipping option",
-            service_zone_id: fulfillmentSet.service_zones[0].id,
-            shipping_profile_id: shippingProfile.id,
-            provider_id: "manual_test-provider",
-            price_type: "flat",
-            type: {
-              label: "Test type",
-              description: "Test description",
-              code: "test-code",
-            },
-            rules: [
+          cart = (
+            await api.post(
+              `/store/carts`,
               {
-                operator: RuleOperator.EQ,
-                attribute: "is_return",
-                value: "false",
+                currency_code: "usd",
+                region_id: region.id,
+                sales_channel_id: salesChannel.id,
               },
-              {
-                operator: RuleOperator.EQ,
-                attribute: "enabled_in_store",
-                value: "true",
-              },
-            ],
-          })
+              storeHeaders
+            )
+          ).data.cart
 
-          await remoteLink.create([
+          await api.post(
+            "/admin/price-preferences",
             {
-              [Modules.FULFILLMENT]: { shipping_option_id: shippingOption.id },
-              [Modules.PRICING]: { price_set_id: priceSet.id },
+              attribute: "currency_code",
+              value: "usd",
+              is_tax_inclusive: true,
             },
-          ])
+            adminHeaders
+          )
+        })
+
+        it("should add shipping method to cart", async () => {
+          const shippingOption = (
+            await api.post(
+              `/admin/shipping-options`,
+              {
+                name: "Test shipping option",
+                service_zone_id: fulfillmentSet.service_zones[0].id,
+                shipping_profile_id: shippingProfile.id,
+                provider_id: "manual_test-provider",
+                price_type: "flat",
+                type: {
+                  label: "Test type",
+                  description: "Test description",
+                  code: "test-code",
+                },
+                prices: [{ amount: 3000, currency_code: "usd" }],
+                rules: [
+                  {
+                    operator: RuleOperator.EQ,
+                    attribute: "is_return",
+                    value: "false",
+                  },
+                  {
+                    operator: RuleOperator.EQ,
+                    attribute: "enabled_in_store",
+                    value: "true",
+                  },
+                ],
+              },
+              adminHeaders
+            )
+          ).data.shipping_option
 
           await addShippingMethodToCartWorkflow(appContainer).run({
             input: {
@@ -1762,9 +1815,8 @@ medusaIntegrationTestRunner({
             },
           })
 
-          cart = await cartModuleService.retrieveCart(cart.id, {
-            relations: ["shipping_methods"],
-          })
+          cart = (await api.get(`/store/carts/${cart.id}`, storeHeaders)).data
+            .cart
 
           expect(cart).toEqual(
             expect.objectContaining({
@@ -1774,7 +1826,6 @@ medusaIntegrationTestRunner({
                 expect.objectContaining({
                   amount: 3000,
                   is_tax_inclusive: true,
-                  name: "Test shipping option",
                 }),
               ],
             })
@@ -1782,40 +1833,37 @@ medusaIntegrationTestRunner({
         })
 
         it("should throw error when shipping option is not valid", async () => {
-          const shippingOption = await fulfillmentModule.createShippingOptions({
-            name: "Test shipping option",
-            service_zone_id: fulfillmentSet.service_zones[0].id,
-            shipping_profile_id: shippingProfile.id,
-            provider_id: "manual_test-provider",
-            price_type: "flat",
-            type: {
-              label: "Test type",
-              description: "Test description",
-              code: "test-code",
-            },
-            rules: [
+          const shippingOption = (
+            await api.post(
+              `/admin/shipping-options`,
               {
-                operator: RuleOperator.EQ,
-                attribute: "shipping_address.city",
-                value: "sf",
+                name: "Test shipping option",
+                service_zone_id: fulfillmentSet.service_zones[0].id,
+                shipping_profile_id: shippingProfile.id,
+                provider_id: "manual_test-provider",
+                price_type: "flat",
+                type: {
+                  label: "Test type",
+                  description: "Test description",
+                  code: "test-code",
+                },
+                rules: [
+                  {
+                    operator: RuleOperator.EQ,
+                    attribute: "shipping_address.city",
+                    value: "sf",
+                  },
+                ],
+                prices: [{ amount: 3000, currency_code: "usd" }],
               },
-            ],
-          })
-
-          await remoteLink.create([
-            {
-              [Modules.FULFILLMENT]: { shipping_option_id: shippingOption.id },
-              [Modules.PRICING]: { price_set_id: priceSet.id },
-            },
-          ])
+              adminHeaders
+            )
+          ).data.shipping_option
 
           const { errors } = await addShippingMethodToCartWorkflow(
             appContainer
           ).run({
-            input: {
-              options: [{ id: shippingOption.id }],
-              cart_id: cart.id,
-            },
+            input: { options: [{ id: shippingOption.id }], cart_id: cart.id },
             throwOnError: false,
           })
 
@@ -1853,62 +1901,37 @@ medusaIntegrationTestRunner({
         })
 
         it("should add shipping method with custom data", async () => {
-          const stockLocation = (
+          const shippingOption = (
             await api.post(
-              `/admin/stock-locations`,
-              { name: "test location" },
+              `/admin/shipping-options`,
+              {
+                name: "Test shipping option",
+                service_zone_id: fulfillmentSet.service_zones[0].id,
+                shipping_profile_id: shippingProfile.id,
+                provider_id: "manual_test-provider",
+                price_type: "flat",
+                type: {
+                  label: "Test type",
+                  description: "Test description",
+                  code: "test-code",
+                },
+                rules: [
+                  {
+                    operator: RuleOperator.EQ,
+                    attribute: "is_return",
+                    value: "false",
+                  },
+                  {
+                    operator: RuleOperator.EQ,
+                    attribute: "enabled_in_store",
+                    value: "true",
+                  },
+                ],
+                prices: [{ amount: 3000, currency_code: "usd" }],
+              },
               adminHeaders
             )
-          ).data.stock_location
-
-          await remoteLink.create([
-            {
-              [Modules.STOCK_LOCATION]: {
-                stock_location_id: stockLocation.id,
-              },
-              [Modules.FULFILLMENT]: {
-                fulfillment_set_id: fulfillmentSet.id,
-              },
-            },
-          ])
-
-          await api.post(
-            `/admin/stock-locations/${stockLocation.id}/fulfillment-providers`,
-            { add: ["manual_test-provider"] },
-            adminHeaders
-          )
-
-          const shippingOption = await fulfillmentModule.createShippingOptions({
-            name: "Test shipping option",
-            service_zone_id: fulfillmentSet.service_zones[0].id,
-            shipping_profile_id: shippingProfile.id,
-            provider_id: "manual_test-provider",
-            price_type: "flat",
-            type: {
-              label: "Test type",
-              description: "Test description",
-              code: "test-code",
-            },
-            rules: [
-              {
-                operator: RuleOperator.EQ,
-                attribute: "is_return",
-                value: "false",
-              },
-              {
-                operator: RuleOperator.EQ,
-                attribute: "enabled_in_store",
-                value: "true",
-              },
-            ],
-          })
-
-          await remoteLink.create([
-            {
-              [Modules.FULFILLMENT]: { shipping_option_id: shippingOption.id },
-              [Modules.PRICING]: { price_set_id: priceSet.id },
-            },
-          ])
+          ).data.shipping_option
 
           await addShippingMethodToCartWorkflow(appContainer).run({
             input: {
@@ -1917,33 +1940,23 @@ medusaIntegrationTestRunner({
             },
           })
 
-          cart = await cartModuleService.retrieveCart(cart.id, {
-            select: ["id"],
-            relations: ["shipping_methods"],
-          })
+          cart = (
+            await api.get(
+              `/store/carts/${cart.id}?fields=+shipping_methods.data`,
+              storeHeaders
+            )
+          ).data.cart
 
           expect(cart).toEqual(
             expect.objectContaining({
               id: cart.id,
               shipping_methods: [
-                {
-                  id: expect.any(String),
-                  cart_id: cart.id,
-                  description: null,
+                expect.objectContaining({
                   amount: 3000,
-                  raw_amount: {
-                    value: "3000",
-                    precision: 20,
-                  },
-                  metadata: null,
                   is_tax_inclusive: true,
-                  name: "Test shipping option",
                   data: { test: "test" },
                   shipping_option_id: shippingOption.id,
-                  deleted_at: null,
-                  updated_at: expect.any(Date),
-                  created_at: expect.any(Date),
-                },
+                }),
               ],
             })
           )
@@ -1951,123 +1964,146 @@ medusaIntegrationTestRunner({
       })
 
       describe("listShippingOptionsForCartWorkflow", () => {
+        let cart
+        let shippingProfile
+        let fulfillmentSet
         let region
+        let stockLocation
 
         beforeEach(async () => {
-          region = await regionModuleService.createRegions({
-            name: "US",
-            currency_code: "usd",
-          })
+          region = (
+            await api.post(
+              "/admin/regions",
+              {
+                name: "test-region",
+                currency_code: "usd",
+                countries: ["us"],
+              },
+              adminHeaders
+            )
+          ).data.region
+
+          stockLocation = (
+            await api.post(
+              `/admin/stock-locations`,
+              { name: "test location" },
+              adminHeaders
+            )
+          ).data.stock_location
+
+          await api.post(
+            `/admin/stock-locations/${stockLocation.id}/sales-channels`,
+            { add: [salesChannel.id] },
+            adminHeaders
+          )
+
+          shippingProfile = (
+            await api.post(
+              `/admin/shipping-profiles`,
+              { name: "Test", type: "default" },
+              adminHeaders
+            )
+          ).data.shipping_profile
+
+          const fulfillmentSets = (
+            await api.post(
+              `/admin/stock-locations/${stockLocation.id}/fulfillment-sets?fields=*fulfillment_sets`,
+              {
+                name: "Test",
+                type: "test-type",
+              },
+              adminHeaders
+            )
+          ).data.stock_location.fulfillment_sets
+
+          fulfillmentSet = (
+            await api.post(
+              `/admin/fulfillment-sets/${fulfillmentSets[0].id}/service-zones`,
+              {
+                name: "Test",
+                geo_zones: [{ type: "country", country_code: "us" }],
+              },
+              adminHeaders
+            )
+          ).data.fulfillment_set
+
+          await api.post(
+            `/admin/stock-locations/${stockLocation.id}/fulfillment-providers`,
+            { add: ["manual_test-provider"] },
+            adminHeaders
+          )
+
+          cart = (
+            await api.post(
+              `/store/carts`,
+              {
+                currency_code: "usd",
+                region_id: region.id,
+                sales_channel_id: salesChannel.id,
+              },
+              storeHeaders
+            )
+          ).data.cart
+
+          await api.post(
+            "/admin/price-preferences",
+            {
+              attribute: "currency_code",
+              value: "usd",
+              is_tax_inclusive: true,
+            },
+            adminHeaders
+          )
         })
 
         it("should list shipping options for cart", async () => {
-          const salesChannel = await scModuleService.createSalesChannels({
-            name: "Webshop",
-          })
-
-          const location = await stockLocationModule.createStockLocations({
-            name: "Europe",
-          })
-
-          let cart = await cartModuleService.createCarts({
-            currency_code: "usd",
-            region_id: region.id,
-            sales_channel_id: salesChannel.id,
-            shipping_address: {
-              city: "CPH",
-              province: "Sjaelland",
-              country_code: "dk",
-            },
-          })
-
-          const shippingProfile =
-            await fulfillmentModule.createShippingProfiles({
-              name: "Test",
-              type: "default",
-            })
-
-          const fulfillmentSet = await fulfillmentModule.createFulfillmentSets({
-            name: "Test",
-            type: "test-type",
-            service_zones: [
+          const shippingOption = (
+            await api.post(
+              `/admin/shipping-options`,
               {
-                name: "Test",
-                geo_zones: [
+                name: "Test shipping option",
+                service_zone_id: fulfillmentSet.service_zones[0].id,
+                shipping_profile_id: shippingProfile.id,
+                provider_id: "manual_test-provider",
+                price_type: "flat",
+                type: {
+                  label: "Test type",
+                  description: "Test description",
+                  code: "test-code",
+                },
+                prices: [
                   {
-                    type: "country",
-                    country_code: "dk",
+                    amount: 3000,
+                    currency_code: "usd",
+                  },
+                ],
+                rules: [
+                  {
+                    operator: RuleOperator.EQ,
+                    attribute: "is_return",
+                    value: "false",
+                  },
+                  {
+                    operator: RuleOperator.EQ,
+                    attribute: "enabled_in_store",
+                    value: "true",
                   },
                 ],
               },
-            ],
-          })
+              adminHeaders
+            )
+          ).data.shipping_option
 
-          const shippingOption = await fulfillmentModule.createShippingOptions({
-            name: "Test shipping option",
-            service_zone_id: fulfillmentSet.service_zones[0].id,
-            shipping_profile_id: shippingProfile.id,
-            provider_id: "manual_test-provider",
-            price_type: "flat",
-            type: {
-              label: "Test type",
-              description: "Test description",
-              code: "test-code",
-            },
-          })
-
-          const priceSet = await pricingModule.createPriceSets({
-            prices: [
-              {
-                amount: 3000,
-                currency_code: "usd",
-              },
-            ],
-          })
-
-          await remoteLink.create([
-            {
-              [Modules.SALES_CHANNEL]: {
-                sales_channel_id: salesChannel.id,
-              },
-              [Modules.STOCK_LOCATION]: {
-                stock_location_id: location.id,
-              },
-            },
-            {
-              [Modules.STOCK_LOCATION]: {
-                stock_location_id: location.id,
-              },
-              [Modules.FULFILLMENT]: {
-                fulfillment_set_id: fulfillmentSet.id,
-              },
-            },
-            {
-              [Modules.FULFILLMENT]: {
-                shipping_option_id: shippingOption.id,
-              },
-              [Modules.PRICING]: {
-                price_set_id: priceSet.id,
-              },
-            },
-          ])
-
-          cart = await cartModuleService.retrieveCart(cart.id, {
-            select: ["id"],
-            relations: ["shipping_address"],
-          })
+          cart = (await api.get(`/store/carts/${cart.id}`, storeHeaders)).data
+            .cart
 
           const { result } = await listShippingOptionsForCartWorkflow(
             appContainer
-          ).run({
-            input: {
-              cart_id: cart.id,
-            },
-          })
+          ).run({ input: { cart_id: cart.id } })
 
           expect(result).toEqual([
             expect.objectContaining({
               amount: 3000,
-              name: "Test shipping option",
               id: shippingOption.id,
             }),
           ])
@@ -2078,41 +2114,13 @@ medusaIntegrationTestRunner({
             name: "Webshop",
           })
 
-          const location = await stockLocationModule.createStockLocations({
-            name: "Europe",
-          })
-
           let cart = await cartModuleService.createCarts({
             currency_code: "usd",
             region_id: region.id,
             sales_channel_id: salesChannel.id,
             shipping_address: {
-              city: "CPH",
-              province: "Sjaelland",
-              country_code: "dk",
+              country_code: "us",
             },
-          })
-
-          const shippingProfile =
-            await fulfillmentModule.createShippingProfiles({
-              name: "Test",
-              type: "default",
-            })
-
-          const fulfillmentSet = await fulfillmentModule.createFulfillmentSets({
-            name: "Test",
-            type: "test-type",
-            service_zones: [
-              {
-                name: "Test",
-                geo_zones: [
-                  {
-                    type: "country",
-                    country_code: "dk",
-                  },
-                ],
-              },
-            ],
           })
 
           const shippingOption = await fulfillmentModule.createShippingOptions([
@@ -2173,12 +2181,12 @@ medusaIntegrationTestRunner({
                 sales_channel_id: salesChannel.id,
               },
               [Modules.STOCK_LOCATION]: {
-                stock_location_id: location.id,
+                stock_location_id: stockLocation.id,
               },
             },
             {
               [Modules.STOCK_LOCATION]: {
-                stock_location_id: location.id,
+                stock_location_id: stockLocation.id,
               },
               [Modules.FULFILLMENT]: {
                 fulfillment_set_id: fulfillmentSet.id,
@@ -2232,88 +2240,49 @@ medusaIntegrationTestRunner({
             name: "Webshop",
           })
 
-          const location = await stockLocationModule.createStockLocations({
-            name: "Europe",
-          })
+          await api.post(
+            `/store/carts/${cart.id}`,
+            { sales_channel_id: salesChannel.id },
+            storeHeaders
+          )
 
-          let cart = await cartModuleService.createCarts({
-            currency_code: "usd",
-            region_id: region.id,
-            sales_channel_id: salesChannel.id,
-            shipping_address: {
-              city: "CPH",
-              province: "Sjaelland",
-              country_code: "dk",
-            },
-          })
-
-          const shippingProfile =
-            await fulfillmentModule.createShippingProfiles({
-              name: "Test",
-              type: "default",
-            })
-
-          const fulfillmentSet = await fulfillmentModule.createFulfillmentSets({
-            name: "Test",
-            type: "test-type",
-            service_zones: [
-              {
-                name: "Test",
-                geo_zones: [
-                  {
-                    type: "country",
-                    country_code: "us",
-                  },
-                ],
-              },
-            ],
-          })
-
-          const shippingOption = await fulfillmentModule.createShippingOptions({
-            name: "Test shipping option",
-            service_zone_id: fulfillmentSet.service_zones[0].id,
-            shipping_profile_id: shippingProfile.id,
-            provider_id: "manual_test-provider",
-            price_type: "flat",
-            type: {
-              label: "Test type",
-              description: "Test description",
-              code: "test-code",
-            },
-          })
-
-          const priceSet = await pricingModule.createPriceSets({
-            prices: [
-              {
-                amount: 3000,
-                currency_code: "usd",
-              },
-            ],
-          })
-
-          await remoteLink.create([
+          await api.post(
+            `/admin/shipping-options`,
             {
-              [Modules.STOCK_LOCATION]: {
-                stock_location_id: location.id,
+              name: "Test shipping option",
+              service_zone_id: fulfillmentSet.service_zones[0].id,
+              shipping_profile_id: shippingProfile.id,
+              provider_id: "manual_test-provider",
+              price_type: "flat",
+              type: {
+                label: "Test type",
+                description: "Test description",
+                code: "test-code",
               },
-              [Modules.FULFILLMENT]: {
-                fulfillment_set_id: fulfillmentSet.id,
-              },
+              prices: [
+                {
+                  amount: 3000,
+                  currency_code: "usd",
+                },
+              ],
+              rules: [
+                {
+                  operator: RuleOperator.EQ,
+                  attribute: "is_return",
+                  value: "false",
+                },
+                {
+                  operator: RuleOperator.EQ,
+                  attribute: "enabled_in_store",
+                  value: "true",
+                },
+              ],
             },
-            {
-              [Modules.FULFILLMENT]: {
-                shipping_option_id: shippingOption.id,
-              },
-              [Modules.PRICING]: {
-                price_set_id: priceSet.id,
-              },
-            },
-          ])
+            adminHeaders
+          )
 
-          cart = await cartModuleService.retrieveCart(cart.id, {
-            select: ["id"],
-            relations: ["shipping_address"],
-          })
+          cart = (await api.get(`/store/carts/${cart.id}`, storeHeaders)).data
+            .cart
 
           const { result } = await listShippingOptionsForCartWorkflow(
             appContainer
@@ -2322,99 +2291,6 @@ medusaIntegrationTestRunner({
           })
 
           expect(result).toEqual([])
-        })
-
-        it("should throw when shipping options are missing prices", async () => {
-          const salesChannel = await scModuleService.createSalesChannels({
-            name: "Webshop",
-          })
-
-          const location = await stockLocationModule.createStockLocations({
-            name: "Europe",
-          })
-
-          let cart = await cartModuleService.createCarts({
-            currency_code: "usd",
-            region_id: region.id,
-            sales_channel_id: salesChannel.id,
-            shipping_address: {
-              city: "CPH",
-              province: "Sjaelland",
-              country_code: "dk",
-            },
-          })
-
-          const shippingProfile =
-            await fulfillmentModule.createShippingProfiles({
-              name: "Test",
-              type: "default",
-            })
-
-          const fulfillmentSet = await fulfillmentModule.createFulfillmentSets({
-            name: "Test",
-            type: "test-type",
-            service_zones: [
-              {
-                name: "Test",
-                geo_zones: [
-                  {
-                    type: "country",
-                    country_code: "dk",
-                  },
-                ],
-              },
-            ],
-          })
-
-          const shippingOption = await fulfillmentModule.createShippingOptions({
-            name: "Test shipping option",
-            service_zone_id: fulfillmentSet.service_zones[0].id,
-            shipping_profile_id: shippingProfile.id,
-            provider_id: "manual_test-provider",
-            price_type: "flat",
-            type: {
-              label: "Test type",
-              description: "Test description",
-              code: "test-code",
-            },
-          })
-
-          await remoteLink.create([
-            {
-              [Modules.SALES_CHANNEL]: {
-                sales_channel_id: salesChannel.id,
-              },
-              [Modules.STOCK_LOCATION]: {
-                stock_location_id: location.id,
-              },
-            },
-            {
-              [Modules.STOCK_LOCATION]: {
-                stock_location_id: location.id,
-              },
-              [Modules.FULFILLMENT]: {
-                fulfillment_set_id: fulfillmentSet.id,
-              },
-            },
-          ])
-
-          cart = await cartModuleService.retrieveCart(cart.id, {
-            select: ["id"],
-            relations: ["shipping_address"],
-          })
-
-          const { errors } = await listShippingOptionsForCartWorkflow(
-            appContainer
-          ).run({
-            input: { cart_id: cart.id },
-            throwOnError: false,
-          })
-
-          expect(errors).toEqual([
-            expect.objectContaining({
-              message: `Shipping options with IDs ${shippingOption.id} do not have a price`,
-            }),
-          ])
         })
       })
 

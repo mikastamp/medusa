@@ -2132,9 +2132,6 @@ export const sidebar = sidebarAttachHrefCommonOptions([
     ],
   },
   {
-    type: "separator",
-  },
-  {
     type: "category",
     title: "General",
     children: [

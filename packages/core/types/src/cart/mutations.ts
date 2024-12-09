@@ -768,6 +768,11 @@ export interface UpdateShippingMethodDTO {
   amount?: BigNumberInput
 
   /**
+   * The tax inclusivity setting of the shipping method.
+   */
+  is_tax_inclusive?: boolean
+
+  /**
    * The data of the shipping method.
    */
   data?: Record<string, unknown>

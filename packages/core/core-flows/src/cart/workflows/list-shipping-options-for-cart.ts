@@ -1,8 +1,7 @@
-import { deepFlatMap, isPresent, MedusaError } from "@medusajs/framework/utils"
+import { deepFlatMap } from "@medusajs/framework/utils"
 import {
   createWorkflow,
   transform,
-  when,
   WorkflowData,
   WorkflowResponse,
 } from "@medusajs/framework/workflows-sdk"
@@ -16,7 +15,14 @@ export const listShippingOptionsForCartWorkflowId =
  */
 export const listShippingOptionsForCartWorkflow = createWorkflow(
   listShippingOptionsForCartWorkflowId,
-  (input: WorkflowData<{ cart_id: string; is_return?: boolean }>) => {
+  (
+    input: WorkflowData<{
+      cart_id: string
+      option_ids?: string[]
+      is_return?: boolean
+      enabled_in_store?: boolean
+    }>
+  ) => {
     const cartQuery = useQueryGraphStep({
       entity: "cart",
       filters: { id: input.cart_id },
@@ -28,6 +34,8 @@ export const listShippingOptionsForCartWorkflow = createWorkflow(
         "shipping_address.city",
         "shipping_address.country_code",
         "shipping_address.province",
+        "shipping_address.postal_code",
+        "item_total",
         "total",
       ],
       options: { throwIfKeyNotFound: true },
@@ -70,41 +78,30 @@ export const listShippingOptionsForCartWorkflow = createWorkflow(
       }
     )
 
-    const customerGroupIds = when(
-      "get-customer-group",
-      { cart },
-      ({ cart }) => {
-        return !!cart.id
-      }
-    ).then(() => {
-      const customerQuery = useQueryGraphStep({
-        entity: "customer",
-        filters: { id: cart.customer_id },
-        fields: ["groups.id"],
-      }).config({ name: "get-customer" })
+    const queryVariables = transform(
+      { input, fulfillmentSetIds, cart },
+      ({ input, fulfillmentSetIds, cart }) => ({
+        id: input.option_ids,
 
-      return transform({ customerQuery }, ({ customerQuery }) => {
-        const customer = customerQuery.data[0]
+        context: {
+          is_return: input.is_return ?? false,
+          enabled_in_store: input.enabled_in_store ?? true,
+        },
 
-        if (!isPresent(customer)) {
-          return []
-        }
+        filters: {
+          fulfillment_set_id: fulfillmentSetIds,
 
-        const { groups = [] } = customer
+          address: {
+            country_code: cart.shipping_address?.country_code,
+            province_code: cart.shipping_address?.province,
+            city: cart.shipping_address?.city,
+            postal_expression: cart.shipping_address?.postal_code,
+          },
+        },
 
-        return groups.map((group) => group.id)
-      })
-    })
-
-    const pricingContext = transform(
-      { cart, customerGroupIds },
-      ({ cart, customerGroupIds }) => ({
-        ...cart,
-        customer_group_id: customerGroupIds,
+        calculated_price: { context: cart },
       })
     )
-
-    const isReturn = transform({ input }, ({ input }) => !!input.is_return)
 
     const shippingOptions = useRemoteQueryStep({
       entry_point: "shipping_options",
@@ -116,7 +113,6 @@ export const listShippingOptionsForCartWorkflow = createWorkflow(
         "shipping_profile_id",
         "provider_id",
         "data",
-        "amount",
 
         "type.id",
         "type.label",
@@ -132,55 +128,22 @@ export const listShippingOptionsForCartWorkflow = createWorkflow(
 
         "calculated_price.*",
       ],
-      variables: {
-        context: {
-          is_return: isReturn,
-          enabled_in_store: "true",
-        },
-        filters: {
-          fulfillment_set_id: fulfillmentSetIds,
-          address: {
-            city: cart.shipping_address?.city,
-            country_code: cart.shipping_address?.country_code,
-            province_code: cart.shipping_address?.province,
-          },
-        },
-
-        calculated_price: {
-          context: pricingContext,
-        },
-      },
+      variables: queryVariables,
     }).config({ name: "shipping-options-query" })
 
-    const shippingOptionsWithPrice = transform({ shippingOptions }, (data) => {
-      const optionsMissingPrices: string[] = []
+    const shippingOptionsWithPrice = transform(
+      { shippingOptions },
+      ({ shippingOptions }) =>
+        shippingOptions.map((shippingOption) => {
+          const price = shippingOption.calculated_price
 
-      const options = data.shippingOptions.map((shippingOption) => {
-        const { calculated_price, ...options } = shippingOption ?? {}
-
-        if (options?.id && !isPresent(calculated_price?.calculated_amount)) {
-          optionsMissingPrices.push(options.id)
-        }
-
-        return {
-          ...options,
-          amount: calculated_price?.calculated_amount,
-          is_tax_inclusive:
-            !!calculated_price?.is_calculated_price_tax_inclusive,
-        }
-      })
-
-      if (optionsMissingPrices.length) {
-        const ids = optionsMissingPrices.join(", ")
-
-        throw new MedusaError(
-          MedusaError.Types.INVALID_DATA,
-          `Shipping options with IDs ${ids} do not have a price`
-        )
-      }
-
-      return options
-    })
+          return {
+            ...shippingOption,
+            amount: price?.calculated_amount,
+            is_tax_inclusive: !!price?.is_calculated_price_tax_inclusive,
+          }
+        })
+    )
 
     return new WorkflowResponse(shippingOptionsWithPrice)
   }

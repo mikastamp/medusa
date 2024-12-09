@@ -8,11 +8,11 @@ import {
   GeoZoneType,
   Modules,
 } from "@medusajs/framework/utils"
-import { FulfillmentProviderService } from "@services"
 import {
   MockEventBusService,
   moduleIntegrationTestRunner,
 } from "@medusajs/test-utils"
+import { FulfillmentProviderService } from "@services"
 import { resolve } from "path"
 import {
   buildExpectedEventMessageShape,

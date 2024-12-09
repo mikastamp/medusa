@@ -6805,6 +6805,7 @@ __metadata:
     react-transition-group: ^4.4.5
     rehype-mdx-code-props: ^3.0.1
     rehype-slug: ^6.0.0
+    remark-rehype-plugins: "*"
     slugify: ^1.6.6
     swr: ^2.2.0
     tailwind: "*"

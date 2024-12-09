@@ -9119,9 +9119,6 @@ export const generatedSidebar = [
     ]
   },
   {
-    "type": "separator"
-  },
-  {
     "loaded": true,
     "isPathHref": true,
     "type": "category",

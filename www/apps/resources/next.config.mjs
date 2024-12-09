@@ -7,13 +7,27 @@ import {
   workflowDiagramLinkFixerPlugin,
 } from "remark-rehype-plugins"
 import mdxPluginOptions from "./mdx-options.mjs"
+import path from "node:path"
 
 const withMDX = mdx({
   extension: /\.mdx?$/,
   options: {
     rehypePlugins: [
+      [
+        brokenLinkCheckerPlugin,
+        {
+          crossProjects: {
+            docs: {
+              projectPath: path.resolve("..", "book"),
+            },
+            ui: {
+              projectPath: path.resolve("..", "ui"),
+              contentPath: "src/content/docs",
+            },
+          },
+        },
+      ],
       ...mdxPluginOptions.options.rehypePlugins,
-      [brokenLinkCheckerPlugin],
       [localLinksRehypePlugin],
       [typeListLinkFixerPlugin],
       [

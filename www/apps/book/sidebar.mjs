@@ -159,17 +159,17 @@ export const sidebar = numberSidebarItems(
           children: [
             {
               type: "link",
-              title: "Integrate with Service",
+              title: "CMS Module",
               path: "/learn/customization/integrate-systems/service",
             },
             {
               type: "link",
-              title: "Handle Event",
+              title: "Sync to CMS",
               path: "/learn/customization/integrate-systems/handle-event",
             },
             {
               type: "link",
-              title: "Schedule Task",
+              title: "Schedule Syncing",
               path: "/learn/customization/integrate-systems/schedule-task",
             },
           ],

@@ -1,21 +1,13 @@
 import path from "path"
 import { Transformer } from "unified"
-import {
-  ComponentLinkFixerLinkType,
-  ExpressionJsVar,
-  UnistNodeWithData,
-  UnistTree,
-} from "../types/index.js"
+import { UnistNodeWithData, UnistTree } from "../types/index.js"
 import { FixLinkOptions, fixLinkUtil } from "../index.js"
 import getAttribute from "../utils/get-attribute.js"
 import { estreeToJs } from "../utils/estree-to-js.js"
-import {
-  isExpressionJsVarLiteral,
-  isExpressionJsVarObj,
-} from "../utils/expression-is-utils.js"
 import { ComponentLinkFixerOptions } from "../types/index.js"
+import { performActionOnLiteral } from "./perform-action-on-literal.js"
+import { MD_LINK_REGEX } from "../constants.js"
 
-const MD_LINK_REGEX = /\[(.*?)\]\((?<link>(![a-z]+!|\.).*?)\)/gm
 const VALUE_LINK_REGEX = /^(![a-z]+!|\.)/gm
 
 function matchMdLinks(
@@ -59,33 +51,6 @@ function matchValueLink(
   })
 }
 
-function traverseJsVar(
-  item: ExpressionJsVar[] | ExpressionJsVar,
-  linkOptions: Omit<FixLinkOptions, "linkedPath">,
-  checkLinksType: ComponentLinkFixerLinkType
-) {
-  const linkFn = checkLinksType === "md" ? matchMdLinks : matchValueLink
-  if (Array.isArray(item)) {
-    item.forEach((item) => traverseJsVar(item, linkOptions, checkLinksType))
-  } else if (isExpressionJsVarLiteral(item)) {
-    item.original.value = linkFn(item.original.value as string, linkOptions)
-    item.original.raw = JSON.stringify(item.original.value)
-  } else {
-    Object.values(item).forEach((value) => {
-      if (Array.isArray(value) || isExpressionJsVarObj(value)) {
-        return traverseJsVar(value, linkOptions, checkLinksType)
-      }
-
-      if (!isExpressionJsVarLiteral(value)) {
-        return
-      }
-
-      value.original.value = linkFn(value.original.value as string, linkOptions)
-      value.original.raw = JSON.stringify(value.original.value)
-    })
-  }
-}
-
 export function componentLinkFixer(
   componentName: string,
   attributeName: string,
@@ -117,12 +82,12 @@ export function componentLinkFixer(
         return
       }
 
-      const workflowAttribute = getAttribute(node, attributeName)
+      const attribute = getAttribute(node, attributeName)
 
       if (
-        !workflowAttribute ||
-        typeof workflowAttribute.value === "string" ||
-        !workflowAttribute.value.data?.estree
+        !attribute ||
+        typeof attribute.value === "string" ||
+        !attribute.value.data?.estree
       ) {
         return
       }
@@ -132,13 +97,17 @@ export function componentLinkFixer(
         appsPath,
       }
 
-      const itemJsVar = estreeToJs(workflowAttribute.value.data.estree)
+      const itemJsVar = estreeToJs(attribute.value.data.estree)
 
       if (!itemJsVar) {
         return
       }
 
-      traverseJsVar(itemJsVar, linkOptions, checkLinksType)
+      const linkFn = checkLinksType === "md" ? matchMdLinks : matchValueLink
+      performActionOnLiteral(itemJsVar, (item) => {
+        item.original.value = linkFn(item.original.value as string, linkOptions)
+        item.original.raw = JSON.stringify(item.original.value)
+      })
     })
   }
 }

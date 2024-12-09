@@ -397,6 +397,7 @@ export default class PromotionModuleService
         ],
       },
       {
+        take: null,
         relations: [
           "application_method",
           "application_method.target_rules",
@@ -421,18 +422,10 @@ export default class PromotionModuleService
     const appliedCodes = [...appliedShippingCodes, ...appliedItemCodes]
 
     for (const appliedCode of appliedCodes) {
-      const promotion = existingPromotionsMap.get(appliedCode)
       const adjustments = codeAdjustmentMap.get(appliedCode) || []
       const action = appliedShippingCodes.includes(appliedCode)
         ? ComputedActions.REMOVE_SHIPPING_METHOD_ADJUSTMENT
         : ComputedActions.REMOVE_ITEM_ADJUSTMENT
-
-      if (!promotion) {
-        throw new MedusaError(
-          MedusaError.Types.INVALID_DATA,
-          `Applied Promotion for code (${appliedCode}) not found`
-        )
-      }
 
       adjustments.forEach((adjustment) =>
         computedActions.push({

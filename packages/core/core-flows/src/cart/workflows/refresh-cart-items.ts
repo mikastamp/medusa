@@ -6,13 +6,14 @@ import {
   WorkflowResponse,
 } from "@medusajs/framework/workflows-sdk"
 import { useRemoteQueryStep } from "../../common/steps/use-remote-query"
-import { refreshCartShippingMethodsStep, updateLineItemsStep } from "../steps"
+import { updateLineItemsStep } from "../steps"
 import { validateVariantPricesStep } from "../steps/validate-variant-prices"
 import {
   cartFieldsForRefreshSteps,
   productVariantsFields,
 } from "../utils/fields"
 import { prepareLineItemData } from "../utils/prepare-line-item-data"
+import { refreshCartShippingMethodsWorkflow } from "./refresh-cart-shipping-methods"
 import { refreshPaymentCollectionForCartWorkflow } from "./refresh-payment-collection"
 import { updateCartPromotionsWorkflow } from "./update-cart-promotions"
 import { updateTaxLinesWorkflow } from "./update-tax-lines"
@@ -100,19 +101,24 @@ export const refreshCartItemsWorkflow = createWorkflow(
       list: false,
     }).config({ name: "refetch–cart" })
 
-    refreshCartShippingMethodsStep({ cart: refetchedCart })
+    refreshCartShippingMethodsWorkflow.runAsStep({
+      input: { cart_id: cart.id },
+    })
 
     updateTaxLinesWorkflow.runAsStep({
       input: { cart_id: cart.id },
     })
 
-    const cartPromoCodes = transform({ cart, input }, ({ cart, input }) => {
-      if (isDefined(input.promo_codes)) {
-        return input.promo_codes
-      } else {
-        return cart.promotions.map((p) => p.code)
+    const cartPromoCodes = transform(
+      { refetchedCart, input },
+      ({ refetchedCart, input }) => {
+        if (isDefined(input.promo_codes)) {
+          return input.promo_codes
+        } else {
+          return refetchedCart.promotions.map((p) => p?.code).filter(Boolean)
+        }
       }
-    })
+    )
 
     updateCartPromotionsWorkflow.runAsStep({
       input: {
