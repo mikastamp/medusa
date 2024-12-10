@@ -73,18 +73,120 @@ export type UpdateConditionalPrice = z.infer<
   typeof UpdateConditionalPriceSchema
 >
 
-export const CondtionalPriceRuleSchema = z.object({
-  prices: z.array(ConditionalPriceSchema),
-})
+function refineDuplicates(
+  data: {
+    prices: {
+      amount: string | number
+      gte?: string | number | null | undefined
+      lte?: string | number | null | undefined
+      lt?: number | null | undefined
+      gt?: number | null | undefined
+      eq?: number | null | undefined
+    }[]
+  },
+  ctx: z.RefinementCtx
+) {
+  const prices = data.prices
+
+  for (let i = 0; i < prices.length; i++) {
+    for (let j = i + 1; j < prices.length; j++) {
+      const price1 = prices[i]
+      const price2 = prices[j]
+
+      if (price1.amount === "" || price2.amount === "") {
+        continue
+      }
+
+      const price1Amount = castNumber(price1.amount)
+      const price2Amount = castNumber(price2.amount)
+
+      if (price1Amount === price2Amount) {
+        addDuplicateAmountError(ctx, j)
+      }
+
+      // Then check conditions separately
+      const conditions = [
+        { value: price1.gte, type: "gte" },
+        { value: price1.lte, type: "lte" },
+        { value: price1.eq, type: "eq" },
+        { value: price1.lt, type: "lt" },
+        { value: price1.gt, type: "gt" },
+      ] as const
+
+      conditions.forEach((condition1) => {
+        if (!condition1.value && condition1.value !== 0) {
+          return
+        }
+
+        const conditions2 = [
+          { value: price2.gte, type: "gte" },
+          { value: price2.lte, type: "lte" },
+          { value: price2.eq, type: "eq" },
+          { value: price2.lt, type: "lt" },
+          { value: price2.gt, type: "gt" },
+        ] as const
+
+        conditions2.forEach((condition2) => {
+          if (!condition2.value && condition2.value !== 0) {
+            return
+          }
+
+          const condition1Value = castNumber(
+            condition1.value as string | number
+          )
+          const condition2Value = castNumber(
+            condition2.value as string | number
+          )
+
+          if (condition1Value === condition2Value) {
+            addOverlappingConditionError(ctx, j, condition2.type)
+          }
+        })
+      })
+    }
+  }
+}
+
+export const CondtionalPriceRuleSchema = z
+  .object({
+    prices: z.array(ConditionalPriceSchema),
+  })
+  .superRefine(refineDuplicates)
 
 export type CondtionalPriceRuleSchemaType = z.infer<
   typeof CondtionalPriceRuleSchema
 >
 
-export const UpdateConditionalPriceRuleSchema = z.object({
-  prices: z.array(UpdateConditionalPriceSchema),
-})
+export const UpdateConditionalPriceRuleSchema = z
+  .object({
+    prices: z.array(UpdateConditionalPriceSchema),
+  })
+  .superRefine(refineDuplicates)
 
 export type UpdateConditionalPriceRuleSchemaType = z.infer<
   typeof UpdateConditionalPriceRuleSchema
 >
+
+const addDuplicateAmountError = (ctx: z.RefinementCtx, index: number) => {
+  ctx.addIssue({
+    code: z.ZodIssueCode.custom,
+    message: t(
+      "stockLocations.shippingOptions.conditionalPrices.errors.duplicateAmount"
+    ),
+    path: ["prices", index, "amount"],
+  })
+}
+
+const addOverlappingConditionError = (
+  ctx: z.RefinementCtx,
+  index: number,
+  type: "gte" | "lte" | "eq" | "lt" | "gt"
+) => {
+  ctx.addIssue({
+    code: z.ZodIssueCode.custom,
+    message: t(
+      "stockLocations.shippingOptions.conditionalPrices.errors.overlappingConditions"
+    ),
+    path: ["prices", index, type],
+  })
+}

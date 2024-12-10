@@ -1,4 +1,5 @@
 export * from "./array"
+export * from "./autoincrement"
 export * from "./base"
 export * from "./big-number"
 export * from "./boolean"

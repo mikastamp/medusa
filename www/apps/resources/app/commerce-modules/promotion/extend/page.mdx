@@ -150,7 +150,7 @@ export default defineMiddlewares({
 })
 ```
 
-The `additional_data` parameter validation is customized using the `defineMiddlewares` utility function. In the routes middleware configuration object, the `additionalDataValidator` property accepts [Zod](https://zod.dev/) validaiton rules.
+The `additional_data` parameter validation is customized using `defineMiddlewares`. In the routes middleware configuration object, the `additionalDataValidator` property accepts [Zod](https://zod.dev/) validaiton rules.
 
 In the snippet above, you add a validation rule indicating that `custom_name` is a string that can be passed in the `additional_data` object.
 
@@ -266,9 +266,9 @@ The workflow accepts as an input the created promotion and the `additional_data`
 
 In the workflow, you:
 
-1. Use the `transform` utility to get the value of `custom_name` based on whether it's set in `additional_data`. Learn more about why you can't use conditional operators in a workflow without using `transform` in [this guide](!docs!/learn/fundamentals/workflows/conditions#why-if-conditions-arent-allowed-in-workflows).
+1. Use `transform` to get the value of `custom_name` based on whether it's set in `additional_data`. Learn more about why you can't use conditional operators in a workflow without using `transform` in [this guide](!docs!/learn/fundamentals/workflows/conditions#why-if-conditions-arent-allowed-in-workflows).
 2. Create the `Custom` record using the `createCustomStep`.
-3. Use the `when-then` utility to link the promotion to the `Custom` record if it was created. Learn more about why you can't use if-then conditions in a workflow without using `when-then` in [this guide](!docs!/learn/fundamentals/workflows/conditions#why-if-conditions-arent-allowed-in-workflows).
+3. Use `when-then` to link the promotion to the `Custom` record if it was created. Learn more about why you can't use if-then conditions in a workflow without using `when-then` in [this guide](!docs!/learn/fundamentals/workflows/conditions#why-if-conditions-arent-allowed-in-workflows).
 
 You'll next execute the workflow in the hook handler.
 
@@ -580,7 +580,7 @@ const created = when({
 // TODO update, or delete Custom record
 ```
 
-Using the `when-then` utility, you check if the promotion doesn't have a linked `Custom` record and the `custom_name` property is set. If so, you create a `Custom` record and link it to the promotion.
+Using `when-then`, you check if the promotion doesn't have a linked `Custom` record and the `custom_name` property is set. If so, you create a `Custom` record and link it to the promotion.
 
 To create the `Custom` record, you use the `createCustomStep` you created in an earlier section.
 
@@ -613,7 +613,7 @@ const deleted = when({
 // TODO delete Custom record
 ```
 
-Using the `when-then` utility, you check if the promotion has a linked `Custom` record and `custom_name` is `null` or an empty string. If so, you delete the linked `Custom` record and dismiss its links.
+Using `when-then`, you check if the promotion has a linked `Custom` record and `custom_name` is `null` or an empty string. If so, you delete the linked `Custom` record and dismiss its links.
 
 Finally, replace the new `TODO` with the following:
 
@@ -638,7 +638,7 @@ return new WorkflowResponse({
 })
 ```
 
-Using the `when-then` utility, you check if the promotion has a linked `Custom` record and `custom_name` is passed in the `additional_data`. If so, you update the linked `Custom` record.
+Using `when-then`, you check if the promotion has a linked `Custom` record and `custom_name` is passed in the `additional_data`. If so, you update the linked `Custom` record.
 
 You return in the workflow response the created, updated, and deleted `Custom` record.
 

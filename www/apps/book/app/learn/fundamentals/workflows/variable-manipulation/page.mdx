@@ -4,7 +4,7 @@ export const metadata = {
 
 # {metadata.title}
 
-In this chapter, you'll learn how to use the `transform` utility to manipulate variables in a workflow.
+In this chapter, you'll learn how to use `transform` from the Workflows SDK to manipulate variables in a workflow.
 
 ## Why Variable Manipulation isn't Allowed in Workflows
 
@@ -14,13 +14,13 @@ At that point, variables in the workflow don't have any values. They only do whe
 
 So, you can only pass variables as parameters to steps. But, in a workflow, you can't change a variable's value or, if the variable is an array, loop over its items.
 
-Instead, use the transform utility.
+Instead, use `transform` from the Workflows SDK.
 
 ---
 
 ## What is the transform Utility?
 
-The `transform` utility function creates a new variable as the result of manipulating other variables.
+`transform` creates a new variable as the result of manipulating other variables.
 
 For example, consider you have two strings as the output of two steps:
 
@@ -62,7 +62,7 @@ const myWorkflow = createWorkflow(
 )
 ```
 
-The `transform` utility function is imported from `@medusajs/framework/workflows-sdk`. It accepts two parameters:
+`transform` accepts two parameters:
 
 1. The first parameter is an object of variables to manipulate. The object is passed as a parameter to `transform`'s second parameter function.
 2. The second parameter is the function performing the variable manipulation.
@@ -111,7 +111,7 @@ const myWorkflow = createWorkflow(
 
 This workflow receives an `items` array in its input.
 
-You use the `transform` utility to create an `ids` variable, which is an array of strings holding the `id` of each item in the `items` array.
+You use `transform` to create an `ids` variable, which is an array of strings holding the `id` of each item in the `items` array.
 
 You then pass the `ids` variable as a parameter to the `doSomethingStep`.
 
@@ -144,7 +144,7 @@ In this workflow, `today` is only evaluated when the workflow is executed.
 
 ### Transform Evaluation
 
-The transform utility's value is only evaluated if you pass its output to a step or in the workflow response.
+`transform`'s value is only evaluated if you pass its output to a step or in the workflow response.
 
 For example, if you have the following workflow:
 
@@ -166,9 +166,9 @@ Since `str`'s value isn't used as a step's input or passed to `WorkflowResponse`
 
 ### Data Validation
 
-The `transform` utility should only be used to perform variable or data manipulation.
+`transform` should only be used to perform variable or data manipulation.
 
-If you want to perform some validation on the data, use a step or the [when-then utility](../conditions/page.mdx) instead.
+If you want to perform some validation on the data, use a step or [when-then](../conditions/page.mdx) instead.
 
 For example:
 

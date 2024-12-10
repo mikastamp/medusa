@@ -125,7 +125,7 @@ export default defineMiddlewares({
 
 You apply the `validateAndTransformQuery` middleware on the `GET /admin/brands` API route. The middleware accepts two parameters:
 
-- A [Zod](https://zod.dev/) schema that a request's query parameters must satisfy. Medusa provides a `createFindParams` utility that generates a Zod schema with the following properties:
+- A [Zod](https://zod.dev/) schema that a request's query parameters must satisfy. Medusa provides `createFindParams` that generates a Zod schema with the following properties:
     - `fields`: A comma-separated string indicating the fields to retrieve.
     - `limit`: The maximum number of items to retrieve.
     - `offset`: The number of items to skip before retrieving the returned items.

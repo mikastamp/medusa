@@ -41,6 +41,7 @@ export type KnownDataTypes =
   | "enum"
   | "number"
   | "bigNumber"
+  | "serial"
   | "dateTime"
   | "array"
   | "json"
@@ -310,6 +311,11 @@ export type EntityIndex<
    * Conditions to restrict which records are indexed.
    */
   where?: Where
+
+  /**
+   * The type of the index. (e.g: GIN)
+   */
+  type?: string
 }
 
 export type SimpleQueryValue = string | number | boolean | null

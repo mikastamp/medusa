@@ -9,6 +9,7 @@ import {
 import {
   Badge,
   Button,
+  clx,
   CurrencyInput,
   Heading,
   IconButton,
@@ -110,14 +111,28 @@ export const ConditionalPriceForm = ({
     remove(index)
   }
 
-  const handleOnSubmit = conditionalPriceForm.handleSubmit((values) => {
-    setFormValue(name, values.prices, {
-      shouldDirty: true,
-      shouldValidate: true,
-      shouldTouch: true,
-    })
-    onCloseConditionalPricesModal()
-  })
+  const handleOnSubmit = conditionalPriceForm.handleSubmit(
+    (values) => {
+      setFormValue(name, values.prices, {
+        shouldDirty: true,
+        shouldValidate: true,
+        shouldTouch: true,
+      })
+      onCloseConditionalPricesModal()
+    },
+    (e) => {
+      const indexesWithErrors = Object.keys(e.prices || {})
+      setValue((prev) => {
+        const values = new Set(prev)
+
+        indexesWithErrors.forEach((index) => {
+          values.add(getRuleValue(Number(index)))
+        })
+
+        return Array.from(values)
+      })
+    }
+  )
 
   // Intercept the Cmd + Enter key to only save the inner form.
   const handleOnKeyDown = (event: React.KeyboardEvent<HTMLFormElement>) => {
@@ -255,7 +270,9 @@ const ConditionalPriceItem = ({
   return (
     <Accordion.Item
       value={getRuleValue(index)}
-      className="bg-ui-bg-component shadow-elevation-card-rest rounded-lg"
+      className={clx(
+        "bg-ui-bg-component shadow-elevation-card-rest rounded-lg"
+      )}
     >
       <Accordion.Trigger asChild>
         <div className="group/trigger flex w-full cursor-pointer items-start justify-between gap-x-2 p-3">

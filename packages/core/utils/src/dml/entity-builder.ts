@@ -13,6 +13,7 @@ import {
   DMLSchemaDefaults,
 } from "./helpers/entity-builder/create-default-properties"
 import { ArrayProperty } from "./properties/array"
+import { AutoIncrementProperty } from "./properties/autoincrement"
 import { BigNumberProperty } from "./properties/big-number"
 import { BooleanProperty } from "./properties/boolean"
 import { DateTimeProperty } from "./properties/date-time"
@@ -24,8 +25,8 @@ import { TextProperty } from "./properties/text"
 import { BelongsTo } from "./relations/belongs-to"
 import { HasMany } from "./relations/has-many"
 import { HasOne } from "./relations/has-one"
-import { ManyToMany } from "./relations/many-to-many"
 import { HasOneWithForeignKey } from "./relations/has-one-fk"
+import { ManyToMany } from "./relations/many-to-many"
 
 /**
  * The implicit properties added by EntityBuilder in every schema
@@ -60,11 +61,11 @@ export type ManyToManyOptions = RelationshipOptions &
         /**
          * The column name in the pivot table that for the current entity
          */
-        joinColumn?: string
+        joinColumn?: string | string[]
         /**
          * The column name in the pivot table for the opposite entity
          */
-        inverseJoinColumn?: string
+        inverseJoinColumn?: string | string[]
       }
     | {
         /**
@@ -77,6 +78,14 @@ export type ManyToManyOptions = RelationshipOptions &
          * database for this relationship.
          */
         pivotEntity?: () => DmlEntity<any, any>
+        /**
+         * The column name in the pivot table that for the current entity
+         */
+        joinColumn?: string | string[]
+        /**
+         * The column name in the pivot table for the opposite entity
+         */
+        inverseJoinColumn?: string | string[]
       }
   )
 
@@ -238,6 +247,26 @@ export class EntityBuilder {
    */
   bigNumber() {
     return new BigNumberProperty()
+  }
+
+  /**
+   * This method defines an autoincrement property.
+   *
+   * @example
+   * import { model } from "@medusajs/framework/utils"
+   *
+   * const MyCustom = model.define("my_custom", {
+   *   serial_id: model.autoincrement(),
+   *   // ...
+   * })
+   *
+   * export default MyCustom
+   *
+   * @customNamespace Property
+   */
+
+  autoincrement() {
+    return new AutoIncrementProperty()
   }
 
   /**

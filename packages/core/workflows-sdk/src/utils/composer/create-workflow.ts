@@ -42,7 +42,7 @@ global[OrchestrationUtils.SymbolMedusaWorkflowComposerContext] = null
  *   createWorkflow,
  *   WorkflowResponse
  * } from "@medusajs/framework/workflows-sdk"
- * import { MedusaRequest, MedusaResponse } from "@medusajs/medusa"
+ * import { MedusaRequest, MedusaResponse } from "@medusajs/framework/http"
  * import {
  *   createProductStep,
  *   getProductStep,

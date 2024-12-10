@@ -50,7 +50,7 @@ const HomepageCodeTabs = () => {
           [
             "5",
             `query`,
-            "Query utility to retrieve data from a graph of\nall data models and their relations.",
+            "use Query that retrieves data from a graph of\nall data models and their relations.",
           ],
           ["8", `"company"`, "Retrieve records of the `company` data model"],
           ["13", "res.json", "Return a JSON response"],

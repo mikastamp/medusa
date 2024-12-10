@@ -1,5 +1,11 @@
 # @medusajs/promotion
 
+## 2.1.1
+
+### Patch Changes
+
+- [#10489](https://github.com/medusajs/medusa/pull/10489) [`f95c4e240c4a5ca0fb88a09636c3d8a2266de279`](https://github.com/medusajs/medusa/commit/f95c4e240c4a5ca0fb88a09636c3d8a2266de279) Thanks [@riqwan](https://github.com/riqwan)! - fix(promotion, core-flows): updating cart with removed promotion removes adjustments
+
 ## 2.1.0
 
 ## 2.0.7

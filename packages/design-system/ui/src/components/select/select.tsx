@@ -1,6 +1,6 @@
 "use client"
 
-import { EllipseMiniSolid, TrianglesMini } from "@medusajs/icons"
+import { Check, TrianglesMini } from "@medusajs/icons"
 import * as SelectPrimitive from "@radix-ui/react-select"
 import { cva } from "cva"
 import * as React from "react"
@@ -194,7 +194,7 @@ const Item = React.forwardRef<
     >
       <span className="flex h-[15px] w-[15px] items-center justify-center">
         <SelectPrimitive.ItemIndicator className="flex items-center justify-center">
-          <EllipseMiniSolid />
+          <Check />
         </SelectPrimitive.ItemIndicator>
       </span>
       <SelectPrimitive.ItemText className="flex-1 truncate">

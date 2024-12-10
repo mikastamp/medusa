@@ -796,7 +796,7 @@ export const POST = async (
 
 This adds a `POST` API route at `/admin/digital-products/upload/[type]` where `[type]` is either `preview` or `main`.
 
-In the route handler, you use the `uploadFilesWorkflow` imported from `@medusajs/medusa/core-flows` to upload the file. If the file type is `main`, it’s uploaded with private access, as only customers who purchased it can download it. Otherwise, it’s uploaded with `public` access.
+In the route handler, you use `uploadFilesWorkflow` from Medusa's core workflows to upload the file. If the file type is `main`, it’s uploaded with private access, as only customers who purchased it can download it. Otherwise, it’s uploaded with `public` access.
 
 Next, add to the file `src/api/middlewares.ts` the `multer` middleware on this API route:
 
@@ -1846,7 +1846,7 @@ In this step, you'll create a workflow that fulfills a digital order by sending 
 
 The workflow has the following steps:
 
-1. Retrieve the digital product order's details. For this, you'll use the `useQueryGraphStep` imported from `@medusajs/medusa/core-flows`.
+1. Retrieve the digital product order's details. For this, you'll use `useQueryGraphStep` from Medusa's core workflows.
 2. Send a notification to the customer with the digital products to download.
 
 So, you only need to implement the second step.
@@ -1869,7 +1869,7 @@ export type DigitalProductOrder =
 
 This adds a type for a digital product order, which you'll use next.
 
-You use the `InferTypeOf` utility to infer the type of the `DigitalProductOrder` data model, and add to it the optional `order` property, which is the linked order.
+You use `InferTypeOf` to infer the type of the `DigitalProductOrder` data model, and add to it the optional `order` property, which is the linked order.
 
 ### Create sendDigitalOrderNotificationStep
 
@@ -2013,7 +2013,7 @@ export const fulfillDigitalOrderWorkflow = createWorkflow(
 
 In the workflow, you:
 
-1. Retrieve the digital product order's details using the `useQueryGraphStep` imported from `@medusajs/medusa/core-flows`.
+1. Retrieve the digital product order's details using `useQueryGraphStep` from Medusa's core workflows.
 2. Send a notification to the customer with the digital product download links using the `sendDigitalOrderNotificationStep`.
 
 ### Configure Notification Module Provider

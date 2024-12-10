@@ -668,6 +668,10 @@ export const filesMap = [
     "pathname": "/recipes/commerce-automation"
   },
   {
+    "filePath": "/www/apps/resources/app/recipes/commerce-automation/restock-notification/page.mdx",
+    "pathname": "/recipes/commerce-automation/restock-notification"
+  },
+  {
     "filePath": "/www/apps/resources/app/recipes/digital-products/examples/standard/page.mdx",
     "pathname": "/recipes/digital-products/examples/standard"
   },

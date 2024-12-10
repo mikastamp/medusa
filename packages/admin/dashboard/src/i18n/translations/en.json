@@ -1493,7 +1493,9 @@
         "errors": {
           "amountRequired": "Shipping option price is required",
           "minOrMaxRequired": "At least one of minimum or maximum cart item total must be provided",
-          "minGreaterThanMax": "Minimum cart item total must be less than or equal to maximum cart item total"
+          "minGreaterThanMax": "Minimum cart item total must be less than or equal to maximum cart item total",
+          "duplicateAmount": "Shipping option price must be unique for each condition",
+          "overlappingConditions": "Conditions must be unique across all price rules"
         }
       },
       "fields": {

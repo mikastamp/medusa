@@ -103,6 +103,11 @@ const redirects = async () => {
       destination: "/learn/fundamentals/:path*",
       permanent: true,
     },
+    {
+      source: "/learn/storefront-development/nextjs-starter",
+      destination: "/resources/nextjs-starter",
+      permanent: true,
+    },
   ]
 }
 

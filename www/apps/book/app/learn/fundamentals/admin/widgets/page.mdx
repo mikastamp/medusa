@@ -61,7 +61,7 @@ export default ProductWidget
 
 You export the `ProductWidget` component, which shows the heading `Product Widget`. In the widget, you use [Medusa UI](!ui!), a package that Medusa maintains to allow you to customize the dashboard with the same components used to build it.
 
-To export the widget's configurations, you use the `defineWidgetConfig` function imported from `@medusajs/admin-sdk`. It accepts as a parameter an object with the `zone` property, whose value is a string or an array of strings, each being the name of the zone to inject the widget into.
+To export the widget's configurations, you use `defineWidgetConfig` from the Admin Extension SDK. It accepts as a parameter an object with the `zone` property, whose value is a string or an array of strings, each being the name of the zone to inject the widget into.
 
 In the example above, the widget is injected at the top of a product’s details.
 

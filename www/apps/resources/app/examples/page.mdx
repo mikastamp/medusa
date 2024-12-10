@@ -566,7 +566,7 @@ Learn more in [this documentation](!docs!/learn/fundamentals/api-routes/protecte
 
 ### Throw Errors in API Route
 
-To throw errors in an API route, use the `MedusaError` utility:
+To throw errors in an API route, use `MedusaError` from the Medusa Framework:
 
 ```ts highlights={[["9", "MedusaError"]]}
 import { MedusaRequest, MedusaResponse } from "@medusajs/framework/http"
@@ -2244,7 +2244,7 @@ Learn more in [this documentation](!docs!/learn/fundamentals/workflows/compensat
 
 ### Manipulate Variables in Workflow
 
-To manipulate variables within a workflow's constructor function, use the `transform` utility:
+To manipulate variables within a workflow's constructor function, use `transform` from the Workflows SDK:
 
 ```ts highlights={[["14", "transform"]]}
 import { 
@@ -2274,7 +2274,7 @@ Learn more in [this documentation](!docs!/learn/fundamentals/workflows/variable-
 
 ### Using Conditions in Workflow
 
-To perform steps or set a variable's value based on a condition, use the `when-then` utility:
+To perform steps or set a variable's value based on a condition, use `when-then` from the Workflows SDK:
 
 ```ts highlights={[["14", "when"]]}
 import { 
@@ -2418,7 +2418,7 @@ Learn more in [this documentation](!docs!/learn/fundamentals/workflows/retry-fai
 
 ### Run Steps in Parallel
 
-If steps in a workflow don't depend on one another, run them in parallel using the `parallel` utility:
+If steps in a workflow don't depend on one another, run them in parallel using `parallel` from the Workflows SDK:
 
 ```ts highlights={[["22", "parallelize"]]}
 import {

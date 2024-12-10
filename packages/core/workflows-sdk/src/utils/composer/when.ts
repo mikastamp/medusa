@@ -19,6 +19,48 @@ type ThenFunc = <ThenResolver extends () => any>(
   ? WorkflowData<ReturnedWorkflowData> | undefined
   : ReturnType<ThenResolver>
 
+/**
+ * This function allows you to execute steps only if a condition is satisfied. As you can't use if conditions in 
+ * a workflow's constructor function, use `when-then` instead.
+ * 
+ * Learn more about why you can't use if conditions and `when-then` in [this documentation](https://docs.medusajs.com/learn/fundamentals/workflows/conditions).
+ * 
+ * @param values - The data to pass to the second parameter function.
+ * @param condition - A function that returns a boolean value, indicating whether the steps in `then` should be executed.
+ * 
+ * @example
+ * import { 
+ *   createWorkflow,
+ *   WorkflowResponse,
+ *   when,
+ * } from "@medusajs/framework/workflows-sdk"
+ * // step imports...
+ * 
+ * const workflow = createWorkflow(
+ *   "workflow", 
+ *   function (input: {
+ *     is_active: boolean
+ *   }) {
+ * 
+ *     const result = when(
+ *       input, 
+ *       (input) => {
+ *         return input.is_active
+ *       }
+ *     ).then(() => {
+ *       const stepResult = isActiveStep()
+ *       return stepResult
+ *     })
+ * 
+ *     // executed without condition
+ *     const anotherStepResult = anotherStep(result)
+ * 
+ *     return new WorkflowResponse(
+ *       anotherStepResult
+ *     )
+ *   }
+ * )
+ */
 export function when<T extends object | WorkflowData, Then extends Function>(
   values: T,
   condition: ConditionFunction<T>
@@ -26,6 +68,9 @@ export function when<T extends object | WorkflowData, Then extends Function>(
   then: ThenFunc
 }
 
+/**
+ * @internal
+ */
 export function when<T extends object | WorkflowData, Then extends Function>(
   name: string,
   values: T,
@@ -34,6 +79,9 @@ export function when<T extends object | WorkflowData, Then extends Function>(
   then: ThenFunc
 }
 
+/**
+ * @internal
+ */
 export function when(...args) {
   let [name, input, condition] = args
   if (args.length === 2) {

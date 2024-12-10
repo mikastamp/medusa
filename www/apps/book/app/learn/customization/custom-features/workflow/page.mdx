@@ -31,7 +31,7 @@ Learn more about workflows in [this chapter](../../../fundamentals/workflows/pag
 
 ## 1. Create createBrandStep
 
-A workflow consists of a series of steps, each step created in a TypeScript or JavaScript file under the `src/workflows` directory. A step is defined using the `createStep` utility function imported from `@medusajs/framework/workflows-sdk`.
+A workflow consists of a series of steps, each step created in a TypeScript or JavaScript file under the `src/workflows` directory. A step is defined using `createStep` from the Workflows SDK
 
 The workflow you're creating in this guide has one step to create the brand. So, create the file `src/workflows/create-brand.ts` with the following content:
 
@@ -120,7 +120,7 @@ So, if an error occurs during the workflow's execution, the brand that was creat
 
 ## 2. Create createBrandWorkflow
 
-You can now create the workflow that runs the `createBrandStep`. A workflow is created in a TypeScript or JavaScript file under the `src/workflows` directory. In the file, you use the `createWorkflow` function imported from `@medusajs/framework/workflows-sdk` to create the workflow.
+You can now create the workflow that runs the `createBrandStep`. A workflow is created in a TypeScript or JavaScript file under the `src/workflows` directory. In the file, you use `createWorkflow` from the Workflows SDK to create the workflow.
 
 Add the following content in the same `src/workflows/create-brand.ts` file:
 

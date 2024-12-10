@@ -1,5 +1,14 @@
 # @medusajs/ui
 
+## 4.0.2
+
+### Patch Changes
+
+- [#10481](https://github.com/medusajs/medusa/pull/10481) [`c9a66b19afcfcc626f9e2e4531771dc36f66a65e`](https://github.com/medusajs/medusa/commit/c9a66b19afcfcc626f9e2e4531771dc36f66a65e) Thanks [@kasperkristensen](https://github.com/kasperkristensen)! - fix(dashboard,ui): Bring ConditionBlock in line with design
+
+- Updated dependencies []:
+  - @medusajs/icons@2.1.1
+
 ## 4.0.1
 
 ### Patch Changes

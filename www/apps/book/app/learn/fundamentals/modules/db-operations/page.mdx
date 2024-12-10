@@ -18,12 +18,12 @@ This chapter is intended for more advanced database use-cases where you need mor
 
 [MikroORM's entity manager](https://mikro-orm.io/docs/entity-manager) is a class that has methods to run queries on the database and perform operations.
 
-Medusa provides an `InjectManager` decorator imported from `@medusajs/utils` that injects a service's method with a [forked entity manager](https://mikro-orm.io/docs/identity-map#forking-entity-manager).
+Medusa provides an `InjectManager` decorator from the Modules SDK that injects a service's method with a [forked entity manager](https://mikro-orm.io/docs/identity-map#forking-entity-manager).
 
 So, to run database queries in a service:
 
 1. Add the `InjectManager` decorator to the method.
-2. Add as a last parameter an optional `sharedContext` parameter that has the `MedusaContext` decorator imported from `@medusajs/utils`. This context holds database-related context, including the manager injected by `InjectManager`
+2. Add as a last parameter an optional `sharedContext` parameter that has the `MedusaContext` decorator from the Modules SDK. This context holds database-related context, including the manager injected by `InjectManager`
 
 For example, in your service, add the following methods:
 
@@ -81,10 +81,10 @@ Refer to [MikroORM's reference](https://mikro-orm.io/api/5.9/knex/class/EntityMa
 
 To wrap database operations in a transaction, you create two methods:
 
-1. A private or protected method that's wrapped in a transaction. To wrap it in a transaction, you use the `InjectTransactionManager` decorator imported from `@medusajs/utils`.
+1. A private or protected method that's wrapped in a transaction. To wrap it in a transaction, you use the `InjectTransactionManager` decorator from the Modules SDK.
 2. A public method that calls the transactional method. You use on it the `InjectManager` decorator as explained in the previous section.
 
-Both methods must accept as a last parameter an optional `sharedContext` parameter that has the `MedusaContext` decorator imported from `@medusajs/utils`. It holds database-related contexts passed through the Medusa application.
+Both methods must accept as a last parameter an optional `sharedContext` parameter that has the `MedusaContext` decorator from the Modules SDK. It holds database-related contexts passed through the Medusa application.
 
 For example:
 

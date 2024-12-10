@@ -2978,15 +2978,11 @@
                   "type": "string"
                 }
               },
-              "required": [
-                "stockedQuantity"
-              ],
+              "required": ["stockedQuantity"],
               "additionalProperties": false
             }
           },
-          "required": [
-            "errors"
-          ],
+          "required": ["errors"],
           "additionalProperties": false
         },
         "toast": {
@@ -3792,10 +3788,7 @@
                   "type": "string"
                 }
               },
-              "required": [
-                "title",
-                "requestSuccess"
-              ],
+              "required": ["title", "requestSuccess"],
               "additionalProperties": false
             },
             "shippingAddress": {
@@ -3808,10 +3801,7 @@
                   "type": "string"
                 }
               },
-              "required": [
-                "title",
-                "requestSuccess"
-              ],
+              "required": ["title", "requestSuccess"],
               "additionalProperties": false
             },
             "billingAddress": {
@@ -3824,18 +3814,11 @@
                   "type": "string"
                 }
               },
-              "required": [
-                "title",
-                "requestSuccess"
-              ],
+              "required": ["title", "requestSuccess"],
               "additionalProperties": false
             }
           },
-          "required": [
-            "email",
-            "shippingAddress",
-            "billingAddress"
-          ],
+          "required": ["email", "shippingAddress", "billingAddress"],
           "additionalProperties": false
         },
         "returns": {
@@ -4987,11 +4970,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "shipping_address",
-                    "billing_address",
-                    "email"
-                  ],
+                  "required": ["shipping_address", "billing_address", "email"],
                   "additionalProperties": false
                 }
               },
@@ -5560,9 +5539,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "cartItemTotal"
-                  ],
+                  "required": ["cartItemTotal"],
                   "additionalProperties": false
                 },
                 "summaries": {
@@ -5578,11 +5555,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "range",
-                    "greaterThan",
-                    "lessThan"
-                  ],
+                  "required": ["range", "greaterThan", "lessThan"],
                   "additionalProperties": false
                 },
                 "actions": {
@@ -5595,10 +5568,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "addPrice",
-                    "manageConditionalPrices"
-                  ],
+                  "required": ["addPrice", "manageConditionalPrices"],
                   "additionalProperties": false
                 },
                 "rules": {
@@ -5614,11 +5584,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "amount",
-                    "gte",
-                    "lte"
-                  ],
+                  "required": ["amount", "gte", "lte"],
                   "additionalProperties": false
                 },
                 "customRules": {
@@ -5640,13 +5606,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "label",
-                    "tooltip",
-                    "eq",
-                    "gt",
-                    "lt"
-                  ],
+                  "required": ["label", "tooltip", "eq", "gt", "lt"],
                   "additionalProperties": false
                 },
                 "errors": {
@@ -5660,12 +5620,20 @@
                     },
                     "minGreaterThanMax": {
                       "type": "string"
+                    },
+                    "duplicateAmount": {
+                      "type": "string"
+                    },
+                    "overlappingConditions": {
+                      "type": "string"
                     }
                   },
                   "required": [
                     "amountRequired",
                     "minOrMaxRequired",
-                    "minGreaterThanMax"
+                    "minGreaterThanMax",
+                    "duplicateAmount",
+                    "overlappingConditions"
                   ],
                   "additionalProperties": false
                 }
@@ -8842,16 +8810,6 @@
         "deleteSalesChannelWarning": {
           "type": "string"
         },
-        "tooltip": {
-          "type": "object",
-          "properties": {
-            "cannotDeleteDefault": {
-              "type": "string"
-            }
-          },
-          "required": ["cannotDeleteDefault"],
-          "additionalProperties": false
-        },
         "toast": {
           "type": "object",
           "properties": {
@@ -8866,6 +8824,16 @@
             }
           },
           "required": ["create", "update", "delete"],
+          "additionalProperties": false
+        },
+        "tooltip": {
+          "type": "object",
+          "properties": {
+            "cannotDeleteDefault": {
+              "type": "string"
+            }
+          },
+          "required": ["cannotDeleteDefault"],
           "additionalProperties": false
         },
         "products": {
@@ -8916,6 +8884,7 @@
         "productAlreadyAdded",
         "deleteSalesChannelWarning",
         "toast",
+        "tooltip",
         "products"
       ],
       "additionalProperties": false

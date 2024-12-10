@@ -479,13 +479,6 @@ export const sidebar = numberSidebarItems(
       path: "/learn/storefront-development",
       title: "Storefront Development",
       chapterTitle: "Storefront",
-      children: [
-        {
-          type: "link",
-          path: "/learn/storefront-development/nextjs-starter",
-          title: "Next.js Starter",
-        },
-      ],
     },
     {
       type: "link",

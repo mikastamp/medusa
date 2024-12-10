@@ -4,8 +4,6 @@ import {
   PropertyMetadata,
   PropertyType,
 } from "@medusajs/types"
-import { MikroOrmBigNumberProperty } from "../../../dal"
-import { generateEntityId, isDefined } from "../../../common"
 import {
   ArrayType,
   BeforeCreate,
@@ -14,7 +12,10 @@ import {
   PrimaryKey,
   Property,
   Utils,
+  t as mikroOrmType,
 } from "@mikro-orm/core"
+import { generateEntityId, isDefined } from "../../../common"
+import { MikroOrmBigNumberProperty } from "../../../dal"
 import { PrimaryKeyModifier } from "../../properties/primary-key"
 import { applyEntityIndexes } from "../mikro-orm/apply-indexes"
 
@@ -32,6 +33,7 @@ const COLUMN_TYPES: {
   dateTime: "timestamptz",
   number: "integer",
   bigNumber: "numeric",
+  serial: "number",
   text: "text",
   json: "jsonb",
   array: "array",
@@ -51,6 +53,7 @@ const PROPERTY_TYPES: {
   dateTime: "date",
   number: "number",
   bigNumber: "number",
+  serial: "number",
   text: "string",
   json: "any",
   array: "string[]",
@@ -202,19 +205,16 @@ export function defineProperty(
    * Defining an id property
    */
   if (field.dataType.name === "id") {
-    const IdDecorator = PrimaryKeyModifier.isPrimaryKeyModifier(property)
-      ? PrimaryKey({
-          columnType: "text",
-          type: "string",
-          nullable: false,
-          fieldName: field.fieldName,
-        })
-      : Property({
-          columnType: "text",
-          type: "string",
-          nullable: false,
-          fieldName: field.fieldName,
-        })
+    const Prop = PrimaryKeyModifier.isPrimaryKeyModifier(property)
+      ? PrimaryKey
+      : Property
+
+    const IdDecorator = Prop({
+      columnType: "text",
+      type: "string",
+      nullable: false,
+      fieldName: field.fieldName,
+    })
 
     IdDecorator(MikroORMEntity.prototype, field.fieldName)
 
@@ -255,6 +255,24 @@ export function defineProperty(
       ...(isDefined(field.defaultValue) && {
         default: JSON.stringify(field.defaultValue),
       }),
+    })(MikroORMEntity.prototype, field.fieldName)
+    return
+  }
+
+  /**
+   * Handling serial property separately to set the column type
+   */
+  if (field.dataType.name === "serial") {
+    const Prop = PrimaryKeyModifier.isPrimaryKeyModifier(property)
+      ? PrimaryKey
+      : Property
+
+    Prop({
+      columnType: "serial",
+      type: mikroOrmType.integer,
+      nullable: true,
+      fieldName: field.fieldName,
+      serializer: Number,
     })(MikroORMEntity.prototype, field.fieldName)
     return
   }

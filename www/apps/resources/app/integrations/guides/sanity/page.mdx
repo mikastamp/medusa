@@ -511,7 +511,7 @@ export default Module(SANITY_MODULE, {
 
 In the file, you export the `SANITY_MODULE` which is the Module's name. You'll use it later when you resolve the module from the Medusa container.
 
-You also export the module definition using the `Module` utility function, which accepts as a first parameter the module's name, and as a second parameter an object having a `service` property, indicating the module's service.
+You also export the module definition using `Module` from the Modueles SDK, which accepts as a first parameter the module's name, and as a second parameter an object having a `service` property, indicating the module's service.
 
 ### Add Module to Configurations
 
@@ -634,7 +634,7 @@ defineLink(
 )
 ```
 
-You define a link using the `defineLink` utility. It accepts three parameters:
+You define a link using `defineLink` from the Modules SDK. It accepts three parameters:
 
 1. The first data model part of the link. In this case, it's the Product Module's `product` data model. A module has a special `linkable` property that contain link configurations for its data models.
 2. The second data model part of the link. Since the Sanity Module doesn't have a Medusa data model, you specify the configurations in a `linkable` object that has the following properties:
@@ -887,7 +887,7 @@ export const sanitySyncProductsWorkflow = createWorkflow(
 )
 ```
 
-You create a workflow using the `createWorkflow` function imported from `@medusajs/framework/workflows-sdk`. It accepts an object of options as a first parameter, where the `name` property is required and indicates the workflow's unique name.
+You create a workflow using the `createWorkflow` from the Workflows SDK. It accepts an object of options as a first parameter, where the `name` property is required and indicates the workflow's unique name.
 
 The `retentionTime` property indicates how long should the workflow's progress be saved in the database. This is useful if you later want to track whether the workflow is successfully executing.
 
@@ -1638,7 +1638,7 @@ export const config = defineWidgetConfig({
 export default ProductWidget
 ```
 
-The file exports a `ProductWidget` component and a `config` object created with the `defineWidgetConfig` utility function. In the `config` object, you specify the zone to inject the widget into in the `zone` property.
+The file exports a `ProductWidget` component and a `config` object created with `defineWidgetConfig` from the Admin Extension SDK. In the `config` object, you specify the zone to inject the widget into in the `zone` property.
 
 <Note title="Tip">
 
@@ -1910,7 +1910,7 @@ export default SanityRoute
 
 The file's path relative to the `src/admin/routes` directory indicates its path in the admin dashboard. So, this adds a new route at the path `http://localhost:9000/app/sanity`.
 
-The file must export the UI route's component. Also, to add an item in the sidebar for the UI route, you export a configuration object, created with the `defineRouteConfig` utility function. The function accepts the following properties:
+The file must export the UI route's component. Also, to add an item in the sidebar for the UI route, you export a configuration object, created with `defineRouteConfig` from the Admin Extension SDK. The function accepts the following properties:
 
 - `label`: The sidebar item's label.
 - `icon`: The icon to the show in the sidebar.

@@ -1,5 +1,11 @@
 # @medusajs/payment
 
+## 2.1.1
+
+### Patch Changes
+
+- [#10506](https://github.com/medusajs/medusa/pull/10506) [`a04238a7f1b77e6f6fe0e51951251286cd207115`](https://github.com/medusajs/medusa/commit/a04238a7f1b77e6f6fe0e51951251286cd207115) Thanks [@riqwan](https://github.com/riqwan)! - fix(payment): ensure that payment error is captured in logger
+
 ## 2.1.0
 
 ## 2.0.7
