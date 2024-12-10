@@ -2,6 +2,7 @@ import { UpsertOrderAddressDTO } from "../../order"
 
 export type UpdateOrderWorkflowInput = {
   id: string
+  user_id: string
   shipping_address?: UpsertOrderAddressDTO
   billing_address?: UpsertOrderAddressDTO
   email?: string

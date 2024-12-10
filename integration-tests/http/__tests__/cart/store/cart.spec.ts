@@ -302,7 +302,107 @@ medusaIntegrationTestRunner({
       })
 
       describe("POST /store/carts/:id/line-items", () => {
+        let shippingOption
+
         beforeEach(async () => {
+          const stockLocation = (
+            await api.post(
+              `/admin/stock-locations`,
+              { name: "test location" },
+              adminHeaders
+            )
+          ).data.stock_location
+
+          await api.post(
+            `/admin/stock-locations/${stockLocation.id}/sales-channels`,
+            { add: [salesChannel.id] },
+            adminHeaders
+          )
+
+          const shippingProfile = (
+            await api.post(
+              `/admin/shipping-profiles`,
+              { name: `test-${stockLocation.id}`, type: "default" },
+              adminHeaders
+            )
+          ).data.shipping_profile
+
+          const fulfillmentSets = (
+            await api.post(
+              `/admin/stock-locations/${stockLocation.id}/fulfillment-sets?fields=*fulfillment_sets`,
+              {
+                name: `Test-${shippingProfile.id}`,
+                type: "test-type",
+              },
+              adminHeaders
+            )
+          ).data.stock_location.fulfillment_sets
+
+          const fulfillmentSet = (
+            await api.post(
+              `/admin/fulfillment-sets/${fulfillmentSets[0].id}/service-zones`,
+              {
+                name: `Test-${shippingProfile.id}`,
+                geo_zones: [
+                  { type: "country", country_code: "it" },
+                  { type: "country", country_code: "us" },
+                ],
+              },
+              adminHeaders
+            )
+          ).data.fulfillment_set
+
+          await api.post(
+            `/admin/stock-locations/${stockLocation.id}/fulfillment-providers`,
+            { add: ["manual_test-provider"] },
+            adminHeaders
+          )
+
+          shippingOption = (
+            await api.post(
+              `/admin/shipping-options`,
+              {
+                name: `Shipping`,
+                service_zone_id: fulfillmentSet.service_zones[0].id,
+                shipping_profile_id: shippingProfile.id,
+                provider_id: "manual_test-provider",
+                price_type: "flat",
+                type: {
+                  label: "Test type",
+                  description: "Test description",
+                  code: "test-code",
+                },
+                prices: [
+                  { currency_code: "usd", amount: 1000 },
+                  {
+                    currency_code: "usd",
+                    amount: 0,
+                    rules: [
+                      {
+                        attribute: "item_total",
+                        operator: "gt",
+                        value: 5000,
+                      },
+                    ],
+                  },
+                ],
+                rules: [
+                  {
+                    attribute: "enabled_in_store",
+                    value: '"true"',
+                    operator: "eq",
+                  },
+                  {
+                    attribute: "is_return",
+                    value: "false",
+                    operator: "eq",
+                  },
+                ],
+              },
+              adminHeaders
+            )
+          ).data.shipping_option
+
           cart = (
             await api.post(
               `/store/carts`,
@@ -360,6 +460,101 @@ medusaIntegrationTestRunner({
               ]),
             })
           )
+        })
+
+        describe("with custom shipping options prices", () => {
+          beforeEach(async () => {
+            cart = (
+              await api.post(
+                `/store/carts`,
+                {
+                  currency_code: "usd",
+                  sales_channel_id: salesChannel.id,
+                  region_id: region.id,
+                  items: [{ variant_id: product.variants[0].id, quantity: 1 }],
+                  promo_codes: [promotion.code],
+                },
+                storeHeadersWithCustomer
+              )
+            ).data.cart
+          })
+
+          it("should update shipping method amount when cart totals change", async () => {
+            let response = await api.post(
+              `/store/carts/${cart.id}/shipping-methods`,
+              { option_id: shippingOption.id },
+              storeHeaders
+            )
+
+            expect(response.data.cart).toEqual(
+              expect.objectContaining({
+                id: cart.id,
+                shipping_methods: expect.arrayContaining([
+                  expect.objectContaining({
+                    shipping_option_id: shippingOption.id,
+                    amount: 1000,
+                    is_tax_inclusive: true,
+                  }),
+                ]),
+              })
+            )
+
+            response = await api.post(
+              `/store/carts/${cart.id}/line-items`,
+              {
+                variant_id: product.variants[0].id,
+                quantity: 100,
+              },
+              storeHeaders
+            )
+
+            expect(response.data.cart).toEqual(
+              expect.objectContaining({
+                id: cart.id,
+                shipping_methods: expect.arrayContaining([
+                  expect.objectContaining({
+                    shipping_option_id: shippingOption.id,
+                    amount: 0,
+                    is_tax_inclusive: true,
+                  }),
+                ]),
+              })
+            )
+          })
+
+          it("should remove shipping methods when they are no longer valid for the cart", async () => {
+            let response = await api.post(
+              `/store/carts/${cart.id}/shipping-methods`,
+              { option_id: shippingOption.id },
+              storeHeaders
+            )
+
+            expect(response.data.cart).toEqual(
+              expect.objectContaining({
+                id: cart.id,
+                shipping_methods: expect.arrayContaining([
+                  expect.objectContaining({
+                    shipping_option_id: shippingOption.id,
+                    amount: 1000,
+                    is_tax_inclusive: true,
+                  }),
+                ]),
+              })
+            )
+
+            response = await api.post(
+              `/store/carts/${cart.id}`,
+              { region_id: noAutomaticRegion.id },
+              storeHeaders
+            )
+
+            expect(response.data.cart).toEqual(
+              expect.objectContaining({
+                id: cart.id,
+                shipping_methods: expect.arrayContaining([]),
+              })
+            )
+          })
         })
 
         it("should add item to cart with tax lines multiple times", async () => {
@@ -1344,6 +1539,52 @@ medusaIntegrationTestRunner({
             })
           )
         })
+
+        it("should remove promotion adjustments when promotion is deleted", async () => {
+          let cartBeforeRemovingPromotion = (
+            await api.get(`/store/carts/${cart.id}`, storeHeaders)
+          ).data.cart
+
+          expect(cartBeforeRemovingPromotion).toEqual(
+            expect.objectContaining({
+              id: cart.id,
+              items: expect.arrayContaining([
+                expect.objectContaining({
+                  adjustments: [
+                    {
+                      id: expect.any(String),
+                      code: "PROMOTION_APPLIED",
+                      promotion_id: promotion.id,
+                      amount: 100,
+                    },
+                  ],
+                }),
+              ]),
+            })
+          )
+
+          await api.delete(`/admin/promotions/${promotion.id}`, adminHeaders)
+
+          let response = await api.post(
+            `/store/carts/${cart.id}`,
+            {
+              email: "test@test.com",
+            },
+            storeHeaders
+          )
+
+          expect(response.status).toEqual(200)
+          expect(response.data.cart).toEqual(
+            expect.objectContaining({
+              id: cart.id,
+              items: expect.arrayContaining([
+                expect.objectContaining({
+                  adjustments: [],
+                }),
+              ]),
+            })
+          )
+        })
       })
 
       describe("POST /store/carts/:id/customer", () => {
@@ -1481,6 +1722,222 @@ medusaIntegrationTestRunner({
               }),
             })
           )
+        })
+      })
+
+      describe("POST /store/carts/:id/shipping-methods", () => {
+        let shippingOption
+
+        beforeEach(async () => {
+          const stockLocation = (
+            await api.post(
+              `/admin/stock-locations`,
+              { name: "test location" },
+              adminHeaders
+            )
+          ).data.stock_location
+
+          await api.post(
+            `/admin/stock-locations/${stockLocation.id}/sales-channels`,
+            { add: [salesChannel.id] },
+            adminHeaders
+          )
+
+          const shippingProfile = (
+            await api.post(
+              `/admin/shipping-profiles`,
+              { name: `test-${stockLocation.id}`, type: "default" },
+              adminHeaders
+            )
+          ).data.shipping_profile
+
+          const fulfillmentSets = (
+            await api.post(
+              `/admin/stock-locations/${stockLocation.id}/fulfillment-sets?fields=*fulfillment_sets`,
+              {
+                name: `Test-${shippingProfile.id}`,
+                type: "test-type",
+              },
+              adminHeaders
+            )
+          ).data.stock_location.fulfillment_sets
+
+          const fulfillmentSet = (
+            await api.post(
+              `/admin/fulfillment-sets/${fulfillmentSets[0].id}/service-zones`,
+              {
+                name: `Test-${shippingProfile.id}`,
+                geo_zones: [
+                  { type: "country", country_code: "it" },
+                  { type: "country", country_code: "us" },
+                ],
+              },
+              adminHeaders
+            )
+          ).data.fulfillment_set
+
+          await api.post(
+            `/admin/stock-locations/${stockLocation.id}/fulfillment-providers`,
+            { add: ["manual_test-provider"] },
+            adminHeaders
+          )
+
+          shippingOption = (
+            await api.post(
+              `/admin/shipping-options`,
+              {
+                name: `Test shipping option ${fulfillmentSet.id}`,
+                service_zone_id: fulfillmentSet.service_zones[0].id,
+                shipping_profile_id: shippingProfile.id,
+                provider_id: "manual_test-provider",
+                price_type: "flat",
+                type: {
+                  label: "Test type",
+                  description: "Test description",
+                  code: "test-code",
+                },
+                prices: [
+                  { currency_code: "usd", amount: 1000 },
+                  {
+                    currency_code: "usd",
+                    amount: 500,
+                    rules: [
+                      {
+                        attribute: "item_total",
+                        operator: "gt",
+                        value: 3000,
+                      },
+                    ],
+                  },
+                ],
+                rules: [
+                  {
+                    attribute: "enabled_in_store",
+                    value: '"true"',
+                    operator: "eq",
+                  },
+                  {
+                    attribute: "is_return",
+                    value: "false",
+                    operator: "eq",
+                  },
+                ],
+              },
+              adminHeaders
+            )
+          ).data.shipping_option
+
+          cart = (
+            await api.post(
+              `/store/carts?fields=+total`,
+              {
+                currency_code: "usd",
+                sales_channel_id: salesChannel.id,
+                region_id: region.id,
+                items: [{ variant_id: product.variants[0].id, quantity: 1 }],
+              },
+              storeHeadersWithCustomer
+            )
+          ).data.cart
+        })
+
+        it("should add shipping method to cart", async () => {
+          let response = await api.post(
+            `/store/carts/${cart.id}/shipping-methods`,
+            { option_id: shippingOption.id },
+            storeHeaders
+          )
+
+          expect(response.status).toEqual(200)
+          expect(response.data.cart).toEqual(
+            expect.objectContaining({
+              id: cart.id,
+              shipping_methods: expect.arrayContaining([
+                expect.objectContaining({
+                  shipping_option_id: shippingOption.id,
+                  amount: 1000,
+                  is_tax_inclusive: true,
+                }),
+              ]),
+            })
+          )
+
+          // Total is over the amount 3000 to enable the second pricing rule
+          const cart2 = (
+            await api.post(
+              `/store/carts?fields=+total`,
+              {
+                currency_code: "usd",
+                sales_channel_id: salesChannel.id,
+                region_id: region.id,
+                items: [{ variant_id: product.variants[0].id, quantity: 5 }],
+              },
+              storeHeadersWithCustomer
+            )
+          ).data.cart
+
+          response = await api.post(
+            `/store/carts/${cart2.id}/shipping-methods`,
+            { option_id: shippingOption.id },
+            storeHeaders
+          )
+
+          expect(response.data.cart).toEqual(
+            expect.objectContaining({
+              id: cart2.id,
+              shipping_methods: expect.arrayContaining([
+                expect.objectContaining({
+                  shipping_option_id: shippingOption.id,
+                  amount: 500,
+                  is_tax_inclusive: true,
+                }),
+              ]),
+            })
+          )
+        })
+
+        it("should throw when prices are not setup for shipping option", async () => {
+          cart = (
+            await api.post(
+              `/store/carts?fields=+total`,
+              {
+                currency_code: "eur",
+                sales_channel_id: salesChannel.id,
+                region_id: region.id,
+                items: [{ variant_id: product.variants[0].id, quantity: 5 }],
+              },
+              storeHeadersWithCustomer
+            )
+          ).data.cart
+
+          let { response } = await api
+            .post(
+              `/store/carts/${cart.id}/shipping-methods`,
+              { option_id: shippingOption.id },
+              storeHeaders
+            )
+            .catch((e) => e)
+
+          expect(response.data).toEqual({
+            type: "invalid_data",
+            message: `Shipping options with IDs ${shippingOption.id} do not have a price`,
+          })
+        })
+
+        it("should throw when shipping option id is not found", async () => {
+          let { response } = await api
+            .post(
+              `/store/carts/${cart.id}/shipping-methods`,
+              { option_id: "does-not-exist" },
+              storeHeaders
+            )
+            .catch((e) => e)
+
+          expect(response.status).toEqual(400)
+          expect(response.data).toEqual({
+            type: "invalid_data",
+            message: "Shipping Options are invalid for cart.",
+          })
         })
       })
     })

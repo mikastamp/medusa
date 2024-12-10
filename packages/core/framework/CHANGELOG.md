@@ -1,5 +1,21 @@
 # @medusajs/framework
 
+## 2.1.0
+
+### Patch Changes
+
+- [#10339](https://github.com/medusajs/medusa/pull/10339) [`a5263083fae89d6885b291b9cb06de8d74aec074`](https://github.com/medusajs/medusa/commit/a5263083fae89d6885b291b9cb06de8d74aec074) Thanks [@kasperkristensen](https://github.com/kasperkristensen)! - fix(framework): Apply CORS and auth middleware for global middleware that is not already applied by routes
+
+- [#10374](https://github.com/medusajs/medusa/pull/10374) [`11bd55613304350a5478fd4c001e2309cca3a995`](https://github.com/medusajs/medusa/commit/11bd55613304350a5478fd4c001e2309cca3a995) Thanks [@riqwan](https://github.com/riqwan)! - feat(core-flows,framework,medusa): list shipping options pass in cart as pricing context
+
+- Updated dependencies [[`194361b95a0ed2c182e0a3c107fde9b4b6a7bcf7`](https://github.com/medusajs/medusa/commit/194361b95a0ed2c182e0a3c107fde9b4b6a7bcf7), [`3e98364bd1631f96846cd3199bf7497702cf5923`](https://github.com/medusajs/medusa/commit/3e98364bd1631f96846cd3199bf7497702cf5923), [`324b4ab438662f44de495ffe4d9137677a032a00`](https://github.com/medusajs/medusa/commit/324b4ab438662f44de495ffe4d9137677a032a00)]:
+  - @medusajs/utils@2.1.0
+  - @medusajs/types@2.1.0
+  - @medusajs/modules-sdk@2.1.0
+  - @medusajs/orchestration@2.1.0
+  - @medusajs/workflows-sdk@2.1.0
+  - @medusajs/telemetry@2.1.0
+
 ## 2.0.7
 
 ### Patch Changes

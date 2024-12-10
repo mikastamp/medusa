@@ -111,20 +111,28 @@
  *             description: A parent category's ID.
  *   - name: include_ancestors_tree
  *     in: query
- *     description: Whether to include the parent category of each category. If you enable this, add to the `fields` query parameter `parent_category` to set the parent of a category in this field. You can either pass `*parent_category` to retreieve the fields of all parent categories, or select specific fields to make the response size smaller. For example, `fields=parent_category.id,parent_category.name`.
+ *     description: Whether to include the parent category of each category. If you enable this, add to the `fields` query parameter `parent_category` to set the parent of a category in this field. You can
+ *       either pass `*parent_category` to retreieve the fields of all parent categories, or select specific fields to make the response size smaller. For example,
+ *       `fields=parent_category.id,parent_category.name`.
  *     required: false
  *     schema:
  *       type: boolean
  *       title: include_ancestors_tree
- *       description: Whether to include the parent category of each category. If you enable this, add to the `fields` query parameter `parent_category` to set the parent of a category in this field. You can either pass `*parent_category` to retreieve the fields of all parent categories, or select specific fields to make the response size smaller. For example, `fields=parent_category.id,parent_category.name`.
+ *       description: Whether to include the parent category of each category. If you enable this, add to the `fields` query parameter `parent_category` to set the parent of a category in this field. You can
+ *         either pass `*parent_category` to retreieve the fields of all parent categories, or select specific fields to make the response size smaller. For example,
+ *         `fields=parent_category.id,parent_category.name`.
  *   - name: include_descendants_tree
  *     in: query
- *     description: Whether to include the child categories of each category. If you enable this, add to the `fields` query parameter `category_children` to set the children of a category in this field. You can either pass `*category_children` to retreieve the fields of all child categories, or select specific fields to make the response size smaller. For example, `fields=category_children.id,category_children.name`.
+ *     description: Whether to include the child categories of each category. If you enable this, add to the `fields` query parameter `category_children` to set the children of a category in this field. You
+ *       can either pass `*category_children` to retreieve the fields of all child categories, or select specific fields to make the response size smaller. For example,
+ *       `fields=category_children.id,category_children.name`.
  *     required: false
  *     schema:
  *       type: boolean
  *       title: include_descendants_tree
- *       description: Whether to include the child categories of each category. If you enable this, add to the `fields` query parameter `category_children` to set the children of a category in this field. You can either pass `*category_children` to retreieve the fields of all child categories, or select specific fields to make the response size smaller. For example, `fields=category_children.id,category_children.name`.
+ *       description: Whether to include the child categories of each category. If you enable this, add to the `fields` query parameter `category_children` to set the children of a category in this field. You
+ *         can either pass `*category_children` to retreieve the fields of all child categories, or select specific fields to make the response size smaller. For example,
+ *         `fields=category_children.id,category_children.name`.
  *   - name: is_internal
  *     in: query
  *     description: Filter by whether the category is internal.

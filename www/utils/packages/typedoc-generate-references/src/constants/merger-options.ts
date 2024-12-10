@@ -30,6 +30,9 @@ const allowedProjectDocuments: AllowedProjectDocumentsOption = {
     [ReflectionKind.Method]: true,
     [ReflectionKind.Property]: true,
   },
+  "core-flows": {
+    [ReflectionKind.Function]: true,
+  },
 }
 
 modules.forEach((module) => {
@@ -77,7 +80,7 @@ const mergerOptions: Partial<TypeDocOptions> = {
       mdxImports: [`import { TypeList } from "docs-ui"`],
       parameterComponentExtraProps: {
         expandUrl:
-          "https://docs.medusajs.com/v2/advanced-development/data-models/manage-relationships#retrieve-records-of-relation",
+          "https://docs.medusajs.com/learn/fundamentals/data-models/manage-relationships#retrieve-records-of-relation",
       },
     },
     internal: {

@@ -42,7 +42,7 @@ global[OrchestrationUtils.SymbolMedusaWorkflowComposerContext] = null
  *   createWorkflow,
  *   WorkflowResponse
  * } from "@medusajs/framework/workflows-sdk"
- * import { MedusaRequest, MedusaResponse } from "@medusajs/medusa"
+ * import { MedusaRequest, MedusaResponse } from "@medusajs/framework/http"
  * import {
  *   createProductStep,
  *   getProductStep,
@@ -194,8 +194,9 @@ export function createWorkflow<TData, TResult, THooks extends any[]>(
           input: stepInput as any,
           container,
           context: {
-            transactionId: ulid(),
             ...sharedContext,
+            transactionId:
+              step.__step__ + "-" + (stepContext.transactionId ?? ulid()),
             parentStepIdempotencyKey: stepContext.idempotencyKey,
           },
         })

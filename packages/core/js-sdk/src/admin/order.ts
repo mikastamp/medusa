@@ -65,6 +65,47 @@ export class Order {
   }
 
   /**
+   * This method updates an order. It sends a request to the
+   * [Update Order Email](https://docs.medusajs.com/api/admin#orders_postordersid)
+   * API route.
+   *
+   * @param id - The order's ID.
+   * @param body - The update details.
+   * @param headers - Headers to pass in the request
+   * @returns The order's details.
+   *
+   * @example
+   * sdk.admin.order.update(
+   *   "order_123",
+   *   {
+   *     email: "new_email@example.com",
+   *     shipping_address: {
+   *       first_name: "John",
+   *       last_name: "Doe",
+   *       address_1: "123 Main St",
+   *     }
+   *   }
+   * )
+   * .then(({ order }) => {
+   *   console.log(order)
+   * })
+   */
+  async update(
+    id: string,
+    body: HttpTypes.AdminUpdateOrder,
+    headers?: ClientHeaders
+  ) {
+    return await this.client.fetch<HttpTypes.AdminOrderResponse>(
+      `/admin/orders/${id}`,
+      {
+        method: "POST",
+        headers,
+        body,
+      }
+    )
+  }
+
+  /**
    * This method retrieves the preview of an order based on its last associated change. It sends a request to the
    * [Get Order Preview](https://docs.medusajs.com/api/admin#orders_getordersidpreview) API route.
    *

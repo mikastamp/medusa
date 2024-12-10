@@ -4,7 +4,7 @@ import {
   remoteQueryObjectFromString,
 } from "@medusajs/framework/utils"
 import { MedusaResponse } from "@medusajs/framework/http"
-import { wrapVariantsWithInventoryQuantity } from "../../utils/middlewares"
+import { wrapVariantsWithInventoryQuantityForSalesChannel } from "../../utils/middlewares"
 import { RequestWithContext, wrapProductsWithTaxPrices } from "./helpers"
 import { HttpTypes } from "@medusajs/framework/types"
 
@@ -43,7 +43,7 @@ export const GET = async (
   const { rows: products, metadata } = await remoteQuery(queryObject)
 
   if (withInventoryQuantity) {
-    await wrapVariantsWithInventoryQuantity(
+    await wrapVariantsWithInventoryQuantityForSalesChannel(
       req,
       products.map((product) => product.variants).flat(1)
     )

@@ -140,7 +140,7 @@ class RestaurantModuleService extends MedusaService({
 export default RestaurantModuleService
 ```
 
-The service extends the [service factory](!docs!/learn/advanced-development/modules/service-factory), which provides basic data-management features.
+The service extends the [service factory](!docs!/learn/fundamentals/modules/service-factory), which provides basic data-management features.
 
 ### Create Restaurant Module Definition
 
@@ -174,8 +174,8 @@ module.exports = defineConfig({
 
 ### Further Reads
 
-- [How to Create a Module](!docs!/learn/basics/modules)
-- [How to Create a Data Model](!docs!/learn/basics/modules#1-create-data-model)
+- [How to Create a Module](!docs!/learn/fundamentals/modules)
+- [How to Create a Data Model](!docs!/learn/fundamentals/modules#1-create-data-model)
 
 ---
 
@@ -284,7 +284,7 @@ class DeliveryModuleService extends MedusaService({
 export default DeliveryModuleService
 ```
 
-The service extends the [service factory](!docs!/learn/advanced-development/modules/service-factory), which provides basic data-management features.
+The service extends the [service factory](!docs!/learn/fundamentals/modules/service-factory), which provides basic data-management features.
 
 ### Create Delivery Module Definition
 
@@ -415,7 +415,7 @@ This defines a link between the Delivery Module’s `delivery` data model and th
 
 ### Further Reads
 
-- [How to Define Links](!docs!/learn/advanced-development/module-links)
+- [How to Define Links](!docs!/learn/fundamentals/module-links)
 
 ---
 
@@ -470,7 +470,7 @@ This adds a type used for inputs in creating a restaurant. It also adds a type f
 
 <Note title="Tip">
 
-Since the `Restaurant` data model is a variable, use the `InferTypeOf` utility imported from `@medusajs/framework/types` to infer its type.
+Since the `Restaurant` data model is a variable, use `InferTypeOf` to infer its type.
 
 </Note>
 
@@ -625,15 +625,15 @@ The API route creates a restaurant and returns it.
 
 <Note>
 
-If you’re calling this API route from a frontend client, make sure to set the [CORS middleware](!docs!/learn/advanced-development/api-routes/cors) on it since it’s not under the `/store` or `/admin` route prefixes.
+If you’re calling this API route from a frontend client, make sure to set the [CORS middleware](!docs!/learn/fundamentals/api-routes/cors) on it since it’s not under the `/store` or `/admin` route prefixes.
 
 </Note>
 
 ### Further Reads
 
-- [How to Create a Workflow](!docs!/learn/basics/workflows)
-- [What is a Compensation Function](!docs!/learn/advanced-development/workflows/compensation-function)
-- [How to Create an API route](!docs!/learn/basics/api-routes)
+- [How to Create a Workflow](!docs!/learn/fundamentals/workflows)
+- [What is a Compensation Function](!docs!/learn/fundamentals/workflows/compensation-function)
+- [How to Create an API route](!docs!/learn/fundamentals/api-routes)
 
 ---
 
@@ -704,7 +704,7 @@ This returns the list of restaurants in the response.
 
 ### Further Reads
 
-- [What is and how to use it](!docs!/learn/advanced-development/module-links/query)
+- [What is and how to use it](!docs!/learn/fundamentals/module-links/query)
 - [How to Retrieve Prices for Product Variants](../../../../commerce-modules/product/guides/price/page.mdx)
 
 ---
@@ -726,7 +726,7 @@ To implement and expose a feature that manipulates data, you create a workflow t
 So, you'll start by implementing the functionality to create a user in a workflow. The workflow has two steps:
 
 1. Create the user in the database.
-2. Set the actor type of the user’s authentication identity (created by the `/auth/{actor_type}/{provider}/register` API route). For this step, you’ll use the `setAuthAppMetadataStep` step imported from the `@medusajs/medusa/core-flows` package.
+2. Set the actor type of the user’s authentication identity (created by the `/auth/{actor_type}/{provider}/register` API route). For this step, you’ll use `setAuthAppMetadataStep` from Medusa's core workflows.
 
 To implement the first step, create the file `src/workflows/user/steps/create-user.ts` with the following content:
 
@@ -895,8 +895,8 @@ return new WorkflowResponse(user)
 In the workflow, you:
 
 1. Use the `createUserStep` to create the user.
-2. Use the `transform` utility function to create the input to be passed to the next step.
-3. Use the `setAuthAppMetadataStep` imported from `@medusajs/medusa/core-flows` to update the authentication identity and associate it with the new user.
+2. Use `transform` to create the input to be passed to the next step.
+3. Use `setAuthAppMetadataStep` from Medusa's core workflows to update the authentication identity and associate it with the new user.
 4. Return the created user.
 
 ### Create API Route
@@ -967,7 +967,7 @@ Create the file `src/api/middlewares.ts` with the following content:
 import { 
   authenticate, 
   defineMiddlewares,
-} from "@medusajs/medusa"
+} from "@medusajs/framework/http"
 
 export default defineMiddlewares({
   routes: [
@@ -984,7 +984,7 @@ export default defineMiddlewares({
 })
 ```
 
-This applies the `authenticate` middleware imported from `@medusajs/medusa` on the `POST /users` API routes.
+This applies the `authenticate` middleware from the Medusa Framework on the `POST /users` API routes.
 
 ### Test it Out: Create Restaurant Admin
 
@@ -1182,8 +1182,8 @@ return new WorkflowResponse(input.id)
 After deleting the restaurant admin, you:
 
 1. Retrieve its auth identity using Query. To do that, you filter its `app_metadata` property by checking that its `restaurant_id` property's value is the admin's ID. For drivers, you replace `restaurant_id` with `driver_id`.
-2. Check that the auth identity exists using the `transform` utility. Otherwise, throw an error.
-3. Unset the association between the auth identity and the restaurant admin using the `setAuthAppMetadataStep` imported from `@medusajs/medusa/core-flows`.
+2. Check that the auth identity exists using `transform`. Otherwise, throw an error.
+3. Unset the association between the auth identity and the restaurant admin using `setAuthAppMetadataStep` from Medusa's core workflows.
 
 ### Create API Route
 
@@ -1258,8 +1258,8 @@ In this step, you’ll create the API route that creates a product for a restaur
 
 You’ll start by creating a workflow that creates the restaurant’s products. It has two steps:
 
-1. Create the product using Medusa’s `createProductsWorkflow` as a step. It’s imported from the `@medusajs/medusa/core-flows` package.
-2. Create a link between the restaurant and the products using the `createRemoateLinkStep` imported from the `@medusajs/medusa/core-flows` package.
+1. Create the product using Medusa’s `createProductsWorkflow` as a step. This workflow is available through Medusa's core workflows.
+2. Create a link between the restaurant and the products using `createRemoateLinkStep` from Medusa's core workflows.
 
 So, create the workflow in the file `src/workflows/restaurant/workflows/create-restaurant-products.ts` with the following content:
 
@@ -1320,7 +1320,7 @@ export const createRestaurantProductsWorkflow = createWorkflow(
 In the workflow, you:
 
 1. Execute the `createProductsWorkflow` as a step, passing the workflow’s input as the details of the product.
-2. Use the `transform` utility to create a `links` object used to specify the links to create in the next step.
+2. Use `transform` to create a `links` object used to specify the links to create in the next step.
 3. Use the `createRemoteLinkStep` to create the links between the restaurant and the products.
 4. Return the created products.
 
@@ -1410,7 +1410,7 @@ The workflow to create a delivery has three steps:
 
 1. `validateRestaurantStep` that checks whether a restaurant with the specified ID exists.
 2. `createDeliveryStep` that creates the delivery.
-3. `createRemoteLinkStep` that creates links between the different data model records. This step is imported from `@medusajs/medusa/core-flows`.
+3. `createRemoteLinkStep` that creates links between the different data model records. This step is from Medusa's core workflows.
 
 ### Create validateRestaurantStep
 
@@ -1549,7 +1549,7 @@ In the workflow, you:
 
 1. Use the `validateRestaurantStep` to validate that the restaurant exists.
 2. Use the `createDeliveryStep` to create the delivery.
-3. Use the `transform` utility to specify the links to be created in the next step. You specify links between the delivery and cart, and between the restaurant and delivery.
+3. Use `transform` to specify the links to be created in the next step. You specify links between the delivery and cart, and between the restaurant and delivery.
 4. Use the `createRemoteLinkStep` to create the links.
 5. Return the created delivery.
 
@@ -1561,7 +1561,7 @@ In this step, you’ll create the workflow that handles the different stages of 
 
 For example, when a restaurant finishes preparing the order’s items, this workflow creates a fulfillment for the order.
 
-This workflow will be a [long-running workflow](!docs!/learn/advanced-development/workflows/long-running-workflow) that runs asynchronously in the background. Its async steps only succeed once an outside action sets its status, allowing the workflow to move to the next step.
+This workflow will be a [long-running workflow](!docs!/learn/fundamentals/workflows/long-running-workflow) that runs asynchronously in the background. Its async steps only succeed once an outside action sets its status, allowing the workflow to move to the next step.
 
 API routes that perform actions related to the delivery, which you’ll create later, will trigger the workflow to move to the next step.
 
@@ -1607,7 +1607,7 @@ Steps that have a `*` next to their names are async steps.
       {
         type: "step",
         name: "createRemoteLinkStep",
-        description: "Creates the links returned by the previous step between the order and delivery. This is imported from `@medusajs/medusa/core-flows`.",
+        description: "Creates the links returned by the previous step between the order and delivery. This is from Medusa's core workflows.",
         link: "/references/helper-steps/createRemoteLinkStep"
       },
       {
@@ -2082,7 +2082,7 @@ In the next steps, you’ll execute the workflow and see it in action as you add
 
 ### Further Reads
 
-- [Long-Running Workflows](!docs!/learn/advanced-development/workflows/long-running-workflow)
+- [Long-Running Workflows](!docs!/learn/fundamentals/workflows/long-running-workflow)
 
 ---
 
@@ -2296,7 +2296,7 @@ These types are useful in the upcoming implementation steps.
 
 <Note title="Tip">
 
-Since the `Delivery` data model is a variable, use the `InferTypeOf` utility imported from `@medusajs/framework/types` to infer its type.
+Since the `Delivery` data model is a variable, use `InferTypeOf` to infer its type.
 
 </Note>
 
@@ -2646,7 +2646,7 @@ Then, create the file `src/api/deliveries/[id]/middlewares.ts` with the followin
 import { 
   authenticate, 
   defineMiddlewares, 
-} from "@medusajs/medusa"
+} from "@medusajs/framework/http"
 import { isDeliveryRestaurant } from "../../utils/is-delivery-restaurant"
 
 export default defineMiddlewares({
@@ -3478,7 +3478,7 @@ The next steps of this example depend on your use case. This section provides so
 
 ### Admin Development
 
-The Medusa Admin is extendable, allowing you to add widgets to existing pages or create new pages. Learn more about it in [this documentation](!docs!/learn/advanced-development/admin).
+The Medusa Admin is extendable, allowing you to add widgets to existing pages or create new pages. Learn more about it in [this documentation](!docs!/learn/fundamentals/admin).
 
 ### Storefront Development
 

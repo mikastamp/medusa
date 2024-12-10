@@ -243,8 +243,9 @@ describe("Workflow composer", () => {
         return new StepResponse({ result: input })
       })
 
+      const wfId = getNewWorkflowId()
       const subWorkflow = createWorkflow(
-        getNewWorkflowId(),
+        wfId,
         function (input: WorkflowData<string>) {
           childWorkflowStep1()
           return new WorkflowResponse(childWorkflowStep2(input))
@@ -269,7 +270,9 @@ describe("Workflow composer", () => {
       expect(result).toEqual({ result: "hi from outside" })
 
       expect(parentContext.transactionId).toEqual(expect.any(String))
-      expect(parentContext.transactionId).toEqual(childContext.transactionId)
+      expect(childContext.transactionId).toEqual(
+        wfId + "-as-step-" + parentContext.transactionId
+      )
 
       expect(parentContext.eventGroupId).toEqual("eventGroupId")
       expect(parentContext.eventGroupId).toEqual(childContext.eventGroupId)
@@ -293,8 +296,9 @@ describe("Workflow composer", () => {
         return new StepResponse({ result: input })
       })
 
+      const wfId = getNewWorkflowId()
       const subWorkflow = createWorkflow(
-        getNewWorkflowId(),
+        wfId,
         function (input: WorkflowData<string>) {
           childWorkflowStep1()
           return new WorkflowResponse(childWorkflowStep2(input))
@@ -315,7 +319,9 @@ describe("Workflow composer", () => {
       expect(result).toEqual({ result: "hi from outside" })
 
       expect(parentContext.transactionId).toBeTruthy()
-      expect(parentContext.transactionId).toEqual(childContext.transactionId)
+      expect(childContext.transactionId).toEqual(
+        wfId + "-as-step-" + parentContext.transactionId
+      )
 
       expect(parentContext.eventGroupId).toBeTruthy()
       expect(parentContext.eventGroupId).toEqual(childContext.eventGroupId)

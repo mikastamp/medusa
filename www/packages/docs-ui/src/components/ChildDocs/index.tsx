@@ -4,6 +4,9 @@ import React, { useMemo } from "react"
 import { Card, CardList, H2, useSidebar } from "../.."
 import { InteractiveSidebarItem, SidebarItem, SidebarItemLink } from "types"
 import slugify from "slugify"
+import { MDXComponents } from "../.."
+
+const Hr = MDXComponents["hr"] as () => React.JSX.Element
 
 type ChildDocsProps = {
   onlyTopLevel?: boolean
@@ -148,8 +151,9 @@ export const ChildDocs = ({
     )
   }
 
-  const getAllLevelsElms = (items?: SidebarItem[]) =>
-    filterNonInteractiveItems(items).map((item, key) => {
+  const getAllLevelsElms = (items?: SidebarItem[]) => {
+    const filteredItems = filterNonInteractiveItems(items)
+    return filteredItems.map((item, key) => {
       const itemChildren = getChildrenForLevel(item)
       const HeadingComponent = itemChildren?.length ? H2 : undefined
 
@@ -170,6 +174,7 @@ export const ChildDocs = ({
                   })) || []
                 }
               />
+              {key !== filteredItems.length - 1 && <Hr />}
             </>
           )}
           {!HeadingComponent && item.type === "link" && (
@@ -178,6 +183,7 @@ export const ChildDocs = ({
         </React.Fragment>
       )
     })
+  }
 
   const getElms = (items?: SidebarItem[]) => {
     return onlyTopLevel ? getTopLevelElms(items) : getAllLevelsElms(items)

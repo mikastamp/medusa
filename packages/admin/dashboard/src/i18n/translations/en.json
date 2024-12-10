@@ -1002,6 +1002,20 @@
         "quantityLowerThanFulfillment": "Cannot set quantity to be less then or equal to fulfilled quantity"
       }
     },
+    "edit": {
+      "email": {
+        "title": "Edit email",
+        "requestSuccess": "Order email updated to {{email}}."
+      },
+      "shippingAddress": {
+        "title": "Edit shipping address",
+        "requestSuccess": "Order shipping address updated."
+      },
+      "billingAddress": {
+        "title": "Edit billing address",
+        "requestSuccess": "Order billing address updated."
+      }
+    },
     "returns": {
       "create": "Create Return",
       "confirm": "Confirm Return",
@@ -1301,6 +1315,11 @@
           "requested": "Order transfer #{{transferId}} requested",
           "confirmed": "Order transfer #{{transferId}} confirmed",
           "declined": "Order transfer #{{transferId}} declined"
+        },
+        "update_order": {
+          "shipping_address": "Shipping address updated",
+          "billing_address": "Billing address updated",
+          "email": "Email updated"
         }
       }
     },
@@ -1443,6 +1462,41 @@
       },
       "pricing": {
         "action": "Edit prices"
+      },
+      "conditionalPrices": {
+        "header": "Conditional Prices for {{name}}",
+        "description": "Manage the conditional prices for this shipping option based on the cart item total.",
+        "attributes": {
+          "cartItemTotal": "Cart item total"
+        },
+        "summaries": {
+          "range": "If <0>{{attribute}}</0> is between <1>{{gte}}</1> and <2>{{lte}}</2>",
+          "greaterThan": "If <0>{{attribute}}</0> ≥ <1>{{gte}}</1>",
+          "lessThan": "If <0>{{attribute}}</0> ≤ <1>{{lte}}</1>"
+        },
+        "actions": {
+          "addPrice": "Add price",
+          "manageConditionalPrices": "Manage conditional prices"
+        },
+        "rules": {
+          "amount": "Shipping option price",
+          "gte": "Minimum cart item total",
+          "lte": "Maximum cart item total"
+        },
+        "customRules": {
+          "label": "Custom rules",
+          "tooltip": "This conditional price has rules that cannot be managed in the dashboard.",
+          "eq": "Cart item total must equal",
+          "gt": "Cart item total must be greater than",
+          "lt": "Cart item total must be less than"
+        },
+        "errors": {
+          "amountRequired": "Shipping option price is required",
+          "minOrMaxRequired": "At least one of minimum or maximum cart item total must be provided",
+          "minGreaterThanMax": "Minimum cart item total must be less than or equal to maximum cart item total",
+          "duplicateAmount": "Shipping option price must be unique for each condition",
+          "overlappingConditions": "Conditions must be unique across all price rules"
+        }
       },
       "fields": {
         "count": {
@@ -2315,6 +2369,9 @@
       "update": "Sales channel updated successfully",
       "delete": "Sales channel deleted successfully"
     },
+    "tooltip": {
+      "cannotDeleteDefault": "Cannot delete default sales channel"
+    },
     "products": {
       "list": {
         "noRecordsMessage": "There are no products in the sales channel."
@@ -2598,7 +2655,9 @@
     "available": "Available",
     "inStock": "In stock",
     "added": "Added",
-    "removed": "Removed"
+    "removed": "Removed",
+    "from": "From",
+    "to": "To"
   },
   "fields": {
     "amount": "Amount",
@@ -2630,6 +2689,7 @@
     "discountable": "Discountable",
     "handle": "Handle",
     "subtitle": "Subtitle",
+    "by": "By",
     "item": "Item",
     "qty": "qty.",
     "limit": "Limit",

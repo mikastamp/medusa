@@ -163,13 +163,14 @@ export interface PublishableKeyContext {
   sales_channel_ids: string[]
 }
 
-export interface AuthenticatedMedusaRequest<Body = never>
-  extends MedusaRequest<Body> {
+export interface AuthenticatedMedusaRequest<Body = unknown, QueryFields = Record<string, unknown>>
+  extends MedusaRequest<Body, QueryFields> {
   auth_context: AuthContext
   publishable_key_context?: PublishableKeyContext
 }
 
-export interface MedusaStoreRequest<Body = never> extends MedusaRequest<Body> {
+export interface MedusaStoreRequest<Body = unknown, QueryFields = Record<string, unknown>>
+  extends MedusaRequest<Body, QueryFields> {
   auth_context?: AuthContext
   publishable_key_context: PublishableKeyContext
 }

@@ -1077,9 +1077,14 @@ export interface RegisterOrderChangeDTO {
   internal_note?: string | null
 
   /**
-   * The user or customer that requested the order change.
+   * The user that created the order change.
    */
-  requested_by?: string
+  created_by?: string
+
+  /**
+   * The user or customer that confirmed the order change.
+   */
+  confirmed_by?: string
 
   /**
    * Holds custom data in key-value pairs.

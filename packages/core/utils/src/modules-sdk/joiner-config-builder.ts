@@ -17,7 +17,7 @@ import {
   toCamelCase,
   upperCaseFirst,
 } from "../common"
-import { DmlEntity } from "../dml"
+import { DmlEntity, IdProperty } from "../dml"
 import { toGraphQLSchema } from "../dml/helpers/create-graphql"
 import { PrimaryKeyModifier } from "../dml/properties/primary-key"
 import { BaseRelationship } from "../dml/relations/base"
@@ -396,7 +396,10 @@ export function buildLinkConfigFromModelObjects<
       }
 
       const parsedProperty = (value as PropertyType<any>).parse(property)
-      if (PrimaryKeyModifier.isPrimaryKeyModifier(value)) {
+      if (
+        PrimaryKeyModifier.isPrimaryKeyModifier(value) ||
+        IdProperty.isIdProperty(value)
+      ) {
         const linkableKeyName =
           parsedProperty.dataType.options?.linkable ??
           `${camelToSnakeCase(model.name).toLowerCase()}_${property}`

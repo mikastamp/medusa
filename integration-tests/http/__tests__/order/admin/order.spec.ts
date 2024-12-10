@@ -76,18 +76,41 @@ medusaIntegrationTestRunner({
             version: 1,
             change_type: "update_order",
             status: "confirmed",
+            created_by: expect.any(String),
+            confirmed_by: expect.any(String),
             confirmed_at: expect.any(String),
             actions: expect.arrayContaining([
               expect.objectContaining({
                 version: 1,
                 applied: true,
-                reference_id: addressBefore.id,
-                reference: "shipping_address",
                 action: "UPDATE_ORDER_PROPERTIES",
-                details: {
-                  city: "New New York",
-                  address_1: "New Main street 123",
-                },
+                details: expect.objectContaining({
+                  type: "shipping_address",
+                  old: expect.objectContaining({
+                    address_1: addressBefore.address_1,
+                    city: addressBefore.city,
+                    country_code: addressBefore.country_code,
+                    province: addressBefore.province,
+                    postal_code: addressBefore.postal_code,
+                    phone: addressBefore.phone,
+                    company: addressBefore.company,
+                    first_name: addressBefore.first_name,
+                    last_name: addressBefore.last_name,
+                    address_2: addressBefore.address_2,
+                  }),
+                  new: expect.objectContaining({
+                    address_1: "New Main street 123",
+                    city: "New New York",
+                    country_code: addressBefore.country_code,
+                    province: addressBefore.province,
+                    postal_code: addressBefore.postal_code,
+                    phone: addressBefore.phone,
+                    company: addressBefore.company,
+                    first_name: addressBefore.first_name,
+                    last_name: addressBefore.last_name,
+                    address_2: addressBefore.address_2,
+                  }),
+                }),
               }),
             ]),
           })
@@ -162,18 +185,33 @@ medusaIntegrationTestRunner({
             version: 1,
             change_type: "update_order",
             status: "confirmed",
+            created_by: expect.any(String),
+            confirmed_by: expect.any(String),
             confirmed_at: expect.any(String),
             actions: expect.arrayContaining([
               expect.objectContaining({
                 version: 1,
                 applied: true,
-                reference_id: addressBefore.id,
-                reference: "billing_address",
                 action: "UPDATE_ORDER_PROPERTIES",
-                details: {
-                  city: "New New York",
-                  address_1: "New Main street 123",
-                },
+                details: expect.objectContaining({
+                  type: "billing_address",
+                  old: expect.objectContaining({
+                    address_1: addressBefore.address_1,
+                    city: addressBefore.city,
+                    country_code: addressBefore.country_code,
+                    province: addressBefore.province,
+                    postal_code: addressBefore.postal_code,
+                    phone: addressBefore.phone,
+                  }),
+                  new: expect.objectContaining({
+                    address_1: "New Main street 123",
+                    city: "New New York",
+                    country_code: addressBefore.country_code,
+                    province: addressBefore.province,
+                    postal_code: addressBefore.postal_code,
+                    phone: addressBefore.phone,
+                  }),
+                }),
               }),
             ]),
           })
@@ -239,16 +277,23 @@ medusaIntegrationTestRunner({
               change_type: "update_order",
               status: "confirmed",
               confirmed_at: expect.any(String),
+              created_by: expect.any(String),
+              confirmed_by: expect.any(String),
               actions: expect.arrayContaining([
                 expect.objectContaining({
                   version: 1,
                   applied: true,
-                  reference_id: order.shipping_address.id,
-                  reference: "shipping_address",
                   action: "UPDATE_ORDER_PROPERTIES",
-                  details: {
-                    address_1: "New Main street 123",
-                  },
+                  details: expect.objectContaining({
+                    type: "shipping_address",
+                    old: expect.objectContaining({
+                      address_1: order.shipping_address.address_1,
+                      city: order.shipping_address.city,
+                    }),
+                    new: expect.objectContaining({
+                      address_1: "New Main street 123",
+                    }),
+                  }),
                 }),
               ]),
             }),
@@ -257,16 +302,18 @@ medusaIntegrationTestRunner({
               change_type: "update_order",
               status: "confirmed",
               confirmed_at: expect.any(String),
+              created_by: expect.any(String),
+              confirmed_by: expect.any(String),
               actions: expect.arrayContaining([
                 expect.objectContaining({
                   version: 1,
                   applied: true,
-                  reference_id: order.email,
-                  reference: "email",
                   action: "UPDATE_ORDER_PROPERTIES",
-                  details: {
-                    email: "new-email@example.com",
-                  },
+                  details: expect.objectContaining({
+                    type: "email",
+                    old: order.email,
+                    new: "new-email@example.com",
+                  }),
                 }),
               ]),
             }),

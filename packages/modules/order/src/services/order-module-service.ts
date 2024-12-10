@@ -2288,14 +2288,14 @@ export default class OrderModuleService
         description: d.description,
         metadata: d.metadata,
         confirmed_at: new Date(),
+        created_by: d.created_by,
+        confirmed_by: d.confirmed_by,
         status: OrderChangeStatus.CONFIRMED,
         version: orderVersionsMap.get(d.order_id)!,
         actions: [
           {
             action: ChangeActionType.UPDATE_ORDER_PROPERTIES,
             details: d.details,
-            reference: d.reference,
-            reference_id: d.reference_id,
             version: orderVersionsMap.get(d.order_id)!,
             applied: true,
           },

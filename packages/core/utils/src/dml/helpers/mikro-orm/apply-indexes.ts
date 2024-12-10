@@ -48,6 +48,7 @@ export function applyEntityIndexes(
       columns: index.on as string[],
       unique: index.unique,
       where: index.where,
+      type: index.type,
     })
 
     entityIndexStatement.MikroORMIndex()(MikroORMEntity)

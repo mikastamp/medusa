@@ -22,6 +22,6 @@ export class HasOne<T> extends BaseRelationship<T> {
    * Apply nullable modifier on the schema
    */
   nullable() {
-    return new RelationNullableModifier<T, HasOne<T>>(this)
+    return new RelationNullableModifier<T, HasOne<T>, false>(this)
   }
 }

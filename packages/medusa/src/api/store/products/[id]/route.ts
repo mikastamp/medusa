@@ -1,6 +1,6 @@
 import { isPresent, MedusaError } from "@medusajs/framework/utils"
 import { MedusaResponse } from "@medusajs/framework/http"
-import { wrapVariantsWithInventoryQuantity } from "../../../utils/middlewares"
+import { wrapVariantsWithInventoryQuantityForSalesChannel } from "../../../utils/middlewares"
 import {
   refetchProduct,
   RequestWithContext,
@@ -48,7 +48,10 @@ export const GET = async (
   }
 
   if (withInventoryQuantity) {
-    await wrapVariantsWithInventoryQuantity(req, product.variants || [])
+    await wrapVariantsWithInventoryQuantityForSalesChannel(
+      req,
+      product.variants || []
+    )
   }
 
   await wrapProductsWithTaxPrices(req, [product])

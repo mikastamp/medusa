@@ -7,7 +7,7 @@ const monoRepoPath = path.resolve("..", "..", "..")
 /**
  *
  * @param {string} dir - The directory to search in
- * @returns {Promise<{ origSlug: string; newSlug: string }[]>}
+ * @returns {Promise<import("types").SlugChange[]>}
  */
 export default async function getSlugs(options = {}) {
   let { dir, basePath = path.resolve("app"), baseSlug = basePath } = options
@@ -15,7 +15,7 @@ export default async function getSlugs(options = {}) {
     dir = basePath
   }
   /**
-   * @type {{ origSlug: string; newSlug: string }[]}
+   * @type {import("types").SlugChange[]}
    */
   const slugs = []
 

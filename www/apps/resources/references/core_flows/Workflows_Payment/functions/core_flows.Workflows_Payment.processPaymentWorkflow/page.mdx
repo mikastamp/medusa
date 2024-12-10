@@ -1,0 +1,11 @@
+import { TypeList, WorkflowDiagram } from "docs-ui"
+
+# processPaymentWorkflow
+
+## Steps
+
+<WorkflowDiagram workflow={{"name":"processPaymentWorkflow","steps":[{"type":"when","condition":"{\n      return (\n        input.action === PaymentActions.SUCCESSFUL && !!paymentData.data.length\n      )\n    }","depth":"2","steps":[{"type":"workflow","name":"capturePaymentWorkflow","description":"This workflow captures a payment.","link":"../core_flows.Workflows_Payment.capturePaymentWorkflow/page.mdx","depth":2}]},{"type":"when","condition":"{\n      // Authorize payment session if no Cart is linked to the payment\n      // When associated with a Cart, the complete cart workflow will handle the authorization\n      return (\n        !cartPaymentCollection.data.length &&\n        input.action === PaymentActions.AUTHORIZED &&\n        !!input.data?.session_id\n      )\n    }","depth":"3","steps":[{"type":"step","name":"authorizePaymentSessionStep","description":"This step authorizes a payment session.","link":"../../../Steps_Payment/functions/core_flows.Steps_Payment.authorizePaymentSessionStep/page.mdx","depth":3}]}]}} />
+
+## Input
+
+<TypeList types={[{"name":"ProcessPaymentWorkflowInput","type":"`ProcessPaymentWorkflowInput`","optional":false,"defaultValue":"","description":"","expandable":false,"children":[]}]} expandUrl="https://docs.medusajs.com/learn/fundamentals/data-models/manage-relationships#retrieve-records-of-relation" sectionTitle="processPaymentWorkflow"/>

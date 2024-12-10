@@ -118,6 +118,16 @@ export declare type CrossProjectLinksOptions = {
   useBaseUrl?: boolean
 }
 
+export declare type BrokenLinkCheckerOptions = {
+  crossProjects: {
+    [k: string]: {
+      projectPath: string
+      contentPath?: string
+      hasGeneratedSlugs?: boolean
+    }
+  }
+}
+
 export declare type ComponentLinkFixerLinkType = "md" | "value"
 
 export declare type ComponentLinkFixerOptions = {

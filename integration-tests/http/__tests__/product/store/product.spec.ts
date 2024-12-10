@@ -1329,6 +1329,150 @@ medusaIntegrationTestRunner({
           )
         })
 
+        it("should handle inventory items and location levels correctly", async () => {
+          const container = getContainer()
+          const channelService = container.resolve("sales_channel")
+          const locationService = container.resolve("stock_location")
+          const inventoryService = container.resolve("inventory")
+          const productService = container.resolve("product")
+          const pubKeyService = container.resolve("api_key")
+          const linkService = container.resolve("remoteLink")
+
+          const [channelOne, channelTwo] =
+            await channelService.createSalesChannels([
+              { name: "Sales Channel 1" },
+              { name: "Sales Channel 2" },
+            ])
+
+          const product = await productService.createProducts({
+            status: "published",
+            title: "my prod",
+            options: [{ title: "color", values: ["green", "blue"] }],
+            variants: [
+              { title: "variant one", options: { color: "green" } },
+              { title: "variant two", options: { color: "blue" } },
+            ],
+          })
+          console.log(product)
+          const [variantOne, variantTwo] = product.variants
+
+          const [itemOne, itemTwo, itemThree] =
+            await inventoryService.createInventoryItems([
+              { sku: "sku-one" },
+              { sku: "sku-two" },
+              { sku: "sku-three" },
+            ])
+
+          const [locationOne, locationTwo] =
+            await locationService.createStockLocations([
+              { name: "Location One" },
+              { name: "Location Two" },
+            ])
+
+          await inventoryService.createInventoryLevels([
+            {
+              location_id: locationOne.id,
+              inventory_item_id: itemOne.id,
+              stocked_quantity: 23,
+            },
+            {
+              location_id: locationOne.id,
+              inventory_item_id: itemTwo.id,
+              stocked_quantity: 10,
+            },
+            {
+              location_id: locationTwo.id,
+              inventory_item_id: itemThree.id,
+              stocked_quantity: 5,
+            },
+          ])
+
+          const [pubKeyOne, pubKeyTwo] = await pubKeyService.createApiKeys([
+            { title: "pub key one", type: "publishable", created_by: "me" },
+            { title: "pub key two", type: "publishable", created_by: "me" },
+          ])
+
+          await linkService.create([
+            {
+              product: { product_id: product.id },
+              sales_channel: { sales_channel_id: channelOne.id },
+            },
+            {
+              product: { product_id: product.id },
+              sales_channel: { sales_channel_id: channelTwo.id },
+            },
+            {
+              product: { variant_id: variantOne.id },
+              inventory: { inventory_item_id: itemOne.id },
+            },
+            {
+              product: { variant_id: variantTwo.id },
+              inventory: { inventory_item_id: itemTwo.id },
+            },
+            {
+              product: { variant_id: variantTwo.id },
+              inventory: { inventory_item_id: itemThree.id },
+              data: { required_quantity: 2 },
+            },
+            {
+              sales_channel: { sales_channel_id: channelOne.id },
+              stock_location: { stock_location_id: locationOne.id },
+            },
+            {
+              sales_channel: { sales_channel_id: channelTwo.id },
+              stock_location: { stock_location_id: locationOne.id },
+            },
+            {
+              sales_channel: { sales_channel_id: channelTwo.id },
+              stock_location: { stock_location_id: locationTwo.id },
+            },
+            {
+              api_key: { publishable_key_id: pubKeyOne.id },
+              sales_channel: { sales_channel_id: channelOne.id },
+            },
+            {
+              api_key: { publishable_key_id: pubKeyTwo.id },
+              sales_channel: { sales_channel_id: channelTwo.id },
+            },
+          ])
+
+          let response = await api.get(
+            `/store/products?fields=+variants.inventory_quantity`,
+            { headers: { "x-publishable-api-key": pubKeyOne.token } }
+          )
+
+          expect(response.status).toEqual(200)
+          for (const variant of response.data.products
+            .map((p) => p.variants)
+            .flat()) {
+            if (variant.id === variantOne.id) {
+              expect(variant.inventory_quantity).toEqual(23)
+            } else if (variant.id === variantTwo.id) {
+              expect(variant.inventory_quantity).toEqual(0)
+            } else {
+              throw new Error("Unexpected variant")
+            }
+          }
+
+          response = await api.get(
+            `/store/products?fields=+variants.inventory_quantity`,
+            { headers: { "x-publishable-api-key": pubKeyTwo.token } }
+          )
+
+          expect(response.status).toEqual(200)
+          for (const variant of response.data.products
+            .map((p) => p.variants)
+            .flat()) {
+            if (variant.id === variantOne.id) {
+              expect(variant.inventory_quantity).toEqual(23)
+            } else if (variant.id === variantTwo.id) {
+              expect(variant.inventory_quantity).toEqual(2)
+            } else {
+              throw new Error("Unexpected variant")
+            }
+          }
+        })
+
         it("should list all inventory items for a variant", async () => {
           let response = await api.get(
             `/store/products?sales_channel_id[]=${salesChannel1.id}&fields=variants.inventory_items.inventory.location_levels.*`,

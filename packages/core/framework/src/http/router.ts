@@ -183,6 +183,44 @@ function getBodyParserMiddleware(args?: ParserConfigArgs) {
   ]
 }
 
+function createCorsOptions(origin: string): cors.CorsOptions {
+  return {
+    origin: parseCorsOrigins(origin),
+    credentials: true,
+  }
+}
+
+function applyCors(
+  router: Router,
+  route: string | RegExp,
+  corsConfig: cors.CorsOptions
+) {
+  router.use(route, cors(corsConfig))
+}
+
+function getRouteContext(
+  path: string | RegExp
+): "admin" | "store" | "auth" | null {
+  /**
+   * We cannot reliably guess the route context from a regex, so we skip it.
+   */
+  if (path instanceof RegExp) {
+    return null
+  }
+
+  if (path.startsWith("/admin")) {
+    return "admin"
+  }
+  if (path.startsWith("/store")) {
+    return "store"
+  }
+  if (path.startsWith("/auth")) {
+    return "auth"
+  }
+
+  return null
+}
+
 // TODO this router would need a proper rework, but it is out of scope right now
 
 export class ApiRoutesLoader {
@@ -589,13 +627,15 @@ export class ApiRoutesLoader {
   /**
    * Applies middleware that checks if a valid publishable key is set on store request
    */
-  applyStorePublishableKeyMiddleware(route: string) {
+  applyStorePublishableKeyMiddleware(route: string | RegExp) {
     let middleware = ensurePublishableApiKeyMiddleware as unknown as
       | RequestHandler
       | MiddlewareFunction
 
     if (ApiRoutesLoader.traceMiddleware) {
-      middleware = ApiRoutesLoader.traceMiddleware(middleware, { route: route })
+      middleware = ApiRoutesLoader.traceMiddleware(middleware, {
+        route: String(route),
+      })
     }
 
     this.#router.use(route, middleware as RequestHandler)
@@ -606,7 +646,7 @@ export class ApiRoutesLoader {
    * needed to pass the middleware via the trace calls
    */
   applyAuthMiddleware(
-    route: string,
+    route: string | RegExp,
     actorType: string | string[],
     authType: AuthType | AuthType[],
     options?: { allowUnauthenticated?: boolean; allowUnregistered?: boolean }
@@ -617,7 +657,7 @@ export class ApiRoutesLoader {
     if (ApiRoutesLoader.traceMiddleware) {
       authenticateMiddleware = ApiRoutesLoader.traceMiddleware(
         authenticateMiddleware,
-        { route: route }
+        { route: String(route) }
       )
     }
 
@@ -632,6 +672,14 @@ export class ApiRoutesLoader {
    */
   applyRouteSpecificMiddlewares(): void {
     const prioritizedRoutes = prioritize([...this.#routesMap.values()])
+    const handledPaths = new Set<string>()
+    const middlewarePaths = new Set<string | RegExp>()
+
+    const globalRoutes = this.#globalMiddlewaresDescriptor?.config?.routes ?? []
+
+    for (const route of globalRoutes) {
+      middlewarePaths.add(route.matcher)
+    }
 
     for (const descriptor of prioritizedRoutes) {
       if (!descriptor.config?.routes?.length) {
@@ -639,58 +687,33 @@ export class ApiRoutesLoader {
       }
 
       const config = descriptor.config
-      const routes = descriptor.config.routes
-
-      /**
-       * Apply default store and admin middlewares if
-       * not opted out of.
-       */
+      handledPaths.add(descriptor.route)
 
       if (config.shouldAppendAdminCors) {
-        /**
-         * Apply the admin cors
-         */
-        this.#router.use(
+        applyCors(
+          this.#router,
           descriptor.route,
-          cors({
-            origin: parseCorsOrigins(
-              configManager.config.projectConfig.http.adminCors
-            ),
-            credentials: true,
-          })
+          createCorsOptions(configManager.config.projectConfig.http.adminCors)
         )
       }
 
       if (config.shouldAppendAuthCors) {
-        /**
-         * Apply the auth cors
-         */
-        this.#router.use(
+        applyCors(
+          this.#router,
           descriptor.route,
-          cors({
-            origin: parseCorsOrigins(
-              configManager.config.projectConfig.http.authCors
-            ),
-            credentials: true,
-          })
+          createCorsOptions(configManager.config.projectConfig.http.authCors)
         )
       }
 
       if (config.shouldAppendStoreCors) {
-        /**
-         * Apply the store cors
-         */
-        this.#router.use(
+        applyCors(
+          this.#router,
           descriptor.route,
-          cors({
-            origin: parseCorsOrigins(
-              configManager.config.projectConfig.http.storeCors
-            ),
-            credentials: true,
-          })
+          createCorsOptions(configManager.config.projectConfig.http.storeCors)
         )
       }
 
+      // Apply other middlewares
       if (config.routeType === "store") {
         this.applyStorePublishableKeyMiddleware(descriptor.route)
       }
@@ -715,12 +738,57 @@ export class ApiRoutesLoader {
         ])
       }
 
-      for (const route of routes) {
+      for (const route of descriptor.config.routes) {
         /**
          * Apply the body parser middleware if the route
          * has not opted out of it.
          */
         this.applyBodyParserMiddleware(descriptor.route, route.method!)
+      }
+    }
+
+    /**
+     * Apply CORS and auth middleware for paths defined in global middleware but not already handled by routes.
+     */
+    for (const path of middlewarePaths) {
+      if (typeof path === "string" && handledPaths.has(path)) {
+        continue
+      }
+
+      const context = getRouteContext(path)
+
+      if (!context) {
+        continue
+      }
+
+      switch (context) {
+        case "admin":
+          applyCors(
+            this.#router,
+            path,
+            createCorsOptions(configManager.config.projectConfig.http.adminCors)
+          )
+          this.applyAuthMiddleware(path, "user", [
+            "bearer",
+            "session",
+            "api-key",
+          ])
+          break
+        case "store":
+          applyCors(
+            this.#router,
+            path,
+            createCorsOptions(configManager.config.projectConfig.http.storeCors)
+          )
+          this.applyStorePublishableKeyMiddleware(path)
+          break
+        case "auth":
+          applyCors(
+            this.#router,
+            path,
+            createCorsOptions(configManager.config.projectConfig.http.authCors)
+          )
+          break
       }
     }
   }

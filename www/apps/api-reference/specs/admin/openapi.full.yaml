@@ -19772,6 +19772,68 @@ paths:
         '500':
           $ref: '#/components/responses/500_error'
       x-workflow: getOrderDetailWorkflow
+    post:
+      operationId: PostOrdersId
+      summary: Update Order
+      description: Update an order's details.
+      x-authenticated: true
+      parameters:
+        - name: id
+          in: path
+          description: The order's ID.
+          required: true
+          schema:
+            type: string
+        - name: fields
+          in: query
+          description: |-
+            Comma-separated fields that should be included in the returned data.
+            if a field is prefixed with `+` it will be added to the default fields, using `-` will remove it from the default fields.
+            without prefix it will replace the entire default fields.
+          required: false
+          schema:
+            type: string
+            title: fields
+            description: Comma-separated fields that should be included in the returned data. If a field is prefixed with `+` it will be added to the default fields, using `-` will remove it from the default fields. Without prefix it will replace the entire default fields.
+            externalDocs:
+              url: '#select-fields-and-relations'
+      security:
+        - api_token: []
+        - cookie_auth: []
+        - jwt_token: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AdminUpdateOrder'
+      x-codeSamples:
+        - lang: Shell
+          label: cURL
+          source: |-
+            curl -X POST '{backend_url}/admin/orders/{id}' \
+            -H 'Authorization: Bearer {access_token}'
+      tags:
+        - Orders
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdminOrderResponse'
+        '400':
+          $ref: '#/components/responses/400_error'
+        '401':
+          $ref: '#/components/responses/unauthorized'
+        '404':
+          $ref: '#/components/responses/not_found_error'
+        '409':
+          $ref: '#/components/responses/invalid_state_error'
+        '422':
+          $ref: '#/components/responses/invalid_request_error'
+        '500':
+          $ref: '#/components/responses/500_error'
+      x-workflow: updateOrderWorkflow
   /admin/orders/{id}/archive:
     post:
       operationId: PostOrdersIdArchive
@@ -23053,20 +23115,20 @@ paths:
                   description: A parent category's ID.
         - name: include_ancestors_tree
           in: query
-          description: Whether to include the parent category of each category. If enabled, the parent category is set in the `parent_category` property of each category object.
+          description: Whether to include the parent category of each category. If you enable this, add to the `fields` query parameter `parent_category` to set the parent of a category in this field. You can either pass `*parent_category` to retreieve the fields of all parent categories, or select specific fields to make the response size smaller. For example, `fields=parent_category.id,parent_category.name`.
           required: false
           schema:
             type: boolean
             title: include_ancestors_tree
-            description: Whether to include the parent category of each category. If enabled, the parent category is set in the `parent_category` property of each category object.
+            description: Whether to include the parent category of each category. If you enable this, add to the `fields` query parameter `parent_category` to set the parent of a category in this field. You can either pass `*parent_category` to retreieve the fields of all parent categories, or select specific fields to make the response size smaller. For example, `fields=parent_category.id,parent_category.name`.
         - name: include_descendants_tree
           in: query
-          description: Whether to include the child categories of each category. If enabled, the child categories are added to the `category_children` property of each category object.
+          description: Whether to include the child categories of each category. If you enable this, add to the `fields` query parameter `category_children` to set the children of a category in this field. You can either pass `*category_children` to retreieve the fields of all child categories, or select specific fields to make the response size smaller. For example, `fields=category_children.id,category_children.name`.
           required: false
           schema:
             type: boolean
             title: include_descendants_tree
-            description: Whether to include the child categories of each category. If enabled, the child categories are added to the `category_children` property of each category object.
+            description: Whether to include the child categories of each category. If you enable this, add to the `fields` query parameter `category_children` to set the children of a category in this field. You can either pass `*category_children` to retreieve the fields of all child categories, or select specific fields to make the response size smaller. For example, `fields=category_children.id,category_children.name`.
         - name: is_internal
           in: query
           description: Filter by whether the category is internal.
@@ -23587,20 +23649,20 @@ paths:
               url: '#select-fields-and-relations'
         - name: include_ancestors_tree
           in: query
-          description: Whether to retrieve the category's parent. When enabled, the parent category is set in the `parent_category` property.
+          description: Whether to retrieve the category's parent. If you enable this, add to the `fields` query parameter `parent_category` to set the parent of a category in this field. You can either pass `*parent_category` to retreieve the fields of all parent categories, or select specific fields to make the response size smaller. For example, `fields=parent_category.id,parent_category.name`.
           required: false
           schema:
             type: boolean
             title: include_ancestors_tree
-            description: Whether to retrieve the category's parent. When enabled, the parent category is set in the `parent_category` property.
+            description: Whether to retrieve the category's parent. If you enable this, add to the `fields` query parameter `parent_category` to set the parent of a category in this field. You can either pass `*parent_category` to retreieve the fields of all parent categories, or select specific fields to make the response size smaller. For example, `fields=parent_category.id,parent_category.name`.
         - name: include_descendants_tree
           in: query
-          description: Whether to retrieve a list of child categories. When enabled, the parent categories are added to the `category_children` property.
+          description: Whether to retrieve a list of child categories. If you enable this, add to the `fields` query parameter `category_children` to set the children of a category in this field. You can either pass `*category_children` to retreieve the fields of all child categories, or select specific fields to make the response size smaller. For example, `fields=category_children.id,category_children.name`.
           required: false
           schema:
             type: boolean
             title: include_descendants_tree
-            description: Whether to retrieve a list of child categories. When enabled, the parent categories are added to the `category_children` property.
+            description: Whether to retrieve a list of child categories. If you enable this, add to the `fields` query parameter `category_children` to set the children of a category in this field. You can either pass `*category_children` to retreieve the fields of all child categories, or select specific fields to make the response size smaller. For example, `fields=category_children.id,category_children.name`.
       security:
         - api_token: []
         - cookie_auth: []
@@ -53654,6 +53716,112 @@ components:
         metadata:
           type: object
           description: The customer group's metadata, can hold custom key-value pairs.
+    AdminUpdateOrder:
+      type: object
+      description: The details to update in the order.
+      x-schemaName: AdminUpdateOrder
+      properties:
+        email:
+          type: string
+          title: email
+          description: The order's email.
+          format: email
+        shipping_address:
+          type: object
+          description: The order's shipping address.
+          properties:
+            first_name:
+              type: string
+              title: first_name
+              description: The address's first name.
+            last_name:
+              type: string
+              title: last_name
+              description: The address's last name.
+            phone:
+              type: string
+              title: phone
+              description: The address's phone.
+            company:
+              type: string
+              title: company
+              description: The address's company.
+            address_1:
+              type: string
+              title: address_1
+              description: The address's first line.
+            address_2:
+              type: string
+              title: address_2
+              description: The address's second line.
+            city:
+              type: string
+              title: city
+              description: The address's city.
+            country_code:
+              type: string
+              title: country_code
+              description: The address's country code.
+              example: us
+            province:
+              type: string
+              title: province
+              description: The address's province.
+            postal_code:
+              type: string
+              title: postal_code
+              description: The address's postal code.
+            metadata:
+              type: object
+              description: The address's metadata, can hold custom key-value pairs.
+        billing_address:
+          type: object
+          description: The order's billing address.
+          properties:
+            first_name:
+              type: string
+              title: first_name
+              description: The address's first name.
+            last_name:
+              type: string
+              title: last_name
+              description: The address's last name.
+            phone:
+              type: string
+              title: phone
+              description: The address's phone.
+            company:
+              type: string
+              title: company
+              description: The address's company.
+            address_1:
+              type: string
+              title: address_1
+              description: The address's first line.
+            address_2:
+              type: string
+              title: address_2
+              description: The address's second line.
+            city:
+              type: string
+              title: city
+              description: The address's city.
+            country_code:
+              type: string
+              title: country_code
+              description: The address's country code.
+              example: us
+            province:
+              type: string
+              title: province
+              description: The address's province.
+            postal_code:
+              type: string
+              title: postal_code
+              description: The address's postal code.
+            metadata:
+              type: object
+              description: The address's metadata, can hold custom key-value pairs.
     AdminUpdatePriceList:
       type: object
       description: the details to update in a price list.
@@ -54804,63 +54972,9 @@ components:
         calculated_price:
           type: object
           description: The calculated price's details.
-          properties:
-            id:
-              type: string
-              title: id
-              description: The ID of the price.
-            price_list_id:
-              type: string
-              title: price_list_id
-              description: The ID of the associated price list.
-            price_list_type:
-              type: string
-              title: price_list_type
-              description: The price list's type. For example, sale.
-            min_quantity:
-              type: number
-              title: min_quantity
-              description: The minimum quantity required in the cart for this price to apply.
-            max_quantity:
-              type: number
-              title: max_quantity
-              description: The maximum quantity allowed in the cart for this price to apply.
-          required:
-            - id
-            - price_list_id
-            - price_list_type
-            - min_quantity
-            - max_quantity
         original_price:
           type: object
           description: The original price's details.
-          properties:
-            id:
-              type: string
-              title: id
-              description: The ID of the price.
-            price_list_id:
-              type: string
-              title: price_list_id
-              description: The ID of the associated price list.
-            price_list_type:
-              type: string
-              title: price_list_type
-              description: The price list's type. For example, sale.
-            min_quantity:
-              type: number
-              title: min_quantity
-              description: The minimum quantity required in the cart for this price to apply.
-            max_quantity:
-              type: number
-              title: max_quantity
-              description: The maximum quantity allowed in the cart for this price to apply.
-          required:
-            - id
-            - price_list_id
-            - price_list_type
-            - min_quantity
-            - max_quantity
     BaseCapture:
       type: object
       description: The details of a captured payment.

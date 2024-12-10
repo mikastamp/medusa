@@ -33,7 +33,7 @@ const COLUMN_TYPES: {
   dateTime: "timestamptz",
   number: "integer",
   bigNumber: "numeric",
-  serial: "serial",
+  serial: "number",
   text: "text",
   json: "jsonb",
   array: "array",
@@ -264,7 +264,11 @@ export function defineProperty(
    * Handling serial property separately to set the column type
    */
   if (field.dataType.name === "serial") {
-    Property({
+    const Prop = PrimaryKeyModifier.isPrimaryKeyModifier(property)
+      ? PrimaryKey
+      : Property
+
+    Prop({
       columnType: "serial",
       type: mikroOrmType.integer,
       nullable: true,

@@ -4,7 +4,7 @@ import {
   AuthenticatedMedusaRequest,
   MedusaResponse,
 } from "@medusajs/framework/http"
-import { wrapVariantsWithInventoryQuantity } from "../../../../utils/middlewares"
+import { wrapVariantsWithTotalInventoryQuantity } from "../../../../utils/middlewares"
 import { refetchEntities, refetchEntity } from "@medusajs/framework/http"
 import {
   remapKeysForProduct,
@@ -38,7 +38,7 @@ export const GET = async (
   )
 
   if (withInventoryQuantity) {
-    await wrapVariantsWithInventoryQuantity(req, variants || [])
+    await wrapVariantsWithTotalInventoryQuantity(req, variants || [])
   }
 
   res.json({

@@ -1,7 +1,7 @@
 import { DropdownMenu, IconButton, clx } from "@medusajs/ui"
 
 import { EllipsisHorizontal } from "@medusajs/icons"
-import { ReactNode } from "react"
+import { PropsWithChildren, ReactNode } from "react"
 import { Link } from "react-router-dom"
 import { ConditionalTooltip } from "../conditional-tooltip"
 
@@ -28,18 +28,20 @@ export type ActionGroup = {
   actions: Action[]
 }
 
-type ActionMenuProps = {
+type ActionMenuProps = PropsWithChildren<{
   groups: ActionGroup[]
-}
+}>
 
-export const ActionMenu = ({ groups }: ActionMenuProps) => {
+export const ActionMenu = ({ groups, children }: ActionMenuProps) => {
+  const inner = children ?? (
+    <IconButton size="small" variant="transparent">
+      <EllipsisHorizontal />
+    </IconButton>
+  )
+
   return (
     <DropdownMenu>
-      <DropdownMenu.Trigger asChild>
-        <IconButton size="small" variant="transparent">
-          <EllipsisHorizontal />
-        </IconButton>
-      </DropdownMenu.Trigger>
+      <DropdownMenu.Trigger asChild>{inner}</DropdownMenu.Trigger>
       <DropdownMenu.Content>
         {groups.map((group, index) => {
           if (!group.actions.length) {

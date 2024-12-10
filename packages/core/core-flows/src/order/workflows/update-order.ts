@@ -121,45 +121,62 @@ export const updateOrderWorkflow = createWorkflow(
       return { ...input, ...update }
     })
 
-    updateOrdersStep({
+    const updatedOrders = updateOrdersStep({
       selector: { id: input.id },
       update: updateInput,
     })
 
-    const orderChangeInput = transform({ input, order }, ({ input, order }) => {
-      const changes: RegisterOrderChangeDTO[] = []
-      if (input.shipping_address) {
-        changes.push({
-          change_type: "update_order" as const,
-          order_id: input.id,
-          reference: "shipping_address",
-          reference_id: order.shipping_address?.id, // save previous address id as reference
-          details: input.shipping_address as Record<string, unknown>, // save what changed on the address
-        })
-      }
+    const orderChangeInput = transform(
+      { input, updatedOrders, order },
+      ({ input, updatedOrders, order }) => {
+        const updatedOrder = updatedOrders[0]
 
-      if (input.billing_address) {
-        changes.push({
-          change_type: "update_order" as const,
-          order_id: input.id,
-          reference: "billing_address",
-          reference_id: order.billing_address?.id,
-          details: input.billing_address as Record<string, unknown>,
-        })
-      }
+        const changes: RegisterOrderChangeDTO[] = []
+        if (input.shipping_address) {
+          changes.push({
+            change_type: "update_order" as const,
+            order_id: input.id,
+            created_by: input.user_id,
+            confirmed_by: input.user_id,
+            details: {
+              type: "shipping_address",
+              old: order.shipping_address,
+              new: updatedOrder.shipping_address,
+            },
+          })
+        }
 
-      if (input.email) {
-        changes.push({
-          change_type: "update_order" as const,
-          order_id: input.id,
-          reference: "email",
-          reference_id: order.email,
-          details: { email: input.email },
-        })
-      }
+        if (input.billing_address) {
+          changes.push({
+            change_type: "update_order" as const,
+            order_id: input.id,
+            created_by: input.user_id,
+            confirmed_by: input.user_id,
+            details: {
+              type: "billing_address",
+              old: order.billing_address,
+              new: updatedOrder.billing_address,
+            },
+          })
+        }
 
-      return changes
-    })
+        if (input.email) {
+          changes.push({
+            change_type: "update_order" as const,
+            order_id: input.id,
+            created_by: input.user_id,
+            confirmed_by: input.user_id,
+            details: {
+              type: "email",
+              old: order.email,
+              new: input.email,
+            },
+          })
+        }
+
+        return changes
+      }
+    )
 
     registerOrderChangesStep(orderChangeInput)
 
