@@ -6,6 +6,11 @@ import {
 } from "@medusajs/framework/utils"
 import { StepResponse, createStep } from "@medusajs/framework/workflows-sdk"
 
+type OptionsInput = (
+  | FulfillmentWorkflow.CreateShippingOptionsWorkflowInput
+  | FulfillmentWorkflow.UpdateShippingOptionsWorkflowInput
+)[]
+
 export const validateShippingOptionPricesStepId =
   "validate-shipping-option-prices"
 
@@ -17,13 +22,7 @@ export const validateShippingOptionPricesStepId =
  */
 export const validateShippingOptionPricesStep = createStep(
   validateShippingOptionPricesStepId,
-  async (
-    options: (
-      | FulfillmentWorkflow.CreateShippingOptionsWorkflowInput
-      | FulfillmentWorkflow.UpdateShippingOptionsWorkflowInput
-    )[],
-    { container }
-  ) => {
+  async (options: OptionsInput, { container }) => {
     const fulfillmentModuleService = container.resolve(Modules.FULFILLMENT)
 
     const optionIds = options.map(
@@ -61,17 +60,18 @@ export const validateShippingOptionPricesStep = createStep(
       })
     }
 
-    const flatRatePrices = options.flatMap((option) =>
-      option.price_type === ShippingOptionPriceType.FLAT
-        ? ((option.prices ?? []) as { region_id: string; amount: number }[])
-        : []
-    )
+    const flatRatePrices: FulfillmentWorkflow.UpdateShippingOptionPriceRecord[] =
+      []
+    const calculatedOptions: OptionsInput = []
 
-    const calculatedOptions = options
-      .filter(
-        (option) => option.price_type === ShippingOptionPriceType.CALCULATED
-      )
-      .flatMap((option) => option ?? [])
+    options.forEach((option) => {
+      if (option.price_type === ShippingOptionPriceType.FLAT) {
+        flatRatePrices.push(...(option.prices ?? []))
+      }
+      if (option.price_type === ShippingOptionPriceType.CALCULATED) {
+        calculatedOptions.push(option)
+      }
+    })
 
     await fulfillmentModuleService.validateShippingOptionsForPriceCalculation(
       calculatedOptions as FulfillmentWorkflow.CreateShippingOptionsWorkflowInput[]

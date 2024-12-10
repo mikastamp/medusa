@@ -33,8 +33,12 @@ export const updateShippingOptionsWorkflow = createWorkflow(
 
     const data = transform(input, (data) => {
       const shippingOptionsIndexToPrices = data.map((option, index) => {
-        const prices = (option as any).prices
-        delete (option as any).prices
+        const prices = (
+          option as FulfillmentWorkflow.UpdateFlatRateShippingOptionInput
+        ).prices
+
+        delete (option as FulfillmentWorkflow.UpdateFlatRateShippingOptionInput)
+          .prices
 
         /**
          * When we are updating an option to be calculated, remove the prices.

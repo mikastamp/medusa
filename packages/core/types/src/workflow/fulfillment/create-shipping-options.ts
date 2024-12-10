@@ -1,7 +1,17 @@
 import { ShippingOptionDTO } from "../../fulfillment"
 import { RuleOperatorType } from "../../common"
 
-export type CreateShippingOptionsWorkflowInput = {
+type CreateFlatRateShippingOptionPriceRecord =
+  | {
+      currency_code: string
+      amount: number
+    }
+  | {
+      region_id: string
+      amount: number
+    }
+
+type CreateFlatShippingOptionInputBase = {
   name: string
   service_zone_id: string
   shipping_profile_id: string
@@ -17,21 +27,19 @@ export type CreateShippingOptionsWorkflowInput = {
     operator: RuleOperatorType
     value: string | string[]
   }[]
-} & (
-  | { price_type: "calculated" }
-  | {
-      price_type: "flat"
-      prices: (
-        | {
-            currency_code: string
-            amount: number
-          }
-        | {
-            region_id: string
-            amount: number
-          }
-      )[]
-    }
-)
+}
+
+type CreateFlatRateShippingOptionInput = CreateFlatShippingOptionInputBase & {
+  price_type: "flat"
+  prices: CreateFlatRateShippingOptionPriceRecord[]
+}
+
+type CreateCalculatedShippingOptionInput = CreateFlatShippingOptionInputBase & {
+  price_type: "calculated"
+}
+
+export type CreateShippingOptionsWorkflowInput =
+  | CreateFlatRateShippingOptionInput
+  | CreateCalculatedShippingOptionInput
 
 export type CreateShippingOptionsWorkflowOutput = ShippingOptionDTO[]

@@ -1,7 +1,7 @@
 import { RuleOperatorType } from "../../common"
 import { PriceRule } from "../../pricing"
 
-export type UpdateShippingOptionsWorkflowInput = {
+type UpdateFlatShippingOptionInputBase = {
   id: string
   name?: string
   service_zone_id?: string
@@ -18,13 +18,7 @@ export type UpdateShippingOptionsWorkflowInput = {
     operator: RuleOperatorType
     value: string | string[]
   }[]
-} & (
-  | { price_type?: "calculated" }
-  | {
-      price_type?: "flat"
-      prices?: UpdateShippingOptionPriceRecord[]
-    }
-)
+}
 
 export type UpdateShippingOptionPriceRecord =
   | {
@@ -39,6 +33,21 @@ export type UpdateShippingOptionPriceRecord =
       amount?: number
       rules?: PriceRule[]
     }
+
+export type UpdateCalculatedShippingOptionInput =
+  UpdateFlatShippingOptionInputBase & {
+    price_type?: "calculated"
+  }
+
+export type UpdateFlatRateShippingOptionInput =
+  UpdateFlatShippingOptionInputBase & {
+    price_type?: "flat"
+    prices?: UpdateShippingOptionPriceRecord[]
+  }
+
+export type UpdateShippingOptionsWorkflowInput =
+  | UpdateFlatRateShippingOptionInput
+  | UpdateCalculatedShippingOptionInput
 
 export type UpdateShippingOptionsWorkflowOutput = {
   id: string
