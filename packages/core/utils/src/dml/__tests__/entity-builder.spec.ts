@@ -3614,7 +3614,6 @@ describe("Entity builder", () => {
           name: "user",
           nullable: false,
           onDelete: "cascade",
-          cascade: ["persist", "soft-remove"],
           owner: true,
           reference: "1:1",
           cascade: ["persist", "soft-remove"],
