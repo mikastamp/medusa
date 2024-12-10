@@ -1,6 +1,6 @@
 import { AbstractFulfillmentProviderService } from "@medusajs/framework/utils"
 import {
-  CalculaterShippingOptionPrice,
+  CalculatedShippingOptionPrice,
   FulfillmentOption,
 } from "@medusajs/types"
 
@@ -37,7 +37,7 @@ export class ManualFulfillmentService extends AbstractFulfillmentProviderService
     optionData: Record<string, unknown>,
     data: Record<string, unknown>,
     context: Record<string, unknown>
-  ): Promise<CalculaterShippingOptionPrice> {
+  ): Promise<CalculatedShippingOptionPrice> {
     throw new Error("Manual fulfillment does not support price calculation")
   }
 

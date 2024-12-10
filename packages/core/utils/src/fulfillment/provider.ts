@@ -1,5 +1,5 @@
 import {
-  CalculaterShippingOptionPrice,
+  CalculatedShippingOptionPrice,
   FulfillmentOption,
   IFulfillmentProvider,
 } from "@medusajs/types"
@@ -225,7 +225,7 @@ export class AbstractFulfillmentProviderService
     optionData: Record<string, unknown>,
     data: Record<string, unknown>,
     context: Record<string, unknown>
-  ): Promise<CalculaterShippingOptionPrice> {
+  ): Promise<CalculatedShippingOptionPrice> {
     throw Error("calculatePrice must be overridden by the child class")
   }
 
