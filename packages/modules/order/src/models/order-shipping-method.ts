@@ -40,6 +40,9 @@ const _OrderShipping = model
         .nullable(),
     }
   )
+  .cascades({
+    delete: ["shipping_method"],
+  })
   .indexes([
     {
       name: "IDX_order_shipping_order_id",

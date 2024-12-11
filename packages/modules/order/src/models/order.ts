@@ -40,11 +40,13 @@ type OrderSchema = {
   canceled_at: NullableModifier<Date, DateTimeProperty>
   shipping_address: RelationNullableModifier<
     typeof OrderAddress,
-    BelongsTo<typeof OrderAddress>
+    BelongsTo<typeof OrderAddress>,
+    boolean
   >
   billing_address: RelationNullableModifier<
     typeof OrderAddress,
-    BelongsTo<typeof OrderAddress>
+    BelongsTo<typeof OrderAddress>,
+    boolean
   >
   summary: HasMany<typeof OrderSummary>
   items: HasMany<typeof OrderItem>

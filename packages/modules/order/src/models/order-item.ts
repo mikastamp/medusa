@@ -26,12 +26,17 @@ const _OrderItem = model
       order: model.belongsTo<() => typeof Order>(() => Order, {
         mappedBy: "items",
       }),
-      item: model.hasOne<() => typeof OrderLineItem>(() => OrderLineItem, {
-        mappedBy: undefined,
-        foreignKey: true,
-      }),
+      item: model
+        .hasOne<() => typeof OrderLineItem>(() => OrderLineItem, {
+          mappedBy: undefined,
+          foreignKey: true,
+        })
+        .nullable(),
     }
   )
+  .cascades({
+    delete: ["item"],
+  })
   .indexes([
     {
       name: "IDX_order_item_order_id",
@@ -47,7 +52,6 @@ const _OrderItem = model
     },
     {
       name: "IDX_order_item_item_id",
-      // @ts-expect-error
       on: ["item_id"],
       unique: false,
       where: "deleted_at IS NOT NULL",
