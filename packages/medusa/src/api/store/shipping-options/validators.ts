@@ -1,6 +1,8 @@
 import { z } from "zod"
 import { applyAndAndOrOperators } from "../../utils/common-validators"
-import { createFindParams } from "../../utils/validators"
+import { createFindParams, createSelectParams } from "../../utils/validators"
+
+export const StoreGetShippingOptionsParams = createSelectParams()
 
 export const StoreGetShippingOptionsFields = z
   .object({
@@ -24,4 +26,5 @@ export type StoreCalculateShippingOptionPriceType = z.infer<
 >
 export const StoreCalculateShippingOptionPrice = z.object({
   cart_id: z.string(),
+  data: z.record(z.string(), z.unknown()),
 })
