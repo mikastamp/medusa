@@ -1999,17 +1999,14 @@ export default class FulfillmentModuleService
     return await promiseAll(promises)
   }
 
-  @InjectTransactionManager()
   async calculateShippingOptionsPrices(
-    shippingOptionsData: FulfillmentTypes.CalculateShippingOptionPriceDTO[],
-    @MedusaContext() sharedContext: Context = {}
+    shippingOptionsData: FulfillmentTypes.CalculateShippingOptionPriceDTO[]
   ): Promise<CalculatedShippingOptionPrice[]> {
     const promises = shippingOptionsData.map((option) =>
       this.fulfillmentProviderService_.calculatePrice(
         option.provider_id,
         option.data,
-        option.context,
-        sharedContext
+        option.context
       )
     )
 

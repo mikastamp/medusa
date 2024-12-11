@@ -34,7 +34,6 @@ export class ManualFulfillmentService extends AbstractFulfillmentProviderService
   }
 
   async calculatePrice(
-    optionData: Record<string, unknown>,
     data: Record<string, unknown>,
     context: Record<string, unknown>
   ): Promise<CalculatedShippingOptionPrice> {
