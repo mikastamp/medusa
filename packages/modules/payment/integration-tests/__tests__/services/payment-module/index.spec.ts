@@ -23,7 +23,6 @@ moduleIntegrationTestRunner<IPaymentModuleService>({
           service: PaymentModuleService,
         }).linkable
 
-        console.log(Object.keys(linkable))
         expect(Object.keys(linkable)).toEqual([
           "paymentCollection",
           "paymentSession",
