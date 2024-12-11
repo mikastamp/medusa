@@ -18,9 +18,13 @@ export const calculateShippingOptionsPricesWorkflow = createWorkflow(
   (
     input: WorkflowData<FulfillmentWorkflow.CalculateShippingOptionsPricesWorkflowInput>
   ): WorkflowResponse<FulfillmentWorkflow.CalculateShippingOptionsPricesWorkflowOutput> => {
+    const optionIds = transform({ input }, ({ input }) =>
+      input.map(({ shipping_option_id }) => shipping_option_id)
+    )
+
     const shippingOptionsQuery = useQueryGraphStep({
       entity: "shipping_option",
-      filters: { id: input.map((i) => i.shipping_option_id) },
+      filters: { id: optionIds },
       fields: ["id", "provider_id", "data"],
     })
 
