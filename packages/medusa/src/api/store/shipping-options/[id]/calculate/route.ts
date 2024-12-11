@@ -11,12 +11,10 @@ export const POST = async (
   const { result } = await calculateShippingOptionsPricesWorkflow(
     req.scope
   ).run({
-    input: [
-      {
-        shipping_option_id: req.params.id,
-        cart_id: req.validatedBody.cart_id,
-      },
-    ],
+    input: {
+      shipping_option_ids: [req.params.id],
+      cart_id: req.validatedBody.cart_id,
+    },
   })
 
   res.status(200).json(result[0])

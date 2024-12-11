@@ -18,20 +18,23 @@ export const calculateShippingOptionsPricesWorkflow = createWorkflow(
   (
     input: WorkflowData<FulfillmentWorkflow.CalculateShippingOptionsPricesWorkflowInput>
   ): WorkflowResponse<FulfillmentWorkflow.CalculateShippingOptionsPricesWorkflowOutput> => {
-    const optionIds = transform({ input }, ({ input }) =>
-      input.map(({ shipping_option_id }) => shipping_option_id)
-    )
-
     const shippingOptionsQuery = useQueryGraphStep({
       entity: "shipping_option",
-      filters: { id: optionIds },
+      filters: { id: input.shipping_option_ids },
       fields: ["id", "provider_id", "data"],
-    })
+    }).config({ name: "shipping-options-query" })
+
+    const cartQuery = useQueryGraphStep({
+      entity: "cart",
+      filters: { id: input.cart_id },
+      fields: ["id", "items.*", "shipping_address.*"],
+    }).config({ name: "cart-query" })
 
     const data = transform(
-      { shippingOptionsQuery },
-      ({ shippingOptionsQuery }) => {
+      { shippingOptionsQuery, cartQuery },
+      ({ shippingOptionsQuery, cartQuery }) => {
         const shippingOptions = shippingOptionsQuery.data
+        const cart = cartQuery.data[0]
 
         return shippingOptions.map((shippingOption) => ({
           id: shippingOption.id,
@@ -39,9 +42,7 @@ export const calculateShippingOptionsPricesWorkflow = createWorkflow(
           optionData: shippingOption.data,
           data: {},
           context: {
-            cart: {
-              id: shippingOption.cart_id,
-            },
+            cart,
           },
         }))
       }
