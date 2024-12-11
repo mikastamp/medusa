@@ -71,7 +71,7 @@ export class DmlEntity<
   schema: Schema
 
   readonly #tableName: string
-  #cascades: EntityCascades<string[]> = {}
+  #cascades: EntityCascades<string[], string[]> = {}
   #indexes: EntityIndex<Schema>[] = []
   #checks: CheckConstraint<Schema>[] = []
 
@@ -100,7 +100,7 @@ export class DmlEntity<
     name: InferDmlEntityNameFromConfig<TConfig>
     tableName: string
     schema: DMLSchema
-    cascades: EntityCascades<string[]>
+    cascades: EntityCascades<string[], string[]>
     indexes: EntityIndex<Schema>[]
     checks: CheckConstraint<Schema>[]
   } {
@@ -139,7 +139,8 @@ export class DmlEntity<
    */
   cascades(
     options: EntityCascades<
-      ExtractEntityRelations<Schema, "hasOne" | "hasOneWithFK" | "hasMany">
+      ExtractEntityRelations<Schema, "hasOne" | "hasOneWithFK" | "hasMany">,
+      ExtractEntityRelations<Schema, "manyToMany">
     >
   ) {
     const childToParentCascades = options.delete?.filter((relationship) => {

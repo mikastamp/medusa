@@ -242,12 +242,13 @@ export type Infer<T> = T extends IDmlEntity<infer Schema, any>
  * The actions to cascade from a given entity to its
  * relationship.
  */
-export type EntityCascades<Relationships> = {
+export type EntityCascades<DeletableRelationships, DetachableRelationships> = {
   /**
    * The related models to delete when a record of this data model
    * is deleted.
    */
-  delete?: Relationships
+  delete?: DeletableRelationships
+  detach?: DetachableRelationships
 }
 
 /**

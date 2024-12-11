@@ -144,7 +144,7 @@ export function defineHasOneRelationship(
     any
   >,
   { relatedModelName }: { relatedModelName: string },
-  cascades: EntityCascades<string[]>
+  cascades: EntityCascades<string[], string[]>
 ) {
   const shouldRemoveRelated = !!cascades.delete?.includes(relationship.name)
   const { schema: relationSchema } = relatedEntity.parse()
@@ -179,7 +179,7 @@ export function defineHasOneWithFKRelationship(
   MikroORMEntity: EntityConstructor<any>,
   relationship: RelationshipMetadata,
   { relatedModelName }: { relatedModelName: string },
-  cascades: EntityCascades<string[]>
+  cascades: EntityCascades<string[], string[]>
 ) {
   const foreignKeyName = camelToSnakeCase(`${relationship.name}Id`)
   const shouldRemoveRelated = !!cascades.delete?.includes(relationship.name)
@@ -213,7 +213,7 @@ export function defineHasManyRelationship(
   MikroORMEntity: EntityConstructor<any>,
   relationship: RelationshipMetadata,
   { relatedModelName }: { relatedModelName: string },
-  cascades: EntityCascades<string[]>
+  cascades: EntityCascades<string[], string[]>
 ) {
   const shouldRemoveRelated = !!cascades.delete?.includes(relationship.name)
 
@@ -259,7 +259,7 @@ export function defineBelongsToRelationship(
    * define a onDelete: cascade when we are included in the delete
    * list of parent cascade.
    */
-  const shouldCascade = relationCascades.delete?.includes(mappedBy)
+  const shouldCascade = !!relationCascades.delete?.includes(mappedBy)
 
   /**
    * Ensure the mapped by is defined as relationship on the other side
@@ -337,6 +337,9 @@ export function defineBelongsToRelationship(
     DmlManyToMany.isManyToMany(otherSideRelation)
   ) {
     const foreignKeyName = camelToSnakeCase(`${relationship.name}Id`)
+    const detachCascade =
+      !!relationship.mappedBy &&
+      relationCascades.detach?.includes(relationship.mappedBy)
 
     if (DmlManyToMany.isManyToMany(otherSideRelation)) {
       Property({
@@ -350,6 +353,7 @@ export function defineBelongsToRelationship(
         entity: relatedModelName,
         nullable: relationship.nullable,
         persist: false,
+        onDelete: shouldCascade || detachCascade ? "cascade" : undefined,
       })(MikroORMEntity.prototype, relationship.name)
     } else {
       ManyToOne({
@@ -660,7 +664,7 @@ export function defineRelationship(
   MikroORMEntity: EntityConstructor<any>,
   entity: DmlEntity<any, any>,
   relationship: RelationshipMetadata,
-  cascades: EntityCascades<string[]>,
+  cascades: EntityCascades<string[], string[]>,
   context: Context
 ) {
   /**
