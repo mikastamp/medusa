@@ -22,7 +22,6 @@ const Refund = model
     {
       name: "IDX_refund_payment_id",
       on: ["payment_id"],
-      unique: false,
     },
   ])
 
