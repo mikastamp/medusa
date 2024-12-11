@@ -2,10 +2,8 @@ import { HttpTypes } from "@medusajs/framework/types"
 import { MedusaRequest, MedusaResponse } from "@medusajs/framework/http"
 import { calculateShippingOptionsPricesWorkflow } from "@medusajs/core-flows"
 
-import { StoreCalculateShippingOptionPriceType } from "../../validators"
-
 export const POST = async (
-  req: MedusaRequest<StoreCalculateShippingOptionPriceType>,
+  req: MedusaRequest<HttpTypes.StoreCalculateShippingOptionPrice>,
   res: MedusaResponse<HttpTypes.StoreCalculateShippingOptionPriceResponse>
 ) => {
   const { result } = await calculateShippingOptionsPricesWorkflow(
