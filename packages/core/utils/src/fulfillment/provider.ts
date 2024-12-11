@@ -204,24 +204,24 @@ export class AbstractFulfillmentProviderService
    * The Medusa application uses the {@link canCalculate} method first to check whether the shipping option's price is calculated.
    * If it returns `true`, Medusa uses this method to retrieve the calculated price.
    *
-   * @param optionData - The `data` property of a shipping option.
-   * @param data - If the price is calculated for a shipping option, it's the `data` of the shipping option. Otherwise, it's the `data of the shipping method.
-   * @param cart - The cart details.
+   * @param optionData - Shipping option data from the provider, the `data` property of a shipping option.
+   * @param data - Additional data passed when the price is calculated.
+   * @param context - The context details, such as the cart or customer.
    * @returns The calculated price
    *
    * @example
    * class MyFulfillmentProviderService extends AbstractFulfillmentProviderService {
    *   // ...
-   *   async calculatePrice(optionData: any, data: any, cart: any): Promise<number> {
+   *   async calculatePrice(optionData: any, data: any, context: any): Promise<number> {
    *     // assuming the client can calculate the price using
    *     // the third-party service
    *     const price = await this.client.calculate(data)
-   *
    *     return price
    *   }
    * }
    */
   async calculatePrice(
+    optionData: Record<string, unknown>,
     data: Record<string, unknown>,
     context: Record<string, unknown>
   ): Promise<CalculatedShippingOptionPrice> {

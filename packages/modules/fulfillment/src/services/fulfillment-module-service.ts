@@ -2002,11 +2002,12 @@ export default class FulfillmentModuleService
   async calculateShippingOptionsPrices(
     shippingOptionsData: FulfillmentTypes.CalculateShippingOptionPriceDTO[]
   ): Promise<CalculatedShippingOptionPrice[]> {
-    const promises = shippingOptionsData.map((option) =>
+    const promises = shippingOptionsData.map((data) =>
       this.fulfillmentProviderService_.calculatePrice(
-        option.provider_id,
-        option.data,
-        option.context
+        data.provider_id,
+        data.optionData,
+        data.data,
+        data.context
       )
     )
 

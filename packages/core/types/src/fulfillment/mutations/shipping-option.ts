@@ -136,6 +136,15 @@ export interface CalculateShippingOptionPriceDTO {
   /**
    * The option data from the provider.
    */
+  optionData: Record<string, unknown>
+
+  /**
+   * Additional data passed when the price is calculated.
+   *
+   * @example
+   * When calculating the price for a shipping option upon creation of a shipping method additional data can be passed
+   * to the provider.
+   */
   data: Record<string, unknown>
 
   /**
