@@ -25,10 +25,7 @@ export const POST = async (
   })
 
   const shippingOption = data[0]
+  const priceData = result[0]
 
-  shippingOption.calculated_price = result[0]?.calculated_amount
-  shippingOption.is_calculated_price_tax_inclusive =
-    result[0]?.is_calculated_price_tax_inclusive
-
-  res.status(200).json({ shipping_option: shippingOption })
+  res.status(200).json({ shipping_option: { ...shippingOption, ...priceData } })
 }
