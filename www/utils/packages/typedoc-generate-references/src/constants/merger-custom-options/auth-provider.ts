@@ -1,9 +1,10 @@
 import { FormattingOptionsType } from "types"
+import baseSectionsOptions from "../base-section-options.js"
 
 const authProviderOptions: FormattingOptionsType = {
   "^auth_provider/.*AbstractAuthModuleProvider": {
     reflectionGroups: {
-      Properties: false,
+      Constructors: false,
     },
     reflectionDescription: `In this document, you’ll learn how to create an auth provider module and the methods you must implement in its main service.`,
     frontmatterData: {
@@ -14,6 +15,12 @@ const authProviderOptions: FormattingOptionsType = {
     },
     shouldIncrementAfterStartSections: true,
     expandMembers: true,
+    expandProperties: true,
+    sections: {
+      ...baseSectionsOptions,
+      member_declaration_title: false,
+      reflection_typeParameters: false,
+    },
     startSections: [
       `## 1. Create Module Directory
 
@@ -55,10 +62,6 @@ This exports the module's definition, indicating that the \`MyAuthProviderServic
 To use your Auth Module Provider, add it to the \`providers\` array of the Auth Module in \`medusa-config.ts\`:
 
 \`\`\`ts title="medusa-config.ts"
-import { Modules } from "@medusajs/framework/utils"
-
-// ...
-
 module.exports = defineConfig({
   // ...
   modules: [
@@ -66,6 +69,11 @@ module.exports = defineConfig({
       resolve: "@medusajs/medusa/auth",
       options: {
         providers: [
+          // default provider
+          {
+            resolve: "@medusajs/medusa/auth-emailpass",
+            id: "emailpass",
+          },
           {
             resolve: "./src/modules/my-auth",
             id: "my-auth",

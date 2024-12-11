@@ -77,7 +77,33 @@ class MyAuthProviderService extends AbstractAuthModuleProvider {
 export default MyAuthProviderService
 ```
 
-### constructor
+### identifier
+
+Every auth provider must have an `identifier` static property. The provider's ID
+will be stored as `au_{identifier}_{id}`, where `{id}` is the provider's `id` 
+property in the `medusa-config.ts`.
+
+#### Example
+
+```ts
+class MyAuthProviderService extends AbstractAuthModuleProvider {
+  static identifier = "my-auth"
+  // ...
+}
+```
+
+### DISPLAY\_NAME
+
+This property indicates the name used when displaying the provider on a frontend application.
+
+#### Example
+
+```ts
+class MyAuthProviderService extends AbstractAuthModuleProvider {
+  static DISPLAY_NAME = "My Auth"
+  // ...
+}
+```
 
 ### validateOptions
 
@@ -441,10 +467,6 @@ This exports the module's definition, indicating that the `MyAuthProviderService
 To use your Auth Module Provider, add it to the `providers` array of the Auth Module in `medusa-config.ts`:
 
 ```ts title="medusa-config.ts"
-import { Modules } from "@medusajs/framework/utils"
-
-// ...
-
 module.exports = defineConfig({
   // ...
   modules: [
@@ -452,6 +474,11 @@ module.exports = defineConfig({
       resolve: "@medusajs/medusa/auth",
       options: {
         providers: [
+          // default provider
+          {
+            resolve: "@medusajs/medusa/auth-emailpass",
+            id: "emailpass",
+          },
           {
             resolve: "./src/modules/my-auth",
             id: "my-auth",

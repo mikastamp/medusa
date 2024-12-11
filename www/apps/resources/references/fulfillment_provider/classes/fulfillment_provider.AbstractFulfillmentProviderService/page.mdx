@@ -45,7 +45,7 @@ If you're creating a client or establishing a connection with a third-party serv
 
 #### Example
 
-```ts
+```ts title="src/modules/my-fulfillment/service.ts"
 import { AbstractFulfillmentProviderService } from "@medusajs/framework/utils"
 import { Logger } from "@medusajs/framework/types"
 
@@ -77,7 +77,21 @@ class MyFulfillmentProviderService extends AbstractFulfillmentProviderService {
 export default MyFulfillmentProviderService
 ```
 
-### constructor
+### identifier
+
+Each fulfillment provider has a unique identifier defined in its class. The provider's ID
+will be stored as `fp_{identifier}_{id}`, where `{id}` is the provider's `id`
+property in the `medusa-config.ts`.
+
+#### Example
+
+```ts
+class MyFulfillmentProviderService extends AbstractFulfillmentProviderService {
+  static identifier = "my-fulfillment"
+
+  // ...
+}
+```
 
 ### getFulfillmentOptions
 
@@ -226,7 +240,7 @@ class MyFulfillmentProviderService extends AbstractFulfillmentProviderService {
 
 #### Returns
 
-<TypeList types={[{"name":"Promise","type":"Promise&#60;number&#62;","optional":false,"defaultValue":"","description":"The calculated price","expandable":false,"children":[{"name":"number","type":"`number`","optional":false,"defaultValue":"","description":"","expandable":false,"children":[]}]}]} expandUrl="https://docs.medusajs.com/learn/fundamentals/data-models/manage-relationships#retrieve-records-of-relation" sectionTitle="calculatePrice"/>
+<TypeList types={[{"name":"Promise","type":"Promise&#60;CalculatedShippingOptionPrice&#62;","optional":false,"defaultValue":"","description":"The calculated price","expandable":false,"children":[{"name":"CalculatedShippingOptionPrice","type":"`CalculatedShippingOptionPrice`","optional":false,"defaultValue":"","description":"","expandable":false,"children":[]}]}]} expandUrl="https://docs.medusajs.com/learn/fundamentals/data-models/manage-relationships#retrieve-records-of-relation" sectionTitle="calculatePrice"/>
 
 ### createFulfillment
 
@@ -473,10 +487,6 @@ This exports the module's definition, indicating that the `MyFulfillmentProvider
 To use your Fulfillment Module Provider, add it to the `providers` array of the Fulfillment Module in `medusa-config.ts`:
 
 ```ts title="medusa-config.ts"
-import { Modules } from "@medusajs/framework/utils"
-
-// ...
-
 module.exports = defineConfig({
   // ...
   modules: [
@@ -484,6 +494,11 @@ module.exports = defineConfig({
       resolve: "@medusajs/medusa/fulfillment",
       options: {
         providers: [
+          // default provider
+          {
+            resolve: "@medusajs/medusa/fulfillment-manual",
+            id: "manual",
+          },
           {
             resolve: "./src/modules/my-fulfillment",
             id: "my-fulfillment",

@@ -935,8 +935,8 @@ paths:
           label: cURL
           source: |-
             curl -X POST '{backend_url}/store/carts/{id}/line-items' \
-            -H 'Content-Type: application/json' \ \
-            -H 'x-publishable-api-key: {your_publishable_api_key}'
+            -H 'Content-Type: application/json' \
+            -H 'x-publishable-api-key: {your_publishable_api_key}' \
             --data-raw '{
               "variant_id": "{value}",
               "quantity": 3360689747918848,
@@ -1007,8 +1007,8 @@ paths:
           label: cURL
           source: |-
             curl -X POST '{backend_url}/store/carts/{id}/line-items/{line_id}' \
-            -H 'Content-Type: application/json' \ \
-            -H 'x-publishable-api-key: {your_publishable_api_key}'
+            -H 'Content-Type: application/json' \
+            -H 'x-publishable-api-key: {your_publishable_api_key}' \
             --data-raw '{
               "quantity": 8980402259623936,
               "metadata": {}
@@ -1167,8 +1167,8 @@ paths:
           label: cURL
           source: |-
             curl -X POST '{backend_url}/store/carts/{id}/promotions' \
-            -H 'Content-Type: application/json' \ \
-            -H 'x-publishable-api-key: {your_publishable_api_key}'
+            -H 'Content-Type: application/json' \
+            -H 'x-publishable-api-key: {your_publishable_api_key}' \
             --data-raw '{
               "promo_codes": [
                 "{value}"
@@ -1303,8 +1303,8 @@ paths:
           label: cURL
           source: |-
             curl -X POST '{backend_url}/store/carts/{id}/shipping-methods' \
-            -H 'Content-Type: application/json' \ \
-            -H 'x-publishable-api-key: {your_publishable_api_key}'
+            -H 'Content-Type: application/json' \
+            -H 'x-publishable-api-key: {your_publishable_api_key}' \
             --data-raw '{
               "option_id": "{value}"
             }'
@@ -2252,8 +2252,8 @@ paths:
           source: |-
             curl -X POST '{backend_url}/store/customers' \
             -H 'Authorization: Bearer {token}' \
-            -H 'Content-Type: application/json' \ \
-            -H 'x-publishable-api-key: {your_publishable_api_key}'
+            -H 'Content-Type: application/json' \
+            -H 'x-publishable-api-key: {your_publishable_api_key}' \
             --data-raw '{
               "email": "Monserrate.Leannon88@yahoo.com",
               "company_name": "{value}",
@@ -2371,8 +2371,8 @@ paths:
           source: |-
             curl -X POST '{backend_url}/store/customers/me' \
             -H 'Authorization: Bearer {access_token}' \
-            -H 'Content-Type: application/json' \ \
-            -H 'x-publishable-api-key: {your_publishable_api_key}'
+            -H 'Content-Type: application/json' \
+            -H 'x-publishable-api-key: {your_publishable_api_key}' \
             --data-raw '{
               "company_name": "{value}",
               "first_name": "{value}",
@@ -2625,8 +2625,8 @@ paths:
           source: |-
             curl -X POST '{backend_url}/store/customers/me/addresses' \
             -H 'Authorization: Bearer {access_token}' \
-            -H 'Content-Type: application/json' \ \
-            -H 'x-publishable-api-key: {your_publishable_api_key}'
+            -H 'Content-Type: application/json' \
+            -H 'x-publishable-api-key: {your_publishable_api_key}' \
             --data-raw '{
               "metadata": {},
               "first_name": "{value}",
@@ -2815,8 +2815,8 @@ paths:
           source: |-
             curl -X POST '{backend_url}/store/customers/me/addresses/{address_id}' \
             -H 'Authorization: Bearer {access_token}' \
-            -H 'Content-Type: application/json' \ \
-            -H 'x-publishable-api-key: {your_publishable_api_key}'
+            -H 'Content-Type: application/json' \
+            -H 'x-publishable-api-key: {your_publishable_api_key}' \
             --data-raw '{
               "first_name": "{value}",
             }'
@@ -2875,8 +2875,8 @@ paths:
         - lang: Shell
           label: cURL
           source: |-
-            curl -X DELETE '{backend_url}/store/customers/me/addresses/{address_id}' \ \
-            -H 'x-publishable-api-key: {your_publishable_api_key}'
+            curl -X DELETE '{backend_url}/store/customers/me/addresses/{address_id}' \
+            -H 'x-publishable-api-key: {your_publishable_api_key}' \
             -H 'Authorization: Bearer {access_token}'
       tags:
         - Customers
@@ -3430,8 +3430,8 @@ paths:
           label: cURL
           source: |-
             curl -X POST '{backend_url}/store/payment-collections' \
-            -H 'Content-Type: application/json' \ \
-            -H 'x-publishable-api-key: {your_publishable_api_key}'
+            -H 'Content-Type: application/json' \
+            -H 'x-publishable-api-key: {your_publishable_api_key}' \
             --data-raw '{
               "cart_id": "{value}"
             }'
@@ -3494,8 +3494,8 @@ paths:
           label: cURL
           source: |-
             curl -X POST '{backend_url}/store/payment-collections/{id}/payment-sessions' \
-            -H 'Content-Type: application/json' \ \
-            -H 'x-publishable-api-key: {your_publishable_api_key}'
+            -H 'Content-Type: application/json' \
+            -H 'x-publishable-api-key: {your_publishable_api_key}' \
             --data-raw '{
               "provider_id": "{value}"
             }'
@@ -5451,8 +5451,8 @@ paths:
           label: cURL
           source: |-
             curl -X POST '{backend_url}/store/return' \
-            -H 'Content-Type: application/json' \ \
-            -H 'x-publishable-api-key: {your_publishable_api_key}'
+            -H 'Content-Type: application/json' \
+            -H 'x-publishable-api-key: {your_publishable_api_key}' \
             --data-raw '{
               "order_id": "{value}",
               "items": [

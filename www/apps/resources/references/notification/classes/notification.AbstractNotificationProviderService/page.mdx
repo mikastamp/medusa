@@ -78,8 +78,6 @@ class MyNotificationProviderService extends AbstractNotificationProviderService 
 export default MyNotificationProviderService
 ```
 
-### constructor
-
 ### validateOptions
 
 This method validates the options of the provider set in `medusa-config.ts`.
@@ -181,10 +179,6 @@ The Notification Module accepts one provider per channel.
 </Note>
 
 ```ts title="medusa-config.ts"
-import { Modules } from "@medusajs/framework/utils"
-
-// ...
-
 module.exports = defineConfig({
   // ...
   modules: [
@@ -192,6 +186,15 @@ module.exports = defineConfig({
       resolve: "@medusajs/medusa/notification",
       options: {
         providers: [
+          // default provider
+          {
+            resolve: "@medusajs/medusa/notification-local",
+            id: "local",
+            options: {
+              name: "Local Notification Provider",
+              channels: ["feed"],
+            },
+          },
           {
             resolve: "./src/modules/my-notification",
             id: "my-notification",

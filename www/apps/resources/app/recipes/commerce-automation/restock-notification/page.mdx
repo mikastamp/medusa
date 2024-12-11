@@ -440,7 +440,7 @@ export const validateVariantOutOfStockStep = createStep(
     const query = container.resolve("query")
     const availability = await getVariantAvailability(query, {
       variant_ids: [variant_id],
-      sales_channel_id
+      sales_channel_id,
     })
     
     if (availability[variant_id].availability > 0) {
@@ -599,7 +599,7 @@ export const subscriptionWorkflow1Highlights = [
   ["16", "createWorkflow", "Create a workflow."],
   ["23", "transform", "Set the customer ID to an empty string if not provided."],
   ["28", "when", "If email is not set, try to retrieve customer by its ID."],
-  ["44", "transform", "Set the email either to the one in the input or the specified customer's email."],
+  ["48", "transform", "Set the email either to the one in the input or the specified customer's email."],
 ]
 
 ```ts title="src/workflows/create-restock-subscription/index.ts" highlights={subscriptionWorkflow1Highlights}
@@ -623,24 +623,28 @@ export const createRestockSubscriptionWorkflow = createWorkflow(
   ({
     variant_id,
     sales_channel_id,
-    customer
+    customer,
   }: CreateRestockSubscriptionWorkflowInput) => {
     const customerId = transform({
-      customer
+      customer,
     }, (data) => {
       return data.customer.customer_id || ""
     })
-    const retrievedCustomer = when({ customer }, ({ customer }) => {
-      return !customer.email
-    }).then(() => {
+    const retrievedCustomer = when(
+      "retrieve-customer-by-id",
+      { customer }, 
+      ({ customer }) => {
+        return !customer.email
+      }
+    ).then(() => {
       // @ts-ignore
       const { data } = useQueryGraphStep({
         entity: "customer",
         fields: ["email"],
         filters: { id: customerId },
         options: {
-          throwIfKeyNotFound: true
-        }
+          throwIfKeyNotFound: true,
+        },
       }).config({ name: "retrieve-customer" })
 
       return data
@@ -648,7 +652,7 @@ export const createRestockSubscriptionWorkflow = createWorkflow(
     
     const email = transform({ 
       retrievedCustomer, 
-      customer
+      customer,
     }, (data) => {
       return data.customer?.email ?? data.retrievedCustomer?.[0].email
     })
@@ -688,7 +692,7 @@ export const subscriptionWorkflow2Highlights = [
 ```ts title="src/workflows/create-restock-subscription/index.ts" highlights={subscriptionWorkflow2Highlights}
 validateVariantOutOfStockStep({
   variant_id,
-  sales_channel_id
+  sales_channel_id,
 })
 
 // @ts-ignore
@@ -698,8 +702,8 @@ const { data: restockSubscriptions } = useQueryGraphStep({
   filters: {
     email,
     variant_id,
-    sales_channel_id
-  }
+    sales_channel_id,
+  },
 }).config({ name: "retrieve-subscriptions" })
 
 when({ restockSubscriptions }, ({ restockSubscriptions }) => {
@@ -710,7 +714,7 @@ when({ restockSubscriptions }, ({ restockSubscriptions }) => {
     variant_id,
     sales_channel_id,
     email,
-    customer_id: customer.customer_id
+    customer_id: customer.customer_id,
   })
 })
 
@@ -720,7 +724,7 @@ when({ restockSubscriptions }, ({ restockSubscriptions }) => {
 .then(() => {
   updateRestockSubscriptionStep({
     id: restockSubscriptions[0].id,
-    customer_id: customer.customer_id
+    customer_id: customer.customer_id,
   })
 })
 
@@ -731,8 +735,8 @@ const { data: restockSubscription } = useQueryGraphStep({
   filters: {
     email,
     variant_id,
-    sales_channel_id
-  }
+    sales_channel_id,
+  },
 }).config({ name: "retrieve-restock-subscription" })
 
 return new WorkflowResponse(
@@ -1116,12 +1120,12 @@ Before adding the step that does this, you'll add a method in the `RestockModule
 
 ```ts title="src/modules/restock/service.ts"
 // other imports...
-import { InjectManager, MedusaContext } from "@medusajs/framework/utils";
+import { InjectManager, MedusaContext } from "@medusajs/framework/utils"
 import { Context } from "@medusajs/framework/types"
-import { EntityManager } from "@mikro-orm/knex";
+import { EntityManager } from "@mikro-orm/knex"
 
 class RestockModuleService extends MedusaService({
-  RestockSubscription
+  RestockSubscription,
 }) {
   // ...
   @InjectManager()
@@ -1147,9 +1151,9 @@ You'll use this method in the step. To create the step, create the file `src/wor
 ![Directory structure of the Medusa application after adding the step.](https://res.cloudinary.com/dza7lstvk/image/upload/v1733399774/Medusa%20Resources/restock-dir-overview-22_kzchmm.jpg)
 
 ```ts title="src/workflows/send-restock-notifications/steps/get-distinct-subscriptions.ts"
-import { createStep, StepResponse } from "@medusajs/framework/workflows-sdk";
-import RestockModuleService from "../../../modules/restock/service";
-import { RESTOCK_MODULE } from "../../../modules/restock";
+import { createStep, StepResponse } from "@medusajs/framework/workflows-sdk"
+import RestockModuleService from "../../../modules/restock/service"
+import { RESTOCK_MODULE } from "../../../modules/restock"
 
 export const getDistinctSubscriptionsStep = createStep(
   "get-distinct-subscriptions",
@@ -1194,7 +1198,7 @@ export const getRestockedStep = createStep(
       input.map(async (restockSubscription) => {
         const variantAvailability = await getVariantAvailability(query, {
           variant_ids: [restockSubscription.variant_id],
-          sales_channel_id: restockSubscription.sales_channel_id
+          sales_channel_id: restockSubscription.sales_channel_id,
         })
 
         if (variantAvailability[restockSubscription.variant_id].availability > 0) {
@@ -1318,12 +1322,12 @@ Create the file `src/workflows/send-restock-notifications/index.ts` with the fol
 ![The directory structure of the Medusa application after adding the workflow.](https://res.cloudinary.com/dza7lstvk/image/upload/v1733234507/Medusa%20Resources/restock-dir-overview-20_mcqkkx.jpg)
 
 ```ts title="src/workflows/send-restock-notifications/index.ts"
-import { createWorkflow, transform, WorkflowResponse } from "@medusajs/framework/workflows-sdk";
-import { useQueryGraphStep } from "@medusajs/medusa/core-flows";
-import { getRestockedStep } from "./steps/get-restocked";
-import { sendRestockNotificationStep } from "./steps/send-restock-notification";
-import { deleteRestockSubscriptionStep } from "./steps/delete-restock-subscriptions";
-import { getDistinctSubscriptionsStep } from "./steps/get-distinct-subscriptions";
+import { createWorkflow, transform, WorkflowResponse } from "@medusajs/framework/workflows-sdk"
+import { useQueryGraphStep } from "@medusajs/medusa/core-flows"
+import { getRestockedStep } from "./steps/get-restocked"
+import { sendRestockNotificationStep } from "./steps/send-restock-notification"
+import { deleteRestockSubscriptionStep } from "./steps/delete-restock-subscriptions"
+import { getDistinctSubscriptionsStep } from "./steps/get-distinct-subscriptions"
 
 export const sendRestockNotificationsWorkflow = createWorkflow(
   "send-restock-notifications",
@@ -1334,11 +1338,11 @@ export const sendRestockNotificationsWorkflow = createWorkflow(
     const restockedSubscriptions = getRestockedStep(subscriptions)
 
     const { variant_ids, sales_channel_ids } = transform({
-      restockedSubscriptions
+      restockedSubscriptions,
     }, (data) => {
       const filters: Record<string, string[]> = {
         variant_ids: [],
-        sales_channel_ids: []
+        sales_channel_ids: [],
       }
       data.restockedSubscriptions.map((subscription) => {
         filters.variant_ids.push(subscription.variant_id)
@@ -1354,8 +1358,8 @@ export const sendRestockNotificationsWorkflow = createWorkflow(
       fields: ["*", "product_variant.*"],
       filters: {
         variant_id: variant_ids,
-        sales_channel_id: sales_channel_ids
-      }
+        sales_channel_id: sales_channel_ids,
+      },
     })
 
     // @ts-ignore
@@ -1365,7 +1369,7 @@ export const sendRestockNotificationsWorkflow = createWorkflow(
     deleteRestockSubscriptionStep(restockedSubscriptionsWithEmails)
 
     return new WorkflowResponse({
-      subscriptions: restockedSubscriptionsWithEmails
+      subscriptions: restockedSubscriptionsWithEmails,
     })
   }
 )

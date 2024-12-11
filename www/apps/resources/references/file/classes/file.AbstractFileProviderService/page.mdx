@@ -75,7 +75,20 @@ class MyFileProviderService extends AbstractFileProviderService {
 export default MyFileProviderService
 ```
 
-### constructor
+### identifier
+
+Each file provider has a unique ID used to identify it. The provider's ID
+will be stored as `fs_{identifier}_{id}`, where `{id}` is the provider's `id` 
+property in the `medusa-config.ts`.
+
+#### Example
+
+```ts
+class MyFileProviderService extends AbstractFileProviderService {
+  static identifier = "my-file"
+  // ...
+}
+```
 
 ### validateOptions
 
@@ -229,10 +242,6 @@ The File Module accepts one provider only.
 </Note>
 
 ```ts title="medusa-config.ts"
-import { Modules } from "@medusajs/framework/utils"
-
-// ...
-
 module.exports = defineConfig({
   // ...
   modules: [
@@ -240,6 +249,11 @@ module.exports = defineConfig({
       resolve: "@medusajs/medusa/file",
       options: {
         providers: [
+          // default provider
+          {
+            resolve: "@medusajs/medusa/file-local",
+            id: "local",
+          },
           {
             resolve: "./src/modules/my-file",
             id: "my-file",

@@ -7858,7 +7858,7 @@ export const generatedSidebar = [
         "loaded": true,
         "isPathHref": true,
         "type": "category",
-        "title": "File Provider Modules",
+        "title": "File Module Providers",
         "children": [
           {
             "loaded": true,
@@ -7906,7 +7906,7 @@ export const generatedSidebar = [
         "loaded": true,
         "isPathHref": true,
         "type": "category",
-        "title": "Notification Provider Modules",
+        "title": "Notification Module Providers",
         "children": [
           {
             "loaded": true,
@@ -7952,6 +7952,14 @@ export const generatedSidebar = [
                 "type": "link",
                 "path": "/references/notification-provider-module",
                 "title": "Create Notification Provider",
+                "children": []
+              },
+              {
+                "loaded": true,
+                "isPathHref": true,
+                "type": "link",
+                "path": "/integrations/guides/resend",
+                "title": "Integrate Resend",
                 "children": []
               }
             ]
@@ -9308,6 +9316,14 @@ export const generatedSidebar = [
                 "type": "link",
                 "path": "/troubleshooting/dist-imports",
                 "title": "Importing from /dist",
+                "children": []
+              },
+              {
+                "loaded": true,
+                "isPathHref": true,
+                "type": "link",
+                "path": "/troubleshooting/workflow-errors",
+                "title": "Workflow Errors",
                 "children": []
               }
             ]

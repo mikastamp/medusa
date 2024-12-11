@@ -7,22 +7,21 @@ export const metadata = {
 
 # {metadata.title}
 
-This document provides an example of implementing the marketplace recipe.
+In this guide, you'll learn how to build a marketplace with Medusa.
+
+When you install a Medusa application, you get a fully-fledged commerce platform with support for customizations. While Medusa doesn't provide marketeplace functionalities natively, it provides features that you can extend and a framework to support all your customization needs to build a marketplace.
+
+In this guide, you'll customize Medusa to build a marketplace with the following features:
+
+1. Manage multiple vendors, each having vendor admins.
+2. Allow vendor admins to manage the vendor’s products and orders.
+3. Split orders placed by customers into multiple orders for each vendor.
 
 <Note>
 
-You can implement the marketplace as you see fit for your use case. This is only an example of one way to implement it.
+This guide provides an example of an approach to implement digital products. You're free to choose a different approach using Medusa's framework.
 
 </Note>
-
-## Features
-
-By following this example, you’ll have a marketplace with the following features:
-
-1. Multiple vendors, each having vendor admins.
-2. Vendor admins manage the vendor’s products and orders.
-3. On order creation, the order is split into multiple orders for each vendor.
-4. All other commerce features that Medusa provides.
 
 <CardList items={[
   {
@@ -41,14 +40,50 @@ By following this example, you’ll have a marketplace with the following featur
 
 ---
 
+## Step 1: Install a Medusa Application
+
 <Prerequisites items={[
   {
-    text: "A new Medusa application installed.",
-    link: "!docs!#get-started"
+    text: "Node.js v20+",
+    link: "https://nodejs.org/en/download"
   },
+  {
+    text: "Git CLI tool",
+    link: "https://git-scm.com/downloads"
+  },
+  {
+    text: "PostgreSQL",
+    link: "https://www.postgresql.org/download/"
+  }
 ]} />
 
-## Step 1: Create Marketplace Module
+Start by installing the Medusa application on your machine with the following command:
+
+```bash
+npx create-medusa-app@latest
+```
+
+You'll first be asked for the project's name. You can also optionally choose to install the [Next.js starter storefront](../../../../nextjs-starter/page.mdx).
+
+Afterwards, the installation process will start, which will install the Medusa application in a directory with your project's name. If you chose to install the Next.js starter, it'll be installed in a separate directory with the `{project-name}-storefront` name.
+
+<Note title="Why is the storefront installed separately?">
+
+The Medusa application is composed of a headless Node.js server and an admin dashboard. The storefront is installed or custom-built separately and connects to the Medusa application through its REST endpoints, called [API routes](!docs!/learn/fundamentals/api-routes). Learn more about Medusa's architecture in [this documentation](!docs!/learn/introduction/architecture).
+
+</Note>
+
+Once the installation finishes successfully, the Medusa Admin dashboard will open with a form to create a new user. Enter the user's credential and submit the form. Afterwards, you can login with the new user and explore the dashboard.
+
+<Note title="Ran to Errors?">
+
+Check out the [troubleshooting guides](../../../../troubleshooting/create-medusa-app-errors/page.mdx) for help.
+
+</Note>
+
+---
+
+## Step 2: Create Marketplace Module
 
 Medusa creates commerce features in modules. For example, product features and data models are created in the Product Module.
 
@@ -159,7 +194,7 @@ module.exports = defineConfig({
 
 ---
 
-## Step 2: Define Links to Product and Order Data Models
+## Step 3: Define Links to Product and Order Data Models
 
 Modules are isolated in Medusa, making them reusable, replaceable, and integrable in your application without side effects.
 
@@ -217,7 +252,7 @@ This adds a list link between the `Vendor` and `Order` data models, indicating t
 
 ---
 
-## Step 3: Run Migrations and Sync Links
+## Step 4: Run Migrations and Sync Links
 
 To create tables for the marketplace data models in the database, start by generating the migrations for the Marketplace Module with the following command:
 
@@ -235,7 +270,7 @@ npx medusa db:migrate
 
 ---
 
-## Step 4: Create Vendor Admin Workflow
+## Step 5: Create Vendor Admin Workflow
 
 To implement and expose a feature that manipulates data, you create a workflow that uses services to implement the functionality, then create an API route that executes that workflow.
 
@@ -357,7 +392,7 @@ You return the created vendor admin.
 
 ---
 
-## Step 5: Create Vendor API Route
+## Step 6: Create Vendor API Route
 
 To expose custom commerce features to frontend applications, such as the Medusa Admin dashboard or a storefront, you expose an endpoint by creating an API route.
 
@@ -569,7 +604,7 @@ Use this token in the header of later requests that require authentication.
 
 ---
 
-## Step 6: Add Product API Routes
+## Step 7: Add Product API Routes
 
 In this section, you’ll add two API routes: one to retrieve the vendor’s products and one to create a product.
 
@@ -795,7 +830,7 @@ curl 'http://localhost:9000/vendors/products' \
 
 ---
 
-## Step 7: Create Vendor Order Workflow
+## Step 8: Create Vendor Order Workflow
 
 In this step, you’ll create a workflow that’s executed when the customer places an order. It has the following steps:
 
@@ -1265,7 +1300,7 @@ To test this out, it’s recommended to install the [Next.js Starter storefront]
 
 ---
 
-## Step 8: Retrieve Vendor Orders API Route
+## Step 9: Retrieve Vendor Orders API Route
 
 In this step, you’ll create an API route that retrieves a vendor’s orders.
 

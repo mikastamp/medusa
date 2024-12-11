@@ -20,7 +20,7 @@ import {
  *
  * #### Example
  *
- * ```ts
+ * ```ts title="src/modules/my-fulfillment/service.ts"
  * import { AbstractFulfillmentProviderService } from "@medusajs/framework/utils"
  * import { Logger } from "@medusajs/framework/types"
  *
@@ -56,13 +56,11 @@ export class AbstractFulfillmentProviderService
   implements IFulfillmentProvider
 {
   /**
-   * The `identifier` property holds a unique identifier of the fulfillment module provider.
+   * Each fulfillment provider has a unique identifier defined in its class. The provider's ID
+   * will be stored as `fp_{identifier}_{id}`, where `{id}` is the provider's `id`
+   * property in the `medusa-config.ts`.
    *
-   * You can use the kebab-case name of the provider as its value.
-   *
-   * For example:
-   *
-   * ```ts
+   * @example
    * class MyFulfillmentProviderService extends AbstractFulfillmentProviderService {
    *   static identifier = "my-fulfillment"
    *
