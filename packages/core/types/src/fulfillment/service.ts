@@ -24,6 +24,7 @@ import {
   ShippingProfileDTO,
 } from "./common"
 import {
+  CalculateShippingOptionPriceDTO,
   CreateFulfillmentSetDTO,
   CreateGeoZoneDTO,
   CreateServiceZoneDTO,
@@ -44,6 +45,7 @@ import {
   CreateShippingProfileDTO,
   UpsertShippingProfileDTO,
 } from "./mutations/shipping-profile"
+import { CalculatedShippingOptionPrice } from "./provider"
 
 /**
  * The main service interface for the Fulfillment Module.
@@ -2646,6 +2648,33 @@ export interface IFulfillmentModuleService extends IModuleService {
     shippingOptionsData: CreateShippingOptionDTO[],
     sharedContext?: Context
   ): Promise<boolean[]>
+
+  /**
+   * This method calculates the prices for one or more shipping options.
+   *
+   * @param {CalculateShippingOptionPriceDTO[]} shippingOptionsData - The shipping options data to calculate the prices for.
+   * @param {Context} sharedContext - A context used to share resources, such as transaction manager, between the application and the module.
+   * @returns {Promise<CalculatedShippingOptionPrice[]>} The calculated shipping option prices.
+   *
+   * @example
+   * const prices =
+   *   await fulfillmentModuleService.calculateShippingOptionsPrices(
+   *     [
+   *       {
+   *         provider_id: "webshipper",
+   *         data: {
+   *           cart: {
+   *             id: "cart_123",
+   *           },
+   *         },
+   *       },
+   *     ]
+   *   )
+   */
+  calculateShippingOptionsPrices(
+    shippingOptionsData: CalculateShippingOptionPriceDTO[],
+    sharedContext?: Context
+  ): Promise<CalculatedShippingOptionPrice[]>
 
   /**
    * This method retrieves a paginated list of fulfillment providers based on optional filters and configuration.

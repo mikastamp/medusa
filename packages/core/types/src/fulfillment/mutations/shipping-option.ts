@@ -118,3 +118,32 @@ export interface UpdateShippingOptionDTO {
  * A shipping option to be created or updated.
  */
 export interface UpsertShippingOptionDTO extends UpdateShippingOptionDTO {}
+
+/**
+ * The data needed for the associated fulfillment provider to calculate the price of a shipping option.
+ */
+export interface CalculateShippingOptionPriceDTO {
+  /**
+   * The ID of the shipping option.
+   */
+  id: string
+
+  /**
+   * The ID of the fulfillment provider.
+   */
+  provider_id: string
+
+  /**
+   * The option data from the provider.
+   */
+  data: Record<string, unknown>
+
+  /**
+   * The calculation context needed for the associated fulfillment provider to calculate the price of a shipping option.
+   */
+  context: {
+    cart: {
+      id: string
+    }
+  } & Record<string, unknown>
+}

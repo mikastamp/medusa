@@ -18,3 +18,10 @@ export const StoreGetShippingOptions = createFindParams({
 })
   .merge(StoreGetShippingOptionsFields)
   .merge(applyAndAndOrOperators(StoreGetShippingOptionsFields))
+
+export type StoreCalculateShippingOptionPriceType = z.infer<
+  typeof StoreCalculateShippingOptionPrice
+>
+export const StoreCalculateShippingOptionPrice = z.object({
+  cart_id: z.string(),
+})
