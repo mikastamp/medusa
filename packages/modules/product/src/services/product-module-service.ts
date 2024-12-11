@@ -228,8 +228,7 @@ export default class ProductModuleService
     return {
       ...config,
       order: {
-        id: "ASC",
-        ...config?.order,
+        ...(config?.order ?? { id: "ASC" }),
         ...(hasImagesRelation
           ? {
               images: {

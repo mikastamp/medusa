@@ -30,9 +30,6 @@ const allowedProjectDocuments: AllowedProjectDocumentsOption = {
     [ReflectionKind.Method]: true,
     [ReflectionKind.Property]: true,
   },
-  "core-flows": {
-    [ReflectionKind.Function]: true,
-  },
 }
 
 modules.forEach((module) => {
@@ -47,7 +44,11 @@ dmlModules.forEach((module) => {
   }
 })
 
-getNamespaceNames(getCoreFlowNamespaces()).forEach((namespace) => {
+const { mainNamespaces: mainCoreFlowNamespaces } = getNamespaceNames(
+  getCoreFlowNamespaces()
+)
+
+mainCoreFlowNamespaces.forEach((namespace) => {
   allowedProjectDocuments[namespace] = {
     ...commonAllowedDocuments,
   }

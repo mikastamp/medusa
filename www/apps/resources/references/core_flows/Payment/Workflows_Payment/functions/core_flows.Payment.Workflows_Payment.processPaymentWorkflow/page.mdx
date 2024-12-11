@@ -5,13 +5,13 @@ sidebar_label: processPaymentWorkflow
 
 import { TypeList, WorkflowDiagram } from "docs-ui"
 
-# processPaymentWorkflow - Medusa Workflows API Reference
+# processPaymentWorkflow - Medusa Core Workflows Reference
 
 This documentation provides a reference to the `processPaymentWorkflow`. It belongs to the `@medusajs/medusa/core-flows` package.
 
 ## Steps
 
-<WorkflowDiagram workflow={{"name":"processPaymentWorkflow","steps":[{"type":"when","condition":"{\n      return (\n        input.action === PaymentActions.SUCCESSFUL && !!paymentData.data.length\n      )\n    }","depth":"2","steps":[{"type":"workflow","name":"capturePaymentWorkflow","description":"This workflow captures a payment.","link":"../../../../Workflows_Payment/functions/core_flows.Workflows_Payment.capturePaymentWorkflow/page.mdx","depth":2}]},{"type":"when","condition":"{\n      // Authorize payment session if no Cart is linked to the payment\n      // When associated with a Cart, the complete cart workflow will handle the authorization\n      return (\n        !cartPaymentCollection.data.length &&\n        input.action === PaymentActions.AUTHORIZED &&\n        !!input.data?.session_id\n      )\n    }","depth":"3","steps":[{"type":"step","name":"authorizePaymentSessionStep","description":"This step authorizes a payment session.","link":"../../../../Steps_Payment/functions/core_flows.Steps_Payment.authorizePaymentSessionStep/page.mdx","depth":3}]}]}} />
+<WorkflowDiagram workflow={{"name":"processPaymentWorkflow","steps":[{"type":"when","condition":"{\n      return (\n        input.action === PaymentActions.SUCCESSFUL && !!paymentData.data.length\n      )\n    }","depth":"2","steps":[{"type":"workflow","name":"capturePaymentWorkflow","description":"This workflow captures a payment.","link":"../core_flows.Payment.Workflows_Payment.capturePaymentWorkflow/page.mdx","depth":2}]},{"type":"when","condition":"{\n      // Authorize payment session if no Cart is linked to the payment\n      // When associated with a Cart, the complete cart workflow will handle the authorization\n      return (\n        !cartPaymentCollection.data.length &&\n        input.action === PaymentActions.AUTHORIZED &&\n        !!input.data?.session_id\n      )\n    }","depth":"3","steps":[{"type":"step","name":"authorizePaymentSessionStep","description":"This step authorizes a payment session.","link":"../../../Steps_Payment/functions/core_flows.Payment.Steps_Payment.authorizePaymentSessionStep/page.mdx","depth":3}]}]}} />
 
 ## Input
 

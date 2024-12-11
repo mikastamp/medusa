@@ -508,7 +508,7 @@ moduleIntegrationTestRunner({
           )
         })
 
-        it("should create a buyget promotion with rules successfully", async () => {
+        it("should create a budget promotion with rules successfully", async () => {
           const createdPromotion = await createDefaultPromotion(service, {
             type: PromotionType.BUYGET,
             application_method: {
@@ -638,7 +638,7 @@ moduleIntegrationTestRunner({
               application_method: expect.objectContaining({
                 target_type: "order",
                 allocation: "across",
-                max_quantity: 0,
+                max_quantity: null,
               }),
             })
           )

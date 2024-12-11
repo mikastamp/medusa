@@ -8,7 +8,13 @@ export function isDmlEntity(reflection: DeclarationReflection) {
   return reflection.type.name === "DmlEntity"
 }
 
-export const RELATION_NAMES = ["HasOne", "HasMany", "BelongsTo", "ManyToMany"]
+export const RELATION_NAMES = [
+  "HasOne",
+  "HasMany",
+  "BelongsTo",
+  "ManyToMany",
+  "HasOneWithForeignKey",
+]
 
 export function isDmlRelation(reflection: DeclarationReflection) {
   if (reflection.type?.type !== "reference") {

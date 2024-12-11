@@ -42,4 +42,8 @@ export const dmlModules = [
   "user",
   "auth",
   "pricing",
+  "cart",
+  "sales-channel",
+  "api-key",
+  "store",
 ]

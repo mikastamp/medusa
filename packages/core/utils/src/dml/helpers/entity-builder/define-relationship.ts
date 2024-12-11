@@ -25,6 +25,7 @@ import { HasOneWithForeignKey } from "../../relations/has-one-fk"
 import { ManyToMany as DmlManyToMany } from "../../relations/many-to-many"
 import { applyEntityIndexes } from "../mikro-orm/apply-indexes"
 import { parseEntityName } from "./parse-entity-name"
+import { BelongsTo } from "../../relations"
 
 type Context = {
   MANY_TO_MANY_TRACKED_RELATIONS: Record<string, boolean>
@@ -138,24 +139,32 @@ function validateManyToManyRelationshipWithoutMappedBy({
 export function defineHasOneRelationship(
   MikroORMEntity: EntityConstructor<any>,
   relationship: RelationshipMetadata,
+  relatedEntity: DmlEntity<
+    Record<string, PropertyType<any> | RelationshipType<any>>,
+    any
+  >,
   { relatedModelName }: { relatedModelName: string },
   cascades: EntityCascades<string[]>
 ) {
   const shouldRemoveRelated = !!cascades.delete?.includes(relationship.name)
+  const { schema: relationSchema } = relatedEntity.parse()
 
   let mappedBy: string | undefined = camelToSnakeCase(MikroORMEntity.name)
   if ("mappedBy" in relationship) {
     mappedBy = relationship.mappedBy
   }
 
+  const isOthersideBelongsTo =
+    !!mappedBy && BelongsTo.isBelongsTo(relationSchema[mappedBy])
+
   const oneToOneOptions = {
     entity: relatedModelName,
-    nullable: relationship.nullable,
+    ...(relationship.nullable ? { nullable: relationship.nullable } : {}),
     ...(mappedBy ? { mappedBy } : {}),
     onDelete: shouldRemoveRelated ? "cascade" : undefined,
   } as OneToOneOptions<any, any>
 
-  if (shouldRemoveRelated) {
+  if (shouldRemoveRelated && !isOthersideBelongsTo) {
     oneToOneOptions.cascade = ["persist", "soft-remove"] as any
   }
 
@@ -182,7 +191,7 @@ export function defineHasOneWithFKRelationship(
 
   OneToOne({
     entity: relatedModelName,
-    nullable: relationship.nullable,
+    ...(relationship.nullable ? { nullable: relationship.nullable } : {}),
     ...(mappedBy ? { mappedBy } : {}),
     cascade: shouldRemoveRelated
       ? (["persist", "soft-remove"] as any)
@@ -697,6 +706,7 @@ export function defineRelationship(
       defineHasOneRelationship(
         MikroORMEntity,
         relationship,
+        relatedEntity,
         relatedEntityInfo,
         cascades
       )

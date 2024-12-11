@@ -5,7 +5,7 @@ import {
 } from "typedoc"
 import ts from "typescript"
 import { StepModifier, StepType } from "../types"
-import { capitalize } from "utils"
+import { capitalize, findReflectionInNamespaces } from "utils"
 
 /**
  * A class of helper methods.
@@ -173,7 +173,9 @@ export default class Helper {
     project: ProjectReflection
   ): string | undefined {
     // load it from the project
-    const idVarReflection = project.getChildByName(refName)
+    const idVarReflection =
+      project.getChildByName(refName) ||
+      findReflectionInNamespaces(project, refName)
 
     if (
       !idVarReflection ||

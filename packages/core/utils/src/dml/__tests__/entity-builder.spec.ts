@@ -2326,7 +2326,6 @@ describe("Entity builder", () => {
           reference: "1:1",
           name: "email",
           entity: "Email",
-          nullable: false,
           mappedBy: "user",
         },
         created_at: {
@@ -2508,7 +2507,7 @@ describe("Entity builder", () => {
           reference: "1:1",
           name: "email",
           entity: "Email",
-          nullable: false,
+          onDelete: undefined,
         },
         created_at: {
           reference: "scalar",
@@ -2595,7 +2594,6 @@ describe("Entity builder", () => {
           reference: "1:1",
           name: "email",
           entity: "Email",
-          nullable: false,
           mappedBy: "owner",
         },
         created_at: {
@@ -2687,7 +2685,6 @@ describe("Entity builder", () => {
           reference: "1:1",
           name: "email",
           entity: "Email",
-          nullable: false,
           mappedBy: "user",
           cascade: ["persist", "soft-remove"],
           onDelete: "cascade",
@@ -2851,9 +2848,7 @@ describe("Entity builder", () => {
           reference: "1:1",
           name: "email",
           entity: "Email",
-          nullable: false,
           mappedBy: "user",
-          cascade: ["persist", "soft-remove"],
           onDelete: "cascade",
         },
         created_at: {
@@ -3040,7 +3035,6 @@ describe("Entity builder", () => {
           reference: "1:1",
           name: "email",
           entity: "Email",
-          nullable: false,
         },
         email_id: {
           columnType: "text",
@@ -3251,7 +3245,6 @@ describe("Entity builder", () => {
           reference: "1:1",
           name: "email",
           entity: "Email",
-          nullable: false,
           mappedBy: "owner",
         },
         email_id: {
@@ -3356,7 +3349,6 @@ describe("Entity builder", () => {
           reference: "1:1",
           name: "email",
           entity: "Email",
-          nullable: false,
           cascade: ["persist", "soft-remove"],
           mappedBy: "user",
         },
@@ -3532,7 +3524,6 @@ describe("Entity builder", () => {
           reference: "1:1",
           name: "email",
           entity: "Email",
-          nullable: false,
           cascade: ["persist", "soft-remove"],
           mappedBy: "user",
         },
@@ -4493,7 +4484,6 @@ describe("Entity builder", () => {
           reference: "1:1",
           name: "email",
           entity: "Email",
-          nullable: false,
           mappedBy: "user",
         },
         created_at: {
@@ -4691,7 +4681,6 @@ describe("Entity builder", () => {
           reference: "1:1",
           name: "email",
           entity: "Email",
-          nullable: false,
           mappedBy: "user",
         },
         created_at: {
@@ -5326,7 +5315,6 @@ describe("Entity builder", () => {
           reference: "1:1",
           name: "email",
           entity: "Email",
-          nullable: false,
           mappedBy: "user",
         },
         created_at: {
@@ -5526,7 +5514,6 @@ describe("Entity builder", () => {
           reference: "1:1",
           name: "email",
           entity: "Email",
-          nullable: false,
           mappedBy: "user",
         },
         created_at: {
@@ -5838,7 +5825,6 @@ describe("Entity builder", () => {
           entity: "User",
           mappedBy: "parent",
           name: "child",
-          nullable: false,
           reference: "1:1",
         },
         created_at: {

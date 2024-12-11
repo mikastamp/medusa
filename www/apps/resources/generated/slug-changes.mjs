@@ -50,9 +50,9 @@ export const slugChanges = [
     "filePath": "/www/apps/resources/references/api_key/interfaces/api_key.IApiKeyModuleService/page.mdx"
   },
   {
-    "origSlug": "/references/api_key_models/classes/api_key_models.ApiKey",
+    "origSlug": "/references/api_key_models/variables/api_key_models.ApiKey",
     "newSlug": "/references/api-key/models/ApiKey",
-    "filePath": "/www/apps/resources/references/api_key_models/classes/api_key_models.ApiKey/page.mdx"
+    "filePath": "/www/apps/resources/references/api_key_models/variables/api_key_models.ApiKey/page.mdx"
   },
   {
     "origSlug": "/references/auth/IAuthModuleService/methods/auth.IAuthModuleService.authenticate",
@@ -400,49 +400,54 @@ export const slugChanges = [
     "filePath": "/www/apps/resources/references/cart/ICartModuleService/methods/cart.ICartModuleService.updateLineItems/page.mdx"
   },
   {
+    "origSlug": "/references/cart/ICartModuleService/methods/cart.ICartModuleService.updateShippingMethods",
+    "newSlug": "/references/cart/updateShippingMethods",
+    "filePath": "/www/apps/resources/references/cart/ICartModuleService/methods/cart.ICartModuleService.updateShippingMethods/page.mdx"
+  },
+  {
     "origSlug": "/references/cart/interfaces/cart.ICartModuleService",
     "newSlug": "/references/cart",
     "filePath": "/www/apps/resources/references/cart/interfaces/cart.ICartModuleService/page.mdx"
   },
   {
-    "origSlug": "/references/cart_models/classes/cart_models.Address",
+    "origSlug": "/references/cart_models/variables/cart_models.Address",
     "newSlug": "/references/cart/models/Address",
-    "filePath": "/www/apps/resources/references/cart_models/classes/cart_models.Address/page.mdx"
+    "filePath": "/www/apps/resources/references/cart_models/variables/cart_models.Address/page.mdx"
   },
   {
-    "origSlug": "/references/cart_models/classes/cart_models.Cart",
+    "origSlug": "/references/cart_models/variables/cart_models.Cart",
     "newSlug": "/references/cart/models/Cart",
-    "filePath": "/www/apps/resources/references/cart_models/classes/cart_models.Cart/page.mdx"
+    "filePath": "/www/apps/resources/references/cart_models/variables/cart_models.Cart/page.mdx"
   },
   {
-    "origSlug": "/references/cart_models/classes/cart_models.LineItem",
+    "origSlug": "/references/cart_models/variables/cart_models.LineItem",
     "newSlug": "/references/cart/models/LineItem",
-    "filePath": "/www/apps/resources/references/cart_models/classes/cart_models.LineItem/page.mdx"
+    "filePath": "/www/apps/resources/references/cart_models/variables/cart_models.LineItem/page.mdx"
   },
   {
-    "origSlug": "/references/cart_models/classes/cart_models.LineItemAdjustment",
+    "origSlug": "/references/cart_models/variables/cart_models.LineItemAdjustment",
     "newSlug": "/references/cart/models/LineItemAdjustment",
-    "filePath": "/www/apps/resources/references/cart_models/classes/cart_models.LineItemAdjustment/page.mdx"
+    "filePath": "/www/apps/resources/references/cart_models/variables/cart_models.LineItemAdjustment/page.mdx"
   },
   {
-    "origSlug": "/references/cart_models/classes/cart_models.LineItemTaxLine",
+    "origSlug": "/references/cart_models/variables/cart_models.LineItemTaxLine",
     "newSlug": "/references/cart/models/LineItemTaxLine",
-    "filePath": "/www/apps/resources/references/cart_models/classes/cart_models.LineItemTaxLine/page.mdx"
+    "filePath": "/www/apps/resources/references/cart_models/variables/cart_models.LineItemTaxLine/page.mdx"
   },
   {
-    "origSlug": "/references/cart_models/classes/cart_models.ShippingMethod",
+    "origSlug": "/references/cart_models/variables/cart_models.ShippingMethod",
     "newSlug": "/references/cart/models/ShippingMethod",
-    "filePath": "/www/apps/resources/references/cart_models/classes/cart_models.ShippingMethod/page.mdx"
+    "filePath": "/www/apps/resources/references/cart_models/variables/cart_models.ShippingMethod/page.mdx"
   },
   {
-    "origSlug": "/references/cart_models/classes/cart_models.ShippingMethodAdjustment",
+    "origSlug": "/references/cart_models/variables/cart_models.ShippingMethodAdjustment",
     "newSlug": "/references/cart/models/ShippingMethodAdjustment",
-    "filePath": "/www/apps/resources/references/cart_models/classes/cart_models.ShippingMethodAdjustment/page.mdx"
+    "filePath": "/www/apps/resources/references/cart_models/variables/cart_models.ShippingMethodAdjustment/page.mdx"
   },
   {
-    "origSlug": "/references/cart_models/classes/cart_models.ShippingMethodTaxLine",
+    "origSlug": "/references/cart_models/variables/cart_models.ShippingMethodTaxLine",
     "newSlug": "/references/cart/models/ShippingMethodTaxLine",
-    "filePath": "/www/apps/resources/references/cart_models/classes/cart_models.ShippingMethodTaxLine/page.mdx"
+    "filePath": "/www/apps/resources/references/cart_models/variables/cart_models.ShippingMethodTaxLine/page.mdx"
   },
   {
     "origSlug": "/references/core_flows/Api_Key/Steps_Api_Key/functions/core_flows.Api_Key.Steps_Api_Key.createApiKeysStep",
@@ -6520,9 +6525,9 @@ export const slugChanges = [
     "filePath": "/www/apps/resources/references/sales_channel/interfaces/sales_channel.ISalesChannelModuleService/page.mdx"
   },
   {
-    "origSlug": "/references/sales_channel_models/classes/sales_channel_models.SalesChannel",
+    "origSlug": "/references/sales_channel_models/variables/sales_channel_models.SalesChannel",
     "newSlug": "/references/sales-channel/models/SalesChannel",
-    "filePath": "/www/apps/resources/references/sales_channel_models/classes/sales_channel_models.SalesChannel/page.mdx"
+    "filePath": "/www/apps/resources/references/sales_channel_models/variables/sales_channel_models.SalesChannel/page.mdx"
   },
   {
     "origSlug": "/references/search/classes/search.AbstractSearchService",
@@ -6640,14 +6645,14 @@ export const slugChanges = [
     "filePath": "/www/apps/resources/references/store/interfaces/store.IStoreModuleService/page.mdx"
   },
   {
-    "origSlug": "/references/store_models/classes/store_models.Store",
+    "origSlug": "/references/store_models/variables/store_models.Store",
     "newSlug": "/references/store/models/Store",
-    "filePath": "/www/apps/resources/references/store_models/classes/store_models.Store/page.mdx"
+    "filePath": "/www/apps/resources/references/store_models/variables/store_models.Store/page.mdx"
   },
   {
-    "origSlug": "/references/store_models/classes/store_models.StoreCurrency",
+    "origSlug": "/references/store_models/variables/store_models.StoreCurrency",
     "newSlug": "/references/store/models/StoreCurrency",
-    "filePath": "/www/apps/resources/references/store_models/classes/store_models.StoreCurrency/page.mdx"
+    "filePath": "/www/apps/resources/references/store_models/variables/store_models.StoreCurrency/page.mdx"
   },
   {
     "origSlug": "/references/tax/ITaxModuleService/methods/tax.ITaxModuleService.createTaxRateRules",
@@ -6913,10 +6918,5 @@ export const slugChanges = [
     "origSlug": "/references/workflows/functions/workflows.transform",
     "newSlug": "/references/workflows/transform",
     "filePath": "/www/apps/resources/references/workflows/functions/workflows.transform/page.mdx"
-  },
-  {
-    "origSlug": "/references/workflows/functions/workflows.when",
-    "newSlug": "/references/workflows/when",
-    "filePath": "/www/apps/resources/references/workflows/functions/workflows.when/page.mdx"
   }
 ]
