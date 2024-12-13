@@ -6764,6 +6764,7 @@ __metadata:
     "@swc/core": ^1.7.28
     "@swc/jest": ^0.2.36
     "@types/express": ^4.17.21
+    "@types/pluralize": ^0.0.33
     awilix: ^8.0.1
     bignumber.js: ^9.1.2
     dotenv: ^16.4.5
@@ -13853,6 +13854,13 @@ __metadata:
     pg-protocol: "*"
     pg-types: ^4.0.1
   checksum: c8800d0ab2c6424308e6c6b40c73f19583ee1aed758462bd07694844b0a551b5841442205a4ee05207b80109ba502f33f20241b1bd9b4902e713611fb9e08f6c
+  languageName: node
+  linkType: hard
+
+"@types/pluralize@npm:^0.0.33":
+  version: 0.0.33
+  resolution: "@types/pluralize@npm:0.0.33"
+  checksum: 24899caf85b79dd291a6b6e9b9f3b67b452b18d578d0ac0d531a705bf5ee0361d9386ea1f8532c64de9e22c6e9606c5497787bb5e31bd299c487980436c59785
   languageName: node
   linkType: hard
 
