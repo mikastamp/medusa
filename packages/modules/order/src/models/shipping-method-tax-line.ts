@@ -23,7 +23,7 @@ export default class OrderShippingMethodTaxLine extends TaxLine {
     fieldName: "shipping_method_id",
     columnType: "text",
     mapToPk: true,
-    onDelete: "cascade",
+    deleteRule: "cascade",
   })
   @ShippingMethodIdIdIndex.MikroORMIndex()
   shipping_method_id: string

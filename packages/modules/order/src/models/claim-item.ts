@@ -69,7 +69,7 @@ export default class OrderClaimItem {
     columnType: "text",
     fieldName: "claim_id",
     mapToPk: true,
-    onDelete: "cascade",
+    deleteRule: "cascade",
   })
   @ClaimIdIndex.MikroORMIndex()
   claim_id: string

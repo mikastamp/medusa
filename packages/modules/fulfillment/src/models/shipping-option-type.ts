@@ -45,7 +45,7 @@ export default class ShippingOptionType {
 
   @OneToOne(() => ShippingOption, (so) => so.type, {
     type: "text",
-    onDelete: "cascade",
+    deleteRule: "cascade",
   })
   shipping_option: Rel<ShippingOption>
 

@@ -53,7 +53,7 @@ export default class OrderExchangeItem {
     columnType: "text",
     fieldName: "exchange_id",
     mapToPk: true,
-    onDelete: "cascade",
+    deleteRule: "cascade",
   })
   @ExchangeIdIndex.MikroORMIndex()
   exchange_id: string

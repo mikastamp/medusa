@@ -83,7 +83,7 @@ export default class OrderChangeAction {
     entity: () => Order,
     columnType: "text",
     fieldName: "order_id",
-    onDelete: "cascade",
+    deleteRule: "cascade",
     mapToPk: true,
     nullable: true,
   })
@@ -151,7 +151,7 @@ export default class OrderChangeAction {
     entity: () => OrderChange,
     columnType: "text",
     fieldName: "order_change_id",
-    onDelete: "cascade",
+    deleteRule: "cascade",
     mapToPk: true,
     nullable: true,
   })

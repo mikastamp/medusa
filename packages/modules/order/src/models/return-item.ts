@@ -87,7 +87,7 @@ export default class ReturnItem {
     columnType: "text",
     fieldName: "return_id",
     mapToPk: true,
-    onDelete: "cascade",
+    deleteRule: "cascade",
   })
   @ReturnIdIndex.MikroORMIndex()
   return_id: string

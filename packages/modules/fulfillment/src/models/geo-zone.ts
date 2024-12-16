@@ -79,7 +79,7 @@ export default class GeoZone {
     type: "text",
     mapToPk: true,
     fieldName: "service_zone_id",
-    onDelete: "cascade",
+    deleteRule: "cascade",
   })
   @ServiceZoneIdIndex.MikroORMIndex()
   service_zone_id: string

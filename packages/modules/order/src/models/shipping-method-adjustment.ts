@@ -23,7 +23,7 @@ export default class OrderShippingMethodAdjustment extends AdjustmentLine {
     columnType: "text",
     fieldName: "shipping_method_id",
     mapToPk: true,
-    onDelete: "cascade",
+    deleteRule: "cascade",
   })
   @ShippingMethodIdIdIndex.MikroORMIndex()
   shipping_method_id: string

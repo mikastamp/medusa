@@ -5,6 +5,7 @@ import type {
   EntitySchema,
   MikroORMOptions,
 } from "@mikro-orm/core"
+import { defineConfig } from "@mikro-orm/postgresql"
 import { kebabCase } from "../common"
 import { CustomTsMigrationGenerator } from "../dal"
 import { DmlEntity, toMikroOrmEntities } from "../dml"
@@ -21,7 +22,6 @@ type Options = Partial<Omit<MikroORMOptions, "entities" | "entitiesTs">> & {
 
 type ReturnedOptions = Partial<MikroORMOptions> & {
   entities: MikroORMOptions["entities"]
-  type: MikroORMOptions["type"]
   migrations: MikroORMOptions["migrations"]
 }
 
@@ -53,17 +53,16 @@ export function defineMikroOrmCliConfig(
   const normalizedModuleName = kebabCase(moduleName.replace("Service", ""))
   const databaseName = `medusa-${normalizedModuleName}`
 
-  return {
-    type: "postgresql",
+  return defineConfig({
     dbName: databaseName,
     host: "127.0.0.1",
     user: "postgres",
     password: "",
-    ...options,
+    ...(options as any),
     entities,
     migrations: {
       generator: CustomTsMigrationGenerator,
       ...options.migrations,
     },
-  }
+  }) as ReturnedOptions
 }

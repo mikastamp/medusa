@@ -22,7 +22,7 @@ export default class OrderLineItemAdjustment extends AdjustmentLine {
     entity: () => OrderLineItem,
     columnType: "text",
     fieldName: "item_id",
-    onDelete: "cascade",
+    deleteRule: "cascade",
     mapToPk: true,
   })
   @ItemIdIndex.MikroORMIndex()

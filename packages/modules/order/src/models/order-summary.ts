@@ -61,7 +61,7 @@ export default class OrderSummary {
     columnType: "text",
     fieldName: "order_id",
     mapToPk: true,
-    onDelete: "cascade",
+    deleteRule: "cascade",
   })
   order_id: string
 

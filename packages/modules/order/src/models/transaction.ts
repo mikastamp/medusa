@@ -87,7 +87,7 @@ export default class OrderTransaction {
     entity: () => Order,
     columnType: "text",
     fieldName: "order_id",
-    onDelete: "cascade",
+    deleteRule: "cascade",
     mapToPk: true,
   })
   @OrderIdIndex.MikroORMIndex()

@@ -4,7 +4,7 @@ import type {
   FindOneOptions,
   FindOptions,
 } from "@mikro-orm/core"
-import { EntityMetadata, EntitySchema, ReferenceType } from "@mikro-orm/core"
+import { EntityMetadata, EntitySchema, ReferenceKind } from "@mikro-orm/core"
 import { SqlEntityManager } from "@mikro-orm/postgresql"
 
 export const FreeTextSearchFilterKey = "freeTextSearch"
@@ -52,7 +52,7 @@ function retrieveRelationsConstraints(
   for (const propertyConfiguration of Object.values(relationProperties)) {
     if (
       !(propertyConfiguration as any).searchable ||
-      propertyConfiguration.reference !== ReferenceType.SCALAR
+      propertyConfiguration.kind !== ReferenceKind.SCALAR
     ) {
       continue
     }
