@@ -290,6 +290,8 @@ export default class CartModuleService
     data: CartTypes.CreateCartDTO[],
     @MedusaContext() sharedContext: Context = {}
   ) {
+    await this.createCartAddresses_(data, sharedContext)
+
     const lineItemsToCreate: CreateLineItemDTO[] = []
     const createdCarts: InferEntityType<typeof Cart>[] = []
     for (const { items, ...cart } of data) {
@@ -314,6 +316,52 @@ export default class CartModuleService
     }
 
     return createdCarts
+  }
+
+  @InjectTransactionManager()
+  protected async createCartAddresses_(
+    input: CartTypes.CreateCartDTO[],
+    @MedusaContext() sharedContext: Context = {}
+  ) {
+    const allAddresses: {
+      data: CartTypes.CreateAddressDTO
+      type: "billing" | "shipping"
+      source: CartTypes.CreateCartDTO
+    }[] = []
+
+    input.forEach((inputData) => {
+      if (inputData.billing_address) {
+        allAddresses.push({
+          data: inputData.billing_address as CartTypes.CreateAddressDTO,
+          type: "billing",
+          source: inputData,
+        })
+      }
+
+      if (inputData.shipping_address) {
+        allAddresses.push({
+          data: inputData.shipping_address as CartTypes.CreateAddressDTO,
+          type: "shipping",
+          source: inputData,
+        })
+      }
+    })
+
+    const createdAddresses = allAddresses.length
+      ? await this.createAddresses(
+          allAddresses.map((a) => a.data),
+          sharedContext
+        )
+      : []
+
+    createdAddresses.forEach((createdAddress, index) => {
+      const { type, source } = allAddresses[index]
+      if (type === "billing") {
+        source.billing_address_id = createdAddress.id
+      } else if (type === "shipping") {
+        source.shipping_address_id = createdAddress.id
+      }
+    })
   }
 
   // @ts-expect-error

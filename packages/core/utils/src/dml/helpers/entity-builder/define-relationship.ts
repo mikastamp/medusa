@@ -189,14 +189,20 @@ export function defineHasOneWithFKRelationship(
     mappedBy = relationship.mappedBy
   }
 
-  OneToOne({
+  const oneToOneOptions = {
     entity: relatedModelName,
     ...(relationship.nullable ? { nullable: relationship.nullable } : {}),
     ...(mappedBy ? { mappedBy } : {}),
-    cascade: shouldRemoveRelated
-      ? (["persist", "soft-remove"] as any)
-      : undefined,
-  } as OneToOneOptions<any, any>)(MikroORMEntity.prototype, relationship.name)
+    fieldName: foreignKeyName,
+    orphanRemoval: true,
+    persist: false,
+  } as OneToOneOptions<any, any>
+
+  if (shouldRemoveRelated) {
+    oneToOneOptions["cascade"] = ["persist", "soft-remove"] as any
+  }
+
+  OneToOne(oneToOneOptions)(MikroORMEntity.prototype, relationship.name)
 
   Property({
     type: "string",
