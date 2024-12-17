@@ -68,6 +68,7 @@ export default class ReturnReason {
     fieldName: "parent_return_reason_id",
     nullable: true,
     cascade: [Cascade.PERSIST],
+    persist: false,
   })
   parent_return_reason?: Rel<ReturnReason> | null
   @OneToMany(

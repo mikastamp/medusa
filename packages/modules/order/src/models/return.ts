@@ -87,6 +87,7 @@ export default class Return {
     entity: () => Exchange,
     fieldName: "exchange_id",
     nullable: true,
+    persist: false,
   })
   exchange: Rel<Exchange>
 
@@ -98,6 +99,7 @@ export default class Return {
     entity: () => Claim,
     fieldName: "claim_id",
     nullable: true,
+    persist: false,
   })
   claim: Rel<Claim>
 

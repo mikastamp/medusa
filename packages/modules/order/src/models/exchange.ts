@@ -79,7 +79,7 @@ export default class OrderExchange {
     mappedBy: (ret) => ret.exchange,
     fieldName: "return_id",
     nullable: true,
-    owner: true,
+    persist: false,
   })
   return: Rel<Return>
 

@@ -149,6 +149,7 @@ export default class Order {
     fieldName: "shipping_address_id",
     nullable: true,
     cascade: [Cascade.PERSIST],
+    persist: false,
   })
   shipping_address?: Rel<OrderAddress> | null
 
@@ -161,6 +162,7 @@ export default class Order {
     fieldName: "billing_address_id",
     nullable: true,
     cascade: [Cascade.PERSIST],
+    persist: false,
   })
   billing_address?: Rel<OrderAddress> | null
 

@@ -82,7 +82,7 @@ export default class OrderClaim {
     mappedBy: (ret) => ret.claim,
     fieldName: "return_id",
     nullable: true,
-    owner: true,
+    persist: false,
   })
   return: Rel<Return>
 
