@@ -997,12 +997,12 @@
         },
         "rate": {
           "name": "rate",
-          "type": "integer",
+          "type": "real",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
           "nullable": false,
-          "mappedType": "integer"
+          "mappedType": "float"
         },
         "provider_id": {
           "name": "provider_id",
@@ -1537,12 +1537,12 @@
         },
         "rate": {
           "name": "rate",
-          "type": "integer",
+          "type": "real",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
           "nullable": false,
-          "mappedType": "integer"
+          "mappedType": "float"
         },
         "provider_id": {
           "name": "provider_id",

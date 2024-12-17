@@ -73,9 +73,20 @@ export const validateShippingOptionPricesStep = createStep(
       }
     })
 
-    await fulfillmentModuleService.validateShippingOptionsForPriceCalculation(
-      calculatedOptions as FulfillmentWorkflow.CreateShippingOptionsWorkflowInput[]
-    )
+    const validation =
+      await fulfillmentModuleService.validateShippingOptionsForPriceCalculation(
+        calculatedOptions as FulfillmentWorkflow.CreateShippingOptionsWorkflowInput[]
+      )
+
+    if (validation.some((v) => !v)) {
+      throw new MedusaError(
+        MedusaError.Types.INVALID_DATA,
+        `Cannot calcuate pricing for: [${calculatedOptions
+          .filter((o, i) => !validation[i])
+          .map((o) => o.name)
+          .join(", ")}] shipping option(s).`
+      )
+    }
 
     const regionIdSet = new Set<string>()
 

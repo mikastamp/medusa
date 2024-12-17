@@ -1979,7 +1979,7 @@ moduleIntegrationTestRunner<ICartModuleService>({
           const taxLines = await service.setLineItemTaxLines(createdCart.id, [
             {
               item_id: itemOne.id,
-              rate: 20,
+              rate: 20.753,
               code: "TX",
             },
           ])
@@ -1988,7 +1988,7 @@ moduleIntegrationTestRunner<ICartModuleService>({
             expect.arrayContaining([
               expect.objectContaining({
                 item_id: itemOne.id,
-                rate: 20,
+                rate: 20.753,
                 code: "TX",
               }),
             ])
@@ -1997,7 +1997,7 @@ moduleIntegrationTestRunner<ICartModuleService>({
           await service.setLineItemTaxLines(createdCart.id, [
             {
               item_id: itemOne.id,
-              rate: 25,
+              rate: 25.14789,
               code: "TX-2",
             },
           ])
@@ -2013,7 +2013,7 @@ moduleIntegrationTestRunner<ICartModuleService>({
                 tax_lines: expect.arrayContaining([
                   expect.objectContaining({
                     item_id: itemOne.id,
-                    rate: 25,
+                    rate: 25.14789,
                     code: "TX-2",
                   }),
                 ]),

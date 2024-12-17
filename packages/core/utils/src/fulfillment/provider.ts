@@ -1,5 +1,6 @@
 import {
   CalculatedShippingOptionPrice,
+  CalculateShippingOptionPriceDTO,
   FulfillmentOption,
   IFulfillmentProvider,
 } from "@medusajs/types"
@@ -219,9 +220,9 @@ export class AbstractFulfillmentProviderService
    * }
    */
   async calculatePrice(
-    optionData: Record<string, unknown>,
-    data: Record<string, unknown>,
-    context: Record<string, unknown>
+    optionData: CalculateShippingOptionPriceDTO["optionData"],
+    data: CalculateShippingOptionPriceDTO["data"],
+    context: CalculateShippingOptionPriceDTO["context"]
   ): Promise<CalculatedShippingOptionPrice> {
     throw Error("calculatePrice must be overridden by the child class")
   }

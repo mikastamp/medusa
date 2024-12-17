@@ -2,6 +2,7 @@ import { CreateShippingOptionTypeDTO } from "./shipping-option-type"
 import { ShippingOptionPriceType } from "../common"
 import { CreateShippingOptionRuleDTO } from "./shipping-option-rule"
 import { CartDTO } from "../../cart"
+import { StockLocationDTO } from "../../stock-location"
 
 /**
  * The shipping option to be created.
@@ -151,7 +152,8 @@ export interface CalculateShippingOptionPriceDTO {
   /**
    * The calculation context needed for the associated fulfillment provider to calculate the price of a shipping option.
    */
-  context: {
-    cart: Pick<CartDTO, "id" | "items" | "shipping_address" | "email">
-  } & Record<string, unknown>
+  context: CartDTO & { from_location?: StockLocationDTO } & Record<
+      string,
+      unknown
+    >
 }

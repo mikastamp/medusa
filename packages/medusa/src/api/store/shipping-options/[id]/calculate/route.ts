@@ -27,5 +27,11 @@ export const POST = async (
   const shippingOption = data[0]
   const priceData = result[0]
 
-  res.status(200).json({ shipping_option: { ...shippingOption, ...priceData } })
+  shippingOption.calculated_price = priceData
+
+  // ensure same shape as flat rate shipping options
+  shippingOption.amount = priceData.calculated_amount
+  shippingOption.is_tax_inclusive = priceData.is_calculated_price_tax_inclusive
+
+  res.status(200).json({ shipping_option: shippingOption })
 }

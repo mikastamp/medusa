@@ -16,7 +16,7 @@ import { validateCartStep } from "../steps/validate-cart"
 import { validateAndReturnShippingMethodsDataStep } from "../steps/validate-shipping-methods-data"
 import { validateCartShippingOptionsPriceStep } from "../steps/validate-shipping-options-price"
 import { cartFieldsForRefreshSteps } from "../utils/fields"
-import { listShippingOptionsForCartWorkflow } from "./list-shipping-options-for-cart"
+import { listShippingOptionsForCartWithPricingWorkflow } from "./list-shipping-options-for-cart-with-pricing"
 import { updateCartPromotionsWorkflow } from "./update-cart-promotions"
 import { updateTaxLinesWorkflow } from "./update-tax-lines"
 
@@ -56,13 +56,14 @@ export const addShippingMethodToCartWorkflow = createWorkflow(
       shippingOptionsContext: { is_return: "false", enabled_in_store: "true" },
     })
 
-    const shippingOptions = listShippingOptionsForCartWorkflow.runAsStep({
-      input: {
-        option_ids: optionIds,
-        cart_id: cart.id,
-        is_return: false,
-      },
-    })
+    const shippingOptions =
+      listShippingOptionsForCartWithPricingWorkflow.runAsStep({
+        input: {
+          options: input.options,
+          cart_id: cart.id,
+          is_return: false,
+        },
+      })
 
     validateCartShippingOptionsPriceStep({ shippingOptions })
 

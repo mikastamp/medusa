@@ -26,5 +26,5 @@ export type StoreCalculateShippingOptionPriceType = z.infer<
 >
 export const StoreCalculateShippingOptionPrice = z.object({
   cart_id: z.string(),
-  data: z.record(z.string(), z.unknown()),
+  data: z.record(z.string(), z.unknown()).optional(),
 })
