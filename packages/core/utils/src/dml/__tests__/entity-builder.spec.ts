@@ -158,7 +158,8 @@ describe("Entity builder", () => {
           kind: "scalar",
           setter: true,
           trackChanges: false,
-          type: "any",
+          type: "number",
+          runtimeType: "number",
         },
         raw_spend_limit: {
           columnType: "jsonb",
@@ -297,7 +298,8 @@ describe("Entity builder", () => {
           kind: "scalar",
           setter: true,
           trackChanges: false,
-          type: "any",
+          type: "number",
+          runtimeType: "number",
         },
         raw_spend_limit: {
           columnType: "jsonb",
@@ -427,7 +429,8 @@ describe("Entity builder", () => {
           kind: "scalar",
           setter: true,
           trackChanges: false,
-          type: "any",
+          type: "number",
+          runtimeType: "number",
         },
         raw_spend_limit: {
           columnType: "jsonb",
@@ -536,7 +539,8 @@ describe("Entity builder", () => {
           kind: "scalar",
           setter: true,
           trackChanges: false,
-          type: "any",
+          type: "number",
+          runtimeType: "number",
         },
         raw_spend_limit: {
           columnType: "jsonb",
@@ -677,7 +681,8 @@ describe("Entity builder", () => {
           kind: "scalar",
           setter: true,
           trackChanges: false,
-          type: "any",
+          type: "number",
+          runtimeType: "number",
         },
         raw_spend_limit: {
           columnType: "jsonb",
@@ -829,7 +834,8 @@ describe("Entity builder", () => {
           kind: "scalar",
           setter: true,
           trackChanges: false,
-          type: "any",
+          type: "number",
+          runtimeType: "number",
         },
         created_at: {
           kind: "scalar",
@@ -3123,6 +3129,9 @@ describe("Entity builder", () => {
           kind: "1:1",
           name: "email",
           entity: "Email",
+          fieldName: "email_id",
+          orphanRemoval: true,
+          persist: false,
         },
         email_id: {
           columnType: "text",
@@ -3233,6 +3242,9 @@ describe("Entity builder", () => {
           name: "emails",
           entity: "Email",
           nullable: true,
+          fieldName: "emails_id",
+          orphanRemoval: true,
+          persist: false,
         },
         emails_id: {
           columnType: "text",
@@ -3334,6 +3346,9 @@ describe("Entity builder", () => {
           name: "email",
           entity: "Email",
           mappedBy: "owner",
+          fieldName: "email_id",
+          orphanRemoval: true,
+          persist: false,
         },
         email_id: {
           columnType: "text",
@@ -3439,6 +3454,9 @@ describe("Entity builder", () => {
           entity: "Email",
           cascade: ["persist", "soft-remove"],
           mappedBy: "user",
+          fieldName: "email_id",
+          orphanRemoval: true,
+          persist: false,
         },
         email_id: {
           columnType: "text",
@@ -3614,6 +3632,9 @@ describe("Entity builder", () => {
           entity: "Email",
           cascade: ["persist", "soft-remove"],
           mappedBy: "user",
+          fieldName: "email_id",
+          orphanRemoval: true,
+          persist: false,
         },
         email_id: {
           columnType: "text",
