@@ -18,6 +18,7 @@ export const StoreUpdateCustomer = z.object({
   first_name: z.string().nullish(),
   last_name: z.string().nullish(),
   phone: z.string().nullish(),
+  email: z.string().email().nullish(),
   metadata: z.record(z.unknown()).nullish(),
 })
 

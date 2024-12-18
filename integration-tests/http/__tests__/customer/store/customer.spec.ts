@@ -298,6 +298,34 @@ medusaIntegrationTestRunner({
           }),
         })
       })
+
+      it("should successfully update customers' email", async () => {
+        const { customer, jwt } = await createAuthenticatedCustomer(
+          api,
+          storeHeaders
+        )
+
+        const response = await api.post(
+          `/store/customers/me`,
+          {
+            email: "newemail123@medusa.js",
+          },
+          {
+            headers: {
+              authorization: `Bearer ${jwt}`,
+              ...storeHeaders.headers,
+            },
+          }
+        )
+
+        expect(response.status).toEqual(200)
+        expect(response.data).toEqual({
+          customer: expect.objectContaining({
+            id: customer.id,
+            email: "newemail123@medusa.js",
+          }),
+        })
+      })
     })
   },
 })
