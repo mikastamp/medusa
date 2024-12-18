@@ -834,6 +834,23 @@ export class Store {
         }
       )
     },
+
+    calculate: async (
+      id: string,
+      body: HttpTypes.StoreCalculateShippingOptionPrice,
+      query?: HttpTypes.SelectParams,
+      headers?: ClientHeaders
+    ) => {
+      return await this.client.fetch<HttpTypes.StoreShippingOptionResponse>(
+        `/store/shipping-options/${id}/calculate`,
+        {
+          method: "POST",
+          headers,
+          body,
+          query,
+        }
+      )
+    },
   }
 
   public payment = {

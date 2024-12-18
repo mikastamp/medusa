@@ -115,8 +115,8 @@ decorators:
       AdminProductOption:
         - AdminProduct
         - AdminProductOptionValue
-      AdminPromotion:
-        - AdminApplicationMethod
+      AdminApplicationMethod:
+        - AdminPromotion
       BaseOrderItemDetail:
         - BaseOrderLineItem
       BaseOrderShippingDetail:

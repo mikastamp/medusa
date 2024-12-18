@@ -7,6 +7,8 @@ import ts from "typescript"
 import { StepModifier, StepType } from "../types"
 import { capitalize, findReflectionInNamespaces } from "utils"
 
+export const WORKFLOW_AS_STEP_SUFFIX = `-as-step`
+
 /**
  * A class of helper methods.
  */
@@ -126,7 +128,7 @@ export default class Helper {
       stepId = this._getStepOrWorkflowIdFromArrowFunction(initializer, type)
     }
 
-    return isWorkflowStep ? `${stepId}-as-step` : stepId
+    return isWorkflowStep ? `${stepId}${WORKFLOW_AS_STEP_SUFFIX}` : stepId
   }
 
   private _getStepOrWorkflowIdFromArrowFunction(

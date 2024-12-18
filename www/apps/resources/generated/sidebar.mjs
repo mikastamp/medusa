@@ -1653,7 +1653,7 @@ export const generatedSidebar = [
                     "isPathHref": true,
                     "type": "category",
                     "title": "Data Models",
-                    "autogenerate_path": "/references/customer_models/classes",
+                    "autogenerate_path": "/references/customer_models/variables",
                     "children": [
                       {
                         "loaded": true,
@@ -1808,6 +1808,14 @@ export const generatedSidebar = [
                         "loaded": true,
                         "isPathHref": true,
                         "type": "link",
+                        "path": "/references/fulfillment/calculateShippingOptionsPrices",
+                        "title": "calculateShippingOptionsPrices",
+                        "children": []
+                      },
+                      {
+                        "loaded": true,
+                        "isPathHref": true,
+                        "type": "link",
                         "path": "/references/fulfillment/cancelFulfillment",
                         "title": "cancelFulfillment",
                         "children": []
@@ -1874,6 +1882,14 @@ export const generatedSidebar = [
                         "type": "link",
                         "path": "/references/fulfillment/createShippingProfiles",
                         "title": "createShippingProfiles",
+                        "children": []
+                      },
+                      {
+                        "loaded": true,
+                        "isPathHref": true,
+                        "type": "link",
+                        "path": "/references/fulfillment/deleteFulfillment",
+                        "title": "deleteFulfillment",
                         "children": []
                       },
                       {
@@ -2330,6 +2346,14 @@ export const generatedSidebar = [
                         "type": "link",
                         "path": "/references/fulfillment/validateShippingOption",
                         "title": "validateShippingOption",
+                        "children": []
+                      },
+                      {
+                        "loaded": true,
+                        "isPathHref": true,
+                        "type": "link",
+                        "path": "/references/fulfillment/validateShippingOptionsForPriceCalculation",
+                        "title": "validateShippingOptionsForPriceCalculation",
                         "children": []
                       }
                     ]
@@ -2832,7 +2856,7 @@ export const generatedSidebar = [
                     "isPathHref": true,
                     "type": "category",
                     "title": "Data Models",
-                    "autogenerate_path": "/references/inventory_next_models/classes",
+                    "autogenerate_path": "/references/inventory_next_models/variables",
                     "children": [
                       {
                         "loaded": true,
@@ -4675,7 +4699,7 @@ export const generatedSidebar = [
                     "isPathHref": true,
                     "type": "category",
                     "title": "Data Models",
-                    "autogenerate_path": "/references/payment_models/classes",
+                    "autogenerate_path": "/references/payment_models/variables",
                     "children": [
                       {
                         "loaded": true,
@@ -6379,7 +6403,7 @@ export const generatedSidebar = [
                     "type": "category",
                     "title": "Data Models",
                     "hasTitleStyling": true,
-                    "autogenerate_path": "/references/promotion_models/classes",
+                    "autogenerate_path": "/references/promotion_models/variables",
                     "children": [
                       {
                         "loaded": true,
@@ -6974,7 +6998,7 @@ export const generatedSidebar = [
                     "isPathHref": true,
                     "type": "category",
                     "title": "Data Models",
-                    "autogenerate_path": "/references/stock_location_next_models/classes",
+                    "autogenerate_path": "/references/stock_location_next_models/variables",
                     "children": [
                       {
                         "loaded": true,
@@ -7448,7 +7472,7 @@ export const generatedSidebar = [
                     "isPathHref": true,
                     "type": "category",
                     "title": "Data Models",
-                    "autogenerate_path": "/references/tax_models/classes",
+                    "autogenerate_path": "/references/tax_models/variables",
                     "children": [
                       {
                         "loaded": true,
@@ -9700,6 +9724,14 @@ export const generatedSidebar = [
                 "loaded": true,
                 "isPathHref": true,
                 "type": "link",
+                "path": "/references/data-model/property-types/float",
+                "title": "float",
+                "children": []
+              },
+              {
+                "loaded": true,
+                "isPathHref": true,
+                "type": "link",
                 "path": "/references/data-model/property-types/id",
                 "title": "id",
                 "children": []
@@ -9803,6 +9835,14 @@ export const generatedSidebar = [
             "title": "Property Configuration Methods",
             "autogenerate_path": "/references/dml/Property_Configuration_Methods/methods",
             "children": [
+              {
+                "loaded": true,
+                "isPathHref": true,
+                "type": "link",
+                "path": "/references/data-model/property-configuration/computed",
+                "title": "computed",
+                "children": []
+              },
               {
                 "loaded": true,
                 "isPathHref": true,
@@ -10235,6 +10275,14 @@ export const generatedSidebar = [
                     "type": "link",
                     "path": "/references/medusa-workflows/createPaymentCollectionForCartWorkflow",
                     "title": "createPaymentCollectionForCartWorkflow",
+                    "children": []
+                  },
+                  {
+                    "loaded": true,
+                    "isPathHref": true,
+                    "type": "link",
+                    "path": "/references/medusa-workflows/listShippingOptionsForCartWithPricingWorkflow",
+                    "title": "listShippingOptionsForCartWithPricingWorkflow",
                     "children": []
                   },
                   {
@@ -11021,6 +11069,14 @@ export const generatedSidebar = [
                     "loaded": true,
                     "isPathHref": true,
                     "type": "link",
+                    "path": "/references/medusa-workflows/calculateShippingOptionsPricesWorkflow",
+                    "title": "calculateShippingOptionsPricesWorkflow",
+                    "children": []
+                  },
+                  {
+                    "loaded": true,
+                    "isPathHref": true,
+                    "type": "link",
                     "path": "/references/medusa-workflows/cancelFulfillmentWorkflow",
                     "title": "cancelFulfillmentWorkflow",
                     "children": []
@@ -11150,6 +11206,14 @@ export const generatedSidebar = [
                     "type": "link",
                     "path": "/references/medusa-workflows/steps/buildPriceSet",
                     "title": "buildPriceSet",
+                    "children": []
+                  },
+                  {
+                    "loaded": true,
+                    "isPathHref": true,
+                    "type": "link",
+                    "path": "/references/medusa-workflows/steps/calculateShippingOptionsPricesStep",
+                    "title": "calculateShippingOptionsPricesStep",
                     "children": []
                   },
                   {

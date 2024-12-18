@@ -1105,7 +1105,7 @@ medusaIntegrationTestRunner({
                     variant_id: product.variants[0].id,
                   },
                 ],
-                rules: { customer_group_id: [customerGroup.id] },
+                rules: { "customer.groups.id": [customerGroup.id] },
               },
               adminHeaders
             )
@@ -1188,7 +1188,7 @@ medusaIntegrationTestRunner({
                     variant_id: product.variants[0].id,
                   },
                 ],
-                rules: { customer_group_id: [customerGroup.id] },
+                rules: { "customer.groups.id": [customerGroup.id] },
               },
               adminHeaders
             )
@@ -1783,7 +1783,7 @@ medusaIntegrationTestRunner({
                     variant_id: product.variants[0].id,
                   },
                 ],
-                rules: { customer_group_id: [customerGroup.id] },
+                rules: { "customer.groups.id": [customerGroup.id] },
               },
               adminHeaders
             )
@@ -1863,7 +1863,7 @@ medusaIntegrationTestRunner({
                     variant_id: product.variants[0].id,
                   },
                 ],
-                rules: { customer_group_id: [customerGroup.id] },
+                rules: { "customer.groups.id": [customerGroup.id] },
               },
               adminHeaders
             )

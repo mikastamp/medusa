@@ -43653,7 +43653,7 @@ components:
         - id
       properties:
         promotion:
-          $ref: '#/components/schemas/AdminPromotion'
+          type: object
         target_rules:
           type: array
           description: The application method's target rules.
@@ -51946,7 +51946,7 @@ components:
         - deleted_at
       properties:
         application_method:
-          type: object
+          $ref: '#/components/schemas/AdminApplicationMethod'
         rules:
           type: array
           description: The promotion's rules.
@@ -69233,6 +69233,15 @@ components:
           description: The shipping option's shipping options.
           items:
             $ref: '#/components/schemas/StoreCartShippingOption'
+    StoreShippingOptionResponse:
+      type: object
+      description: The shipping option's details.
+      x-schemaName: StoreShippingOptionResponse
+      required:
+        - shipping_option
+      properties:
+        shipping_option:
+          $ref: '#/components/schemas/StoreCartShippingOption'
     StoreShippingOptionType:
       type: object
       description: The shipping option type's details.

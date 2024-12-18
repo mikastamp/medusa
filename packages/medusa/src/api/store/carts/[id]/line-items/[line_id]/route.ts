@@ -2,10 +2,10 @@ import {
   deleteLineItemsWorkflow,
   updateLineItemInCartWorkflow,
 } from "@medusajs/core-flows"
+import { prepareListQuery } from "@medusajs/framework"
+import { MedusaRequest, MedusaResponse } from "@medusajs/framework/http"
 import { HttpTypes } from "@medusajs/framework/types"
 import { MedusaError } from "@medusajs/framework/utils"
-import { MedusaRequest, MedusaResponse } from "@medusajs/framework/http"
-import { prepareListQuery } from "@medusajs/framework"
 import { refetchCart } from "../../../helpers"
 import { StoreUpdateCartLineItemType } from "../../../validators"
 
@@ -13,6 +13,7 @@ export const POST = async (
   req: MedusaRequest<StoreUpdateCartLineItemType>,
   res: MedusaResponse<HttpTypes.StoreCartResponse>
 ) => {
+  // TODO: Move this to the workflow when the query to line item is fixed
   const cart = await refetchCart(
     req.params.id,
     req.scope,
@@ -39,14 +40,12 @@ export const POST = async (
     )
   }
 
-  const input = {
-    cart,
-    item,
-    update: req.validatedBody,
-  }
-
   await updateLineItemInCartWorkflow(req.scope).run({
-    input,
+    input: {
+      cart_id: req.params.id,
+      item_id: item.id,
+      update: req.validatedBody,
+    },
   })
 
   const updatedCart = await refetchCart(

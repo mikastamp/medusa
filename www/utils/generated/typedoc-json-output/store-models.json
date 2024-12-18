@@ -1,5 +1,5 @@
 {
-	"id": 18204,
+	"id": 21953,
 	"name": "store-models",
 	"variant": "project",
 	"kind": 1,
@@ -18,7 +18,7 @@
 	},
 	"children": [
 		{
-			"id": 18265,
+			"id": 22014,
 			"name": "StoreCurrency",
 			"variant": "declaration",
 			"kind": 32,
@@ -38,14 +38,14 @@
 							{
 								"type": "reflection",
 								"declaration": {
-									"id": 18266,
+									"id": 22015,
 									"name": "__type",
 									"variant": "declaration",
 									"kind": 65536,
 									"flags": {},
 									"children": [
 										{
-											"id": 18267,
+											"id": 22016,
 											"name": "id",
 											"variant": "declaration",
 											"kind": 1024,
@@ -81,7 +81,7 @@
 											"defaultValue": "..."
 										},
 										{
-											"id": 18268,
+											"id": 22017,
 											"name": "currency_code",
 											"variant": "declaration",
 											"kind": 1024,
@@ -106,7 +106,7 @@
 											"defaultValue": "..."
 										},
 										{
-											"id": 18269,
+											"id": 22018,
 											"name": "is_default",
 											"variant": "declaration",
 											"kind": 1024,
@@ -131,7 +131,7 @@
 											"defaultValue": "..."
 										},
 										{
-											"id": 18270,
+											"id": 22019,
 											"name": "store",
 											"variant": "declaration",
 											"kind": 1024,
@@ -155,7 +155,7 @@
 												"typeArguments": [
 													{
 														"type": "reference",
-														"target": 18205,
+														"target": 21954,
 														"name": "Store"
 													}
 												],
@@ -169,10 +169,10 @@
 										{
 											"title": "Properties",
 											"children": [
-												18267,
-												18268,
-												18269,
-												18270
+												22016,
+												22017,
+												22018,
+												22019
 											]
 										}
 									]
@@ -181,14 +181,14 @@
 							{
 								"type": "reflection",
 								"declaration": {
-									"id": 18317,
+									"id": 22066,
 									"name": "__type",
 									"variant": "declaration",
 									"kind": 65536,
 									"flags": {},
 									"children": [
 										{
-											"id": 18318,
+											"id": 22067,
 											"name": "id",
 											"variant": "declaration",
 											"kind": 1024,
@@ -216,7 +216,7 @@
 											"defaultValue": "..."
 										},
 										{
-											"id": 18319,
+											"id": 22068,
 											"name": "currency_code",
 											"variant": "declaration",
 											"kind": 1024,
@@ -233,7 +233,7 @@
 											"defaultValue": "..."
 										},
 										{
-											"id": 18320,
+											"id": 22069,
 											"name": "is_default",
 											"variant": "declaration",
 											"kind": 1024,
@@ -250,7 +250,7 @@
 											"defaultValue": "..."
 										},
 										{
-											"id": 18321,
+											"id": 22070,
 											"name": "store",
 											"variant": "declaration",
 											"kind": 1024,
@@ -267,14 +267,14 @@
 													{
 														"type": "reflection",
 														"declaration": {
-															"id": 18345,
+															"id": 22094,
 															"name": "__type",
 															"variant": "declaration",
 															"kind": 65536,
 															"flags": {},
 															"signatures": [
 																{
-																	"id": 18346,
+																	"id": 22095,
 																	"name": "__type",
 																	"variant": "signature",
 																	"kind": 4096,
@@ -292,14 +292,14 @@
 																					{
 																						"type": "reflection",
 																						"declaration": {
-																							"id": 18347,
+																							"id": 22096,
 																							"name": "__type",
 																							"variant": "declaration",
 																							"kind": 65536,
 																							"flags": {},
 																							"children": [
 																								{
-																									"id": 18348,
+																									"id": 22097,
 																									"name": "id",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -327,7 +327,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 18349,
+																									"id": 22098,
 																									"name": "name",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -344,7 +344,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 18350,
+																									"id": 22099,
 																									"name": "default_sales_channel_id",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -363,7 +363,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 18351,
+																									"id": 22100,
 																									"name": "default_region_id",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -382,7 +382,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 18352,
+																									"id": 22101,
 																									"name": "default_location_id",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -401,7 +401,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 18353,
+																									"id": 22102,
 																									"name": "metadata",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -420,7 +420,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 18354,
+																									"id": 22103,
 																									"name": "supported_currencies",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -435,14 +435,14 @@
 																											{
 																												"type": "reflection",
 																												"declaration": {
-																													"id": 18355,
+																													"id": 22104,
 																													"name": "__type",
 																													"variant": "declaration",
 																													"kind": 65536,
 																													"flags": {},
 																													"signatures": [
 																														{
-																															"id": 18356,
+																															"id": 22105,
 																															"name": "__type",
 																															"variant": "signature",
 																															"kind": 4096,
@@ -466,13 +466,13 @@
 																								{
 																									"title": "Properties",
 																									"children": [
-																										18348,
-																										18349,
-																										18350,
-																										18351,
-																										18352,
-																										18353,
-																										18354
+																										22097,
+																										22098,
+																										22099,
+																										22100,
+																										22101,
+																										22102,
+																										22103
 																									]
 																								}
 																							]
@@ -481,14 +481,14 @@
 																					{
 																						"type": "reflection",
 																						"declaration": {
-																							"id": 18357,
+																							"id": 22106,
 																							"name": "__type",
 																							"variant": "declaration",
 																							"kind": 65536,
 																							"flags": {},
 																							"children": [
 																								{
-																									"id": 18358,
+																									"id": 22107,
 																									"name": "id",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -516,7 +516,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 18359,
+																									"id": 22108,
 																									"name": "name",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -533,7 +533,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 18360,
+																									"id": 22109,
 																									"name": "default_sales_channel_id",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -552,7 +552,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 18361,
+																									"id": 22110,
 																									"name": "default_region_id",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -571,7 +571,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 18362,
+																									"id": 22111,
 																									"name": "default_location_id",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -590,7 +590,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 18363,
+																									"id": 22112,
 																									"name": "metadata",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -609,7 +609,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 18364,
+																									"id": 22113,
 																									"name": "supported_currencies",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -624,14 +624,14 @@
 																											{
 																												"type": "reflection",
 																												"declaration": {
-																													"id": 18365,
+																													"id": 22114,
 																													"name": "__type",
 																													"variant": "declaration",
 																													"kind": 65536,
 																													"flags": {},
 																													"signatures": [
 																														{
-																															"id": 18366,
+																															"id": 22115,
 																															"name": "__type",
 																															"variant": "signature",
 																															"kind": 4096,
@@ -655,13 +655,13 @@
 																								{
 																									"title": "Properties",
 																									"children": [
-																										18358,
-																										18359,
-																										18360,
-																										18361,
-																										18362,
-																										18363,
-																										18364
+																										22107,
+																										22108,
+																										22109,
+																										22110,
+																										22111,
+																										22112,
+																										22113
 																									]
 																								}
 																							]
@@ -670,7 +670,7 @@
 																					{
 																						"type": "reflection",
 																						"declaration": {
-																							"id": 18367,
+																							"id": 22116,
 																							"name": "__type",
 																							"variant": "declaration",
 																							"kind": 65536,
@@ -711,10 +711,10 @@
 										{
 											"title": "Properties",
 											"children": [
-												18318,
-												18319,
-												18320,
-												18321
+												22067,
+												22068,
+												22069,
+												22070
 											]
 										}
 									]
@@ -723,7 +723,7 @@
 							{
 								"type": "reflection",
 								"declaration": {
-									"id": 18368,
+									"id": 22117,
 									"name": "__type",
 									"variant": "declaration",
 									"kind": 65536,
@@ -752,7 +752,7 @@
 			"defaultValue": "..."
 		},
 		{
-			"id": 18205,
+			"id": 21954,
 			"name": "Store",
 			"variant": "declaration",
 			"kind": 32,
@@ -772,14 +772,14 @@
 							{
 								"type": "reflection",
 								"declaration": {
-									"id": 18206,
+									"id": 21955,
 									"name": "__type",
 									"variant": "declaration",
 									"kind": 65536,
 									"flags": {},
 									"children": [
 										{
-											"id": 18207,
+											"id": 21956,
 											"name": "id",
 											"variant": "declaration",
 											"kind": 1024,
@@ -815,7 +815,7 @@
 											"defaultValue": "..."
 										},
 										{
-											"id": 18208,
+											"id": 21957,
 											"name": "name",
 											"variant": "declaration",
 											"kind": 1024,
@@ -840,7 +840,7 @@
 											"defaultValue": "..."
 										},
 										{
-											"id": 18209,
+											"id": 21958,
 											"name": "default_sales_channel_id",
 											"variant": "declaration",
 											"kind": 1024,
@@ -867,7 +867,7 @@
 											"defaultValue": "..."
 										},
 										{
-											"id": 18210,
+											"id": 21959,
 											"name": "default_region_id",
 											"variant": "declaration",
 											"kind": 1024,
@@ -894,7 +894,7 @@
 											"defaultValue": "..."
 										},
 										{
-											"id": 18211,
+											"id": 21960,
 											"name": "default_location_id",
 											"variant": "declaration",
 											"kind": 1024,
@@ -921,7 +921,7 @@
 											"defaultValue": "..."
 										},
 										{
-											"id": 18212,
+											"id": 21961,
 											"name": "metadata",
 											"variant": "declaration",
 											"kind": 1024,
@@ -948,7 +948,7 @@
 											"defaultValue": "..."
 										},
 										{
-											"id": 18213,
+											"id": 21962,
 											"name": "supported_currencies",
 											"variant": "declaration",
 											"kind": 1024,
@@ -973,7 +973,7 @@
 												"typeArguments": [
 													{
 														"type": "reference",
-														"target": 18265,
+														"target": 22014,
 														"name": "StoreCurrency"
 													}
 												],
@@ -987,13 +987,13 @@
 										{
 											"title": "Properties",
 											"children": [
-												18207,
-												18208,
-												18209,
-												18210,
-												18211,
-												18212,
-												18213
+												21956,
+												21957,
+												21958,
+												21959,
+												21960,
+												21961,
+												21962
 											]
 										}
 									]
@@ -1002,14 +1002,14 @@
 							{
 								"type": "reflection",
 								"declaration": {
-									"id": 18235,
+									"id": 21984,
 									"name": "__type",
 									"variant": "declaration",
 									"kind": 65536,
 									"flags": {},
 									"children": [
 										{
-											"id": 18236,
+											"id": 21985,
 											"name": "id",
 											"variant": "declaration",
 											"kind": 1024,
@@ -1037,7 +1037,7 @@
 											"defaultValue": "..."
 										},
 										{
-											"id": 18237,
+											"id": 21986,
 											"name": "name",
 											"variant": "declaration",
 											"kind": 1024,
@@ -1054,7 +1054,7 @@
 											"defaultValue": "..."
 										},
 										{
-											"id": 18238,
+											"id": 21987,
 											"name": "default_sales_channel_id",
 											"variant": "declaration",
 											"kind": 1024,
@@ -1073,7 +1073,7 @@
 											"defaultValue": "..."
 										},
 										{
-											"id": 18239,
+											"id": 21988,
 											"name": "default_region_id",
 											"variant": "declaration",
 											"kind": 1024,
@@ -1092,7 +1092,7 @@
 											"defaultValue": "..."
 										},
 										{
-											"id": 18240,
+											"id": 21989,
 											"name": "default_location_id",
 											"variant": "declaration",
 											"kind": 1024,
@@ -1111,7 +1111,7 @@
 											"defaultValue": "..."
 										},
 										{
-											"id": 18241,
+											"id": 21990,
 											"name": "metadata",
 											"variant": "declaration",
 											"kind": 1024,
@@ -1130,7 +1130,7 @@
 											"defaultValue": "..."
 										},
 										{
-											"id": 18242,
+											"id": 21991,
 											"name": "supported_currencies",
 											"variant": "declaration",
 											"kind": 1024,
@@ -1145,14 +1145,14 @@
 													{
 														"type": "reflection",
 														"declaration": {
-															"id": 18243,
+															"id": 21992,
 															"name": "__type",
 															"variant": "declaration",
 															"kind": 65536,
 															"flags": {},
 															"signatures": [
 																{
-																	"id": 18244,
+																	"id": 21993,
 																	"name": "__type",
 																	"variant": "signature",
 																	"kind": 4096,
@@ -1170,14 +1170,14 @@
 																					{
 																						"type": "reflection",
 																						"declaration": {
-																							"id": 18245,
+																							"id": 21994,
 																							"name": "__type",
 																							"variant": "declaration",
 																							"kind": 65536,
 																							"flags": {},
 																							"children": [
 																								{
-																									"id": 18246,
+																									"id": 21995,
 																									"name": "id",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -1205,7 +1205,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 18247,
+																									"id": 21996,
 																									"name": "currency_code",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -1222,7 +1222,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 18248,
+																									"id": 21997,
 																									"name": "is_default",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -1239,7 +1239,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 18249,
+																									"id": 21998,
 																									"name": "store",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -1256,14 +1256,14 @@
 																											{
 																												"type": "reflection",
 																												"declaration": {
-																													"id": 18252,
+																													"id": 22001,
 																													"name": "__type",
 																													"variant": "declaration",
 																													"kind": 65536,
 																													"flags": {},
 																													"signatures": [
 																														{
-																															"id": 18253,
+																															"id": 22002,
 																															"name": "__type",
 																															"variant": "signature",
 																															"kind": 4096,
@@ -1287,10 +1287,10 @@
 																								{
 																									"title": "Properties",
 																									"children": [
-																										18246,
-																										18247,
-																										18248,
-																										18249
+																										21995,
+																										21996,
+																										21997,
+																										21998
 																									]
 																								}
 																							]
@@ -1299,14 +1299,14 @@
 																					{
 																						"type": "reflection",
 																						"declaration": {
-																							"id": 18254,
+																							"id": 22003,
 																							"name": "__type",
 																							"variant": "declaration",
 																							"kind": 65536,
 																							"flags": {},
 																							"children": [
 																								{
-																									"id": 18255,
+																									"id": 22004,
 																									"name": "id",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -1334,7 +1334,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 18256,
+																									"id": 22005,
 																									"name": "currency_code",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -1351,7 +1351,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 18257,
+																									"id": 22006,
 																									"name": "is_default",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -1368,7 +1368,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 18258,
+																									"id": 22007,
 																									"name": "store",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -1385,14 +1385,14 @@
 																											{
 																												"type": "reflection",
 																												"declaration": {
-																													"id": 18261,
+																													"id": 22010,
 																													"name": "__type",
 																													"variant": "declaration",
 																													"kind": 65536,
 																													"flags": {},
 																													"signatures": [
 																														{
-																															"id": 18262,
+																															"id": 22011,
 																															"name": "__type",
 																															"variant": "signature",
 																															"kind": 4096,
@@ -1416,10 +1416,10 @@
 																								{
 																									"title": "Properties",
 																									"children": [
-																										18255,
-																										18256,
-																										18257,
-																										18258
+																										22004,
+																										22005,
+																										22006,
+																										22007
 																									]
 																								}
 																							]
@@ -1428,7 +1428,7 @@
 																					{
 																						"type": "reflection",
 																						"declaration": {
-																							"id": 18263,
+																							"id": 22012,
 																							"name": "__type",
 																							"variant": "declaration",
 																							"kind": 65536,
@@ -1469,13 +1469,13 @@
 										{
 											"title": "Properties",
 											"children": [
-												18236,
-												18237,
-												18238,
-												18239,
-												18240,
-												18241,
-												18242
+												21985,
+												21986,
+												21987,
+												21988,
+												21989,
+												21990,
+												21991
 											]
 										}
 									]
@@ -1484,7 +1484,7 @@
 							{
 								"type": "reflection",
 								"declaration": {
-									"id": 18264,
+									"id": 22013,
 									"name": "__type",
 									"variant": "declaration",
 									"kind": 65536,
@@ -1517,670 +1517,670 @@
 		{
 			"title": "Variables",
 			"children": [
-				18265,
-				18205
+				22014,
+				21954
 			]
 		}
 	],
 	"packageName": "@medusajs/store",
 	"symbolIdMap": {
-		"18204": {
+		"21953": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/index.ts",
 			"qualifiedName": ""
 		},
-		"18205": {
+		"21954": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "Store"
 		},
-		"18206": {
+		"21955": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "__object"
 		},
-		"18207": {
+		"21956": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "__object.id"
 		},
-		"18208": {
+		"21957": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "__object.name"
 		},
-		"18209": {
+		"21958": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "__object.default_sales_channel_id"
 		},
-		"18210": {
+		"21959": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "__object.default_region_id"
 		},
-		"18211": {
+		"21960": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "__object.default_location_id"
 		},
-		"18212": {
+		"21961": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "__object.metadata"
 		},
-		"18213": {
+		"21962": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "__object.supported_currencies"
 		},
-		"18214": {
+		"21963": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "__function"
 		},
-		"18215": {
+		"21964": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "__function"
 		},
-		"18216": {
+		"21965": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/currency.ts",
 			"qualifiedName": "__object"
 		},
-		"18217": {
+		"21966": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/currency.ts",
 			"qualifiedName": "__object.id"
 		},
-		"18218": {
+		"21967": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/currency.ts",
 			"qualifiedName": "__object.currency_code"
 		},
-		"18219": {
+		"21968": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/currency.ts",
 			"qualifiedName": "__object.is_default"
 		},
-		"18220": {
+		"21969": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/currency.ts",
 			"qualifiedName": "__object.store"
 		},
-		"18221": {
+		"21970": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/currency.ts",
 			"qualifiedName": "__function"
 		},
-		"18222": {
+		"21971": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/currency.ts",
 			"qualifiedName": "__function"
 		},
-		"18223": {
+		"21972": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/currency.ts",
 			"qualifiedName": "__function"
 		},
-		"18224": {
+		"21973": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/currency.ts",
 			"qualifiedName": "__function"
 		},
-		"18225": {
+		"21974": {
 			"sourceFileName": "../../../../packages/core/utils/src/dml/helpers/entity-builder/create-big-number-properties.ts",
 			"qualifiedName": "__type"
 		},
-		"18226": {
+		"21975": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/currency.ts",
 			"qualifiedName": "id"
 		},
-		"18227": {
+		"21976": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/currency.ts",
 			"qualifiedName": "currency_code"
 		},
-		"18228": {
+		"21977": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/currency.ts",
 			"qualifiedName": "is_default"
 		},
-		"18229": {
+		"21978": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/currency.ts",
 			"qualifiedName": "store"
 		},
-		"18230": {
+		"21979": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/currency.ts",
 			"qualifiedName": "__function"
 		},
-		"18231": {
+		"21980": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/currency.ts",
 			"qualifiedName": "__function"
 		},
-		"18232": {
+		"21981": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/currency.ts",
 			"qualifiedName": "__function"
 		},
-		"18233": {
+		"21982": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/currency.ts",
 			"qualifiedName": "__function"
 		},
-		"18234": {
+		"21983": {
 			"sourceFileName": "../../../../packages/core/utils/src/dml/helpers/entity-builder/create-big-number-properties.ts",
 			"qualifiedName": "__type"
 		},
-		"18235": {
+		"21984": {
 			"sourceFileName": "../../../../packages/core/utils/src/dml/helpers/entity-builder/create-big-number-properties.ts",
 			"qualifiedName": "__type"
 		},
-		"18236": {
+		"21985": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "id"
 		},
-		"18237": {
+		"21986": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "name"
 		},
-		"18238": {
+		"21987": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "default_sales_channel_id"
 		},
-		"18239": {
+		"21988": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "default_region_id"
 		},
-		"18240": {
+		"21989": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "default_location_id"
 		},
-		"18241": {
+		"21990": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "metadata"
 		},
-		"18242": {
+		"21991": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "supported_currencies"
 		},
-		"18243": {
+		"21992": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "__function"
 		},
-		"18244": {
+		"21993": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "__function"
 		},
-		"18245": {
+		"21994": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/currency.ts",
 			"qualifiedName": "__object"
 		},
-		"18246": {
+		"21995": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/currency.ts",
 			"qualifiedName": "__object.id"
 		},
-		"18247": {
+		"21996": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/currency.ts",
 			"qualifiedName": "__object.currency_code"
 		},
-		"18248": {
+		"21997": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/currency.ts",
 			"qualifiedName": "__object.is_default"
 		},
-		"18249": {
+		"21998": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/currency.ts",
 			"qualifiedName": "__object.store"
 		},
-		"18250": {
+		"21999": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/currency.ts",
 			"qualifiedName": "__function"
 		},
-		"18251": {
+		"22000": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/currency.ts",
 			"qualifiedName": "__function"
 		},
-		"18252": {
+		"22001": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/currency.ts",
 			"qualifiedName": "__function"
 		},
-		"18253": {
+		"22002": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/currency.ts",
 			"qualifiedName": "__function"
 		},
-		"18254": {
+		"22003": {
 			"sourceFileName": "../../../../packages/core/utils/src/dml/helpers/entity-builder/create-big-number-properties.ts",
 			"qualifiedName": "__type"
 		},
-		"18255": {
+		"22004": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/currency.ts",
 			"qualifiedName": "id"
 		},
-		"18256": {
+		"22005": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/currency.ts",
 			"qualifiedName": "currency_code"
 		},
-		"18257": {
+		"22006": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/currency.ts",
 			"qualifiedName": "is_default"
 		},
-		"18258": {
+		"22007": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/currency.ts",
 			"qualifiedName": "store"
 		},
-		"18259": {
+		"22008": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/currency.ts",
 			"qualifiedName": "__function"
 		},
-		"18260": {
+		"22009": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/currency.ts",
 			"qualifiedName": "__function"
 		},
-		"18261": {
+		"22010": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/currency.ts",
 			"qualifiedName": "__function"
 		},
-		"18262": {
+		"22011": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/currency.ts",
 			"qualifiedName": "__function"
 		},
-		"18263": {
+		"22012": {
 			"sourceFileName": "../../../../packages/core/utils/src/dml/helpers/entity-builder/create-big-number-properties.ts",
 			"qualifiedName": "__type"
 		},
-		"18264": {
+		"22013": {
 			"sourceFileName": "../../../../packages/core/utils/src/dml/helpers/entity-builder/create-big-number-properties.ts",
 			"qualifiedName": "__type"
 		},
-		"18265": {
+		"22014": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/currency.ts",
 			"qualifiedName": "StoreCurrency"
 		},
-		"18266": {
+		"22015": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/currency.ts",
 			"qualifiedName": "__object"
 		},
-		"18267": {
+		"22016": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/currency.ts",
 			"qualifiedName": "__object.id"
 		},
-		"18268": {
+		"22017": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/currency.ts",
 			"qualifiedName": "__object.currency_code"
 		},
-		"18269": {
+		"22018": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/currency.ts",
 			"qualifiedName": "__object.is_default"
 		},
-		"18270": {
+		"22019": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/currency.ts",
 			"qualifiedName": "__object.store"
 		},
-		"18271": {
+		"22020": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/currency.ts",
 			"qualifiedName": "__function"
 		},
-		"18272": {
+		"22021": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/currency.ts",
 			"qualifiedName": "__function"
 		},
-		"18273": {
+		"22022": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "__object"
 		},
-		"18274": {
+		"22023": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "__object.id"
 		},
-		"18275": {
+		"22024": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "__object.name"
 		},
-		"18276": {
+		"22025": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "__object.default_sales_channel_id"
 		},
-		"18277": {
+		"22026": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "__object.default_region_id"
 		},
-		"18278": {
+		"22027": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "__object.default_location_id"
 		},
-		"18279": {
+		"22028": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "__object.metadata"
 		},
-		"18280": {
+		"22029": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "__object.supported_currencies"
 		},
-		"18281": {
+		"22030": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "__function"
 		},
-		"18282": {
+		"22031": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "__function"
 		},
-		"18283": {
+		"22032": {
 			"sourceFileName": "../../../../packages/core/utils/src/dml/helpers/entity-builder/create-big-number-properties.ts",
 			"qualifiedName": "__type"
 		},
-		"18284": {
+		"22033": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "id"
 		},
-		"18285": {
+		"22034": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "name"
 		},
-		"18286": {
+		"22035": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "default_sales_channel_id"
 		},
-		"18287": {
+		"22036": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "default_region_id"
 		},
-		"18288": {
+		"22037": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "default_location_id"
 		},
-		"18289": {
+		"22038": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "metadata"
 		},
-		"18290": {
+		"22039": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "supported_currencies"
 		},
-		"18291": {
+		"22040": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "__function"
 		},
-		"18292": {
+		"22041": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "__function"
 		},
-		"18293": {
+		"22042": {
 			"sourceFileName": "../../../../packages/core/utils/src/dml/helpers/entity-builder/create-big-number-properties.ts",
 			"qualifiedName": "__type"
 		},
-		"18294": {
+		"22043": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/currency.ts",
 			"qualifiedName": "__function"
 		},
-		"18295": {
+		"22044": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/currency.ts",
 			"qualifiedName": "__function"
 		},
-		"18296": {
+		"22045": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "__object"
 		},
-		"18297": {
+		"22046": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "__object.id"
 		},
-		"18298": {
+		"22047": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "__object.name"
 		},
-		"18299": {
+		"22048": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "__object.default_sales_channel_id"
 		},
-		"18300": {
+		"22049": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "__object.default_region_id"
 		},
-		"18301": {
+		"22050": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "__object.default_location_id"
 		},
-		"18302": {
+		"22051": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "__object.metadata"
 		},
-		"18303": {
+		"22052": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "__object.supported_currencies"
 		},
-		"18304": {
+		"22053": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "__function"
 		},
-		"18305": {
+		"22054": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "__function"
 		},
-		"18306": {
+		"22055": {
 			"sourceFileName": "../../../../packages/core/utils/src/dml/helpers/entity-builder/create-big-number-properties.ts",
 			"qualifiedName": "__type"
 		},
-		"18307": {
+		"22056": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "id"
 		},
-		"18308": {
+		"22057": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "name"
 		},
-		"18309": {
+		"22058": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "default_sales_channel_id"
 		},
-		"18310": {
+		"22059": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "default_region_id"
 		},
-		"18311": {
+		"22060": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "default_location_id"
 		},
-		"18312": {
+		"22061": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "metadata"
 		},
-		"18313": {
+		"22062": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "supported_currencies"
 		},
-		"18314": {
+		"22063": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "__function"
 		},
-		"18315": {
+		"22064": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "__function"
 		},
-		"18316": {
+		"22065": {
 			"sourceFileName": "../../../../packages/core/utils/src/dml/helpers/entity-builder/create-big-number-properties.ts",
 			"qualifiedName": "__type"
 		},
-		"18317": {
+		"22066": {
 			"sourceFileName": "../../../../packages/core/utils/src/dml/helpers/entity-builder/create-big-number-properties.ts",
 			"qualifiedName": "__type"
 		},
-		"18318": {
+		"22067": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/currency.ts",
 			"qualifiedName": "id"
 		},
-		"18319": {
+		"22068": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/currency.ts",
 			"qualifiedName": "currency_code"
 		},
-		"18320": {
+		"22069": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/currency.ts",
 			"qualifiedName": "is_default"
 		},
-		"18321": {
+		"22070": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/currency.ts",
 			"qualifiedName": "store"
 		},
-		"18322": {
+		"22071": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/currency.ts",
 			"qualifiedName": "__function"
 		},
-		"18323": {
+		"22072": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/currency.ts",
 			"qualifiedName": "__function"
 		},
-		"18324": {
+		"22073": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "__object"
 		},
-		"18325": {
+		"22074": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "__object.id"
 		},
-		"18326": {
+		"22075": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "__object.name"
 		},
-		"18327": {
+		"22076": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "__object.default_sales_channel_id"
 		},
-		"18328": {
+		"22077": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "__object.default_region_id"
 		},
-		"18329": {
+		"22078": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "__object.default_location_id"
 		},
-		"18330": {
+		"22079": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "__object.metadata"
 		},
-		"18331": {
+		"22080": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "__object.supported_currencies"
 		},
-		"18332": {
+		"22081": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "__function"
 		},
-		"18333": {
+		"22082": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "__function"
 		},
-		"18334": {
+		"22083": {
 			"sourceFileName": "../../../../packages/core/utils/src/dml/helpers/entity-builder/create-big-number-properties.ts",
 			"qualifiedName": "__type"
 		},
-		"18335": {
+		"22084": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "id"
 		},
-		"18336": {
+		"22085": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "name"
 		},
-		"18337": {
+		"22086": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "default_sales_channel_id"
 		},
-		"18338": {
+		"22087": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "default_region_id"
 		},
-		"18339": {
+		"22088": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "default_location_id"
 		},
-		"18340": {
+		"22089": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "metadata"
 		},
-		"18341": {
+		"22090": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "supported_currencies"
 		},
-		"18342": {
+		"22091": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "__function"
 		},
-		"18343": {
+		"22092": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "__function"
 		},
-		"18344": {
+		"22093": {
 			"sourceFileName": "../../../../packages/core/utils/src/dml/helpers/entity-builder/create-big-number-properties.ts",
 			"qualifiedName": "__type"
 		},
-		"18345": {
+		"22094": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/currency.ts",
 			"qualifiedName": "__function"
 		},
-		"18346": {
+		"22095": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/currency.ts",
 			"qualifiedName": "__function"
 		},
-		"18347": {
+		"22096": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "__object"
 		},
-		"18348": {
+		"22097": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "__object.id"
 		},
-		"18349": {
+		"22098": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "__object.name"
 		},
-		"18350": {
+		"22099": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "__object.default_sales_channel_id"
 		},
-		"18351": {
+		"22100": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "__object.default_region_id"
 		},
-		"18352": {
+		"22101": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "__object.default_location_id"
 		},
-		"18353": {
+		"22102": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "__object.metadata"
 		},
-		"18354": {
+		"22103": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "__object.supported_currencies"
 		},
-		"18355": {
+		"22104": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "__function"
 		},
-		"18356": {
+		"22105": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "__function"
 		},
-		"18357": {
+		"22106": {
 			"sourceFileName": "../../../../packages/core/utils/src/dml/helpers/entity-builder/create-big-number-properties.ts",
 			"qualifiedName": "__type"
 		},
-		"18358": {
+		"22107": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "id"
 		},
-		"18359": {
+		"22108": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "name"
 		},
-		"18360": {
+		"22109": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "default_sales_channel_id"
 		},
-		"18361": {
+		"22110": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "default_region_id"
 		},
-		"18362": {
+		"22111": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "default_location_id"
 		},
-		"18363": {
+		"22112": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "metadata"
 		},
-		"18364": {
+		"22113": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "supported_currencies"
 		},
-		"18365": {
+		"22114": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "__function"
 		},
-		"18366": {
+		"22115": {
 			"sourceFileName": "../../../../packages/modules/store/src/models/store.ts",
 			"qualifiedName": "__function"
 		},
-		"18367": {
+		"22116": {
 			"sourceFileName": "../../../../packages/core/utils/src/dml/helpers/entity-builder/create-big-number-properties.ts",
 			"qualifiedName": "__type"
 		},
-		"18368": {
+		"22117": {
 			"sourceFileName": "../../../../packages/core/utils/src/dml/helpers/entity-builder/create-big-number-properties.ts",
 			"qualifiedName": "__type"
 		}
@@ -2190,7 +2190,7 @@
 			"1": "../../../../packages/modules/store/src/models/index.ts"
 		},
 		"reflections": {
-			"1": 18204
+			"1": 21953
 		}
 	}
 }

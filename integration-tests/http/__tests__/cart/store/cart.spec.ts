@@ -271,7 +271,7 @@ medusaIntegrationTestRunner({
                 shipping_address: shippingAddressData,
                 items: [{ variant_id: product.variants[0].id, quantity: 1 }],
               },
-              storeHeadersWithCustomer
+              storeHeaders
             )
 
             expect(response.status).toEqual(200)
@@ -414,7 +414,7 @@ medusaIntegrationTestRunner({
                 items: [{ variant_id: product.variants[0].id, quantity: 1 }],
                 promo_codes: [promotion.code],
               },
-              storeHeadersWithCustomer
+              storeHeaders
             )
           ).data.cart
         })
@@ -643,28 +643,61 @@ medusaIntegrationTestRunner({
         })
 
         describe("with sale price lists", () => {
-          let priceList
-
           beforeEach(async () => {
-            priceList = (
+            await api.post(
+              `/admin/price-lists`,
+              {
+                title: "test price list",
+                description: "test",
+                status: PriceListStatus.ACTIVE,
+                type: PriceListType.SALE,
+                prices: [
+                  {
+                    amount: 350,
+                    currency_code: "usd",
+                    variant_id: product.variants[0].id,
+                  },
+                ],
+              },
+              adminHeaders
+            )
+
+            const customerGroup = (
               await api.post(
-                `/admin/price-lists`,
-                {
-                  title: "test price list",
-                  description: "test",
-                  status: PriceListStatus.ACTIVE,
-                  type: PriceListType.SALE,
-                  prices: [
-                    {
-                      amount: 350,
-                      currency_code: "usd",
-                      variant_id: product.variants[0].id,
-                    },
-                  ],
-                },
+                "/admin/customer-groups",
+                { name: "VIP" },
                 adminHeaders
               )
-            ).data.price_list
+            ).data.customer_group
+
+            await api.post(
+              `/admin/customer-groups/${customerGroup.id}/customers`,
+              {
+                add: [customer.id],
+              },
+              adminHeaders
+            )
+
+            await api.post(
+              `/admin/price-lists`,
+              {
+                title: "test price list",
+                description: "test",
+                status: PriceListStatus.ACTIVE,
+                type: PriceListType.SALE,
+                prices: [
+                  {
+                    amount: 200,
+                    currency_code: "usd",
+                    variant_id: product.variants[0].id,
+                  },
+                ],
+                rules: {
+                  "customer.groups.id": [customerGroup.id],
+                },
+              },
+              adminHeaders
+            )
           })
 
           it("should add price from price list and set compare_at_unit_price", async () => {
@@ -709,6 +742,158 @@ medusaIntegrationTestRunner({
               })
             )
           })
+
+          it("should add price from price list associated to a customer group when customer rules match", async () => {
+            const transferredCart = (
+              await api.post(
+                `/store/carts/${cart.id}/customer`,
+                {},
+                storeHeadersWithCustomer
+              )
+            ).data.cart
+
+            expect(transferredCart).toEqual(
+              expect.objectContaining({
+                id: cart.id,
+                items: expect.arrayContaining([
+                  expect.objectContaining({
+                    unit_price: 200,
+                    compare_at_unit_price: 1500,
+                    is_tax_inclusive: true,
+                    quantity: 1,
+                  }),
+                ]),
+              })
+            )
+
+            let response = await api.post(
+              `/store/carts/${cart.id}/line-items`,
+              {
+                variant_id: product.variants[0].id,
+                quantity: 1,
+              },
+              storeHeadersWithCustomer
+            )
+
+            expect(response.status).toEqual(200)
+            expect(response.data.cart).toEqual(
+              expect.objectContaining({
+                id: cart.id,
+                currency_code: "usd",
+                items: expect.arrayContaining([
+                  expect.objectContaining({
+                    unit_price: 200,
+                    compare_at_unit_price: 1500,
+                    is_tax_inclusive: true,
+                    quantity: 2,
+                  }),
+                ]),
+              })
+            )
+          })
+        })
+      })
+
+      describe("POST /store/carts/:id/line-items/:id", () => {
+        let item, customerGroup
+
+        beforeEach(async () => {
+          cart = (
+            await api.post(
+              `/store/carts`,
+              {
+                currency_code: "usd",
+                sales_channel_id: salesChannel.id,
+                region_id: region.id,
+                shipping_address: shippingAddressData,
+                items: [{ variant_id: product.variants[0].id, quantity: 1 }],
+              },
+              storeHeadersWithCustomer
+            )
+          ).data.cart
+
+          item = cart.items[0]
+
+          customerGroup = (
+            await api.post(
+              "/admin/customer-groups",
+              { name: "VIP" },
+              adminHeaders
+            )
+          ).data.customer_group
+
+          await api.post(
+            `/admin/customer-groups/${customerGroup.id}/customers`,
+            {
+              add: [customer.id],
+            },
+            adminHeaders
+          )
+        })
+
+        it("should update cart's line item", async () => {
+          let response = await api.post(
+            `/store/carts/${cart.id}/line-items/${item.id}`,
+            {
+              quantity: 2,
+            },
+            storeHeaders
+          )
+
+          expect(response.status).toEqual(200)
+          expect(response.data.cart).toEqual(
+            expect.objectContaining({
+              id: cart.id,
+              currency_code: "usd",
+              items: expect.arrayContaining([
+                expect.objectContaining({
+                  unit_price: 1500,
+                  quantity: 2,
+                }),
+              ]),
+            })
+          )
+
+          await api.post(
+            `/admin/price-lists`,
+            {
+              title: "test price list",
+              description: "test",
+              status: PriceListStatus.ACTIVE,
+              type: PriceListType.SALE,
+              prices: [
+                {
+                  amount: 200,
+                  currency_code: "usd",
+                  variant_id: product.variants[0].id,
+                },
+              ],
+              rules: {
+                "customer.groups.id": [customerGroup.id],
+              },
+            },
+            adminHeaders
+          )
+
+          response = await api.post(
+            `/store/carts/${cart.id}/line-items/${item.id}`,
+            { quantity: 3 },
+            storeHeaders
+          )
+
+          expect(response.status).toEqual(200)
+          expect(response.data.cart).toEqual(
+            expect.objectContaining({
+              id: cart.id,
+              currency_code: "usd",
+              items: expect.arrayContaining([
+                expect.objectContaining({
+                  unit_price: 200,
+                  quantity: 3,
+                }),
+              ]),
+            })
+          )
         })
       })
 

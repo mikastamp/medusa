@@ -1,5 +1,11 @@
 # @medusajs/pricing
 
+## 2.1.2
+
+### Patch Changes
+
+- [#10579](https://github.com/medusajs/medusa/pull/10579) [`6367bccde88158d524dfa01e5a8123ffa3461c10`](https://github.com/medusajs/medusa/commit/6367bccde88158d524dfa01e5a8123ffa3461c10) Thanks [@riqwan](https://github.com/riqwan)! - feat(medusa, pricing): Cart workflows handle pricing context accurately
+
 ## 2.1.1
 
 ## 2.1.0

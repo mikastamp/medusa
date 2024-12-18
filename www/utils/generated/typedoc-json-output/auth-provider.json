@@ -1,12 +1,12 @@
 {
-	"id": 39992,
+	"id": 44312,
 	"name": "auth-provider",
 	"variant": "project",
 	"kind": 1,
 	"flags": {},
 	"children": [
 		{
-			"id": 39993,
+			"id": 44313,
 			"name": "AbstractAuthModuleProvider",
 			"variant": "declaration",
 			"kind": 128,
@@ -27,7 +27,7 @@
 			},
 			"children": [
 				{
-					"id": 39994,
+					"id": 44314,
 					"name": "identifier",
 					"variant": "declaration",
 					"kind": 1024,
@@ -99,7 +99,7 @@
 					}
 				},
 				{
-					"id": 39995,
+					"id": 44315,
 					"name": "DISPLAY_NAME",
 					"variant": "declaration",
 					"kind": 1024,
@@ -131,7 +131,7 @@
 					}
 				},
 				{
-					"id": 39996,
+					"id": 44316,
 					"name": "validateOptions",
 					"variant": "declaration",
 					"kind": 2048,
@@ -140,7 +140,7 @@
 					},
 					"signatures": [
 						{
-							"id": 39997,
+							"id": 44317,
 							"name": "validateOptions",
 							"variant": "signature",
 							"kind": 4096,
@@ -174,7 +174,7 @@
 							},
 							"parameters": [
 								{
-									"id": 39998,
+									"id": 44318,
 									"name": "options",
 									"variant": "param",
 									"kind": 32768,
@@ -216,21 +216,21 @@
 					]
 				},
 				{
-					"id": 39999,
+					"id": 44319,
 					"name": "constructor",
 					"variant": "declaration",
 					"kind": 512,
 					"flags": {},
 					"signatures": [
 						{
-							"id": 40000,
+							"id": 44320,
 							"name": "new AbstractAuthModuleProvider",
 							"variant": "signature",
 							"kind": 16384,
 							"flags": {},
 							"type": {
 								"type": "reference",
-								"target": 39993,
+								"target": 44313,
 								"name": "AbstractAuthModuleProvider",
 								"package": "@medusajs/utils"
 							}
@@ -238,7 +238,7 @@
 					]
 				},
 				{
-					"id": 40008,
+					"id": 44328,
 					"name": "authenticate",
 					"variant": "declaration",
 					"kind": 2048,
@@ -247,7 +247,7 @@
 					},
 					"signatures": [
 						{
-							"id": 40009,
+							"id": 44329,
 							"name": "authenticate",
 							"variant": "signature",
 							"kind": 4096,
@@ -294,7 +294,7 @@
 							},
 							"parameters": [
 								{
-									"id": 40010,
+									"id": 44330,
 									"name": "data",
 									"variant": "param",
 									"kind": 32768,
@@ -318,7 +318,7 @@
 									}
 								},
 								{
-									"id": 40011,
+									"id": 44331,
 									"name": "authIdentityProviderService",
 									"variant": "param",
 									"kind": 32768,
@@ -392,14 +392,14 @@
 					}
 				},
 				{
-					"id": 40012,
+					"id": 44332,
 					"name": "register",
 					"variant": "declaration",
 					"kind": 2048,
 					"flags": {},
 					"signatures": [
 						{
-							"id": 40013,
+							"id": 44333,
 							"name": "register",
 							"variant": "signature",
 							"kind": 4096,
@@ -442,7 +442,7 @@
 							},
 							"parameters": [
 								{
-									"id": 40014,
+									"id": 44334,
 									"name": "data",
 									"variant": "param",
 									"kind": 32768,
@@ -466,7 +466,7 @@
 									}
 								},
 								{
-									"id": 40015,
+									"id": 44335,
 									"name": "authIdentityProviderService",
 									"variant": "param",
 									"kind": 32768,
@@ -540,14 +540,14 @@
 					}
 				},
 				{
-					"id": 40016,
+					"id": 44336,
 					"name": "update",
 					"variant": "declaration",
 					"kind": 2048,
 					"flags": {},
 					"signatures": [
 						{
-							"id": 40017,
+							"id": 44337,
 							"name": "update",
 							"variant": "signature",
 							"kind": 4096,
@@ -590,7 +590,7 @@
 							},
 							"parameters": [
 								{
-									"id": 40018,
+									"id": 44338,
 									"name": "data",
 									"variant": "param",
 									"kind": 32768,
@@ -648,7 +648,7 @@
 									}
 								},
 								{
-									"id": 40019,
+									"id": 44339,
 									"name": "authIdentityProviderService",
 									"variant": "param",
 									"kind": 32768,
@@ -722,14 +722,14 @@
 					}
 				},
 				{
-					"id": 40020,
+					"id": 44340,
 					"name": "validateCallback",
 					"variant": "declaration",
 					"kind": 2048,
 					"flags": {},
 					"signatures": [
 						{
-							"id": 40021,
+							"id": 44341,
 							"name": "validateCallback",
 							"variant": "signature",
 							"kind": 4096,
@@ -744,7 +744,7 @@
 										"kind": "inline-tag",
 										"tag": "@link",
 										"text": "authenticate",
-										"target": 40008,
+										"target": 44328,
 										"tsLinkText": ""
 									},
 									{
@@ -799,7 +799,7 @@
 							},
 							"parameters": [
 								{
-									"id": 40022,
+									"id": 44342,
 									"name": "data",
 									"variant": "param",
 									"kind": 32768,
@@ -823,7 +823,7 @@
 									}
 								},
 								{
-									"id": 40023,
+									"id": 44343,
 									"name": "authIdentityProviderService",
 									"variant": "param",
 									"kind": 32768,
@@ -901,24 +901,24 @@
 				{
 					"title": "Constructors",
 					"children": [
-						39999
+						44319
 					]
 				},
 				{
 					"title": "Properties",
 					"children": [
-						39994,
-						39995
+						44314,
+						44315
 					]
 				},
 				{
 					"title": "Methods",
 					"children": [
-						39996,
-						40008,
-						40012,
-						40016,
-						40020
+						44316,
+						44328,
+						44332,
+						44336,
+						44340
 					]
 				}
 			],
@@ -939,101 +939,101 @@
 		{
 			"title": "Classes",
 			"children": [
-				39993
+				44313
 			]
 		}
 	],
 	"packageName": "@medusajs/utils",
 	"symbolIdMap": {
-		"39992": {
+		"44312": {
 			"sourceFileName": "../../../../packages/core/utils/src/auth/abstract-auth-provider.ts",
 			"qualifiedName": ""
 		},
-		"39993": {
+		"44313": {
 			"sourceFileName": "../../../../packages/core/utils/src/auth/abstract-auth-provider.ts",
 			"qualifiedName": "AbstractAuthModuleProvider"
 		},
-		"39994": {
+		"44314": {
 			"sourceFileName": "../../../../packages/core/utils/src/auth/abstract-auth-provider.ts",
 			"qualifiedName": "AbstractAuthModuleProvider.identifier"
 		},
-		"39995": {
+		"44315": {
 			"sourceFileName": "../../../../packages/core/utils/src/auth/abstract-auth-provider.ts",
 			"qualifiedName": "AbstractAuthModuleProvider.DISPLAY_NAME"
 		},
-		"39996": {
+		"44316": {
 			"sourceFileName": "../../../../packages/core/utils/src/auth/abstract-auth-provider.ts",
 			"qualifiedName": "AbstractAuthModuleProvider.validateOptions"
 		},
-		"39997": {
+		"44317": {
 			"sourceFileName": "../../../../packages/core/utils/src/auth/abstract-auth-provider.ts",
 			"qualifiedName": "AbstractAuthModuleProvider.validateOptions"
 		},
-		"39998": {
+		"44318": {
 			"sourceFileName": "../../../../packages/core/utils/src/auth/abstract-auth-provider.ts",
 			"qualifiedName": "options"
 		},
-		"40008": {
+		"44328": {
 			"sourceFileName": "../../../../packages/core/utils/src/auth/abstract-auth-provider.ts",
 			"qualifiedName": "AbstractAuthModuleProvider.authenticate"
 		},
-		"40009": {
+		"44329": {
 			"sourceFileName": "../../../../packages/core/utils/src/auth/abstract-auth-provider.ts",
 			"qualifiedName": "AbstractAuthModuleProvider.authenticate"
 		},
-		"40010": {
+		"44330": {
 			"sourceFileName": "../../../../packages/core/utils/src/auth/abstract-auth-provider.ts",
 			"qualifiedName": "data"
 		},
-		"40011": {
+		"44331": {
 			"sourceFileName": "../../../../packages/core/utils/src/auth/abstract-auth-provider.ts",
 			"qualifiedName": "authIdentityProviderService"
 		},
-		"40012": {
+		"44332": {
 			"sourceFileName": "../../../../packages/core/utils/src/auth/abstract-auth-provider.ts",
 			"qualifiedName": "AbstractAuthModuleProvider.register"
 		},
-		"40013": {
+		"44333": {
 			"sourceFileName": "../../../../packages/core/utils/src/auth/abstract-auth-provider.ts",
 			"qualifiedName": "AbstractAuthModuleProvider.register"
 		},
-		"40014": {
+		"44334": {
 			"sourceFileName": "../../../../packages/core/utils/src/auth/abstract-auth-provider.ts",
 			"qualifiedName": "data"
 		},
-		"40015": {
+		"44335": {
 			"sourceFileName": "../../../../packages/core/utils/src/auth/abstract-auth-provider.ts",
 			"qualifiedName": "authIdentityProviderService"
 		},
-		"40016": {
+		"44336": {
 			"sourceFileName": "../../../../packages/core/utils/src/auth/abstract-auth-provider.ts",
 			"qualifiedName": "AbstractAuthModuleProvider.update"
 		},
-		"40017": {
+		"44337": {
 			"sourceFileName": "../../../../packages/core/utils/src/auth/abstract-auth-provider.ts",
 			"qualifiedName": "AbstractAuthModuleProvider.update"
 		},
-		"40018": {
+		"44338": {
 			"sourceFileName": "../../../../packages/core/utils/src/auth/abstract-auth-provider.ts",
 			"qualifiedName": "data"
 		},
-		"40019": {
+		"44339": {
 			"sourceFileName": "../../../../packages/core/utils/src/auth/abstract-auth-provider.ts",
 			"qualifiedName": "authIdentityProviderService"
 		},
-		"40020": {
+		"44340": {
 			"sourceFileName": "../../../../packages/core/utils/src/auth/abstract-auth-provider.ts",
 			"qualifiedName": "AbstractAuthModuleProvider.validateCallback"
 		},
-		"40021": {
+		"44341": {
 			"sourceFileName": "../../../../packages/core/utils/src/auth/abstract-auth-provider.ts",
 			"qualifiedName": "AbstractAuthModuleProvider.validateCallback"
 		},
-		"40022": {
+		"44342": {
 			"sourceFileName": "../../../../packages/core/utils/src/auth/abstract-auth-provider.ts",
 			"qualifiedName": "data"
 		},
-		"40023": {
+		"44343": {
 			"sourceFileName": "../../../../packages/core/utils/src/auth/abstract-auth-provider.ts",
 			"qualifiedName": "authIdentityProviderService"
 		}
@@ -1043,7 +1043,7 @@
 			"1": "../../../../packages/core/utils/src/auth/abstract-auth-provider.ts"
 		},
 		"reflections": {
-			"1": 39992
+			"1": 44312
 		}
 	}
 }

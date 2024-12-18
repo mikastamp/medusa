@@ -29,6 +29,8 @@ import {
 import {
   ContainerRegistrationKeys,
   Modules,
+  PriceListStatus,
+  PriceListType,
   RuleOperator,
 } from "@medusajs/utils"
 import {
@@ -786,7 +788,7 @@ medusaIntegrationTestRunner({
                   quantity: 1,
                 },
               ],
-              cart,
+              cart_id: cart.id,
             },
           })
 
@@ -875,7 +877,7 @@ medusaIntegrationTestRunner({
                   quantity: 1,
                 },
               ],
-              cart,
+              cart_id: cart.id,
             },
             throwOnError: false,
           })
@@ -906,7 +908,7 @@ medusaIntegrationTestRunner({
                   quantity: 1,
                 },
               ],
-              cart,
+              cart_id: cart.id,
             },
             throwOnError: false,
           })
@@ -921,9 +923,307 @@ medusaIntegrationTestRunner({
             },
           ])
         })
+
+        it("should add item to cart with price list", async () => {
+          const salesChannel = await scModuleService.createSalesChannels({
+            name: "Webshop",
+          })
+
+          const customer = await customerModule.createCustomers({
+            first_name: "Test",
+            last_name: "Test",
+          })
+
+          const customer_group = await customerModule.createCustomerGroups({
+            name: "Test Group",
+          })
+
+          await customerModule.addCustomerToGroup({
+            customer_id: customer.id,
+            customer_group_id: customer_group.id,
+          })
+
+          const location = await stockLocationModule.createStockLocations({
+            name: "Warehouse",
+          })
+
+          let cart = await cartModuleService.createCarts({
+            currency_code: "usd",
+            sales_channel_id: salesChannel.id,
+            customer_id: customer.id,
+          })
+
+          const [product] = await productModule.createProducts([
+            {
+              title: "Test product",
+              variants: [
+                {
+                  title: "Test variant",
+                },
+              ],
+            },
+          ])
+
+          const inventoryItem = await inventoryModule.createInventoryItems({
+            sku: "inv-1234",
+          })
+
+          await inventoryModule.createInventoryLevels([
+            {
+              inventory_item_id: inventoryItem.id,
+              location_id: location.id,
+              stocked_quantity: 2,
+            },
+          ])
+
+          const priceSet = await pricingModule.createPriceSets({
+            prices: [
+              {
+                amount: 3000,
+                currency_code: "usd",
+              },
+            ],
+          })
+
+          await pricingModule.createPricePreferences({
+            attribute: "currency_code",
+            value: "usd",
+            is_tax_inclusive: true,
+          })
+
+          await pricingModule.createPriceLists([
+            {
+              title: "test price list",
+              description: "test",
+              status: PriceListStatus.ACTIVE,
+              type: PriceListType.OVERRIDE,
+              prices: [
+                {
+                  amount: 1500,
+                  currency_code: "usd",
+                  price_set_id: priceSet.id,
+                },
+              ],
+              rules: {
+                "customer.groups.id": [customer_group.id],
+              },
+            },
+          ])
+
+          await remoteLink.create([
+            {
+              [Modules.PRODUCT]: {
+                variant_id: product.variants[0].id,
+              },
+              [Modules.PRICING]: {
+                price_set_id: priceSet.id,
+              },
+            },
+            {
+              [Modules.SALES_CHANNEL]: {
+                sales_channel_id: salesChannel.id,
+              },
+              [Modules.STOCK_LOCATION]: {
+                stock_location_id: location.id,
+              },
+            },
+            {
+              [Modules.PRODUCT]: {
+                variant_id: product.variants[0].id,
+              },
+              [Modules.INVENTORY]: {
+                inventory_item_id: inventoryItem.id,
+              },
+            },
+          ])
+
+          cart = await cartModuleService.retrieveCart(cart.id, {
+            select: ["id", "region_id", "currency_code", "sales_channel_id"],
+          })
+
+          await addToCartWorkflow(appContainer).run({
+            input: {
+              items: [
+                {
+                  variant_id: product.variants[0].id,
+                  quantity: 1,
+                },
+              ],
+              cart_id: cart.id,
+            },
+          })
+
+          cart = await cartModuleService.retrieveCart(cart.id, {
+            relations: ["items"],
+          })
+
+          expect(cart).toEqual(
+            expect.objectContaining({
+              id: cart.id,
+              currency_code: "usd",
+              items: expect.arrayContaining([
+                expect.objectContaining({
+                  unit_price: 1500,
+                  is_tax_inclusive: true,
+                  quantity: 1,
+                  title: "Test variant",
+                }),
+              ]),
+            })
+          )
+        })
       })
 
       describe("updateLineItemInCartWorkflow", () => {
+        it("should update item in cart with price list", async () => {
+          const salesChannel = await scModuleService.createSalesChannels({
+            name: "Webshop",
+          })
+
+          const customer = await customerModule.createCustomers({
+            first_name: "Test",
+            last_name: "Test",
+          })
+
+          const customer_group = await customerModule.createCustomerGroups({
+            name: "Test Group",
+          })
+
+          await customerModule.addCustomerToGroup({
+            customer_id: customer.id,
+            customer_group_id: customer_group.id,
+          })
+
+          const location = await stockLocationModule.createStockLocations({
+            name: "Warehouse",
+          })
+
+          const [product] = await productModule.createProducts([
+            {
+              title: "Test product",
+              variants: [
+                {
+                  title: "Test variant",
+                },
+              ],
+            },
+          ])
+
+          const inventoryItem = await inventoryModule.createInventoryItems({
+            sku: "inv-1234",
+          })
+
+          await inventoryModule.createInventoryLevels([
+            {
+              inventory_item_id: inventoryItem.id,
+              location_id: location.id,
+              stocked_quantity: 2,
+            },
+          ])
+
+          const priceSet = await pricingModule.createPriceSets({
+            prices: [
+              {
+                amount: 3000,
+                currency_code: "usd",
+              },
+            ],
+          })
+
+          await pricingModule.createPriceLists([
+            {
+              title: "test price list",
+              description: "test",
+              status: PriceListStatus.ACTIVE,
+              type: PriceListType.OVERRIDE,
+              prices: [
+                {
+                  amount: 1500,
+                  currency_code: "usd",
+                  price_set_id: priceSet.id,
+                },
+              ],
+              rules: {
+                "customer.groups.id": [customer_group.id],
+              },
+            },
+          ])
+
+          await remoteLink.create([
+            {
+              [Modules.PRODUCT]: {
+                variant_id: product.variants[0].id,
+              },
+              [Modules.PRICING]: {
+                price_set_id: priceSet.id,
+              },
+            },
+            {
+              [Modules.SALES_CHANNEL]: {
+                sales_channel_id: salesChannel.id,
+              },
+              [Modules.STOCK_LOCATION]: {
+                stock_location_id: location.id,
+              },
+            },
+            {
+              [Modules.PRODUCT]: {
+                variant_id: product.variants[0].id,
+              },
+              [Modules.INVENTORY]: {
+                inventory_item_id: inventoryItem.id,
+              },
+            },
+          ])
+
+          let cart = await cartModuleService.createCarts({
+            currency_code: "usd",
+            sales_channel_id: salesChannel.id,
+            customer_id: customer.id,
+            items: [
+              {
+                variant_id: product.variants[0].id,
+                quantity: 1,
+                unit_price: 5000,
+                title: "Test item",
+              },
+            ],
+          })
+
+          cart = await cartModuleService.retrieveCart(cart.id, {
+            select: ["id", "region_id", "currency_code"],
+            relations: ["items", "items.variant_id", "items.metadata"],
+          })
+
+          const item = cart.items?.[0]!
+
+          const { errors } = await updateLineItemInCartWorkflow(
+            appContainer
+          ).run({
+            input: {
+              cart_id: cart.id,
+              item_id: item.id,
+              update: {
+                metadata: {
+                  foo: "bar",
+                },
+                quantity: 2,
+              },
+            },
+            throwOnError: true,
+          })
+
+          const updatedItem = await cartModuleService.retrieveLineItem(item.id)
+
+          expect(updatedItem).toEqual(
+            expect.objectContaining({
+              id: item.id,
+              unit_price: 1500,
+              quantity: 2,
+            })
+          )
+        })
+
         describe("compensation", () => {
           it("should revert line item update to original state", async () => {
             expect.assertions(2)
@@ -1024,8 +1324,8 @@ medusaIntegrationTestRunner({
 
             const { errors } = await workflow.run({
               input: {
-                cart,
-                item,
+                cart_id: cart.id,
+                item_id: item.id,
                 update: {
                   metadata: {
                     foo: "bar",

@@ -1,5 +1,18 @@
 # @medusajs/dashboard
 
+## 2.1.2
+
+### Patch Changes
+
+- [#10579](https://github.com/medusajs/medusa/pull/10579) [`6367bccde88158d524dfa01e5a8123ffa3461c10`](https://github.com/medusajs/medusa/commit/6367bccde88158d524dfa01e5a8123ffa3461c10) Thanks [@riqwan](https://github.com/riqwan)! - feat(medusa, pricing): Cart workflows handle pricing context accurately
+
+- [#10547](https://github.com/medusajs/medusa/pull/10547) [`dc5e73af4d2fe4eed8239660d74af6cd2a0994cd`](https://github.com/medusajs/medusa/commit/dc5e73af4d2fe4eed8239660d74af6cd2a0994cd) Thanks [@kasperkristensen](https://github.com/kasperkristensen)! - fix(dashboard): Prevent fulfillment provider modal from rerendering before form submission is complete
+
+- Updated dependencies []:
+  - @medusajs/admin-shared@2.1.2
+  - @medusajs/js-sdk@2.1.2
+  - @medusajs/icons@2.1.2
+
 ## 2.1.1
 
 ### Patch Changes

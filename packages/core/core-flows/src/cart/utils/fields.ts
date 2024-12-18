@@ -1,13 +1,14 @@
+// Always ensure that cartFieldsForPricingContext is present in cartFieldsForRefreshSteps
 export const cartFieldsForRefreshSteps = [
   "id",
   "currency_code",
   "quantity",
   "subtotal",
+  "item_total",
   "total",
   "item_subtotal",
   "shipping_subtotal",
   "region_id",
-  "currency_code",
   "metadata",
   "completed_at",
   "sales_channel_id",
@@ -98,6 +99,22 @@ export const completeCartFields = [
   "items.variant.inventory_items.inventory.location_levels.stock_locations.name",
   "items.variant.inventory_items.inventory.location_levels.stock_locations.sales_channels.id",
   "items.variant.inventory_items.inventory.location_levels.stock_locations.sales_channels.name",
+]
+
+export const cartFieldsForPricingContext = [
+  "id",
+  "sales_channel_id",
+  "currency_code",
+  "region_id",
+  "shipping_address.city",
+  "shipping_address.country_code",
+  "shipping_address.province",
+  "shipping_address.postal_code",
+  "item_total",
+  "total",
+  "customer.id",
+  "email",
+  "customer.groups.id",
 ]
 
 export const productVariantsFields = [

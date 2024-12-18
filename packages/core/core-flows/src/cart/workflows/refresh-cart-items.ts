@@ -1,4 +1,8 @@
-import { isDefined, PromotionActions } from "@medusajs/framework/utils"
+import {
+  filterObjectByKeys,
+  isDefined,
+  PromotionActions,
+} from "@medusajs/framework/utils"
 import {
   createWorkflow,
   transform,
@@ -9,6 +13,7 @@ import { useRemoteQueryStep } from "../../common/steps/use-remote-query"
 import { updateLineItemsStep } from "../steps"
 import { validateVariantPricesStep } from "../steps/validate-variant-prices"
 import {
+  cartFieldsForPricingContext,
   cartFieldsForRefreshSteps,
   productVariantsFields,
 } from "../utils/fields"
@@ -41,16 +46,9 @@ export const refreshCartItemsWorkflow = createWorkflow(
       return (data.cart.items ?? []).map((i) => i.variant_id)
     })
 
-    const pricingContext = transform(
-      { cart },
-      ({ cart: { currency_code, region_id, customer_id } }) => {
-        return {
-          currency_code,
-          region_id,
-          customer_id,
-        }
-      }
-    )
+    const cartPricingContext = transform({ cart }, ({ cart }) => {
+      return filterObjectByKeys(cart, cartFieldsForPricingContext)
+    })
 
     const variants = useRemoteQueryStep({
       entry_point: "variants",
@@ -58,7 +56,7 @@ export const refreshCartItemsWorkflow = createWorkflow(
       variables: {
         id: variantIds,
         calculated_price: {
-          context: pricingContext,
+          context: cartPricingContext,
         },
       },
       throw_if_key_not_found: true,
