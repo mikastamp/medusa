@@ -2488,8 +2488,6 @@ moduleIntegrationTestRunner<ICartModuleService>({
       const asJson = JSON.parse(JSON.stringify(cart))
       expect(asJson).toEqual({
         id: createdCart.id,
-        billing_address: null,
-        shipping_address: null,
         items: [
           {
             id: itemOne.id,

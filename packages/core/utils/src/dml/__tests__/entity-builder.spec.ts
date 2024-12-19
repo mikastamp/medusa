@@ -6443,7 +6443,7 @@ describe("Entity builder", () => {
         expect.objectContaining({
           user_id: {
             kind: "scalar",
-            type: "User",
+            type: "string",
             columnType: "text",
             fieldName: "user_id",
             nullable: false,
@@ -6461,7 +6461,7 @@ describe("Entity builder", () => {
           },
           team_id: {
             kind: "scalar",
-            type: "Team",
+            type: "string",
             columnType: "text",
             fieldName: "team_id",
             nullable: false,
@@ -7694,7 +7694,7 @@ describe("Entity builder", () => {
           getter: false,
           setter: false,
           nullable: false,
-          type: "User",
+          type: "string",
         },
         user: {
           kind: "m:1",
@@ -7711,7 +7711,7 @@ describe("Entity builder", () => {
           nullable: false,
           getter: false,
           setter: false,
-          type: "Team",
+          type: "string",
         },
         team: {
           kind: "m:1",

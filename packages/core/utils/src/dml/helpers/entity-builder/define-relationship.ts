@@ -435,7 +435,7 @@ export function defineBelongsToRelationship(
 
     if (DmlManyToMany.isManyToMany(otherSideRelation)) {
       Property({
-        type: relatedModelName,
+        type: "string",
         columnType: "text",
         fieldName: foreignKeyName,
         nullable: relationship.nullable,
