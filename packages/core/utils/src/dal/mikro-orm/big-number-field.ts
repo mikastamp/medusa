@@ -26,7 +26,7 @@ export function MikroOrmBigNumberProperty(
       set(value: BigNumberInput) {
         if (options?.nullable && !isPresent(value)) {
           this.__helper.__data[columnName] = null
-          this.__helper.__data[rawColumnName]
+          this.__helper.__data[rawColumnName] = null
           this[rawColumnName] = null
         } else {
           let bigNumber: BigNumber
@@ -77,10 +77,10 @@ export function MikroOrmBigNumberProperty(
     })
 
     Property({
-      type: "number",
+      type: "any",
       columnType: "numeric",
       trackChanges: false,
-      runtimeType: "number",
+      runtimeType: "any",
       ...options,
     })(target, columnName)
   }

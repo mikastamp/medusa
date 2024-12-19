@@ -76,6 +76,8 @@ export function applyChangesToOrder(
         version,
         quantity: orderItem.quantity,
         unit_price: item.unit_price ?? orderItem.unit_price,
+        compare_at_unit_price:
+          item.compare_at_unit_price ?? orderItem.compare_at_unit_price,
         fulfilled_quantity: orderItem.fulfilled_quantity ?? 0,
         delivered_quantity: orderItem.delivered_quantity ?? 0,
         shipped_quantity: orderItem.shipped_quantity ?? 0,
@@ -85,11 +87,6 @@ export function applyChangesToOrder(
         written_off_quantity: orderItem.written_off_quantity ?? 0,
         metadata: orderItem.metadata,
       } as OrderItem
-
-      if (item.compare_at_unit_price || orderItem.compare_at_unit_price) {
-        itemToUpsert.compare_at_unit_price =
-          item.compare_at_unit_price ?? orderItem.compare_at_unit_price
-      }
 
       itemsToUpsert.push(itemToUpsert)
     }
