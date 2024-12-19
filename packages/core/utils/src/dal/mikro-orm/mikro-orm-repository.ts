@@ -245,26 +245,6 @@ export class MikroOrmBaseRepository<const T extends object = object>
 
     return [entities, softDeletedEntitiesMap]
   }
-
-  /*
-  applyFreeTextSearchFilters<T>(
-    findOptions: DAL.FindOptions<T & { q?: string }>,
-    retrieveConstraintsToApply: (q: string) => any[]
-  ): void {
-    if (!("q" in findOptions.where) || !findOptions.where.q) {
-      delete findOptions.where.q
-
-      return
-    }
-
-    const q = findOptions.where.q as string
-    delete findOptions.where.q
-
-    findOptions.where = {
-      $and: [findOptions.where, { $or: retrieveConstraintsToApply(q) }],
-    } as unknown as DAL.FindOptions<T & { q?: string }>["where"]
-  }
-    */
 }
 
 export class MikroOrmBaseTreeRepository<

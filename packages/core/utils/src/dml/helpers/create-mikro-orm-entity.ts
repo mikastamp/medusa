@@ -8,15 +8,18 @@ import type {
 } from "@medusajs/types"
 import { Entity, Filter } from "@mikro-orm/core"
 
+import {
+  mikroOrmFreeTextSearchFilterOptionsFactory,
+  mikroOrmSoftDeletableFilterOptions,
+} from "../../dal"
 import { DmlEntity } from "../entity"
-import { IdProperty } from "../properties/id"
 import { DuplicateIdPropertyError } from "../errors"
-import { applyChecks } from "./mikro-orm/apply-checks"
-import { mikroOrmSoftDeletableFilterOptions } from "../../dal"
-import { defineProperty } from "./entity-builder/define-property"
+import { IdProperty } from "../properties/id"
 import { applySearchable } from "./entity-builder/apply-searchable"
-import { parseEntityName } from "./entity-builder/parse-entity-name"
+import { defineProperty } from "./entity-builder/define-property"
 import { defineRelationship } from "./entity-builder/define-relationship"
+import { parseEntityName } from "./entity-builder/parse-entity-name"
+import { applyChecks } from "./mikro-orm/apply-checks"
 import { applyEntityIndexes, applyIndexes } from "./mikro-orm/apply-indexes"
 
 /**
@@ -102,6 +105,9 @@ function createMikrORMEntity() {
     /**
      * Converting class to a MikroORM entity
      */
+    Filter(mikroOrmFreeTextSearchFilterOptionsFactory(modelName))(
+      MikroORMEntity
+    )
     const RegisteredEntity = Entity({ tableName })(
       Filter(mikroOrmSoftDeletableFilterOptions)(MikroORMEntity)
     ) as Infer<T>
