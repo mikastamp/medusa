@@ -13,7 +13,7 @@ import {
 
 export interface CreateCartCreateLineItemDTO {
   quantity: BigNumberInput
-  variant_id: string
+  variant_id?: string
   title?: string
 
   subtitle?: string

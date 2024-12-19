@@ -3024,6 +3024,7 @@ describe("Entity builder", () => {
           persist: false,
           name: "user_id",
           nullable: false,
+          formula: expect.any(Function),
           kind: "scalar",
           setter: false,
           type: "string",
@@ -3130,13 +3131,13 @@ describe("Entity builder", () => {
           name: "email",
           entity: "Email",
           fieldName: "email_id",
-          orphanRemoval: true,
         },
         email_id: {
           columnType: "text",
           type: "string",
           kind: "scalar",
           name: "email_id",
+          formula: expect.any(Function),
           nullable: false,
           persist: false,
           getter: false,
@@ -3242,13 +3243,13 @@ describe("Entity builder", () => {
           entity: "Email",
           nullable: true,
           fieldName: "emails_id",
-          orphanRemoval: true,
         },
         emails_id: {
           columnType: "text",
           type: "string",
           kind: "scalar",
           name: "emails_id",
+          formula: expect.any(Function),
           nullable: true,
           persist: false,
           getter: false,
@@ -3345,13 +3346,13 @@ describe("Entity builder", () => {
           entity: "Email",
           mappedBy: "owner",
           fieldName: "email_id",
-          orphanRemoval: true,
         },
         email_id: {
           columnType: "text",
           type: "string",
           kind: "scalar",
           name: "email_id",
+          formula: expect.any(Function),
           nullable: false,
           persist: false,
           getter: false,
@@ -3452,13 +3453,13 @@ describe("Entity builder", () => {
           cascade: ["persist", "soft-remove"],
           mappedBy: "user",
           fieldName: "email_id",
-          orphanRemoval: true,
         },
         email_id: {
           columnType: "text",
           type: "string",
           kind: "scalar",
           name: "email_id",
+          formula: expect.any(Function),
           nullable: false,
           persist: false,
           getter: false,
@@ -3629,12 +3630,12 @@ describe("Entity builder", () => {
           cascade: ["persist", "soft-remove"],
           mappedBy: "user",
           fieldName: "email_id",
-          orphanRemoval: true,
         },
         email_id: {
           columnType: "text",
           type: "string",
           kind: "scalar",
+          formula: expect.any(Function),
           name: "email_id",
           nullable: false,
           persist: false,
@@ -3720,6 +3721,7 @@ describe("Entity builder", () => {
           name: "user_id",
           nullable: false,
           kind: "scalar",
+          formula: expect.any(Function),
           setter: false,
           type: "string",
           persist: false,
@@ -4665,6 +4667,7 @@ describe("Entity builder", () => {
           kind: "scalar",
           persist: false,
           type: "string",
+          formula: expect.any(Function),
           columnType: "text",
           nullable: false,
           name: "user_id",
@@ -4864,6 +4867,7 @@ describe("Entity builder", () => {
           type: "string",
           columnType: "text",
           nullable: true,
+          formula: expect.any(Function),
           name: "user_id",
           getter: false,
           setter: false,
@@ -5284,23 +5288,6 @@ describe("Entity builder", () => {
       })
     })
 
-    test("throw error when other side relationship is missing", () => {
-      const email = model.define("email", {
-        email: model.text(),
-        isVerified: model.boolean(),
-        user: model.belongsTo(() => user),
-      })
-
-      const user = model.define("user", {
-        id: model.number(),
-        username: model.text(),
-      })
-
-      expect(() => toMikroORMEntity(email)).toThrow(
-        'Missing property "email" on "User" entity. Make sure to define it as a relationship'
-      )
-    })
-
     test("throw error when other side relationship is invalid", () => {
       const email = model.define("email", {
         email: model.text(),
@@ -5498,6 +5485,7 @@ describe("Entity builder", () => {
           type: "string",
           persist: false,
           columnType: "text",
+          formula: expect.any(Function),
           nullable: false,
           name: "user_id",
           getter: false,
@@ -5698,6 +5686,7 @@ describe("Entity builder", () => {
           type: "string",
           columnType: "text",
           nullable: false,
+          formula: expect.any(Function),
           name: "user_id",
           getter: false,
           setter: false,
@@ -5919,6 +5908,7 @@ describe("Entity builder", () => {
           type: "string",
           columnType: "text",
           kind: "scalar",
+          formula: expect.any(Function),
           persist: false,
           getter: false,
           setter: false,

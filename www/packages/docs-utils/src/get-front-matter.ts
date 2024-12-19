@@ -2,13 +2,11 @@ import remarkFrontmatter from "remark-frontmatter"
 import remarkParse from "remark-parse"
 import remarkStringify from "remark-stringify"
 import { unified } from "unified"
-import { read } from "to-vfile"
+import { read, readSync } from "to-vfile"
 import { matter } from "vfile-matter"
-import { FrontMatter } from "../types/index.js"
+import { FrontMatter } from "types"
 
-export async function getFrontMatterUtil(
-  filePath: string
-): Promise<FrontMatter> {
+export async function getFrontMatter(filePath: string): Promise<FrontMatter> {
   return (
     await unified()
       .use(remarkParse)
@@ -21,4 +19,12 @@ export async function getFrontMatterUtil(
       })
       .process(await read(filePath))
   ).data.matter as FrontMatter
+}
+
+export function getFrontMatterSync(filePath: string): FrontMatter {
+  const content = readSync(filePath)
+
+  matter(content)
+
+  return content.data.matter as FrontMatter
 }

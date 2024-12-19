@@ -22,6 +22,7 @@
     },
     "lint": { },
     "lint:content": { },
+    "watch": { },
     "dev:monorepo": {
       "dependsOn": [
         "^build-scripts#build",

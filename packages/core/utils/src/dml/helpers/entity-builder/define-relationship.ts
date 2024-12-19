@@ -198,7 +198,7 @@ export function defineHasOneWithFKRelationship(
     fieldName: foreignKeyName,
     ...(relationship.nullable ? { nullable: relationship.nullable } : {}),
     ...(mappedBy ? { mappedBy } : {}),
-    orphanRemoval: true,
+    //orphanRemoval: true,
   } as OneToOneOptions<any, any>
 
   if (shouldRemoveRelated) {
@@ -429,7 +429,6 @@ export function defineBelongsToRelationship(
     const foreignKeyName =
       relationship.options.foreignKeyName ??
       camelToSnakeCase(`${relationship.name}Id`)
-
     const detachCascade =
       !!relationship.mappedBy &&
       relationCascades.detach?.includes(relationship.mappedBy)
@@ -509,7 +508,7 @@ export function defineBelongsToRelationship(
       mappedBy: mappedBy,
       fieldName: foreignKeyName,
       owner: true,
-      orphanRemoval: true,
+      // orphanRemoval: true,
     }
 
     if (shouldCascade) {

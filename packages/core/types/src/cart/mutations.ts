@@ -556,6 +556,11 @@ export interface CreateLineItemDTO {
   is_tax_inclusive?: boolean
 
   /**
+   * Whether the line item's amount is a custom price.
+   */
+  is_custom_price?: boolean
+
+  /**
    * The calculated price of the line item after applying promotions.
    */
   compare_at_unit_price?: BigNumberInput

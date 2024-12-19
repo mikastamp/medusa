@@ -1,8 +1,10 @@
 import { UpdateLineItemInCartWorkflowInputDTO } from "@medusajs/framework/types"
+import { isDefined, MedusaError } from "@medusajs/framework/utils"
 import {
-  WorkflowData,
   createWorkflow,
   transform,
+  when,
+  WorkflowData,
 } from "@medusajs/framework/workflows-sdk"
 import { useQueryGraphStep } from "../../common"
 import { useRemoteQueryStep } from "../../common/steps/use-remote-query"
@@ -40,19 +42,22 @@ export const updateLineItemInCartWorkflow = createWorkflow(
     validateCartStep({ cart })
 
     const variantIds = transform({ item }, ({ item }) => {
-      return [item.variant_id]
+      return [item.variant_id].filter(Boolean)
     })
 
-    const variants = useRemoteQueryStep({
-      entry_point: "variants",
-      fields: productVariantsFields,
-      variables: {
-        id: variantIds,
-        calculated_price: {
-          context: cart,
+    const variants = when({ variantIds }, ({ variantIds }) => {
+      return !!variantIds.length
+    }).then(() => {
+      return useRemoteQueryStep({
+        entry_point: "variants",
+        fields: productVariantsFields,
+        variables: {
+          id: variantIds,
+          calculated_price: {
+            context: cart,
+          },
         },
-      },
-      throw_if_key_not_found: true,
+      }).config({ name: "fetch-variants" })
     })
 
     validateVariantPricesStep({ variants })
@@ -69,16 +74,36 @@ export const updateLineItemInCartWorkflow = createWorkflow(
       },
     })
 
-    const lineItemUpdate = transform({ input, variants }, (data) => {
-      const variant = data.variants[0]
+    const lineItemUpdate = transform({ input, variants, item }, (data) => {
+      const variant = data.variants?.[0] ?? undefined
+      const item = data.item
+
+      const updateData = {
+        ...data.input.update,
+        unit_price: isDefined(data.input.update.unit_price)
+          ? data.input.update.unit_price
+          : item.unit_price,
+        is_custom_price: isDefined(data.input.update.unit_price)
+          ? true
+          : item.is_custom_price,
+        is_tax_inclusive:
+          item.is_tax_inclusive ||
+          variant?.calculated_price?.is_calculated_price_tax_inclusive,
+      }
+
+      if (variant && !updateData.is_custom_price) {
+        updateData.unit_price = variant.calculated_price.calculated_amount
+      }
+
+      if (!isDefined(updateData.unit_price)) {
+        throw new MedusaError(
+          MedusaError.Types.INVALID_DATA,
+          `Line item ${item.title} has no unit price`
+        )
+      }
 
       return {
-        data: {
-          ...data.input.update,
-          unit_price: variant.calculated_price.calculated_amount,
-          is_tax_inclusive:
-            !!variant.calculated_price.is_calculated_price_tax_inclusive,
-        },
+        data: updateData,
         selector: {
           id: data.input.item_id,
         },
