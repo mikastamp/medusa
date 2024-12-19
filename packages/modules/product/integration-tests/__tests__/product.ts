@@ -323,7 +323,7 @@ moduleIntegrationTestRunner<Service>({
       })
 
       describe("list", () => {
-        it.only("should list all product that match the free text search", async () => {
+        it("should list all product that match the free text search", async () => {
           const data = buildProductOnlyData({
             title: "test product",
           })

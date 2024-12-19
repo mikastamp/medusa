@@ -98,6 +98,10 @@ describe("Entity builder", () => {
       expect(metaData.path).toEqual("User")
 
       expect(metaData.filters).toEqual({
+        freeTextSearch_User: {
+          cond: expect.any(Function),
+          name: "freeTextSearch_User",
+        },
         softDeletable: {
           name: "softDeletable",
           cond: expect.any(Function),
@@ -238,6 +242,10 @@ describe("Entity builder", () => {
       expect(metaData.path).toEqual("User")
 
       expect(metaData.filters).toEqual({
+        freeTextSearch_User: {
+          cond: expect.any(Function),
+          name: "freeTextSearch_User",
+        },
         softDeletable: {
           name: "softDeletable",
           cond: expect.any(Function),
@@ -369,6 +377,10 @@ describe("Entity builder", () => {
       expect(metaData.path).toEqual("UserRole")
 
       expect(metaData.filters).toEqual({
+        freeTextSearch_UserRole: {
+          cond: expect.any(Function),
+          name: "freeTextSearch_UserRole",
+        },
         softDeletable: {
           name: "softDeletable",
           cond: expect.any(Function),
@@ -489,6 +501,10 @@ describe("Entity builder", () => {
       expect(metaData.path).toEqual("User")
 
       expect(metaData.filters).toEqual({
+        freeTextSearch_User: {
+          cond: expect.any(Function),
+          name: "freeTextSearch_User",
+        },
         softDeletable: {
           name: "softDeletable",
           cond: expect.any(Function),
@@ -631,6 +647,10 @@ describe("Entity builder", () => {
       expect(metaData.path).toEqual("User")
 
       expect(metaData.filters).toEqual({
+        freeTextSearch_User: {
+          cond: expect.any(Function),
+          name: "freeTextSearch_User",
+        },
         softDeletable: {
           name: "softDeletable",
           cond: expect.any(Function),
@@ -776,6 +796,10 @@ describe("Entity builder", () => {
       })
 
       expect(metaData.filters).toEqual({
+        freeTextSearch_User: {
+          cond: expect.any(Function),
+          name: "freeTextSearch_User",
+        },
         softDeletable: {
           name: "softDeletable",
           cond: expect.any(Function),
@@ -898,6 +922,10 @@ describe("Entity builder", () => {
       expect(metaData.path).toEqual("User")
 
       expect(metaData.filters).toEqual({
+        freeTextSearch_User: {
+          cond: expect.any(Function),
+          name: "freeTextSearch_User",
+        },
         softDeletable: {
           name: "softDeletable",
           cond: expect.any(Function),
@@ -1015,6 +1043,10 @@ describe("Entity builder", () => {
       expect(metaData.path).toEqual("User")
 
       expect(metaData.filters).toEqual({
+        freeTextSearch_User: {
+          cond: expect.any(Function),
+          name: "freeTextSearch_User",
+        },
         softDeletable: {
           name: "softDeletable",
           cond: expect.any(Function),
@@ -1136,6 +1168,10 @@ describe("Entity builder", () => {
       expect(metaData.path).toEqual("User")
 
       expect(metaData.filters).toEqual({
+        freeTextSearch_User: {
+          cond: expect.any(Function),
+          name: "freeTextSearch_User",
+        },
         softDeletable: {
           name: "softDeletable",
           cond: expect.any(Function),
@@ -1277,6 +1313,10 @@ describe("Entity builder", () => {
       expect(metaData.tableName).toEqual("public.user")
 
       expect(metaData.filters).toEqual({
+        freeTextSearch_User: {
+          cond: expect.any(Function),
+          name: "freeTextSearch_User",
+        },
         softDeletable: {
           name: "softDeletable",
           cond: expect.any(Function),
@@ -1379,6 +1419,10 @@ describe("Entity builder", () => {
       expect(metaData.path).toEqual("User")
 
       expect(metaData.filters).toEqual({
+        freeTextSearch_User: {
+          cond: expect.any(Function),
+          name: "freeTextSearch_User",
+        },
         softDeletable: {
           name: "softDeletable",
           cond: expect.any(Function),
@@ -1477,6 +1521,10 @@ describe("Entity builder", () => {
       expect(metaData.path).toEqual("Tax")
 
       expect(metaData.filters).toEqual({
+        freeTextSearch_Tax: {
+          cond: expect.any(Function),
+          name: "freeTextSearch_Tax",
+        },
         softDeletable: {
           name: "softDeletable",
           cond: expect.any(Function),
@@ -1572,6 +1620,10 @@ describe("Entity builder", () => {
       expect(metaData.path).toEqual("User")
 
       expect(metaData.filters).toEqual({
+        freeTextSearch_User: {
+          cond: expect.any(Function),
+          name: "freeTextSearch_User",
+        },
         softDeletable: {
           name: "softDeletable",
           cond: expect.any(Function),
@@ -1680,6 +1732,10 @@ describe("Entity builder", () => {
       })
 
       expect(metaData.filters).toEqual({
+        freeTextSearch_User: {
+          cond: expect.any(Function),
+          name: "freeTextSearch_User",
+        },
         softDeletable: {
           name: "softDeletable",
           cond: expect.any(Function),
@@ -1790,6 +1846,10 @@ describe("Entity builder", () => {
       })
 
       expect(metaData.filters).toEqual({
+        freeTextSearch_User: {
+          cond: expect.any(Function),
+          name: "freeTextSearch_User",
+        },
         softDeletable: {
           name: "softDeletable",
           cond: expect.any(Function),
@@ -1901,6 +1961,10 @@ describe("Entity builder", () => {
       })
 
       expect(metaData.filters).toEqual({
+        freeTextSearch_User: {
+          cond: expect.any(Function),
+          name: "freeTextSearch_User",
+        },
         softDeletable: {
           name: "softDeletable",
           cond: expect.any(Function),
@@ -2053,6 +2117,10 @@ describe("Entity builder", () => {
       ])
 
       expect(metaData.filters).toEqual({
+        freeTextSearch_User: {
+          cond: expect.any(Function),
+          name: "freeTextSearch_User",
+        },
         softDeletable: {
           name: "softDeletable",
           cond: expect.any(Function),
@@ -2169,6 +2237,10 @@ describe("Entity builder", () => {
       ])
 
       expect(metaData.filters).toEqual({
+        freeTextSearch_User: {
+          cond: expect.any(Function),
+          name: "freeTextSearch_User",
+        },
         softDeletable: {
           name: "softDeletable",
           cond: expect.any(Function),
@@ -2284,6 +2356,10 @@ describe("Entity builder", () => {
       ])
 
       expect(metaData.filters).toEqual({
+        freeTextSearch_User: {
+          cond: expect.any(Function),
+          name: "freeTextSearch_User",
+        },
         softDeletable: {
           name: "softDeletable",
           cond: expect.any(Function),
@@ -6367,7 +6443,7 @@ describe("Entity builder", () => {
         expect.objectContaining({
           user_id: {
             kind: "scalar",
-            type: "string",
+            type: "User",
             columnType: "text",
             fieldName: "user_id",
             nullable: false,
@@ -6379,14 +6455,13 @@ describe("Entity builder", () => {
             name: "user",
             kind: "m:1",
             entity: "User",
-            fieldName: "user_id",
             nullable: false,
             persist: false,
             deleteRule: "cascade",
           },
           team_id: {
             kind: "scalar",
-            type: "string",
+            type: "Team",
             columnType: "text",
             fieldName: "team_id",
             nullable: false,
@@ -6398,7 +6473,6 @@ describe("Entity builder", () => {
             name: "team",
             kind: "m:1",
             entity: "Team",
-            fieldName: "team_id",
             nullable: false,
             persist: false,
             deleteRule: "cascade",
@@ -7620,12 +7694,11 @@ describe("Entity builder", () => {
           getter: false,
           setter: false,
           nullable: false,
-          type: "string",
+          type: "User",
         },
         user: {
           kind: "m:1",
           entity: "User",
-          fieldName: "user_id",
           persist: false,
           nullable: false,
           name: "user",
@@ -7638,12 +7711,11 @@ describe("Entity builder", () => {
           nullable: false,
           getter: false,
           setter: false,
-          type: "string",
+          type: "Team",
         },
         team: {
           kind: "m:1",
           entity: "Team",
-          fieldName: "team_id",
           persist: false,
           nullable: false,
           name: "team",

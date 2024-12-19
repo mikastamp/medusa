@@ -19,10 +19,8 @@ describe("mikroOrmFreeTextSearchFilterOptionsFactory", () => {
     const entityManager = orm.em.fork()
     const freeTextSearchValue = "search"
 
-    const models = [SearchableEntity1, SearchableEntity2]
-
     let filterConstraints = mikroOrmFreeTextSearchFilterOptionsFactory(
-      models
+      SearchableEntity1.name
     ).cond(
       {
         value: freeTextSearchValue,
@@ -53,7 +51,9 @@ describe("mikroOrmFreeTextSearchFilterOptionsFactory", () => {
       ],
     })
 
-    filterConstraints = mikroOrmFreeTextSearchFilterOptionsFactory(models).cond(
+    filterConstraints = mikroOrmFreeTextSearchFilterOptionsFactory(
+      SearchableEntity2.name
+    ).cond(
       {
         value: freeTextSearchValue,
         fromEntity: SearchableEntity2.name,
