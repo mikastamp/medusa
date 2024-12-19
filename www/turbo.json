@@ -12,6 +12,11 @@
         "dist/**"
       ]
     },
+    "prep": {
+      "dependsOn": [
+        "^tags#build"
+      ]
+    },
     "start:monorepo": {
       "dependsOn": [
         "^build-scripts#build",

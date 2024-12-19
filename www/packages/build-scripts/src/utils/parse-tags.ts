@@ -2,7 +2,7 @@ import { getTagItems } from "tags"
 import { Tag } from "types"
 
 export const parseTags = (tagNames: string): Tag => {
-  const parsedTags: Tag = []
+  const parsedTags: Map<string, string> = new Map()
   tagNames.split(",").forEach((tagName) => {
     const intersectingTags = getIntersectionTags(tagName)
 
@@ -10,10 +10,15 @@ export const parseTags = (tagNames: string): Tag => {
       return
     }
 
-    parsedTags.push(...intersectingTags)
+    intersectingTags.forEach((tag) => {
+      parsedTags.set(tag.path, tag.title)
+    })
   })
 
-  return parsedTags
+  return Array.from(parsedTags).map(([path, title]) => ({
+    title,
+    path,
+  }))
 }
 
 const getIntersectionTags = (tags: string): Tag => {
