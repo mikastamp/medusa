@@ -15,6 +15,8 @@ describe("BaseEntity", () => {
       defineConfig({
         entities: [Entity1],
         dbName: "test",
+        user: "postgres",
+        password: "",
       })
     )
 

@@ -22,6 +22,8 @@ describe("mikroOrmSerializer", () => {
           ProductOptionValue,
           ProductVariant,
         ],
+        user: "postgres",
+        password: "",
         dbName: "test",
       })
     )

@@ -57,6 +57,8 @@ describe.skip("Revert migrations", () => {
     const config = defineMikroOrmCliConfig(moduleName, {
       entities: [User],
       dbName: dbName,
+      user: "postgres",
+      password: "",
       migrations: {
         path: fs.basePath,
         fileName: migrationFileNameGenerator,

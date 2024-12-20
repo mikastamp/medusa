@@ -10,6 +10,8 @@ describe("mikroOrmFreeTextSearchFilterOptionsFactory", () => {
     orm = await MikroORM.init(
       defineConfig({
         entities: [SearchableEntity1, SearchableEntity2],
+        user: "postgres",
+        password: "",
         dbName: "test",
       })
     )

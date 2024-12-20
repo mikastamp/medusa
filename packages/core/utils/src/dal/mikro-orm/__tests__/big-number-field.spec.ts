@@ -28,6 +28,8 @@ describe("@MikroOrmBigNumberProperty", () => {
       defineConfig({
         entities: [TestAmount],
         dbName: "test",
+        user: "postgres",
+        password: "",
       })
     )
   })
