@@ -18,8 +18,8 @@ const pgGodCredentials = {
 
 export function getDatabaseURL(dbName?: string): string {
   const DB_HOST = process.env.DB_HOST ?? "localhost"
-  const DB_USERNAME = process.env.DB_USERNAME ?? ""
-  const DB_PASSWORD = process.env.DB_PASSWORD
+  const DB_USERNAME = process.env.DB_USERNAME ?? "postgres"
+  const DB_PASSWORD = process.env.DB_PASSWORD ?? ""
   const DB_NAME = dbName ?? process.env.DB_TEMP_NAME
 
   return `postgres://${DB_USERNAME}${
