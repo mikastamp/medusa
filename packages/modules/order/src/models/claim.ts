@@ -20,8 +20,9 @@ const _OrderClaim = model
       mappedBy: "claims",
     }),
     return: model
-      .belongsTo<() => typeof Return>(() => Return, {
-        mappedBy: "claim",
+      .hasOne<() => typeof Return>(() => Return, {
+        mappedBy: undefined,
+        foreignKey: true,
       })
       .nullable(),
     additional_items: model.hasMany<() => typeof OrderClaimItem>(

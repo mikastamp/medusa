@@ -4,41 +4,7 @@ import { OrderCreditLine } from "./credit-line"
 import { OrderItem } from "./order-item"
 import { OrderShipping } from "./order-shipping-method"
 import { OrderSummary } from "./order-summary"
-import { Return } from "./return"
 import { OrderTransaction } from "./transaction"
-
-/*
-type OrderSchema = {
-  id: PrimaryKeyModifier<string, IdProperty>
-  display_id: AutoIncrementProperty
-  region_id: NullableModifier<string, TextProperty>
-  customer_id: NullableModifier<string, TextProperty>
-  version: NumberProperty
-  sales_channel_id: NullableModifier<string, TextProperty>
-  status: EnumProperty<typeof OrderStatus>
-  is_draft_order: BooleanProperty
-  email: NullableModifier<string, TextProperty>
-  currency_code: TextProperty
-  no_notification: NullableModifier<boolean, BooleanProperty>
-  metadata: NullableModifier<Record<string, unknown>, JSONProperty>
-  canceled_at: NullableModifier<Date, DateTimeProperty>
-  shipping_address: RelationNullableModifier<
-    typeof OrderAddress,
-    BelongsTo<typeof OrderAddress>,
-    boolean
-  >
-  billing_address: RelationNullableModifier<
-    typeof OrderAddress,
-    BelongsTo<typeof OrderAddress>,
-    boolean
-  >
-  credit_lines: HasMany<typeof OrderCreditLine>
-  summary: HasMany<typeof OrderSummary>
-  items: HasMany<typeof OrderItem>
-  shipping_methods: HasMany<typeof OrderShipping>
-  transactions: HasMany<typeof OrderTransaction>
-}
-*/
 
 const _Order = model
   .define(
@@ -60,17 +26,16 @@ const _Order = model
       no_notification: model.boolean().nullable(),
       metadata: model.json().nullable(),
       canceled_at: model.dateTime().nullable(),
-      returns: model.hasMany<any>(() => Return, {
-        mappedBy: "order",
-      }),
       shipping_address: model
-        .belongsTo<any>(() => OrderAddress, {
-          mappedBy: "shipping_address_order",
+        .hasOne<any>(() => OrderAddress, {
+          mappedBy: undefined,
+          foreignKey: true,
         })
         .nullable(),
       billing_address: model
-        .belongsTo<any>(() => OrderAddress, {
-          mappedBy: "billing_address_order",
+        .hasOne<any>(() => OrderAddress, {
+          mappedBy: undefined,
+          foreignKey: true,
         })
         .nullable(),
       summary: model.hasMany<any>(() => OrderSummary, {

@@ -1,5 +1,4 @@
 import { model } from "@medusajs/framework/utils"
-import { Order } from "./order"
 
 const _OrderAddress = model
   .define(
@@ -20,16 +19,6 @@ const _OrderAddress = model
       province: model.text().searchable().nullable(),
       postal_code: model.text().searchable().nullable(),
       phone: model.text().searchable().nullable(),
-      shipping_address_order: model
-        .hasOne(() => Order, {
-          mappedBy: "shipping_address",
-        })
-        .nullable(),
-      billing_address_order: model
-        .hasOne(() => Order, {
-          mappedBy: "billing_address",
-        })
-        .nullable(),
       metadata: model.json().nullable(),
     }
   )

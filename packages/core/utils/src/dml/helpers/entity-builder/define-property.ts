@@ -277,7 +277,7 @@ export function defineProperty(
     Prop({
       columnType: "serial",
       type: mikroOrmType.integer,
-      nullable: true,
+      nullable: field.nullable,
       fieldName: field.fieldName,
       serializer: (value) => (value == null ? value : Number(value)),
     })(MikroORMEntity.prototype, field.fieldName)

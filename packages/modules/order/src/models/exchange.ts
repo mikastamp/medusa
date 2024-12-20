@@ -21,8 +21,9 @@ const _OrderExchange = model
       mappedBy: "exchanges",
     }),
     return: model
-      .belongsTo<() => typeof Return>(() => Return, {
-        mappedBy: "exchange",
+      .hasOne<() => typeof Return>(() => Return, {
+        mappedBy: undefined,
+        foreignKey: true,
       })
       .nullable(),
     additional_items: model.hasMany<() => typeof OrderExchangeItem>(
