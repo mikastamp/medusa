@@ -1105,7 +1105,7 @@ medusaIntegrationTestRunner({
                     variant_id: product.variants[0].id,
                   },
                 ],
-                rules: { customer_group_id: [customerGroup.id] },
+                rules: { "customer.groups.id": [customerGroup.id] },
               },
               adminHeaders
             )
@@ -1188,7 +1188,7 @@ medusaIntegrationTestRunner({
                     variant_id: product.variants[0].id,
                   },
                 ],
-                rules: { customer_group_id: [customerGroup.id] },
+                rules: { "customer.groups.id": [customerGroup.id] },
               },
               adminHeaders
             )
@@ -1353,7 +1353,7 @@ medusaIntegrationTestRunner({
               { title: "variant two", options: { color: "blue" } },
             ],
           })
-          console.log(product)
+
           const [variantOne, variantTwo] = product.variants
 
           const [itemOne, itemTwo, itemThree] =
@@ -1783,7 +1783,7 @@ medusaIntegrationTestRunner({
                     variant_id: product.variants[0].id,
                   },
                 ],
-                rules: { customer_group_id: [customerGroup.id] },
+                rules: { "customer.groups.id": [customerGroup.id] },
               },
               adminHeaders
             )
@@ -1863,7 +1863,7 @@ medusaIntegrationTestRunner({
                     variant_id: product.variants[0].id,
                   },
                 ],
-                rules: { customer_group_id: [customerGroup.id] },
+                rules: { "customer.groups.id": [customerGroup.id] },
               },
               adminHeaders
             )

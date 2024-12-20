@@ -5,7 +5,7 @@ sidebar_label: deleteCustomerAddressesWorkflow
 
 import { TypeList, WorkflowDiagram } from "docs-ui"
 
-# deleteCustomerAddressesWorkflow - Medusa Workflows API Reference
+# deleteCustomerAddressesWorkflow - Medusa Core Workflows Reference
 
 This documentation provides a reference to the `deleteCustomerAddressesWorkflow`. It belongs to the `@medusajs/medusa/core-flows` package.
 
@@ -13,7 +13,7 @@ This workflow deletes one or more customer addresses.
 
 ## Steps
 
-<WorkflowDiagram workflow={{"name":"deleteCustomerAddressesWorkflow","steps":[{"type":"step","name":"deleteCustomerAddressesStep","description":"This step deletes one or more customer addresses.","link":"../../../../Steps_Customer/functions/core_flows.Steps_Customer.deleteCustomerAddressesStep/page.mdx","depth":1},{"type":"hook","name":"addressesDeleted","description":"This step is a hook that you can inject custom functionality into.\n\n","link":"#addressesDeleted","depth":2}]}} />
+<WorkflowDiagram workflow={{"name":"deleteCustomerAddressesWorkflow","steps":[{"type":"step","name":"deleteCustomerAddressesStep","description":"This step deletes one or more customer addresses.","link":"../../../Steps_Customer/functions/core_flows.Customer.Steps_Customer.deleteCustomerAddressesStep/page.mdx","depth":1},{"type":"hook","name":"addressesDeleted","description":"This step is a hook that you can inject custom functionality into.\n\n","link":"#addressesDeleted","depth":2}]}} />
 
 ## Input
 
@@ -39,4 +39,4 @@ deleteCustomerAddressesWorkflow.hooks.addressesDeleted(
 
 Handlers consuming this hook accept the following input.
 
-<TypeList types={[{"name":"input","type":"object","description":"","optional":false,"defaultValue":"","expandable":false,"children":[{"name":"ids","type":"`string`[]","description":"","optional":false,"defaultValue":"","expandable":false,"children":[]}]}]} expandUrl="https://docs.medusajs.com/learn/fundamentals/data-models/manage-relationships#retrieve-records-of-relation" sectionTitle="addressesDeleted"/>
+<TypeList types={[{"name":"input","type":"[__type](../../../core_flows.Customer.Workflows_Customer/page.mdx#__type-2)","description":"","optional":false,"defaultValue":"","expandable":false,"children":[{"name":"ids","type":"`string`[]","description":"","optional":false,"defaultValue":"","expandable":false,"children":[]}]}]} expandUrl="https://docs.medusajs.com/learn/fundamentals/data-models/manage-relationships#retrieve-records-of-relation" sectionTitle="addressesDeleted"/>

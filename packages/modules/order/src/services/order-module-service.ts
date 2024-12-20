@@ -48,6 +48,7 @@ import {
   OrderClaim,
   OrderClaimItem,
   OrderClaimItemImage,
+  OrderCreditLine,
   OrderExchange,
   OrderExchangeItem,
   OrderItem,
@@ -133,6 +134,7 @@ const generateMethodForModels = {
   OrderClaimItemImage,
   OrderExchange,
   OrderExchangeItem,
+  OrderCreditLine,
 }
 
 // TODO: rm template args here, keep it for later to not collide with carlos work at least as little as possible
@@ -164,6 +166,7 @@ export default class OrderModuleService
     OrderClaimItemImage: { dto: OrderTypes.OrderClaimItemImageDTO }
     OrderExchange: { dto: OrderTypes.OrderExchangeDTO }
     OrderExchangeItem: { dto: OrderTypes.OrderExchangeItemDTO }
+    OrderCreditLine: { dto: OrderTypes.OrderCreditLineDTO }
   }>(generateMethodForModels)
   implements IOrderModuleService
 {
@@ -656,6 +659,8 @@ export default class OrderModuleService
     data: OrderTypes.CreateOrderDTO[],
     @MedusaContext() sharedContext: Context = {}
   ) {
+    await this.createOrderAddresses_(data, sharedContext)
+
     const lineItemsToCreate: CreateOrderLineItemDTO[] = []
 
     const createdOrders: InferEntityType<typeof Order>[] = []
@@ -707,6 +712,52 @@ export default class OrderModuleService
     }
 
     return createdOrders
+  }
+
+  @InjectTransactionManager()
+  protected async createOrderAddresses_(
+    input: OrderTypes.CreateOrderDTO[],
+    @MedusaContext() sharedContext: Context = {}
+  ) {
+    const allAddresses: {
+      data: any
+      type: "billing" | "shipping"
+      source: OrderTypes.CreateOrderDTO
+    }[] = []
+
+    input.forEach((inputData) => {
+      if (inputData.billing_address) {
+        allAddresses.push({
+          data: inputData.billing_address,
+          type: "billing",
+          source: inputData,
+        })
+      }
+
+      if (inputData.shipping_address) {
+        allAddresses.push({
+          data: inputData.shipping_address,
+          type: "shipping",
+          source: inputData,
+        })
+      }
+    })
+
+    const createdAddresses = allAddresses.length
+      ? await this.orderAddressService_.create(
+          allAddresses.map((a) => a.data),
+          sharedContext
+        )
+      : []
+
+    createdAddresses.forEach((createdAddress, index) => {
+      const { type, source } = allAddresses[index]
+      if (type === "billing") {
+        source.billing_address_id = createdAddress.id
+      } else if (type === "shipping") {
+        source.shipping_address_id = createdAddress.id
+      }
+    })
   }
 
   // @ts-expect-error
@@ -2017,7 +2068,9 @@ export default class OrderModuleService
           quantity: item.detail?.quantity ?? item.quantity,
           unit_price: item.detail?.unit_price || item.unit_price,
           compare_at_unit_price:
-            item.detail?.compare_at_unit_price || item.compare_at_unit_price,
+            item.detail?.compare_at_unit_price ||
+            item.compare_at_unit_price ||
+            null,
         }
       }
     }
@@ -2058,7 +2111,7 @@ export default class OrderModuleService
           actions,
           quantity: newItem.quantity,
           unit_price: unitPrice,
-          compare_at_unit_price: compareAtUnitPrice,
+          compare_at_unit_price: compareAtUnitPrice || null,
           detail: {
             ...newItem,
             ...item,

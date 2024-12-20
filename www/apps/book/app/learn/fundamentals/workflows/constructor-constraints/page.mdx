@@ -157,19 +157,21 @@ const myWorkflow = createWorkflow(
 })
 ```
 
+You can also pair multiple `when-then` blocks to implement an `if-else` condition as explained in [this chapter](../conditions/page.mdx).
+
 ### No Conditional Operators
 
 You can't use conditional operators in a workflow, such as `??` or `||`.
 
 <Note>
 
-Learn more about why you can't use if-conditions [in this chapter](../conditions/page.mdx#why-if-conditions-arent-allowed-in-workflows)
+Learn more about why you can't use conditional operators [in this chapter](../conditions/page.mdx#why-if-conditions-arent-allowed-in-workflows)
 
 </Note>
 
 Instead, use `transform` to store the desired value in a variable.
 
-For example:
+### Logical Or (||) Alternative
 
 ```ts
 // Don't
@@ -194,6 +196,132 @@ const myWorkflow = createWorkflow(
     )
 })
 ```
+
+### Nullish Coalescing (??) Alternative
+
+```ts
+// Don't
+const myWorkflow = createWorkflow(
+  "hello-world", 
+  function (input: WorkflowInput) {
+    const message = input.message ?? "Hello"
+})
+
+// Do
+// other imports...
+import { transform } from "@medusajs/framework/workflows-sdk"
+
+const myWorkflow = createWorkflow(
+  "hello-world", 
+  function (input: WorkflowInput) {
+    const message = transform(
+      {
+        input,
+      },
+      (data) => data.input.message ?? "hello"
+    )
+})
+```
+
+### Double Not (!!) Alternative
+
+```ts
+// Don't
+const myWorkflow = createWorkflow(
+  "hello-world", 
+  function (input: WorkflowInput) {
+    step1({
+      isActive: !!input.is_active,
+    })
+})
+
+// Do
+// other imports...
+import { transform } from "@medusajs/framework/workflows-sdk"
+
+const myWorkflow = createWorkflow(
+  "hello-world", 
+  function (input: WorkflowInput) {
+    const isActive = transform(
+      {
+        input,
+      },
+      (data) => !!data.input.is_active
+    )
+    
+    step1({
+      isActive,
+    })
+})
+```
+
+### Ternary Alternative
+
+```ts
+// Don't
+const myWorkflow = createWorkflow(
+  "hello-world", 
+  function (input: WorkflowInput) {
+    step1({
+      message: input.is_active ? "active" : "inactive",
+    })
+})
+
+// Do
+// other imports...
+import { transform } from "@medusajs/framework/workflows-sdk"
+
+const myWorkflow = createWorkflow(
+  "hello-world", 
+  function (input: WorkflowInput) {
+    const message = transform(
+      {
+        input,
+      },
+      (data) => {
+        return data.input.is_active ? "active" : "inactive"
+      }
+    )
+    
+    step1({
+      message,
+    })
+})
+```
+
+### Optional Chaining (?.) Alternative
+
+```ts
+// Don't
+const myWorkflow = createWorkflow(
+  "hello-world", 
+  function (input: WorkflowInput) {
+    step1({
+      name: input.customer?.name,
+    })
+})
+
+// Do
+// other imports...
+import { transform } from "@medusajs/framework/workflows-sdk"
+
+const myWorkflow = createWorkflow(
+  "hello-world", 
+  function (input: WorkflowInput) {
+    const name = transform(
+      {
+        input,
+      },
+      (data) => data.input.customer?.name
+    )
+    
+    step1({
+      name,
+    })
+})
+```
+
+
 
 ---
 

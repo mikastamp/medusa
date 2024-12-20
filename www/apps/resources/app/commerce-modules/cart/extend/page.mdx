@@ -529,12 +529,15 @@ In the workflow, you retrieve the cart's linked `Custom` record using Query.
 Next, replace the `TODO` with the following:
 
 ```ts title="src/workflows/update-custom-from-cart/index.ts"
-const created = when({
-  input,
-  carts,
-}, (data) => 
-  !data.carts[0].custom && 
-  data.input.additional_data?.custom_name?.length > 0
+const created = when(
+  "create-cart-custom-link",
+    {
+    input,
+    carts,
+  }, 
+  (data) => 
+    !data.carts[0].custom && 
+    data.input.additional_data?.custom_name?.length > 0
 )
 .then(() => {
   const custom = createCustomStep({
@@ -563,14 +566,16 @@ To create the `Custom` record, you use the `createCustomStep` you created in an 
 Next, replace the new `TODO` with the following:
 
 ```ts title="src/workflows/update-custom-from-cart/index.ts"
-const deleted = when({
-  input,
-  carts,
-}, (data) => 
-  data.carts[0].custom && (
-    data.input.additional_data?.custom_name === null || 
-    data.input.additional_data?.custom_name.length === 0
-  )
+const deleted = when(
+  "delete-cart-custom-link",
+  {
+    input,
+    carts,
+  }, (data) => 
+    data.carts[0].custom && (
+      data.input.additional_data?.custom_name === null || 
+      data.input.additional_data?.custom_name.length === 0
+    )
 )
 .then(() => {
   deleteCustomStep({
@@ -599,12 +604,10 @@ const updated = when({
   carts,
 }, (data) => data.carts[0].custom && data.input.additional_data?.custom_name?.length > 0)
 .then(() => {
-  const custom = updateCustomStep({
+  return updateCustomStep({
     id: carts[0].custom.id,
     custom_name: input.additional_data.custom_name,
   })
-
-  return custom
 })
 
 return new WorkflowResponse({

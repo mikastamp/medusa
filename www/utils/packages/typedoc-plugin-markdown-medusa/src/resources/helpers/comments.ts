@@ -7,6 +7,8 @@ const EXCLUDED_TAGS = [
   "@featureFlag",
   "@category",
   "@typeParamDefinition",
+  "@version",
+  "@tags",
 ]
 
 export default function () {

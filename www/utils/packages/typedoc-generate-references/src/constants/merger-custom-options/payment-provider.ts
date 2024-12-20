@@ -1,4 +1,5 @@
 import { FormattingOptionsType } from "types"
+import baseSectionsOptions from "../base-section-options.js"
 
 const paymentProviderOptions: FormattingOptionsType = {
   "^payment_provider": {
@@ -13,10 +14,16 @@ const paymentProviderOptions: FormattingOptionsType = {
       fullReplacement: "How to Create a Payment Provider",
     },
     reflectionGroups: {
-      Properties: false,
+      Constructors: false,
     },
     shouldIncrementAfterStartSections: true,
     expandMembers: true,
+    expandProperties: true,
+    sections: {
+      ...baseSectionsOptions,
+      member_declaration_title: false,
+      reflection_typeParameters: false,
+    },
     startSections: [
       `## 1. Create Module Directory
 
@@ -64,10 +71,6 @@ This exports the module's definition, indicating that the \`MyPaymentProviderSer
 To use your Payment Module Provider, add it to the \`providers\` array of the Payment Module in \`medusa-config.ts\`:
 
 \`\`\`ts title="medusa-config.ts"
-import { Modules } from "@medusajs/framework/utils"
-
-// ...
-
 module.exports = defineConfig({
   // ...
   modules: [

@@ -334,7 +334,7 @@ export const PostStoreCustomSchema = z.object({
 ```ts title="src/api/middlewares.ts" highlights={[["13", "validateAndTransformBody"]]}
 import { 
   validateAndTransformBody,
-  defineMiddlewares
+  defineMiddlewares,
 } from "@medusajs/framework/http"
 import { PostStoreCustomSchema } from "./custom/validators"
 
@@ -629,7 +629,7 @@ import type {
   MedusaNextFunction, 
   MedusaRequest, 
   MedusaResponse, 
-  defineMiddlewares
+  defineMiddlewares,
 } from "@medusajs/framework/http"
 import { ConfigModule } from "@medusajs/framework/types"
 import { parseCorsOrigins } from "@medusajs/framework/utils"
@@ -2296,8 +2296,7 @@ const workflow = createWorkflow(
         return input.is_active
       }
     ).then(() => {
-      const stepResult = isActiveStep()
-      return stepResult
+      return isActiveStep()
     })
 
     // executed without condition

@@ -33,6 +33,7 @@ const COLUMN_TYPES: {
   dateTime: "timestamptz",
   number: "integer",
   bigNumber: "numeric",
+  float: "real",
   serial: "number",
   text: "text",
   json: "jsonb",
@@ -53,6 +54,7 @@ const PROPERTY_TYPES: {
   dateTime: "date",
   number: "number",
   bigNumber: "number",
+  float: "number",
   serial: "number",
   text: "string",
   json: "any",
@@ -137,6 +139,10 @@ export function defineProperty(
       }
     }
     BeforeCreate()(MikroORMEntity.prototype, defaultValueSetterHookName)
+  }
+
+  if (field.computed) {
+    return
   }
 
   if (SPECIAL_PROPERTIES[field.fieldName]) {
@@ -273,8 +279,34 @@ export function defineProperty(
       type: mikroOrmType.integer,
       nullable: true,
       fieldName: field.fieldName,
-      serializer: Number,
+      serializer: (value) => (value == null ? value : Number(value)),
     })(MikroORMEntity.prototype, field.fieldName)
+    return
+  }
+
+  /**
+   * Handling serial property separately to set the column type
+   */
+  if (field.dataType.name === "float") {
+    Property({
+      columnType: "real",
+      type: "number",
+      runtimeType: "number",
+      nullable: field.nullable,
+      fieldName: field.fieldName,
+      /**
+       * Applying number serializer to convert value back to a
+       * JavaScript number
+       */
+      serializer: (value) => (value == null ? value : Number(value)),
+      /**
+       * MikroORM does not ignore undefined values for default when generating
+       * the database schema SQL. Conditionally add it here to prevent undefined
+       * from being set as default value in SQL.
+       */
+      ...(isDefined(field.defaultValue) && { default: field.defaultValue }),
+    })(MikroORMEntity.prototype, field.fieldName)
+
     return
   }
 

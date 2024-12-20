@@ -57,6 +57,7 @@ export type SidebarSectionItems = {
 
 export type RawSidebarItem = SidebarItem & {
   autogenerate_path?: string
+  autogenerate_tags?: string
   custom_autogenerate?: string
   number?: string
 }

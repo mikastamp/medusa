@@ -49,7 +49,10 @@ export function setPricingContext() {
         ["id"]
       )
 
-      pricingContext.customer_group_id = customerGroups.map((cg) => cg.id)
+      pricingContext.customer = { groups: [] }
+      customerGroups.map((cg) =>
+        pricingContext.customer?.groups?.push({ id: cg.id })
+      )
     }
 
     req.pricingContext = pricingContext

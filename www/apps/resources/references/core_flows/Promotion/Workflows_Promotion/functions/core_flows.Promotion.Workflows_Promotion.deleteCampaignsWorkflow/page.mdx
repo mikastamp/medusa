@@ -5,7 +5,7 @@ sidebar_label: deleteCampaignsWorkflow
 
 import { TypeList, WorkflowDiagram } from "docs-ui"
 
-# deleteCampaignsWorkflow - Medusa Workflows API Reference
+# deleteCampaignsWorkflow - Medusa Core Workflows Reference
 
 This documentation provides a reference to the `deleteCampaignsWorkflow`. It belongs to the `@medusajs/medusa/core-flows` package.
 
@@ -13,7 +13,7 @@ This workflow deletes one or more campaigns.
 
 ## Steps
 
-<WorkflowDiagram workflow={{"name":"deleteCampaignsWorkflow","steps":[{"type":"step","name":"deleteCampaignsStep","description":"This step deletes one or more campaigns.","link":"../../../../Steps_Promotion/functions/core_flows.Steps_Promotion.deleteCampaignsStep/page.mdx","depth":1},{"type":"hook","name":"campaignsDeleted","description":"This step is a hook that you can inject custom functionality into.\n\n","link":"#campaignsDeleted","depth":2}]}} />
+<WorkflowDiagram workflow={{"name":"deleteCampaignsWorkflow","steps":[{"type":"step","name":"deleteCampaignsStep","description":"This step deletes one or more campaigns.","link":"../../../Steps_Promotion/functions/core_flows.Promotion.Steps_Promotion.deleteCampaignsStep/page.mdx","depth":1},{"type":"hook","name":"campaignsDeleted","description":"This step is a hook that you can inject custom functionality into.\n\n","link":"#campaignsDeleted","depth":2}]}} />
 
 ## Input
 
@@ -39,4 +39,4 @@ deleteCampaignsWorkflow.hooks.campaignsDeleted(
 
 Handlers consuming this hook accept the following input.
 
-<TypeList types={[{"name":"input","type":"object","description":"","optional":false,"defaultValue":"","expandable":false,"children":[{"name":"ids","type":"`string`[]","description":"","optional":false,"defaultValue":"","expandable":false,"children":[]}]}]} expandUrl="https://docs.medusajs.com/learn/fundamentals/data-models/manage-relationships#retrieve-records-of-relation" sectionTitle="campaignsDeleted"/>
+<TypeList types={[{"name":"input","type":"[__type](../../../core_flows.Promotion.Workflows_Promotion/page.mdx#__type-2)","description":"","optional":false,"defaultValue":"","expandable":false,"children":[{"name":"ids","type":"`string`[]","description":"","optional":false,"defaultValue":"","expandable":false,"children":[]}]}]} expandUrl="https://docs.medusajs.com/learn/fundamentals/data-models/manage-relationships#retrieve-records-of-relation" sectionTitle="campaignsDeleted"/>

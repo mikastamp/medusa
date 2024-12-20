@@ -1,13 +1,16 @@
 import {
   addShippingMethodToCartWorkflow,
   addToCartWorkflow,
+  completeCartWorkflow,
   createCartWorkflow,
   createPaymentCollectionForCartWorkflow,
+  createPaymentSessionsWorkflow,
   deleteLineItemsStepId,
   deleteLineItemsWorkflow,
   findOrCreateCustomerStepId,
   listShippingOptionsForCartWorkflow,
   refreshPaymentCollectionForCartWorkflow,
+  updateCartWorkflow,
   updateLineItemInCartWorkflow,
   updateLineItemsStepId,
   updatePaymentCollectionStepId,
@@ -29,6 +32,8 @@ import {
 import {
   ContainerRegistrationKeys,
   Modules,
+  PriceListStatus,
+  PriceListType,
   RuleOperator,
 } from "@medusajs/utils"
 import {
@@ -59,7 +64,8 @@ medusaIntegrationTestRunner({
       let stockLocationModule: IStockLocationService
       let inventoryModule: IInventoryService
       let fulfillmentModule: IFulfillmentModuleService
-      let remoteLink, remoteQuery, storeHeaders
+      let remoteLink, remoteQuery, query
+      let storeHeaders
       let salesChannel
       let defaultRegion
       let customer, storeHeadersWithCustomer
@@ -80,6 +86,7 @@ medusaIntegrationTestRunner({
         remoteQuery = appContainer.resolve(
           ContainerRegistrationKeys.REMOTE_QUERY
         )
+        query = appContainer.resolve(ContainerRegistrationKeys.QUERY)
       })
 
       beforeEach(async () => {
@@ -693,6 +700,336 @@ medusaIntegrationTestRunner({
         })
       })
 
+      describe("CompleteCartWorkflow", () => {
+        it("should complete cart with custom item", async () => {
+          const salesChannel = await scModuleService.createSalesChannels({
+            name: "Webshop",
+          })
+
+          const location = await stockLocationModule.createStockLocations({
+            name: "Warehouse",
+          })
+
+          const region = await regionModuleService.createRegions({
+            name: "US",
+            currency_code: "usd",
+          })
+
+          let cart = await cartModuleService.createCarts({
+            currency_code: "usd",
+            sales_channel_id: salesChannel.id,
+            region_id: region.id,
+          })
+
+          await remoteLink.create([
+            {
+              [Modules.SALES_CHANNEL]: {
+                sales_channel_id: salesChannel.id,
+              },
+              [Modules.STOCK_LOCATION]: {
+                stock_location_id: location.id,
+              },
+            },
+          ])
+
+          cart = await cartModuleService.retrieveCart(cart.id, {
+            select: ["id", "region_id", "currency_code", "sales_channel_id"],
+          })
+
+          await addToCartWorkflow(appContainer).run({
+            input: {
+              items: [
+                {
+                  title: "Test item",
+                  subtitle: "Test subtitle",
+                  thumbnail: "some-url",
+                  requires_shipping: true,
+                  is_discountable: false,
+                  is_tax_inclusive: false,
+                  unit_price: 3000,
+                  metadata: {
+                    foo: "bar",
+                  },
+                  quantity: 1,
+                },
+              ],
+              cart_id: cart.id,
+            },
+          })
+
+          cart = await cartModuleService.retrieveCart(cart.id, {
+            relations: ["items"],
+          })
+
+          await createPaymentCollectionForCartWorkflow(appContainer).run({
+            input: {
+              cart_id: cart.id,
+            },
+          })
+
+          const [paymentCollection] =
+            await paymentModule.listPaymentCollections({})
+
+          await createPaymentSessionsWorkflow(appContainer).run({
+            input: {
+              payment_collection_id: paymentCollection.id,
+              provider_id: "pp_system_default",
+              context: {},
+              data: {},
+            },
+          })
+
+          await completeCartWorkflow(appContainer).run({
+            input: {
+              id: cart.id,
+            },
+          })
+
+          const { data } = await query.graph({
+            entity: "cart",
+            filters: {
+              id: cart.id,
+            },
+            fields: ["id", "currency_code", "completed_at", "items.*"],
+          })
+
+          expect(data[0]).toEqual(
+            expect.objectContaining({
+              id: cart.id,
+              currency_code: "usd",
+              completed_at: expect.any(Date),
+              items: [
+                {
+                  cart_id: cart.id,
+                  compare_at_unit_price: null,
+                  created_at: expect.any(Date),
+                  deleted_at: null,
+                  id: expect.any(String),
+                  is_discountable: false,
+                  is_tax_inclusive: false,
+                  is_custom_price: true,
+                  metadata: {
+                    foo: "bar",
+                  },
+                  product_collection: null,
+                  product_description: null,
+                  product_handle: null,
+                  product_id: null,
+                  product_subtitle: null,
+                  product_title: null,
+                  product_type: null,
+                  product_type_id: null,
+                  quantity: 1,
+                  raw_compare_at_unit_price: null,
+                  raw_unit_price: {
+                    precision: 20,
+                    value: "3000",
+                  },
+                  requires_shipping: true,
+                  subtitle: "Test subtitle",
+                  thumbnail: "some-url",
+                  title: "Test item",
+                  unit_price: 3000,
+                  updated_at: expect.any(Date),
+                  variant_barcode: null,
+                  variant_id: null,
+                  variant_option_values: null,
+                  variant_sku: null,
+                  variant_title: null,
+                },
+              ],
+            })
+          )
+        })
+      })
+
+      describe("UpdateCartWorkflow", () => {
+        it("should remove item with custom price when region is updated", async () => {
+          const salesChannel = await scModuleService.createSalesChannels({
+            name: "Webshop",
+          })
+
+          const location = await stockLocationModule.createStockLocations({
+            name: "Warehouse",
+          })
+
+          const regions = await regionModuleService.createRegions([
+            {
+              name: "US",
+              currency_code: "usd",
+            },
+            {
+              name: "EU",
+              currency_code: "eur",
+            },
+          ])
+
+          let cart = await cartModuleService.createCarts({
+            currency_code: "usd",
+            sales_channel_id: salesChannel.id,
+            region_id: regions.find((r) => r.currency_code === "usd")!.id,
+          })
+
+          const [product] = await productModule.createProducts([
+            {
+              title: "Test product",
+              variants: [
+                {
+                  title: "Test variant",
+                  manage_inventory: false,
+                },
+              ],
+            },
+          ])
+
+          const priceSet = await pricingModule.createPriceSets({
+            prices: [
+              {
+                amount: 3000,
+                currency_code: "usd",
+              },
+              {
+                amount: 2000,
+                currency_code: "eur",
+              },
+            ],
+          })
+
+          await pricingModule.createPricePreferences([
+            {
+              attribute: "currency_code",
+              value: "usd",
+              is_tax_inclusive: true,
+            },
+          ])
+
+          await remoteLink.create([
+            {
+              [Modules.PRODUCT]: {
+                variant_id: product.variants[0].id,
+              },
+              [Modules.PRICING]: {
+                price_set_id: priceSet.id,
+              },
+            },
+            {
+              [Modules.SALES_CHANNEL]: {
+                sales_channel_id: salesChannel.id,
+              },
+              [Modules.STOCK_LOCATION]: {
+                stock_location_id: location.id,
+              },
+            },
+          ])
+
+          cart = await cartModuleService.retrieveCart(cart.id, {
+            select: ["id", "region_id", "currency_code", "sales_channel_id"],
+          })
+
+          await addToCartWorkflow(appContainer).run({
+            input: {
+              items: [
+                {
+                  variant_id: product.variants[0].id,
+                  quantity: 1,
+                },
+                {
+                  title: "Test item",
+                  subtitle: "Test subtitle",
+                  thumbnail: "some-url",
+                  requires_shipping: true,
+                  is_discountable: false,
+                  is_tax_inclusive: false,
+                  unit_price: 1500,
+                  metadata: {
+                    foo: "bar",
+                  },
+                  quantity: 1,
+                },
+              ],
+              cart_id: cart.id,
+            },
+          })
+
+          cart = await cartModuleService.retrieveCart(cart.id, {
+            relations: ["items"],
+          })
+
+          expect(cart).toEqual(
+            expect.objectContaining({
+              id: cart.id,
+              currency_code: "usd",
+              items: expect.arrayContaining([
+                expect.objectContaining({
+                  // Regular line item
+                  id: expect.any(String),
+                  is_discountable: true,
+                  is_tax_inclusive: true,
+                  is_custom_price: false,
+                  quantity: 1,
+                  requires_shipping: true,
+                  subtitle: "Test product",
+                  title: "Test variant",
+                  unit_price: 3000,
+                  updated_at: expect.any(Date),
+                }),
+                expect.objectContaining({
+                  // Custom line item
+                  id: expect.any(String),
+                  is_discountable: false,
+                  is_tax_inclusive: false,
+                  is_custom_price: true,
+                  quantity: 1,
+                  metadata: {
+                    foo: "bar",
+                  },
+                  requires_shipping: true,
+                  subtitle: "Test subtitle",
+                  thumbnail: "some-url",
+                  title: "Test item",
+                  unit_price: 1500,
+                  updated_at: expect.any(Date),
+                }),
+              ]),
+            })
+          )
+
+          await updateCartWorkflow(appContainer).run({
+            input: {
+              id: cart.id,
+              region_id: regions.find((r) => r.currency_code === "eur")!.id,
+            },
+          })
+
+          cart = await cartModuleService.retrieveCart(cart.id, {
+            relations: ["items"],
+          })
+
+          expect(cart).toEqual(
+            expect.objectContaining({
+              id: cart.id,
+              currency_code: "eur",
+              items: expect.arrayContaining([
+                expect.objectContaining({
+                  // Regular line item
+                  id: expect.any(String),
+                  is_discountable: true,
+                  is_tax_inclusive: false,
+                  is_custom_price: false,
+                  quantity: 1,
+                  requires_shipping: true,
+                  subtitle: "Test product",
+                  title: "Test variant",
+                  unit_price: 2000,
+                  updated_at: expect.any(Date),
+                }),
+              ]),
+            })
+          )
+          expect(cart.items?.length).toEqual(1)
+        })
+      })
+
       describe("AddToCartWorkflow", () => {
         it("should add item to cart", async () => {
           const salesChannel = await scModuleService.createSalesChannels({
@@ -786,7 +1123,7 @@ medusaIntegrationTestRunner({
                   quantity: 1,
                 },
               ],
-              cart,
+              cart_id: cart.id,
             },
           })
 
@@ -801,6 +1138,257 @@ medusaIntegrationTestRunner({
               items: expect.arrayContaining([
                 expect.objectContaining({
                   unit_price: 3000,
+                  is_tax_inclusive: true,
+                  quantity: 1,
+                  title: "Test variant",
+                }),
+              ]),
+            })
+          )
+        })
+
+        it("should add custom item to cart", async () => {
+          const salesChannel = await scModuleService.createSalesChannels({
+            name: "Webshop",
+          })
+
+          const location = await stockLocationModule.createStockLocations({
+            name: "Warehouse",
+          })
+
+          let cart = await cartModuleService.createCarts({
+            currency_code: "usd",
+            sales_channel_id: salesChannel.id,
+          })
+
+          await remoteLink.create([
+            {
+              [Modules.SALES_CHANNEL]: {
+                sales_channel_id: salesChannel.id,
+              },
+              [Modules.STOCK_LOCATION]: {
+                stock_location_id: location.id,
+              },
+            },
+          ])
+
+          cart = await cartModuleService.retrieveCart(cart.id, {
+            select: ["id", "region_id", "currency_code", "sales_channel_id"],
+          })
+
+          await addToCartWorkflow(appContainer).run({
+            input: {
+              items: [
+                {
+                  title: "Test item",
+                  subtitle: "Test subtitle",
+                  thumbnail: "some-url",
+                  requires_shipping: true,
+                  is_discountable: false,
+                  is_tax_inclusive: false,
+                  unit_price: 3000,
+                  metadata: {
+                    foo: "bar",
+                  },
+                  quantity: 1,
+                },
+              ],
+              cart_id: cart.id,
+            },
+          })
+
+          cart = await cartModuleService.retrieveCart(cart.id, {
+            relations: ["items"],
+          })
+
+          expect(cart).toEqual(
+            expect.objectContaining({
+              id: cart.id,
+              currency_code: "usd",
+              items: [
+                {
+                  cart_id: expect.any(String),
+                  compare_at_unit_price: null,
+                  created_at: expect.any(Date),
+                  deleted_at: null,
+                  id: expect.any(String),
+                  is_discountable: false,
+                  is_tax_inclusive: false,
+                  is_custom_price: true,
+                  metadata: {
+                    foo: "bar",
+                  },
+                  product_collection: null,
+                  product_description: null,
+                  product_handle: null,
+                  product_id: null,
+                  product_subtitle: null,
+                  product_title: null,
+                  product_type: null,
+                  product_type_id: null,
+                  quantity: 1,
+                  raw_compare_at_unit_price: null,
+                  raw_unit_price: {
+                    precision: 20,
+                    value: "3000",
+                  },
+                  requires_shipping: true,
+                  subtitle: "Test subtitle",
+                  thumbnail: "some-url",
+                  title: "Test item",
+                  unit_price: 3000,
+                  updated_at: expect.any(Date),
+                  variant_barcode: null,
+                  variant_id: null,
+                  variant_option_values: null,
+                  variant_sku: null,
+                  variant_title: null,
+                },
+              ],
+            })
+          )
+        })
+
+        it("should add item to cart with price list", async () => {
+          const salesChannel = await scModuleService.createSalesChannels({
+            name: "Webshop",
+          })
+
+          const customer = await customerModule.createCustomers({
+            first_name: "Test",
+            last_name: "Test",
+          })
+
+          const customer_group = await customerModule.createCustomerGroups({
+            name: "Test Group",
+          })
+
+          await customerModule.addCustomerToGroup({
+            customer_id: customer.id,
+            customer_group_id: customer_group.id,
+          })
+
+          const location = await stockLocationModule.createStockLocations({
+            name: "Warehouse",
+          })
+
+          let cart = await cartModuleService.createCarts({
+            currency_code: "usd",
+            sales_channel_id: salesChannel.id,
+            customer_id: customer.id,
+          })
+
+          const [product] = await productModule.createProducts([
+            {
+              title: "Test product",
+              variants: [
+                {
+                  title: "Test variant",
+                },
+              ],
+            },
+          ])
+
+          const inventoryItem = await inventoryModule.createInventoryItems({
+            sku: "inv-1234",
+          })
+
+          await inventoryModule.createInventoryLevels([
+            {
+              inventory_item_id: inventoryItem.id,
+              location_id: location.id,
+              stocked_quantity: 2,
+            },
+          ])
+
+          const priceSet = await pricingModule.createPriceSets({
+            prices: [
+              {
+                amount: 3000,
+                currency_code: "usd",
+              },
+            ],
+          })
+
+          await pricingModule.createPricePreferences({
+            attribute: "currency_code",
+            value: "usd",
+            is_tax_inclusive: true,
+          })
+
+          await pricingModule.createPriceLists([
+            {
+              title: "test price list",
+              description: "test",
+              status: PriceListStatus.ACTIVE,
+              type: PriceListType.OVERRIDE,
+              prices: [
+                {
+                  amount: 1500,
+                  currency_code: "usd",
+                  price_set_id: priceSet.id,
+                },
+              ],
+              rules: {
+                "customer.groups.id": [customer_group.id],
+              },
+            },
+          ])
+
+          await remoteLink.create([
+            {
+              [Modules.PRODUCT]: {
+                variant_id: product.variants[0].id,
+              },
+              [Modules.PRICING]: {
+                price_set_id: priceSet.id,
+              },
+            },
+            {
+              [Modules.SALES_CHANNEL]: {
+                sales_channel_id: salesChannel.id,
+              },
+              [Modules.STOCK_LOCATION]: {
+                stock_location_id: location.id,
+              },
+            },
+            {
+              [Modules.PRODUCT]: {
+                variant_id: product.variants[0].id,
+              },
+              [Modules.INVENTORY]: {
+                inventory_item_id: inventoryItem.id,
+              },
+            },
+          ])
+
+          cart = await cartModuleService.retrieveCart(cart.id, {
+            select: ["id", "region_id", "currency_code", "sales_channel_id"],
+          })
+
+          await addToCartWorkflow(appContainer).run({
+            input: {
+              items: [
+                {
+                  variant_id: product.variants[0].id,
+                  quantity: 1,
+                },
+              ],
+              cart_id: cart.id,
+            },
+          })
+
+          cart = await cartModuleService.retrieveCart(cart.id, {
+            relations: ["items"],
+          })
+
+          expect(cart).toEqual(
+            expect.objectContaining({
+              id: cart.id,
+              currency_code: "usd",
+              items: expect.arrayContaining([
+                expect.objectContaining({
+                  unit_price: 1500,
                   is_tax_inclusive: true,
                   quantity: 1,
                   title: "Test variant",
@@ -875,7 +1463,7 @@ medusaIntegrationTestRunner({
                   quantity: 1,
                 },
               ],
-              cart,
+              cart_id: cart.id,
             },
             throwOnError: false,
           })
@@ -892,38 +1480,562 @@ medusaIntegrationTestRunner({
             },
           ])
         })
+      })
 
-        it("should throw if variant does not exist", async () => {
-          const cart = await cartModuleService.createCarts({
-            currency_code: "usd",
+      describe("updateLineItemInCartWorkflow", () => {
+        it("should update item in cart", async () => {
+          const salesChannel = await scModuleService.createSalesChannels({
+            name: "Webshop",
           })
 
-          const { errors } = await addToCartWorkflow(appContainer).run({
-            input: {
-              items: [
+          const location = await stockLocationModule.createStockLocations({
+            name: "Warehouse",
+          })
+
+          const [product] = await productModule.createProducts([
+            {
+              title: "Test product",
+              variants: [
                 {
-                  variant_id: "prva_foo",
-                  quantity: 1,
+                  title: "Test variant",
                 },
               ],
-              cart,
+            },
+          ])
+
+          const inventoryItem = await inventoryModule.createInventoryItems({
+            sku: "inv-1234",
+          })
+
+          await inventoryModule.createInventoryLevels([
+            {
+              inventory_item_id: inventoryItem.id,
+              location_id: location.id,
+              stocked_quantity: 2,
+              reserved_quantity: 0,
+            },
+          ])
+
+          const priceSet = await pricingModule.createPriceSets({
+            prices: [
+              {
+                amount: 3000,
+                currency_code: "usd",
+              },
+            ],
+          })
+
+          await remoteLink.create([
+            {
+              [Modules.PRODUCT]: {
+                variant_id: product.variants[0].id,
+              },
+              [Modules.PRICING]: {
+                price_set_id: priceSet.id,
+              },
+            },
+            {
+              [Modules.SALES_CHANNEL]: {
+                sales_channel_id: salesChannel.id,
+              },
+              [Modules.STOCK_LOCATION]: {
+                stock_location_id: location.id,
+              },
+            },
+            {
+              [Modules.PRODUCT]: {
+                variant_id: product.variants[0].id,
+              },
+              [Modules.INVENTORY]: {
+                inventory_item_id: inventoryItem.id,
+              },
+            },
+          ])
+
+          let cart = await cartModuleService.createCarts({
+            currency_code: "usd",
+            sales_channel_id: salesChannel.id,
+            items: [
+              {
+                variant_id: product.variants[0].id,
+                quantity: 1,
+                unit_price: 5000,
+                is_custom_price: true,
+                title: "Test variant",
+              },
+            ],
+          })
+
+          cart = await cartModuleService.retrieveCart(cart.id, {
+            select: ["id", "region_id", "currency_code"],
+            relations: ["items", "items.variant_id", "items.metadata"],
+          })
+
+          const item = cart.items?.[0]!
+
+          await updateLineItemInCartWorkflow(appContainer).run({
+            input: {
+              item_id: item.id,
+              update: {
+                metadata: {
+                  foo: "bar",
+                },
+                quantity: 2,
+              },
+              cart_id: cart.id,
             },
             throwOnError: false,
           })
 
-          expect(errors).toEqual([
+          const updatedItem = await cartModuleService.retrieveLineItem(item.id)
+
+          expect(updatedItem).toEqual(
+            expect.objectContaining({
+              id: item.id,
+              unit_price: 5000,
+              is_custom_price: true,
+              quantity: 2,
+              title: "Test variant",
+            })
+          )
+        })
+
+        it("should update custom item in cart", async () => {
+          const salesChannel = await scModuleService.createSalesChannels({
+            name: "Webshop",
+          })
+
+          const location = await stockLocationModule.createStockLocations({
+            name: "Warehouse",
+          })
+
+          let cart = await cartModuleService.createCarts({
+            currency_code: "usd",
+            sales_channel_id: salesChannel.id,
+            items: [
+              {
+                title: "Test item",
+                subtitle: "Test subtitle",
+                thumbnail: "some-url",
+                requires_shipping: true,
+                is_discountable: false,
+                is_tax_inclusive: false,
+                is_custom_price: true,
+                variant_id: "some_random_id",
+                unit_price: 3000,
+                metadata: {
+                  foo: "bar",
+                },
+                quantity: 1,
+              },
+            ],
+          })
+
+          await remoteLink.create([
             {
-              action: "use-remote-query",
-              handlerType: "invoke",
-              error: expect.objectContaining({
-                message: `ProductVariant id not found: prva_foo`,
-              }),
+              [Modules.SALES_CHANNEL]: {
+                sales_channel_id: salesChannel.id,
+              },
+              [Modules.STOCK_LOCATION]: {
+                stock_location_id: location.id,
+              },
             },
           ])
+
+          cart = await cartModuleService.retrieveCart(cart.id, {
+            select: ["id", "region_id", "currency_code", "sales_channel_id"],
+            relations: ["items"],
+          })
+
+          await updateLineItemInCartWorkflow(appContainer).run({
+            input: {
+              cart_id: cart.id,
+              item_id: cart.items?.[0]!.id!,
+              update: {
+                quantity: 2,
+                title: "Some other title",
+              },
+            },
+          })
+
+          cart = await cartModuleService.retrieveCart(cart.id, {
+            relations: ["items"],
+          })
+
+          expect(cart).toEqual(
+            expect.objectContaining({
+              id: cart.id,
+              currency_code: "usd",
+              items: [
+                {
+                  cart_id: expect.any(String),
+                  compare_at_unit_price: null,
+                  created_at: expect.any(Date),
+                  deleted_at: null,
+                  id: expect.any(String),
+                  is_discountable: false,
+                  is_tax_inclusive: false,
+                  is_custom_price: true,
+                  metadata: {
+                    foo: "bar",
+                  },
+                  product_collection: null,
+                  product_description: null,
+                  product_handle: null,
+                  product_id: null,
+                  product_subtitle: null,
+                  product_title: null,
+                  product_type: null,
+                  product_type_id: null,
+                  quantity: 2,
+                  raw_compare_at_unit_price: null,
+                  raw_unit_price: {
+                    precision: 20,
+                    value: "3000",
+                  },
+                  requires_shipping: true,
+                  subtitle: "Test subtitle",
+                  thumbnail: "some-url",
+                  title: "Some other title",
+                  unit_price: 3000,
+                  updated_at: expect.any(Date),
+                  variant_barcode: null,
+                  variant_id: "some_random_id",
+                  variant_option_values: null,
+                  variant_sku: null,
+                  variant_title: null,
+                },
+              ],
+            })
+          )
+
+          await updateLineItemInCartWorkflow(appContainer).run({
+            input: {
+              cart_id: cart.id,
+              item_id: cart.items?.[0]!.id!,
+              update: {
+                quantity: 4,
+              },
+            },
+          })
+
+          cart = await cartModuleService.retrieveCart(cart.id, {
+            relations: ["items"],
+          })
+
+          expect(cart).toEqual(
+            expect.objectContaining({
+              id: cart.id,
+              currency_code: "usd",
+              items: [
+                {
+                  cart_id: expect.any(String),
+                  compare_at_unit_price: null,
+                  created_at: expect.any(Date),
+                  deleted_at: null,
+                  id: expect.any(String),
+                  is_discountable: false,
+                  is_tax_inclusive: false,
+                  is_custom_price: true,
+                  metadata: {
+                    foo: "bar",
+                  },
+                  product_collection: null,
+                  product_description: null,
+                  product_handle: null,
+                  product_id: null,
+                  product_subtitle: null,
+                  product_title: null,
+                  product_type: null,
+                  product_type_id: null,
+                  quantity: 4,
+                  raw_compare_at_unit_price: null,
+                  raw_unit_price: {
+                    precision: 20,
+                    value: "3000",
+                  },
+                  requires_shipping: true,
+                  subtitle: "Test subtitle",
+                  thumbnail: "some-url",
+                  title: "Some other title",
+                  unit_price: 3000,
+                  updated_at: expect.any(Date),
+                  variant_barcode: null,
+                  variant_id: "some_random_id",
+                  variant_option_values: null,
+                  variant_sku: null,
+                  variant_title: null,
+                },
+              ],
+            })
+          )
+        })
+
+        it("should update unit price of regular item in cart", async () => {
+          const salesChannel = await scModuleService.createSalesChannels({
+            name: "Webshop",
+          })
+
+          const location = await stockLocationModule.createStockLocations({
+            name: "Warehouse",
+          })
+
+          const [product] = await productModule.createProducts([
+            {
+              title: "Test product",
+              variants: [
+                {
+                  title: "Test variant",
+                },
+              ],
+            },
+          ])
+
+          const inventoryItem = await inventoryModule.createInventoryItems({
+            sku: "inv-1234",
+          })
+
+          await inventoryModule.createInventoryLevels([
+            {
+              inventory_item_id: inventoryItem.id,
+              location_id: location.id,
+              stocked_quantity: 2,
+              reserved_quantity: 0,
+            },
+          ])
+
+          const priceSet = await pricingModule.createPriceSets({
+            prices: [
+              {
+                amount: 3000,
+                currency_code: "usd",
+              },
+            ],
+          })
+
+          await remoteLink.create([
+            {
+              [Modules.PRODUCT]: {
+                variant_id: product.variants[0].id,
+              },
+              [Modules.PRICING]: {
+                price_set_id: priceSet.id,
+              },
+            },
+            {
+              [Modules.SALES_CHANNEL]: {
+                sales_channel_id: salesChannel.id,
+              },
+              [Modules.STOCK_LOCATION]: {
+                stock_location_id: location.id,
+              },
+            },
+            {
+              [Modules.PRODUCT]: {
+                variant_id: product.variants[0].id,
+              },
+              [Modules.INVENTORY]: {
+                inventory_item_id: inventoryItem.id,
+              },
+            },
+          ])
+
+          let cart = await cartModuleService.createCarts({
+            currency_code: "usd",
+            sales_channel_id: salesChannel.id,
+            items: [
+              {
+                variant_id: product.variants[0].id,
+                quantity: 1,
+                unit_price: 5000,
+                title: "Test item",
+              },
+            ],
+          })
+
+          cart = await cartModuleService.retrieveCart(cart.id, {
+            select: ["id", "region_id", "currency_code"],
+            relations: ["items", "items.variant_id", "items.metadata"],
+          })
+
+          const item = cart.items?.[0]!
+
+          await updateLineItemInCartWorkflow(appContainer).run({
+            input: {
+              cart_id: cart.id,
+              item_id: item.id,
+              update: {
+                metadata: {
+                  foo: "bar",
+                },
+                unit_price: 4000,
+                quantity: 2,
+              },
+            },
+          })
+
+          const updatedItem = await cartModuleService.retrieveLineItem(item.id)
+
+          expect(updatedItem).toEqual(
+            expect.objectContaining({
+              id: item.id,
+              unit_price: 4000,
+              is_custom_price: true,
+              quantity: 2,
+              title: "Test variant",
+            })
+          )
         })
       })
 
       describe("updateLineItemInCartWorkflow", () => {
+        it("should update item in cart with price list", async () => {
+          const salesChannel = await scModuleService.createSalesChannels({
+            name: "Webshop",
+          })
+
+          const customer = await customerModule.createCustomers({
+            first_name: "Test",
+            last_name: "Test",
+          })
+
+          const customer_group = await customerModule.createCustomerGroups({
+            name: "Test Group",
+          })
+
+          await customerModule.addCustomerToGroup({
+            customer_id: customer.id,
+            customer_group_id: customer_group.id,
+          })
+
+          const location = await stockLocationModule.createStockLocations({
+            name: "Warehouse",
+          })
+
+          const [product] = await productModule.createProducts([
+            {
+              title: "Test product",
+              variants: [
+                {
+                  title: "Test variant",
+                },
+              ],
+            },
+          ])
+
+          const inventoryItem = await inventoryModule.createInventoryItems({
+            sku: "inv-1234",
+          })
+
+          await inventoryModule.createInventoryLevels([
+            {
+              inventory_item_id: inventoryItem.id,
+              location_id: location.id,
+              stocked_quantity: 2,
+            },
+          ])
+
+          const priceSet = await pricingModule.createPriceSets({
+            prices: [
+              {
+                amount: 3000,
+                currency_code: "usd",
+              },
+            ],
+          })
+
+          await pricingModule.createPriceLists([
+            {
+              title: "test price list",
+              description: "test",
+              status: PriceListStatus.ACTIVE,
+              type: PriceListType.OVERRIDE,
+              prices: [
+                {
+                  amount: 1500,
+                  currency_code: "usd",
+                  price_set_id: priceSet.id,
+                },
+              ],
+              rules: {
+                "customer.groups.id": [customer_group.id],
+              },
+            },
+          ])
+
+          await remoteLink.create([
+            {
+              [Modules.PRODUCT]: {
+                variant_id: product.variants[0].id,
+              },
+              [Modules.PRICING]: {
+                price_set_id: priceSet.id,
+              },
+            },
+            {
+              [Modules.SALES_CHANNEL]: {
+                sales_channel_id: salesChannel.id,
+              },
+              [Modules.STOCK_LOCATION]: {
+                stock_location_id: location.id,
+              },
+            },
+            {
+              [Modules.PRODUCT]: {
+                variant_id: product.variants[0].id,
+              },
+              [Modules.INVENTORY]: {
+                inventory_item_id: inventoryItem.id,
+              },
+            },
+          ])
+
+          let cart = await cartModuleService.createCarts({
+            currency_code: "usd",
+            sales_channel_id: salesChannel.id,
+            customer_id: customer.id,
+            items: [
+              {
+                variant_id: product.variants[0].id,
+                quantity: 1,
+                title: "Test item",
+                unit_price: 5000,
+              },
+            ],
+          })
+
+          cart = await cartModuleService.retrieveCart(cart.id, {
+            select: ["id", "region_id", "currency_code"],
+            relations: ["items", "items.variant_id", "items.metadata"],
+          })
+
+          const item = cart.items?.[0]!
+
+          await updateLineItemInCartWorkflow(appContainer).run({
+            input: {
+              cart_id: cart.id,
+              item_id: item.id,
+              update: {
+                metadata: {
+                  foo: "bar",
+                },
+                quantity: 2,
+              },
+            },
+            throwOnError: true,
+          })
+
+          const updatedItem = await cartModuleService.retrieveLineItem(item.id)
+
+          expect(updatedItem).toEqual(
+            expect.objectContaining({
+              id: item.id,
+              unit_price: 1500,
+              quantity: 2,
+            })
+          )
+        })
+
         describe("compensation", () => {
           it("should revert line item update to original state", async () => {
             expect.assertions(2)
@@ -1004,6 +2116,7 @@ medusaIntegrationTestRunner({
             ])
 
             let cart = await cartModuleService.createCarts({
+              sales_channel_id: salesChannel.id,
               currency_code: "usd",
               items: [
                 {
@@ -1024,8 +2137,8 @@ medusaIntegrationTestRunner({
 
             const { errors } = await workflow.run({
               input: {
-                cart,
-                item,
+                cart_id: cart.id,
+                item_id: item.id,
                 update: {
                   metadata: {
                     foo: "bar",

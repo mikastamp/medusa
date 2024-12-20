@@ -61,7 +61,6 @@ export const OrderGeneralSection = ({ order }: OrderGeneralSectionProps) => {
       <div className="flex items-center gap-x-4">
         <div className="flex items-center gap-x-1.5">
           <PaymentBadge order={order} />
-          {/*TODO: SHOW ORDER STATUS INSTEAD OF FULFILLMENT STATUS HERE - if the last fulfillment is canceled it looks like the order is canceled*/}
           <FulfillmentBadge order={order} />
         </div>
         <ActionMenu
@@ -71,6 +70,7 @@ export const OrderGeneralSection = ({ order }: OrderGeneralSectionProps) => {
                 {
                   label: t("actions.cancel"),
                   onClick: handleCancel,
+                  disabled: !!order.canceled_at,
                   icon: <XCircle />,
                 },
               ],
@@ -99,11 +99,6 @@ const FulfillmentBadge = ({ order }: { order: HttpTypes.AdminOrder }) => {
 
 const PaymentBadge = ({ order }: { order: HttpTypes.AdminOrder }) => {
   const { t } = useTranslation()
-
-  /**
-   * TODO: revisit when Order<>Payment are linked
-   */
-  return null
 
   const { label, color } = getOrderPaymentStatus(t, order.payment_status)
 

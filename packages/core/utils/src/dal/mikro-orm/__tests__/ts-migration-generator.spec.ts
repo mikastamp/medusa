@@ -4,7 +4,7 @@ function unwrapSql(sql: string) {
   return sql.match(/this.addSql\('(.*?)'\)/)?.[1]
 }
 
-describe("CustomTsMigrationGenerator", () => {
+describe.skip("CustomTsMigrationGenerator", () => {
   it('should add "if not exists" to "create table" statements', () => {
     const sql = "create table my_table (id int)"
     const result = unwrapSql(

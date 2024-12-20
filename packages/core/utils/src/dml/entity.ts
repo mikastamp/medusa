@@ -1,14 +1,13 @@
 import {
-  IDmlEntity,
-  DMLSchema,
-  EntityIndex,
   CheckConstraint,
+  DMLSchema,
   EntityCascades,
-  QueryCondition,
-  IDmlEntityConfig,
+  EntityIndex,
   ExtractEntityRelations,
+  IDmlEntity,
+  IDmlEntityConfig,
   InferDmlEntityNameFromConfig,
-  InferSchemaFields,
+  QueryCondition,
 } from "@medusajs/types"
 import { isObject, isString, toCamelCase, upperCaseFirst } from "../common"
 import { transformIndexWhere } from "./helpers/entity-builder/build-indexes"
@@ -18,18 +17,10 @@ import { BelongsTo } from "./relations/belongs-to"
 
 const IsDmlEntity = Symbol.for("isDmlEntity")
 
-/**
- * @experimental
- * need to be moved after RFV
- */
-type Hooks<Schema extends DMLSchema, TConfig extends IDmlEntityConfig> = {
-  creating?: (entity: InferSchemaFields<Schema>) => void
-}
-
 export type DMLEntitySchemaBuilder<Schema extends DMLSchema> =
   DMLSchemaWithBigNumber<Schema> & DMLSchemaDefaults & Schema
 
-function extractEntityConfig<const Config extends IDmlEntityConfig>(
+function extractNameAndTableName<const Config extends IDmlEntityConfig>(
   nameOrConfig: Config
 ) {
   const result = {
@@ -89,22 +80,14 @@ export class DmlEntity<
   schema: Schema
 
   readonly #tableName: string
-  readonly #params: Record<string, unknown>
-
-  #cascades: EntityCascades<string[]> = {}
+  #cascades: EntityCascades<string[], string[]> = {}
+  #params: Record<string, unknown>
   #indexes: EntityIndex<Schema>[] = []
   #checks: CheckConstraint<Schema>[] = []
 
-  /**
-   * @experimental
-   * TODO: Write RFC about this, for now it is unstable and mainly
-   * for test purposes
-   */
-  #hooks: Hooks<Schema, TConfig> = {}
-
   constructor(nameOrConfig: TConfig, schema: Schema) {
     const { name, tableName, disableSoftDeleteFilter } =
-      extractEntityConfig(nameOrConfig)
+      extractNameAndTableName(nameOrConfig)
     this.schema = schema
     this.name = name
     this.#tableName = tableName
@@ -131,7 +114,7 @@ export class DmlEntity<
     name: InferDmlEntityNameFromConfig<TConfig>
     tableName: string
     schema: DMLSchema
-    cascades: EntityCascades<string[]>
+    cascades: EntityCascades<string[], string[]>
     indexes: EntityIndex<Schema>[]
     params: Record<string, unknown>
     hooks: Hooks<Schema, TConfig>
@@ -174,7 +157,8 @@ export class DmlEntity<
    */
   cascades(
     options: EntityCascades<
-      ExtractEntityRelations<Schema, "hasOne" | "hasOneWithFK" | "hasMany">
+      ExtractEntityRelations<Schema, "hasOne" | "hasOneWithFK" | "hasMany">,
+      ExtractEntityRelations<Schema, "manyToMany">
     >
   ) {
     const childToParentCascades = options.delete?.filter((relationship) => {
@@ -275,18 +259,6 @@ export class DmlEntity<
     }
 
     this.#indexes = indexes as EntityIndex<Schema>[]
-    return this
-  }
-
-  /**
-   * @experimental
-   * TODO: Write RFC about this, for now it is unstable and mainly
-   * for test purposes
-   * @param hooks
-   * @returns
-   */
-  hooks(hooks: Hooks<Schema, TConfig>): this {
-    this.#hooks = hooks
     return this
   }
 

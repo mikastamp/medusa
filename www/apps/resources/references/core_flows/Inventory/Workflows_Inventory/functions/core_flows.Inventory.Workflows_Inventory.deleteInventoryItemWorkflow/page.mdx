@@ -5,7 +5,7 @@ sidebar_label: deleteInventoryItemWorkflow
 
 import { TypeList, WorkflowDiagram } from "docs-ui"
 
-# deleteInventoryItemWorkflow - Medusa Workflows API Reference
+# deleteInventoryItemWorkflow - Medusa Core Workflows Reference
 
 This documentation provides a reference to the `deleteInventoryItemWorkflow`. It belongs to the `@medusajs/medusa/core-flows` package.
 
@@ -13,7 +13,7 @@ This workflow deletes one or more inventory items.
 
 ## Steps
 
-<WorkflowDiagram workflow={{"name":"deleteInventoryItemWorkflow","steps":[{"type":"step","name":"useQueryGraphStep","description":"This step fetches data across modules using the Query.\n\nLearn more in the [Query documentation](https://docs.medusajs.com/learn/advanced-development/module-links/query).\n\n","link":"../../../../Steps_Common/functions/core_flows.Steps_Common.useQueryGraphStep/page.mdx","depth":1},{"type":"step","name":"validateInventoryDeleteStep","description":"","link":"../../../../Steps_Inventory/functions/core_flows.Steps_Inventory.validateInventoryDeleteStep/page.mdx","depth":2},{"type":"step","name":"deleteInventoryItemStep","description":"This step deletes one or more inventory items.","link":"../../../../Steps_Inventory/functions/core_flows.Steps_Inventory.deleteInventoryItemStep/page.mdx","depth":3},{"type":"step","name":"removeRemoteLinkStep","description":"This step deletes linked records of a record.\n\nLearn more in the [Remote Link documentation](https://docs.medusajs.com/advanced-development/modules/remote-link#cascade-delete-linked-records)\n\n","link":"../../../../Steps_Common/functions/core_flows.Steps_Common.removeRemoteLinkStep/page.mdx","depth":4}]}} />
+<WorkflowDiagram workflow={{"name":"deleteInventoryItemWorkflow","steps":[{"type":"step","name":"useQueryGraphStep","description":"This step fetches data across modules using the Query.\n\nLearn more in the [Query documentation](https://docs.medusajs.com/learn/fundamentals/module-links/query).\n\n","link":"../../../../Common/Steps_Common/functions/core_flows.Common.Steps_Common.useQueryGraphStep/page.mdx","depth":1},{"type":"step","name":"validateInventoryDeleteStep","description":"","link":"../../../Steps_Inventory/functions/core_flows.Inventory.Steps_Inventory.validateInventoryDeleteStep/page.mdx","depth":2},{"type":"step","name":"deleteInventoryItemStep","description":"This step deletes one or more inventory items.","link":"../../../Steps_Inventory/functions/core_flows.Inventory.Steps_Inventory.deleteInventoryItemStep/page.mdx","depth":3},{"type":"step","name":"removeRemoteLinkStep","description":"This step deletes linked records of a record.\n\nLearn more in the [Remote Link documentation](https://docs.medusajs.com/learn/fundamentals/module-links/remote-link#cascade-delete-linked-records)\n\n","link":"../../../../Common/Steps_Common/functions/core_flows.Common.Steps_Common.removeRemoteLinkStep/page.mdx","depth":4}]}} />
 
 ## Input
 

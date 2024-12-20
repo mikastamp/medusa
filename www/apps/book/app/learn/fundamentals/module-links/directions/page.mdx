@@ -38,12 +38,12 @@ The above links are two different links that serve different purposes.
 
 If you're adding a link to a data model to extend it and add new fields, define the link from the main data model to the custom data model.
 
-For example, if the `myCustom` data model adds new fields to the `product` data model, define the link from `product` to `myCustom`:
+For example, consider you want to add a `subtitle` custom field to the `product` data model. To do that, you define a `Subtitle` data model in your module, then define a link from the `Product` data model to it:
 
 ```ts
 export default defineLink(
   ProductModule.linkable.product,
-  HelloModule.linkable.myCustom
+  HelloModule.linkable.subtitle
 )
 ```
 
@@ -51,11 +51,11 @@ export default defineLink(
 
 If you're linking data models to indicate an association between them, define the link from the custom data model to the main data model.
 
-For example, if the `myCustom` data model is associated to the `product` data model, define the link from `myCustom` to `product`:
+For example, consider you have `Post` data model representing a blog post, and you want to associate a blog post with a product. To do that, define a link from the `Post` data model to `Product`:
 
 ```ts
 export default defineLink(
-  HelloModule.linkable.myCustom,
+  HelloModule.linkable.post,
   ProductModule.linkable.product
 )
 ```

@@ -1,5 +1,6 @@
 import { BigNumberRawValue } from "@medusajs/types"
 import { Entity, MikroORM, PrimaryKey } from "@mikro-orm/core"
+import { defineConfig } from "@mikro-orm/postgresql"
 import { BigNumber } from "../../../totals/big-number"
 import { MikroOrmBigNumberProperty } from "../big-number-field"
 
@@ -23,11 +24,14 @@ describe("@MikroOrmBigNumberProperty", () => {
   let orm!: MikroORM
 
   beforeEach(async () => {
-    orm = await MikroORM.init({
-      entities: [TestAmount],
-      dbName: "test",
-      type: "postgresql",
-    })
+    orm = await MikroORM.init(
+      defineConfig({
+        entities: [TestAmount],
+        dbName: "test",
+        user: "postgres",
+        password: "",
+      })
+    )
   })
 
   afterEach(async () => {

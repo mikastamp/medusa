@@ -12,6 +12,9 @@ import {
 export abstract class AbstractPaymentProvider<TConfig = Record<string, unknown>>
   implements IPaymentProvider
 {
+  /**
+   * @ignore
+   */
   protected readonly container: Record<string, unknown>
   /**
    * This method validates the options of the provider set in `medusa-config.ts`.
@@ -44,7 +47,7 @@ export abstract class AbstractPaymentProvider<TConfig = Record<string, unknown>>
    * The provider can also access the module's options as a second parameter.
    *
    * @param {Record<string, unknown>} cradle - The module's container cradle used to resolve resources.
-   * @param {Record<string, unknown>} config - The options passed to the payment module provider.
+   * @param {Record<string, unknown>} config - The options passed to the Payment Module provider.
    *
    * @example
    * ```ts
@@ -93,6 +96,9 @@ export abstract class AbstractPaymentProvider<TConfig = Record<string, unknown>>
    */
   protected constructor(
     cradle: Record<string, unknown>,
+    /**
+     * @ignore
+     */
     protected readonly config: TConfig = {} as TConfig // eslint-disable-next-line @typescript-eslint/no-empty-function
   ) {
     this.container = cradle
@@ -122,7 +128,6 @@ export abstract class AbstractPaymentProvider<TConfig = Record<string, unknown>>
    *   static identifier = "my-payment"
    *   // ...
    * }
-   * ```
    */
   public static identifier: string
 

@@ -1,6 +1,9 @@
+import { CalculateShippingOptionPriceDTO } from "./mutations"
+
 export type FulfillmentOption = {
   /**
-   * The option's ID.
+   * The option's ID. This ID can be an ID in the third-party system relevant
+   * for later processing of fulfillment.
    *
    * @example express
    */
@@ -10,6 +13,19 @@ export type FulfillmentOption = {
    */
   is_return?: boolean
   [k: string]: unknown
+}
+
+export type CalculatedShippingOptionPrice = {
+  /**
+   * The calculated price.
+   */
+  calculated_amount: number
+  /**
+   * Whether the calculated price includes taxes. If enabled, Medusa will
+   * infer the taxes from the calculated price. If false, Medusa will
+   * add taxes to the calculated price.
+   */
+  is_calculated_price_tax_inclusive: boolean
 }
 
 export interface IFulfillmentProvider {
@@ -41,16 +57,16 @@ export interface IFulfillmentProvider {
    *
    * Check if the provider can calculate the fulfillment price.
    */
-  canCalculate(data: Record<string, unknown>): Promise<any>
+  canCalculate(data: Record<string, unknown>): Promise<boolean>
   /**
    *
    * Calculate the price for the given fulfillment option.
    */
   calculatePrice(
-    optionData: Record<string, unknown>,
-    data: Record<string, unknown>,
-    context: Record<string, unknown>
-  ): Promise<any>
+    optionData: CalculateShippingOptionPriceDTO["optionData"],
+    data: CalculateShippingOptionPriceDTO["data"],
+    context: CalculateShippingOptionPriceDTO["context"]
+  ): Promise<CalculatedShippingOptionPrice>
   /**
    *
    * Create a fulfillment for the given data.

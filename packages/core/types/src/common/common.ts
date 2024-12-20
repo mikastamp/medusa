@@ -52,7 +52,9 @@ export interface SoftDeletableEntity extends BaseEntity {
 /**
  * Temporary type fixing to allow any level of orders until we get to properly clean all the types
  */
-export type FindConfigOrder = { [Key: string]: "ASC" | "DESC" | string & {} | FindConfigOrder }
+export type FindConfigOrder = {
+  [Key: string]: "ASC" | "DESC" | (string & {}) | FindConfigOrder
+}
 
 /**
  * @interface
@@ -344,6 +346,7 @@ type UncountableRules =
   | "you"
   | "deer"
   | "sheep"
+  | "info"
 
 type PluralizationSpecialRules = {
   person: "people"

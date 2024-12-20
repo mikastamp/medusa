@@ -2,6 +2,7 @@ import {
   CampaignBudgetTypeValues,
   Context,
   DAL,
+  InferEntityType,
   InternalModuleDeclaration,
   ModuleJoinerConfig,
   ModulesSdkTypes,
@@ -24,6 +25,7 @@ import {
   MedusaError,
   MedusaService,
   PromotionType,
+  toMikroORMEntity,
   transformPropertiesToBigNumber,
 } from "@medusajs/framework/utils"
 import {
@@ -85,12 +87,24 @@ export default class PromotionModuleService
   implements PromotionTypes.IPromotionModuleService
 {
   protected baseRepository_: DAL.RepositoryService
-  protected promotionService_: ModulesSdkTypes.IMedusaInternalService<Promotion>
-  protected applicationMethodService_: ModulesSdkTypes.IMedusaInternalService<ApplicationMethod>
-  protected promotionRuleService_: ModulesSdkTypes.IMedusaInternalService<PromotionRule>
-  protected promotionRuleValueService_: ModulesSdkTypes.IMedusaInternalService<PromotionRuleValue>
-  protected campaignService_: ModulesSdkTypes.IMedusaInternalService<Campaign>
-  protected campaignBudgetService_: ModulesSdkTypes.IMedusaInternalService<CampaignBudget>
+  protected promotionService_: ModulesSdkTypes.IMedusaInternalService<
+    InferEntityType<typeof Promotion>
+  >
+  protected applicationMethodService_: ModulesSdkTypes.IMedusaInternalService<
+    InferEntityType<typeof ApplicationMethod>
+  >
+  protected promotionRuleService_: ModulesSdkTypes.IMedusaInternalService<
+    InferEntityType<typeof PromotionRule>
+  >
+  protected promotionRuleValueService_: ModulesSdkTypes.IMedusaInternalService<
+    InferEntityType<typeof PromotionRuleValue>
+  >
+  protected campaignService_: ModulesSdkTypes.IMedusaInternalService<
+    InferEntityType<typeof Campaign>
+  >
+  protected campaignBudgetService_: ModulesSdkTypes.IMedusaInternalService<
+    InferEntityType<typeof CampaignBudget>
+  >
 
   constructor(
     {
@@ -841,9 +855,10 @@ export default class PromotionModuleService
       { relations: ["budget"] }
     )
 
-    const existingPromotionsMap = new Map<string, Promotion>(
-      existingPromotions.map((promotion) => [promotion.id, promotion])
-    )
+    const existingPromotionsMap = new Map<
+      string,
+      InferEntityType<typeof Promotion>
+    >(existingPromotions.map((promotion) => [promotion.id, promotion]))
 
     const promotionsData: UpdatePromotionDTO[] = []
     const applicationMethodsData: UpdateApplicationMethodDTO[] = []
@@ -1099,12 +1114,17 @@ export default class PromotionModuleService
   protected async createPromotionRulesAndValues_(
     rulesData: PromotionTypes.CreatePromotionRuleDTO[],
     relationName: "promotions" | "method_target_rules" | "method_buy_rules",
-    relation: Promotion | ApplicationMethod,
+    relation:
+      | InferEntityType<typeof Promotion>
+      | InferEntityType<typeof ApplicationMethod>,
     @MedusaContext() sharedContext: Context = {}
-  ): Promise<PromotionRule[]> {
-    const createdPromotionRules: PromotionRule[] = []
+  ): Promise<InferEntityType<typeof PromotionRule>[]> {
+    const MikroORMApplicationMethod = toMikroORMEntity(ApplicationMethod)
+    const createdPromotionRules: InferEntityType<typeof PromotionRule>[] = []
     const promotion =
-      relation instanceof ApplicationMethod ? relation.promotion : relation
+      relation instanceof MikroORMApplicationMethod
+        ? relation.promotion
+        : relation
 
     if (!rulesData.length) {
       return []

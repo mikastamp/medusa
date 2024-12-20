@@ -12,6 +12,11 @@
         "dist/**"
       ]
     },
+    "prep": {
+      "dependsOn": [
+        "^tags#build"
+      ]
+    },
     "start:monorepo": {
       "dependsOn": [
         "^build-scripts#build",
@@ -22,6 +27,7 @@
     },
     "lint": { },
     "lint:content": { },
+    "watch": { },
     "dev:monorepo": {
       "dependsOn": [
         "^build-scripts#build",

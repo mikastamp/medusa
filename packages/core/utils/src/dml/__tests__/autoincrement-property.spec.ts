@@ -13,6 +13,7 @@ describe("Autoincrement property", () => {
         options: {},
       },
       nullable: false,
+      computed: false,
       indexes: [],
       relationships: [],
     })

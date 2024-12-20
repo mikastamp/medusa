@@ -300,7 +300,7 @@ The first step is to use the `validateAndTransformQuery` middleware on the `GET`
 ```ts title="src/api/middlewares.ts"
 import { 
   validateAndTransformQuery,
-  defineMiddlewares
+  defineMiddlewares,
 } from "@medusajs/framework/http"
 import { createFindParams } from "@medusajs/medusa/api/utils/validators"
 

@@ -182,14 +182,14 @@ export const serviceHighlights1 = [
 
 ```ts title="src/modules/resend/service.ts" highlights={serviceHighlights1}
 import { 
-  AbstractNotificationProviderService
+  AbstractNotificationProviderService,
 } from "@medusajs/framework/utils"
 import { 
-  Logger
-} from "@medusajs/framework/types";
+  Logger,
+} from "@medusajs/framework/types"
 import { 
-  Resend
-} from "resend";
+  Resend,
+} from "resend"
 
 type ResendOptions = {
   api_key: string
@@ -263,7 +263,7 @@ So, add to the `ResendNotificationProviderService` the `validateOptions` method:
 // other imports...
 import { 
   // other imports...
-  MedusaError
+  MedusaError,
 } from "@medusajs/framework/utils"
 
 // ...
@@ -397,7 +397,7 @@ class ResendNotificationProviderService extends AbstractNotificationProviderServ
       from: this.options.from,
       to: [notification.to],
       subject: this.getTemplateSubject(notification.template as Templates),
-      html: ""
+      html: "",
     }
 
     if (typeof template === "string") {
@@ -440,7 +440,7 @@ Create the file `src/modules/resend/index.ts` with the following content:
 ```ts title="src/modules/resend/index.ts"
 import { 
   ModuleProvider, 
-  Modules
+  Modules,
 } from "@medusajs/framework/utils"
 import ResendNotificationProviderService from "./service"
 
@@ -562,7 +562,7 @@ function OrderPlacedEmailComponent({ order }: OrderPlacedEmailProps) {
       <Heading>Thank you for your order</Heading>
       {order.email}'s Items
       <Container>
-        {order.items.map(item => {
+        {order.items.map((item) => {
           return (
             <Section
               key={item.id}
@@ -606,10 +606,10 @@ Next, update the `templates` variable in `src/modules/resend/service.ts` to assi
 
 ```ts title="src/modules/resend/service.ts"
 // other imports...
-import { orderPlacedEmail } from "./emails/order-placed";
+import { orderPlacedEmail } from "./emails/order-placed"
 
 const templates: {[key in Templates]?: (props: unknown) => React.ReactNode} = {
-  [Templates.ORDER_PLACED]: orderPlacedEmail
+  [Templates.ORDER_PLACED]: orderPlacedEmail,
 }
 ```
 
@@ -696,10 +696,10 @@ export const workflowHighlights = [
 ```ts title="src/workflows/send-order-confirmation.ts" highlights={workflowHighlights}
 import { 
   createWorkflow, 
-  WorkflowResponse
-} from "@medusajs/framework/workflows-sdk";
-import { useQueryGraphStep } from "@medusajs/medusa/core-flows";
-import { sendNotificationStep } from "./steps/send-notification";
+  WorkflowResponse,
+} from "@medusajs/framework/workflows-sdk"
+import { useQueryGraphStep } from "@medusajs/medusa/core-flows"
+import { sendNotificationStep } from "./steps/send-notification"
 
 type WorkflowInput = {
   id: string
@@ -719,8 +719,8 @@ export const sendOrderConfirmationWorkflow = createWorkflow(
         "items.*",
       ],
       filters: {
-        id
-      }
+        id,
+      },
     })
     
     const notification = sendNotificationStep([{
@@ -728,8 +728,8 @@ export const sendOrderConfirmationWorkflow = createWorkflow(
       channel: "email",
       template: "order-placed",
       data: {
-        order: orders[0]
-      }
+        order: orders[0],
+      },
     }])
 
     return new WorkflowResponse(notification)
@@ -787,8 +787,8 @@ export default async function orderPlacedHandler({
   await sendOrderConfirmationWorkflow(container)
     .run({
       input: {
-        id: data.id
-      }
+        id: data.id,
+      },
     })
 }
 

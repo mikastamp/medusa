@@ -68,7 +68,9 @@ export default class NotificationProviderService extends ModulesSdkUtils.MedusaI
     TOutput = TChannel extends string[] ? Provider[] : Provider | undefined
   >(channels: TChannel): Promise<TOutput> {
     if (!this.providersCache) {
-      const providers = await this.notificationProviderRepository_.find()
+      const providers = await this.notificationProviderRepository_.find({
+        where: { is_enabled: true },
+      })
 
       this.providersCache = new Map(
         providers.flatMap((provider) =>

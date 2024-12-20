@@ -200,6 +200,57 @@ The pivot table has columns with foreign keys pointing to the primary key of the
 
 ![Diagram illustrating the relation between order and product records in the database](https://res.cloudinary.com/dza7lstvk/image/upload/v1726734269/Medusa%20Book/many-to-many_fzy5pq.jpg)
 
+### Many-To-Many with Custom Columns
+
+To add custom columns to the pivot table between two data models having a many-to-many relationship, you must define a new data model that represents the pivot table.
+
+For example:
+
+export const manyToManyColumnHighlights = [
+  ["5", "products", "Many-to-many relation to the `Product` data model."],
+  ["6", "pivotEntity", "Specify the data model representing the pivot table."],
+  ["12", "orders", "Many-to-many relation to the `Order` data model."],
+  ["15", "OrderProduct", "Data model that represents the pivot table between orders and products."],
+  ["17", "order", "Relation to the Order data model."],
+  ["20", "product", "Relation to the Product data model."],
+  ["23", "metadata", "Extra column in the pivot table."]
+]
+
+```ts highlights={manyToManyColumnHighlights}
+import { model } from "@medusajs/framework/utils";
+
+export const Order = model.define("order_test", {
+  id: model.id().primaryKey(),
+  products: model.manyToMany(() => Product, {
+    pivotEntity: () => OrderProduct
+  })
+})
+
+export const Product = model.define("product_test", {
+  id: model.id().primaryKey(),
+  orders: model.manyToMany(() => Order)
+})
+
+export const OrderProduct = model.define("orders_products", {
+  id: model.id().primaryKey(),
+  order: model.belongsTo(() => Order, {
+    mappedBy: "products"
+  }),
+  product: model.belongsTo(() => Product, {
+    mappedBy: "orders"
+  }),
+  metadata: model.json().nullable()
+})
+```
+
+The `Order` and `Product` data models have a many-to-many relationship. To add extra columns to the created pivot table, you pass a `pivotEntity` option to the `products` relation in `Order` (since `Order` is the owner). The value of `pivotEntity` is a function that returns the data model representing the pivot table.
+
+The `OrderProduct` model defines, aside from the ID, the following properties:
+
+- `order`: A relation that indicates this model belongs to the `Order` data model. You set the `mappedBy` option to the many-to-many relation's name in the `Order` data model.
+- `product`: A relation that indicates this model belongs to the `Product` data model. You set the `mappedBy` option to the many-to-many relation's name in the `Product` data model.
+- `metadata`: An extra column to add to the pivot table of type `json`. You can add other columns as well to the model.
+
 ---
 
 ## Set Relationship Name in the Other Model

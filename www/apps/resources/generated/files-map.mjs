@@ -652,6 +652,10 @@ export const filesMap = [
     "pathname": "/medusa-workflows-reference"
   },
   {
+    "filePath": "/www/apps/resources/app/nextjs-starter/guides/customize-stripe/page.mdx",
+    "pathname": "/nextjs-starter/guides/customize-stripe"
+  },
+  {
     "filePath": "/www/apps/resources/app/nextjs-starter/page.mdx",
     "pathname": "/nextjs-starter"
   },
@@ -666,6 +670,10 @@ export const filesMap = [
   {
     "filePath": "/www/apps/resources/app/recipes/commerce-automation/page.mdx",
     "pathname": "/recipes/commerce-automation"
+  },
+  {
+    "filePath": "/www/apps/resources/app/recipes/commerce-automation/restock-notification/page.mdx",
+    "pathname": "/recipes/commerce-automation/restock-notification"
   },
   {
     "filePath": "/www/apps/resources/app/recipes/digital-products/examples/standard/page.mdx",
@@ -1016,6 +1024,10 @@ export const filesMap = [
     "pathname": "/troubleshooting/s3"
   },
   {
+    "filePath": "/www/apps/resources/app/troubleshooting/workflow-errors/page.mdx",
+    "pathname": "/troubleshooting/workflow-errors"
+  },
+  {
     "filePath": "/www/apps/resources/app/usage/page.mdx",
     "pathname": "/usage"
   },
@@ -1224,8 +1236,8 @@ export const filesMap = [
     "pathname": "/references/api_key/types/api_key.Scalar"
   },
   {
-    "filePath": "/www/apps/resources/references/api_key_models/classes/api_key_models.ApiKey/page.mdx",
-    "pathname": "/references/api_key_models/classes/api_key_models.ApiKey"
+    "filePath": "/www/apps/resources/references/api_key_models/variables/api_key_models.ApiKey/page.mdx",
+    "pathname": "/references/api_key_models/variables/api_key_models.ApiKey"
   },
   {
     "filePath": "/www/apps/resources/references/auth/IAuthModuleService/methods/auth.IAuthModuleService.authenticate/page.mdx",
@@ -1640,6 +1652,10 @@ export const filesMap = [
     "pathname": "/references/cart/ICartModuleService/methods/cart.ICartModuleService.updateLineItems"
   },
   {
+    "filePath": "/www/apps/resources/references/cart/ICartModuleService/methods/cart.ICartModuleService.updateShippingMethods/page.mdx",
+    "pathname": "/references/cart/ICartModuleService/methods/cart.ICartModuleService.updateShippingMethods"
+  },
+  {
     "filePath": "/www/apps/resources/references/cart/IMessageAggregator/methods/cart.IMessageAggregator.clearMessages/page.mdx",
     "pathname": "/references/cart/IMessageAggregator/methods/cart.IMessageAggregator.clearMessages"
   },
@@ -1864,6 +1880,10 @@ export const filesMap = [
     "pathname": "/references/cart/interfaces/cart.UpdateShippingMethodAdjustmentDTO"
   },
   {
+    "filePath": "/www/apps/resources/references/cart/interfaces/cart.UpdateShippingMethodDTO/page.mdx",
+    "pathname": "/references/cart/interfaces/cart.UpdateShippingMethodDTO"
+  },
+  {
     "filePath": "/www/apps/resources/references/cart/interfaces/cart.UpdateShippingMethodTaxLineDTO/page.mdx",
     "pathname": "/references/cart/interfaces/cart.UpdateShippingMethodTaxLineDTO"
   },
@@ -1976,36 +1996,36 @@ export const filesMap = [
     "pathname": "/references/cart/types/cart.Scalar"
   },
   {
-    "filePath": "/www/apps/resources/references/cart_models/classes/cart_models.Address/page.mdx",
-    "pathname": "/references/cart_models/classes/cart_models.Address"
+    "filePath": "/www/apps/resources/references/cart_models/variables/cart_models.Address/page.mdx",
+    "pathname": "/references/cart_models/variables/cart_models.Address"
   },
   {
-    "filePath": "/www/apps/resources/references/cart_models/classes/cart_models.Cart/page.mdx",
-    "pathname": "/references/cart_models/classes/cart_models.Cart"
+    "filePath": "/www/apps/resources/references/cart_models/variables/cart_models.Cart/page.mdx",
+    "pathname": "/references/cart_models/variables/cart_models.Cart"
   },
   {
-    "filePath": "/www/apps/resources/references/cart_models/classes/cart_models.LineItem/page.mdx",
-    "pathname": "/references/cart_models/classes/cart_models.LineItem"
+    "filePath": "/www/apps/resources/references/cart_models/variables/cart_models.LineItem/page.mdx",
+    "pathname": "/references/cart_models/variables/cart_models.LineItem"
   },
   {
-    "filePath": "/www/apps/resources/references/cart_models/classes/cart_models.LineItemAdjustment/page.mdx",
-    "pathname": "/references/cart_models/classes/cart_models.LineItemAdjustment"
+    "filePath": "/www/apps/resources/references/cart_models/variables/cart_models.LineItemAdjustment/page.mdx",
+    "pathname": "/references/cart_models/variables/cart_models.LineItemAdjustment"
   },
   {
-    "filePath": "/www/apps/resources/references/cart_models/classes/cart_models.LineItemTaxLine/page.mdx",
-    "pathname": "/references/cart_models/classes/cart_models.LineItemTaxLine"
+    "filePath": "/www/apps/resources/references/cart_models/variables/cart_models.LineItemTaxLine/page.mdx",
+    "pathname": "/references/cart_models/variables/cart_models.LineItemTaxLine"
   },
   {
-    "filePath": "/www/apps/resources/references/cart_models/classes/cart_models.ShippingMethod/page.mdx",
-    "pathname": "/references/cart_models/classes/cart_models.ShippingMethod"
+    "filePath": "/www/apps/resources/references/cart_models/variables/cart_models.ShippingMethod/page.mdx",
+    "pathname": "/references/cart_models/variables/cart_models.ShippingMethod"
   },
   {
-    "filePath": "/www/apps/resources/references/cart_models/classes/cart_models.ShippingMethodAdjustment/page.mdx",
-    "pathname": "/references/cart_models/classes/cart_models.ShippingMethodAdjustment"
+    "filePath": "/www/apps/resources/references/cart_models/variables/cart_models.ShippingMethodAdjustment/page.mdx",
+    "pathname": "/references/cart_models/variables/cart_models.ShippingMethodAdjustment"
   },
   {
-    "filePath": "/www/apps/resources/references/cart_models/classes/cart_models.ShippingMethodTaxLine/page.mdx",
-    "pathname": "/references/cart_models/classes/cart_models.ShippingMethodTaxLine"
+    "filePath": "/www/apps/resources/references/cart_models/variables/cart_models.ShippingMethodTaxLine/page.mdx",
+    "pathname": "/references/cart_models/variables/cart_models.ShippingMethodTaxLine"
   },
   {
     "filePath": "/www/apps/resources/references/core_flows/Api_Key/Steps_Api_Key/functions/core_flows.Api_Key.Steps_Api_Key.createApiKeysStep/page.mdx",
@@ -2032,6 +2052,30 @@ export const filesMap = [
     "pathname": "/references/core_flows/Api_Key/Steps_Api_Key/functions/core_flows.Api_Key.Steps_Api_Key.validateSalesChannelsExistStep"
   },
   {
+    "filePath": "/www/apps/resources/references/core_flows/Api_Key/Steps_Api_Key/variables/core_flows.Api_Key.Steps_Api_Key.createApiKeysStepId/page.mdx",
+    "pathname": "/references/core_flows/Api_Key/Steps_Api_Key/variables/core_flows.Api_Key.Steps_Api_Key.createApiKeysStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Api_Key/Steps_Api_Key/variables/core_flows.Api_Key.Steps_Api_Key.deleteApiKeysStepId/page.mdx",
+    "pathname": "/references/core_flows/Api_Key/Steps_Api_Key/variables/core_flows.Api_Key.Steps_Api_Key.deleteApiKeysStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Api_Key/Steps_Api_Key/variables/core_flows.Api_Key.Steps_Api_Key.linkSalesChannelsToApiKeyStepId/page.mdx",
+    "pathname": "/references/core_flows/Api_Key/Steps_Api_Key/variables/core_flows.Api_Key.Steps_Api_Key.linkSalesChannelsToApiKeyStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Api_Key/Steps_Api_Key/variables/core_flows.Api_Key.Steps_Api_Key.revokeApiKeysStepId/page.mdx",
+    "pathname": "/references/core_flows/Api_Key/Steps_Api_Key/variables/core_flows.Api_Key.Steps_Api_Key.revokeApiKeysStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Api_Key/Steps_Api_Key/variables/core_flows.Api_Key.Steps_Api_Key.updateApiKeysStepId/page.mdx",
+    "pathname": "/references/core_flows/Api_Key/Steps_Api_Key/variables/core_flows.Api_Key.Steps_Api_Key.updateApiKeysStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Api_Key/Steps_Api_Key/variables/core_flows.Api_Key.Steps_Api_Key.validateSalesChannelsExistStepId/page.mdx",
+    "pathname": "/references/core_flows/Api_Key/Steps_Api_Key/variables/core_flows.Api_Key.Steps_Api_Key.validateSalesChannelsExistStepId"
+  },
+  {
     "filePath": "/www/apps/resources/references/core_flows/Api_Key/Workflows_Api_Key/functions/core_flows.Api_Key.Workflows_Api_Key.createApiKeysWorkflow/page.mdx",
     "pathname": "/references/core_flows/Api_Key/Workflows_Api_Key/functions/core_flows.Api_Key.Workflows_Api_Key.createApiKeysWorkflow"
   },
@@ -2052,6 +2096,26 @@ export const filesMap = [
     "pathname": "/references/core_flows/Api_Key/Workflows_Api_Key/functions/core_flows.Api_Key.Workflows_Api_Key.updateApiKeysWorkflow"
   },
   {
+    "filePath": "/www/apps/resources/references/core_flows/Api_Key/Workflows_Api_Key/variables/core_flows.Api_Key.Workflows_Api_Key.createApiKeysWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Api_Key/Workflows_Api_Key/variables/core_flows.Api_Key.Workflows_Api_Key.createApiKeysWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Api_Key/Workflows_Api_Key/variables/core_flows.Api_Key.Workflows_Api_Key.deleteApiKeysWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Api_Key/Workflows_Api_Key/variables/core_flows.Api_Key.Workflows_Api_Key.deleteApiKeysWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Api_Key/Workflows_Api_Key/variables/core_flows.Api_Key.Workflows_Api_Key.linkSalesChannelsToApiKeyWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Api_Key/Workflows_Api_Key/variables/core_flows.Api_Key.Workflows_Api_Key.linkSalesChannelsToApiKeyWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Api_Key/Workflows_Api_Key/variables/core_flows.Api_Key.Workflows_Api_Key.revokeApiKeysWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Api_Key/Workflows_Api_Key/variables/core_flows.Api_Key.Workflows_Api_Key.revokeApiKeysWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Api_Key/Workflows_Api_Key/variables/core_flows.Api_Key.Workflows_Api_Key.updateApiKeysWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Api_Key/Workflows_Api_Key/variables/core_flows.Api_Key.Workflows_Api_Key.updateApiKeysWorkflowId"
+  },
+  {
     "filePath": "/www/apps/resources/references/core_flows/Api_Key/core_flows.Api_Key.Steps_Api_Key/page.mdx",
     "pathname": "/references/core_flows/Api_Key/core_flows.Api_Key.Steps_Api_Key"
   },
@@ -2062,6 +2126,10 @@ export const filesMap = [
   {
     "filePath": "/www/apps/resources/references/core_flows/Auth/Steps_Auth/functions/core_flows.Auth.Steps_Auth.setAuthAppMetadataStep/page.mdx",
     "pathname": "/references/core_flows/Auth/Steps_Auth/functions/core_flows.Auth.Steps_Auth.setAuthAppMetadataStep"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Auth/Steps_Auth/variables/core_flows.Auth.Steps_Auth.setAuthAppMetadataStepId/page.mdx",
+    "pathname": "/references/core_flows/Auth/Steps_Auth/variables/core_flows.Auth.Steps_Auth.setAuthAppMetadataStepId"
   },
   {
     "filePath": "/www/apps/resources/references/core_flows/Auth/Workflows_Auth/functions/core_flows.Auth.Workflows_Auth.generateResetPasswordTokenWorkflow/page.mdx",
@@ -2188,6 +2256,118 @@ export const filesMap = [
     "pathname": "/references/core_flows/Cart/Steps_Cart/functions/core_flows.Cart.Steps_Cart.validateVariantPricesStep"
   },
   {
+    "filePath": "/www/apps/resources/references/core_flows/Cart/Steps_Cart/variables/core_flows.Cart.Steps_Cart.addShippingMethodToCartStepId/page.mdx",
+    "pathname": "/references/core_flows/Cart/Steps_Cart/variables/core_flows.Cart.Steps_Cart.addShippingMethodToCartStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Cart/Steps_Cart/variables/core_flows.Cart.Steps_Cart.confirmInventoryStepId/page.mdx",
+    "pathname": "/references/core_flows/Cart/Steps_Cart/variables/core_flows.Cart.Steps_Cart.confirmInventoryStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Cart/Steps_Cart/variables/core_flows.Cart.Steps_Cart.createCartsStepId/page.mdx",
+    "pathname": "/references/core_flows/Cart/Steps_Cart/variables/core_flows.Cart.Steps_Cart.createCartsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Cart/Steps_Cart/variables/core_flows.Cart.Steps_Cart.createLineItemAdjustmentsStepId/page.mdx",
+    "pathname": "/references/core_flows/Cart/Steps_Cart/variables/core_flows.Cart.Steps_Cart.createLineItemAdjustmentsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Cart/Steps_Cart/variables/core_flows.Cart.Steps_Cart.createLineItemsStepId/page.mdx",
+    "pathname": "/references/core_flows/Cart/Steps_Cart/variables/core_flows.Cart.Steps_Cart.createLineItemsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Cart/Steps_Cart/variables/core_flows.Cart.Steps_Cart.createPaymentCollectionsStepId/page.mdx",
+    "pathname": "/references/core_flows/Cart/Steps_Cart/variables/core_flows.Cart.Steps_Cart.createPaymentCollectionsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Cart/Steps_Cart/variables/core_flows.Cart.Steps_Cart.createShippingMethodAdjustmentsStepId/page.mdx",
+    "pathname": "/references/core_flows/Cart/Steps_Cart/variables/core_flows.Cart.Steps_Cart.createShippingMethodAdjustmentsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Cart/Steps_Cart/variables/core_flows.Cart.Steps_Cart.findOneOrAnyRegionStepId/page.mdx",
+    "pathname": "/references/core_flows/Cart/Steps_Cart/variables/core_flows.Cart.Steps_Cart.findOneOrAnyRegionStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Cart/Steps_Cart/variables/core_flows.Cart.Steps_Cart.findOrCreateCustomerStepId/page.mdx",
+    "pathname": "/references/core_flows/Cart/Steps_Cart/variables/core_flows.Cart.Steps_Cart.findOrCreateCustomerStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Cart/Steps_Cart/variables/core_flows.Cart.Steps_Cart.findSalesChannelStepId/page.mdx",
+    "pathname": "/references/core_flows/Cart/Steps_Cart/variables/core_flows.Cart.Steps_Cart.findSalesChannelStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Cart/Steps_Cart/variables/core_flows.Cart.Steps_Cart.getActionsToComputeFromPromotionsStepId/page.mdx",
+    "pathname": "/references/core_flows/Cart/Steps_Cart/variables/core_flows.Cart.Steps_Cart.getActionsToComputeFromPromotionsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Cart/Steps_Cart/variables/core_flows.Cart.Steps_Cart.getLineItemActionsStepId/page.mdx",
+    "pathname": "/references/core_flows/Cart/Steps_Cart/variables/core_flows.Cart.Steps_Cart.getLineItemActionsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Cart/Steps_Cart/variables/core_flows.Cart.Steps_Cart.getPromotionCodesToApplyId/page.mdx",
+    "pathname": "/references/core_flows/Cart/Steps_Cart/variables/core_flows.Cart.Steps_Cart.getPromotionCodesToApplyId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Cart/Steps_Cart/variables/core_flows.Cart.Steps_Cart.getVariantPriceSetsStepId/page.mdx",
+    "pathname": "/references/core_flows/Cart/Steps_Cart/variables/core_flows.Cart.Steps_Cart.getVariantPriceSetsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Cart/Steps_Cart/variables/core_flows.Cart.Steps_Cart.getVariantsStepId/page.mdx",
+    "pathname": "/references/core_flows/Cart/Steps_Cart/variables/core_flows.Cart.Steps_Cart.getVariantsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Cart/Steps_Cart/variables/core_flows.Cart.Steps_Cart.prepareAdjustmentsFromPromotionActionsStepId/page.mdx",
+    "pathname": "/references/core_flows/Cart/Steps_Cart/variables/core_flows.Cart.Steps_Cart.prepareAdjustmentsFromPromotionActionsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Cart/Steps_Cart/variables/core_flows.Cart.Steps_Cart.removeLineItemAdjustmentsStepId/page.mdx",
+    "pathname": "/references/core_flows/Cart/Steps_Cart/variables/core_flows.Cart.Steps_Cart.removeLineItemAdjustmentsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Cart/Steps_Cart/variables/core_flows.Cart.Steps_Cart.removeShippingMethodAdjustmentsStepId/page.mdx",
+    "pathname": "/references/core_flows/Cart/Steps_Cart/variables/core_flows.Cart.Steps_Cart.removeShippingMethodAdjustmentsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Cart/Steps_Cart/variables/core_flows.Cart.Steps_Cart.removeShippingMethodFromCartStepId/page.mdx",
+    "pathname": "/references/core_flows/Cart/Steps_Cart/variables/core_flows.Cart.Steps_Cart.removeShippingMethodFromCartStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Cart/Steps_Cart/variables/core_flows.Cart.Steps_Cart.reserveInventoryStepId/page.mdx",
+    "pathname": "/references/core_flows/Cart/Steps_Cart/variables/core_flows.Cart.Steps_Cart.reserveInventoryStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Cart/Steps_Cart/variables/core_flows.Cart.Steps_Cart.retrieveCartStepId/page.mdx",
+    "pathname": "/references/core_flows/Cart/Steps_Cart/variables/core_flows.Cart.Steps_Cart.retrieveCartStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Cart/Steps_Cart/variables/core_flows.Cart.Steps_Cart.setTaxLinesForItemsStepId/page.mdx",
+    "pathname": "/references/core_flows/Cart/Steps_Cart/variables/core_flows.Cart.Steps_Cart.setTaxLinesForItemsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Cart/Steps_Cart/variables/core_flows.Cart.Steps_Cart.updateCartPromotionsStepId/page.mdx",
+    "pathname": "/references/core_flows/Cart/Steps_Cart/variables/core_flows.Cart.Steps_Cart.updateCartPromotionsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Cart/Steps_Cart/variables/core_flows.Cart.Steps_Cart.updateCartsStepId/page.mdx",
+    "pathname": "/references/core_flows/Cart/Steps_Cart/variables/core_flows.Cart.Steps_Cart.updateCartsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Cart/Steps_Cart/variables/core_flows.Cart.Steps_Cart.updateLineItemsStepId/page.mdx",
+    "pathname": "/references/core_flows/Cart/Steps_Cart/variables/core_flows.Cart.Steps_Cart.updateLineItemsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Cart/Steps_Cart/variables/core_flows.Cart.Steps_Cart.validateCartPaymentsStepId/page.mdx",
+    "pathname": "/references/core_flows/Cart/Steps_Cart/variables/core_flows.Cart.Steps_Cart.validateCartPaymentsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Cart/Steps_Cart/variables/core_flows.Cart.Steps_Cart.validateCartShippingOptionsStepId/page.mdx",
+    "pathname": "/references/core_flows/Cart/Steps_Cart/variables/core_flows.Cart.Steps_Cart.validateCartShippingOptionsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Cart/Steps_Cart/variables/core_flows.Cart.Steps_Cart.validateVariantPricesStepId/page.mdx",
+    "pathname": "/references/core_flows/Cart/Steps_Cart/variables/core_flows.Cart.Steps_Cart.validateVariantPricesStepId"
+  },
+  {
     "filePath": "/www/apps/resources/references/core_flows/Cart/Workflows_Cart/functions/core_flows.Cart.Workflows_Cart.addShippingMethodToCartWorkflow/page.mdx",
     "pathname": "/references/core_flows/Cart/Workflows_Cart/functions/core_flows.Cart.Workflows_Cart.addShippingMethodToCartWorkflow"
   },
@@ -2210,6 +2390,10 @@ export const filesMap = [
   {
     "filePath": "/www/apps/resources/references/core_flows/Cart/Workflows_Cart/functions/core_flows.Cart.Workflows_Cart.createPaymentCollectionForCartWorkflow/page.mdx",
     "pathname": "/references/core_flows/Cart/Workflows_Cart/functions/core_flows.Cart.Workflows_Cart.createPaymentCollectionForCartWorkflow"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Cart/Workflows_Cart/functions/core_flows.Cart.Workflows_Cart.listShippingOptionsForCartWithPricingWorkflow/page.mdx",
+    "pathname": "/references/core_flows/Cart/Workflows_Cart/functions/core_flows.Cart.Workflows_Cart.listShippingOptionsForCartWithPricingWorkflow"
   },
   {
     "filePath": "/www/apps/resources/references/core_flows/Cart/Workflows_Cart/functions/core_flows.Cart.Workflows_Cart.listShippingOptionsForCartWorkflow/page.mdx",
@@ -2242,6 +2426,66 @@ export const filesMap = [
   {
     "filePath": "/www/apps/resources/references/core_flows/Cart/Workflows_Cart/functions/core_flows.Cart.Workflows_Cart.validateExistingPaymentCollectionStep/page.mdx",
     "pathname": "/references/core_flows/Cart/Workflows_Cart/functions/core_flows.Cart.Workflows_Cart.validateExistingPaymentCollectionStep"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Cart/Workflows_Cart/variables/core_flows.Cart.Workflows_Cart.THREE_DAYS/page.mdx",
+    "pathname": "/references/core_flows/Cart/Workflows_Cart/variables/core_flows.Cart.Workflows_Cart.THREE_DAYS"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Cart/Workflows_Cart/variables/core_flows.Cart.Workflows_Cart.addShippingMethodToCartWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Cart/Workflows_Cart/variables/core_flows.Cart.Workflows_Cart.addShippingMethodToCartWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Cart/Workflows_Cart/variables/core_flows.Cart.Workflows_Cart.addToCartWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Cart/Workflows_Cart/variables/core_flows.Cart.Workflows_Cart.addToCartWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Cart/Workflows_Cart/variables/core_flows.Cart.Workflows_Cart.completeCartWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Cart/Workflows_Cart/variables/core_flows.Cart.Workflows_Cart.completeCartWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Cart/Workflows_Cart/variables/core_flows.Cart.Workflows_Cart.confirmVariantInventoryWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Cart/Workflows_Cart/variables/core_flows.Cart.Workflows_Cart.confirmVariantInventoryWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Cart/Workflows_Cart/variables/core_flows.Cart.Workflows_Cart.createCartWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Cart/Workflows_Cart/variables/core_flows.Cart.Workflows_Cart.createCartWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Cart/Workflows_Cart/variables/core_flows.Cart.Workflows_Cart.createPaymentCollectionForCartWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Cart/Workflows_Cart/variables/core_flows.Cart.Workflows_Cart.createPaymentCollectionForCartWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Cart/Workflows_Cart/variables/core_flows.Cart.Workflows_Cart.listShippingOptionsForCartWithPricingWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Cart/Workflows_Cart/variables/core_flows.Cart.Workflows_Cart.listShippingOptionsForCartWithPricingWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Cart/Workflows_Cart/variables/core_flows.Cart.Workflows_Cart.listShippingOptionsForCartWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Cart/Workflows_Cart/variables/core_flows.Cart.Workflows_Cart.listShippingOptionsForCartWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Cart/Workflows_Cart/variables/core_flows.Cart.Workflows_Cart.refreshPaymentCollectionForCartWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Cart/Workflows_Cart/variables/core_flows.Cart.Workflows_Cart.refreshPaymentCollectionForCartWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Cart/Workflows_Cart/variables/core_flows.Cart.Workflows_Cart.transferCartCustomerWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Cart/Workflows_Cart/variables/core_flows.Cart.Workflows_Cart.transferCartCustomerWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Cart/Workflows_Cart/variables/core_flows.Cart.Workflows_Cart.updateCartPromotionsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Cart/Workflows_Cart/variables/core_flows.Cart.Workflows_Cart.updateCartPromotionsWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Cart/Workflows_Cart/variables/core_flows.Cart.Workflows_Cart.updateCartWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Cart/Workflows_Cart/variables/core_flows.Cart.Workflows_Cart.updateCartWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Cart/Workflows_Cart/variables/core_flows.Cart.Workflows_Cart.updateLineItemInCartWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Cart/Workflows_Cart/variables/core_flows.Cart.Workflows_Cart.updateLineItemInCartWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Cart/Workflows_Cart/variables/core_flows.Cart.Workflows_Cart.updateTaxLinesWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Cart/Workflows_Cart/variables/core_flows.Cart.Workflows_Cart.updateTaxLinesWorkflowId"
   },
   {
     "filePath": "/www/apps/resources/references/core_flows/Cart/core_flows.Cart.Steps_Cart/page.mdx",
@@ -2284,6 +2528,30 @@ export const filesMap = [
     "pathname": "/references/core_flows/Common/Steps_Common/functions/core_flows.Common.Steps_Common.validatePresenceOfStep"
   },
   {
+    "filePath": "/www/apps/resources/references/core_flows/Common/Steps_Common/variables/core_flows.Common.Steps_Common.createLinksStepId/page.mdx",
+    "pathname": "/references/core_flows/Common/Steps_Common/variables/core_flows.Common.Steps_Common.createLinksStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Common/Steps_Common/variables/core_flows.Common.Steps_Common.dismissRemoteLinkStepId/page.mdx",
+    "pathname": "/references/core_flows/Common/Steps_Common/variables/core_flows.Common.Steps_Common.dismissRemoteLinkStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Common/Steps_Common/variables/core_flows.Common.Steps_Common.emitEventStepId/page.mdx",
+    "pathname": "/references/core_flows/Common/Steps_Common/variables/core_flows.Common.Steps_Common.emitEventStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Common/Steps_Common/variables/core_flows.Common.Steps_Common.removeRemoteLinkStepId/page.mdx",
+    "pathname": "/references/core_flows/Common/Steps_Common/variables/core_flows.Common.Steps_Common.removeRemoteLinkStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Common/Steps_Common/variables/core_flows.Common.Steps_Common.updateRemoteLinksStepId/page.mdx",
+    "pathname": "/references/core_flows/Common/Steps_Common/variables/core_flows.Common.Steps_Common.updateRemoteLinksStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Common/Steps_Common/variables/core_flows.Common.Steps_Common.useRemoteQueryStepId/page.mdx",
+    "pathname": "/references/core_flows/Common/Steps_Common/variables/core_flows.Common.Steps_Common.useRemoteQueryStepId"
+  },
+  {
     "filePath": "/www/apps/resources/references/core_flows/Common/Workflows_Common/functions/core_flows.Common.Workflows_Common.batchLinksWorkflow/page.mdx",
     "pathname": "/references/core_flows/Common/Workflows_Common/functions/core_flows.Common.Workflows_Common.batchLinksWorkflow"
   },
@@ -2298,6 +2566,22 @@ export const filesMap = [
   {
     "filePath": "/www/apps/resources/references/core_flows/Common/Workflows_Common/functions/core_flows.Common.Workflows_Common.updateLinksWorkflow/page.mdx",
     "pathname": "/references/core_flows/Common/Workflows_Common/functions/core_flows.Common.Workflows_Common.updateLinksWorkflow"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Common/Workflows_Common/variables/core_flows.Common.Workflows_Common.batchLinksWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Common/Workflows_Common/variables/core_flows.Common.Workflows_Common.batchLinksWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Common/Workflows_Common/variables/core_flows.Common.Workflows_Common.createLinksWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Common/Workflows_Common/variables/core_flows.Common.Workflows_Common.createLinksWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Common/Workflows_Common/variables/core_flows.Common.Workflows_Common.dismissLinksWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Common/Workflows_Common/variables/core_flows.Common.Workflows_Common.dismissLinksWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Common/Workflows_Common/variables/core_flows.Common.Workflows_Common.updateLinksWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Common/Workflows_Common/variables/core_flows.Common.Workflows_Common.updateLinksWorkflowId"
   },
   {
     "filePath": "/www/apps/resources/references/core_flows/Common/core_flows.Common.Steps_Common/page.mdx",
@@ -2340,6 +2624,38 @@ export const filesMap = [
     "pathname": "/references/core_flows/Customer/Steps_Customer/functions/core_flows.Customer.Steps_Customer.updateCustomersStep"
   },
   {
+    "filePath": "/www/apps/resources/references/core_flows/Customer/Steps_Customer/variables/core_flows.Customer.Steps_Customer.createCustomerAddressesStepId/page.mdx",
+    "pathname": "/references/core_flows/Customer/Steps_Customer/variables/core_flows.Customer.Steps_Customer.createCustomerAddressesStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Customer/Steps_Customer/variables/core_flows.Customer.Steps_Customer.createCustomersStepId/page.mdx",
+    "pathname": "/references/core_flows/Customer/Steps_Customer/variables/core_flows.Customer.Steps_Customer.createCustomersStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Customer/Steps_Customer/variables/core_flows.Customer.Steps_Customer.deleteCustomerAddressesStepId/page.mdx",
+    "pathname": "/references/core_flows/Customer/Steps_Customer/variables/core_flows.Customer.Steps_Customer.deleteCustomerAddressesStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Customer/Steps_Customer/variables/core_flows.Customer.Steps_Customer.deleteCustomersStepId/page.mdx",
+    "pathname": "/references/core_flows/Customer/Steps_Customer/variables/core_flows.Customer.Steps_Customer.deleteCustomersStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Customer/Steps_Customer/variables/core_flows.Customer.Steps_Customer.maybeUnsetDefaultBillingAddressesStepId/page.mdx",
+    "pathname": "/references/core_flows/Customer/Steps_Customer/variables/core_flows.Customer.Steps_Customer.maybeUnsetDefaultBillingAddressesStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Customer/Steps_Customer/variables/core_flows.Customer.Steps_Customer.maybeUnsetDefaultShippingAddressesStepId/page.mdx",
+    "pathname": "/references/core_flows/Customer/Steps_Customer/variables/core_flows.Customer.Steps_Customer.maybeUnsetDefaultShippingAddressesStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Customer/Steps_Customer/variables/core_flows.Customer.Steps_Customer.updateCustomerAddresseStepId/page.mdx",
+    "pathname": "/references/core_flows/Customer/Steps_Customer/variables/core_flows.Customer.Steps_Customer.updateCustomerAddresseStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Customer/Steps_Customer/variables/core_flows.Customer.Steps_Customer.updateCustomersStepId/page.mdx",
+    "pathname": "/references/core_flows/Customer/Steps_Customer/variables/core_flows.Customer.Steps_Customer.updateCustomersStepId"
+  },
+  {
     "filePath": "/www/apps/resources/references/core_flows/Customer/Workflows_Customer/functions/core_flows.Customer.Workflows_Customer.createCustomerAccountWorkflow/page.mdx",
     "pathname": "/references/core_flows/Customer/Workflows_Customer/functions/core_flows.Customer.Workflows_Customer.createCustomerAccountWorkflow"
   },
@@ -2372,6 +2688,38 @@ export const filesMap = [
     "pathname": "/references/core_flows/Customer/Workflows_Customer/functions/core_flows.Customer.Workflows_Customer.updateCustomersWorkflow"
   },
   {
+    "filePath": "/www/apps/resources/references/core_flows/Customer/Workflows_Customer/variables/core_flows.Customer.Workflows_Customer.createCustomerAccountWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Customer/Workflows_Customer/variables/core_flows.Customer.Workflows_Customer.createCustomerAccountWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Customer/Workflows_Customer/variables/core_flows.Customer.Workflows_Customer.createCustomerAddressesWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Customer/Workflows_Customer/variables/core_flows.Customer.Workflows_Customer.createCustomerAddressesWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Customer/Workflows_Customer/variables/core_flows.Customer.Workflows_Customer.createCustomersWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Customer/Workflows_Customer/variables/core_flows.Customer.Workflows_Customer.createCustomersWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Customer/Workflows_Customer/variables/core_flows.Customer.Workflows_Customer.deleteCustomerAddressesWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Customer/Workflows_Customer/variables/core_flows.Customer.Workflows_Customer.deleteCustomerAddressesWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Customer/Workflows_Customer/variables/core_flows.Customer.Workflows_Customer.deleteCustomersWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Customer/Workflows_Customer/variables/core_flows.Customer.Workflows_Customer.deleteCustomersWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Customer/Workflows_Customer/variables/core_flows.Customer.Workflows_Customer.removeCustomerAccountWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Customer/Workflows_Customer/variables/core_flows.Customer.Workflows_Customer.removeCustomerAccountWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Customer/Workflows_Customer/variables/core_flows.Customer.Workflows_Customer.updateCustomerAddressesWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Customer/Workflows_Customer/variables/core_flows.Customer.Workflows_Customer.updateCustomerAddressesWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Customer/Workflows_Customer/variables/core_flows.Customer.Workflows_Customer.updateCustomersWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Customer/Workflows_Customer/variables/core_flows.Customer.Workflows_Customer.updateCustomersWorkflowId"
+  },
+  {
     "filePath": "/www/apps/resources/references/core_flows/Customer/core_flows.Customer.Steps_Customer/page.mdx",
     "pathname": "/references/core_flows/Customer/core_flows.Customer.Steps_Customer"
   },
@@ -2400,6 +2748,26 @@ export const filesMap = [
     "pathname": "/references/core_flows/Customer_Group/Steps_Customer_Group/functions/core_flows.Customer_Group.Steps_Customer_Group.updateCustomerGroupsStep"
   },
   {
+    "filePath": "/www/apps/resources/references/core_flows/Customer_Group/Steps_Customer_Group/variables/core_flows.Customer_Group.Steps_Customer_Group.createCustomerGroupsStepId/page.mdx",
+    "pathname": "/references/core_flows/Customer_Group/Steps_Customer_Group/variables/core_flows.Customer_Group.Steps_Customer_Group.createCustomerGroupsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Customer_Group/Steps_Customer_Group/variables/core_flows.Customer_Group.Steps_Customer_Group.deleteCustomerGroupStepId/page.mdx",
+    "pathname": "/references/core_flows/Customer_Group/Steps_Customer_Group/variables/core_flows.Customer_Group.Steps_Customer_Group.deleteCustomerGroupStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Customer_Group/Steps_Customer_Group/variables/core_flows.Customer_Group.Steps_Customer_Group.linkCustomerGroupsToCustomerStepId/page.mdx",
+    "pathname": "/references/core_flows/Customer_Group/Steps_Customer_Group/variables/core_flows.Customer_Group.Steps_Customer_Group.linkCustomerGroupsToCustomerStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Customer_Group/Steps_Customer_Group/variables/core_flows.Customer_Group.Steps_Customer_Group.linkCustomersToCustomerGroupStepId/page.mdx",
+    "pathname": "/references/core_flows/Customer_Group/Steps_Customer_Group/variables/core_flows.Customer_Group.Steps_Customer_Group.linkCustomersToCustomerGroupStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Customer_Group/Steps_Customer_Group/variables/core_flows.Customer_Group.Steps_Customer_Group.updateCustomerGroupStepId/page.mdx",
+    "pathname": "/references/core_flows/Customer_Group/Steps_Customer_Group/variables/core_flows.Customer_Group.Steps_Customer_Group.updateCustomerGroupStepId"
+  },
+  {
     "filePath": "/www/apps/resources/references/core_flows/Customer_Group/Workflows_Customer_Group/functions/core_flows.Customer_Group.Workflows_Customer_Group.createCustomerGroupsWorkflow/page.mdx",
     "pathname": "/references/core_flows/Customer_Group/Workflows_Customer_Group/functions/core_flows.Customer_Group.Workflows_Customer_Group.createCustomerGroupsWorkflow"
   },
@@ -2420,6 +2788,26 @@ export const filesMap = [
     "pathname": "/references/core_flows/Customer_Group/Workflows_Customer_Group/functions/core_flows.Customer_Group.Workflows_Customer_Group.updateCustomerGroupsWorkflow"
   },
   {
+    "filePath": "/www/apps/resources/references/core_flows/Customer_Group/Workflows_Customer_Group/variables/core_flows.Customer_Group.Workflows_Customer_Group.createCustomerGroupsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Customer_Group/Workflows_Customer_Group/variables/core_flows.Customer_Group.Workflows_Customer_Group.createCustomerGroupsWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Customer_Group/Workflows_Customer_Group/variables/core_flows.Customer_Group.Workflows_Customer_Group.deleteCustomerGroupsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Customer_Group/Workflows_Customer_Group/variables/core_flows.Customer_Group.Workflows_Customer_Group.deleteCustomerGroupsWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Customer_Group/Workflows_Customer_Group/variables/core_flows.Customer_Group.Workflows_Customer_Group.linkCustomerGroupsToCustomerWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Customer_Group/Workflows_Customer_Group/variables/core_flows.Customer_Group.Workflows_Customer_Group.linkCustomerGroupsToCustomerWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Customer_Group/Workflows_Customer_Group/variables/core_flows.Customer_Group.Workflows_Customer_Group.linkCustomersToCustomerGroupWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Customer_Group/Workflows_Customer_Group/variables/core_flows.Customer_Group.Workflows_Customer_Group.linkCustomersToCustomerGroupWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Customer_Group/Workflows_Customer_Group/variables/core_flows.Customer_Group.Workflows_Customer_Group.updateCustomerGroupsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Customer_Group/Workflows_Customer_Group/variables/core_flows.Customer_Group.Workflows_Customer_Group.updateCustomerGroupsWorkflowId"
+  },
+  {
     "filePath": "/www/apps/resources/references/core_flows/Customer_Group/core_flows.Customer_Group.Steps_Customer_Group/page.mdx",
     "pathname": "/references/core_flows/Customer_Group/core_flows.Customer_Group.Steps_Customer_Group"
   },
@@ -2432,8 +2820,16 @@ export const filesMap = [
     "pathname": "/references/core_flows/Defaults/Steps_Defaults/functions/core_flows.Defaults.Steps_Defaults.createDefaultStoreStep"
   },
   {
+    "filePath": "/www/apps/resources/references/core_flows/Defaults/Steps_Defaults/variables/core_flows.Defaults.Steps_Defaults.createDefaultStoreStepId/page.mdx",
+    "pathname": "/references/core_flows/Defaults/Steps_Defaults/variables/core_flows.Defaults.Steps_Defaults.createDefaultStoreStepId"
+  },
+  {
     "filePath": "/www/apps/resources/references/core_flows/Defaults/Workflows_Defaults/functions/core_flows.Defaults.Workflows_Defaults.createDefaultsWorkflow/page.mdx",
     "pathname": "/references/core_flows/Defaults/Workflows_Defaults/functions/core_flows.Defaults.Workflows_Defaults.createDefaultsWorkflow"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Defaults/Workflows_Defaults/variables/core_flows.Defaults.Workflows_Defaults.createDefaultsWorkflowID/page.mdx",
+    "pathname": "/references/core_flows/Defaults/Workflows_Defaults/variables/core_flows.Defaults.Workflows_Defaults.createDefaultsWorkflowID"
   },
   {
     "filePath": "/www/apps/resources/references/core_flows/Defaults/core_flows.Defaults.Steps_Defaults/page.mdx",
@@ -2452,12 +2848,28 @@ export const filesMap = [
     "pathname": "/references/core_flows/File/Steps_File/functions/core_flows.File.Steps_File.uploadFilesStep"
   },
   {
+    "filePath": "/www/apps/resources/references/core_flows/File/Steps_File/variables/core_flows.File.Steps_File.deleteFilesStepId/page.mdx",
+    "pathname": "/references/core_flows/File/Steps_File/variables/core_flows.File.Steps_File.deleteFilesStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/File/Steps_File/variables/core_flows.File.Steps_File.uploadFilesStepId/page.mdx",
+    "pathname": "/references/core_flows/File/Steps_File/variables/core_flows.File.Steps_File.uploadFilesStepId"
+  },
+  {
     "filePath": "/www/apps/resources/references/core_flows/File/Workflows_File/functions/core_flows.File.Workflows_File.deleteFilesWorkflow/page.mdx",
     "pathname": "/references/core_flows/File/Workflows_File/functions/core_flows.File.Workflows_File.deleteFilesWorkflow"
   },
   {
     "filePath": "/www/apps/resources/references/core_flows/File/Workflows_File/functions/core_flows.File.Workflows_File.uploadFilesWorkflow/page.mdx",
     "pathname": "/references/core_flows/File/Workflows_File/functions/core_flows.File.Workflows_File.uploadFilesWorkflow"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/File/Workflows_File/variables/core_flows.File.Workflows_File.deleteFilesWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/File/Workflows_File/variables/core_flows.File.Workflows_File.deleteFilesWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/File/Workflows_File/variables/core_flows.File.Workflows_File.uploadFilesWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/File/Workflows_File/variables/core_flows.File.Workflows_File.uploadFilesWorkflowId"
   },
   {
     "filePath": "/www/apps/resources/references/core_flows/File/core_flows.File.Steps_File/page.mdx",
@@ -2470,6 +2882,10 @@ export const filesMap = [
   {
     "filePath": "/www/apps/resources/references/core_flows/Fulfillment/Steps_Fulfillment/functions/core_flows.Fulfillment.Steps_Fulfillment.buildPriceSet/page.mdx",
     "pathname": "/references/core_flows/Fulfillment/Steps_Fulfillment/functions/core_flows.Fulfillment.Steps_Fulfillment.buildPriceSet"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Fulfillment/Steps_Fulfillment/functions/core_flows.Fulfillment.Steps_Fulfillment.calculateShippingOptionsPricesStep/page.mdx",
+    "pathname": "/references/core_flows/Fulfillment/Steps_Fulfillment/functions/core_flows.Fulfillment.Steps_Fulfillment.calculateShippingOptionsPricesStep"
   },
   {
     "filePath": "/www/apps/resources/references/core_flows/Fulfillment/Steps_Fulfillment/functions/core_flows.Fulfillment.Steps_Fulfillment.cancelFulfillmentStep/page.mdx",
@@ -2540,8 +2956,84 @@ export const filesMap = [
     "pathname": "/references/core_flows/Fulfillment/Steps_Fulfillment/functions/core_flows.Fulfillment.Steps_Fulfillment.validateShipmentStep"
   },
   {
+    "filePath": "/www/apps/resources/references/core_flows/Fulfillment/Steps_Fulfillment/variables/core_flows.Fulfillment.Steps_Fulfillment.calculateShippingOptionsPricesStepId/page.mdx",
+    "pathname": "/references/core_flows/Fulfillment/Steps_Fulfillment/variables/core_flows.Fulfillment.Steps_Fulfillment.calculateShippingOptionsPricesStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Fulfillment/Steps_Fulfillment/variables/core_flows.Fulfillment.Steps_Fulfillment.cancelFulfillmentStepId/page.mdx",
+    "pathname": "/references/core_flows/Fulfillment/Steps_Fulfillment/variables/core_flows.Fulfillment.Steps_Fulfillment.cancelFulfillmentStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Fulfillment/Steps_Fulfillment/variables/core_flows.Fulfillment.Steps_Fulfillment.createFulfillmentSetsId/page.mdx",
+    "pathname": "/references/core_flows/Fulfillment/Steps_Fulfillment/variables/core_flows.Fulfillment.Steps_Fulfillment.createFulfillmentSetsId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Fulfillment/Steps_Fulfillment/variables/core_flows.Fulfillment.Steps_Fulfillment.createFulfillmentStepId/page.mdx",
+    "pathname": "/references/core_flows/Fulfillment/Steps_Fulfillment/variables/core_flows.Fulfillment.Steps_Fulfillment.createFulfillmentStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Fulfillment/Steps_Fulfillment/variables/core_flows.Fulfillment.Steps_Fulfillment.createReturnFulfillmentStepId/page.mdx",
+    "pathname": "/references/core_flows/Fulfillment/Steps_Fulfillment/variables/core_flows.Fulfillment.Steps_Fulfillment.createReturnFulfillmentStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Fulfillment/Steps_Fulfillment/variables/core_flows.Fulfillment.Steps_Fulfillment.createServiceZonesStepId/page.mdx",
+    "pathname": "/references/core_flows/Fulfillment/Steps_Fulfillment/variables/core_flows.Fulfillment.Steps_Fulfillment.createServiceZonesStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Fulfillment/Steps_Fulfillment/variables/core_flows.Fulfillment.Steps_Fulfillment.createShippingOptionRulesStepId/page.mdx",
+    "pathname": "/references/core_flows/Fulfillment/Steps_Fulfillment/variables/core_flows.Fulfillment.Steps_Fulfillment.createShippingOptionRulesStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Fulfillment/Steps_Fulfillment/variables/core_flows.Fulfillment.Steps_Fulfillment.createShippingOptionsPriceSetsStepId/page.mdx",
+    "pathname": "/references/core_flows/Fulfillment/Steps_Fulfillment/variables/core_flows.Fulfillment.Steps_Fulfillment.createShippingOptionsPriceSetsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Fulfillment/Steps_Fulfillment/variables/core_flows.Fulfillment.Steps_Fulfillment.createShippingProfilesStepId/page.mdx",
+    "pathname": "/references/core_flows/Fulfillment/Steps_Fulfillment/variables/core_flows.Fulfillment.Steps_Fulfillment.createShippingProfilesStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Fulfillment/Steps_Fulfillment/variables/core_flows.Fulfillment.Steps_Fulfillment.deleteFulfillmentSetsStepId/page.mdx",
+    "pathname": "/references/core_flows/Fulfillment/Steps_Fulfillment/variables/core_flows.Fulfillment.Steps_Fulfillment.deleteFulfillmentSetsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Fulfillment/Steps_Fulfillment/variables/core_flows.Fulfillment.Steps_Fulfillment.deleteServiceZonesStepId/page.mdx",
+    "pathname": "/references/core_flows/Fulfillment/Steps_Fulfillment/variables/core_flows.Fulfillment.Steps_Fulfillment.deleteServiceZonesStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Fulfillment/Steps_Fulfillment/variables/core_flows.Fulfillment.Steps_Fulfillment.deleteShippingOptionRulesStepId/page.mdx",
+    "pathname": "/references/core_flows/Fulfillment/Steps_Fulfillment/variables/core_flows.Fulfillment.Steps_Fulfillment.deleteShippingOptionRulesStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Fulfillment/Steps_Fulfillment/variables/core_flows.Fulfillment.Steps_Fulfillment.deleteShippingOptionsStepId/page.mdx",
+    "pathname": "/references/core_flows/Fulfillment/Steps_Fulfillment/variables/core_flows.Fulfillment.Steps_Fulfillment.deleteShippingOptionsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Fulfillment/Steps_Fulfillment/variables/core_flows.Fulfillment.Steps_Fulfillment.setShippingOptionsPricesStepId/page.mdx",
+    "pathname": "/references/core_flows/Fulfillment/Steps_Fulfillment/variables/core_flows.Fulfillment.Steps_Fulfillment.setShippingOptionsPricesStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Fulfillment/Steps_Fulfillment/variables/core_flows.Fulfillment.Steps_Fulfillment.updateFulfillmentStepId/page.mdx",
+    "pathname": "/references/core_flows/Fulfillment/Steps_Fulfillment/variables/core_flows.Fulfillment.Steps_Fulfillment.updateFulfillmentStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Fulfillment/Steps_Fulfillment/variables/core_flows.Fulfillment.Steps_Fulfillment.updateShippingProfilesStepId/page.mdx",
+    "pathname": "/references/core_flows/Fulfillment/Steps_Fulfillment/variables/core_flows.Fulfillment.Steps_Fulfillment.updateShippingProfilesStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Fulfillment/Steps_Fulfillment/variables/core_flows.Fulfillment.Steps_Fulfillment.upsertShippingOptionsStepId/page.mdx",
+    "pathname": "/references/core_flows/Fulfillment/Steps_Fulfillment/variables/core_flows.Fulfillment.Steps_Fulfillment.upsertShippingOptionsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Fulfillment/Steps_Fulfillment/variables/core_flows.Fulfillment.Steps_Fulfillment.validateShipmentStepId/page.mdx",
+    "pathname": "/references/core_flows/Fulfillment/Steps_Fulfillment/variables/core_flows.Fulfillment.Steps_Fulfillment.validateShipmentStepId"
+  },
+  {
     "filePath": "/www/apps/resources/references/core_flows/Fulfillment/Workflows_Fulfillment/functions/core_flows.Fulfillment.Workflows_Fulfillment.batchShippingOptionRulesWorkflow/page.mdx",
     "pathname": "/references/core_flows/Fulfillment/Workflows_Fulfillment/functions/core_flows.Fulfillment.Workflows_Fulfillment.batchShippingOptionRulesWorkflow"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Fulfillment/Workflows_Fulfillment/functions/core_flows.Fulfillment.Workflows_Fulfillment.calculateShippingOptionsPricesWorkflow/page.mdx",
+    "pathname": "/references/core_flows/Fulfillment/Workflows_Fulfillment/functions/core_flows.Fulfillment.Workflows_Fulfillment.calculateShippingOptionsPricesWorkflow"
   },
   {
     "filePath": "/www/apps/resources/references/core_flows/Fulfillment/Workflows_Fulfillment/functions/core_flows.Fulfillment.Workflows_Fulfillment.cancelFulfillmentWorkflow/page.mdx",
@@ -2608,6 +3100,78 @@ export const filesMap = [
     "pathname": "/references/core_flows/Fulfillment/Workflows_Fulfillment/functions/core_flows.Fulfillment.Workflows_Fulfillment.validateFulfillmentDeliverabilityStep"
   },
   {
+    "filePath": "/www/apps/resources/references/core_flows/Fulfillment/Workflows_Fulfillment/variables/core_flows.Fulfillment.Workflows_Fulfillment.batchShippingOptionRulesWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Fulfillment/Workflows_Fulfillment/variables/core_flows.Fulfillment.Workflows_Fulfillment.batchShippingOptionRulesWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Fulfillment/Workflows_Fulfillment/variables/core_flows.Fulfillment.Workflows_Fulfillment.calculateShippingOptionsPricesWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Fulfillment/Workflows_Fulfillment/variables/core_flows.Fulfillment.Workflows_Fulfillment.calculateShippingOptionsPricesWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Fulfillment/Workflows_Fulfillment/variables/core_flows.Fulfillment.Workflows_Fulfillment.cancelFulfillmentWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Fulfillment/Workflows_Fulfillment/variables/core_flows.Fulfillment.Workflows_Fulfillment.cancelFulfillmentWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Fulfillment/Workflows_Fulfillment/variables/core_flows.Fulfillment.Workflows_Fulfillment.createFulfillmentWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Fulfillment/Workflows_Fulfillment/variables/core_flows.Fulfillment.Workflows_Fulfillment.createFulfillmentWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Fulfillment/Workflows_Fulfillment/variables/core_flows.Fulfillment.Workflows_Fulfillment.createReturnFulfillmentWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Fulfillment/Workflows_Fulfillment/variables/core_flows.Fulfillment.Workflows_Fulfillment.createReturnFulfillmentWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Fulfillment/Workflows_Fulfillment/variables/core_flows.Fulfillment.Workflows_Fulfillment.createServiceZonesWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Fulfillment/Workflows_Fulfillment/variables/core_flows.Fulfillment.Workflows_Fulfillment.createServiceZonesWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Fulfillment/Workflows_Fulfillment/variables/core_flows.Fulfillment.Workflows_Fulfillment.createShipmentWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Fulfillment/Workflows_Fulfillment/variables/core_flows.Fulfillment.Workflows_Fulfillment.createShipmentWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Fulfillment/Workflows_Fulfillment/variables/core_flows.Fulfillment.Workflows_Fulfillment.createShippingOptionsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Fulfillment/Workflows_Fulfillment/variables/core_flows.Fulfillment.Workflows_Fulfillment.createShippingOptionsWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Fulfillment/Workflows_Fulfillment/variables/core_flows.Fulfillment.Workflows_Fulfillment.createShippingProfilesWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Fulfillment/Workflows_Fulfillment/variables/core_flows.Fulfillment.Workflows_Fulfillment.createShippingProfilesWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Fulfillment/Workflows_Fulfillment/variables/core_flows.Fulfillment.Workflows_Fulfillment.deleteFulfillmentSetsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Fulfillment/Workflows_Fulfillment/variables/core_flows.Fulfillment.Workflows_Fulfillment.deleteFulfillmentSetsWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Fulfillment/Workflows_Fulfillment/variables/core_flows.Fulfillment.Workflows_Fulfillment.deleteServiceZonesWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Fulfillment/Workflows_Fulfillment/variables/core_flows.Fulfillment.Workflows_Fulfillment.deleteServiceZonesWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Fulfillment/Workflows_Fulfillment/variables/core_flows.Fulfillment.Workflows_Fulfillment.deleteShippingOptionsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Fulfillment/Workflows_Fulfillment/variables/core_flows.Fulfillment.Workflows_Fulfillment.deleteShippingOptionsWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Fulfillment/Workflows_Fulfillment/variables/core_flows.Fulfillment.Workflows_Fulfillment.markFulfillmentAsDeliveredWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Fulfillment/Workflows_Fulfillment/variables/core_flows.Fulfillment.Workflows_Fulfillment.markFulfillmentAsDeliveredWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Fulfillment/Workflows_Fulfillment/variables/core_flows.Fulfillment.Workflows_Fulfillment.updateFulfillmentWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Fulfillment/Workflows_Fulfillment/variables/core_flows.Fulfillment.Workflows_Fulfillment.updateFulfillmentWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Fulfillment/Workflows_Fulfillment/variables/core_flows.Fulfillment.Workflows_Fulfillment.updateServiceZonesWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Fulfillment/Workflows_Fulfillment/variables/core_flows.Fulfillment.Workflows_Fulfillment.updateServiceZonesWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Fulfillment/Workflows_Fulfillment/variables/core_flows.Fulfillment.Workflows_Fulfillment.updateShippingOptionsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Fulfillment/Workflows_Fulfillment/variables/core_flows.Fulfillment.Workflows_Fulfillment.updateShippingOptionsWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Fulfillment/Workflows_Fulfillment/variables/core_flows.Fulfillment.Workflows_Fulfillment.updateShippingProfilesWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Fulfillment/Workflows_Fulfillment/variables/core_flows.Fulfillment.Workflows_Fulfillment.updateShippingProfilesWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Fulfillment/Workflows_Fulfillment/variables/core_flows.Fulfillment.Workflows_Fulfillment.validateFulfillmentDeliverabilityStepId/page.mdx",
+    "pathname": "/references/core_flows/Fulfillment/Workflows_Fulfillment/variables/core_flows.Fulfillment.Workflows_Fulfillment.validateFulfillmentDeliverabilityStepId"
+  },
+  {
     "filePath": "/www/apps/resources/references/core_flows/Fulfillment/core_flows.Fulfillment.Steps_Fulfillment/page.mdx",
     "pathname": "/references/core_flows/Fulfillment/core_flows.Fulfillment.Steps_Fulfillment"
   },
@@ -2660,6 +3224,50 @@ export const filesMap = [
     "pathname": "/references/core_flows/Inventory/Steps_Inventory/functions/core_flows.Inventory.Steps_Inventory.validateInventoryLocationsStep"
   },
   {
+    "filePath": "/www/apps/resources/references/core_flows/Inventory/Steps_Inventory/variables/core_flows.Inventory.Steps_Inventory.adjustInventoryLevelsStepId/page.mdx",
+    "pathname": "/references/core_flows/Inventory/Steps_Inventory/variables/core_flows.Inventory.Steps_Inventory.adjustInventoryLevelsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Inventory/Steps_Inventory/variables/core_flows.Inventory.Steps_Inventory.attachInventoryItemToVariantsStepId/page.mdx",
+    "pathname": "/references/core_flows/Inventory/Steps_Inventory/variables/core_flows.Inventory.Steps_Inventory.attachInventoryItemToVariantsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Inventory/Steps_Inventory/variables/core_flows.Inventory.Steps_Inventory.createInventoryItemsStepId/page.mdx",
+    "pathname": "/references/core_flows/Inventory/Steps_Inventory/variables/core_flows.Inventory.Steps_Inventory.createInventoryItemsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Inventory/Steps_Inventory/variables/core_flows.Inventory.Steps_Inventory.createInventoryLevelsStepId/page.mdx",
+    "pathname": "/references/core_flows/Inventory/Steps_Inventory/variables/core_flows.Inventory.Steps_Inventory.createInventoryLevelsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Inventory/Steps_Inventory/variables/core_flows.Inventory.Steps_Inventory.deleteInventoryItemStepId/page.mdx",
+    "pathname": "/references/core_flows/Inventory/Steps_Inventory/variables/core_flows.Inventory.Steps_Inventory.deleteInventoryItemStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Inventory/Steps_Inventory/variables/core_flows.Inventory.Steps_Inventory.deleteInventoryLevelsStepId/page.mdx",
+    "pathname": "/references/core_flows/Inventory/Steps_Inventory/variables/core_flows.Inventory.Steps_Inventory.deleteInventoryLevelsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Inventory/Steps_Inventory/variables/core_flows.Inventory.Steps_Inventory.updateInventoryItemsStepId/page.mdx",
+    "pathname": "/references/core_flows/Inventory/Steps_Inventory/variables/core_flows.Inventory.Steps_Inventory.updateInventoryItemsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Inventory/Steps_Inventory/variables/core_flows.Inventory.Steps_Inventory.updateInventoryLevelsStepId/page.mdx",
+    "pathname": "/references/core_flows/Inventory/Steps_Inventory/variables/core_flows.Inventory.Steps_Inventory.updateInventoryLevelsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Inventory/Steps_Inventory/variables/core_flows.Inventory.Steps_Inventory.validateInventoryItemsForCreateStepId/page.mdx",
+    "pathname": "/references/core_flows/Inventory/Steps_Inventory/variables/core_flows.Inventory.Steps_Inventory.validateInventoryItemsForCreateStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Inventory/Steps_Inventory/variables/core_flows.Inventory.Steps_Inventory.validateInventoryLocationsStepId/page.mdx",
+    "pathname": "/references/core_flows/Inventory/Steps_Inventory/variables/core_flows.Inventory.Steps_Inventory.validateInventoryLocationsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Inventory/Steps_Inventory/variables/core_flows.Inventory.Steps_Inventory.validateVariantInventoryStepId/page.mdx",
+    "pathname": "/references/core_flows/Inventory/Steps_Inventory/variables/core_flows.Inventory.Steps_Inventory.validateVariantInventoryStepId"
+  },
+  {
     "filePath": "/www/apps/resources/references/core_flows/Inventory/Workflows_Inventory/functions/core_flows.Inventory.Workflows_Inventory.bulkCreateDeleteLevelsWorkflow/page.mdx",
     "pathname": "/references/core_flows/Inventory/Workflows_Inventory/functions/core_flows.Inventory.Workflows_Inventory.bulkCreateDeleteLevelsWorkflow"
   },
@@ -2692,6 +3300,34 @@ export const filesMap = [
     "pathname": "/references/core_flows/Inventory/Workflows_Inventory/functions/core_flows.Inventory.Workflows_Inventory.validateInventoryLevelsDelete"
   },
   {
+    "filePath": "/www/apps/resources/references/core_flows/Inventory/Workflows_Inventory/variables/core_flows.Inventory.Workflows_Inventory.bulkCreateDeleteLevelsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Inventory/Workflows_Inventory/variables/core_flows.Inventory.Workflows_Inventory.bulkCreateDeleteLevelsWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Inventory/Workflows_Inventory/variables/core_flows.Inventory.Workflows_Inventory.createInventoryItemsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Inventory/Workflows_Inventory/variables/core_flows.Inventory.Workflows_Inventory.createInventoryItemsWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Inventory/Workflows_Inventory/variables/core_flows.Inventory.Workflows_Inventory.createInventoryLevelsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Inventory/Workflows_Inventory/variables/core_flows.Inventory.Workflows_Inventory.createInventoryLevelsWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Inventory/Workflows_Inventory/variables/core_flows.Inventory.Workflows_Inventory.deleteInventoryItemWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Inventory/Workflows_Inventory/variables/core_flows.Inventory.Workflows_Inventory.deleteInventoryItemWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Inventory/Workflows_Inventory/variables/core_flows.Inventory.Workflows_Inventory.deleteInventoryLevelsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Inventory/Workflows_Inventory/variables/core_flows.Inventory.Workflows_Inventory.deleteInventoryLevelsWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Inventory/Workflows_Inventory/variables/core_flows.Inventory.Workflows_Inventory.updateInventoryItemsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Inventory/Workflows_Inventory/variables/core_flows.Inventory.Workflows_Inventory.updateInventoryItemsWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Inventory/Workflows_Inventory/variables/core_flows.Inventory.Workflows_Inventory.updateInventoryLevelsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Inventory/Workflows_Inventory/variables/core_flows.Inventory.Workflows_Inventory.updateInventoryLevelsWorkflowId"
+  },
+  {
     "filePath": "/www/apps/resources/references/core_flows/Inventory/core_flows.Inventory.Steps_Inventory/page.mdx",
     "pathname": "/references/core_flows/Inventory/core_flows.Inventory.Steps_Inventory"
   },
@@ -2716,6 +3352,22 @@ export const filesMap = [
     "pathname": "/references/core_flows/Invite/Steps_Invite/functions/core_flows.Invite.Steps_Invite.validateTokenStep"
   },
   {
+    "filePath": "/www/apps/resources/references/core_flows/Invite/Steps_Invite/variables/core_flows.Invite.Steps_Invite.createInviteStepId/page.mdx",
+    "pathname": "/references/core_flows/Invite/Steps_Invite/variables/core_flows.Invite.Steps_Invite.createInviteStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Invite/Steps_Invite/variables/core_flows.Invite.Steps_Invite.deleteInvitesStepId/page.mdx",
+    "pathname": "/references/core_flows/Invite/Steps_Invite/variables/core_flows.Invite.Steps_Invite.deleteInvitesStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Invite/Steps_Invite/variables/core_flows.Invite.Steps_Invite.refreshInviteTokensStepId/page.mdx",
+    "pathname": "/references/core_flows/Invite/Steps_Invite/variables/core_flows.Invite.Steps_Invite.refreshInviteTokensStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Invite/Steps_Invite/variables/core_flows.Invite.Steps_Invite.validateTokenStepId/page.mdx",
+    "pathname": "/references/core_flows/Invite/Steps_Invite/variables/core_flows.Invite.Steps_Invite.validateTokenStepId"
+  },
+  {
     "filePath": "/www/apps/resources/references/core_flows/Invite/Workflows_Invite/functions/core_flows.Invite.Workflows_Invite.acceptInviteWorkflow/page.mdx",
     "pathname": "/references/core_flows/Invite/Workflows_Invite/functions/core_flows.Invite.Workflows_Invite.acceptInviteWorkflow"
   },
@@ -2730,6 +3382,22 @@ export const filesMap = [
   {
     "filePath": "/www/apps/resources/references/core_flows/Invite/Workflows_Invite/functions/core_flows.Invite.Workflows_Invite.refreshInviteTokensWorkflow/page.mdx",
     "pathname": "/references/core_flows/Invite/Workflows_Invite/functions/core_flows.Invite.Workflows_Invite.refreshInviteTokensWorkflow"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Invite/Workflows_Invite/variables/core_flows.Invite.Workflows_Invite.acceptInviteWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Invite/Workflows_Invite/variables/core_flows.Invite.Workflows_Invite.acceptInviteWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Invite/Workflows_Invite/variables/core_flows.Invite.Workflows_Invite.createInvitesWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Invite/Workflows_Invite/variables/core_flows.Invite.Workflows_Invite.createInvitesWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Invite/Workflows_Invite/variables/core_flows.Invite.Workflows_Invite.deleteInvitesWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Invite/Workflows_Invite/variables/core_flows.Invite.Workflows_Invite.deleteInvitesWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Invite/Workflows_Invite/variables/core_flows.Invite.Workflows_Invite.refreshInviteTokensWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Invite/Workflows_Invite/variables/core_flows.Invite.Workflows_Invite.refreshInviteTokensWorkflowId"
   },
   {
     "filePath": "/www/apps/resources/references/core_flows/Invite/core_flows.Invite.Steps_Invite/page.mdx",
@@ -2752,8 +3420,24 @@ export const filesMap = [
     "pathname": "/references/core_flows/Line_Item/Steps_Line_Item/functions/core_flows.Line_Item.Steps_Line_Item.updateLineItemsStepWithSelector"
   },
   {
+    "filePath": "/www/apps/resources/references/core_flows/Line_Item/Steps_Line_Item/variables/core_flows.Line_Item.Steps_Line_Item.deleteLineItemsStepId/page.mdx",
+    "pathname": "/references/core_flows/Line_Item/Steps_Line_Item/variables/core_flows.Line_Item.Steps_Line_Item.deleteLineItemsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Line_Item/Steps_Line_Item/variables/core_flows.Line_Item.Steps_Line_Item.listLineItemsStepId/page.mdx",
+    "pathname": "/references/core_flows/Line_Item/Steps_Line_Item/variables/core_flows.Line_Item.Steps_Line_Item.listLineItemsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Line_Item/Steps_Line_Item/variables/core_flows.Line_Item.Steps_Line_Item.updateLineItemsStepWithSelectorId/page.mdx",
+    "pathname": "/references/core_flows/Line_Item/Steps_Line_Item/variables/core_flows.Line_Item.Steps_Line_Item.updateLineItemsStepWithSelectorId"
+  },
+  {
     "filePath": "/www/apps/resources/references/core_flows/Line_Item/Workflows_Line_Item/functions/core_flows.Line_Item.Workflows_Line_Item.deleteLineItemsWorkflow/page.mdx",
     "pathname": "/references/core_flows/Line_Item/Workflows_Line_Item/functions/core_flows.Line_Item.Workflows_Line_Item.deleteLineItemsWorkflow"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Line_Item/Workflows_Line_Item/variables/core_flows.Line_Item.Workflows_Line_Item.deleteLineItemsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Line_Item/Workflows_Line_Item/variables/core_flows.Line_Item.Workflows_Line_Item.deleteLineItemsWorkflowId"
   },
   {
     "filePath": "/www/apps/resources/references/core_flows/Line_Item/core_flows.Line_Item.Steps_Line_Item/page.mdx",
@@ -2918,6 +3602,142 @@ export const filesMap = [
   {
     "filePath": "/www/apps/resources/references/core_flows/Order/Steps_Order/functions/core_flows.Order.Steps_Order.updateReturnsStep/page.mdx",
     "pathname": "/references/core_flows/Order/Steps_Order/functions/core_flows.Order.Steps_Order.updateReturnsStep"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.addOrderTransactionStepId/page.mdx",
+    "pathname": "/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.addOrderTransactionStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.archiveOrdersStepId/page.mdx",
+    "pathname": "/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.archiveOrdersStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.cancelOrderChangeStepId/page.mdx",
+    "pathname": "/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.cancelOrderChangeStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.cancelOrderClaimStepId/page.mdx",
+    "pathname": "/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.cancelOrderClaimStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.cancelOrderExchangeStepId/page.mdx",
+    "pathname": "/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.cancelOrderExchangeStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.cancelOrderFulfillmentStepId/page.mdx",
+    "pathname": "/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.cancelOrderFulfillmentStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.cancelOrderReturnStepId/page.mdx",
+    "pathname": "/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.cancelOrderReturnStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.cancelOrdersStepId/page.mdx",
+    "pathname": "/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.cancelOrdersStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.completeOrdersStepId/page.mdx",
+    "pathname": "/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.completeOrdersStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.createCompleteReturnStepId/page.mdx",
+    "pathname": "/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.createCompleteReturnStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.createOrderChangeStepId/page.mdx",
+    "pathname": "/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.createOrderChangeStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.createOrderClaimsStepId/page.mdx",
+    "pathname": "/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.createOrderClaimsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.createOrderExchangesStepId/page.mdx",
+    "pathname": "/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.createOrderExchangesStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.createOrderLineItemsStepId/page.mdx",
+    "pathname": "/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.createOrderLineItemsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.createOrdersStepId/page.mdx",
+    "pathname": "/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.createOrdersStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.createReturnsStepId/page.mdx",
+    "pathname": "/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.createReturnsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.declineOrderChangeStepId/page.mdx",
+    "pathname": "/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.declineOrderChangeStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.deleteClaimsStepId/page.mdx",
+    "pathname": "/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.deleteClaimsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.deleteExchangesStepId/page.mdx",
+    "pathname": "/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.deleteExchangesStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.deleteOrderChangeActionsStepId/page.mdx",
+    "pathname": "/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.deleteOrderChangeActionsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.deleteOrderChangesStepId/page.mdx",
+    "pathname": "/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.deleteOrderChangesStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.deleteReturnsStepId/page.mdx",
+    "pathname": "/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.deleteReturnsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.previewOrderChangeStepId/page.mdx",
+    "pathname": "/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.previewOrderChangeStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.registerOrderChangeStepId/page.mdx",
+    "pathname": "/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.registerOrderChangeStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.registerOrderFulfillmentStepId/page.mdx",
+    "pathname": "/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.registerOrderFulfillmentStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.registerOrderShipmentStepId/page.mdx",
+    "pathname": "/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.registerOrderShipmentStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.setOrderTaxLinesForItemsStepId/page.mdx",
+    "pathname": "/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.setOrderTaxLinesForItemsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.updateOrderChangeActionsStepId/page.mdx",
+    "pathname": "/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.updateOrderChangeActionsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.updateOrderChangesStepId/page.mdx",
+    "pathname": "/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.updateOrderChangesStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.updateOrderExchangesStepId/page.mdx",
+    "pathname": "/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.updateOrderExchangesStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.updateOrderShippingMethodsStepId/page.mdx",
+    "pathname": "/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.updateOrderShippingMethodsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.updateOrdersStepId/page.mdx",
+    "pathname": "/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.updateOrdersStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.updateReturnItemsStepId/page.mdx",
+    "pathname": "/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.updateReturnItemsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.updateReturnsStepId/page.mdx",
+    "pathname": "/references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.updateReturnsStepId"
   },
   {
     "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/functions/core_flows.Order.Workflows_Order.acceptOrderTransferValidationStep/page.mdx",
@@ -3540,6 +4360,350 @@ export const filesMap = [
     "pathname": "/references/core_flows/Order/Workflows_Order/functions/core_flows.Order.Workflows_Order.updateReturnWorkflow"
   },
   {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.acceptOrderTransferWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.acceptOrderTransferWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.addOrderLineItemsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.addOrderLineItemsWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.archiveOrderWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.archiveOrderWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.beginClaimOrderWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.beginClaimOrderWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.beginExchangeOrderWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.beginExchangeOrderWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.beginOrderEditOrderWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.beginOrderEditOrderWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.beginReceiveReturnWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.beginReceiveReturnWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.beginReturnOrderWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.beginReturnOrderWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.cancelBeginOrderClaimWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.cancelBeginOrderClaimWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.cancelBeginOrderEditWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.cancelBeginOrderEditWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.cancelBeginOrderExchangeWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.cancelBeginOrderExchangeWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.cancelOrderChangeWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.cancelOrderChangeWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.cancelOrderClaimWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.cancelOrderClaimWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.cancelOrderExchangeWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.cancelOrderExchangeWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.cancelOrderFulfillmentWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.cancelOrderFulfillmentWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.cancelOrderWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.cancelOrderWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.cancelReturnReceiveWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.cancelReturnReceiveWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.cancelReturnRequestWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.cancelReturnRequestWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.cancelReturnWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.cancelReturnWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.cancelTransferOrderRequestWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.cancelTransferOrderRequestWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.completeOrderWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.completeOrderWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.confirmClaimRequestWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.confirmClaimRequestWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.confirmExchangeRequestWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.confirmExchangeRequestWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.confirmOrderEditRequestWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.confirmOrderEditRequestWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.confirmReturnReceiveWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.confirmReturnReceiveWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.confirmReturnRequestWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.confirmReturnRequestWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.createAndCompleteReturnOrderWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.createAndCompleteReturnOrderWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.createClaimShippingMethodWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.createClaimShippingMethodWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.createExchangeShippingMethodWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.createExchangeShippingMethodWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.createOrderChangeActionsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.createOrderChangeActionsWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.createOrderChangeWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.createOrderChangeWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.createOrderEditShippingMethodWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.createOrderEditShippingMethodWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.createOrderFulfillmentWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.createOrderFulfillmentWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.createOrderPaymentCollectionWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.createOrderPaymentCollectionWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.createOrderShipmentWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.createOrderShipmentWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.createOrdersWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.createOrdersWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.createReturnShippingMethodWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.createReturnShippingMethodWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.declineOrderChangeWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.declineOrderChangeWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.declineTransferOrderRequestWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.declineTransferOrderRequestWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.deleteOrderChangeActionsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.deleteOrderChangeActionsWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.deleteOrderChangeWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.deleteOrderChangeWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.deleteOrderPaymentCollectionsId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.deleteOrderPaymentCollectionsId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.dismissItemReturnRequestWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.dismissItemReturnRequestWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.getOrderDetailWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.getOrderDetailWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.getOrdersListWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.getOrdersListWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.markOrderFulfillmentAsDeliveredWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.markOrderFulfillmentAsDeliveredWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.markPaymentCollectionAsPaidId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.markPaymentCollectionAsPaidId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.orderClaimAddNewItemWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.orderClaimAddNewItemWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.orderClaimItemWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.orderClaimItemWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.orderClaimRequestItemReturnWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.orderClaimRequestItemReturnWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.orderEditAddNewItemWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.orderEditAddNewItemWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.orderEditUpdateItemQuantityWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.orderEditUpdateItemQuantityWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.orderExchangeAddNewItemWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.orderExchangeAddNewItemWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.orderExchangeRequestItemReturnWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.orderExchangeRequestItemReturnWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.orderFulfillmentDeliverablilityValidationStepId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.orderFulfillmentDeliverablilityValidationStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.receiveAndCompleteReturnOrderWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.receiveAndCompleteReturnOrderWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.receiveItemReturnRequestWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.receiveItemReturnRequestWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.removeAddItemClaimActionWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.removeAddItemClaimActionWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.removeClaimShippingMethodWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.removeClaimShippingMethodWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.removeExchangeShippingMethodWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.removeExchangeShippingMethodWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.removeItemClaimActionWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.removeItemClaimActionWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.removeItemExchangeActionWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.removeItemExchangeActionWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.removeItemOrderEditActionWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.removeItemOrderEditActionWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.removeItemReceiveReturnActionWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.removeItemReceiveReturnActionWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.removeItemReturnActionWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.removeItemReturnActionWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.removeOrderEditShippingMethodWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.removeOrderEditShippingMethodWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.removeReturnShippingMethodWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.removeReturnShippingMethodWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.requestItemReturnWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.requestItemReturnWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.requestOrderEditRequestWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.requestOrderEditRequestWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.requestOrderTransferWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.requestOrderTransferWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.updateClaimAddItemWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.updateClaimAddItemWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.updateClaimItemWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.updateClaimItemWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.updateClaimShippingMethodWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.updateClaimShippingMethodWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.updateExchangeAddItemWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.updateExchangeAddItemWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.updateExchangeShippingMethodWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.updateExchangeShippingMethodWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.updateOrderChangeActionsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.updateOrderChangeActionsWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.updateOrderChangesWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.updateOrderChangesWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.updateOrderEditAddItemWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.updateOrderEditAddItemWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.updateOrderEditItemQuantityWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.updateOrderEditItemQuantityWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.updateOrderEditShippingMethodWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.updateOrderEditShippingMethodWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.updateOrderTaxLinesWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.updateOrderTaxLinesWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.updateOrderWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.updateOrderWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.updateReceiveItemReturnRequestWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.updateReceiveItemReturnRequestWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.updateRequestItemReturnWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.updateRequestItemReturnWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.updateReturnShippingMethodWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.updateReturnShippingMethodWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.updateReturnWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Order/Workflows_Order/variables/core_flows.Order.Workflows_Order.updateReturnWorkflowId"
+  },
+  {
     "filePath": "/www/apps/resources/references/core_flows/Order/core_flows.Order.Steps_Order/page.mdx",
     "pathname": "/references/core_flows/Order/core_flows.Order.Steps_Order"
   },
@@ -3564,6 +4728,22 @@ export const filesMap = [
     "pathname": "/references/core_flows/Payment/Steps_Payment/functions/core_flows.Payment.Steps_Payment.refundPaymentStep"
   },
   {
+    "filePath": "/www/apps/resources/references/core_flows/Payment/Steps_Payment/variables/core_flows.Payment.Steps_Payment.authorizePaymentSessionStepId/page.mdx",
+    "pathname": "/references/core_flows/Payment/Steps_Payment/variables/core_flows.Payment.Steps_Payment.authorizePaymentSessionStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Payment/Steps_Payment/variables/core_flows.Payment.Steps_Payment.cancelPaymentStepId/page.mdx",
+    "pathname": "/references/core_flows/Payment/Steps_Payment/variables/core_flows.Payment.Steps_Payment.cancelPaymentStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Payment/Steps_Payment/variables/core_flows.Payment.Steps_Payment.capturePaymentStepId/page.mdx",
+    "pathname": "/references/core_flows/Payment/Steps_Payment/variables/core_flows.Payment.Steps_Payment.capturePaymentStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Payment/Steps_Payment/variables/core_flows.Payment.Steps_Payment.refundPaymentStepId/page.mdx",
+    "pathname": "/references/core_flows/Payment/Steps_Payment/variables/core_flows.Payment.Steps_Payment.refundPaymentStepId"
+  },
+  {
     "filePath": "/www/apps/resources/references/core_flows/Payment/Workflows_Payment/functions/core_flows.Payment.Workflows_Payment.capturePaymentWorkflow/page.mdx",
     "pathname": "/references/core_flows/Payment/Workflows_Payment/functions/core_flows.Payment.Workflows_Payment.capturePaymentWorkflow"
   },
@@ -3578,6 +4758,18 @@ export const filesMap = [
   {
     "filePath": "/www/apps/resources/references/core_flows/Payment/Workflows_Payment/functions/core_flows.Payment.Workflows_Payment.validateRefundStep/page.mdx",
     "pathname": "/references/core_flows/Payment/Workflows_Payment/functions/core_flows.Payment.Workflows_Payment.validateRefundStep"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Payment/Workflows_Payment/variables/core_flows.Payment.Workflows_Payment.capturePaymentWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Payment/Workflows_Payment/variables/core_flows.Payment.Workflows_Payment.capturePaymentWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Payment/Workflows_Payment/variables/core_flows.Payment.Workflows_Payment.processPaymentWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Payment/Workflows_Payment/variables/core_flows.Payment.Workflows_Payment.processPaymentWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Payment/Workflows_Payment/variables/core_flows.Payment.Workflows_Payment.refundPaymentWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Payment/Workflows_Payment/variables/core_flows.Payment.Workflows_Payment.refundPaymentWorkflowId"
   },
   {
     "filePath": "/www/apps/resources/references/core_flows/Payment/core_flows.Payment.Steps_Payment/page.mdx",
@@ -3616,6 +4808,34 @@ export const filesMap = [
     "pathname": "/references/core_flows/Payment_Collection/Steps_Payment_Collection/functions/core_flows.Payment_Collection.Steps_Payment_Collection.validateDeletedPaymentSessionsStep"
   },
   {
+    "filePath": "/www/apps/resources/references/core_flows/Payment_Collection/Steps_Payment_Collection/variables/core_flows.Payment_Collection.Steps_Payment_Collection.createPaymentSessionStepId/page.mdx",
+    "pathname": "/references/core_flows/Payment_Collection/Steps_Payment_Collection/variables/core_flows.Payment_Collection.Steps_Payment_Collection.createPaymentSessionStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Payment_Collection/Steps_Payment_Collection/variables/core_flows.Payment_Collection.Steps_Payment_Collection.createRefundReasonStepId/page.mdx",
+    "pathname": "/references/core_flows/Payment_Collection/Steps_Payment_Collection/variables/core_flows.Payment_Collection.Steps_Payment_Collection.createRefundReasonStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Payment_Collection/Steps_Payment_Collection/variables/core_flows.Payment_Collection.Steps_Payment_Collection.deletePaymentSessionsStepId/page.mdx",
+    "pathname": "/references/core_flows/Payment_Collection/Steps_Payment_Collection/variables/core_flows.Payment_Collection.Steps_Payment_Collection.deletePaymentSessionsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Payment_Collection/Steps_Payment_Collection/variables/core_flows.Payment_Collection.Steps_Payment_Collection.deleteRefundReasonsStepId/page.mdx",
+    "pathname": "/references/core_flows/Payment_Collection/Steps_Payment_Collection/variables/core_flows.Payment_Collection.Steps_Payment_Collection.deleteRefundReasonsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Payment_Collection/Steps_Payment_Collection/variables/core_flows.Payment_Collection.Steps_Payment_Collection.updatePaymentCollectionStepId/page.mdx",
+    "pathname": "/references/core_flows/Payment_Collection/Steps_Payment_Collection/variables/core_flows.Payment_Collection.Steps_Payment_Collection.updatePaymentCollectionStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Payment_Collection/Steps_Payment_Collection/variables/core_flows.Payment_Collection.Steps_Payment_Collection.updateRefundReasonStepId/page.mdx",
+    "pathname": "/references/core_flows/Payment_Collection/Steps_Payment_Collection/variables/core_flows.Payment_Collection.Steps_Payment_Collection.updateRefundReasonStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Payment_Collection/Steps_Payment_Collection/variables/core_flows.Payment_Collection.Steps_Payment_Collection.validateDeletedPaymentSessionsStepId/page.mdx",
+    "pathname": "/references/core_flows/Payment_Collection/Steps_Payment_Collection/variables/core_flows.Payment_Collection.Steps_Payment_Collection.validateDeletedPaymentSessionsStepId"
+  },
+  {
     "filePath": "/www/apps/resources/references/core_flows/Payment_Collection/Workflows_Payment_Collection/functions/core_flows.Payment_Collection.Workflows_Payment_Collection.createPaymentSessionsWorkflow/page.mdx",
     "pathname": "/references/core_flows/Payment_Collection/Workflows_Payment_Collection/functions/core_flows.Payment_Collection.Workflows_Payment_Collection.createPaymentSessionsWorkflow"
   },
@@ -3630,6 +4850,22 @@ export const filesMap = [
   {
     "filePath": "/www/apps/resources/references/core_flows/Payment_Collection/Workflows_Payment_Collection/functions/core_flows.Payment_Collection.Workflows_Payment_Collection.updateRefundReasonsWorkflow/page.mdx",
     "pathname": "/references/core_flows/Payment_Collection/Workflows_Payment_Collection/functions/core_flows.Payment_Collection.Workflows_Payment_Collection.updateRefundReasonsWorkflow"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Payment_Collection/Workflows_Payment_Collection/variables/core_flows.Payment_Collection.Workflows_Payment_Collection.createPaymentSessionsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Payment_Collection/Workflows_Payment_Collection/variables/core_flows.Payment_Collection.Workflows_Payment_Collection.createPaymentSessionsWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Payment_Collection/Workflows_Payment_Collection/variables/core_flows.Payment_Collection.Workflows_Payment_Collection.createRefundReasonsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Payment_Collection/Workflows_Payment_Collection/variables/core_flows.Payment_Collection.Workflows_Payment_Collection.createRefundReasonsWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Payment_Collection/Workflows_Payment_Collection/variables/core_flows.Payment_Collection.Workflows_Payment_Collection.deletePaymentSessionsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Payment_Collection/Workflows_Payment_Collection/variables/core_flows.Payment_Collection.Workflows_Payment_Collection.deletePaymentSessionsWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Payment_Collection/Workflows_Payment_Collection/variables/core_flows.Payment_Collection.Workflows_Payment_Collection.updateRefundReasonsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Payment_Collection/Workflows_Payment_Collection/variables/core_flows.Payment_Collection.Workflows_Payment_Collection.updateRefundReasonsWorkflowId"
   },
   {
     "filePath": "/www/apps/resources/references/core_flows/Payment_Collection/core_flows.Payment_Collection.Steps_Payment_Collection/page.mdx",
@@ -3676,6 +4912,42 @@ export const filesMap = [
     "pathname": "/references/core_flows/Price_List/Steps_Price_List/functions/core_flows.Price_List.Steps_Price_List.validateVariantPriceLinksStep"
   },
   {
+    "filePath": "/www/apps/resources/references/core_flows/Price_List/Steps_Price_List/variables/core_flows.Price_List.Steps_Price_List.createPriceListPricesStepId/page.mdx",
+    "pathname": "/references/core_flows/Price_List/Steps_Price_List/variables/core_flows.Price_List.Steps_Price_List.createPriceListPricesStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Price_List/Steps_Price_List/variables/core_flows.Price_List.Steps_Price_List.createPriceListsStepId/page.mdx",
+    "pathname": "/references/core_flows/Price_List/Steps_Price_List/variables/core_flows.Price_List.Steps_Price_List.createPriceListsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Price_List/Steps_Price_List/variables/core_flows.Price_List.Steps_Price_List.deletePriceListsStepId/page.mdx",
+    "pathname": "/references/core_flows/Price_List/Steps_Price_List/variables/core_flows.Price_List.Steps_Price_List.deletePriceListsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Price_List/Steps_Price_List/variables/core_flows.Price_List.Steps_Price_List.getExistingPriceListsPriceIdsStepId/page.mdx",
+    "pathname": "/references/core_flows/Price_List/Steps_Price_List/variables/core_flows.Price_List.Steps_Price_List.getExistingPriceListsPriceIdsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Price_List/Steps_Price_List/variables/core_flows.Price_List.Steps_Price_List.removePriceListPricesStepId/page.mdx",
+    "pathname": "/references/core_flows/Price_List/Steps_Price_List/variables/core_flows.Price_List.Steps_Price_List.removePriceListPricesStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Price_List/Steps_Price_List/variables/core_flows.Price_List.Steps_Price_List.updatePriceListPricesStepId/page.mdx",
+    "pathname": "/references/core_flows/Price_List/Steps_Price_List/variables/core_flows.Price_List.Steps_Price_List.updatePriceListPricesStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Price_List/Steps_Price_List/variables/core_flows.Price_List.Steps_Price_List.updatePriceListsStepId/page.mdx",
+    "pathname": "/references/core_flows/Price_List/Steps_Price_List/variables/core_flows.Price_List.Steps_Price_List.updatePriceListsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Price_List/Steps_Price_List/variables/core_flows.Price_List.Steps_Price_List.validatePriceListsStepId/page.mdx",
+    "pathname": "/references/core_flows/Price_List/Steps_Price_List/variables/core_flows.Price_List.Steps_Price_List.validatePriceListsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Price_List/Steps_Price_List/variables/core_flows.Price_List.Steps_Price_List.validateVariantPriceLinksStepId/page.mdx",
+    "pathname": "/references/core_flows/Price_List/Steps_Price_List/variables/core_flows.Price_List.Steps_Price_List.validateVariantPriceLinksStepId"
+  },
+  {
     "filePath": "/www/apps/resources/references/core_flows/Price_List/Workflows_Price_List/functions/core_flows.Price_List.Workflows_Price_List.batchPriceListPricesWorkflow/page.mdx",
     "pathname": "/references/core_flows/Price_List/Workflows_Price_List/functions/core_flows.Price_List.Workflows_Price_List.batchPriceListPricesWorkflow"
   },
@@ -3702,6 +4974,34 @@ export const filesMap = [
   {
     "filePath": "/www/apps/resources/references/core_flows/Price_List/Workflows_Price_List/functions/core_flows.Price_List.Workflows_Price_List.updatePriceListsWorkflow/page.mdx",
     "pathname": "/references/core_flows/Price_List/Workflows_Price_List/functions/core_flows.Price_List.Workflows_Price_List.updatePriceListsWorkflow"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Price_List/Workflows_Price_List/variables/core_flows.Price_List.Workflows_Price_List.batchPriceListPricesWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Price_List/Workflows_Price_List/variables/core_flows.Price_List.Workflows_Price_List.batchPriceListPricesWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Price_List/Workflows_Price_List/variables/core_flows.Price_List.Workflows_Price_List.createPriceListPricesWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Price_List/Workflows_Price_List/variables/core_flows.Price_List.Workflows_Price_List.createPriceListPricesWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Price_List/Workflows_Price_List/variables/core_flows.Price_List.Workflows_Price_List.createPriceListsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Price_List/Workflows_Price_List/variables/core_flows.Price_List.Workflows_Price_List.createPriceListsWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Price_List/Workflows_Price_List/variables/core_flows.Price_List.Workflows_Price_List.deletePriceListsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Price_List/Workflows_Price_List/variables/core_flows.Price_List.Workflows_Price_List.deletePriceListsWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Price_List/Workflows_Price_List/variables/core_flows.Price_List.Workflows_Price_List.removePriceListPricesWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Price_List/Workflows_Price_List/variables/core_flows.Price_List.Workflows_Price_List.removePriceListPricesWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Price_List/Workflows_Price_List/variables/core_flows.Price_List.Workflows_Price_List.updatePriceListPricesWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Price_List/Workflows_Price_List/variables/core_flows.Price_List.Workflows_Price_List.updatePriceListPricesWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Price_List/Workflows_Price_List/variables/core_flows.Price_List.Workflows_Price_List.updatePriceListsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Price_List/Workflows_Price_List/variables/core_flows.Price_List.Workflows_Price_List.updatePriceListsWorkflowId"
   },
   {
     "filePath": "/www/apps/resources/references/core_flows/Price_List/core_flows.Price_List.Steps_Price_List/page.mdx",
@@ -3736,6 +5036,30 @@ export const filesMap = [
     "pathname": "/references/core_flows/Pricing/Steps_Pricing/functions/core_flows.Pricing.Steps_Pricing.updatePriceSetsStep"
   },
   {
+    "filePath": "/www/apps/resources/references/core_flows/Pricing/Steps_Pricing/variables/core_flows.Pricing.Steps_Pricing.createPricePreferencesStepId/page.mdx",
+    "pathname": "/references/core_flows/Pricing/Steps_Pricing/variables/core_flows.Pricing.Steps_Pricing.createPricePreferencesStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Pricing/Steps_Pricing/variables/core_flows.Pricing.Steps_Pricing.createPriceSetsStepId/page.mdx",
+    "pathname": "/references/core_flows/Pricing/Steps_Pricing/variables/core_flows.Pricing.Steps_Pricing.createPriceSetsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Pricing/Steps_Pricing/variables/core_flows.Pricing.Steps_Pricing.deletePricePreferencesStepId/page.mdx",
+    "pathname": "/references/core_flows/Pricing/Steps_Pricing/variables/core_flows.Pricing.Steps_Pricing.deletePricePreferencesStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Pricing/Steps_Pricing/variables/core_flows.Pricing.Steps_Pricing.updatePricePreferencesAsArrayStepId/page.mdx",
+    "pathname": "/references/core_flows/Pricing/Steps_Pricing/variables/core_flows.Pricing.Steps_Pricing.updatePricePreferencesAsArrayStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Pricing/Steps_Pricing/variables/core_flows.Pricing.Steps_Pricing.updatePricePreferencesStepId/page.mdx",
+    "pathname": "/references/core_flows/Pricing/Steps_Pricing/variables/core_flows.Pricing.Steps_Pricing.updatePricePreferencesStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Pricing/Steps_Pricing/variables/core_flows.Pricing.Steps_Pricing.updatePriceSetsStepId/page.mdx",
+    "pathname": "/references/core_flows/Pricing/Steps_Pricing/variables/core_flows.Pricing.Steps_Pricing.updatePriceSetsStepId"
+  },
+  {
     "filePath": "/www/apps/resources/references/core_flows/Pricing/Workflows_Pricing/functions/core_flows.Pricing.Workflows_Pricing.createPricePreferencesWorkflow/page.mdx",
     "pathname": "/references/core_flows/Pricing/Workflows_Pricing/functions/core_flows.Pricing.Workflows_Pricing.createPricePreferencesWorkflow"
   },
@@ -3746,6 +5070,18 @@ export const filesMap = [
   {
     "filePath": "/www/apps/resources/references/core_flows/Pricing/Workflows_Pricing/functions/core_flows.Pricing.Workflows_Pricing.updatePricePreferencesWorkflow/page.mdx",
     "pathname": "/references/core_flows/Pricing/Workflows_Pricing/functions/core_flows.Pricing.Workflows_Pricing.updatePricePreferencesWorkflow"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Pricing/Workflows_Pricing/variables/core_flows.Pricing.Workflows_Pricing.createPricePreferencesWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Pricing/Workflows_Pricing/variables/core_flows.Pricing.Workflows_Pricing.createPricePreferencesWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Pricing/Workflows_Pricing/variables/core_flows.Pricing.Workflows_Pricing.deletePricePreferencesWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Pricing/Workflows_Pricing/variables/core_flows.Pricing.Workflows_Pricing.deletePricePreferencesWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Pricing/Workflows_Pricing/variables/core_flows.Pricing.Workflows_Pricing.updatePricePreferencesWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Pricing/Workflows_Pricing/variables/core_flows.Pricing.Workflows_Pricing.updatePricePreferencesWorkflowId"
   },
   {
     "filePath": "/www/apps/resources/references/core_flows/Pricing/core_flows.Pricing.Steps_Pricing/page.mdx",
@@ -3860,6 +5196,110 @@ export const filesMap = [
     "pathname": "/references/core_flows/Product/Steps_Product/functions/core_flows.Product.Steps_Product.waitConfirmationProductImportStep"
   },
   {
+    "filePath": "/www/apps/resources/references/core_flows/Product/Steps_Product/variables/core_flows.Product.Steps_Product.batchLinkProductsToCollectionStepId/page.mdx",
+    "pathname": "/references/core_flows/Product/Steps_Product/variables/core_flows.Product.Steps_Product.batchLinkProductsToCollectionStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Product/Steps_Product/variables/core_flows.Product.Steps_Product.createCollectionsStepId/page.mdx",
+    "pathname": "/references/core_flows/Product/Steps_Product/variables/core_flows.Product.Steps_Product.createCollectionsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Product/Steps_Product/variables/core_flows.Product.Steps_Product.createProductOptionsStepId/page.mdx",
+    "pathname": "/references/core_flows/Product/Steps_Product/variables/core_flows.Product.Steps_Product.createProductOptionsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Product/Steps_Product/variables/core_flows.Product.Steps_Product.createProductTagsStepId/page.mdx",
+    "pathname": "/references/core_flows/Product/Steps_Product/variables/core_flows.Product.Steps_Product.createProductTagsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Product/Steps_Product/variables/core_flows.Product.Steps_Product.createProductTypesStepId/page.mdx",
+    "pathname": "/references/core_flows/Product/Steps_Product/variables/core_flows.Product.Steps_Product.createProductTypesStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Product/Steps_Product/variables/core_flows.Product.Steps_Product.createProductVariantsStepId/page.mdx",
+    "pathname": "/references/core_flows/Product/Steps_Product/variables/core_flows.Product.Steps_Product.createProductVariantsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Product/Steps_Product/variables/core_flows.Product.Steps_Product.createProductsStepId/page.mdx",
+    "pathname": "/references/core_flows/Product/Steps_Product/variables/core_flows.Product.Steps_Product.createProductsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Product/Steps_Product/variables/core_flows.Product.Steps_Product.createVariantPricingLinkStepId/page.mdx",
+    "pathname": "/references/core_flows/Product/Steps_Product/variables/core_flows.Product.Steps_Product.createVariantPricingLinkStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Product/Steps_Product/variables/core_flows.Product.Steps_Product.deleteCollectionsStepId/page.mdx",
+    "pathname": "/references/core_flows/Product/Steps_Product/variables/core_flows.Product.Steps_Product.deleteCollectionsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Product/Steps_Product/variables/core_flows.Product.Steps_Product.deleteProductOptionsStepId/page.mdx",
+    "pathname": "/references/core_flows/Product/Steps_Product/variables/core_flows.Product.Steps_Product.deleteProductOptionsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Product/Steps_Product/variables/core_flows.Product.Steps_Product.deleteProductTagsStepId/page.mdx",
+    "pathname": "/references/core_flows/Product/Steps_Product/variables/core_flows.Product.Steps_Product.deleteProductTagsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Product/Steps_Product/variables/core_flows.Product.Steps_Product.deleteProductTypesStepId/page.mdx",
+    "pathname": "/references/core_flows/Product/Steps_Product/variables/core_flows.Product.Steps_Product.deleteProductTypesStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Product/Steps_Product/variables/core_flows.Product.Steps_Product.deleteProductVariantsStepId/page.mdx",
+    "pathname": "/references/core_flows/Product/Steps_Product/variables/core_flows.Product.Steps_Product.deleteProductVariantsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Product/Steps_Product/variables/core_flows.Product.Steps_Product.deleteProductsStepId/page.mdx",
+    "pathname": "/references/core_flows/Product/Steps_Product/variables/core_flows.Product.Steps_Product.deleteProductsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Product/Steps_Product/variables/core_flows.Product.Steps_Product.generateProductCsvStepId/page.mdx",
+    "pathname": "/references/core_flows/Product/Steps_Product/variables/core_flows.Product.Steps_Product.generateProductCsvStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Product/Steps_Product/variables/core_flows.Product.Steps_Product.getAllProductsStepId/page.mdx",
+    "pathname": "/references/core_flows/Product/Steps_Product/variables/core_flows.Product.Steps_Product.getAllProductsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Product/Steps_Product/variables/core_flows.Product.Steps_Product.getProductsStepId/page.mdx",
+    "pathname": "/references/core_flows/Product/Steps_Product/variables/core_flows.Product.Steps_Product.getProductsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Product/Steps_Product/variables/core_flows.Product.Steps_Product.groupProductsForBatchStepId/page.mdx",
+    "pathname": "/references/core_flows/Product/Steps_Product/variables/core_flows.Product.Steps_Product.groupProductsForBatchStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Product/Steps_Product/variables/core_flows.Product.Steps_Product.parseProductCsvStepId/page.mdx",
+    "pathname": "/references/core_flows/Product/Steps_Product/variables/core_flows.Product.Steps_Product.parseProductCsvStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Product/Steps_Product/variables/core_flows.Product.Steps_Product.updateCollectionsStepId/page.mdx",
+    "pathname": "/references/core_flows/Product/Steps_Product/variables/core_flows.Product.Steps_Product.updateCollectionsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Product/Steps_Product/variables/core_flows.Product.Steps_Product.updateProductOptionsStepId/page.mdx",
+    "pathname": "/references/core_flows/Product/Steps_Product/variables/core_flows.Product.Steps_Product.updateProductOptionsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Product/Steps_Product/variables/core_flows.Product.Steps_Product.updateProductTagsStepId/page.mdx",
+    "pathname": "/references/core_flows/Product/Steps_Product/variables/core_flows.Product.Steps_Product.updateProductTagsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Product/Steps_Product/variables/core_flows.Product.Steps_Product.updateProductTypesStepId/page.mdx",
+    "pathname": "/references/core_flows/Product/Steps_Product/variables/core_flows.Product.Steps_Product.updateProductTypesStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Product/Steps_Product/variables/core_flows.Product.Steps_Product.updateProductVariantsStepId/page.mdx",
+    "pathname": "/references/core_flows/Product/Steps_Product/variables/core_flows.Product.Steps_Product.updateProductVariantsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Product/Steps_Product/variables/core_flows.Product.Steps_Product.updateProductsStepId/page.mdx",
+    "pathname": "/references/core_flows/Product/Steps_Product/variables/core_flows.Product.Steps_Product.updateProductsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Product/Steps_Product/variables/core_flows.Product.Steps_Product.waitConfirmationProductImportStepId/page.mdx",
+    "pathname": "/references/core_flows/Product/Steps_Product/variables/core_flows.Product.Steps_Product.waitConfirmationProductImportStepId"
+  },
+  {
     "filePath": "/www/apps/resources/references/core_flows/Product/Workflows_Product/functions/core_flows.Product.Workflows_Product.batchLinkProductsToCategoryWorkflow/page.mdx",
     "pathname": "/references/core_flows/Product/Workflows_Product/functions/core_flows.Product.Workflows_Product.batchLinkProductsToCategoryWorkflow"
   },
@@ -3960,6 +5400,106 @@ export const filesMap = [
     "pathname": "/references/core_flows/Product/Workflows_Product/functions/core_flows.Product.Workflows_Product.upsertVariantPricesWorkflow"
   },
   {
+    "filePath": "/www/apps/resources/references/core_flows/Product/Workflows_Product/variables/core_flows.Product.Workflows_Product.batchLinkProductsToCategoryWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Product/Workflows_Product/variables/core_flows.Product.Workflows_Product.batchLinkProductsToCategoryWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Product/Workflows_Product/variables/core_flows.Product.Workflows_Product.batchLinkProductsToCollectionWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Product/Workflows_Product/variables/core_flows.Product.Workflows_Product.batchLinkProductsToCollectionWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Product/Workflows_Product/variables/core_flows.Product.Workflows_Product.batchProductVariantsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Product/Workflows_Product/variables/core_flows.Product.Workflows_Product.batchProductVariantsWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Product/Workflows_Product/variables/core_flows.Product.Workflows_Product.batchProductsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Product/Workflows_Product/variables/core_flows.Product.Workflows_Product.batchProductsWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Product/Workflows_Product/variables/core_flows.Product.Workflows_Product.createCollectionsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Product/Workflows_Product/variables/core_flows.Product.Workflows_Product.createCollectionsWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Product/Workflows_Product/variables/core_flows.Product.Workflows_Product.createProductOptionsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Product/Workflows_Product/variables/core_flows.Product.Workflows_Product.createProductOptionsWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Product/Workflows_Product/variables/core_flows.Product.Workflows_Product.createProductTagsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Product/Workflows_Product/variables/core_flows.Product.Workflows_Product.createProductTagsWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Product/Workflows_Product/variables/core_flows.Product.Workflows_Product.createProductTypesWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Product/Workflows_Product/variables/core_flows.Product.Workflows_Product.createProductTypesWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Product/Workflows_Product/variables/core_flows.Product.Workflows_Product.createProductVariantsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Product/Workflows_Product/variables/core_flows.Product.Workflows_Product.createProductVariantsWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Product/Workflows_Product/variables/core_flows.Product.Workflows_Product.createProductsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Product/Workflows_Product/variables/core_flows.Product.Workflows_Product.createProductsWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Product/Workflows_Product/variables/core_flows.Product.Workflows_Product.deleteCollectionsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Product/Workflows_Product/variables/core_flows.Product.Workflows_Product.deleteCollectionsWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Product/Workflows_Product/variables/core_flows.Product.Workflows_Product.deleteProductOptionsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Product/Workflows_Product/variables/core_flows.Product.Workflows_Product.deleteProductOptionsWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Product/Workflows_Product/variables/core_flows.Product.Workflows_Product.deleteProductTagsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Product/Workflows_Product/variables/core_flows.Product.Workflows_Product.deleteProductTagsWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Product/Workflows_Product/variables/core_flows.Product.Workflows_Product.deleteProductTypesWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Product/Workflows_Product/variables/core_flows.Product.Workflows_Product.deleteProductTypesWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Product/Workflows_Product/variables/core_flows.Product.Workflows_Product.deleteProductVariantsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Product/Workflows_Product/variables/core_flows.Product.Workflows_Product.deleteProductVariantsWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Product/Workflows_Product/variables/core_flows.Product.Workflows_Product.deleteProductsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Product/Workflows_Product/variables/core_flows.Product.Workflows_Product.deleteProductsWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Product/Workflows_Product/variables/core_flows.Product.Workflows_Product.exportProductsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Product/Workflows_Product/variables/core_flows.Product.Workflows_Product.exportProductsWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Product/Workflows_Product/variables/core_flows.Product.Workflows_Product.importProductsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Product/Workflows_Product/variables/core_flows.Product.Workflows_Product.importProductsWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Product/Workflows_Product/variables/core_flows.Product.Workflows_Product.updateCollectionsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Product/Workflows_Product/variables/core_flows.Product.Workflows_Product.updateCollectionsWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Product/Workflows_Product/variables/core_flows.Product.Workflows_Product.updateProductOptionsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Product/Workflows_Product/variables/core_flows.Product.Workflows_Product.updateProductOptionsWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Product/Workflows_Product/variables/core_flows.Product.Workflows_Product.updateProductTagsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Product/Workflows_Product/variables/core_flows.Product.Workflows_Product.updateProductTagsWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Product/Workflows_Product/variables/core_flows.Product.Workflows_Product.updateProductTypesWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Product/Workflows_Product/variables/core_flows.Product.Workflows_Product.updateProductTypesWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Product/Workflows_Product/variables/core_flows.Product.Workflows_Product.updateProductVariantsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Product/Workflows_Product/variables/core_flows.Product.Workflows_Product.updateProductVariantsWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Product/Workflows_Product/variables/core_flows.Product.Workflows_Product.updateProductsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Product/Workflows_Product/variables/core_flows.Product.Workflows_Product.updateProductsWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Product/Workflows_Product/variables/core_flows.Product.Workflows_Product.upsertVariantPricesWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Product/Workflows_Product/variables/core_flows.Product.Workflows_Product.upsertVariantPricesWorkflowId"
+  },
+  {
     "filePath": "/www/apps/resources/references/core_flows/Product/core_flows.Product.Steps_Product/page.mdx",
     "pathname": "/references/core_flows/Product/core_flows.Product.Steps_Product"
   },
@@ -3980,6 +5520,18 @@ export const filesMap = [
     "pathname": "/references/core_flows/Product_Category/Steps_Product_Category/functions/core_flows.Product_Category.Steps_Product_Category.updateProductCategoriesStep"
   },
   {
+    "filePath": "/www/apps/resources/references/core_flows/Product_Category/Steps_Product_Category/variables/core_flows.Product_Category.Steps_Product_Category.createProductCategoriesStepId/page.mdx",
+    "pathname": "/references/core_flows/Product_Category/Steps_Product_Category/variables/core_flows.Product_Category.Steps_Product_Category.createProductCategoriesStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Product_Category/Steps_Product_Category/variables/core_flows.Product_Category.Steps_Product_Category.deleteProductCategoriesStepId/page.mdx",
+    "pathname": "/references/core_flows/Product_Category/Steps_Product_Category/variables/core_flows.Product_Category.Steps_Product_Category.deleteProductCategoriesStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Product_Category/Steps_Product_Category/variables/core_flows.Product_Category.Steps_Product_Category.updateProductCategoriesStepId/page.mdx",
+    "pathname": "/references/core_flows/Product_Category/Steps_Product_Category/variables/core_flows.Product_Category.Steps_Product_Category.updateProductCategoriesStepId"
+  },
+  {
     "filePath": "/www/apps/resources/references/core_flows/Product_Category/Workflows_Product_Category/functions/core_flows.Product_Category.Workflows_Product_Category.createProductCategoriesWorkflow/page.mdx",
     "pathname": "/references/core_flows/Product_Category/Workflows_Product_Category/functions/core_flows.Product_Category.Workflows_Product_Category.createProductCategoriesWorkflow"
   },
@@ -3990,6 +5542,18 @@ export const filesMap = [
   {
     "filePath": "/www/apps/resources/references/core_flows/Product_Category/Workflows_Product_Category/functions/core_flows.Product_Category.Workflows_Product_Category.updateProductCategoriesWorkflow/page.mdx",
     "pathname": "/references/core_flows/Product_Category/Workflows_Product_Category/functions/core_flows.Product_Category.Workflows_Product_Category.updateProductCategoriesWorkflow"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Product_Category/Workflows_Product_Category/variables/core_flows.Product_Category.Workflows_Product_Category.createProductCategoriesWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Product_Category/Workflows_Product_Category/variables/core_flows.Product_Category.Workflows_Product_Category.createProductCategoriesWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Product_Category/Workflows_Product_Category/variables/core_flows.Product_Category.Workflows_Product_Category.deleteProductCategoriesWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Product_Category/Workflows_Product_Category/variables/core_flows.Product_Category.Workflows_Product_Category.deleteProductCategoriesWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Product_Category/Workflows_Product_Category/variables/core_flows.Product_Category.Workflows_Product_Category.updateProductCategoriesWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Product_Category/Workflows_Product_Category/variables/core_flows.Product_Category.Workflows_Product_Category.updateProductCategoriesWorkflowId"
   },
   {
     "filePath": "/www/apps/resources/references/core_flows/Product_Category/core_flows.Product_Category.Steps_Product_Category/page.mdx",
@@ -4044,6 +5608,50 @@ export const filesMap = [
     "pathname": "/references/core_flows/Promotion/Steps_Promotion/functions/core_flows.Promotion.Steps_Promotion.updatePromotionsStep"
   },
   {
+    "filePath": "/www/apps/resources/references/core_flows/Promotion/Steps_Promotion/variables/core_flows.Promotion.Steps_Promotion.addCampaignPromotionsStepId/page.mdx",
+    "pathname": "/references/core_flows/Promotion/Steps_Promotion/variables/core_flows.Promotion.Steps_Promotion.addCampaignPromotionsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Promotion/Steps_Promotion/variables/core_flows.Promotion.Steps_Promotion.addRulesToPromotionsStepId/page.mdx",
+    "pathname": "/references/core_flows/Promotion/Steps_Promotion/variables/core_flows.Promotion.Steps_Promotion.addRulesToPromotionsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Promotion/Steps_Promotion/variables/core_flows.Promotion.Steps_Promotion.createCampaignsStepId/page.mdx",
+    "pathname": "/references/core_flows/Promotion/Steps_Promotion/variables/core_flows.Promotion.Steps_Promotion.createCampaignsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Promotion/Steps_Promotion/variables/core_flows.Promotion.Steps_Promotion.createPromotionsStepId/page.mdx",
+    "pathname": "/references/core_flows/Promotion/Steps_Promotion/variables/core_flows.Promotion.Steps_Promotion.createPromotionsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Promotion/Steps_Promotion/variables/core_flows.Promotion.Steps_Promotion.deleteCampaignsStepId/page.mdx",
+    "pathname": "/references/core_flows/Promotion/Steps_Promotion/variables/core_flows.Promotion.Steps_Promotion.deleteCampaignsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Promotion/Steps_Promotion/variables/core_flows.Promotion.Steps_Promotion.deletePromotionsStepId/page.mdx",
+    "pathname": "/references/core_flows/Promotion/Steps_Promotion/variables/core_flows.Promotion.Steps_Promotion.deletePromotionsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Promotion/Steps_Promotion/variables/core_flows.Promotion.Steps_Promotion.removeCampaignPromotionsStepId/page.mdx",
+    "pathname": "/references/core_flows/Promotion/Steps_Promotion/variables/core_flows.Promotion.Steps_Promotion.removeCampaignPromotionsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Promotion/Steps_Promotion/variables/core_flows.Promotion.Steps_Promotion.removeRulesFromPromotionsStepId/page.mdx",
+    "pathname": "/references/core_flows/Promotion/Steps_Promotion/variables/core_flows.Promotion.Steps_Promotion.removeRulesFromPromotionsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Promotion/Steps_Promotion/variables/core_flows.Promotion.Steps_Promotion.updateCampaignsStepId/page.mdx",
+    "pathname": "/references/core_flows/Promotion/Steps_Promotion/variables/core_flows.Promotion.Steps_Promotion.updateCampaignsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Promotion/Steps_Promotion/variables/core_flows.Promotion.Steps_Promotion.updatePromotionRulesStepId/page.mdx",
+    "pathname": "/references/core_flows/Promotion/Steps_Promotion/variables/core_flows.Promotion.Steps_Promotion.updatePromotionRulesStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Promotion/Steps_Promotion/variables/core_flows.Promotion.Steps_Promotion.updatePromotionsStepId/page.mdx",
+    "pathname": "/references/core_flows/Promotion/Steps_Promotion/variables/core_flows.Promotion.Steps_Promotion.updatePromotionsStepId"
+  },
+  {
     "filePath": "/www/apps/resources/references/core_flows/Promotion/Workflows_Promotion/functions/core_flows.Promotion.Workflows_Promotion.addOrRemoveCampaignPromotionsWorkflow/page.mdx",
     "pathname": "/references/core_flows/Promotion/Workflows_Promotion/functions/core_flows.Promotion.Workflows_Promotion.addOrRemoveCampaignPromotionsWorkflow"
   },
@@ -4088,6 +5696,50 @@ export const filesMap = [
     "pathname": "/references/core_flows/Promotion/Workflows_Promotion/functions/core_flows.Promotion.Workflows_Promotion.updatePromotionsWorkflow"
   },
   {
+    "filePath": "/www/apps/resources/references/core_flows/Promotion/Workflows_Promotion/variables/core_flows.Promotion.Workflows_Promotion.addOrRemoveCampaignPromotionsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Promotion/Workflows_Promotion/variables/core_flows.Promotion.Workflows_Promotion.addOrRemoveCampaignPromotionsWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Promotion/Workflows_Promotion/variables/core_flows.Promotion.Workflows_Promotion.batchPromotionRulesWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Promotion/Workflows_Promotion/variables/core_flows.Promotion.Workflows_Promotion.batchPromotionRulesWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Promotion/Workflows_Promotion/variables/core_flows.Promotion.Workflows_Promotion.createCampaignsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Promotion/Workflows_Promotion/variables/core_flows.Promotion.Workflows_Promotion.createCampaignsWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Promotion/Workflows_Promotion/variables/core_flows.Promotion.Workflows_Promotion.createPromotionRulesWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Promotion/Workflows_Promotion/variables/core_flows.Promotion.Workflows_Promotion.createPromotionRulesWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Promotion/Workflows_Promotion/variables/core_flows.Promotion.Workflows_Promotion.createPromotionsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Promotion/Workflows_Promotion/variables/core_flows.Promotion.Workflows_Promotion.createPromotionsWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Promotion/Workflows_Promotion/variables/core_flows.Promotion.Workflows_Promotion.deleteCampaignsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Promotion/Workflows_Promotion/variables/core_flows.Promotion.Workflows_Promotion.deleteCampaignsWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Promotion/Workflows_Promotion/variables/core_flows.Promotion.Workflows_Promotion.deletePromotionRulesWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Promotion/Workflows_Promotion/variables/core_flows.Promotion.Workflows_Promotion.deletePromotionRulesWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Promotion/Workflows_Promotion/variables/core_flows.Promotion.Workflows_Promotion.deletePromotionsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Promotion/Workflows_Promotion/variables/core_flows.Promotion.Workflows_Promotion.deletePromotionsWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Promotion/Workflows_Promotion/variables/core_flows.Promotion.Workflows_Promotion.updateCampaignsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Promotion/Workflows_Promotion/variables/core_flows.Promotion.Workflows_Promotion.updateCampaignsWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Promotion/Workflows_Promotion/variables/core_flows.Promotion.Workflows_Promotion.updatePromotionRulesWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Promotion/Workflows_Promotion/variables/core_flows.Promotion.Workflows_Promotion.updatePromotionRulesWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Promotion/Workflows_Promotion/variables/core_flows.Promotion.Workflows_Promotion.updatePromotionsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Promotion/Workflows_Promotion/variables/core_flows.Promotion.Workflows_Promotion.updatePromotionsWorkflowId"
+  },
+  {
     "filePath": "/www/apps/resources/references/core_flows/Promotion/core_flows.Promotion.Steps_Promotion/page.mdx",
     "pathname": "/references/core_flows/Promotion/core_flows.Promotion.Steps_Promotion"
   },
@@ -4108,6 +5760,18 @@ export const filesMap = [
     "pathname": "/references/core_flows/Region/Steps_Region/functions/core_flows.Region.Steps_Region.updateRegionsStep"
   },
   {
+    "filePath": "/www/apps/resources/references/core_flows/Region/Steps_Region/variables/core_flows.Region.Steps_Region.createRegionsStepId/page.mdx",
+    "pathname": "/references/core_flows/Region/Steps_Region/variables/core_flows.Region.Steps_Region.createRegionsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Region/Steps_Region/variables/core_flows.Region.Steps_Region.deleteRegionsStepId/page.mdx",
+    "pathname": "/references/core_flows/Region/Steps_Region/variables/core_flows.Region.Steps_Region.deleteRegionsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Region/Steps_Region/variables/core_flows.Region.Steps_Region.updateRegionsStepId/page.mdx",
+    "pathname": "/references/core_flows/Region/Steps_Region/variables/core_flows.Region.Steps_Region.updateRegionsStepId"
+  },
+  {
     "filePath": "/www/apps/resources/references/core_flows/Region/Workflows_Region/functions/core_flows.Region.Workflows_Region.createRegionsWorkflow/page.mdx",
     "pathname": "/references/core_flows/Region/Workflows_Region/functions/core_flows.Region.Workflows_Region.createRegionsWorkflow"
   },
@@ -4118,6 +5782,18 @@ export const filesMap = [
   {
     "filePath": "/www/apps/resources/references/core_flows/Region/Workflows_Region/functions/core_flows.Region.Workflows_Region.updateRegionsWorkflow/page.mdx",
     "pathname": "/references/core_flows/Region/Workflows_Region/functions/core_flows.Region.Workflows_Region.updateRegionsWorkflow"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Region/Workflows_Region/variables/core_flows.Region.Workflows_Region.createRegionsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Region/Workflows_Region/variables/core_flows.Region.Workflows_Region.createRegionsWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Region/Workflows_Region/variables/core_flows.Region.Workflows_Region.deleteRegionsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Region/Workflows_Region/variables/core_flows.Region.Workflows_Region.deleteRegionsWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Region/Workflows_Region/variables/core_flows.Region.Workflows_Region.updateRegionsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Region/Workflows_Region/variables/core_flows.Region.Workflows_Region.updateRegionsWorkflowId"
   },
   {
     "filePath": "/www/apps/resources/references/core_flows/Region/core_flows.Region.Steps_Region/page.mdx",
@@ -4144,6 +5820,22 @@ export const filesMap = [
     "pathname": "/references/core_flows/Reservation/Steps_Reservation/functions/core_flows.Reservation.Steps_Reservation.updateReservationsStep"
   },
   {
+    "filePath": "/www/apps/resources/references/core_flows/Reservation/Steps_Reservation/variables/core_flows.Reservation.Steps_Reservation.createReservationsStepId/page.mdx",
+    "pathname": "/references/core_flows/Reservation/Steps_Reservation/variables/core_flows.Reservation.Steps_Reservation.createReservationsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Reservation/Steps_Reservation/variables/core_flows.Reservation.Steps_Reservation.deleteReservationsByLineItemsStepId/page.mdx",
+    "pathname": "/references/core_flows/Reservation/Steps_Reservation/variables/core_flows.Reservation.Steps_Reservation.deleteReservationsByLineItemsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Reservation/Steps_Reservation/variables/core_flows.Reservation.Steps_Reservation.deleteReservationsStepId/page.mdx",
+    "pathname": "/references/core_flows/Reservation/Steps_Reservation/variables/core_flows.Reservation.Steps_Reservation.deleteReservationsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Reservation/Steps_Reservation/variables/core_flows.Reservation.Steps_Reservation.updateReservationsStepId/page.mdx",
+    "pathname": "/references/core_flows/Reservation/Steps_Reservation/variables/core_flows.Reservation.Steps_Reservation.updateReservationsStepId"
+  },
+  {
     "filePath": "/www/apps/resources/references/core_flows/Reservation/Workflows_Reservation/functions/core_flows.Reservation.Workflows_Reservation.createReservationsWorkflow/page.mdx",
     "pathname": "/references/core_flows/Reservation/Workflows_Reservation/functions/core_flows.Reservation.Workflows_Reservation.createReservationsWorkflow"
   },
@@ -4158,6 +5850,22 @@ export const filesMap = [
   {
     "filePath": "/www/apps/resources/references/core_flows/Reservation/Workflows_Reservation/functions/core_flows.Reservation.Workflows_Reservation.updateReservationsWorkflow/page.mdx",
     "pathname": "/references/core_flows/Reservation/Workflows_Reservation/functions/core_flows.Reservation.Workflows_Reservation.updateReservationsWorkflow"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Reservation/Workflows_Reservation/variables/core_flows.Reservation.Workflows_Reservation.createReservationsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Reservation/Workflows_Reservation/variables/core_flows.Reservation.Workflows_Reservation.createReservationsWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Reservation/Workflows_Reservation/variables/core_flows.Reservation.Workflows_Reservation.deleteReservationsByLineItemsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Reservation/Workflows_Reservation/variables/core_flows.Reservation.Workflows_Reservation.deleteReservationsByLineItemsWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Reservation/Workflows_Reservation/variables/core_flows.Reservation.Workflows_Reservation.deleteReservationsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Reservation/Workflows_Reservation/variables/core_flows.Reservation.Workflows_Reservation.deleteReservationsWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Reservation/Workflows_Reservation/variables/core_flows.Reservation.Workflows_Reservation.updateReservationsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Reservation/Workflows_Reservation/variables/core_flows.Reservation.Workflows_Reservation.updateReservationsWorkflowId"
   },
   {
     "filePath": "/www/apps/resources/references/core_flows/Reservation/core_flows.Reservation.Steps_Reservation/page.mdx",
@@ -4180,6 +5888,18 @@ export const filesMap = [
     "pathname": "/references/core_flows/Return_Reason/Steps_Return_Reason/functions/core_flows.Return_Reason.Steps_Return_Reason.updateReturnReasonsStep"
   },
   {
+    "filePath": "/www/apps/resources/references/core_flows/Return_Reason/Steps_Return_Reason/variables/core_flows.Return_Reason.Steps_Return_Reason.createReturnReasonsStepId/page.mdx",
+    "pathname": "/references/core_flows/Return_Reason/Steps_Return_Reason/variables/core_flows.Return_Reason.Steps_Return_Reason.createReturnReasonsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Return_Reason/Steps_Return_Reason/variables/core_flows.Return_Reason.Steps_Return_Reason.deleteReturnReasonStepId/page.mdx",
+    "pathname": "/references/core_flows/Return_Reason/Steps_Return_Reason/variables/core_flows.Return_Reason.Steps_Return_Reason.deleteReturnReasonStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Return_Reason/Steps_Return_Reason/variables/core_flows.Return_Reason.Steps_Return_Reason.updateReturnReasonStepId/page.mdx",
+    "pathname": "/references/core_flows/Return_Reason/Steps_Return_Reason/variables/core_flows.Return_Reason.Steps_Return_Reason.updateReturnReasonStepId"
+  },
+  {
     "filePath": "/www/apps/resources/references/core_flows/Return_Reason/Workflows_Return_Reason/functions/core_flows.Return_Reason.Workflows_Return_Reason.createReturnReasonsWorkflow/page.mdx",
     "pathname": "/references/core_flows/Return_Reason/Workflows_Return_Reason/functions/core_flows.Return_Reason.Workflows_Return_Reason.createReturnReasonsWorkflow"
   },
@@ -4190,6 +5910,18 @@ export const filesMap = [
   {
     "filePath": "/www/apps/resources/references/core_flows/Return_Reason/Workflows_Return_Reason/functions/core_flows.Return_Reason.Workflows_Return_Reason.updateReturnReasonsWorkflow/page.mdx",
     "pathname": "/references/core_flows/Return_Reason/Workflows_Return_Reason/functions/core_flows.Return_Reason.Workflows_Return_Reason.updateReturnReasonsWorkflow"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Return_Reason/Workflows_Return_Reason/variables/core_flows.Return_Reason.Workflows_Return_Reason.createReturnReasonsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Return_Reason/Workflows_Return_Reason/variables/core_flows.Return_Reason.Workflows_Return_Reason.createReturnReasonsWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Return_Reason/Workflows_Return_Reason/variables/core_flows.Return_Reason.Workflows_Return_Reason.deleteReturnReasonsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Return_Reason/Workflows_Return_Reason/variables/core_flows.Return_Reason.Workflows_Return_Reason.deleteReturnReasonsWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Return_Reason/Workflows_Return_Reason/variables/core_flows.Return_Reason.Workflows_Return_Reason.updateReturnReasonsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Return_Reason/Workflows_Return_Reason/variables/core_flows.Return_Reason.Workflows_Return_Reason.updateReturnReasonsWorkflowId"
   },
   {
     "filePath": "/www/apps/resources/references/core_flows/Return_Reason/core_flows.Return_Reason.Steps_Return_Reason/page.mdx",
@@ -4236,6 +5968,42 @@ export const filesMap = [
     "pathname": "/references/core_flows/Sales_Channel/Steps_Sales_Channel/functions/core_flows.Sales_Channel.Steps_Sales_Channel.updateSalesChannelsStep"
   },
   {
+    "filePath": "/www/apps/resources/references/core_flows/Sales_Channel/Steps_Sales_Channel/variables/core_flows.Sales_Channel.Steps_Sales_Channel.associateLocationsWithSalesChannelsStepId/page.mdx",
+    "pathname": "/references/core_flows/Sales_Channel/Steps_Sales_Channel/variables/core_flows.Sales_Channel.Steps_Sales_Channel.associateLocationsWithSalesChannelsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Sales_Channel/Steps_Sales_Channel/variables/core_flows.Sales_Channel.Steps_Sales_Channel.associateProductsWithSalesChannelsStepId/page.mdx",
+    "pathname": "/references/core_flows/Sales_Channel/Steps_Sales_Channel/variables/core_flows.Sales_Channel.Steps_Sales_Channel.associateProductsWithSalesChannelsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Sales_Channel/Steps_Sales_Channel/variables/core_flows.Sales_Channel.Steps_Sales_Channel.canDeleteSalesChannelsOrThrowStepId/page.mdx",
+    "pathname": "/references/core_flows/Sales_Channel/Steps_Sales_Channel/variables/core_flows.Sales_Channel.Steps_Sales_Channel.canDeleteSalesChannelsOrThrowStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Sales_Channel/Steps_Sales_Channel/variables/core_flows.Sales_Channel.Steps_Sales_Channel.createDefaultSalesChannelStepId/page.mdx",
+    "pathname": "/references/core_flows/Sales_Channel/Steps_Sales_Channel/variables/core_flows.Sales_Channel.Steps_Sales_Channel.createDefaultSalesChannelStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Sales_Channel/Steps_Sales_Channel/variables/core_flows.Sales_Channel.Steps_Sales_Channel.createSalesChannelsStepId/page.mdx",
+    "pathname": "/references/core_flows/Sales_Channel/Steps_Sales_Channel/variables/core_flows.Sales_Channel.Steps_Sales_Channel.createSalesChannelsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Sales_Channel/Steps_Sales_Channel/variables/core_flows.Sales_Channel.Steps_Sales_Channel.deleteSalesChannelsStepId/page.mdx",
+    "pathname": "/references/core_flows/Sales_Channel/Steps_Sales_Channel/variables/core_flows.Sales_Channel.Steps_Sales_Channel.deleteSalesChannelsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Sales_Channel/Steps_Sales_Channel/variables/core_flows.Sales_Channel.Steps_Sales_Channel.detachLocationsFromSalesChannelsStepId/page.mdx",
+    "pathname": "/references/core_flows/Sales_Channel/Steps_Sales_Channel/variables/core_flows.Sales_Channel.Steps_Sales_Channel.detachLocationsFromSalesChannelsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Sales_Channel/Steps_Sales_Channel/variables/core_flows.Sales_Channel.Steps_Sales_Channel.detachProductsFromSalesChannelsStepId/page.mdx",
+    "pathname": "/references/core_flows/Sales_Channel/Steps_Sales_Channel/variables/core_flows.Sales_Channel.Steps_Sales_Channel.detachProductsFromSalesChannelsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Sales_Channel/Steps_Sales_Channel/variables/core_flows.Sales_Channel.Steps_Sales_Channel.updateSalesChannelsStepId/page.mdx",
+    "pathname": "/references/core_flows/Sales_Channel/Steps_Sales_Channel/variables/core_flows.Sales_Channel.Steps_Sales_Channel.updateSalesChannelsStepId"
+  },
+  {
     "filePath": "/www/apps/resources/references/core_flows/Sales_Channel/Workflows_Sales_Channel/functions/core_flows.Sales_Channel.Workflows_Sales_Channel.createSalesChannelsWorkflow/page.mdx",
     "pathname": "/references/core_flows/Sales_Channel/Workflows_Sales_Channel/functions/core_flows.Sales_Channel.Workflows_Sales_Channel.createSalesChannelsWorkflow"
   },
@@ -4252,6 +6020,22 @@ export const filesMap = [
     "pathname": "/references/core_flows/Sales_Channel/Workflows_Sales_Channel/functions/core_flows.Sales_Channel.Workflows_Sales_Channel.updateSalesChannelsWorkflow"
   },
   {
+    "filePath": "/www/apps/resources/references/core_flows/Sales_Channel/Workflows_Sales_Channel/variables/core_flows.Sales_Channel.Workflows_Sales_Channel.createSalesChannelsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Sales_Channel/Workflows_Sales_Channel/variables/core_flows.Sales_Channel.Workflows_Sales_Channel.createSalesChannelsWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Sales_Channel/Workflows_Sales_Channel/variables/core_flows.Sales_Channel.Workflows_Sales_Channel.deleteSalesChannelsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Sales_Channel/Workflows_Sales_Channel/variables/core_flows.Sales_Channel.Workflows_Sales_Channel.deleteSalesChannelsWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Sales_Channel/Workflows_Sales_Channel/variables/core_flows.Sales_Channel.Workflows_Sales_Channel.linkProductsToSalesChannelWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Sales_Channel/Workflows_Sales_Channel/variables/core_flows.Sales_Channel.Workflows_Sales_Channel.linkProductsToSalesChannelWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Sales_Channel/Workflows_Sales_Channel/variables/core_flows.Sales_Channel.Workflows_Sales_Channel.updateSalesChannelsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Sales_Channel/Workflows_Sales_Channel/variables/core_flows.Sales_Channel.Workflows_Sales_Channel.updateSalesChannelsWorkflowId"
+  },
+  {
     "filePath": "/www/apps/resources/references/core_flows/Sales_Channel/core_flows.Sales_Channel.Steps_Sales_Channel/page.mdx",
     "pathname": "/references/core_flows/Sales_Channel/core_flows.Sales_Channel.Steps_Sales_Channel"
   },
@@ -4264,6 +6048,10 @@ export const filesMap = [
     "pathname": "/references/core_flows/Shipping_Options/Steps_Shipping_Options/functions/core_flows.Shipping_Options.Steps_Shipping_Options.listShippingOptionsForContextStep"
   },
   {
+    "filePath": "/www/apps/resources/references/core_flows/Shipping_Options/Steps_Shipping_Options/variables/core_flows.Shipping_Options.Steps_Shipping_Options.listShippingOptionsForContextStepId/page.mdx",
+    "pathname": "/references/core_flows/Shipping_Options/Steps_Shipping_Options/variables/core_flows.Shipping_Options.Steps_Shipping_Options.listShippingOptionsForContextStepId"
+  },
+  {
     "filePath": "/www/apps/resources/references/core_flows/Shipping_Options/core_flows.Shipping_Options.Steps_Shipping_Options/page.mdx",
     "pathname": "/references/core_flows/Shipping_Options/core_flows.Shipping_Options.Steps_Shipping_Options"
   },
@@ -4272,8 +6060,16 @@ export const filesMap = [
     "pathname": "/references/core_flows/Shipping_Profile/Steps_Shipping_Profile/functions/core_flows.Shipping_Profile.Steps_Shipping_Profile.deleteShippingProfilesStep"
   },
   {
+    "filePath": "/www/apps/resources/references/core_flows/Shipping_Profile/Steps_Shipping_Profile/variables/core_flows.Shipping_Profile.Steps_Shipping_Profile.deleteShippingProfilesStepId/page.mdx",
+    "pathname": "/references/core_flows/Shipping_Profile/Steps_Shipping_Profile/variables/core_flows.Shipping_Profile.Steps_Shipping_Profile.deleteShippingProfilesStepId"
+  },
+  {
     "filePath": "/www/apps/resources/references/core_flows/Shipping_Profile/Workflows_Shipping_Profile/functions/core_flows.Shipping_Profile.Workflows_Shipping_Profile.deleteShippingProfileWorkflow/page.mdx",
     "pathname": "/references/core_flows/Shipping_Profile/Workflows_Shipping_Profile/functions/core_flows.Shipping_Profile.Workflows_Shipping_Profile.deleteShippingProfileWorkflow"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Shipping_Profile/Workflows_Shipping_Profile/variables/core_flows.Shipping_Profile.Workflows_Shipping_Profile.deleteShippingProfileWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Shipping_Profile/Workflows_Shipping_Profile/variables/core_flows.Shipping_Profile.Workflows_Shipping_Profile.deleteShippingProfileWorkflowId"
   },
   {
     "filePath": "/www/apps/resources/references/core_flows/Shipping_Profile/core_flows.Shipping_Profile.Steps_Shipping_Profile/page.mdx",
@@ -4282,958 +6078,6 @@ export const filesMap = [
   {
     "filePath": "/www/apps/resources/references/core_flows/Shipping_Profile/core_flows.Shipping_Profile.Workflows_Shipping_Profile/page.mdx",
     "pathname": "/references/core_flows/Shipping_Profile/core_flows.Shipping_Profile.Workflows_Shipping_Profile"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Api_Key/functions/core_flows.Steps_Api_Key.createApiKeysStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Api_Key/functions/core_flows.Steps_Api_Key.createApiKeysStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Api_Key/functions/core_flows.Steps_Api_Key.deleteApiKeysStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Api_Key/functions/core_flows.Steps_Api_Key.deleteApiKeysStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Api_Key/functions/core_flows.Steps_Api_Key.linkSalesChannelsToApiKeyStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Api_Key/functions/core_flows.Steps_Api_Key.linkSalesChannelsToApiKeyStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Api_Key/functions/core_flows.Steps_Api_Key.revokeApiKeysStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Api_Key/functions/core_flows.Steps_Api_Key.revokeApiKeysStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Api_Key/functions/core_flows.Steps_Api_Key.updateApiKeysStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Api_Key/functions/core_flows.Steps_Api_Key.updateApiKeysStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Api_Key/functions/core_flows.Steps_Api_Key.validateSalesChannelsExistStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Api_Key/functions/core_flows.Steps_Api_Key.validateSalesChannelsExistStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Auth/functions/core_flows.Steps_Auth.setAuthAppMetadataStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Auth/functions/core_flows.Steps_Auth.setAuthAppMetadataStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Cart/functions/core_flows.Steps_Cart.addShippingMethodToCartStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Cart/functions/core_flows.Steps_Cart.addShippingMethodToCartStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Cart/functions/core_flows.Steps_Cart.confirmInventoryStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Cart/functions/core_flows.Steps_Cart.confirmInventoryStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Cart/functions/core_flows.Steps_Cart.createCartsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Cart/functions/core_flows.Steps_Cart.createCartsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Cart/functions/core_flows.Steps_Cart.createLineItemAdjustmentsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Cart/functions/core_flows.Steps_Cart.createLineItemAdjustmentsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Cart/functions/core_flows.Steps_Cart.createLineItemsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Cart/functions/core_flows.Steps_Cart.createLineItemsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Cart/functions/core_flows.Steps_Cart.createPaymentCollectionsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Cart/functions/core_flows.Steps_Cart.createPaymentCollectionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Cart/functions/core_flows.Steps_Cart.createShippingMethodAdjustmentsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Cart/functions/core_flows.Steps_Cart.createShippingMethodAdjustmentsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Cart/functions/core_flows.Steps_Cart.findOneOrAnyRegionStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Cart/functions/core_flows.Steps_Cart.findOneOrAnyRegionStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Cart/functions/core_flows.Steps_Cart.findOrCreateCustomerStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Cart/functions/core_flows.Steps_Cart.findOrCreateCustomerStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Cart/functions/core_flows.Steps_Cart.findSalesChannelStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Cart/functions/core_flows.Steps_Cart.findSalesChannelStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Cart/functions/core_flows.Steps_Cart.getActionsToComputeFromPromotionsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Cart/functions/core_flows.Steps_Cart.getActionsToComputeFromPromotionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Cart/functions/core_flows.Steps_Cart.getLineItemActionsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Cart/functions/core_flows.Steps_Cart.getLineItemActionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Cart/functions/core_flows.Steps_Cart.getPromotionCodesToApply/page.mdx",
-    "pathname": "/references/core_flows/Steps_Cart/functions/core_flows.Steps_Cart.getPromotionCodesToApply"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Cart/functions/core_flows.Steps_Cart.getVariantPriceSetsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Cart/functions/core_flows.Steps_Cart.getVariantPriceSetsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Cart/functions/core_flows.Steps_Cart.getVariantsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Cart/functions/core_flows.Steps_Cart.getVariantsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Cart/functions/core_flows.Steps_Cart.prepareAdjustmentsFromPromotionActionsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Cart/functions/core_flows.Steps_Cart.prepareAdjustmentsFromPromotionActionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Cart/functions/core_flows.Steps_Cart.removeLineItemAdjustmentsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Cart/functions/core_flows.Steps_Cart.removeLineItemAdjustmentsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Cart/functions/core_flows.Steps_Cart.removeShippingMethodAdjustmentsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Cart/functions/core_flows.Steps_Cart.removeShippingMethodAdjustmentsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Cart/functions/core_flows.Steps_Cart.removeShippingMethodFromCartStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Cart/functions/core_flows.Steps_Cart.removeShippingMethodFromCartStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Cart/functions/core_flows.Steps_Cart.reserveInventoryStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Cart/functions/core_flows.Steps_Cart.reserveInventoryStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Cart/functions/core_flows.Steps_Cart.retrieveCartStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Cart/functions/core_flows.Steps_Cart.retrieveCartStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Cart/functions/core_flows.Steps_Cart.setTaxLinesForItemsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Cart/functions/core_flows.Steps_Cart.setTaxLinesForItemsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Cart/functions/core_flows.Steps_Cart.updateCartPromotionsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Cart/functions/core_flows.Steps_Cart.updateCartPromotionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Cart/functions/core_flows.Steps_Cart.updateCartsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Cart/functions/core_flows.Steps_Cart.updateCartsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Cart/functions/core_flows.Steps_Cart.updateLineItemsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Cart/functions/core_flows.Steps_Cart.updateLineItemsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Cart/functions/core_flows.Steps_Cart.validateCartPaymentsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Cart/functions/core_flows.Steps_Cart.validateCartPaymentsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Cart/functions/core_flows.Steps_Cart.validateCartShippingOptionsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Cart/functions/core_flows.Steps_Cart.validateCartShippingOptionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Cart/functions/core_flows.Steps_Cart.validateVariantPricesStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Cart/functions/core_flows.Steps_Cart.validateVariantPricesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Common/functions/core_flows.Steps_Common.createRemoteLinkStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Common/functions/core_flows.Steps_Common.createRemoteLinkStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Common/functions/core_flows.Steps_Common.dismissRemoteLinkStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Common/functions/core_flows.Steps_Common.dismissRemoteLinkStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Common/functions/core_flows.Steps_Common.emitEventStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Common/functions/core_flows.Steps_Common.emitEventStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Common/functions/core_flows.Steps_Common.removeRemoteLinkStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Common/functions/core_flows.Steps_Common.removeRemoteLinkStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Common/functions/core_flows.Steps_Common.updateRemoteLinksStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Common/functions/core_flows.Steps_Common.updateRemoteLinksStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Common/functions/core_flows.Steps_Common.useQueryGraphStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Common/functions/core_flows.Steps_Common.useQueryGraphStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Common/functions/core_flows.Steps_Common.useRemoteQueryStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Common/functions/core_flows.Steps_Common.useRemoteQueryStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Common/functions/core_flows.Steps_Common.validatePresenceOfStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Common/functions/core_flows.Steps_Common.validatePresenceOfStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Customer/functions/core_flows.Steps_Customer.createCustomerAddressesStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Customer/functions/core_flows.Steps_Customer.createCustomerAddressesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Customer/functions/core_flows.Steps_Customer.createCustomersStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Customer/functions/core_flows.Steps_Customer.createCustomersStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Customer/functions/core_flows.Steps_Customer.deleteCustomerAddressesStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Customer/functions/core_flows.Steps_Customer.deleteCustomerAddressesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Customer/functions/core_flows.Steps_Customer.deleteCustomersStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Customer/functions/core_flows.Steps_Customer.deleteCustomersStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Customer/functions/core_flows.Steps_Customer.maybeUnsetDefaultBillingAddressesStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Customer/functions/core_flows.Steps_Customer.maybeUnsetDefaultBillingAddressesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Customer/functions/core_flows.Steps_Customer.maybeUnsetDefaultShippingAddressesStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Customer/functions/core_flows.Steps_Customer.maybeUnsetDefaultShippingAddressesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Customer/functions/core_flows.Steps_Customer.updateCustomerAddressesStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Customer/functions/core_flows.Steps_Customer.updateCustomerAddressesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Customer/functions/core_flows.Steps_Customer.updateCustomersStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Customer/functions/core_flows.Steps_Customer.updateCustomersStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Customer_Group/functions/core_flows.Steps_Customer_Group.createCustomerGroupsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Customer_Group/functions/core_flows.Steps_Customer_Group.createCustomerGroupsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Customer_Group/functions/core_flows.Steps_Customer_Group.deleteCustomerGroupStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Customer_Group/functions/core_flows.Steps_Customer_Group.deleteCustomerGroupStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Customer_Group/functions/core_flows.Steps_Customer_Group.linkCustomerGroupsToCustomerStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Customer_Group/functions/core_flows.Steps_Customer_Group.linkCustomerGroupsToCustomerStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Customer_Group/functions/core_flows.Steps_Customer_Group.linkCustomersToCustomerGroupStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Customer_Group/functions/core_flows.Steps_Customer_Group.linkCustomersToCustomerGroupStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Customer_Group/functions/core_flows.Steps_Customer_Group.updateCustomerGroupsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Customer_Group/functions/core_flows.Steps_Customer_Group.updateCustomerGroupsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Defaults/functions/core_flows.Steps_Defaults.createDefaultStoreStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Defaults/functions/core_flows.Steps_Defaults.createDefaultStoreStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_File/functions/core_flows.Steps_File.deleteFilesStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_File/functions/core_flows.Steps_File.deleteFilesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_File/functions/core_flows.Steps_File.uploadFilesStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_File/functions/core_flows.Steps_File.uploadFilesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Fulfillment/functions/core_flows.Steps_Fulfillment.buildPriceSet/page.mdx",
-    "pathname": "/references/core_flows/Steps_Fulfillment/functions/core_flows.Steps_Fulfillment.buildPriceSet"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Fulfillment/functions/core_flows.Steps_Fulfillment.cancelFulfillmentStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Fulfillment/functions/core_flows.Steps_Fulfillment.cancelFulfillmentStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Fulfillment/functions/core_flows.Steps_Fulfillment.createFulfillmentSets/page.mdx",
-    "pathname": "/references/core_flows/Steps_Fulfillment/functions/core_flows.Steps_Fulfillment.createFulfillmentSets"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Fulfillment/functions/core_flows.Steps_Fulfillment.createFulfillmentStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Fulfillment/functions/core_flows.Steps_Fulfillment.createFulfillmentStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Fulfillment/functions/core_flows.Steps_Fulfillment.createReturnFulfillmentStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Fulfillment/functions/core_flows.Steps_Fulfillment.createReturnFulfillmentStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Fulfillment/functions/core_flows.Steps_Fulfillment.createServiceZonesStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Fulfillment/functions/core_flows.Steps_Fulfillment.createServiceZonesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Fulfillment/functions/core_flows.Steps_Fulfillment.createShippingOptionRulesStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Fulfillment/functions/core_flows.Steps_Fulfillment.createShippingOptionRulesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Fulfillment/functions/core_flows.Steps_Fulfillment.createShippingOptionsPriceSetsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Fulfillment/functions/core_flows.Steps_Fulfillment.createShippingOptionsPriceSetsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Fulfillment/functions/core_flows.Steps_Fulfillment.createShippingProfilesStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Fulfillment/functions/core_flows.Steps_Fulfillment.createShippingProfilesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Fulfillment/functions/core_flows.Steps_Fulfillment.deleteFulfillmentSetsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Fulfillment/functions/core_flows.Steps_Fulfillment.deleteFulfillmentSetsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Fulfillment/functions/core_flows.Steps_Fulfillment.deleteServiceZonesStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Fulfillment/functions/core_flows.Steps_Fulfillment.deleteServiceZonesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Fulfillment/functions/core_flows.Steps_Fulfillment.deleteShippingOptionRulesStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Fulfillment/functions/core_flows.Steps_Fulfillment.deleteShippingOptionRulesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Fulfillment/functions/core_flows.Steps_Fulfillment.deleteShippingOptionsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Fulfillment/functions/core_flows.Steps_Fulfillment.deleteShippingOptionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Fulfillment/functions/core_flows.Steps_Fulfillment.setShippingOptionsPricesStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Fulfillment/functions/core_flows.Steps_Fulfillment.setShippingOptionsPricesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Fulfillment/functions/core_flows.Steps_Fulfillment.updateFulfillmentStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Fulfillment/functions/core_flows.Steps_Fulfillment.updateFulfillmentStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Fulfillment/functions/core_flows.Steps_Fulfillment.updateShippingProfilesStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Fulfillment/functions/core_flows.Steps_Fulfillment.updateShippingProfilesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Fulfillment/functions/core_flows.Steps_Fulfillment.upsertShippingOptionsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Fulfillment/functions/core_flows.Steps_Fulfillment.upsertShippingOptionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Fulfillment/functions/core_flows.Steps_Fulfillment.validateShipmentStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Fulfillment/functions/core_flows.Steps_Fulfillment.validateShipmentStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Inventory/functions/core_flows.Steps_Inventory.adjustInventoryLevelsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Inventory/functions/core_flows.Steps_Inventory.adjustInventoryLevelsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Inventory/functions/core_flows.Steps_Inventory.attachInventoryItemToVariants/page.mdx",
-    "pathname": "/references/core_flows/Steps_Inventory/functions/core_flows.Steps_Inventory.attachInventoryItemToVariants"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Inventory/functions/core_flows.Steps_Inventory.createInventoryItemsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Inventory/functions/core_flows.Steps_Inventory.createInventoryItemsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Inventory/functions/core_flows.Steps_Inventory.createInventoryLevelsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Inventory/functions/core_flows.Steps_Inventory.createInventoryLevelsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Inventory/functions/core_flows.Steps_Inventory.deleteInventoryItemStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Inventory/functions/core_flows.Steps_Inventory.deleteInventoryItemStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Inventory/functions/core_flows.Steps_Inventory.deleteInventoryLevelsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Inventory/functions/core_flows.Steps_Inventory.deleteInventoryLevelsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Inventory/functions/core_flows.Steps_Inventory.updateInventoryItemsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Inventory/functions/core_flows.Steps_Inventory.updateInventoryItemsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Inventory/functions/core_flows.Steps_Inventory.updateInventoryLevelsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Inventory/functions/core_flows.Steps_Inventory.updateInventoryLevelsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Inventory/functions/core_flows.Steps_Inventory.validateInventoryDeleteStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Inventory/functions/core_flows.Steps_Inventory.validateInventoryDeleteStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Inventory/functions/core_flows.Steps_Inventory.validateInventoryItemsForCreate/page.mdx",
-    "pathname": "/references/core_flows/Steps_Inventory/functions/core_flows.Steps_Inventory.validateInventoryItemsForCreate"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Inventory/functions/core_flows.Steps_Inventory.validateInventoryLocationsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Inventory/functions/core_flows.Steps_Inventory.validateInventoryLocationsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Invite/functions/core_flows.Steps_Invite.createInviteStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Invite/functions/core_flows.Steps_Invite.createInviteStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Invite/functions/core_flows.Steps_Invite.deleteInvitesStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Invite/functions/core_flows.Steps_Invite.deleteInvitesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Invite/functions/core_flows.Steps_Invite.refreshInviteTokensStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Invite/functions/core_flows.Steps_Invite.refreshInviteTokensStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Invite/functions/core_flows.Steps_Invite.validateTokenStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Invite/functions/core_flows.Steps_Invite.validateTokenStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Line_Item/functions/core_flows.Steps_Line_Item.deleteLineItemsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Line_Item/functions/core_flows.Steps_Line_Item.deleteLineItemsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Line_Item/functions/core_flows.Steps_Line_Item.listLineItemsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Line_Item/functions/core_flows.Steps_Line_Item.listLineItemsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Line_Item/functions/core_flows.Steps_Line_Item.updateLineItemsStepWithSelector/page.mdx",
-    "pathname": "/references/core_flows/Steps_Line_Item/functions/core_flows.Steps_Line_Item.updateLineItemsStepWithSelector"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.addOrderTransactionStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.addOrderTransactionStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.archiveOrdersStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.archiveOrdersStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.cancelOrderChangeStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.cancelOrderChangeStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.cancelOrderClaimStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.cancelOrderClaimStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.cancelOrderExchangeStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.cancelOrderExchangeStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.cancelOrderFulfillmentStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.cancelOrderFulfillmentStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.cancelOrderReturnStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.cancelOrderReturnStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.cancelOrdersStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.cancelOrdersStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.completeOrdersStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.completeOrdersStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.createCompleteReturnStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.createCompleteReturnStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.createOrderChangeStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.createOrderChangeStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.createOrderClaimItemsFromActionsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.createOrderClaimItemsFromActionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.createOrderClaimsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.createOrderClaimsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.createOrderExchangeItemsFromActionsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.createOrderExchangeItemsFromActionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.createOrderExchangesStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.createOrderExchangesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.createOrderLineItemsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.createOrderLineItemsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.createOrdersStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.createOrdersStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.createReturnsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.createReturnsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.declineOrderChangeStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.declineOrderChangeStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.deleteClaimsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.deleteClaimsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.deleteExchangesStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.deleteExchangesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.deleteOrderChangeActionsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.deleteOrderChangeActionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.deleteOrderChangesStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.deleteOrderChangesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.deleteOrderLineItems/page.mdx",
-    "pathname": "/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.deleteOrderLineItems"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.deleteOrderShippingMethods/page.mdx",
-    "pathname": "/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.deleteOrderShippingMethods"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.deleteReturnsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.deleteReturnsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.previewOrderChangeStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.previewOrderChangeStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.registerOrderChangesStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.registerOrderChangesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.registerOrderFulfillmentStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.registerOrderFulfillmentStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.registerOrderShipmentStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.registerOrderShipmentStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.setOrderTaxLinesForItemsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.setOrderTaxLinesForItemsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.updateOrderChangeActionsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.updateOrderChangeActionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.updateOrderChangesStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.updateOrderChangesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.updateOrderExchangesStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.updateOrderExchangesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.updateOrderShippingMethodsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.updateOrderShippingMethodsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.updateOrdersStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.updateOrdersStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.updateReturnItemsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.updateReturnItemsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.updateReturnsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Order/functions/core_flows.Steps_Order.updateReturnsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Payment/functions/core_flows.Steps_Payment.authorizePaymentSessionStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Payment/functions/core_flows.Steps_Payment.authorizePaymentSessionStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Payment/functions/core_flows.Steps_Payment.cancelPaymentStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Payment/functions/core_flows.Steps_Payment.cancelPaymentStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Payment/functions/core_flows.Steps_Payment.capturePaymentStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Payment/functions/core_flows.Steps_Payment.capturePaymentStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Payment/functions/core_flows.Steps_Payment.refundPaymentStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Payment/functions/core_flows.Steps_Payment.refundPaymentStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Payment_Collection/functions/core_flows.Steps_Payment_Collection.createPaymentSessionStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Payment_Collection/functions/core_flows.Steps_Payment_Collection.createPaymentSessionStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Payment_Collection/functions/core_flows.Steps_Payment_Collection.createRefundReasonStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Payment_Collection/functions/core_flows.Steps_Payment_Collection.createRefundReasonStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Payment_Collection/functions/core_flows.Steps_Payment_Collection.deletePaymentSessionsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Payment_Collection/functions/core_flows.Steps_Payment_Collection.deletePaymentSessionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Payment_Collection/functions/core_flows.Steps_Payment_Collection.deleteRefundReasonsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Payment_Collection/functions/core_flows.Steps_Payment_Collection.deleteRefundReasonsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Payment_Collection/functions/core_flows.Steps_Payment_Collection.updatePaymentCollectionStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Payment_Collection/functions/core_flows.Steps_Payment_Collection.updatePaymentCollectionStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Payment_Collection/functions/core_flows.Steps_Payment_Collection.updateRefundReasonsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Payment_Collection/functions/core_flows.Steps_Payment_Collection.updateRefundReasonsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Payment_Collection/functions/core_flows.Steps_Payment_Collection.validateDeletedPaymentSessionsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Payment_Collection/functions/core_flows.Steps_Payment_Collection.validateDeletedPaymentSessionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Price_List/functions/core_flows.Steps_Price_List.createPriceListPricesStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Price_List/functions/core_flows.Steps_Price_List.createPriceListPricesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Price_List/functions/core_flows.Steps_Price_List.createPriceListsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Price_List/functions/core_flows.Steps_Price_List.createPriceListsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Price_List/functions/core_flows.Steps_Price_List.deletePriceListsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Price_List/functions/core_flows.Steps_Price_List.deletePriceListsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Price_List/functions/core_flows.Steps_Price_List.getExistingPriceListsPriceIdsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Price_List/functions/core_flows.Steps_Price_List.getExistingPriceListsPriceIdsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Price_List/functions/core_flows.Steps_Price_List.removePriceListPricesStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Price_List/functions/core_flows.Steps_Price_List.removePriceListPricesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Price_List/functions/core_flows.Steps_Price_List.updatePriceListPricesStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Price_List/functions/core_flows.Steps_Price_List.updatePriceListPricesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Price_List/functions/core_flows.Steps_Price_List.updatePriceListsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Price_List/functions/core_flows.Steps_Price_List.updatePriceListsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Price_List/functions/core_flows.Steps_Price_List.validatePriceListsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Price_List/functions/core_flows.Steps_Price_List.validatePriceListsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Price_List/functions/core_flows.Steps_Price_List.validateVariantPriceLinksStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Price_List/functions/core_flows.Steps_Price_List.validateVariantPriceLinksStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Pricing/functions/core_flows.Steps_Pricing.createPricePreferencesStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Pricing/functions/core_flows.Steps_Pricing.createPricePreferencesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Pricing/functions/core_flows.Steps_Pricing.createPriceSetsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Pricing/functions/core_flows.Steps_Pricing.createPriceSetsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Pricing/functions/core_flows.Steps_Pricing.deletePricePreferencesStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Pricing/functions/core_flows.Steps_Pricing.deletePricePreferencesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Pricing/functions/core_flows.Steps_Pricing.updatePricePreferencesAsArrayStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Pricing/functions/core_flows.Steps_Pricing.updatePricePreferencesAsArrayStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Pricing/functions/core_flows.Steps_Pricing.updatePricePreferencesStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Pricing/functions/core_flows.Steps_Pricing.updatePricePreferencesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Pricing/functions/core_flows.Steps_Pricing.updatePriceSetsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Pricing/functions/core_flows.Steps_Pricing.updatePriceSetsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Product/functions/core_flows.Steps_Product.batchLinkProductsToCollectionStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Product/functions/core_flows.Steps_Product.batchLinkProductsToCollectionStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Product/functions/core_flows.Steps_Product.createCollectionsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Product/functions/core_flows.Steps_Product.createCollectionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Product/functions/core_flows.Steps_Product.createProductOptionsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Product/functions/core_flows.Steps_Product.createProductOptionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Product/functions/core_flows.Steps_Product.createProductTagsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Product/functions/core_flows.Steps_Product.createProductTagsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Product/functions/core_flows.Steps_Product.createProductTypesStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Product/functions/core_flows.Steps_Product.createProductTypesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Product/functions/core_flows.Steps_Product.createProductVariantsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Product/functions/core_flows.Steps_Product.createProductVariantsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Product/functions/core_flows.Steps_Product.createProductsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Product/functions/core_flows.Steps_Product.createProductsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Product/functions/core_flows.Steps_Product.createVariantPricingLinkStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Product/functions/core_flows.Steps_Product.createVariantPricingLinkStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Product/functions/core_flows.Steps_Product.deleteCollectionsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Product/functions/core_flows.Steps_Product.deleteCollectionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Product/functions/core_flows.Steps_Product.deleteProductOptionsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Product/functions/core_flows.Steps_Product.deleteProductOptionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Product/functions/core_flows.Steps_Product.deleteProductTagsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Product/functions/core_flows.Steps_Product.deleteProductTagsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Product/functions/core_flows.Steps_Product.deleteProductTypesStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Product/functions/core_flows.Steps_Product.deleteProductTypesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Product/functions/core_flows.Steps_Product.deleteProductVariantsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Product/functions/core_flows.Steps_Product.deleteProductVariantsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Product/functions/core_flows.Steps_Product.deleteProductsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Product/functions/core_flows.Steps_Product.deleteProductsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Product/functions/core_flows.Steps_Product.generateProductCsvStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Product/functions/core_flows.Steps_Product.generateProductCsvStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Product/functions/core_flows.Steps_Product.getAllProductsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Product/functions/core_flows.Steps_Product.getAllProductsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Product/functions/core_flows.Steps_Product.getProductsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Product/functions/core_flows.Steps_Product.getProductsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Product/functions/core_flows.Steps_Product.groupProductsForBatchStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Product/functions/core_flows.Steps_Product.groupProductsForBatchStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Product/functions/core_flows.Steps_Product.parseProductCsvStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Product/functions/core_flows.Steps_Product.parseProductCsvStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Product/functions/core_flows.Steps_Product.updateCollectionsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Product/functions/core_flows.Steps_Product.updateCollectionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Product/functions/core_flows.Steps_Product.updateProductOptionsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Product/functions/core_flows.Steps_Product.updateProductOptionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Product/functions/core_flows.Steps_Product.updateProductTagsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Product/functions/core_flows.Steps_Product.updateProductTagsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Product/functions/core_flows.Steps_Product.updateProductTypesStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Product/functions/core_flows.Steps_Product.updateProductTypesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Product/functions/core_flows.Steps_Product.updateProductVariantsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Product/functions/core_flows.Steps_Product.updateProductVariantsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Product/functions/core_flows.Steps_Product.updateProductsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Product/functions/core_flows.Steps_Product.updateProductsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Product/functions/core_flows.Steps_Product.waitConfirmationProductImportStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Product/functions/core_flows.Steps_Product.waitConfirmationProductImportStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Product_Category/functions/core_flows.Steps_Product_Category.createProductCategoriesStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Product_Category/functions/core_flows.Steps_Product_Category.createProductCategoriesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Product_Category/functions/core_flows.Steps_Product_Category.deleteProductCategoriesStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Product_Category/functions/core_flows.Steps_Product_Category.deleteProductCategoriesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Product_Category/functions/core_flows.Steps_Product_Category.updateProductCategoriesStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Product_Category/functions/core_flows.Steps_Product_Category.updateProductCategoriesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Promotion/functions/core_flows.Steps_Promotion.addCampaignPromotionsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Promotion/functions/core_flows.Steps_Promotion.addCampaignPromotionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Promotion/functions/core_flows.Steps_Promotion.addRulesToPromotionsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Promotion/functions/core_flows.Steps_Promotion.addRulesToPromotionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Promotion/functions/core_flows.Steps_Promotion.createCampaignsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Promotion/functions/core_flows.Steps_Promotion.createCampaignsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Promotion/functions/core_flows.Steps_Promotion.createPromotionsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Promotion/functions/core_flows.Steps_Promotion.createPromotionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Promotion/functions/core_flows.Steps_Promotion.deleteCampaignsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Promotion/functions/core_flows.Steps_Promotion.deleteCampaignsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Promotion/functions/core_flows.Steps_Promotion.deletePromotionsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Promotion/functions/core_flows.Steps_Promotion.deletePromotionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Promotion/functions/core_flows.Steps_Promotion.removeCampaignPromotionsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Promotion/functions/core_flows.Steps_Promotion.removeCampaignPromotionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Promotion/functions/core_flows.Steps_Promotion.removeRulesFromPromotionsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Promotion/functions/core_flows.Steps_Promotion.removeRulesFromPromotionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Promotion/functions/core_flows.Steps_Promotion.updateCampaignsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Promotion/functions/core_flows.Steps_Promotion.updateCampaignsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Promotion/functions/core_flows.Steps_Promotion.updatePromotionRulesStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Promotion/functions/core_flows.Steps_Promotion.updatePromotionRulesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Promotion/functions/core_flows.Steps_Promotion.updatePromotionsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Promotion/functions/core_flows.Steps_Promotion.updatePromotionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Region/functions/core_flows.Steps_Region.createRegionsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Region/functions/core_flows.Steps_Region.createRegionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Region/functions/core_flows.Steps_Region.deleteRegionsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Region/functions/core_flows.Steps_Region.deleteRegionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Region/functions/core_flows.Steps_Region.updateRegionsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Region/functions/core_flows.Steps_Region.updateRegionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Reservation/functions/core_flows.Steps_Reservation.createReservationsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Reservation/functions/core_flows.Steps_Reservation.createReservationsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Reservation/functions/core_flows.Steps_Reservation.deleteReservationsByLineItemsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Reservation/functions/core_flows.Steps_Reservation.deleteReservationsByLineItemsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Reservation/functions/core_flows.Steps_Reservation.deleteReservationsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Reservation/functions/core_flows.Steps_Reservation.deleteReservationsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Reservation/functions/core_flows.Steps_Reservation.updateReservationsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Reservation/functions/core_flows.Steps_Reservation.updateReservationsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Return_Reason/functions/core_flows.Steps_Return_Reason.createReturnReasonsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Return_Reason/functions/core_flows.Steps_Return_Reason.createReturnReasonsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Return_Reason/functions/core_flows.Steps_Return_Reason.deleteReturnReasonStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Return_Reason/functions/core_flows.Steps_Return_Reason.deleteReturnReasonStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Return_Reason/functions/core_flows.Steps_Return_Reason.updateReturnReasonsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Return_Reason/functions/core_flows.Steps_Return_Reason.updateReturnReasonsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Sales_Channel/functions/core_flows.Steps_Sales_Channel.associateLocationsWithSalesChannelsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Sales_Channel/functions/core_flows.Steps_Sales_Channel.associateLocationsWithSalesChannelsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Sales_Channel/functions/core_flows.Steps_Sales_Channel.associateProductsWithSalesChannelsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Sales_Channel/functions/core_flows.Steps_Sales_Channel.associateProductsWithSalesChannelsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Sales_Channel/functions/core_flows.Steps_Sales_Channel.canDeleteSalesChannelsOrThrowStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Sales_Channel/functions/core_flows.Steps_Sales_Channel.canDeleteSalesChannelsOrThrowStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Sales_Channel/functions/core_flows.Steps_Sales_Channel.createDefaultSalesChannelStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Sales_Channel/functions/core_flows.Steps_Sales_Channel.createDefaultSalesChannelStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Sales_Channel/functions/core_flows.Steps_Sales_Channel.createSalesChannelsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Sales_Channel/functions/core_flows.Steps_Sales_Channel.createSalesChannelsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Sales_Channel/functions/core_flows.Steps_Sales_Channel.deleteSalesChannelsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Sales_Channel/functions/core_flows.Steps_Sales_Channel.deleteSalesChannelsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Sales_Channel/functions/core_flows.Steps_Sales_Channel.detachLocationsFromSalesChannelsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Sales_Channel/functions/core_flows.Steps_Sales_Channel.detachLocationsFromSalesChannelsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Sales_Channel/functions/core_flows.Steps_Sales_Channel.detachProductsFromSalesChannelsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Sales_Channel/functions/core_flows.Steps_Sales_Channel.detachProductsFromSalesChannelsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Sales_Channel/functions/core_flows.Steps_Sales_Channel.updateSalesChannelsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Sales_Channel/functions/core_flows.Steps_Sales_Channel.updateSalesChannelsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Shipping_Options/functions/core_flows.Steps_Shipping_Options.listShippingOptionsForContextStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Shipping_Options/functions/core_flows.Steps_Shipping_Options.listShippingOptionsForContextStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Shipping_Profile/functions/core_flows.Steps_Shipping_Profile.deleteShippingProfilesStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Shipping_Profile/functions/core_flows.Steps_Shipping_Profile.deleteShippingProfilesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Stock_Location/functions/core_flows.Steps_Stock_Location.createStockLocations/page.mdx",
-    "pathname": "/references/core_flows/Steps_Stock_Location/functions/core_flows.Steps_Stock_Location.createStockLocations"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Stock_Location/functions/core_flows.Steps_Stock_Location.deleteStockLocationsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Stock_Location/functions/core_flows.Steps_Stock_Location.deleteStockLocationsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Stock_Location/functions/core_flows.Steps_Stock_Location.updateStockLocationsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Stock_Location/functions/core_flows.Steps_Stock_Location.updateStockLocationsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Store/functions/core_flows.Steps_Store.createStoresStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Store/functions/core_flows.Steps_Store.createStoresStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Store/functions/core_flows.Steps_Store.deleteStoresStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Store/functions/core_flows.Steps_Store.deleteStoresStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Store/functions/core_flows.Steps_Store.updateStoresStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Store/functions/core_flows.Steps_Store.updateStoresStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Tax/functions/core_flows.Steps_Tax.createTaxRateRulesStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Tax/functions/core_flows.Steps_Tax.createTaxRateRulesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Tax/functions/core_flows.Steps_Tax.createTaxRatesStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Tax/functions/core_flows.Steps_Tax.createTaxRatesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Tax/functions/core_flows.Steps_Tax.createTaxRegionsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Tax/functions/core_flows.Steps_Tax.createTaxRegionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Tax/functions/core_flows.Steps_Tax.deleteTaxRateRulesStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Tax/functions/core_flows.Steps_Tax.deleteTaxRateRulesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Tax/functions/core_flows.Steps_Tax.deleteTaxRatesStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Tax/functions/core_flows.Steps_Tax.deleteTaxRatesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Tax/functions/core_flows.Steps_Tax.deleteTaxRegionsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Tax/functions/core_flows.Steps_Tax.deleteTaxRegionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Tax/functions/core_flows.Steps_Tax.listTaxRateIdsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Tax/functions/core_flows.Steps_Tax.listTaxRateIdsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Tax/functions/core_flows.Steps_Tax.listTaxRateRuleIdsStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Tax/functions/core_flows.Steps_Tax.listTaxRateRuleIdsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_Tax/functions/core_flows.Steps_Tax.updateTaxRatesStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_Tax/functions/core_flows.Steps_Tax.updateTaxRatesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_User/functions/core_flows.Steps_User.createUsersStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_User/functions/core_flows.Steps_User.createUsersStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_User/functions/core_flows.Steps_User.deleteUsersStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_User/functions/core_flows.Steps_User.deleteUsersStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Steps_User/functions/core_flows.Steps_User.updateUsersStep/page.mdx",
-    "pathname": "/references/core_flows/Steps_User/functions/core_flows.Steps_User.updateUsersStep"
   },
   {
     "filePath": "/www/apps/resources/references/core_flows/Stock_Location/Steps_Stock_Location/functions/core_flows.Stock_Location.Steps_Stock_Location.createStockLocations/page.mdx",
@@ -5246,6 +6090,18 @@ export const filesMap = [
   {
     "filePath": "/www/apps/resources/references/core_flows/Stock_Location/Steps_Stock_Location/functions/core_flows.Stock_Location.Steps_Stock_Location.updateStockLocationsStep/page.mdx",
     "pathname": "/references/core_flows/Stock_Location/Steps_Stock_Location/functions/core_flows.Stock_Location.Steps_Stock_Location.updateStockLocationsStep"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Stock_Location/Steps_Stock_Location/variables/core_flows.Stock_Location.Steps_Stock_Location.createStockLocationsStepId/page.mdx",
+    "pathname": "/references/core_flows/Stock_Location/Steps_Stock_Location/variables/core_flows.Stock_Location.Steps_Stock_Location.createStockLocationsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Stock_Location/Steps_Stock_Location/variables/core_flows.Stock_Location.Steps_Stock_Location.deleteStockLocationsStepId/page.mdx",
+    "pathname": "/references/core_flows/Stock_Location/Steps_Stock_Location/variables/core_flows.Stock_Location.Steps_Stock_Location.deleteStockLocationsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Stock_Location/Steps_Stock_Location/variables/core_flows.Stock_Location.Steps_Stock_Location.updateStockLocationsStepId/page.mdx",
+    "pathname": "/references/core_flows/Stock_Location/Steps_Stock_Location/variables/core_flows.Stock_Location.Steps_Stock_Location.updateStockLocationsStepId"
   },
   {
     "filePath": "/www/apps/resources/references/core_flows/Stock_Location/Workflows_Stock_Location/functions/core_flows.Stock_Location.Workflows_Stock_Location.createLocationFulfillmentSetWorkflow/page.mdx",
@@ -5268,6 +6124,26 @@ export const filesMap = [
     "pathname": "/references/core_flows/Stock_Location/Workflows_Stock_Location/functions/core_flows.Stock_Location.Workflows_Stock_Location.updateStockLocationsWorkflow"
   },
   {
+    "filePath": "/www/apps/resources/references/core_flows/Stock_Location/Workflows_Stock_Location/variables/core_flows.Stock_Location.Workflows_Stock_Location.createLocationFulfillmentSetWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Stock_Location/Workflows_Stock_Location/variables/core_flows.Stock_Location.Workflows_Stock_Location.createLocationFulfillmentSetWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Stock_Location/Workflows_Stock_Location/variables/core_flows.Stock_Location.Workflows_Stock_Location.createStockLocationsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Stock_Location/Workflows_Stock_Location/variables/core_flows.Stock_Location.Workflows_Stock_Location.createStockLocationsWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Stock_Location/Workflows_Stock_Location/variables/core_flows.Stock_Location.Workflows_Stock_Location.deleteStockLocationsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Stock_Location/Workflows_Stock_Location/variables/core_flows.Stock_Location.Workflows_Stock_Location.deleteStockLocationsWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Stock_Location/Workflows_Stock_Location/variables/core_flows.Stock_Location.Workflows_Stock_Location.linkSalesChannelsToStockLocationWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Stock_Location/Workflows_Stock_Location/variables/core_flows.Stock_Location.Workflows_Stock_Location.linkSalesChannelsToStockLocationWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Stock_Location/Workflows_Stock_Location/variables/core_flows.Stock_Location.Workflows_Stock_Location.updateStockLocationsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Stock_Location/Workflows_Stock_Location/variables/core_flows.Stock_Location.Workflows_Stock_Location.updateStockLocationsWorkflowId"
+  },
+  {
     "filePath": "/www/apps/resources/references/core_flows/Stock_Location/core_flows.Stock_Location.Steps_Stock_Location/page.mdx",
     "pathname": "/references/core_flows/Stock_Location/core_flows.Stock_Location.Steps_Stock_Location"
   },
@@ -5288,6 +6164,18 @@ export const filesMap = [
     "pathname": "/references/core_flows/Store/Steps_Store/functions/core_flows.Store.Steps_Store.updateStoresStep"
   },
   {
+    "filePath": "/www/apps/resources/references/core_flows/Store/Steps_Store/variables/core_flows.Store.Steps_Store.createStoresStepId/page.mdx",
+    "pathname": "/references/core_flows/Store/Steps_Store/variables/core_flows.Store.Steps_Store.createStoresStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Store/Steps_Store/variables/core_flows.Store.Steps_Store.deleteStoresStepId/page.mdx",
+    "pathname": "/references/core_flows/Store/Steps_Store/variables/core_flows.Store.Steps_Store.deleteStoresStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Store/Steps_Store/variables/core_flows.Store.Steps_Store.updateStoresStepId/page.mdx",
+    "pathname": "/references/core_flows/Store/Steps_Store/variables/core_flows.Store.Steps_Store.updateStoresStepId"
+  },
+  {
     "filePath": "/www/apps/resources/references/core_flows/Store/Workflows_Store/functions/core_flows.Store.Workflows_Store.createStoresWorkflow/page.mdx",
     "pathname": "/references/core_flows/Store/Workflows_Store/functions/core_flows.Store.Workflows_Store.createStoresWorkflow"
   },
@@ -5298,6 +6186,18 @@ export const filesMap = [
   {
     "filePath": "/www/apps/resources/references/core_flows/Store/Workflows_Store/functions/core_flows.Store.Workflows_Store.updateStoresWorkflow/page.mdx",
     "pathname": "/references/core_flows/Store/Workflows_Store/functions/core_flows.Store.Workflows_Store.updateStoresWorkflow"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Store/Workflows_Store/variables/core_flows.Store.Workflows_Store.createStoresWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Store/Workflows_Store/variables/core_flows.Store.Workflows_Store.createStoresWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Store/Workflows_Store/variables/core_flows.Store.Workflows_Store.deleteStoresWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Store/Workflows_Store/variables/core_flows.Store.Workflows_Store.deleteStoresWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Store/Workflows_Store/variables/core_flows.Store.Workflows_Store.updateStoresWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Store/Workflows_Store/variables/core_flows.Store.Workflows_Store.updateStoresWorkflowId"
   },
   {
     "filePath": "/www/apps/resources/references/core_flows/Store/core_flows.Store.Steps_Store/page.mdx",
@@ -5344,6 +6244,42 @@ export const filesMap = [
     "pathname": "/references/core_flows/Tax/Steps_Tax/functions/core_flows.Tax.Steps_Tax.updateTaxRatesStep"
   },
   {
+    "filePath": "/www/apps/resources/references/core_flows/Tax/Steps_Tax/variables/core_flows.Tax.Steps_Tax.createTaxRateRulesStepId/page.mdx",
+    "pathname": "/references/core_flows/Tax/Steps_Tax/variables/core_flows.Tax.Steps_Tax.createTaxRateRulesStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Tax/Steps_Tax/variables/core_flows.Tax.Steps_Tax.createTaxRatesStepId/page.mdx",
+    "pathname": "/references/core_flows/Tax/Steps_Tax/variables/core_flows.Tax.Steps_Tax.createTaxRatesStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Tax/Steps_Tax/variables/core_flows.Tax.Steps_Tax.createTaxRegionsStepId/page.mdx",
+    "pathname": "/references/core_flows/Tax/Steps_Tax/variables/core_flows.Tax.Steps_Tax.createTaxRegionsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Tax/Steps_Tax/variables/core_flows.Tax.Steps_Tax.deleteTaxRateRulesStepId/page.mdx",
+    "pathname": "/references/core_flows/Tax/Steps_Tax/variables/core_flows.Tax.Steps_Tax.deleteTaxRateRulesStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Tax/Steps_Tax/variables/core_flows.Tax.Steps_Tax.deleteTaxRatesStepId/page.mdx",
+    "pathname": "/references/core_flows/Tax/Steps_Tax/variables/core_flows.Tax.Steps_Tax.deleteTaxRatesStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Tax/Steps_Tax/variables/core_flows.Tax.Steps_Tax.deleteTaxRegionsStepId/page.mdx",
+    "pathname": "/references/core_flows/Tax/Steps_Tax/variables/core_flows.Tax.Steps_Tax.deleteTaxRegionsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Tax/Steps_Tax/variables/core_flows.Tax.Steps_Tax.listTaxRateIdsStepId/page.mdx",
+    "pathname": "/references/core_flows/Tax/Steps_Tax/variables/core_flows.Tax.Steps_Tax.listTaxRateIdsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Tax/Steps_Tax/variables/core_flows.Tax.Steps_Tax.listTaxRateRuleIdsStepId/page.mdx",
+    "pathname": "/references/core_flows/Tax/Steps_Tax/variables/core_flows.Tax.Steps_Tax.listTaxRateRuleIdsStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Tax/Steps_Tax/variables/core_flows.Tax.Steps_Tax.updateTaxRatesStepId/page.mdx",
+    "pathname": "/references/core_flows/Tax/Steps_Tax/variables/core_flows.Tax.Steps_Tax.updateTaxRatesStepId"
+  },
+  {
     "filePath": "/www/apps/resources/references/core_flows/Tax/Workflows_Tax/functions/core_flows.Tax.Workflows_Tax.createTaxRateRulesWorkflow/page.mdx",
     "pathname": "/references/core_flows/Tax/Workflows_Tax/functions/core_flows.Tax.Workflows_Tax.createTaxRateRulesWorkflow"
   },
@@ -5384,6 +6320,42 @@ export const filesMap = [
     "pathname": "/references/core_flows/Tax/Workflows_Tax/functions/core_flows.Tax.Workflows_Tax.updateTaxRegionsWorkflow"
   },
   {
+    "filePath": "/www/apps/resources/references/core_flows/Tax/Workflows_Tax/variables/core_flows.Tax.Workflows_Tax.createTaxRateRulesWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Tax/Workflows_Tax/variables/core_flows.Tax.Workflows_Tax.createTaxRateRulesWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Tax/Workflows_Tax/variables/core_flows.Tax.Workflows_Tax.createTaxRatesWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Tax/Workflows_Tax/variables/core_flows.Tax.Workflows_Tax.createTaxRatesWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Tax/Workflows_Tax/variables/core_flows.Tax.Workflows_Tax.createTaxRegionsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Tax/Workflows_Tax/variables/core_flows.Tax.Workflows_Tax.createTaxRegionsWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Tax/Workflows_Tax/variables/core_flows.Tax.Workflows_Tax.deleteTaxRateRulesWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Tax/Workflows_Tax/variables/core_flows.Tax.Workflows_Tax.deleteTaxRateRulesWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Tax/Workflows_Tax/variables/core_flows.Tax.Workflows_Tax.deleteTaxRatesWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Tax/Workflows_Tax/variables/core_flows.Tax.Workflows_Tax.deleteTaxRatesWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Tax/Workflows_Tax/variables/core_flows.Tax.Workflows_Tax.deleteTaxRegionsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Tax/Workflows_Tax/variables/core_flows.Tax.Workflows_Tax.deleteTaxRegionsWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Tax/Workflows_Tax/variables/core_flows.Tax.Workflows_Tax.setTaxRateRulesWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Tax/Workflows_Tax/variables/core_flows.Tax.Workflows_Tax.setTaxRateRulesWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Tax/Workflows_Tax/variables/core_flows.Tax.Workflows_Tax.updateTaxRatesWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Tax/Workflows_Tax/variables/core_flows.Tax.Workflows_Tax.updateTaxRatesWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Tax/Workflows_Tax/variables/core_flows.Tax.Workflows_Tax.updateTaxRegionsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Tax/Workflows_Tax/variables/core_flows.Tax.Workflows_Tax.updateTaxRegionsWorkflowId"
+  },
+  {
     "filePath": "/www/apps/resources/references/core_flows/Tax/core_flows.Tax.Steps_Tax/page.mdx",
     "pathname": "/references/core_flows/Tax/core_flows.Tax.Steps_Tax"
   },
@@ -5402,6 +6374,18 @@ export const filesMap = [
   {
     "filePath": "/www/apps/resources/references/core_flows/User/Steps_User/functions/core_flows.User.Steps_User.updateUsersStep/page.mdx",
     "pathname": "/references/core_flows/User/Steps_User/functions/core_flows.User.Steps_User.updateUsersStep"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/User/Steps_User/variables/core_flows.User.Steps_User.createUsersStepId/page.mdx",
+    "pathname": "/references/core_flows/User/Steps_User/variables/core_flows.User.Steps_User.createUsersStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/User/Steps_User/variables/core_flows.User.Steps_User.deleteUsersStepId/page.mdx",
+    "pathname": "/references/core_flows/User/Steps_User/variables/core_flows.User.Steps_User.deleteUsersStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/User/Steps_User/variables/core_flows.User.Steps_User.updateUsersStepId/page.mdx",
+    "pathname": "/references/core_flows/User/Steps_User/variables/core_flows.User.Steps_User.updateUsersStepId"
   },
   {
     "filePath": "/www/apps/resources/references/core_flows/User/Workflows_User/functions/core_flows.User.Workflows_User.createUserAccountWorkflow/page.mdx",
@@ -5424,1292 +6408,32 @@ export const filesMap = [
     "pathname": "/references/core_flows/User/Workflows_User/functions/core_flows.User.Workflows_User.updateUsersWorkflow"
   },
   {
+    "filePath": "/www/apps/resources/references/core_flows/User/Workflows_User/variables/core_flows.User.Workflows_User.createUserAccountWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/User/Workflows_User/variables/core_flows.User.Workflows_User.createUserAccountWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/User/Workflows_User/variables/core_flows.User.Workflows_User.createUsersWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/User/Workflows_User/variables/core_flows.User.Workflows_User.createUsersWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/User/Workflows_User/variables/core_flows.User.Workflows_User.deleteUsersWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/User/Workflows_User/variables/core_flows.User.Workflows_User.deleteUsersWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/User/Workflows_User/variables/core_flows.User.Workflows_User.removeUserAccountWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/User/Workflows_User/variables/core_flows.User.Workflows_User.removeUserAccountWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/User/Workflows_User/variables/core_flows.User.Workflows_User.updateUsersWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/User/Workflows_User/variables/core_flows.User.Workflows_User.updateUsersWorkflowId"
+  },
+  {
     "filePath": "/www/apps/resources/references/core_flows/User/core_flows.User.Steps_User/page.mdx",
     "pathname": "/references/core_flows/User/core_flows.User.Steps_User"
   },
   {
     "filePath": "/www/apps/resources/references/core_flows/User/core_flows.User.Workflows_User/page.mdx",
     "pathname": "/references/core_flows/User/core_flows.User.Workflows_User"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Api_Key/functions/core_flows.Workflows_Api_Key.createApiKeysWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Api_Key/functions/core_flows.Workflows_Api_Key.createApiKeysWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Api_Key/functions/core_flows.Workflows_Api_Key.deleteApiKeysWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Api_Key/functions/core_flows.Workflows_Api_Key.deleteApiKeysWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Api_Key/functions/core_flows.Workflows_Api_Key.linkSalesChannelsToApiKeyWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Api_Key/functions/core_flows.Workflows_Api_Key.linkSalesChannelsToApiKeyWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Api_Key/functions/core_flows.Workflows_Api_Key.revokeApiKeysWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Api_Key/functions/core_flows.Workflows_Api_Key.revokeApiKeysWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Api_Key/functions/core_flows.Workflows_Api_Key.updateApiKeysWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Api_Key/functions/core_flows.Workflows_Api_Key.updateApiKeysWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Auth/functions/core_flows.Workflows_Auth.generateResetPasswordTokenWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Auth/functions/core_flows.Workflows_Auth.generateResetPasswordTokenWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Cart/functions/core_flows.Workflows_Cart.addShippingMethodToCartWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Cart/functions/core_flows.Workflows_Cart.addShippingMethodToCartWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Cart/functions/core_flows.Workflows_Cart.addToCartWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Cart/functions/core_flows.Workflows_Cart.addToCartWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Cart/functions/core_flows.Workflows_Cart.completeCartWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Cart/functions/core_flows.Workflows_Cart.completeCartWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Cart/functions/core_flows.Workflows_Cart.confirmVariantInventoryWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Cart/functions/core_flows.Workflows_Cart.confirmVariantInventoryWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Cart/functions/core_flows.Workflows_Cart.createCartWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Cart/functions/core_flows.Workflows_Cart.createCartWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Cart/functions/core_flows.Workflows_Cart.createPaymentCollectionForCartWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Cart/functions/core_flows.Workflows_Cart.createPaymentCollectionForCartWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Cart/functions/core_flows.Workflows_Cart.listShippingOptionsForCartWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Cart/functions/core_flows.Workflows_Cart.listShippingOptionsForCartWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Cart/functions/core_flows.Workflows_Cart.refreshPaymentCollectionForCartWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Cart/functions/core_flows.Workflows_Cart.refreshPaymentCollectionForCartWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Cart/functions/core_flows.Workflows_Cart.transferCartCustomerWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Cart/functions/core_flows.Workflows_Cart.transferCartCustomerWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Cart/functions/core_flows.Workflows_Cart.updateCartPromotionsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Cart/functions/core_flows.Workflows_Cart.updateCartPromotionsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Cart/functions/core_flows.Workflows_Cart.updateCartWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Cart/functions/core_flows.Workflows_Cart.updateCartWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Cart/functions/core_flows.Workflows_Cart.updateLineItemInCartWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Cart/functions/core_flows.Workflows_Cart.updateLineItemInCartWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Cart/functions/core_flows.Workflows_Cart.updateTaxLinesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Cart/functions/core_flows.Workflows_Cart.updateTaxLinesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Cart/functions/core_flows.Workflows_Cart.validateExistingPaymentCollectionStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Cart/functions/core_flows.Workflows_Cart.validateExistingPaymentCollectionStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Common/functions/core_flows.Workflows_Common.batchLinksWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Common/functions/core_flows.Workflows_Common.batchLinksWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Common/functions/core_flows.Workflows_Common.createLinksWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Common/functions/core_flows.Workflows_Common.createLinksWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Common/functions/core_flows.Workflows_Common.dismissLinksWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Common/functions/core_flows.Workflows_Common.dismissLinksWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Common/functions/core_flows.Workflows_Common.updateLinksWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Common/functions/core_flows.Workflows_Common.updateLinksWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Customer/functions/core_flows.Workflows_Customer.createCustomerAccountWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Customer/functions/core_flows.Workflows_Customer.createCustomerAccountWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Customer/functions/core_flows.Workflows_Customer.createCustomerAddressesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Customer/functions/core_flows.Workflows_Customer.createCustomerAddressesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Customer/functions/core_flows.Workflows_Customer.createCustomersWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Customer/functions/core_flows.Workflows_Customer.createCustomersWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Customer/functions/core_flows.Workflows_Customer.deleteCustomerAddressesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Customer/functions/core_flows.Workflows_Customer.deleteCustomerAddressesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Customer/functions/core_flows.Workflows_Customer.deleteCustomersWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Customer/functions/core_flows.Workflows_Customer.deleteCustomersWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Customer/functions/core_flows.Workflows_Customer.removeCustomerAccountWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Customer/functions/core_flows.Workflows_Customer.removeCustomerAccountWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Customer/functions/core_flows.Workflows_Customer.updateCustomerAddressesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Customer/functions/core_flows.Workflows_Customer.updateCustomerAddressesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Customer/functions/core_flows.Workflows_Customer.updateCustomersWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Customer/functions/core_flows.Workflows_Customer.updateCustomersWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Customer_Group/functions/core_flows.Workflows_Customer_Group.createCustomerGroupsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Customer_Group/functions/core_flows.Workflows_Customer_Group.createCustomerGroupsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Customer_Group/functions/core_flows.Workflows_Customer_Group.deleteCustomerGroupsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Customer_Group/functions/core_flows.Workflows_Customer_Group.deleteCustomerGroupsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Customer_Group/functions/core_flows.Workflows_Customer_Group.linkCustomerGroupsToCustomerWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Customer_Group/functions/core_flows.Workflows_Customer_Group.linkCustomerGroupsToCustomerWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Customer_Group/functions/core_flows.Workflows_Customer_Group.linkCustomersToCustomerGroupWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Customer_Group/functions/core_flows.Workflows_Customer_Group.linkCustomersToCustomerGroupWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Customer_Group/functions/core_flows.Workflows_Customer_Group.updateCustomerGroupsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Customer_Group/functions/core_flows.Workflows_Customer_Group.updateCustomerGroupsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Defaults/functions/core_flows.Workflows_Defaults.createDefaultsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Defaults/functions/core_flows.Workflows_Defaults.createDefaultsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_File/functions/core_flows.Workflows_File.deleteFilesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_File/functions/core_flows.Workflows_File.deleteFilesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_File/functions/core_flows.Workflows_File.uploadFilesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_File/functions/core_flows.Workflows_File.uploadFilesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Fulfillment/functions/core_flows.Workflows_Fulfillment.batchShippingOptionRulesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Fulfillment/functions/core_flows.Workflows_Fulfillment.batchShippingOptionRulesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Fulfillment/functions/core_flows.Workflows_Fulfillment.cancelFulfillmentWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Fulfillment/functions/core_flows.Workflows_Fulfillment.cancelFulfillmentWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Fulfillment/functions/core_flows.Workflows_Fulfillment.createFulfillmentWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Fulfillment/functions/core_flows.Workflows_Fulfillment.createFulfillmentWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Fulfillment/functions/core_flows.Workflows_Fulfillment.createReturnFulfillmentWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Fulfillment/functions/core_flows.Workflows_Fulfillment.createReturnFulfillmentWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Fulfillment/functions/core_flows.Workflows_Fulfillment.createServiceZonesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Fulfillment/functions/core_flows.Workflows_Fulfillment.createServiceZonesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Fulfillment/functions/core_flows.Workflows_Fulfillment.createShipmentWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Fulfillment/functions/core_flows.Workflows_Fulfillment.createShipmentWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Fulfillment/functions/core_flows.Workflows_Fulfillment.createShippingOptionsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Fulfillment/functions/core_flows.Workflows_Fulfillment.createShippingOptionsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Fulfillment/functions/core_flows.Workflows_Fulfillment.createShippingProfilesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Fulfillment/functions/core_flows.Workflows_Fulfillment.createShippingProfilesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Fulfillment/functions/core_flows.Workflows_Fulfillment.deleteFulfillmentSetsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Fulfillment/functions/core_flows.Workflows_Fulfillment.deleteFulfillmentSetsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Fulfillment/functions/core_flows.Workflows_Fulfillment.deleteServiceZonesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Fulfillment/functions/core_flows.Workflows_Fulfillment.deleteServiceZonesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Fulfillment/functions/core_flows.Workflows_Fulfillment.deleteShippingOptionsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Fulfillment/functions/core_flows.Workflows_Fulfillment.deleteShippingOptionsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Fulfillment/functions/core_flows.Workflows_Fulfillment.markFulfillmentAsDeliveredWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Fulfillment/functions/core_flows.Workflows_Fulfillment.markFulfillmentAsDeliveredWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Fulfillment/functions/core_flows.Workflows_Fulfillment.updateFulfillmentWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Fulfillment/functions/core_flows.Workflows_Fulfillment.updateFulfillmentWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Fulfillment/functions/core_flows.Workflows_Fulfillment.updateServiceZonesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Fulfillment/functions/core_flows.Workflows_Fulfillment.updateServiceZonesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Fulfillment/functions/core_flows.Workflows_Fulfillment.updateShippingOptionsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Fulfillment/functions/core_flows.Workflows_Fulfillment.updateShippingOptionsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Fulfillment/functions/core_flows.Workflows_Fulfillment.updateShippingProfilesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Fulfillment/functions/core_flows.Workflows_Fulfillment.updateShippingProfilesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Fulfillment/functions/core_flows.Workflows_Fulfillment.validateFulfillmentDeliverabilityStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Fulfillment/functions/core_flows.Workflows_Fulfillment.validateFulfillmentDeliverabilityStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Inventory/functions/core_flows.Workflows_Inventory.bulkCreateDeleteLevelsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Inventory/functions/core_flows.Workflows_Inventory.bulkCreateDeleteLevelsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Inventory/functions/core_flows.Workflows_Inventory.createInventoryItemsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Inventory/functions/core_flows.Workflows_Inventory.createInventoryItemsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Inventory/functions/core_flows.Workflows_Inventory.createInventoryLevelsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Inventory/functions/core_flows.Workflows_Inventory.createInventoryLevelsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Inventory/functions/core_flows.Workflows_Inventory.deleteInventoryItemWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Inventory/functions/core_flows.Workflows_Inventory.deleteInventoryItemWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Inventory/functions/core_flows.Workflows_Inventory.deleteInventoryLevelsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Inventory/functions/core_flows.Workflows_Inventory.deleteInventoryLevelsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Inventory/functions/core_flows.Workflows_Inventory.updateInventoryItemsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Inventory/functions/core_flows.Workflows_Inventory.updateInventoryItemsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Inventory/functions/core_flows.Workflows_Inventory.updateInventoryLevelsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Inventory/functions/core_flows.Workflows_Inventory.updateInventoryLevelsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Inventory/functions/core_flows.Workflows_Inventory.validateInventoryLevelsDelete/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Inventory/functions/core_flows.Workflows_Inventory.validateInventoryLevelsDelete"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Invite/functions/core_flows.Workflows_Invite.acceptInviteWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Invite/functions/core_flows.Workflows_Invite.acceptInviteWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Invite/functions/core_flows.Workflows_Invite.createInvitesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Invite/functions/core_flows.Workflows_Invite.createInvitesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Invite/functions/core_flows.Workflows_Invite.deleteInvitesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Invite/functions/core_flows.Workflows_Invite.deleteInvitesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Invite/functions/core_flows.Workflows_Invite.refreshInviteTokensWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Invite/functions/core_flows.Workflows_Invite.refreshInviteTokensWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Line_Item/functions/core_flows.Workflows_Line_Item.deleteLineItemsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Line_Item/functions/core_flows.Workflows_Line_Item.deleteLineItemsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.acceptOrderTransferValidationStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.acceptOrderTransferValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.acceptOrderTransferWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.acceptOrderTransferWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.addOrderLineItemsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.addOrderLineItemsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.archiveOrderWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.archiveOrderWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.beginClaimOrderValidationStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.beginClaimOrderValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.beginClaimOrderWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.beginClaimOrderWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.beginExchangeOrderWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.beginExchangeOrderWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.beginOrderEditOrderWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.beginOrderEditOrderWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.beginOrderEditValidationStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.beginOrderEditValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.beginOrderExchangeValidationStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.beginOrderExchangeValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.beginReceiveReturnValidationStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.beginReceiveReturnValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.beginReceiveReturnWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.beginReceiveReturnWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.beginReturnOrderValidationStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.beginReturnOrderValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.beginReturnOrderWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.beginReturnOrderWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.cancelBeginOrderClaimValidationStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.cancelBeginOrderClaimValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.cancelBeginOrderClaimWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.cancelBeginOrderClaimWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.cancelBeginOrderEditValidationStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.cancelBeginOrderEditValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.cancelBeginOrderEditWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.cancelBeginOrderEditWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.cancelBeginOrderExchangeValidationStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.cancelBeginOrderExchangeValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.cancelBeginOrderExchangeWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.cancelBeginOrderExchangeWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.cancelClaimValidateOrderStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.cancelClaimValidateOrderStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.cancelExchangeValidateOrder/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.cancelExchangeValidateOrder"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.cancelOrderChangeWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.cancelOrderChangeWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.cancelOrderClaimWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.cancelOrderClaimWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.cancelOrderExchangeWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.cancelOrderExchangeWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.cancelOrderFulfillmentValidateOrder/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.cancelOrderFulfillmentValidateOrder"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.cancelOrderFulfillmentWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.cancelOrderFulfillmentWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.cancelOrderTransferRequestWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.cancelOrderTransferRequestWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.cancelOrderWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.cancelOrderWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.cancelReceiveReturnValidationStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.cancelReceiveReturnValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.cancelRequestReturnValidationStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.cancelRequestReturnValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.cancelReturnReceiveWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.cancelReturnReceiveWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.cancelReturnRequestWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.cancelReturnRequestWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.cancelReturnValidateOrder/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.cancelReturnValidateOrder"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.cancelReturnWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.cancelReturnWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.cancelTransferOrderRequestValidationStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.cancelTransferOrderRequestValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.cancelValidateOrder/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.cancelValidateOrder"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.completeOrderWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.completeOrderWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.confirmClaimRequestValidationStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.confirmClaimRequestValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.confirmClaimRequestWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.confirmClaimRequestWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.confirmExchangeRequestValidationStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.confirmExchangeRequestValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.confirmExchangeRequestWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.confirmExchangeRequestWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.confirmOrderEditRequestValidationStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.confirmOrderEditRequestValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.confirmOrderEditRequestWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.confirmOrderEditRequestWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.confirmReceiveReturnValidationStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.confirmReceiveReturnValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.confirmReturnReceiveWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.confirmReturnReceiveWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.confirmReturnRequestValidationStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.confirmReturnRequestValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.confirmReturnRequestWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.confirmReturnRequestWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.createAndCompleteReturnOrderWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.createAndCompleteReturnOrderWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.createClaimShippingMethodValidationStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.createClaimShippingMethodValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.createClaimShippingMethodWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.createClaimShippingMethodWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.createCompleteReturnValidationStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.createCompleteReturnValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.createExchangeShippingMethodValidationStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.createExchangeShippingMethodValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.createExchangeShippingMethodWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.createExchangeShippingMethodWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.createFulfillmentValidateOrder/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.createFulfillmentValidateOrder"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.createOrderChangeActionsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.createOrderChangeActionsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.createOrderChangeWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.createOrderChangeWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.createOrderEditShippingMethodValidationStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.createOrderEditShippingMethodValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.createOrderEditShippingMethodWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.createOrderEditShippingMethodWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.createOrderFulfillmentWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.createOrderFulfillmentWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.createOrderPaymentCollectionWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.createOrderPaymentCollectionWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.createOrderShipmentWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.createOrderShipmentWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.createOrderWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.createOrderWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.createOrdersWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.createOrdersWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.createReturnShippingMethodValidationStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.createReturnShippingMethodValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.createReturnShippingMethodWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.createReturnShippingMethodWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.createShipmentValidateOrder/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.createShipmentValidateOrder"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.declineOrderChangeWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.declineOrderChangeWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.declineOrderTransferRequestWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.declineOrderTransferRequestWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.declineTransferOrderRequestValidationStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.declineTransferOrderRequestValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.deleteOrderChangeActionsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.deleteOrderChangeActionsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.deleteOrderChangeWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.deleteOrderChangeWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.deleteOrderPaymentCollections/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.deleteOrderPaymentCollections"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.dismissItemReturnRequestValidationStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.dismissItemReturnRequestValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.dismissItemReturnRequestWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.dismissItemReturnRequestWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.exchangeAddNewItemValidationStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.exchangeAddNewItemValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.exchangeRequestItemReturnValidationStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.exchangeRequestItemReturnValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.getOrderDetailWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.getOrderDetailWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.getOrdersListWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.getOrdersListWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.markOrderFulfillmentAsDeliveredWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.markOrderFulfillmentAsDeliveredWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.markPaymentCollectionAsPaid/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.markPaymentCollectionAsPaid"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.orderClaimAddNewItemValidationStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.orderClaimAddNewItemValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.orderClaimAddNewItemWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.orderClaimAddNewItemWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.orderClaimItemValidationStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.orderClaimItemValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.orderClaimItemWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.orderClaimItemWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.orderClaimRequestItemReturnValidationStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.orderClaimRequestItemReturnValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.orderClaimRequestItemReturnWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.orderClaimRequestItemReturnWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.orderEditAddNewItemValidationStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.orderEditAddNewItemValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.orderEditAddNewItemWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.orderEditAddNewItemWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.orderEditUpdateItemQuantityValidationStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.orderEditUpdateItemQuantityValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.orderEditUpdateItemQuantityWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.orderEditUpdateItemQuantityWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.orderExchangeAddNewItemWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.orderExchangeAddNewItemWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.orderExchangeRequestItemReturnWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.orderExchangeRequestItemReturnWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.orderFulfillmentDeliverablilityValidationStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.orderFulfillmentDeliverablilityValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.receiveAndCompleteReturnOrderWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.receiveAndCompleteReturnOrderWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.receiveCompleteReturnValidationStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.receiveCompleteReturnValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.receiveItemReturnRequestValidationStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.receiveItemReturnRequestValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.receiveItemReturnRequestWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.receiveItemReturnRequestWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.removeAddItemClaimActionWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.removeAddItemClaimActionWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.removeClaimAddItemActionValidationStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.removeClaimAddItemActionValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.removeClaimItemActionValidationStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.removeClaimItemActionValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.removeClaimShippingMethodValidationStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.removeClaimShippingMethodValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.removeClaimShippingMethodWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.removeClaimShippingMethodWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.removeExchangeItemActionValidationStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.removeExchangeItemActionValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.removeExchangeShippingMethodValidationStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.removeExchangeShippingMethodValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.removeExchangeShippingMethodWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.removeExchangeShippingMethodWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.removeItemClaimActionWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.removeItemClaimActionWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.removeItemExchangeActionWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.removeItemExchangeActionWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.removeItemOrderEditActionWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.removeItemOrderEditActionWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.removeItemReceiveReturnActionValidationStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.removeItemReceiveReturnActionValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.removeItemReceiveReturnActionWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.removeItemReceiveReturnActionWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.removeItemReturnActionWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.removeItemReturnActionWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.removeOrderEditItemActionValidationStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.removeOrderEditItemActionValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.removeOrderEditShippingMethodValidationStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.removeOrderEditShippingMethodValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.removeOrderEditShippingMethodWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.removeOrderEditShippingMethodWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.removeReturnItemActionValidationStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.removeReturnItemActionValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.removeReturnShippingMethodValidationStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.removeReturnShippingMethodValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.removeReturnShippingMethodWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.removeReturnShippingMethodWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.requestItemReturnValidationStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.requestItemReturnValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.requestItemReturnWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.requestItemReturnWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.requestOrderEditRequestValidationStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.requestOrderEditRequestValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.requestOrderEditRequestWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.requestOrderEditRequestWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.requestOrderTransferValidationStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.requestOrderTransferValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.requestOrderTransferWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.requestOrderTransferWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.throwUnlessPaymentCollectionNotPaid/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.throwUnlessPaymentCollectionNotPaid"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.throwUnlessStatusIsNotPaid/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.throwUnlessStatusIsNotPaid"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.updateClaimAddItemValidationStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.updateClaimAddItemValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.updateClaimAddItemWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.updateClaimAddItemWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.updateClaimItemValidationStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.updateClaimItemValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.updateClaimItemWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.updateClaimItemWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.updateClaimShippingMethodValidationStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.updateClaimShippingMethodValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.updateClaimShippingMethodWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.updateClaimShippingMethodWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.updateExchangeAddItemValidationStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.updateExchangeAddItemValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.updateExchangeAddItemWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.updateExchangeAddItemWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.updateExchangeShippingMethodValidationStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.updateExchangeShippingMethodValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.updateExchangeShippingMethodWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.updateExchangeShippingMethodWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.updateOrderChangeActionsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.updateOrderChangeActionsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.updateOrderChangesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.updateOrderChangesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.updateOrderEditAddItemValidationStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.updateOrderEditAddItemValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.updateOrderEditAddItemWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.updateOrderEditAddItemWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.updateOrderEditItemQuantityValidationStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.updateOrderEditItemQuantityValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.updateOrderEditItemQuantityWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.updateOrderEditItemQuantityWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.updateOrderEditShippingMethodValidationStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.updateOrderEditShippingMethodValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.updateOrderEditShippingMethodWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.updateOrderEditShippingMethodWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.updateOrderTaxLinesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.updateOrderTaxLinesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.updateOrderValidationStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.updateOrderValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.updateOrderWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.updateOrderWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.updateReceiveItemReturnRequestValidationStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.updateReceiveItemReturnRequestValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.updateReceiveItemReturnRequestWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.updateReceiveItemReturnRequestWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.updateRequestItemReturnValidationStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.updateRequestItemReturnValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.updateRequestItemReturnWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.updateRequestItemReturnWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.updateReturnShippingMethodValidationStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.updateReturnShippingMethodValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.updateReturnShippingMethodWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.updateReturnShippingMethodWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.updateReturnValidationStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.updateReturnValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.updateReturnWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Order/functions/core_flows.Workflows_Order.updateReturnWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Payment/functions/core_flows.Workflows_Payment.capturePaymentWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Payment/functions/core_flows.Workflows_Payment.capturePaymentWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Payment/functions/core_flows.Workflows_Payment.processPaymentWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Payment/functions/core_flows.Workflows_Payment.processPaymentWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Payment/functions/core_flows.Workflows_Payment.refundPaymentWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Payment/functions/core_flows.Workflows_Payment.refundPaymentWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Payment/functions/core_flows.Workflows_Payment.validateRefundStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Payment/functions/core_flows.Workflows_Payment.validateRefundStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Payment_Collection/functions/core_flows.Workflows_Payment_Collection.createPaymentSessionsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Payment_Collection/functions/core_flows.Workflows_Payment_Collection.createPaymentSessionsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Payment_Collection/functions/core_flows.Workflows_Payment_Collection.createRefundReasonsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Payment_Collection/functions/core_flows.Workflows_Payment_Collection.createRefundReasonsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Payment_Collection/functions/core_flows.Workflows_Payment_Collection.deletePaymentSessionsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Payment_Collection/functions/core_flows.Workflows_Payment_Collection.deletePaymentSessionsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Payment_Collection/functions/core_flows.Workflows_Payment_Collection.updateRefundReasonsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Payment_Collection/functions/core_flows.Workflows_Payment_Collection.updateRefundReasonsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Price_List/functions/core_flows.Workflows_Price_List.batchPriceListPricesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Price_List/functions/core_flows.Workflows_Price_List.batchPriceListPricesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Price_List/functions/core_flows.Workflows_Price_List.createPriceListPricesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Price_List/functions/core_flows.Workflows_Price_List.createPriceListPricesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Price_List/functions/core_flows.Workflows_Price_List.createPriceListsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Price_List/functions/core_flows.Workflows_Price_List.createPriceListsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Price_List/functions/core_flows.Workflows_Price_List.deletePriceListsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Price_List/functions/core_flows.Workflows_Price_List.deletePriceListsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Price_List/functions/core_flows.Workflows_Price_List.removePriceListPricesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Price_List/functions/core_flows.Workflows_Price_List.removePriceListPricesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Price_List/functions/core_flows.Workflows_Price_List.updatePriceListPricesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Price_List/functions/core_flows.Workflows_Price_List.updatePriceListPricesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Price_List/functions/core_flows.Workflows_Price_List.updatePriceListsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Price_List/functions/core_flows.Workflows_Price_List.updatePriceListsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Pricing/functions/core_flows.Workflows_Pricing.createPricePreferencesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Pricing/functions/core_flows.Workflows_Pricing.createPricePreferencesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Pricing/functions/core_flows.Workflows_Pricing.deletePricePreferencesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Pricing/functions/core_flows.Workflows_Pricing.deletePricePreferencesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Pricing/functions/core_flows.Workflows_Pricing.updatePricePreferencesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Pricing/functions/core_flows.Workflows_Pricing.updatePricePreferencesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Product/functions/core_flows.Workflows_Product.batchLinkProductsToCategoryWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Product/functions/core_flows.Workflows_Product.batchLinkProductsToCategoryWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Product/functions/core_flows.Workflows_Product.batchLinkProductsToCollectionWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Product/functions/core_flows.Workflows_Product.batchLinkProductsToCollectionWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Product/functions/core_flows.Workflows_Product.batchProductVariantsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Product/functions/core_flows.Workflows_Product.batchProductVariantsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Product/functions/core_flows.Workflows_Product.batchProductsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Product/functions/core_flows.Workflows_Product.batchProductsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Product/functions/core_flows.Workflows_Product.createCollectionsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Product/functions/core_flows.Workflows_Product.createCollectionsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Product/functions/core_flows.Workflows_Product.createProductOptionsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Product/functions/core_flows.Workflows_Product.createProductOptionsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Product/functions/core_flows.Workflows_Product.createProductTagsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Product/functions/core_flows.Workflows_Product.createProductTagsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Product/functions/core_flows.Workflows_Product.createProductTypesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Product/functions/core_flows.Workflows_Product.createProductTypesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Product/functions/core_flows.Workflows_Product.createProductVariantsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Product/functions/core_flows.Workflows_Product.createProductVariantsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Product/functions/core_flows.Workflows_Product.createProductsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Product/functions/core_flows.Workflows_Product.createProductsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Product/functions/core_flows.Workflows_Product.deleteCollectionsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Product/functions/core_flows.Workflows_Product.deleteCollectionsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Product/functions/core_flows.Workflows_Product.deleteProductOptionsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Product/functions/core_flows.Workflows_Product.deleteProductOptionsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Product/functions/core_flows.Workflows_Product.deleteProductTagsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Product/functions/core_flows.Workflows_Product.deleteProductTagsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Product/functions/core_flows.Workflows_Product.deleteProductTypesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Product/functions/core_flows.Workflows_Product.deleteProductTypesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Product/functions/core_flows.Workflows_Product.deleteProductVariantsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Product/functions/core_flows.Workflows_Product.deleteProductVariantsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Product/functions/core_flows.Workflows_Product.deleteProductsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Product/functions/core_flows.Workflows_Product.deleteProductsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Product/functions/core_flows.Workflows_Product.exportProductsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Product/functions/core_flows.Workflows_Product.exportProductsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Product/functions/core_flows.Workflows_Product.importProductsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Product/functions/core_flows.Workflows_Product.importProductsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Product/functions/core_flows.Workflows_Product.updateCollectionsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Product/functions/core_flows.Workflows_Product.updateCollectionsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Product/functions/core_flows.Workflows_Product.updateProductOptionsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Product/functions/core_flows.Workflows_Product.updateProductOptionsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Product/functions/core_flows.Workflows_Product.updateProductTagsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Product/functions/core_flows.Workflows_Product.updateProductTagsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Product/functions/core_flows.Workflows_Product.updateProductTypesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Product/functions/core_flows.Workflows_Product.updateProductTypesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Product/functions/core_flows.Workflows_Product.updateProductVariantsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Product/functions/core_flows.Workflows_Product.updateProductVariantsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Product/functions/core_flows.Workflows_Product.updateProductsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Product/functions/core_flows.Workflows_Product.updateProductsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Product/functions/core_flows.Workflows_Product.upsertVariantPricesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Product/functions/core_flows.Workflows_Product.upsertVariantPricesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Product_Category/functions/core_flows.Workflows_Product_Category.createProductCategoriesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Product_Category/functions/core_flows.Workflows_Product_Category.createProductCategoriesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Product_Category/functions/core_flows.Workflows_Product_Category.deleteProductCategoriesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Product_Category/functions/core_flows.Workflows_Product_Category.deleteProductCategoriesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Product_Category/functions/core_flows.Workflows_Product_Category.updateProductCategoriesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Product_Category/functions/core_flows.Workflows_Product_Category.updateProductCategoriesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Promotion/functions/core_flows.Workflows_Promotion.addOrRemoveCampaignPromotionsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Promotion/functions/core_flows.Workflows_Promotion.addOrRemoveCampaignPromotionsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Promotion/functions/core_flows.Workflows_Promotion.batchPromotionRulesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Promotion/functions/core_flows.Workflows_Promotion.batchPromotionRulesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Promotion/functions/core_flows.Workflows_Promotion.createCampaignsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Promotion/functions/core_flows.Workflows_Promotion.createCampaignsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Promotion/functions/core_flows.Workflows_Promotion.createPromotionRulesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Promotion/functions/core_flows.Workflows_Promotion.createPromotionRulesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Promotion/functions/core_flows.Workflows_Promotion.createPromotionsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Promotion/functions/core_flows.Workflows_Promotion.createPromotionsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Promotion/functions/core_flows.Workflows_Promotion.deleteCampaignsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Promotion/functions/core_flows.Workflows_Promotion.deleteCampaignsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Promotion/functions/core_flows.Workflows_Promotion.deletePromotionRulesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Promotion/functions/core_flows.Workflows_Promotion.deletePromotionRulesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Promotion/functions/core_flows.Workflows_Promotion.deletePromotionsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Promotion/functions/core_flows.Workflows_Promotion.deletePromotionsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Promotion/functions/core_flows.Workflows_Promotion.updateCampaignsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Promotion/functions/core_flows.Workflows_Promotion.updateCampaignsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Promotion/functions/core_flows.Workflows_Promotion.updatePromotionRulesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Promotion/functions/core_flows.Workflows_Promotion.updatePromotionRulesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Promotion/functions/core_flows.Workflows_Promotion.updatePromotionsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Promotion/functions/core_flows.Workflows_Promotion.updatePromotionsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Region/functions/core_flows.Workflows_Region.createRegionsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Region/functions/core_flows.Workflows_Region.createRegionsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Region/functions/core_flows.Workflows_Region.deleteRegionsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Region/functions/core_flows.Workflows_Region.deleteRegionsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Region/functions/core_flows.Workflows_Region.updateRegionsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Region/functions/core_flows.Workflows_Region.updateRegionsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Reservation/functions/core_flows.Workflows_Reservation.createReservationsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Reservation/functions/core_flows.Workflows_Reservation.createReservationsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Reservation/functions/core_flows.Workflows_Reservation.deleteReservationsByLineItemsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Reservation/functions/core_flows.Workflows_Reservation.deleteReservationsByLineItemsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Reservation/functions/core_flows.Workflows_Reservation.deleteReservationsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Reservation/functions/core_flows.Workflows_Reservation.deleteReservationsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Reservation/functions/core_flows.Workflows_Reservation.updateReservationsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Reservation/functions/core_flows.Workflows_Reservation.updateReservationsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Return_Reason/functions/core_flows.Workflows_Return_Reason.createReturnReasonsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Return_Reason/functions/core_flows.Workflows_Return_Reason.createReturnReasonsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Return_Reason/functions/core_flows.Workflows_Return_Reason.deleteReturnReasonsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Return_Reason/functions/core_flows.Workflows_Return_Reason.deleteReturnReasonsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Return_Reason/functions/core_flows.Workflows_Return_Reason.updateReturnReasonsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Return_Reason/functions/core_flows.Workflows_Return_Reason.updateReturnReasonsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Sales_Channel/functions/core_flows.Workflows_Sales_Channel.createSalesChannelsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Sales_Channel/functions/core_flows.Workflows_Sales_Channel.createSalesChannelsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Sales_Channel/functions/core_flows.Workflows_Sales_Channel.deleteSalesChannelsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Sales_Channel/functions/core_flows.Workflows_Sales_Channel.deleteSalesChannelsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Sales_Channel/functions/core_flows.Workflows_Sales_Channel.linkProductsToSalesChannelWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Sales_Channel/functions/core_flows.Workflows_Sales_Channel.linkProductsToSalesChannelWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Sales_Channel/functions/core_flows.Workflows_Sales_Channel.updateSalesChannelsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Sales_Channel/functions/core_flows.Workflows_Sales_Channel.updateSalesChannelsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Shipping_Profile/functions/core_flows.Workflows_Shipping_Profile.deleteShippingProfileWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Shipping_Profile/functions/core_flows.Workflows_Shipping_Profile.deleteShippingProfileWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Stock_Location/functions/core_flows.Workflows_Stock_Location.createLocationFulfillmentSetWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Stock_Location/functions/core_flows.Workflows_Stock_Location.createLocationFulfillmentSetWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Stock_Location/functions/core_flows.Workflows_Stock_Location.createStockLocationsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Stock_Location/functions/core_flows.Workflows_Stock_Location.createStockLocationsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Stock_Location/functions/core_flows.Workflows_Stock_Location.deleteStockLocationsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Stock_Location/functions/core_flows.Workflows_Stock_Location.deleteStockLocationsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Stock_Location/functions/core_flows.Workflows_Stock_Location.linkSalesChannelsToStockLocationWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Stock_Location/functions/core_flows.Workflows_Stock_Location.linkSalesChannelsToStockLocationWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Stock_Location/functions/core_flows.Workflows_Stock_Location.updateStockLocationsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Stock_Location/functions/core_flows.Workflows_Stock_Location.updateStockLocationsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Store/functions/core_flows.Workflows_Store.createStoresWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Store/functions/core_flows.Workflows_Store.createStoresWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Store/functions/core_flows.Workflows_Store.deleteStoresWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Store/functions/core_flows.Workflows_Store.deleteStoresWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Store/functions/core_flows.Workflows_Store.updateStoresWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Store/functions/core_flows.Workflows_Store.updateStoresWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Tax/functions/core_flows.Workflows_Tax.createTaxRateRulesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Tax/functions/core_flows.Workflows_Tax.createTaxRateRulesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Tax/functions/core_flows.Workflows_Tax.createTaxRatesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Tax/functions/core_flows.Workflows_Tax.createTaxRatesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Tax/functions/core_flows.Workflows_Tax.createTaxRegionsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Tax/functions/core_flows.Workflows_Tax.createTaxRegionsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Tax/functions/core_flows.Workflows_Tax.deleteTaxRateRulesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Tax/functions/core_flows.Workflows_Tax.deleteTaxRateRulesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Tax/functions/core_flows.Workflows_Tax.deleteTaxRatesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Tax/functions/core_flows.Workflows_Tax.deleteTaxRatesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Tax/functions/core_flows.Workflows_Tax.deleteTaxRegionsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Tax/functions/core_flows.Workflows_Tax.deleteTaxRegionsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Tax/functions/core_flows.Workflows_Tax.maybeListTaxRateRuleIdsStep/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Tax/functions/core_flows.Workflows_Tax.maybeListTaxRateRuleIdsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Tax/functions/core_flows.Workflows_Tax.setTaxRateRulesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Tax/functions/core_flows.Workflows_Tax.setTaxRateRulesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Tax/functions/core_flows.Workflows_Tax.updateTaxRatesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Tax/functions/core_flows.Workflows_Tax.updateTaxRatesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_Tax/functions/core_flows.Workflows_Tax.updateTaxRegionsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_Tax/functions/core_flows.Workflows_Tax.updateTaxRegionsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_User/functions/core_flows.Workflows_User.createUserAccountWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_User/functions/core_flows.Workflows_User.createUserAccountWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_User/functions/core_flows.Workflows_User.createUsersWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_User/functions/core_flows.Workflows_User.createUsersWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_User/functions/core_flows.Workflows_User.deleteUsersWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_User/functions/core_flows.Workflows_User.deleteUsersWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_User/functions/core_flows.Workflows_User.removeUserAccountWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_User/functions/core_flows.Workflows_User.removeUserAccountWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/Workflows_User/functions/core_flows.Workflows_User.updateUsersWorkflow/page.mdx",
-    "pathname": "/references/core_flows/Workflows_User/functions/core_flows.Workflows_User.updateUsersWorkflow"
   },
   {
     "filePath": "/www/apps/resources/references/core_flows/core_flows.Api_Key/page.mdx",
@@ -6820,130 +6544,6 @@ export const filesMap = [
     "pathname": "/references/core_flows/core_flows.Shipping_Profile"
   },
   {
-    "filePath": "/www/apps/resources/references/core_flows/core_flows.Steps_Api_Key/page.mdx",
-    "pathname": "/references/core_flows/core_flows.Steps_Api_Key"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/core_flows.Steps_Auth/page.mdx",
-    "pathname": "/references/core_flows/core_flows.Steps_Auth"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/core_flows.Steps_Cart/page.mdx",
-    "pathname": "/references/core_flows/core_flows.Steps_Cart"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/core_flows.Steps_Common/page.mdx",
-    "pathname": "/references/core_flows/core_flows.Steps_Common"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/core_flows.Steps_Customer/page.mdx",
-    "pathname": "/references/core_flows/core_flows.Steps_Customer"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/core_flows.Steps_Customer_Group/page.mdx",
-    "pathname": "/references/core_flows/core_flows.Steps_Customer_Group"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/core_flows.Steps_Defaults/page.mdx",
-    "pathname": "/references/core_flows/core_flows.Steps_Defaults"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/core_flows.Steps_File/page.mdx",
-    "pathname": "/references/core_flows/core_flows.Steps_File"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/core_flows.Steps_Fulfillment/page.mdx",
-    "pathname": "/references/core_flows/core_flows.Steps_Fulfillment"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/core_flows.Steps_Inventory/page.mdx",
-    "pathname": "/references/core_flows/core_flows.Steps_Inventory"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/core_flows.Steps_Invite/page.mdx",
-    "pathname": "/references/core_flows/core_flows.Steps_Invite"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/core_flows.Steps_Line_Item/page.mdx",
-    "pathname": "/references/core_flows/core_flows.Steps_Line_Item"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/core_flows.Steps_Notification/page.mdx",
-    "pathname": "/references/core_flows/core_flows.Steps_Notification"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/core_flows.Steps_Order/page.mdx",
-    "pathname": "/references/core_flows/core_flows.Steps_Order"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/core_flows.Steps_Payment/page.mdx",
-    "pathname": "/references/core_flows/core_flows.Steps_Payment"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/core_flows.Steps_Payment_Collection/page.mdx",
-    "pathname": "/references/core_flows/core_flows.Steps_Payment_Collection"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/core_flows.Steps_Price_List/page.mdx",
-    "pathname": "/references/core_flows/core_flows.Steps_Price_List"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/core_flows.Steps_Pricing/page.mdx",
-    "pathname": "/references/core_flows/core_flows.Steps_Pricing"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/core_flows.Steps_Product/page.mdx",
-    "pathname": "/references/core_flows/core_flows.Steps_Product"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/core_flows.Steps_Product_Category/page.mdx",
-    "pathname": "/references/core_flows/core_flows.Steps_Product_Category"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/core_flows.Steps_Promotion/page.mdx",
-    "pathname": "/references/core_flows/core_flows.Steps_Promotion"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/core_flows.Steps_Region/page.mdx",
-    "pathname": "/references/core_flows/core_flows.Steps_Region"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/core_flows.Steps_Reservation/page.mdx",
-    "pathname": "/references/core_flows/core_flows.Steps_Reservation"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/core_flows.Steps_Return_Reason/page.mdx",
-    "pathname": "/references/core_flows/core_flows.Steps_Return_Reason"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/core_flows.Steps_Sales_Channel/page.mdx",
-    "pathname": "/references/core_flows/core_flows.Steps_Sales_Channel"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/core_flows.Steps_Shipping_Options/page.mdx",
-    "pathname": "/references/core_flows/core_flows.Steps_Shipping_Options"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/core_flows.Steps_Shipping_Profile/page.mdx",
-    "pathname": "/references/core_flows/core_flows.Steps_Shipping_Profile"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/core_flows.Steps_Stock_Location/page.mdx",
-    "pathname": "/references/core_flows/core_flows.Steps_Stock_Location"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/core_flows.Steps_Store/page.mdx",
-    "pathname": "/references/core_flows/core_flows.Steps_Store"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/core_flows.Steps_Tax/page.mdx",
-    "pathname": "/references/core_flows/core_flows.Steps_Tax"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/core_flows.Steps_User/page.mdx",
-    "pathname": "/references/core_flows/core_flows.Steps_User"
-  },
-  {
     "filePath": "/www/apps/resources/references/core_flows/core_flows.Stock_Location/page.mdx",
     "pathname": "/references/core_flows/core_flows.Stock_Location"
   },
@@ -6958,2506 +6558,6 @@ export const filesMap = [
   {
     "filePath": "/www/apps/resources/references/core_flows/core_flows.User/page.mdx",
     "pathname": "/references/core_flows/core_flows.User"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/core_flows.Workflows_Api_Key/page.mdx",
-    "pathname": "/references/core_flows/core_flows.Workflows_Api_Key"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/core_flows.Workflows_Auth/page.mdx",
-    "pathname": "/references/core_flows/core_flows.Workflows_Auth"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/core_flows.Workflows_Cart/page.mdx",
-    "pathname": "/references/core_flows/core_flows.Workflows_Cart"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/core_flows.Workflows_Common/page.mdx",
-    "pathname": "/references/core_flows/core_flows.Workflows_Common"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/core_flows.Workflows_Customer/page.mdx",
-    "pathname": "/references/core_flows/core_flows.Workflows_Customer"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/core_flows.Workflows_Customer_Group/page.mdx",
-    "pathname": "/references/core_flows/core_flows.Workflows_Customer_Group"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/core_flows.Workflows_Defaults/page.mdx",
-    "pathname": "/references/core_flows/core_flows.Workflows_Defaults"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/core_flows.Workflows_File/page.mdx",
-    "pathname": "/references/core_flows/core_flows.Workflows_File"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/core_flows.Workflows_Fulfillment/page.mdx",
-    "pathname": "/references/core_flows/core_flows.Workflows_Fulfillment"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/core_flows.Workflows_Inventory/page.mdx",
-    "pathname": "/references/core_flows/core_flows.Workflows_Inventory"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/core_flows.Workflows_Invite/page.mdx",
-    "pathname": "/references/core_flows/core_flows.Workflows_Invite"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/core_flows.Workflows_Line_Item/page.mdx",
-    "pathname": "/references/core_flows/core_flows.Workflows_Line_Item"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/core_flows.Workflows_Order/page.mdx",
-    "pathname": "/references/core_flows/core_flows.Workflows_Order"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/core_flows.Workflows_Payment/page.mdx",
-    "pathname": "/references/core_flows/core_flows.Workflows_Payment"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/core_flows.Workflows_Payment_Collection/page.mdx",
-    "pathname": "/references/core_flows/core_flows.Workflows_Payment_Collection"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/core_flows.Workflows_Price_List/page.mdx",
-    "pathname": "/references/core_flows/core_flows.Workflows_Price_List"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/core_flows.Workflows_Pricing/page.mdx",
-    "pathname": "/references/core_flows/core_flows.Workflows_Pricing"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/core_flows.Workflows_Product/page.mdx",
-    "pathname": "/references/core_flows/core_flows.Workflows_Product"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/core_flows.Workflows_Product_Category/page.mdx",
-    "pathname": "/references/core_flows/core_flows.Workflows_Product_Category"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/core_flows.Workflows_Promotion/page.mdx",
-    "pathname": "/references/core_flows/core_flows.Workflows_Promotion"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/core_flows.Workflows_Region/page.mdx",
-    "pathname": "/references/core_flows/core_flows.Workflows_Region"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/core_flows.Workflows_Reservation/page.mdx",
-    "pathname": "/references/core_flows/core_flows.Workflows_Reservation"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/core_flows.Workflows_Return_Reason/page.mdx",
-    "pathname": "/references/core_flows/core_flows.Workflows_Return_Reason"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/core_flows.Workflows_Sales_Channel/page.mdx",
-    "pathname": "/references/core_flows/core_flows.Workflows_Sales_Channel"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/core_flows.Workflows_Shipping_Profile/page.mdx",
-    "pathname": "/references/core_flows/core_flows.Workflows_Shipping_Profile"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/core_flows.Workflows_Stock_Location/page.mdx",
-    "pathname": "/references/core_flows/core_flows.Workflows_Stock_Location"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/core_flows.Workflows_Store/page.mdx",
-    "pathname": "/references/core_flows/core_flows.Workflows_Store"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/core_flows.Workflows_Tax/page.mdx",
-    "pathname": "/references/core_flows/core_flows.Workflows_Tax"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/core_flows.Workflows_User/page.mdx",
-    "pathname": "/references/core_flows/core_flows.Workflows_User"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.acceptInviteWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.acceptInviteWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.acceptOrderTransferValidationStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.acceptOrderTransferValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.acceptOrderTransferWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.acceptOrderTransferWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.addCampaignPromotionsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.addCampaignPromotionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.addOrRemoveCampaignPromotionsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.addOrRemoveCampaignPromotionsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.addOrderLineItemsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.addOrderLineItemsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.addOrderTransactionStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.addOrderTransactionStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.addRulesToPromotionsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.addRulesToPromotionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.addShippingMethodToCartStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.addShippingMethodToCartStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.addShippingMethodToCartWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.addShippingMethodToCartWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.addToCartWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.addToCartWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.addressesCreated/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.addressesCreated"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.addressesDeleted/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.addressesDeleted"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.addressesUpdated/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.addressesUpdated"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.adjustInventoryLevelsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.adjustInventoryLevelsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.archiveOrderWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.archiveOrderWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.archiveOrdersStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.archiveOrdersStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.associateLocationsWithSalesChannelsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.associateLocationsWithSalesChannelsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.associateProductsWithSalesChannelsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.associateProductsWithSalesChannelsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.attachInventoryItemToVariants/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.attachInventoryItemToVariants"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.authorizePaymentSessionStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.authorizePaymentSessionStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.batchLinkProductsToCategoryWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.batchLinkProductsToCategoryWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.batchLinkProductsToCollectionStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.batchLinkProductsToCollectionStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.batchLinkProductsToCollectionWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.batchLinkProductsToCollectionWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.batchLinksWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.batchLinksWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.batchPriceListPricesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.batchPriceListPricesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.batchProductVariantsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.batchProductVariantsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.batchProductsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.batchProductsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.batchPromotionRulesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.batchPromotionRulesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.batchShippingOptionRulesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.batchShippingOptionRulesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.beginClaimOrderValidationStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.beginClaimOrderValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.beginClaimOrderWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.beginClaimOrderWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.beginExchangeOrderWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.beginExchangeOrderWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.beginOrderEditOrderWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.beginOrderEditOrderWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.beginOrderEditValidationStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.beginOrderEditValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.beginOrderExchangeValidationStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.beginOrderExchangeValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.beginReceiveReturnValidationStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.beginReceiveReturnValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.beginReceiveReturnWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.beginReceiveReturnWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.beginReturnOrderValidationStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.beginReturnOrderValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.beginReturnOrderWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.beginReturnOrderWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.buildPriceSet/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.buildPriceSet"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.bulkCreateDeleteLevelsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.bulkCreateDeleteLevelsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.campaignsCreated/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.campaignsCreated"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.campaignsDeleted/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.campaignsDeleted"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.campaignsUpdated/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.campaignsUpdated"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.canDeleteSalesChannelsOrThrowStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.canDeleteSalesChannelsOrThrowStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.cancelBeginOrderClaimValidationStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.cancelBeginOrderClaimValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.cancelBeginOrderClaimWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.cancelBeginOrderClaimWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.cancelBeginOrderEditValidationStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.cancelBeginOrderEditValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.cancelBeginOrderEditWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.cancelBeginOrderEditWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.cancelBeginOrderExchangeValidationStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.cancelBeginOrderExchangeValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.cancelBeginOrderExchangeWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.cancelBeginOrderExchangeWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.cancelClaimValidateOrderStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.cancelClaimValidateOrderStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.cancelExchangeValidateOrder/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.cancelExchangeValidateOrder"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.cancelFulfillmentStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.cancelFulfillmentStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.cancelFulfillmentWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.cancelFulfillmentWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.cancelOrderChangeStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.cancelOrderChangeStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.cancelOrderChangeWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.cancelOrderChangeWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.cancelOrderClaimStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.cancelOrderClaimStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.cancelOrderClaimWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.cancelOrderClaimWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.cancelOrderExchangeStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.cancelOrderExchangeStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.cancelOrderExchangeWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.cancelOrderExchangeWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.cancelOrderFulfillmentStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.cancelOrderFulfillmentStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.cancelOrderFulfillmentValidateOrder/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.cancelOrderFulfillmentValidateOrder"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.cancelOrderFulfillmentWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.cancelOrderFulfillmentWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.cancelOrderReturnStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.cancelOrderReturnStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.cancelOrderTransferRequestWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.cancelOrderTransferRequestWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.cancelOrderWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.cancelOrderWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.cancelOrdersStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.cancelOrdersStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.cancelPaymentStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.cancelPaymentStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.cancelReceiveReturnValidationStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.cancelReceiveReturnValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.cancelRequestReturnValidationStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.cancelRequestReturnValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.cancelReturnReceiveWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.cancelReturnReceiveWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.cancelReturnRequestWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.cancelReturnRequestWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.cancelReturnValidateOrder/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.cancelReturnValidateOrder"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.cancelReturnWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.cancelReturnWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.cancelTransferOrderRequestValidationStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.cancelTransferOrderRequestValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.cancelValidateOrder/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.cancelValidateOrder"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.capturePaymentStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.capturePaymentStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.capturePaymentWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.capturePaymentWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.cartCreated/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.cartCreated"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.cartUpdated/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.cartUpdated"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.collectionsCreated/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.collectionsCreated"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.collectionsDeleted/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.collectionsDeleted"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.collectionsUpdated/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.collectionsUpdated"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.completeCartWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.completeCartWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.completeOrderWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.completeOrderWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.completeOrdersStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.completeOrdersStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.confirmClaimRequestValidationStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.confirmClaimRequestValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.confirmClaimRequestWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.confirmClaimRequestWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.confirmExchangeRequestValidationStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.confirmExchangeRequestValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.confirmExchangeRequestWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.confirmExchangeRequestWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.confirmInventoryStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.confirmInventoryStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.confirmOrderEditRequestValidationStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.confirmOrderEditRequestValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.confirmOrderEditRequestWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.confirmOrderEditRequestWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.confirmReceiveReturnValidationStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.confirmReceiveReturnValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.confirmReturnReceiveWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.confirmReturnReceiveWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.confirmReturnRequestValidationStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.confirmReturnRequestValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.confirmReturnRequestWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.confirmReturnRequestWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.confirmVariantInventoryWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.confirmVariantInventoryWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createAndCompleteReturnOrderWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createAndCompleteReturnOrderWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createApiKeysStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createApiKeysStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createApiKeysWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createApiKeysWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createCampaignsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createCampaignsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createCampaignsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createCampaignsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createCartWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createCartWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createCartsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createCartsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createClaimShippingMethodValidationStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createClaimShippingMethodValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createClaimShippingMethodWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createClaimShippingMethodWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createCollectionsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createCollectionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createCollectionsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createCollectionsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createCompleteReturnStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createCompleteReturnStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createCompleteReturnValidationStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createCompleteReturnValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createCustomerAccountWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createCustomerAccountWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createCustomerAddressesStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createCustomerAddressesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createCustomerAddressesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createCustomerAddressesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createCustomerGroupsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createCustomerGroupsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createCustomerGroupsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createCustomerGroupsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createCustomersStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createCustomersStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createCustomersWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createCustomersWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createDefaultSalesChannelStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createDefaultSalesChannelStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createDefaultStoreStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createDefaultStoreStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createDefaultsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createDefaultsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createExchangeShippingMethodValidationStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createExchangeShippingMethodValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createExchangeShippingMethodWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createExchangeShippingMethodWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createFulfillmentSets/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createFulfillmentSets"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createFulfillmentStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createFulfillmentStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createFulfillmentValidateOrder/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createFulfillmentValidateOrder"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createFulfillmentWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createFulfillmentWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createInventoryItemsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createInventoryItemsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createInventoryItemsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createInventoryItemsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createInventoryLevelsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createInventoryLevelsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createInventoryLevelsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createInventoryLevelsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createInviteStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createInviteStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createInvitesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createInvitesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createLineItemAdjustmentsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createLineItemAdjustmentsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createLineItemsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createLineItemsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createLinksWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createLinksWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createLocationFulfillmentSetWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createLocationFulfillmentSetWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createOrderChangeActionsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createOrderChangeActionsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createOrderChangeStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createOrderChangeStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createOrderChangeWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createOrderChangeWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createOrderClaimItemsFromActionsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createOrderClaimItemsFromActionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createOrderClaimsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createOrderClaimsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createOrderEditShippingMethodValidationStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createOrderEditShippingMethodValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createOrderEditShippingMethodWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createOrderEditShippingMethodWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createOrderExchangeItemsFromActionsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createOrderExchangeItemsFromActionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createOrderExchangesStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createOrderExchangesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createOrderFulfillmentWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createOrderFulfillmentWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createOrderLineItemsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createOrderLineItemsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createOrderPaymentCollectionWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createOrderPaymentCollectionWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createOrderShipmentWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createOrderShipmentWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createOrderWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createOrderWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createOrdersStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createOrdersStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createOrdersWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createOrdersWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createPaymentCollectionForCartWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createPaymentCollectionForCartWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createPaymentCollectionsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createPaymentCollectionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createPaymentSessionStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createPaymentSessionStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createPaymentSessionsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createPaymentSessionsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createPriceListPricesStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createPriceListPricesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createPriceListPricesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createPriceListPricesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createPriceListsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createPriceListsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createPriceListsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createPriceListsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createPricePreferencesStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createPricePreferencesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createPricePreferencesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createPricePreferencesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createPriceSetsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createPriceSetsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createProductCategoriesStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createProductCategoriesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createProductCategoriesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createProductCategoriesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createProductOptionsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createProductOptionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createProductOptionsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createProductOptionsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createProductTagsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createProductTagsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createProductTagsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createProductTagsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createProductTypesStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createProductTypesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createProductTypesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createProductTypesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createProductVariantsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createProductVariantsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createProductVariantsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createProductVariantsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createProductsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createProductsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createProductsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createProductsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createPromotionRulesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createPromotionRulesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createPromotionsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createPromotionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createPromotionsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createPromotionsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createRefundReasonStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createRefundReasonStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createRefundReasonsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createRefundReasonsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createRegionsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createRegionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createRegionsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createRegionsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createRemoteLinkStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createRemoteLinkStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createReservationsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createReservationsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createReservationsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createReservationsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createReturnFulfillmentStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createReturnFulfillmentStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createReturnFulfillmentWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createReturnFulfillmentWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createReturnReasonsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createReturnReasonsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createReturnReasonsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createReturnReasonsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createReturnShippingMethodValidationStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createReturnShippingMethodValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createReturnShippingMethodWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createReturnShippingMethodWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createReturnsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createReturnsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createSalesChannelsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createSalesChannelsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createSalesChannelsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createSalesChannelsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createServiceZonesStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createServiceZonesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createServiceZonesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createServiceZonesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createShipmentValidateOrder/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createShipmentValidateOrder"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createShipmentWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createShipmentWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createShippingMethodAdjustmentsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createShippingMethodAdjustmentsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createShippingOptionRulesStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createShippingOptionRulesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createShippingOptionsPriceSetsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createShippingOptionsPriceSetsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createShippingOptionsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createShippingOptionsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createShippingProfilesStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createShippingProfilesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createShippingProfilesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createShippingProfilesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createStockLocations/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createStockLocations"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createStockLocationsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createStockLocationsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createStoresStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createStoresStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createStoresWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createStoresWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createTaxRateRulesStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createTaxRateRulesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createTaxRateRulesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createTaxRateRulesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createTaxRatesStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createTaxRatesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createTaxRatesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createTaxRatesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createTaxRegionsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createTaxRegionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createTaxRegionsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createTaxRegionsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createUserAccountWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createUserAccountWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createUsersStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createUsersStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createUsersWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createUsersWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.createVariantPricingLinkStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.createVariantPricingLinkStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.customersCreated/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.customersCreated"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.customersDeleted/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.customersDeleted"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.customersUpdated/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.customersUpdated"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.declineOrderChangeStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.declineOrderChangeStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.declineOrderChangeWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.declineOrderChangeWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.declineOrderTransferRequestWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.declineOrderTransferRequestWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.declineTransferOrderRequestValidationStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.declineTransferOrderRequestValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteApiKeysStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteApiKeysStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteApiKeysWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteApiKeysWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteCampaignsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteCampaignsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteCampaignsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteCampaignsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteClaimsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteClaimsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteCollectionsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteCollectionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteCollectionsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteCollectionsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteCustomerAddressesStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteCustomerAddressesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteCustomerAddressesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteCustomerAddressesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteCustomerGroupStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteCustomerGroupStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteCustomerGroupsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteCustomerGroupsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteCustomersStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteCustomersStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteCustomersWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteCustomersWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteExchangesStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteExchangesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteFilesStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteFilesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteFilesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteFilesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteFulfillmentSetsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteFulfillmentSetsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteFulfillmentSetsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteFulfillmentSetsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteInventoryItemStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteInventoryItemStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteInventoryItemWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteInventoryItemWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteInventoryLevelsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteInventoryLevelsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteInventoryLevelsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteInventoryLevelsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteInvitesStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteInvitesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteInvitesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteInvitesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteLineItemsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteLineItemsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteLineItemsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteLineItemsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteOrderChangeActionsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteOrderChangeActionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteOrderChangeActionsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteOrderChangeActionsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteOrderChangeWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteOrderChangeWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteOrderChangesStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteOrderChangesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteOrderLineItems/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteOrderLineItems"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteOrderPaymentCollections/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteOrderPaymentCollections"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteOrderShippingMethods/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteOrderShippingMethods"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deletePaymentSessionsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deletePaymentSessionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deletePaymentSessionsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deletePaymentSessionsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deletePriceListsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deletePriceListsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deletePriceListsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deletePriceListsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deletePricePreferencesStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deletePricePreferencesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deletePricePreferencesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deletePricePreferencesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteProductCategoriesStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteProductCategoriesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteProductCategoriesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteProductCategoriesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteProductOptionsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteProductOptionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteProductOptionsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteProductOptionsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteProductTagsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteProductTagsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteProductTagsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteProductTagsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteProductTypesStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteProductTypesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteProductTypesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteProductTypesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteProductVariantsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteProductVariantsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteProductVariantsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteProductVariantsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteProductsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteProductsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteProductsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteProductsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deletePromotionRulesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deletePromotionRulesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deletePromotionsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deletePromotionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deletePromotionsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deletePromotionsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteRefundReasonsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteRefundReasonsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteRegionsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteRegionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteRegionsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteRegionsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteReservationsByLineItemsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteReservationsByLineItemsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteReservationsByLineItemsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteReservationsByLineItemsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteReservationsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteReservationsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteReservationsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteReservationsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteReturnReasonStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteReturnReasonStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteReturnReasonsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteReturnReasonsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteReturnsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteReturnsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteSalesChannelsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteSalesChannelsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteSalesChannelsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteSalesChannelsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteServiceZonesStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteServiceZonesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteServiceZonesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteServiceZonesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteShippingOptionRulesStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteShippingOptionRulesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteShippingOptionsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteShippingOptionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteShippingOptionsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteShippingOptionsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteShippingProfileWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteShippingProfileWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteShippingProfilesStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteShippingProfilesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteStockLocationsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteStockLocationsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteStockLocationsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteStockLocationsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteStoresStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteStoresStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteStoresWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteStoresWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteTaxRateRulesStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteTaxRateRulesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteTaxRateRulesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteTaxRateRulesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteTaxRatesStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteTaxRatesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteTaxRatesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteTaxRatesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteTaxRegionsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteTaxRegionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteTaxRegionsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteTaxRegionsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteUsersStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteUsersStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.deleteUsersWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.deleteUsersWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.detachLocationsFromSalesChannelsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.detachLocationsFromSalesChannelsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.detachProductsFromSalesChannelsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.detachProductsFromSalesChannelsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.dismissItemReturnRequestValidationStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.dismissItemReturnRequestValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.dismissItemReturnRequestWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.dismissItemReturnRequestWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.dismissLinksWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.dismissLinksWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.dismissRemoteLinkStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.dismissRemoteLinkStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.emitEventStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.emitEventStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.exchangeAddNewItemValidationStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.exchangeAddNewItemValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.exchangeRequestItemReturnValidationStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.exchangeRequestItemReturnValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.exportProductsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.exportProductsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.findOneOrAnyRegionStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.findOneOrAnyRegionStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.findOrCreateCustomerStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.findOrCreateCustomerStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.findSalesChannelStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.findSalesChannelStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.fulfillmentCreated/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.fulfillmentCreated"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.generateProductCsvStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.generateProductCsvStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.generateResetPasswordTokenWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.generateResetPasswordTokenWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.getActionsToComputeFromPromotionsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.getActionsToComputeFromPromotionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.getAllProductsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.getAllProductsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.getExistingPriceListsPriceIdsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.getExistingPriceListsPriceIdsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.getLineItemActionsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.getLineItemActionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.getOrderDetailWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.getOrderDetailWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.getOrdersListWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.getOrdersListWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.getProductsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.getProductsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.getPromotionCodesToApply/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.getPromotionCodesToApply"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.getVariantPriceSetsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.getVariantPriceSetsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.getVariantsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.getVariantsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.groupProductsForBatchStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.groupProductsForBatchStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.importProductsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.importProductsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.linkCustomerGroupsToCustomerStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.linkCustomerGroupsToCustomerStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.linkCustomerGroupsToCustomerWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.linkCustomerGroupsToCustomerWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.linkCustomersToCustomerGroupStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.linkCustomersToCustomerGroupStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.linkCustomersToCustomerGroupWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.linkCustomersToCustomerGroupWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.linkProductsToSalesChannelWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.linkProductsToSalesChannelWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.linkSalesChannelsToApiKeyStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.linkSalesChannelsToApiKeyStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.linkSalesChannelsToApiKeyWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.linkSalesChannelsToApiKeyWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.linkSalesChannelsToStockLocationWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.linkSalesChannelsToStockLocationWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.listLineItemsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.listLineItemsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.listShippingOptionsForCartWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.listShippingOptionsForCartWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.listShippingOptionsForContextStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.listShippingOptionsForContextStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.listTaxRateIdsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.listTaxRateIdsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.listTaxRateRuleIdsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.listTaxRateRuleIdsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.markFulfillmentAsDeliveredWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.markFulfillmentAsDeliveredWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.markOrderFulfillmentAsDeliveredWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.markOrderFulfillmentAsDeliveredWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.markPaymentCollectionAsPaid/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.markPaymentCollectionAsPaid"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.maybeListTaxRateRuleIdsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.maybeListTaxRateRuleIdsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.maybeUnsetDefaultBillingAddressesStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.maybeUnsetDefaultBillingAddressesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.maybeUnsetDefaultShippingAddressesStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.maybeUnsetDefaultShippingAddressesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.orderCanceled/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.orderCanceled"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.orderClaimAddNewItemValidationStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.orderClaimAddNewItemValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.orderClaimAddNewItemWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.orderClaimAddNewItemWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.orderClaimItemValidationStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.orderClaimItemValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.orderClaimItemWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.orderClaimItemWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.orderClaimRequestItemReturnValidationStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.orderClaimRequestItemReturnValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.orderClaimRequestItemReturnWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.orderClaimRequestItemReturnWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.orderCreated/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.orderCreated"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.orderEditAddNewItemValidationStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.orderEditAddNewItemValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.orderEditAddNewItemWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.orderEditAddNewItemWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.orderEditUpdateItemQuantityValidationStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.orderEditUpdateItemQuantityValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.orderEditUpdateItemQuantityWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.orderEditUpdateItemQuantityWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.orderExchangeAddNewItemWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.orderExchangeAddNewItemWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.orderExchangeRequestItemReturnWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.orderExchangeRequestItemReturnWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.orderFulfillmentCanceled/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.orderFulfillmentCanceled"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.orderFulfillmentDeliverablilityValidationStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.orderFulfillmentDeliverablilityValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.ordersCompleted/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.ordersCompleted"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.parseProductCsvStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.parseProductCsvStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.prepareAdjustmentsFromPromotionActionsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.prepareAdjustmentsFromPromotionActionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.previewOrderChangeStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.previewOrderChangeStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.processPaymentWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.processPaymentWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.productOptionsCreated/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.productOptionsCreated"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.productOptionsDeleted/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.productOptionsDeleted"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.productOptionsUpdated/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.productOptionsUpdated"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.productTagsCreated/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.productTagsCreated"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.productTagsDeleted/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.productTagsDeleted"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.productTagsUpdated/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.productTagsUpdated"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.productTypesCreated/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.productTypesCreated"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.productTypesDeleted/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.productTypesDeleted"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.productTypesUpdated/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.productTypesUpdated"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.productVariantsCreated/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.productVariantsCreated"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.productVariantsDeleted/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.productVariantsDeleted"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.productVariantsUpdated/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.productVariantsUpdated"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.productsCreated/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.productsCreated"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.productsDeleted/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.productsDeleted"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.productsUpdated/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.productsUpdated"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.promotionsCreated/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.promotionsCreated"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.promotionsDeleted/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.promotionsDeleted"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.promotionsUpdated/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.promotionsUpdated"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.receiveAndCompleteReturnOrderWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.receiveAndCompleteReturnOrderWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.receiveCompleteReturnValidationStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.receiveCompleteReturnValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.receiveItemReturnRequestValidationStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.receiveItemReturnRequestValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.receiveItemReturnRequestWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.receiveItemReturnRequestWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.refreshInviteTokensStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.refreshInviteTokensStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.refreshInviteTokensWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.refreshInviteTokensWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.refreshPaymentCollectionForCartWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.refreshPaymentCollectionForCartWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.refundPaymentStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.refundPaymentStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.refundPaymentWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.refundPaymentWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.registerOrderChangesStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.registerOrderChangesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.registerOrderFulfillmentStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.registerOrderFulfillmentStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.registerOrderShipmentStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.registerOrderShipmentStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.removeAddItemClaimActionWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.removeAddItemClaimActionWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.removeCampaignPromotionsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.removeCampaignPromotionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.removeClaimAddItemActionValidationStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.removeClaimAddItemActionValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.removeClaimItemActionValidationStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.removeClaimItemActionValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.removeClaimShippingMethodValidationStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.removeClaimShippingMethodValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.removeClaimShippingMethodWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.removeClaimShippingMethodWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.removeCustomerAccountWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.removeCustomerAccountWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.removeExchangeItemActionValidationStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.removeExchangeItemActionValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.removeExchangeShippingMethodValidationStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.removeExchangeShippingMethodValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.removeExchangeShippingMethodWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.removeExchangeShippingMethodWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.removeItemClaimActionWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.removeItemClaimActionWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.removeItemExchangeActionWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.removeItemExchangeActionWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.removeItemOrderEditActionWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.removeItemOrderEditActionWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.removeItemReceiveReturnActionValidationStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.removeItemReceiveReturnActionValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.removeItemReceiveReturnActionWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.removeItemReceiveReturnActionWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.removeItemReturnActionWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.removeItemReturnActionWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.removeLineItemAdjustmentsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.removeLineItemAdjustmentsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.removeOrderEditItemActionValidationStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.removeOrderEditItemActionValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.removeOrderEditShippingMethodValidationStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.removeOrderEditShippingMethodValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.removeOrderEditShippingMethodWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.removeOrderEditShippingMethodWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.removePriceListPricesStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.removePriceListPricesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.removePriceListPricesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.removePriceListPricesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.removeRemoteLinkStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.removeRemoteLinkStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.removeReturnItemActionValidationStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.removeReturnItemActionValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.removeReturnShippingMethodValidationStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.removeReturnShippingMethodValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.removeReturnShippingMethodWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.removeReturnShippingMethodWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.removeRulesFromPromotionsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.removeRulesFromPromotionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.removeShippingMethodAdjustmentsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.removeShippingMethodAdjustmentsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.removeShippingMethodFromCartStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.removeShippingMethodFromCartStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.removeUserAccountWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.removeUserAccountWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.requestItemReturnValidationStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.requestItemReturnValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.requestItemReturnWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.requestItemReturnWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.requestOrderEditRequestValidationStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.requestOrderEditRequestValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.requestOrderEditRequestWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.requestOrderEditRequestWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.requestOrderTransferValidationStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.requestOrderTransferValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.requestOrderTransferWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.requestOrderTransferWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.reserveInventoryStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.reserveInventoryStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.retrieveCartStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.retrieveCartStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.revokeApiKeysStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.revokeApiKeysStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.revokeApiKeysWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.revokeApiKeysWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.setAuthAppMetadataStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.setAuthAppMetadataStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.setOrderTaxLinesForItemsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.setOrderTaxLinesForItemsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.setShippingOptionsPricesStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.setShippingOptionsPricesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.setTaxLinesForItemsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.setTaxLinesForItemsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.setTaxRateRulesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.setTaxRateRulesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.shipmentCreated/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.shipmentCreated"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.throwUnlessPaymentCollectionNotPaid/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.throwUnlessPaymentCollectionNotPaid"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.throwUnlessStatusIsNotPaid/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.throwUnlessStatusIsNotPaid"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.transferCartCustomerWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.transferCartCustomerWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateApiKeysStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateApiKeysStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateApiKeysWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateApiKeysWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateCampaignsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateCampaignsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateCampaignsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateCampaignsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateCartPromotionsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateCartPromotionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateCartPromotionsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateCartPromotionsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateCartWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateCartWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateCartsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateCartsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateClaimAddItemValidationStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateClaimAddItemValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateClaimAddItemWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateClaimAddItemWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateClaimItemValidationStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateClaimItemValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateClaimItemWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateClaimItemWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateClaimShippingMethodValidationStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateClaimShippingMethodValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateClaimShippingMethodWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateClaimShippingMethodWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateCollectionsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateCollectionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateCollectionsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateCollectionsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateCustomerAddressesStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateCustomerAddressesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateCustomerAddressesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateCustomerAddressesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateCustomerGroupsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateCustomerGroupsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateCustomerGroupsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateCustomerGroupsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateCustomersStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateCustomersStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateCustomersWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateCustomersWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateExchangeAddItemValidationStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateExchangeAddItemValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateExchangeAddItemWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateExchangeAddItemWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateExchangeShippingMethodValidationStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateExchangeShippingMethodValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateExchangeShippingMethodWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateExchangeShippingMethodWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateFulfillmentStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateFulfillmentStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateFulfillmentWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateFulfillmentWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateInventoryItemsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateInventoryItemsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateInventoryItemsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateInventoryItemsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateInventoryLevelsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateInventoryLevelsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateInventoryLevelsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateInventoryLevelsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateLineItemInCartWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateLineItemInCartWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateLineItemsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateLineItemsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateLineItemsStepWithSelector/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateLineItemsStepWithSelector"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateLinksWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateLinksWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateOrderChangeActionsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateOrderChangeActionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateOrderChangeActionsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateOrderChangeActionsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateOrderChangesStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateOrderChangesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateOrderChangesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateOrderChangesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateOrderEditAddItemValidationStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateOrderEditAddItemValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateOrderEditAddItemWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateOrderEditAddItemWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateOrderEditItemQuantityValidationStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateOrderEditItemQuantityValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateOrderEditItemQuantityWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateOrderEditItemQuantityWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateOrderEditShippingMethodValidationStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateOrderEditShippingMethodValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateOrderEditShippingMethodWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateOrderEditShippingMethodWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateOrderExchangesStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateOrderExchangesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateOrderShippingMethodsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateOrderShippingMethodsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateOrderTaxLinesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateOrderTaxLinesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateOrderValidationStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateOrderValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateOrderWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateOrderWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateOrdersStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateOrdersStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updatePaymentCollectionStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updatePaymentCollectionStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updatePriceListPricesStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updatePriceListPricesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updatePriceListPricesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updatePriceListPricesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updatePriceListsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updatePriceListsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updatePriceListsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updatePriceListsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updatePricePreferencesAsArrayStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updatePricePreferencesAsArrayStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updatePricePreferencesStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updatePricePreferencesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updatePricePreferencesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updatePricePreferencesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updatePriceSetsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updatePriceSetsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateProductCategoriesStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateProductCategoriesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateProductCategoriesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateProductCategoriesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateProductOptionsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateProductOptionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateProductOptionsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateProductOptionsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateProductTagsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateProductTagsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateProductTagsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateProductTagsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateProductTypesStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateProductTypesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateProductTypesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateProductTypesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateProductVariantsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateProductVariantsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateProductVariantsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateProductVariantsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateProductsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateProductsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateProductsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateProductsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updatePromotionRulesStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updatePromotionRulesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updatePromotionRulesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updatePromotionRulesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updatePromotionsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updatePromotionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updatePromotionsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updatePromotionsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateReceiveItemReturnRequestValidationStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateReceiveItemReturnRequestValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateReceiveItemReturnRequestWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateReceiveItemReturnRequestWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateRefundReasonsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateRefundReasonsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateRefundReasonsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateRefundReasonsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateRegionsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateRegionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateRegionsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateRegionsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateRemoteLinksStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateRemoteLinksStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateRequestItemReturnValidationStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateRequestItemReturnValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateRequestItemReturnWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateRequestItemReturnWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateReservationsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateReservationsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateReservationsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateReservationsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateReturnItemsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateReturnItemsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateReturnReasonsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateReturnReasonsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateReturnReasonsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateReturnReasonsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateReturnShippingMethodValidationStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateReturnShippingMethodValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateReturnShippingMethodWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateReturnShippingMethodWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateReturnValidationStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateReturnValidationStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateReturnWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateReturnWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateReturnsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateReturnsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateSalesChannelsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateSalesChannelsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateSalesChannelsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateSalesChannelsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateServiceZonesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateServiceZonesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateShippingOptionsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateShippingOptionsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateShippingProfilesStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateShippingProfilesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateShippingProfilesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateShippingProfilesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateStockLocationsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateStockLocationsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateStockLocationsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateStockLocationsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateStoresStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateStoresStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateStoresWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateStoresWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateTaxLinesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateTaxLinesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateTaxRatesStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateTaxRatesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateTaxRatesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateTaxRatesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateTaxRegionsWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateTaxRegionsWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateUsersStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateUsersStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.updateUsersWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.updateUsersWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.uploadFilesStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.uploadFilesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.uploadFilesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.uploadFilesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.upsertShippingOptionsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.upsertShippingOptionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.upsertVariantPricesWorkflow/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.upsertVariantPricesWorkflow"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.useQueryGraphStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.useQueryGraphStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.useRemoteQueryStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.useRemoteQueryStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.validateCartPaymentsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.validateCartPaymentsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.validateCartShippingOptionsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.validateCartShippingOptionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.validateDeletedPaymentSessionsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.validateDeletedPaymentSessionsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.validateExistingPaymentCollectionStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.validateExistingPaymentCollectionStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.validateFulfillmentDeliverabilityStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.validateFulfillmentDeliverabilityStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.validateInventoryDeleteStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.validateInventoryDeleteStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.validateInventoryItemsForCreate/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.validateInventoryItemsForCreate"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.validateInventoryLevelsDelete/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.validateInventoryLevelsDelete"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.validateInventoryLocationsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.validateInventoryLocationsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.validatePresenceOfStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.validatePresenceOfStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.validatePriceListsStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.validatePriceListsStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.validateRefundStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.validateRefundStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.validateSalesChannelsExistStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.validateSalesChannelsExistStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.validateShipmentStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.validateShipmentStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.validateTokenStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.validateTokenStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.validateVariantPriceLinksStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.validateVariantPriceLinksStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.validateVariantPricesStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.validateVariantPricesStep"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/functions/core_flows.waitConfirmationProductImportStep/page.mdx",
-    "pathname": "/references/core_flows/functions/core_flows.waitConfirmationProductImportStep"
   },
   {
     "filePath": "/www/apps/resources/references/core_flows/interfaces/core_flows.AddShippingMethodToCartStepInput/page.mdx",
@@ -10632,20 +7732,20 @@ export const filesMap = [
     "pathname": "/references/customer/types/customer.Scalar"
   },
   {
-    "filePath": "/www/apps/resources/references/customer_models/classes/customer_models.Customer/page.mdx",
-    "pathname": "/references/customer_models/classes/customer_models.Customer"
+    "filePath": "/www/apps/resources/references/customer_models/variables/customer_models.Customer/page.mdx",
+    "pathname": "/references/customer_models/variables/customer_models.Customer"
   },
   {
-    "filePath": "/www/apps/resources/references/customer_models/classes/customer_models.CustomerAddress/page.mdx",
-    "pathname": "/references/customer_models/classes/customer_models.CustomerAddress"
+    "filePath": "/www/apps/resources/references/customer_models/variables/customer_models.CustomerAddress/page.mdx",
+    "pathname": "/references/customer_models/variables/customer_models.CustomerAddress"
   },
   {
-    "filePath": "/www/apps/resources/references/customer_models/classes/customer_models.CustomerGroup/page.mdx",
-    "pathname": "/references/customer_models/classes/customer_models.CustomerGroup"
+    "filePath": "/www/apps/resources/references/customer_models/variables/customer_models.CustomerGroup/page.mdx",
+    "pathname": "/references/customer_models/variables/customer_models.CustomerGroup"
   },
   {
-    "filePath": "/www/apps/resources/references/customer_models/classes/customer_models.CustomerGroupCustomer/page.mdx",
-    "pathname": "/references/customer_models/classes/customer_models.CustomerGroupCustomer"
+    "filePath": "/www/apps/resources/references/customer_models/variables/customer_models.CustomerGroupCustomer/page.mdx",
+    "pathname": "/references/customer_models/variables/customer_models.CustomerGroupCustomer"
   },
   {
     "filePath": "/www/apps/resources/references/dml/Model_Methods/methods/dml.Model_Methods.cascades/page.mdx",
@@ -10654,6 +7754,14 @@ export const filesMap = [
   {
     "filePath": "/www/apps/resources/references/dml/Model_Methods/methods/dml.Model_Methods.indexes/page.mdx",
     "pathname": "/references/dml/Model_Methods/methods/dml.Model_Methods.indexes"
+  },
+  {
+    "filePath": "/www/apps/resources/references/dml/Property/methods/dml.Property.autoincrement/page.mdx",
+    "pathname": "/references/dml/Property/methods/dml.Property.autoincrement"
+  },
+  {
+    "filePath": "/www/apps/resources/references/dml/Property_Configuration_Methods/methods/dml.Property_Configuration_Methods.computed/page.mdx",
+    "pathname": "/references/dml/Property_Configuration_Methods/methods/dml.Property_Configuration_Methods.computed"
   },
   {
     "filePath": "/www/apps/resources/references/dml/Property_Configuration_Methods/methods/dml.Property_Configuration_Methods.default/page.mdx",
@@ -10692,6 +7800,10 @@ export const filesMap = [
     "pathname": "/references/dml/Property_Types/methods/dml.Property_Types.enum"
   },
   {
+    "filePath": "/www/apps/resources/references/dml/Property_Types/methods/dml.Property_Types.float/page.mdx",
+    "pathname": "/references/dml/Property_Types/methods/dml.Property_Types.float"
+  },
+  {
     "filePath": "/www/apps/resources/references/dml/Property_Types/methods/dml.Property_Types.id/page.mdx",
     "pathname": "/references/dml/Property_Types/methods/dml.Property_Types.id"
   },
@@ -10726,6 +7838,10 @@ export const filesMap = [
   {
     "filePath": "/www/apps/resources/references/dml/dml.Model_Methods/page.mdx",
     "pathname": "/references/dml/dml.Model_Methods"
+  },
+  {
+    "filePath": "/www/apps/resources/references/dml/dml.Property/page.mdx",
+    "pathname": "/references/dml/dml.Property"
   },
   {
     "filePath": "/www/apps/resources/references/dml/dml.Property_Configuration_Methods/page.mdx",
@@ -10808,6 +7924,10 @@ export const filesMap = [
     "pathname": "/references/fulfillment/IBigNumber/methods/fulfillment.IBigNumber.valueOf"
   },
   {
+    "filePath": "/www/apps/resources/references/fulfillment/IFulfillmentModuleService/methods/fulfillment.IFulfillmentModuleService.calculateShippingOptionsPrices/page.mdx",
+    "pathname": "/references/fulfillment/IFulfillmentModuleService/methods/fulfillment.IFulfillmentModuleService.calculateShippingOptionsPrices"
+  },
+  {
     "filePath": "/www/apps/resources/references/fulfillment/IFulfillmentModuleService/methods/fulfillment.IFulfillmentModuleService.cancelFulfillment/page.mdx",
     "pathname": "/references/fulfillment/IFulfillmentModuleService/methods/fulfillment.IFulfillmentModuleService.cancelFulfillment"
   },
@@ -10842,6 +7962,10 @@ export const filesMap = [
   {
     "filePath": "/www/apps/resources/references/fulfillment/IFulfillmentModuleService/methods/fulfillment.IFulfillmentModuleService.createShippingProfiles/page.mdx",
     "pathname": "/references/fulfillment/IFulfillmentModuleService/methods/fulfillment.IFulfillmentModuleService.createShippingProfiles"
+  },
+  {
+    "filePath": "/www/apps/resources/references/fulfillment/IFulfillmentModuleService/methods/fulfillment.IFulfillmentModuleService.deleteFulfillment/page.mdx",
+    "pathname": "/references/fulfillment/IFulfillmentModuleService/methods/fulfillment.IFulfillmentModuleService.deleteFulfillment"
   },
   {
     "filePath": "/www/apps/resources/references/fulfillment/IFulfillmentModuleService/methods/fulfillment.IFulfillmentModuleService.deleteFulfillmentSets/page.mdx",
@@ -11072,6 +8196,10 @@ export const filesMap = [
     "pathname": "/references/fulfillment/IFulfillmentModuleService/methods/fulfillment.IFulfillmentModuleService.validateShippingOption"
   },
   {
+    "filePath": "/www/apps/resources/references/fulfillment/IFulfillmentModuleService/methods/fulfillment.IFulfillmentModuleService.validateShippingOptionsForPriceCalculation/page.mdx",
+    "pathname": "/references/fulfillment/IFulfillmentModuleService/methods/fulfillment.IFulfillmentModuleService.validateShippingOptionsForPriceCalculation"
+  },
+  {
     "filePath": "/www/apps/resources/references/fulfillment/IMessageAggregator/methods/fulfillment.IMessageAggregator.clearMessages/page.mdx",
     "pathname": "/references/fulfillment/IMessageAggregator/methods/fulfillment.IMessageAggregator.clearMessages"
   },
@@ -11092,8 +8220,36 @@ export const filesMap = [
     "pathname": "/references/fulfillment/IModuleService/methods/fulfillment.IModuleService.__joinerConfig"
   },
   {
+    "filePath": "/www/apps/resources/references/fulfillment/interfaces/fulfillment.AdjustmentLineDTO/page.mdx",
+    "pathname": "/references/fulfillment/interfaces/fulfillment.AdjustmentLineDTO"
+  },
+  {
     "filePath": "/www/apps/resources/references/fulfillment/interfaces/fulfillment.BaseFilterable/page.mdx",
     "pathname": "/references/fulfillment/interfaces/fulfillment.BaseFilterable"
+  },
+  {
+    "filePath": "/www/apps/resources/references/fulfillment/interfaces/fulfillment.CalculateShippingOptionPriceDTO/page.mdx",
+    "pathname": "/references/fulfillment/interfaces/fulfillment.CalculateShippingOptionPriceDTO"
+  },
+  {
+    "filePath": "/www/apps/resources/references/fulfillment/interfaces/fulfillment.CartAddressDTO/page.mdx",
+    "pathname": "/references/fulfillment/interfaces/fulfillment.CartAddressDTO"
+  },
+  {
+    "filePath": "/www/apps/resources/references/fulfillment/interfaces/fulfillment.CartDTO/page.mdx",
+    "pathname": "/references/fulfillment/interfaces/fulfillment.CartDTO"
+  },
+  {
+    "filePath": "/www/apps/resources/references/fulfillment/interfaces/fulfillment.CartLineItemDTO/page.mdx",
+    "pathname": "/references/fulfillment/interfaces/fulfillment.CartLineItemDTO"
+  },
+  {
+    "filePath": "/www/apps/resources/references/fulfillment/interfaces/fulfillment.CartLineItemTotalsDTO/page.mdx",
+    "pathname": "/references/fulfillment/interfaces/fulfillment.CartLineItemTotalsDTO"
+  },
+  {
+    "filePath": "/www/apps/resources/references/fulfillment/interfaces/fulfillment.CartShippingMethodDTO/page.mdx",
+    "pathname": "/references/fulfillment/interfaces/fulfillment.CartShippingMethodDTO"
   },
   {
     "filePath": "/www/apps/resources/references/fulfillment/interfaces/fulfillment.Context/page.mdx",
@@ -11256,6 +8412,14 @@ export const filesMap = [
     "pathname": "/references/fulfillment/interfaces/fulfillment.JoinerServiceConfigAlias"
   },
   {
+    "filePath": "/www/apps/resources/references/fulfillment/interfaces/fulfillment.LineItemAdjustmentDTO/page.mdx",
+    "pathname": "/references/fulfillment/interfaces/fulfillment.LineItemAdjustmentDTO"
+  },
+  {
+    "filePath": "/www/apps/resources/references/fulfillment/interfaces/fulfillment.LineItemTaxLineDTO/page.mdx",
+    "pathname": "/references/fulfillment/interfaces/fulfillment.LineItemTaxLineDTO"
+  },
+  {
     "filePath": "/www/apps/resources/references/fulfillment/interfaces/fulfillment.MessageAggregatorFormat/page.mdx",
     "pathname": "/references/fulfillment/interfaces/fulfillment.MessageAggregatorFormat"
   },
@@ -11348,6 +8512,14 @@ export const filesMap = [
     "pathname": "/references/fulfillment/interfaces/fulfillment.ServiceZoneDTO"
   },
   {
+    "filePath": "/www/apps/resources/references/fulfillment/interfaces/fulfillment.ShippingMethodAdjustmentDTO/page.mdx",
+    "pathname": "/references/fulfillment/interfaces/fulfillment.ShippingMethodAdjustmentDTO"
+  },
+  {
+    "filePath": "/www/apps/resources/references/fulfillment/interfaces/fulfillment.ShippingMethodTaxLineDTO/page.mdx",
+    "pathname": "/references/fulfillment/interfaces/fulfillment.ShippingMethodTaxLineDTO"
+  },
+  {
     "filePath": "/www/apps/resources/references/fulfillment/interfaces/fulfillment.ShippingOptionDTO/page.mdx",
     "pathname": "/references/fulfillment/interfaces/fulfillment.ShippingOptionDTO"
   },
@@ -11366,6 +8538,10 @@ export const filesMap = [
   {
     "filePath": "/www/apps/resources/references/fulfillment/interfaces/fulfillment.SoftDeleteReturn/page.mdx",
     "pathname": "/references/fulfillment/interfaces/fulfillment.SoftDeleteReturn"
+  },
+  {
+    "filePath": "/www/apps/resources/references/fulfillment/interfaces/fulfillment.TaxLineDTO/page.mdx",
+    "pathname": "/references/fulfillment/interfaces/fulfillment.TaxLineDTO"
   },
   {
     "filePath": "/www/apps/resources/references/fulfillment/interfaces/fulfillment.UpdateCityGeoZoneDTO/page.mdx",
@@ -11430,6 +8606,10 @@ export const filesMap = [
   {
     "filePath": "/www/apps/resources/references/fulfillment/types/fulfillment.BigNumberValue/page.mdx",
     "pathname": "/references/fulfillment/types/fulfillment.BigNumberValue"
+  },
+  {
+    "filePath": "/www/apps/resources/references/fulfillment/types/fulfillment.CalculatedShippingOptionPrice/page.mdx",
+    "pathname": "/references/fulfillment/types/fulfillment.CalculatedShippingOptionPrice"
   },
   {
     "filePath": "/www/apps/resources/references/fulfillment/types/fulfillment.ChangeActionType/page.mdx",
@@ -12060,16 +9240,16 @@ export const filesMap = [
     "pathname": "/references/inventory_next/types/inventory_next.Scalar"
   },
   {
-    "filePath": "/www/apps/resources/references/inventory_next_models/classes/inventory_next_models.InventoryItem/page.mdx",
-    "pathname": "/references/inventory_next_models/classes/inventory_next_models.InventoryItem"
+    "filePath": "/www/apps/resources/references/inventory_next_models/variables/inventory_next_models.InventoryItem/page.mdx",
+    "pathname": "/references/inventory_next_models/variables/inventory_next_models.InventoryItem"
   },
   {
-    "filePath": "/www/apps/resources/references/inventory_next_models/classes/inventory_next_models.InventoryLevel/page.mdx",
-    "pathname": "/references/inventory_next_models/classes/inventory_next_models.InventoryLevel"
+    "filePath": "/www/apps/resources/references/inventory_next_models/variables/inventory_next_models.InventoryLevel/page.mdx",
+    "pathname": "/references/inventory_next_models/variables/inventory_next_models.InventoryLevel"
   },
   {
-    "filePath": "/www/apps/resources/references/inventory_next_models/classes/inventory_next_models.ReservationItem/page.mdx",
-    "pathname": "/references/inventory_next_models/classes/inventory_next_models.ReservationItem"
+    "filePath": "/www/apps/resources/references/inventory_next_models/variables/inventory_next_models.ReservationItem/page.mdx",
+    "pathname": "/references/inventory_next_models/variables/inventory_next_models.ReservationItem"
   },
   {
     "filePath": "/www/apps/resources/references/js_sdk/admin/Admin/properties/js_sdk.admin.Admin.apiKey/page.mdx",
@@ -15956,36 +13136,36 @@ export const filesMap = [
     "pathname": "/references/payment/types/payment.Scalar"
   },
   {
-    "filePath": "/www/apps/resources/references/payment_models/classes/payment_models.Capture/page.mdx",
-    "pathname": "/references/payment_models/classes/payment_models.Capture"
+    "filePath": "/www/apps/resources/references/payment_models/variables/payment_models.Capture/page.mdx",
+    "pathname": "/references/payment_models/variables/payment_models.Capture"
   },
   {
-    "filePath": "/www/apps/resources/references/payment_models/classes/payment_models.Payment/page.mdx",
-    "pathname": "/references/payment_models/classes/payment_models.Payment"
+    "filePath": "/www/apps/resources/references/payment_models/variables/payment_models.Payment/page.mdx",
+    "pathname": "/references/payment_models/variables/payment_models.Payment"
   },
   {
-    "filePath": "/www/apps/resources/references/payment_models/classes/payment_models.PaymentCollection/page.mdx",
-    "pathname": "/references/payment_models/classes/payment_models.PaymentCollection"
+    "filePath": "/www/apps/resources/references/payment_models/variables/payment_models.PaymentCollection/page.mdx",
+    "pathname": "/references/payment_models/variables/payment_models.PaymentCollection"
   },
   {
-    "filePath": "/www/apps/resources/references/payment_models/classes/payment_models.PaymentMethodToken/page.mdx",
-    "pathname": "/references/payment_models/classes/payment_models.PaymentMethodToken"
+    "filePath": "/www/apps/resources/references/payment_models/variables/payment_models.PaymentMethodToken/page.mdx",
+    "pathname": "/references/payment_models/variables/payment_models.PaymentMethodToken"
   },
   {
-    "filePath": "/www/apps/resources/references/payment_models/classes/payment_models.PaymentProvider/page.mdx",
-    "pathname": "/references/payment_models/classes/payment_models.PaymentProvider"
+    "filePath": "/www/apps/resources/references/payment_models/variables/payment_models.PaymentProvider/page.mdx",
+    "pathname": "/references/payment_models/variables/payment_models.PaymentProvider"
   },
   {
-    "filePath": "/www/apps/resources/references/payment_models/classes/payment_models.PaymentSession/page.mdx",
-    "pathname": "/references/payment_models/classes/payment_models.PaymentSession"
+    "filePath": "/www/apps/resources/references/payment_models/variables/payment_models.PaymentSession/page.mdx",
+    "pathname": "/references/payment_models/variables/payment_models.PaymentSession"
   },
   {
-    "filePath": "/www/apps/resources/references/payment_models/classes/payment_models.Refund/page.mdx",
-    "pathname": "/references/payment_models/classes/payment_models.Refund"
+    "filePath": "/www/apps/resources/references/payment_models/variables/payment_models.Refund/page.mdx",
+    "pathname": "/references/payment_models/variables/payment_models.Refund"
   },
   {
-    "filePath": "/www/apps/resources/references/payment_models/classes/payment_models.RefundReason/page.mdx",
-    "pathname": "/references/payment_models/classes/payment_models.RefundReason"
+    "filePath": "/www/apps/resources/references/payment_models/variables/payment_models.RefundReason/page.mdx",
+    "pathname": "/references/payment_models/variables/payment_models.RefundReason"
   },
   {
     "filePath": "/www/apps/resources/references/payment_provider/classes/payment_provider.AbstractPaymentProvider/page.mdx",
@@ -17616,28 +14796,28 @@ export const filesMap = [
     "pathname": "/references/promotion/types/promotion.UsageComputedActions"
   },
   {
-    "filePath": "/www/apps/resources/references/promotion_models/classes/promotion_models.ApplicationMethod/page.mdx",
-    "pathname": "/references/promotion_models/classes/promotion_models.ApplicationMethod"
+    "filePath": "/www/apps/resources/references/promotion_models/variables/promotion_models.ApplicationMethod/page.mdx",
+    "pathname": "/references/promotion_models/variables/promotion_models.ApplicationMethod"
   },
   {
-    "filePath": "/www/apps/resources/references/promotion_models/classes/promotion_models.Campaign/page.mdx",
-    "pathname": "/references/promotion_models/classes/promotion_models.Campaign"
+    "filePath": "/www/apps/resources/references/promotion_models/variables/promotion_models.Campaign/page.mdx",
+    "pathname": "/references/promotion_models/variables/promotion_models.Campaign"
   },
   {
-    "filePath": "/www/apps/resources/references/promotion_models/classes/promotion_models.CampaignBudget/page.mdx",
-    "pathname": "/references/promotion_models/classes/promotion_models.CampaignBudget"
+    "filePath": "/www/apps/resources/references/promotion_models/variables/promotion_models.CampaignBudget/page.mdx",
+    "pathname": "/references/promotion_models/variables/promotion_models.CampaignBudget"
   },
   {
-    "filePath": "/www/apps/resources/references/promotion_models/classes/promotion_models.Promotion/page.mdx",
-    "pathname": "/references/promotion_models/classes/promotion_models.Promotion"
+    "filePath": "/www/apps/resources/references/promotion_models/variables/promotion_models.Promotion/page.mdx",
+    "pathname": "/references/promotion_models/variables/promotion_models.Promotion"
   },
   {
-    "filePath": "/www/apps/resources/references/promotion_models/classes/promotion_models.PromotionRule/page.mdx",
-    "pathname": "/references/promotion_models/classes/promotion_models.PromotionRule"
+    "filePath": "/www/apps/resources/references/promotion_models/variables/promotion_models.PromotionRule/page.mdx",
+    "pathname": "/references/promotion_models/variables/promotion_models.PromotionRule"
   },
   {
-    "filePath": "/www/apps/resources/references/promotion_models/classes/promotion_models.PromotionRuleValue/page.mdx",
-    "pathname": "/references/promotion_models/classes/promotion_models.PromotionRuleValue"
+    "filePath": "/www/apps/resources/references/promotion_models/variables/promotion_models.PromotionRuleValue/page.mdx",
+    "pathname": "/references/promotion_models/variables/promotion_models.PromotionRuleValue"
   },
   {
     "filePath": "/www/apps/resources/references/region/IMessageAggregator/methods/region.IMessageAggregator.clearMessages/page.mdx",
@@ -18044,8 +15224,8 @@ export const filesMap = [
     "pathname": "/references/sales_channel/types/sales_channel.RawMessageFormat"
   },
   {
-    "filePath": "/www/apps/resources/references/sales_channel_models/classes/sales_channel_models.SalesChannel/page.mdx",
-    "pathname": "/references/sales_channel_models/classes/sales_channel_models.SalesChannel"
+    "filePath": "/www/apps/resources/references/sales_channel_models/variables/sales_channel_models.SalesChannel/page.mdx",
+    "pathname": "/references/sales_channel_models/variables/sales_channel_models.SalesChannel"
   },
   {
     "filePath": "/www/apps/resources/references/search/classes/search.AbstractSearchService/page.mdx",
@@ -18324,12 +15504,12 @@ export const filesMap = [
     "pathname": "/references/stock_location_next/types/stock_location_next.UpdateStockLocationInput"
   },
   {
-    "filePath": "/www/apps/resources/references/stock_location_next_models/classes/stock_location_next_models.StockLocation/page.mdx",
-    "pathname": "/references/stock_location_next_models/classes/stock_location_next_models.StockLocation"
+    "filePath": "/www/apps/resources/references/stock_location_next_models/variables/stock_location_next_models.StockLocation/page.mdx",
+    "pathname": "/references/stock_location_next_models/variables/stock_location_next_models.StockLocation"
   },
   {
-    "filePath": "/www/apps/resources/references/stock_location_next_models/classes/stock_location_next_models.StockLocationAddress/page.mdx",
-    "pathname": "/references/stock_location_next_models/classes/stock_location_next_models.StockLocationAddress"
+    "filePath": "/www/apps/resources/references/stock_location_next_models/variables/stock_location_next_models.StockLocationAddress/page.mdx",
+    "pathname": "/references/stock_location_next_models/variables/stock_location_next_models.StockLocationAddress"
   },
   {
     "filePath": "/www/apps/resources/references/store/IMessageAggregator/methods/store.IMessageAggregator.clearMessages/page.mdx",
@@ -18460,12 +15640,36 @@ export const filesMap = [
     "pathname": "/references/store/interfaces/store.UpsertStoreDTO"
   },
   {
+    "filePath": "/www/apps/resources/references/store/types/store.Constructor/page.mdx",
+    "pathname": "/references/store/types/store.Constructor"
+  },
+  {
     "filePath": "/www/apps/resources/references/store/types/store.Event/page.mdx",
     "pathname": "/references/store/types/store.Event"
   },
   {
     "filePath": "/www/apps/resources/references/store/types/store.EventMetadata/page.mdx",
     "pathname": "/references/store/types/store.EventMetadata"
+  },
+  {
+    "filePath": "/www/apps/resources/references/store/types/store.ExpandScalar/page.mdx",
+    "pathname": "/references/store/types/store.ExpandScalar"
+  },
+  {
+    "filePath": "/www/apps/resources/references/store/types/store.FilterQuery/page.mdx",
+    "pathname": "/references/store/types/store.FilterQuery"
+  },
+  {
+    "filePath": "/www/apps/resources/references/store/types/store.FilterQueryProperties/page.mdx",
+    "pathname": "/references/store/types/store.FilterQueryProperties"
+  },
+  {
+    "filePath": "/www/apps/resources/references/store/types/store.FilterValue/page.mdx",
+    "pathname": "/references/store/types/store.FilterValue"
+  },
+  {
+    "filePath": "/www/apps/resources/references/store/types/store.FilterValue2/page.mdx",
+    "pathname": "/references/store/types/store.FilterValue2"
   },
   {
     "filePath": "/www/apps/resources/references/store/types/store.FindConfigOrder/page.mdx",
@@ -18492,16 +15696,40 @@ export const filesMap = [
     "pathname": "/references/store/types/store.ModuleJoinerRelationship"
   },
   {
+    "filePath": "/www/apps/resources/references/store/types/store.OperatorMap/page.mdx",
+    "pathname": "/references/store/types/store.OperatorMap"
+  },
+  {
+    "filePath": "/www/apps/resources/references/store/types/store.PrevLimit/page.mdx",
+    "pathname": "/references/store/types/store.PrevLimit"
+  },
+  {
+    "filePath": "/www/apps/resources/references/store/types/store.Primary/page.mdx",
+    "pathname": "/references/store/types/store.Primary"
+  },
+  {
+    "filePath": "/www/apps/resources/references/store/types/store.Query/page.mdx",
+    "pathname": "/references/store/types/store.Query"
+  },
+  {
     "filePath": "/www/apps/resources/references/store/types/store.RawMessageFormat/page.mdx",
     "pathname": "/references/store/types/store.RawMessageFormat"
   },
   {
-    "filePath": "/www/apps/resources/references/store_models/classes/store_models.Store/page.mdx",
-    "pathname": "/references/store_models/classes/store_models.Store"
+    "filePath": "/www/apps/resources/references/store/types/store.ReadonlyPrimary/page.mdx",
+    "pathname": "/references/store/types/store.ReadonlyPrimary"
   },
   {
-    "filePath": "/www/apps/resources/references/store_models/classes/store_models.StoreCurrency/page.mdx",
-    "pathname": "/references/store_models/classes/store_models.StoreCurrency"
+    "filePath": "/www/apps/resources/references/store/types/store.Scalar/page.mdx",
+    "pathname": "/references/store/types/store.Scalar"
+  },
+  {
+    "filePath": "/www/apps/resources/references/store_models/variables/store_models.Store/page.mdx",
+    "pathname": "/references/store_models/variables/store_models.Store"
+  },
+  {
+    "filePath": "/www/apps/resources/references/store_models/variables/store_models.StoreCurrency/page.mdx",
+    "pathname": "/references/store_models/variables/store_models.StoreCurrency"
   },
   {
     "filePath": "/www/apps/resources/references/tax/IBigNumber/methods/tax.IBigNumber.toJSON/page.mdx",
@@ -18832,20 +16060,20 @@ export const filesMap = [
     "pathname": "/references/tax/types/tax.Scalar"
   },
   {
-    "filePath": "/www/apps/resources/references/tax_models/classes/tax_models.TaxProvider/page.mdx",
-    "pathname": "/references/tax_models/classes/tax_models.TaxProvider"
+    "filePath": "/www/apps/resources/references/tax_models/variables/tax_models.TaxProvider/page.mdx",
+    "pathname": "/references/tax_models/variables/tax_models.TaxProvider"
   },
   {
-    "filePath": "/www/apps/resources/references/tax_models/classes/tax_models.TaxRate/page.mdx",
-    "pathname": "/references/tax_models/classes/tax_models.TaxRate"
+    "filePath": "/www/apps/resources/references/tax_models/variables/tax_models.TaxRate/page.mdx",
+    "pathname": "/references/tax_models/variables/tax_models.TaxRate"
   },
   {
-    "filePath": "/www/apps/resources/references/tax_models/classes/tax_models.TaxRateRule/page.mdx",
-    "pathname": "/references/tax_models/classes/tax_models.TaxRateRule"
+    "filePath": "/www/apps/resources/references/tax_models/variables/tax_models.TaxRateRule/page.mdx",
+    "pathname": "/references/tax_models/variables/tax_models.TaxRateRule"
   },
   {
-    "filePath": "/www/apps/resources/references/tax_models/classes/tax_models.TaxRegion/page.mdx",
-    "pathname": "/references/tax_models/classes/tax_models.TaxRegion"
+    "filePath": "/www/apps/resources/references/tax_models/variables/tax_models.TaxRegion/page.mdx",
+    "pathname": "/references/tax_models/variables/tax_models.TaxRegion"
   },
   {
     "filePath": "/www/apps/resources/references/tax_provider/interfaces/tax_provider.ITaxProvider/page.mdx",
@@ -20936,6 +18164,10 @@ export const filesMap = [
     "pathname": "/references/types/HttpTypes/interfaces/types.HttpTypes.StoreAddCartShippingMethods"
   },
   {
+    "filePath": "/www/apps/resources/references/types/HttpTypes/interfaces/types.HttpTypes.StoreCalculatedPrice/page.mdx",
+    "pathname": "/references/types/HttpTypes/interfaces/types.HttpTypes.StoreCalculatedPrice"
+  },
+  {
     "filePath": "/www/apps/resources/references/types/HttpTypes/interfaces/types.HttpTypes.StoreCart/page.mdx",
     "pathname": "/references/types/HttpTypes/interfaces/types.HttpTypes.StoreCart"
   },
@@ -21112,6 +18344,14 @@ export const filesMap = [
     "pathname": "/references/types/HttpTypes/interfaces/types.HttpTypes.StorePaymentSessionFilters"
   },
   {
+    "filePath": "/www/apps/resources/references/types/HttpTypes/interfaces/types.HttpTypes.StorePrice/page.mdx",
+    "pathname": "/references/types/HttpTypes/interfaces/types.HttpTypes.StorePrice"
+  },
+  {
+    "filePath": "/www/apps/resources/references/types/HttpTypes/interfaces/types.HttpTypes.StorePriceRule/page.mdx",
+    "pathname": "/references/types/HttpTypes/interfaces/types.HttpTypes.StorePriceRule"
+  },
+  {
     "filePath": "/www/apps/resources/references/types/HttpTypes/interfaces/types.HttpTypes.StoreProduct/page.mdx",
     "pathname": "/references/types/HttpTypes/interfaces/types.HttpTypes.StoreProduct"
   },
@@ -21234,6 +18474,10 @@ export const filesMap = [
   {
     "filePath": "/www/apps/resources/references/types/HttpTypes/interfaces/types.HttpTypes.StoreShippingOptionListResponse/page.mdx",
     "pathname": "/references/types/HttpTypes/interfaces/types.HttpTypes.StoreShippingOptionListResponse"
+  },
+  {
+    "filePath": "/www/apps/resources/references/types/HttpTypes/interfaces/types.HttpTypes.StoreShippingOptionResponse/page.mdx",
+    "pathname": "/references/types/HttpTypes/interfaces/types.HttpTypes.StoreShippingOptionResponse"
   },
   {
     "filePath": "/www/apps/resources/references/types/HttpTypes/interfaces/types.HttpTypes.StoreShippingOptionType/page.mdx",
@@ -21530,6 +18774,10 @@ export const filesMap = [
   {
     "filePath": "/www/apps/resources/references/types/HttpTypes/types/types.HttpTypes.StepInvokeResult/page.mdx",
     "pathname": "/references/types/HttpTypes/types/types.HttpTypes.StepInvokeResult"
+  },
+  {
+    "filePath": "/www/apps/resources/references/types/HttpTypes/types/types.HttpTypes.StoreCalculateShippingOptionPrice/page.mdx",
+    "pathname": "/references/types/HttpTypes/types/types.HttpTypes.StoreCalculateShippingOptionPrice"
   },
   {
     "filePath": "/www/apps/resources/references/types/HttpTypes/types/types.HttpTypes.StoreCollectionListResponse/page.mdx",
@@ -21988,10 +19236,6 @@ export const filesMap = [
     "pathname": "/references/types/WorkflowTypes/FulfillmentWorkflow/interfaces/types.WorkflowTypes.FulfillmentWorkflow.CreateShipmentWorkflowInput"
   },
   {
-    "filePath": "/www/apps/resources/references/types/WorkflowTypes/FulfillmentWorkflow/interfaces/types.WorkflowTypes.FulfillmentWorkflow.CreateShippingOptionsWorkflowInput/page.mdx",
-    "pathname": "/references/types/WorkflowTypes/FulfillmentWorkflow/interfaces/types.WorkflowTypes.FulfillmentWorkflow.CreateShippingOptionsWorkflowInput"
-  },
-  {
     "filePath": "/www/apps/resources/references/types/WorkflowTypes/FulfillmentWorkflow/interfaces/types.WorkflowTypes.FulfillmentWorkflow.CreateShippingProfilesWorkflowInput/page.mdx",
     "pathname": "/references/types/WorkflowTypes/FulfillmentWorkflow/interfaces/types.WorkflowTypes.FulfillmentWorkflow.CreateShippingProfilesWorkflowInput"
   },
@@ -22008,12 +19252,16 @@ export const filesMap = [
     "pathname": "/references/types/WorkflowTypes/FulfillmentWorkflow/interfaces/types.WorkflowTypes.FulfillmentWorkflow.UpdateServiceZonesWorkflowInput"
   },
   {
-    "filePath": "/www/apps/resources/references/types/WorkflowTypes/FulfillmentWorkflow/interfaces/types.WorkflowTypes.FulfillmentWorkflow.UpdateShippingOptionsWorkflowInput/page.mdx",
-    "pathname": "/references/types/WorkflowTypes/FulfillmentWorkflow/interfaces/types.WorkflowTypes.FulfillmentWorkflow.UpdateShippingOptionsWorkflowInput"
-  },
-  {
     "filePath": "/www/apps/resources/references/types/WorkflowTypes/FulfillmentWorkflow/interfaces/types.WorkflowTypes.FulfillmentWorkflow.UpdateShippingProfilesWorkflowInput/page.mdx",
     "pathname": "/references/types/WorkflowTypes/FulfillmentWorkflow/interfaces/types.WorkflowTypes.FulfillmentWorkflow.UpdateShippingProfilesWorkflowInput"
+  },
+  {
+    "filePath": "/www/apps/resources/references/types/WorkflowTypes/FulfillmentWorkflow/types/types.WorkflowTypes.FulfillmentWorkflow.CalculateShippingOptionsPricesWorkflowInput/page.mdx",
+    "pathname": "/references/types/WorkflowTypes/FulfillmentWorkflow/types/types.WorkflowTypes.FulfillmentWorkflow.CalculateShippingOptionsPricesWorkflowInput"
+  },
+  {
+    "filePath": "/www/apps/resources/references/types/WorkflowTypes/FulfillmentWorkflow/types/types.WorkflowTypes.FulfillmentWorkflow.CalculateShippingOptionsPricesWorkflowOutput/page.mdx",
+    "pathname": "/references/types/WorkflowTypes/FulfillmentWorkflow/types/types.WorkflowTypes.FulfillmentWorkflow.CalculateShippingOptionsPricesWorkflowOutput"
   },
   {
     "filePath": "/www/apps/resources/references/types/WorkflowTypes/FulfillmentWorkflow/types/types.WorkflowTypes.FulfillmentWorkflow.CreateFulfillmentAddressWorkflowDTO/page.mdx",
@@ -22036,12 +19284,32 @@ export const filesMap = [
     "pathname": "/references/types/WorkflowTypes/FulfillmentWorkflow/types/types.WorkflowTypes.FulfillmentWorkflow.CreateFulfillmentWorkflowInput"
   },
   {
+    "filePath": "/www/apps/resources/references/types/WorkflowTypes/FulfillmentWorkflow/types/types.WorkflowTypes.FulfillmentWorkflow.CreateShippingOptionsWorkflowInput/page.mdx",
+    "pathname": "/references/types/WorkflowTypes/FulfillmentWorkflow/types/types.WorkflowTypes.FulfillmentWorkflow.CreateShippingOptionsWorkflowInput"
+  },
+  {
     "filePath": "/www/apps/resources/references/types/WorkflowTypes/FulfillmentWorkflow/types/types.WorkflowTypes.FulfillmentWorkflow.CreateShippingOptionsWorkflowOutput/page.mdx",
     "pathname": "/references/types/WorkflowTypes/FulfillmentWorkflow/types/types.WorkflowTypes.FulfillmentWorkflow.CreateShippingOptionsWorkflowOutput"
   },
   {
     "filePath": "/www/apps/resources/references/types/WorkflowTypes/FulfillmentWorkflow/types/types.WorkflowTypes.FulfillmentWorkflow.CreateShippingProfilesWorkflowOutput/page.mdx",
     "pathname": "/references/types/WorkflowTypes/FulfillmentWorkflow/types/types.WorkflowTypes.FulfillmentWorkflow.CreateShippingProfilesWorkflowOutput"
+  },
+  {
+    "filePath": "/www/apps/resources/references/types/WorkflowTypes/FulfillmentWorkflow/types/types.WorkflowTypes.FulfillmentWorkflow.UpdateCalculatedShippingOptionInput/page.mdx",
+    "pathname": "/references/types/WorkflowTypes/FulfillmentWorkflow/types/types.WorkflowTypes.FulfillmentWorkflow.UpdateCalculatedShippingOptionInput"
+  },
+  {
+    "filePath": "/www/apps/resources/references/types/WorkflowTypes/FulfillmentWorkflow/types/types.WorkflowTypes.FulfillmentWorkflow.UpdateFlatRateShippingOptionInput/page.mdx",
+    "pathname": "/references/types/WorkflowTypes/FulfillmentWorkflow/types/types.WorkflowTypes.FulfillmentWorkflow.UpdateFlatRateShippingOptionInput"
+  },
+  {
+    "filePath": "/www/apps/resources/references/types/WorkflowTypes/FulfillmentWorkflow/types/types.WorkflowTypes.FulfillmentWorkflow.UpdateShippingOptionPriceRecord/page.mdx",
+    "pathname": "/references/types/WorkflowTypes/FulfillmentWorkflow/types/types.WorkflowTypes.FulfillmentWorkflow.UpdateShippingOptionPriceRecord"
+  },
+  {
+    "filePath": "/www/apps/resources/references/types/WorkflowTypes/FulfillmentWorkflow/types/types.WorkflowTypes.FulfillmentWorkflow.UpdateShippingOptionsWorkflowInput/page.mdx",
+    "pathname": "/references/types/WorkflowTypes/FulfillmentWorkflow/types/types.WorkflowTypes.FulfillmentWorkflow.UpdateShippingOptionsWorkflowInput"
   },
   {
     "filePath": "/www/apps/resources/references/types/WorkflowTypes/FulfillmentWorkflow/types/types.WorkflowTypes.FulfillmentWorkflow.UpdateShippingOptionsWorkflowOutput/page.mdx",
@@ -22674,6 +19942,14 @@ export const filesMap = [
   {
     "filePath": "/www/apps/resources/references/types/interfaces/types.AdminFulfillmentDeliveryAddress/page.mdx",
     "pathname": "/references/types/interfaces/types.AdminFulfillmentDeliveryAddress"
+  },
+  {
+    "filePath": "/www/apps/resources/references/types/interfaces/types.AdminShippingOptionPriceRulePayload/page.mdx",
+    "pathname": "/references/types/interfaces/types.AdminShippingOptionPriceRulePayload"
+  },
+  {
+    "filePath": "/www/apps/resources/references/types/interfaces/types.AdminShippingOptionPriceWithRules/page.mdx",
+    "pathname": "/references/types/interfaces/types.AdminShippingOptionPriceWithRules"
   },
   {
     "filePath": "/www/apps/resources/references/types/interfaces/types.AdminUpdateFulfillmentSetServiceZoneCity/page.mdx",
@@ -23416,6 +20692,22 @@ export const filesMap = [
     "pathname": "/references/types/types/types.CleanupObject-1"
   },
   {
+    "filePath": "/www/apps/resources/references/types/types/types.CreateCalculatedShippingOptionInput/page.mdx",
+    "pathname": "/references/types/types/types.CreateCalculatedShippingOptionInput"
+  },
+  {
+    "filePath": "/www/apps/resources/references/types/types/types.CreateFlatRateShippingOptionInput/page.mdx",
+    "pathname": "/references/types/types/types.CreateFlatRateShippingOptionInput"
+  },
+  {
+    "filePath": "/www/apps/resources/references/types/types/types.CreateFlatRateShippingOptionPriceRecord/page.mdx",
+    "pathname": "/references/types/types/types.CreateFlatRateShippingOptionPriceRecord"
+  },
+  {
+    "filePath": "/www/apps/resources/references/types/types/types.CreateFlatShippingOptionInputBase/page.mdx",
+    "pathname": "/references/types/types/types.CreateFlatShippingOptionInputBase"
+  },
+  {
     "filePath": "/www/apps/resources/references/types/types/types.CreateProductVariantWorkflowInputDTO/page.mdx",
     "pathname": "/references/types/types/types.CreateProductVariantWorkflowInputDTO"
   },
@@ -23750,6 +21042,10 @@ export const filesMap = [
   {
     "filePath": "/www/apps/resources/references/types/types/types.UncountableRules/page.mdx",
     "pathname": "/references/types/types/types.UncountableRules"
+  },
+  {
+    "filePath": "/www/apps/resources/references/types/types/types.UpdateFlatShippingOptionInputBase/page.mdx",
+    "pathname": "/references/types/types/types.UpdateFlatShippingOptionInputBase"
   },
   {
     "filePath": "/www/apps/resources/references/types/types/types.UpdateFulfillmentShippingOptionRulesWorkflowDTO/page.mdx",
@@ -24184,6 +21480,14 @@ export const filesMap = [
     "pathname": "/references/utils/interfaces/utils.Entity"
   },
   {
+    "filePath": "/www/apps/resources/references/utils/types/utils.TotalVariantAvailabilityData/page.mdx",
+    "pathname": "/references/utils/types/utils.TotalVariantAvailabilityData"
+  },
+  {
+    "filePath": "/www/apps/resources/references/utils/types/utils.VariantAvailabilityData/page.mdx",
+    "pathname": "/references/utils/types/utils.VariantAvailabilityData"
+  },
+  {
     "filePath": "/www/apps/resources/references/utils/utils.CoreFlowsUitls/page.mdx",
     "pathname": "/references/utils/utils.CoreFlowsUitls"
   },
@@ -24262,10 +21566,6 @@ export const filesMap = [
   {
     "filePath": "/www/apps/resources/references/workflows/functions/workflows.transform/page.mdx",
     "pathname": "/references/workflows/functions/workflows.transform"
-  },
-  {
-    "filePath": "/www/apps/resources/references/workflows/functions/workflows.when/page.mdx",
-    "pathname": "/references/workflows/functions/workflows.when"
   },
   {
     "filePath": "/www/apps/resources/references/workflows/interfaces/workflows.ApplyStepOptions/page.mdx",

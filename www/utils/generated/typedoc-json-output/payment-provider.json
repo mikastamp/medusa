@@ -1,12 +1,12 @@
 {
-	"id": 40916,
+	"id": 47542,
 	"name": "payment-provider",
 	"variant": "project",
 	"kind": 1,
 	"flags": {},
 	"children": [
 		{
-			"id": 40920,
+			"id": 47546,
 			"name": "AbstractPaymentProvider",
 			"variant": "declaration",
 			"kind": 128,
@@ -15,36 +15,7 @@
 			},
 			"children": [
 				{
-					"id": 40934,
-					"name": "container",
-					"variant": "declaration",
-					"kind": 1024,
-					"flags": {
-						"isProtected": true,
-						"isReadonly": true
-					},
-					"type": {
-						"type": "reference",
-						"target": {
-							"sourceFileName": "../../node_modules/typescript/lib/lib.es5.d.ts",
-							"qualifiedName": "Record"
-						},
-						"typeArguments": [
-							{
-								"type": "intrinsic",
-								"name": "string"
-							},
-							{
-								"type": "intrinsic",
-								"name": "unknown"
-							}
-						],
-						"name": "Record",
-						"package": "typescript"
-					}
-				},
-				{
-					"id": 40921,
+					"id": 47547,
 					"name": "validateOptions",
 					"variant": "declaration",
 					"kind": 2048,
@@ -53,7 +24,7 @@
 					},
 					"signatures": [
 						{
-							"id": 40922,
+							"id": 47548,
 							"name": "validateOptions",
 							"variant": "signature",
 							"kind": 4096,
@@ -87,7 +58,7 @@
 							},
 							"parameters": [
 								{
-									"id": 40923,
+									"id": 47549,
 									"name": "options",
 									"variant": "param",
 									"kind": 32768,
@@ -129,7 +100,7 @@
 					]
 				},
 				{
-					"id": 40929,
+					"id": 47555,
 					"name": "constructor",
 					"variant": "declaration",
 					"kind": 512,
@@ -138,7 +109,7 @@
 					},
 					"signatures": [
 						{
-							"id": 40930,
+							"id": 47556,
 							"name": "new AbstractPaymentProvider",
 							"variant": "signature",
 							"kind": 16384,
@@ -172,7 +143,7 @@
 							},
 							"typeParameters": [
 								{
-									"id": 40931,
+									"id": 47557,
 									"name": "TConfig",
 									"variant": "typeParam",
 									"kind": 131072,
@@ -200,7 +171,7 @@
 							],
 							"parameters": [
 								{
-									"id": 40932,
+									"id": 47558,
 									"name": "cradle",
 									"variant": "param",
 									"kind": 32768,
@@ -232,39 +203,15 @@
 										"name": "Record",
 										"package": "typescript"
 									}
-								},
-								{
-									"id": 40933,
-									"name": "config",
-									"variant": "param",
-									"kind": 32768,
-									"flags": {},
-									"comment": {
-										"summary": [
-											{
-												"kind": "text",
-												"text": "The options passed to the payment module provider."
-											}
-										]
-									},
-									"type": {
-										"type": "reference",
-										"target": 40931,
-										"name": "TConfig",
-										"package": "@medusajs/utils",
-										"qualifiedName": "AbstractPaymentProvider.TConfig",
-										"refersToTypeParameter": true
-									},
-									"defaultValue": "..."
 								}
 							],
 							"type": {
 								"type": "reference",
-								"target": 40920,
+								"target": 47546,
 								"typeArguments": [
 									{
 										"type": "reference",
-										"target": 40931,
+										"target": 47557,
 										"name": "TConfig",
 										"package": "@medusajs/utils",
 										"qualifiedName": "AbstractPaymentProvider.TConfig",
@@ -278,34 +225,7 @@
 					]
 				},
 				{
-					"id": 40935,
-					"name": "config",
-					"variant": "declaration",
-					"kind": 1024,
-					"flags": {
-						"isProtected": true,
-						"isReadonly": true
-					},
-					"comment": {
-						"summary": [
-							{
-								"kind": "text",
-								"text": "The options passed to the payment module provider."
-							}
-						]
-					},
-					"type": {
-						"type": "reference",
-						"target": 40931,
-						"name": "TConfig",
-						"package": "@medusajs/utils",
-						"qualifiedName": "AbstractPaymentProvider.TConfig",
-						"refersToTypeParameter": true
-					},
-					"defaultValue": "..."
-				},
-				{
-					"id": 40928,
+					"id": 47554,
 					"name": "identifier",
 					"variant": "declaration",
 					"kind": 1024,
@@ -358,7 +278,7 @@
 								"content": [
 									{
 										"kind": "code",
-										"text": "```ts\nclass MyPaymentProviderService extends AbstractPaymentProvider<\n  Options\n> {\n  static identifier = \"my-payment\"\n  // ...\n}\n```\n```"
+										"text": "```ts\nclass MyPaymentProviderService extends AbstractPaymentProvider<\n  Options\n> {\n  static identifier = \"my-payment\"\n  // ...\n}\n```"
 									}
 								]
 							}
@@ -370,7 +290,7 @@
 					}
 				},
 				{
-					"id": 40938,
+					"id": 47564,
 					"name": "capturePayment",
 					"variant": "declaration",
 					"kind": 2048,
@@ -379,7 +299,7 @@
 					},
 					"signatures": [
 						{
-							"id": 40939,
+							"id": 47565,
 							"name": "capturePayment",
 							"variant": "signature",
 							"kind": 4096,
@@ -394,7 +314,7 @@
 										"kind": "inline-tag",
 										"tag": "@link",
 										"text": "authorizePayment",
-										"target": 40941,
+										"target": 47567,
 										"tsLinkText": ""
 									},
 									{
@@ -441,7 +361,7 @@
 							},
 							"parameters": [
 								{
-									"id": 40940,
+									"id": 47566,
 									"name": "paymentData",
 									"variant": "param",
 									"kind": 32768,
@@ -541,7 +461,7 @@
 					}
 				},
 				{
-					"id": 40941,
+					"id": 47567,
 					"name": "authorizePayment",
 					"variant": "declaration",
 					"kind": 2048,
@@ -550,7 +470,7 @@
 					},
 					"signatures": [
 						{
-							"id": 40942,
+							"id": 47568,
 							"name": "authorizePayment",
 							"variant": "signature",
 							"kind": 4096,
@@ -565,7 +485,7 @@
 										"kind": "inline-tag",
 										"tag": "@link",
 										"text": "capturePayment",
-										"target": 40938,
+										"target": 47564,
 										"tsLinkText": ""
 									},
 									{
@@ -620,7 +540,7 @@
 							},
 							"parameters": [
 								{
-									"id": 40943,
+									"id": 47569,
 									"name": "paymentSessionData",
 									"variant": "param",
 									"kind": 32768,
@@ -662,7 +582,7 @@
 									}
 								},
 								{
-									"id": 40944,
+									"id": 47570,
 									"name": "context",
 									"variant": "param",
 									"kind": 32768,
@@ -726,14 +646,14 @@
 											{
 												"type": "reflection",
 												"declaration": {
-													"id": 40945,
+													"id": 47571,
 													"name": "__type",
 													"variant": "declaration",
 													"kind": 65536,
 													"flags": {},
 													"children": [
 														{
-															"id": 40946,
+															"id": 47572,
 															"name": "status",
 															"variant": "declaration",
 															"kind": 1024,
@@ -757,7 +677,7 @@
 															}
 														},
 														{
-															"id": 40947,
+															"id": 47573,
 															"name": "data",
 															"variant": "declaration",
 															"kind": 1024,
@@ -803,8 +723,8 @@
 														{
 															"title": "Properties",
 															"children": [
-																40946,
-																40947
+																47572,
+																47573
 															]
 														}
 													]
@@ -830,7 +750,7 @@
 					}
 				},
 				{
-					"id": 40948,
+					"id": 47574,
 					"name": "cancelPayment",
 					"variant": "declaration",
 					"kind": 2048,
@@ -839,7 +759,7 @@
 					},
 					"signatures": [
 						{
-							"id": 40949,
+							"id": 47575,
 							"name": "cancelPayment",
 							"variant": "signature",
 							"kind": 4096,
@@ -874,7 +794,7 @@
 							},
 							"parameters": [
 								{
-									"id": 40950,
+									"id": 47576,
 									"name": "paymentData",
 									"variant": "param",
 									"kind": 32768,
@@ -974,7 +894,7 @@
 					}
 				},
 				{
-					"id": 40951,
+					"id": 47577,
 					"name": "initiatePayment",
 					"variant": "declaration",
 					"kind": 2048,
@@ -983,7 +903,7 @@
 					},
 					"signatures": [
 						{
-							"id": 40952,
+							"id": 47578,
 							"name": "initiatePayment",
 							"variant": "signature",
 							"kind": 4096,
@@ -1034,7 +954,7 @@
 							},
 							"parameters": [
 								{
-									"id": 40953,
+									"id": 47579,
 									"name": "context",
 									"variant": "param",
 									"kind": 32768,
@@ -1106,7 +1026,7 @@
 					}
 				},
 				{
-					"id": 40954,
+					"id": 47580,
 					"name": "deletePayment",
 					"variant": "declaration",
 					"kind": 2048,
@@ -1115,7 +1035,7 @@
 					},
 					"signatures": [
 						{
-							"id": 40955,
+							"id": 47581,
 							"name": "deletePayment",
 							"variant": "signature",
 							"kind": 4096,
@@ -1150,7 +1070,7 @@
 							},
 							"parameters": [
 								{
-									"id": 40956,
+									"id": 47582,
 									"name": "paymentSessionData",
 									"variant": "param",
 									"kind": 32768,
@@ -1250,7 +1170,7 @@
 					}
 				},
 				{
-					"id": 40957,
+					"id": 47583,
 					"name": "getPaymentStatus",
 					"variant": "declaration",
 					"kind": 2048,
@@ -1259,7 +1179,7 @@
 					},
 					"signatures": [
 						{
-							"id": 40958,
+							"id": 47584,
 							"name": "getPaymentStatus",
 							"variant": "signature",
 							"kind": 4096,
@@ -1294,7 +1214,7 @@
 							},
 							"parameters": [
 								{
-									"id": 40959,
+									"id": 47585,
 									"name": "paymentSessionData",
 									"variant": "param",
 									"kind": 32768,
@@ -1370,7 +1290,7 @@
 					}
 				},
 				{
-					"id": 40960,
+					"id": 47586,
 					"name": "refundPayment",
 					"variant": "declaration",
 					"kind": 2048,
@@ -1379,7 +1299,7 @@
 					},
 					"signatures": [
 						{
-							"id": 40961,
+							"id": 47587,
 							"name": "refundPayment",
 							"variant": "signature",
 							"kind": 4096,
@@ -1422,7 +1342,7 @@
 							},
 							"parameters": [
 								{
-									"id": 40962,
+									"id": 47588,
 									"name": "paymentData",
 									"variant": "param",
 									"kind": 32768,
@@ -1464,7 +1384,7 @@
 									}
 								},
 								{
-									"id": 40963,
+									"id": 47589,
 									"name": "refundAmount",
 									"variant": "param",
 									"kind": 32768,
@@ -1541,7 +1461,7 @@
 					}
 				},
 				{
-					"id": 40964,
+					"id": 47590,
 					"name": "retrievePayment",
 					"variant": "declaration",
 					"kind": 2048,
@@ -1550,7 +1470,7 @@
 					},
 					"signatures": [
 						{
-							"id": 40965,
+							"id": 47591,
 							"name": "retrievePayment",
 							"variant": "signature",
 							"kind": 4096,
@@ -1593,7 +1513,7 @@
 							},
 							"parameters": [
 								{
-									"id": 40966,
+									"id": 47592,
 									"name": "paymentSessionData",
 									"variant": "param",
 									"kind": 32768,
@@ -1693,7 +1613,7 @@
 					}
 				},
 				{
-					"id": 40967,
+					"id": 47593,
 					"name": "updatePayment",
 					"variant": "declaration",
 					"kind": 2048,
@@ -1702,7 +1622,7 @@
 					},
 					"signatures": [
 						{
-							"id": 40968,
+							"id": 47594,
 							"name": "updatePayment",
 							"variant": "signature",
 							"kind": 4096,
@@ -1717,7 +1637,7 @@
 										"kind": "inline-tag",
 										"tag": "@link",
 										"text": "initiatePayment",
-										"target": 40951,
+										"target": 47577,
 										"tsLinkText": ""
 									},
 									{
@@ -1764,7 +1684,7 @@
 							},
 							"parameters": [
 								{
-									"id": 40969,
+									"id": 47595,
 									"name": "context",
 									"variant": "param",
 									"kind": 32768,
@@ -1836,7 +1756,7 @@
 					}
 				},
 				{
-					"id": 40970,
+					"id": 47596,
 					"name": "getWebhookActionAndData",
 					"variant": "declaration",
 					"kind": 2048,
@@ -1845,7 +1765,7 @@
 					},
 					"signatures": [
 						{
-							"id": 40971,
+							"id": 47597,
 							"name": "getWebhookActionAndData",
 							"variant": "signature",
 							"kind": 4096,
@@ -1912,7 +1832,7 @@
 							},
 							"parameters": [
 								{
-									"id": 40972,
+									"id": 47598,
 									"name": "data",
 									"variant": "param",
 									"kind": 32768,
@@ -1928,14 +1848,14 @@
 									"type": {
 										"type": "reflection",
 										"declaration": {
-											"id": 40973,
+											"id": 47599,
 											"name": "__type",
 											"variant": "declaration",
 											"kind": 65536,
 											"flags": {},
 											"children": [
 												{
-													"id": 40974,
+													"id": 47600,
 													"name": "data",
 													"variant": "declaration",
 													"kind": 1024,
@@ -1969,7 +1889,7 @@
 													}
 												},
 												{
-													"id": 40975,
+													"id": 47601,
 													"name": "rawData",
 													"variant": "declaration",
 													"kind": 1024,
@@ -2003,7 +1923,7 @@
 													}
 												},
 												{
-													"id": 40976,
+													"id": 47602,
 													"name": "headers",
 													"variant": "declaration",
 													"kind": 1024,
@@ -2041,9 +1961,9 @@
 												{
 													"title": "Properties",
 													"children": [
-														40974,
-														40975,
-														40976
+														47600,
+														47601,
+														47602
 													]
 												}
 											]
@@ -2089,37 +2009,35 @@
 				{
 					"title": "Constructors",
 					"children": [
-						40929
+						47555
 					]
 				},
 				{
 					"title": "Properties",
 					"children": [
-						40934,
-						40935,
-						40928
+						47554
 					]
 				},
 				{
 					"title": "Methods",
 					"children": [
-						40921,
-						40938,
-						40941,
-						40948,
-						40951,
-						40954,
-						40957,
-						40960,
-						40964,
-						40967,
-						40970
+						47547,
+						47564,
+						47567,
+						47574,
+						47577,
+						47580,
+						47583,
+						47586,
+						47590,
+						47593,
+						47596
 					]
 				}
 			],
 			"typeParameters": [
 				{
-					"id": 40977,
+					"id": 47603,
 					"name": "TConfig",
 					"variant": "typeParam",
 					"kind": 131072,
@@ -2162,221 +2080,209 @@
 		{
 			"title": "Classes",
 			"children": [
-				40920
+				47546
 			]
 		}
 	],
 	"packageName": "@medusajs/utils",
 	"symbolIdMap": {
-		"40916": {
+		"47542": {
 			"sourceFileName": "../../../../packages/core/utils/src/payment/abstract-payment-provider.ts",
 			"qualifiedName": ""
 		},
-		"40920": {
+		"47546": {
 			"sourceFileName": "../../../../packages/core/utils/src/payment/abstract-payment-provider.ts",
 			"qualifiedName": "AbstractPaymentProvider"
 		},
-		"40921": {
+		"47547": {
 			"sourceFileName": "../../../../packages/core/utils/src/payment/abstract-payment-provider.ts",
 			"qualifiedName": "AbstractPaymentProvider.validateOptions"
 		},
-		"40922": {
+		"47548": {
 			"sourceFileName": "../../../../packages/core/utils/src/payment/abstract-payment-provider.ts",
 			"qualifiedName": "AbstractPaymentProvider.validateOptions"
 		},
-		"40923": {
+		"47549": {
 			"sourceFileName": "../../../../packages/core/utils/src/payment/abstract-payment-provider.ts",
 			"qualifiedName": "options"
 		},
-		"40928": {
+		"47554": {
 			"sourceFileName": "../../../../packages/core/utils/src/payment/abstract-payment-provider.ts",
 			"qualifiedName": "AbstractPaymentProvider.identifier"
 		},
-		"40929": {
+		"47555": {
 			"sourceFileName": "../../../../packages/core/utils/src/payment/abstract-payment-provider.ts",
 			"qualifiedName": "AbstractPaymentProvider.__constructor"
 		},
-		"40930": {
+		"47556": {
 			"sourceFileName": "../../../../packages/core/utils/src/payment/abstract-payment-provider.ts",
 			"qualifiedName": "AbstractPaymentProvider"
 		},
-		"40931": {
+		"47557": {
 			"sourceFileName": "../../../../packages/core/utils/src/payment/abstract-payment-provider.ts",
 			"qualifiedName": "AbstractPaymentProvider.TConfig"
 		},
-		"40932": {
+		"47558": {
 			"sourceFileName": "../../../../packages/core/utils/src/payment/abstract-payment-provider.ts",
 			"qualifiedName": "cradle"
 		},
-		"40933": {
-			"sourceFileName": "../../../../packages/core/utils/src/payment/abstract-payment-provider.ts",
-			"qualifiedName": "config"
-		},
-		"40934": {
-			"sourceFileName": "../../../../packages/core/utils/src/payment/abstract-payment-provider.ts",
-			"qualifiedName": "AbstractPaymentProvider.container"
-		},
-		"40935": {
-			"sourceFileName": "../../../../packages/core/utils/src/payment/abstract-payment-provider.ts",
-			"qualifiedName": "AbstractPaymentProvider.config"
-		},
-		"40938": {
+		"47564": {
 			"sourceFileName": "../../../../packages/core/utils/src/payment/abstract-payment-provider.ts",
 			"qualifiedName": "AbstractPaymentProvider.capturePayment"
 		},
-		"40939": {
+		"47565": {
 			"sourceFileName": "../../../../packages/core/utils/src/payment/abstract-payment-provider.ts",
 			"qualifiedName": "AbstractPaymentProvider.capturePayment"
 		},
-		"40940": {
+		"47566": {
 			"sourceFileName": "../../../../packages/core/utils/src/payment/abstract-payment-provider.ts",
 			"qualifiedName": "paymentData"
 		},
-		"40941": {
+		"47567": {
 			"sourceFileName": "../../../../packages/core/utils/src/payment/abstract-payment-provider.ts",
 			"qualifiedName": "AbstractPaymentProvider.authorizePayment"
 		},
-		"40942": {
+		"47568": {
 			"sourceFileName": "../../../../packages/core/utils/src/payment/abstract-payment-provider.ts",
 			"qualifiedName": "AbstractPaymentProvider.authorizePayment"
 		},
-		"40943": {
+		"47569": {
 			"sourceFileName": "../../../../packages/core/utils/src/payment/abstract-payment-provider.ts",
 			"qualifiedName": "paymentSessionData"
 		},
-		"40944": {
+		"47570": {
 			"sourceFileName": "../../../../packages/core/utils/src/payment/abstract-payment-provider.ts",
 			"qualifiedName": "context"
 		},
-		"40945": {
+		"47571": {
 			"sourceFileName": "../../../../packages/core/utils/src/payment/abstract-payment-provider.ts",
 			"qualifiedName": "__type"
 		},
-		"40946": {
+		"47572": {
 			"sourceFileName": "../../../../packages/core/utils/src/payment/abstract-payment-provider.ts",
 			"qualifiedName": "__type.status"
 		},
-		"40947": {
+		"47573": {
 			"sourceFileName": "../../../../packages/core/utils/src/payment/abstract-payment-provider.ts",
 			"qualifiedName": "__type.data"
 		},
-		"40948": {
+		"47574": {
 			"sourceFileName": "../../../../packages/core/utils/src/payment/abstract-payment-provider.ts",
 			"qualifiedName": "AbstractPaymentProvider.cancelPayment"
 		},
-		"40949": {
+		"47575": {
 			"sourceFileName": "../../../../packages/core/utils/src/payment/abstract-payment-provider.ts",
 			"qualifiedName": "AbstractPaymentProvider.cancelPayment"
 		},
-		"40950": {
+		"47576": {
 			"sourceFileName": "../../../../packages/core/utils/src/payment/abstract-payment-provider.ts",
 			"qualifiedName": "paymentData"
 		},
-		"40951": {
+		"47577": {
 			"sourceFileName": "../../../../packages/core/utils/src/payment/abstract-payment-provider.ts",
 			"qualifiedName": "AbstractPaymentProvider.initiatePayment"
 		},
-		"40952": {
+		"47578": {
 			"sourceFileName": "../../../../packages/core/utils/src/payment/abstract-payment-provider.ts",
 			"qualifiedName": "AbstractPaymentProvider.initiatePayment"
 		},
-		"40953": {
+		"47579": {
 			"sourceFileName": "../../../../packages/core/utils/src/payment/abstract-payment-provider.ts",
 			"qualifiedName": "context"
 		},
-		"40954": {
+		"47580": {
 			"sourceFileName": "../../../../packages/core/utils/src/payment/abstract-payment-provider.ts",
 			"qualifiedName": "AbstractPaymentProvider.deletePayment"
 		},
-		"40955": {
+		"47581": {
 			"sourceFileName": "../../../../packages/core/utils/src/payment/abstract-payment-provider.ts",
 			"qualifiedName": "AbstractPaymentProvider.deletePayment"
 		},
-		"40956": {
+		"47582": {
 			"sourceFileName": "../../../../packages/core/utils/src/payment/abstract-payment-provider.ts",
 			"qualifiedName": "paymentSessionData"
 		},
-		"40957": {
+		"47583": {
 			"sourceFileName": "../../../../packages/core/utils/src/payment/abstract-payment-provider.ts",
 			"qualifiedName": "AbstractPaymentProvider.getPaymentStatus"
 		},
-		"40958": {
+		"47584": {
 			"sourceFileName": "../../../../packages/core/utils/src/payment/abstract-payment-provider.ts",
 			"qualifiedName": "AbstractPaymentProvider.getPaymentStatus"
 		},
-		"40959": {
+		"47585": {
 			"sourceFileName": "../../../../packages/core/utils/src/payment/abstract-payment-provider.ts",
 			"qualifiedName": "paymentSessionData"
 		},
-		"40960": {
+		"47586": {
 			"sourceFileName": "../../../../packages/core/utils/src/payment/abstract-payment-provider.ts",
 			"qualifiedName": "AbstractPaymentProvider.refundPayment"
 		},
-		"40961": {
+		"47587": {
 			"sourceFileName": "../../../../packages/core/utils/src/payment/abstract-payment-provider.ts",
 			"qualifiedName": "AbstractPaymentProvider.refundPayment"
 		},
-		"40962": {
+		"47588": {
 			"sourceFileName": "../../../../packages/core/utils/src/payment/abstract-payment-provider.ts",
 			"qualifiedName": "paymentData"
 		},
-		"40963": {
+		"47589": {
 			"sourceFileName": "../../../../packages/core/utils/src/payment/abstract-payment-provider.ts",
 			"qualifiedName": "refundAmount"
 		},
-		"40964": {
+		"47590": {
 			"sourceFileName": "../../../../packages/core/utils/src/payment/abstract-payment-provider.ts",
 			"qualifiedName": "AbstractPaymentProvider.retrievePayment"
 		},
-		"40965": {
+		"47591": {
 			"sourceFileName": "../../../../packages/core/utils/src/payment/abstract-payment-provider.ts",
 			"qualifiedName": "AbstractPaymentProvider.retrievePayment"
 		},
-		"40966": {
+		"47592": {
 			"sourceFileName": "../../../../packages/core/utils/src/payment/abstract-payment-provider.ts",
 			"qualifiedName": "paymentSessionData"
 		},
-		"40967": {
+		"47593": {
 			"sourceFileName": "../../../../packages/core/utils/src/payment/abstract-payment-provider.ts",
 			"qualifiedName": "AbstractPaymentProvider.updatePayment"
 		},
-		"40968": {
+		"47594": {
 			"sourceFileName": "../../../../packages/core/utils/src/payment/abstract-payment-provider.ts",
 			"qualifiedName": "AbstractPaymentProvider.updatePayment"
 		},
-		"40969": {
+		"47595": {
 			"sourceFileName": "../../../../packages/core/utils/src/payment/abstract-payment-provider.ts",
 			"qualifiedName": "context"
 		},
-		"40970": {
+		"47596": {
 			"sourceFileName": "../../../../packages/core/utils/src/payment/abstract-payment-provider.ts",
 			"qualifiedName": "AbstractPaymentProvider.getWebhookActionAndData"
 		},
-		"40971": {
+		"47597": {
 			"sourceFileName": "../../../../packages/core/utils/src/payment/abstract-payment-provider.ts",
 			"qualifiedName": "AbstractPaymentProvider.getWebhookActionAndData"
 		},
-		"40972": {
+		"47598": {
 			"sourceFileName": "../../../../packages/core/utils/src/payment/abstract-payment-provider.ts",
 			"qualifiedName": "data"
 		},
-		"40973": {
+		"47599": {
 			"sourceFileName": "../../../../packages/core/types/src/payment/mutations.ts",
 			"qualifiedName": "__type"
 		},
-		"40974": {
+		"47600": {
 			"sourceFileName": "../../../../packages/core/types/src/payment/mutations.ts",
 			"qualifiedName": "__type.data"
 		},
-		"40975": {
+		"47601": {
 			"sourceFileName": "../../../../packages/core/types/src/payment/mutations.ts",
 			"qualifiedName": "__type.rawData"
 		},
-		"40976": {
+		"47602": {
 			"sourceFileName": "../../../../packages/core/types/src/payment/mutations.ts",
 			"qualifiedName": "__type.headers"
 		},
-		"40977": {
+		"47603": {
 			"sourceFileName": "../../../../packages/core/utils/src/payment/abstract-payment-provider.ts",
 			"qualifiedName": "AbstractPaymentProvider.TConfig"
 		}
@@ -2386,7 +2292,7 @@
 			"1": "../../../../packages/core/utils/src/payment/abstract-payment-provider.ts"
 		},
 		"reflections": {
-			"1": 40916
+			"1": 47542
 		}
 	}
 }

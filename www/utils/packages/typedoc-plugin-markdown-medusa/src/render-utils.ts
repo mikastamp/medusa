@@ -76,6 +76,7 @@ import workflowDiagramHelper from "./resources/helpers/workflow-diagram"
 import workflowHooksHelper from "./resources/helpers/workflow-hooks"
 import ifMemberShowTitleHelper from "./resources/helpers/if-member-show-title"
 import signatureCommentHelper from "./resources/helpers/signature-comment"
+import versionHelper from "./resources/helpers/version"
 import { MarkdownTheme } from "./theme"
 
 const TEMPLATE_PATH = path.join(__dirname, "resources", "templates")
@@ -180,4 +181,5 @@ export function registerHelpers(theme: MarkdownTheme) {
   workflowHooksHelper(theme)
   ifMemberShowTitleHelper(theme)
   signatureCommentHelper()
+  versionHelper()
 }

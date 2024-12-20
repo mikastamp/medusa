@@ -5,7 +5,7 @@ sidebar_label: exportProductsWorkflow
 
 import { TypeList, WorkflowDiagram } from "docs-ui"
 
-# exportProductsWorkflow - Medusa Workflows API Reference
+# exportProductsWorkflow - Medusa Core Workflows Reference
 
 This documentation provides a reference to the `exportProductsWorkflow`. It belongs to the `@medusajs/medusa/core-flows` package.
 
@@ -13,7 +13,7 @@ This workflow exports products matching the specified filters.
 
 ## Steps
 
-<WorkflowDiagram workflow={{"name":"exportProductsWorkflow","steps":[{"type":"step","name":"getAllProductsStep","description":"This step retrieves all products.","link":"../../../../Steps_Product/functions/core_flows.Steps_Product.getAllProductsStep/page.mdx","depth":1},{"type":"step","name":"generateProductCsvStep","description":"This step generates a CSV file to be exported.","link":"../../../../Steps_Product/functions/core_flows.Steps_Product.generateProductCsvStep/page.mdx","depth":2},{"type":"step","name":"useRemoteQueryStep","description":"This step fetches data across modules using the remote query.\n\nLearn more in the [Remote Query documentation](https://docs.medusajs.com/learn/advanced-development/module-links/query).\n\n:::note\n\nThis step is deprecated. Use [useQueryGraphStep](../../../../functions/core_flows.useQueryGraphStep/page.mdx) instead.\n\n:::\n\n","link":"../../../../Steps_Common/functions/core_flows.Steps_Common.useRemoteQueryStep/page.mdx","depth":3}]}} />
+<WorkflowDiagram workflow={{"name":"exportProductsWorkflow","steps":[{"type":"step","name":"getAllProductsStep","description":"This step retrieves all products.","link":"../../../Steps_Product/functions/core_flows.Product.Steps_Product.getAllProductsStep/page.mdx","depth":1},{"type":"step","name":"generateProductCsvStep","description":"This step generates a CSV file to be exported.","link":"../../../Steps_Product/functions/core_flows.Product.Steps_Product.generateProductCsvStep/page.mdx","depth":2},{"type":"step","name":"useRemoteQueryStep","description":"This step fetches data across modules using the remote query.\n\nLearn more in the [Remote Query documentation](https://docs.medusajs.com/learn/fundamentals/module-links/query).\n\n:::note\n\nThis step is deprecated. Use [useQueryGraphStep](../../../../Common/Steps_Common/functions/core_flows.Common.Steps_Common.useQueryGraphStep/page.mdx) instead.\n\n:::\n\n","link":"../../../../Common/Steps_Common/functions/core_flows.Common.Steps_Common.useRemoteQueryStep/page.mdx","depth":3}]}} />
 
 ## Input
 

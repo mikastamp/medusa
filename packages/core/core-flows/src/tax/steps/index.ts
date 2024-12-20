@@ -1,5 +1,6 @@
 export * from "./create-tax-regions"
 export * from "./delete-tax-regions"
+export * from "./get-item-tax-lines"
 export * from "./create-tax-rates"
 export * from "./update-tax-rates"
 export * from "./delete-tax-rates"

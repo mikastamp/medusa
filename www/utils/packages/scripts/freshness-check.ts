@@ -17,16 +17,6 @@ const linearClient = new LinearClient({
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
-const repoPath = path.join(
-  __dirname,
-  "..",
-  "..",
-  "..",
-  "..",
-  "apps",
-  "book",
-  "app"
-)
 let freshnessCheckLabelId = ""
 let documentationTeamId = ""
 
@@ -156,7 +146,12 @@ async function main() {
 
   freshnessCheckLabelId = freshnessCheckLabel.nodes[0].id
 
-  await scanDirectory(repoPath)
+  await scanDirectory(
+    path.join(__dirname, "..", "..", "..", "..", "apps", "book", "app")
+  )
+  await scanDirectory(
+    path.join(__dirname, "..", "..", "..", "..", "apps", "resources", "app")
+  )
 }
 
 function getMonthDifference(startDate: Date, endDate: Date) {
