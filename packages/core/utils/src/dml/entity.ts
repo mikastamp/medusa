@@ -117,7 +117,6 @@ export class DmlEntity<
     cascades: EntityCascades<string[], string[]>
     indexes: EntityIndex<Schema>[]
     params: Record<string, unknown>
-    hooks: Hooks<Schema, TConfig>
     checks: CheckConstraint<Schema>[]
   } {
     return {
@@ -127,7 +126,6 @@ export class DmlEntity<
       cascades: this.#cascades,
       indexes: this.#indexes,
       params: this.#params,
-      hooks: this.#hooks,
       checks: this.#checks,
     }
   }

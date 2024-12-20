@@ -1,29 +1,13 @@
-import {
-  AutoIncrementProperty,
-  BelongsTo,
-  BooleanProperty,
-  DateTimeProperty,
-  DmlEntity,
-  DMLEntitySchemaBuilder,
-  EnumProperty,
-  HasMany,
-  IdProperty,
-  JSONProperty,
-  model,
-  NullableModifier,
-  NumberProperty,
-  OrderStatus,
-  PrimaryKeyModifier,
-  RelationNullableModifier,
-  TextProperty,
-} from "@medusajs/framework/utils"
+import { model, OrderStatus } from "@medusajs/framework/utils"
 import { OrderAddress } from "./address"
+import { OrderCreditLine } from "./credit-line"
 import { OrderItem } from "./order-item"
 import { OrderShipping } from "./order-shipping-method"
 import { OrderSummary } from "./order-summary"
 import { Return } from "./return"
 import { OrderTransaction } from "./transaction"
 
+/*
 type OrderSchema = {
   id: PrimaryKeyModifier<string, IdProperty>
   display_id: AutoIncrementProperty
@@ -48,11 +32,13 @@ type OrderSchema = {
     BelongsTo<typeof OrderAddress>,
     boolean
   >
+  credit_lines: HasMany<typeof OrderCreditLine>
   summary: HasMany<typeof OrderSummary>
   items: HasMany<typeof OrderItem>
   shipping_methods: HasMany<typeof OrderShipping>
   transactions: HasMany<typeof OrderTransaction>
 }
+*/
 
 const _Order = model
   .define(
@@ -97,6 +83,9 @@ const _Order = model
         mappedBy: "order",
       }),
       transactions: model.hasMany<any>(() => OrderTransaction, {
+        mappedBy: "order",
+      }),
+      credit_lines: model.hasMany<any>(() => OrderCreditLine, {
         mappedBy: "order",
       }),
     }
@@ -161,7 +150,4 @@ const _Order = model
     },
   ])
 
-export const Order = _Order as DmlEntity<
-  DMLEntitySchemaBuilder<OrderSchema>,
-  "Order"
->
+export const Order = _Order

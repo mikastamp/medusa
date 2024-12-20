@@ -38,8 +38,10 @@ import {
   OrderChangeStatus,
   OrderStatus,
   promiseAll,
+  toMikroORMEntity,
   transformPropertiesToBigNumber,
 } from "@medusajs/framework/utils"
+import { OnInit } from "@mikro-orm/core"
 import {
   Order,
   OrderAddress,
@@ -136,6 +138,16 @@ const generateMethodForModels = {
   OrderExchangeItem,
   OrderCreditLine,
 }
+
+const MikroORMEntity = toMikroORMEntity(OrderChangeAction)
+MikroORMEntity.prototype["onInit"] = function () {
+  this.order_id ??= this.order_change?.order_id ?? null
+  this.return_id ??= this.order_change?.return_id ?? null
+  this.claim_id ??= this.order_change?.claim_id ?? null
+  this.exchange_id ??= this.order_change?.exchange_id ?? null
+  this.version ??= this.order_change?.version ?? null
+}
+OnInit()(MikroORMEntity.prototype, "onInit")
 
 // TODO: rm template args here, keep it for later to not collide with carlos work at least as little as possible
 export default class OrderModuleService

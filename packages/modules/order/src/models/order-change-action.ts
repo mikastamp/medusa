@@ -18,22 +18,26 @@ const _OrderChangeAction = model
     amount: model.bigNumber().nullable(),
     internal_note: model.text().nullable(),
     applied: model.boolean().default(false),
-    order: model.belongsTo<() => typeof OrderChange>(() => Order, {
-      mappedBy: "actions",
+    order: model.hasOne<() => typeof OrderChange>(() => Order, {
+      mappedBy: undefined,
+      foreignKey: true,
     }),
     return: model
-      .belongsTo<() => typeof Return>(() => Return, {
-        mappedBy: "actions",
+      .hasOne<() => typeof Return>(() => Return, {
+        mappedBy: undefined,
+        foreignKey: true,
       })
       .nullable(),
     claim: model
-      .belongsTo<() => typeof OrderClaim>(() => OrderClaim, {
-        mappedBy: "actions",
+      .hasOne<() => typeof OrderClaim>(() => OrderClaim, {
+        mappedBy: undefined,
+        foreignKey: true,
       })
       .nullable(),
     exchange: model
-      .belongsTo<() => typeof OrderExchange>(() => OrderExchange, {
-        mappedBy: "actions",
+      .hasOne<() => typeof OrderExchange>(() => OrderExchange, {
+        mappedBy: undefined,
+        foreignKey: true,
       })
       .nullable(),
     order_change: model
@@ -42,6 +46,7 @@ const _OrderChangeAction = model
       })
       .nullable(),
   })
+  /*
   .hooks({
     creating: (entity: any) => {
       entity.order_id ??= entity.order_change?.order_id ?? null
@@ -51,6 +56,7 @@ const _OrderChangeAction = model
       entity.version ??= entity.order_change?.version ?? null
     },
   })
+    */
   .indexes([
     {
       name: "IDX_order_change_action_order_change_id",

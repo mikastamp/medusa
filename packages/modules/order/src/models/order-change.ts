@@ -31,18 +31,21 @@ const _OrderChange = model
       mappedBy: "changes",
     }),
     return: model
-      .belongsTo<() => typeof Return>(() => Return, {
-        mappedBy: "changes",
+      .hasOne<() => typeof Return>(() => Return, {
+        mappedBy: undefined,
+        foreignKey: true,
       })
       .nullable(),
     claim: model
-      .belongsTo<() => typeof OrderClaim>(() => OrderClaim, {
-        mappedBy: "changes",
+      .hasOne<() => typeof OrderClaim>(() => OrderClaim, {
+        mappedBy: undefined,
+        foreignKey: true,
       })
       .nullable(),
     exchange: model
-      .belongsTo<() => typeof OrderExchange>(() => OrderExchange, {
-        mappedBy: "changes",
+      .hasOne<() => typeof OrderExchange>(() => OrderExchange, {
+        mappedBy: undefined,
+        foreignKey: true,
       })
       .nullable(),
     actions: model.hasMany<() => typeof OrderChangeAction>(
@@ -53,7 +56,7 @@ const _OrderChange = model
     ),
   })
   .cascades({
-    delete: ["actions"],
+    // delete: ["actions"],
   })
   .indexes([
     {

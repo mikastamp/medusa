@@ -55,8 +55,7 @@ function createMikrORMEntity() {
       schema,
       cascades,
       indexes: entityIndexes = [],
-      params,
-      hooks = {},
+      //params,
       checks,
     } = entity.parse()
 
@@ -110,23 +109,6 @@ function createMikrORMEntity() {
 
     applyEntityIndexes(MikroORMEntity, tableName, entityIndexes)
     applyChecks(MikroORMEntity, checks)
-
-    /**
-     * @experimental
-     * TODO: Write RFC about this, for now it is unstable and should be moved
-     * to `applyHooks`
-     */
-    for (const [hookName, hook] of Object.entries(hooks)) {
-      if (hookName === "creating") {
-        const hookMethodName = "beforeCreate_" + camelToSnakeCase(modelName)
-        const hookWrapper = function (this: MikroORMEntity) {
-          return hook(this as any)
-        }
-
-        MikroORMEntity.prototype[hookMethodName] = hookWrapper
-        BeforeCreate()(MikroORMEntity.prototype, hookMethodName)
-      }
-    }
 
     /**
      * Converting class to a MikroORM entity
