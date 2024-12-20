@@ -278,7 +278,7 @@ export function defineProperty(
       type: mikroOrmType.integer,
       nullable: true,
       fieldName: field.fieldName,
-      serializer: Number,
+      serializer: (value) => (value == null ? value : Number(value)),
     })(MikroORMEntity.prototype, field.fieldName)
     return
   }
@@ -290,13 +290,14 @@ export function defineProperty(
     Property({
       columnType: "real",
       type: "number",
+      runtimeType: "number",
       nullable: field.nullable,
       fieldName: field.fieldName,
       /**
        * Applying number serializer to convert value back to a
        * JavaScript number
        */
-      serializer: Number,
+      serializer: (value) => (value == null ? value : Number(value)),
       /**
        * MikroORM does not ignore undefined values for default when generating
        * the database schema SQL. Conditionally add it here to prevent undefined
