@@ -41,7 +41,7 @@ import {
   toMikroORMEntity,
   transformPropertiesToBigNumber,
 } from "@medusajs/framework/utils"
-import { OnInit } from "@mikro-orm/core"
+import { BeforeCreate, OnInit, rel } from "@mikro-orm/core"
 import {
   Order,
   OrderAddress,
@@ -140,14 +140,19 @@ const generateMethodForModels = {
 }
 
 const MikroORMEntity = toMikroORMEntity(OrderChangeAction)
-MikroORMEntity.prototype["onInit"] = function () {
-  this.order_id ??= this.order_change?.order_id ?? null
-  this.return_id ??= this.order_change?.return_id ?? null
-  this.claim_id ??= this.order_change?.claim_id ?? null
-  this.exchange_id ??= this.order_change?.exchange_id ?? null
+MikroORMEntity.prototype["onInit_OrderChangeAction"] = function () {
+  this.order ??=
+    rel(toMikroORMEntity(Order), this.order_change?.order_id) ?? null
+  this.return ??=
+    rel(toMikroORMEntity(Return), this.order_change?.return_id) ?? null
+  this.claim ??=
+    rel(toMikroORMEntity(OrderClaim), this.order_change?.claim_id) ?? null
+  this.exchange ??=
+    rel(toMikroORMEntity(OrderExchange), this.order_change?.exchange_id) ?? null
   this.version ??= this.order_change?.version ?? null
 }
-OnInit()(MikroORMEntity.prototype, "onInit")
+OnInit()(MikroORMEntity.prototype, "onInit_OrderChangeAction")
+BeforeCreate()(MikroORMEntity.prototype, "onInit_OrderChangeAction")
 
 // TODO: rm template args here, keep it for later to not collide with carlos work at least as little as possible
 export default class OrderModuleService

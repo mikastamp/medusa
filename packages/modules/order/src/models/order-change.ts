@@ -56,7 +56,7 @@ const _OrderChange = model
     ),
   })
   .cascades({
-    // delete: ["actions"],
+    delete: ["actions"],
   })
   .indexes([
     {
