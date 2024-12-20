@@ -30,6 +30,7 @@ describe("@MikroOrmBigNumberProperty", () => {
         dbName: "test",
         user: "postgres",
         password: "",
+        connect: false,
       })
     )
   })

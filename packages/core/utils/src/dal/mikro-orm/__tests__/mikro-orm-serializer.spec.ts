@@ -25,6 +25,7 @@ describe("mikroOrmSerializer", () => {
         user: "postgres",
         password: "",
         dbName: "test",
+        connect: false,
       })
     )
   })

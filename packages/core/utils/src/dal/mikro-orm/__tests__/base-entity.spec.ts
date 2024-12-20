@@ -17,6 +17,7 @@ describe("BaseEntity", () => {
         dbName: "test",
         user: "postgres",
         password: "",
+        connect: false,
       })
     )
 
@@ -38,6 +39,7 @@ describe("BaseEntity", () => {
         dbName: "test",
         user: "postgres",
         password: "",
+        connect: false,
       })
     )
 
@@ -65,6 +67,7 @@ describe("BaseEntity", () => {
         dbName: "test",
         user: "postgres",
         password: "",
+        connect: false,
       })
     )
 
@@ -121,6 +124,7 @@ describe("BaseEntity", () => {
         dbName: "test",
         user: "postgres",
         password: "",
+        connect: false,
       })
     )
 
