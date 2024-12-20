@@ -139,20 +139,60 @@ const generateMethodForModels = {
   OrderCreditLine,
 }
 
-const MikroORMEntity = toMikroORMEntity(OrderChangeAction)
-MikroORMEntity.prototype["onInit_OrderChangeAction"] = function () {
-  this.order ??=
-    rel(toMikroORMEntity(Order), this.order_change?.order_id) ?? null
-  this.return ??=
-    rel(toMikroORMEntity(Return), this.order_change?.return_id) ?? null
-  this.claim ??=
-    rel(toMikroORMEntity(OrderClaim), this.order_change?.claim_id) ?? null
-  this.exchange ??=
-    rel(toMikroORMEntity(OrderExchange), this.order_change?.exchange_id) ?? null
-  this.version ??= this.order_change?.version ?? null
+{
+  const MikroORMEntity = toMikroORMEntity(OrderChangeAction)
+  MikroORMEntity.prototype["onInit_OrderChangeAction"] = function () {
+    this.version ??= this.order?.version ?? null
+
+    this.order ??= rel(
+      toMikroORMEntity(Order),
+      this.order_change?.order_id ?? null
+    )
+    this.claim ??= rel(
+      toMikroORMEntity(OrderClaim),
+      this.order_change?.claim_id ?? null
+    )
+    this.exchange ??= rel(
+      toMikroORMEntity(OrderExchange),
+      this.order_change?.exchange_id ?? null
+    )
+
+    if (!this.claim_id && !this.exchange_id) {
+      const ret_id = this.return?.id ?? this.order_change?.return_id ?? null
+
+      this.return = rel(toMikroORMEntity(Return), ret_id)
+    }
+  }
+  OnInit()(MikroORMEntity.prototype, "onInit_OrderChangeAction")
+  BeforeCreate()(MikroORMEntity.prototype, "onInit_OrderChangeAction")
 }
-OnInit()(MikroORMEntity.prototype, "onInit_OrderChangeAction")
-BeforeCreate()(MikroORMEntity.prototype, "onInit_OrderChangeAction")
+{
+  const MikroORMEntity = toMikroORMEntity(OrderShipping)
+  MikroORMEntity.prototype["onInit_OrderShipping"] = function () {
+    this.version ??= this.order?.version ?? null
+
+    this.order ??= rel(toMikroORMEntity(Order), this.order?.id ?? null)
+    this.return ??= rel(toMikroORMEntity(Return), this.return?.id ?? null)
+    this.claim ??= rel(toMikroORMEntity(OrderClaim), this.claim?.id ?? null)
+    this.exchange ??= rel(
+      toMikroORMEntity(OrderExchange),
+      this.exchange?.id ?? null
+    )
+  }
+  OnInit()(MikroORMEntity.prototype, "onInit_OrderShipping")
+  BeforeCreate()(MikroORMEntity.prototype, "onInit_OrderShipping")
+}
+{
+  const MikroORMEntity = toMikroORMEntity(OrderItem)
+  MikroORMEntity.prototype["onInit_OrderItem"] = function () {
+    this.version ??= this.order?.version ?? null
+
+    this.order ??= rel(toMikroORMEntity(Order), this.order?.id ?? null)
+    this.item ??= rel(toMikroORMEntity(OrderLineItem), this.item?.id ?? null)
+  }
+  OnInit()(MikroORMEntity.prototype, "onInit_OrderItem")
+  BeforeCreate()(MikroORMEntity.prototype, "onInit_OrderItem")
+}
 
 // TODO: rm template args here, keep it for later to not collide with carlos work at least as little as possible
 export default class OrderModuleService
