@@ -1,8 +1,11 @@
 #!/usr/bin/env node
 
+import { loadEnv } from "@medusajs/utils"
 import os from "os"
 import util from "util"
 import createCli from "./create-cli"
+
+loadEnv(process.env.NODE_ENV || "development", process.cwd())
 
 const useJsonLogger = process.argv.slice(2).some((arg) => arg.includes(`json`))
 
