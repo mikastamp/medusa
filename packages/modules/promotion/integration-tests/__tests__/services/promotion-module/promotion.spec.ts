@@ -6,8 +6,8 @@ import {
   Modules,
   PromotionType,
 } from "@medusajs/framework/utils"
-import { PromotionModuleService } from "@services"
 import { SuiteOptions, moduleIntegrationTestRunner } from "@medusajs/test-utils"
+import { PromotionModuleService } from "@services"
 import { createCampaigns } from "../../../__fixtures__/campaigns"
 import {
   createDefaultPromotion,
@@ -854,7 +854,6 @@ moduleIntegrationTestRunner({
               code: "PROMOTION_1",
               application_method: {
                 id: expect.any(String),
-                promotion_id: expect.any(String),
                 type: "fixed",
               },
             },
