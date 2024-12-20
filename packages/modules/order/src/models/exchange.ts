@@ -17,8 +17,9 @@ const _OrderExchange = model
     created_by: model.text().nullable(),
     metadata: model.json().nullable(),
     canceled_at: model.dateTime().nullable(),
-    order: model.belongsTo<() => typeof Order>(() => Order, {
-      mappedBy: "exchanges",
+    order: model.hasOne<() => typeof Order>(() => Order, {
+      mappedBy: undefined,
+      foreignKey: true,
     }),
     return: model
       .hasOne<() => typeof Return>(() => Return, {

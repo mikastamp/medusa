@@ -12,7 +12,6 @@ import {
   PrimaryKey,
   Property,
   Utils,
-  t as mikroOrmType,
 } from "@mikro-orm/core"
 import { generateEntityId, isDefined } from "../../../common"
 import { MikroOrmBigNumberProperty } from "../../../dal"
@@ -275,8 +274,9 @@ export function defineProperty(
       : Property
 
     Prop({
-      columnType: "serial",
-      type: mikroOrmType.integer,
+      autoincrement: true,
+      type: "number",
+      runtimeType: "number",
       nullable: field.nullable,
       fieldName: field.fieldName,
       serializer: (value) => (value == null ? value : Number(value)),

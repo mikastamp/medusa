@@ -16,8 +16,9 @@ const _OrderClaim = model
     created_by: model.text().nullable(),
     canceled_at: model.dateTime().nullable(),
     metadata: model.json().nullable(),
-    order: model.belongsTo<() => typeof Order>(() => Order, {
-      mappedBy: "claims",
+    order: model.hasOne<() => typeof Order>(() => Order, {
+      mappedBy: undefined,
+      foreignKey: true,
     }),
     return: model
       .hasOne<() => typeof Return>(() => Return, {
