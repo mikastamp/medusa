@@ -1,7 +1,7 @@
 import { getMigrationPlanner, initialize } from "@medusajs/link-modules"
 import { MedusaModule } from "@medusajs/modules-sdk"
-import { ModuleJoinerConfig } from "@medusajs/types"
 import { medusaIntegrationTestRunner } from "@medusajs/test-utils"
+import { ModuleJoinerConfig } from "@medusajs/types"
 
 jest.setTimeout(5000000)
 
@@ -73,7 +73,11 @@ medusaIntegrationTestRunner({
       }) as any)
 
       const planner = getMigrationPlanner(dbConfig, linkDefinition)
-      await planner.executePlan(await planner.createPlan())
+      let plans = await planner.createPlan()
+
+      // TODO: review update plan of Order module tables
+      plans = plans.filter((p) => p.action !== "update")
+      await planner.executePlan(plans)
       links = await initialize(dbConfig, linkDefinition)
     })
 
