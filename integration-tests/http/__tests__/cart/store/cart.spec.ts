@@ -386,7 +386,7 @@ medusaIntegrationTestRunner({
             rules: [
               {
                 attribute: "enabled_in_store",
-                value: '"true"',
+                value: "true",
                 operator: "eq",
               },
               {
@@ -1708,7 +1708,7 @@ medusaIntegrationTestRunner({
                 rules: [
                   {
                     attribute: "enabled_in_store",
-                    value: '"true"',
+                    value: "true",
                     operator: "eq",
                   },
                   {
@@ -2079,7 +2079,7 @@ medusaIntegrationTestRunner({
                 rules: [
                   {
                     attribute: "enabled_in_store",
-                    value: '"true"',
+                    value: "true",
                     operator: "eq",
                   },
                   {
