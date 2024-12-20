@@ -17,6 +17,7 @@ describe("BaseEntity", () => {
         dbName: "test",
         user: "postgres",
         password: "",
+        connect: false,
       })
     )
 
@@ -36,6 +37,9 @@ describe("BaseEntity", () => {
       defineConfig({
         entities: [Entity1],
         dbName: "test",
+        user: "postgres",
+        password: "",
+        connect: false,
       })
     )
 
@@ -61,6 +65,9 @@ describe("BaseEntity", () => {
       defineConfig({
         entities: [ProductModel, ProductCategoryEntity, ProductOptionValue],
         dbName: "test",
+        user: "postgres",
+        password: "",
+        connect: false,
       })
     )
 
@@ -115,6 +122,9 @@ describe("BaseEntity", () => {
       defineConfig({
         entities: [ProductModel, ProductCategoryEntity, ProductOptionValue],
         dbName: "test",
+        user: "postgres",
+        password: "",
+        connect: false,
       })
     )
 

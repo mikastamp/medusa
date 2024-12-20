@@ -13,6 +13,7 @@ describe("mikroOrmFreeTextSearchFilterOptionsFactory", () => {
         user: "postgres",
         password: "",
         dbName: "test",
+        connect: false,
       })
     )
   })

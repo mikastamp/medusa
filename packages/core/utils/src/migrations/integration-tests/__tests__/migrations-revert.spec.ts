@@ -22,8 +22,8 @@ const migrationFileNameGenerator = (_: string, name?: string) => {
 }
 
 const pgGodCredentials = {
-  user: DB_USERNAME,
-  password: DB_PASSWORD,
+  user: DB_USERNAME ?? "postgres",
+  password: DB_PASSWORD ?? "",
   host: DB_HOST,
 }
 
