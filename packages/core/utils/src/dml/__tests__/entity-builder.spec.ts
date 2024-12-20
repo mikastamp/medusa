@@ -1547,10 +1547,11 @@ describe("Entity builder", () => {
         rate: {
           kind: "scalar",
           type: "number",
+          runtimeType: "number",
           columnType: "real",
           name: "rate",
           fieldName: "rate",
-          serializer: Number,
+          serializer: expect.any(Function),
           nullable: false,
           getter: false,
           setter: false,
