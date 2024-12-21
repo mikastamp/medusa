@@ -49,10 +49,7 @@ const _OrderChange = model
       })
       .nullable(),
     actions: model.hasMany<() => typeof OrderChangeAction>(
-      () => OrderChangeAction,
-      {
-        mappedBy: "order_change",
-      }
+      () => OrderChangeAction
     ),
   })
   .cascades({

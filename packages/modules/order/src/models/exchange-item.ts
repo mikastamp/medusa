@@ -6,7 +6,6 @@ const _OrderExchangeItem = model
   .define(
     {
       tableName: "order_exchange_item",
-      disableSoftDeleteFilter: true,
     },
     {
       id: model.id({ prefix: "oexcitem" }).primaryKey(),

@@ -4,7 +4,6 @@ const _OrderAddress = model
   .define(
     {
       tableName: "order_address",
-      disableSoftDeleteFilter: true,
     },
     {
       id: model.id({ prefix: "ordaddr" }).primaryKey(),

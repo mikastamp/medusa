@@ -84,7 +84,6 @@ export function setFindMethods<T>(klass: Constructor<T>, entity: any) {
     }
 
     config.where ??= {}
-    config.where.deleted_at ??= null
 
     return await manager.find(this.entity, config.where, config.options)
   }
@@ -172,10 +171,16 @@ function configurePopulateWhere(
 
   if (isRelatedEntity) {
     popWhere.order ??= {}
+    popWhere.order.version = version
 
     if (hasRelation("shipping_methods")) {
       popWhere.shipping_methods ??= {}
-      popWhere.shipping_methods.deleted_at ??= null
+      popWhere.shipping_methods.version = version
+    }
+
+    if (hasRelation("shipping_methods")) {
+      popWhere.shipping_methods ??= {}
+      popWhere.shipping_methods.version = version
     }
   }
 
@@ -186,15 +191,13 @@ function configurePopulateWhere(
     orderWhere.summary.version = version
   }
 
-  if (hasRelation("items")) {
+  if (hasRelation("items") || hasRelation("order.items")) {
     orderWhere.items ??= {}
     orderWhere.items.version = version
-    orderWhere.items.deleted_at ??= null
   }
 
   if (hasRelation("shipping_methods")) {
     orderWhere.shipping_methods ??= {}
     orderWhere.shipping_methods.version = version
-    orderWhere.shipping_methods.deleted_at ??= null
   }
 }

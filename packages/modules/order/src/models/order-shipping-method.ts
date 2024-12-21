@@ -9,7 +9,6 @@ const _OrderShipping = model
   .define(
     {
       tableName: "order_shipping",
-      disableSoftDeleteFilter: true,
     },
     {
       id: model.id({ prefix: "ordspmv" }).primaryKey(),

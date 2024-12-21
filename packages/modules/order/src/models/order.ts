@@ -10,7 +10,6 @@ const _Order = model
   .define(
     {
       tableName: "order",
-      disableSoftDeleteFilter: true,
     },
     {
       id: model.id({ prefix: "order" }).primaryKey(),

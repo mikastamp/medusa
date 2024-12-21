@@ -5,7 +5,6 @@ const _OrderLineItemAdjustment = model
   .define(
     {
       tableName: "order_line_item_adjustment",
-      disableSoftDeleteFilter: true,
     },
     {
       id: model.id({ prefix: "ordliadj" }).primaryKey(),

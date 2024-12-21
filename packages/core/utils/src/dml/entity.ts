@@ -26,11 +26,9 @@ function extractNameAndTableName<const Config extends IDmlEntityConfig>(
   const result = {
     name: "",
     tableName: "",
-    disableSoftDeleteFilter: false,
   } as {
     name: InferDmlEntityNameFromConfig<Config>
     tableName: string
-    disableSoftDeleteFilter: boolean
   }
 
   if (isString(nameOrConfig)) {
@@ -58,8 +56,6 @@ function extractNameAndTableName<const Config extends IDmlEntityConfig>(
       toCamelCase(name)
     ) as InferDmlEntityNameFromConfig<Config>
     result.tableName = nameOrConfig.tableName
-    result.disableSoftDeleteFilter =
-      nameOrConfig.disableSoftDeleteFilter ?? false
   }
 
   return result
@@ -81,19 +77,15 @@ export class DmlEntity<
 
   readonly #tableName: string
   #cascades: EntityCascades<string[], string[]> = {}
-  #params: Record<string, unknown>
+
   #indexes: EntityIndex<Schema>[] = []
   #checks: CheckConstraint<Schema>[] = []
 
   constructor(nameOrConfig: TConfig, schema: Schema) {
-    const { name, tableName, disableSoftDeleteFilter } =
-      extractNameAndTableName(nameOrConfig)
+    const { name, tableName } = extractNameAndTableName(nameOrConfig)
     this.schema = schema
     this.name = name
     this.#tableName = tableName
-    this.#params = {
-      disableSoftDeleteFilter,
-    }
   }
 
   /**
@@ -116,7 +108,6 @@ export class DmlEntity<
     schema: DMLSchema
     cascades: EntityCascades<string[], string[]>
     indexes: EntityIndex<Schema>[]
-    params: Record<string, unknown>
     checks: CheckConstraint<Schema>[]
   } {
     return {
@@ -125,7 +116,6 @@ export class DmlEntity<
       schema: this.schema,
       cascades: this.#cascades,
       indexes: this.#indexes,
-      params: this.#params,
       checks: this.#checks,
     }
   }

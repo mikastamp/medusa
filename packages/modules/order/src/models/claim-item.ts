@@ -7,7 +7,6 @@ const _OrderClaimItem = model
   .define(
     {
       tableName: "order_claim_item",
-      disableSoftDeleteFilter: true,
     },
     {
       id: model.id({ prefix: "claitem" }).primaryKey(),

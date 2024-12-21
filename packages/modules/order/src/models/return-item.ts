@@ -7,7 +7,6 @@ const _ReturnItem = model
   .define(
     {
       tableName: "return_item",
-      disableSoftDeleteFilter: true,
     },
     {
       id: model.id({ prefix: "retitem" }).primaryKey(),

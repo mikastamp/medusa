@@ -7,7 +7,6 @@ const _OrderItem = model
   .define(
     {
       tableName: "order_item",
-      disableSoftDeleteFilter: true,
     },
     {
       id: model.id({ prefix: "orditem" }).primaryKey(),
@@ -26,17 +25,12 @@ const _OrderItem = model
       order: model.belongsTo<() => typeof Order>(() => Order, {
         mappedBy: "items",
       }),
-      item: model
-        .hasOne<() => typeof OrderLineItem>(() => OrderLineItem, {
-          mappedBy: undefined,
-          foreignKey: true,
-        })
-        .nullable(),
+      item: model.hasOne<() => typeof OrderLineItem>(() => OrderLineItem, {
+        mappedBy: undefined,
+        foreignKey: true,
+      }),
     }
   )
-  .cascades({
-    delete: ["item"],
-  })
   .indexes([
     {
       name: "IDX_order_item_order_id",

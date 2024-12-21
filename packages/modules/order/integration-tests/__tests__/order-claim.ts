@@ -103,7 +103,7 @@ moduleIntegrationTestRunner({
         customer_id: "joe",
       } as CreateOrderDTO
 
-      it.only("should claim an item and add two new items to the order", async function () {
+      it("should claim an item and add two new items to the order", async function () {
         const createdOrder = await service.createOrders(input)
         createdOrder.items = createdOrder.items!.sort((a, b) =>
           a.title.localeCompare(b.title)

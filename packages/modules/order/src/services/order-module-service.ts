@@ -142,7 +142,7 @@ const generateMethodForModels = {
 {
   const MikroORMEntity = toMikroORMEntity(OrderChangeAction)
   MikroORMEntity.prototype["onInit_OrderChangeAction"] = function () {
-    this.version ??= this.order?.version ?? null
+    this.version ??= this.order_change?.version ?? null
 
     this.order ??= rel(
       toMikroORMEntity(Order),
@@ -177,6 +177,10 @@ const generateMethodForModels = {
     this.exchange ??= rel(
       toMikroORMEntity(OrderExchange),
       this.exchange?.id ?? null
+    )
+    this.shipping_method ??= rel(
+      toMikroORMEntity(OrderShippingMethod),
+      this.shipping_method?.id ?? null
     )
   }
   OnInit()(MikroORMEntity.prototype, "onInit_OrderShipping")
@@ -2966,8 +2970,8 @@ export default class OrderModuleService
         ],
       },
       sharedContext
-      // TODO: investigate issue while using sharedContext in receive return action
     )
+
     orders = formatOrder(orders, {
       entity: Order,
     }) as OrderDTO[]

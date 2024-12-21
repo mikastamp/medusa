@@ -5,7 +5,6 @@ const _OrderSummary = model
   .define(
     {
       tableName: "order_summary",
-      disableSoftDeleteFilter: true,
     },
     {
       id: model.id({ prefix: "ordsum" }).primaryKey(),

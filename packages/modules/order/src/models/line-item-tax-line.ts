@@ -5,7 +5,6 @@ const _OrderLineItemTaxLine = model
   .define(
     {
       tableName: "order_line_item_tax_line",
-      disableSoftDeleteFilter: true,
     },
     {
       id: model.id({ prefix: "ordlitxl" }).primaryKey(),

@@ -46,17 +46,6 @@ const _OrderChangeAction = model
       })
       .nullable(),
   })
-  /*
-  .hooks({
-    creating: (entity: any) => {
-      entity.order_id ??= entity.order_change?.order_id ?? null
-      entity.return_id ??= entity.order_change?.return_id ?? null
-      entity.claim_id ??= entity.order_change?.claim_id ?? null
-      entity.exchange_id ??= entity.order_change?.exchange_id ?? null
-      entity.version ??= entity.order_change?.version ?? null
-    },
-  })
-    */
   .indexes([
     {
       name: "IDX_order_change_action_order_change_id",

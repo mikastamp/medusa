@@ -15,7 +15,6 @@ export type IDmlEntityConfig =
   | {
       name?: string
       tableName: string
-      disableSoftDeleteFilter?: boolean
     }
 
 export type InferDmlEntityNameFromConfig<TConfig extends IDmlEntityConfig> =
