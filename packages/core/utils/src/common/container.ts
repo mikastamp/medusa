@@ -6,7 +6,7 @@ export const ContainerRegistrationKeys = {
   REMOTE_QUERY: "remoteQuery",
   QUERY: "query",
   /**
-   * @deprecated. Instead use "ContainerRegistrationKeys.link"
+   * @deprecated. Instead use "ContainerRegistrationKeys.LINK"
    */
   REMOTE_LINK: "remoteLink",
   LINK: "link",
