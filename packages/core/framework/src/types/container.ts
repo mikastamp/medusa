@@ -35,6 +35,9 @@ import { AwilixContainer, ResolveOptions } from "awilix"
 
 declare module "@medusajs/types" {
   export interface ModuleImplementations {
+    /**
+     * @deprecated. Instead use "link"
+     */
     [ContainerRegistrationKeys.REMOTE_LINK]: Link
     [ContainerRegistrationKeys.LINK]: Link
     [ContainerRegistrationKeys.CONFIG_MODULE]: ConfigModule
