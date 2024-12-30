@@ -48,7 +48,7 @@ type LinkDataConfig = {
   moduleBKey: string
 }
 
-export class RemoteLink {
+export class Link {
   private modulesMap: Map<string, LoadedLinkModule> = new Map()
   private relationsPairs: Map<string, LoadedLinkModule> = new Map()
   private relations: Map<string, Map<string, RemoteRelationship[]>> = new Map()
