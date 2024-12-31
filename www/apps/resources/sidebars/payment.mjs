@@ -159,6 +159,11 @@ export const paymentSidebar = [
         children: [
           {
             type: "link",
+            path: "/commerce-modules/payment/events",
+            title: "Events Reference",
+          },
+          {
+            type: "link",
             path: "/references/payment",
             title: "Main Service Reference",
             isChildSidebar: true,

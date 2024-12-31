@@ -256,6 +256,10 @@ export const filesMap = [
     "pathname": "/commerce-modules/fulfillment/concepts"
   },
   {
+    "filePath": "/www/apps/resources/app/commerce-modules/fulfillment/events/page.mdx",
+    "pathname": "/commerce-modules/fulfillment/events"
+  },
+  {
     "filePath": "/www/apps/resources/app/commerce-modules/fulfillment/fulfillment-provider/page.mdx",
     "pathname": "/commerce-modules/fulfillment/fulfillment-provider"
   },
@@ -358,6 +362,10 @@ export const filesMap = [
   {
     "filePath": "/www/apps/resources/app/commerce-modules/page.mdx",
     "pathname": "/commerce-modules"
+  },
+  {
+    "filePath": "/www/apps/resources/app/commerce-modules/payment/events/page.mdx",
+    "pathname": "/commerce-modules/payment/events"
   },
   {
     "filePath": "/www/apps/resources/app/commerce-modules/payment/links-to-other-modules/page.mdx",

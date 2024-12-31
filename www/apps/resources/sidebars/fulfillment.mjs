@@ -142,6 +142,11 @@ export const fulfillmentSidebar = [
         children: [
           {
             type: "link",
+            path: "/commerce-modules/fulfillment/events",
+            title: "Events Reference",
+          },
+          {
+            type: "link",
             path: "/commerce-modules/fulfillment/admin-widget-zones",
             title: "Admin Widget Zones",
           },

@@ -3369,7 +3369,7 @@ export const generatedEditDates = {
   "references/types/DmlTypes/types/types.DmlTypes.InferForeignKeys/page.mdx": "2024-12-23T12:30:28.159Z",
   "references/types/DmlTypes/types/types.DmlTypes.InferSchemaFields/page.mdx": "2024-12-10T14:54:55.447Z",
   "references/types/interfaces/types.BaseRepositoryService/page.mdx": "2024-12-09T13:21:32.969Z",
-  "app/events-reference/page.mdx": "2024-12-23T16:30:48.569Z",
+  "app/events-reference/page.mdx": "2024-12-31T09:44:06.198Z",
   "references/auth_models/variables/auth_models.AuthIdentity/page.mdx": "2024-12-23T13:57:08.092Z",
   "references/auth_models/variables/auth_models.ProviderIdentity/page.mdx": "2024-12-23T13:57:08.094Z",
   "references/dml/entity/DmlEntity/methods/dml.entity.DmlEntity.checks/page.mdx": "2024-12-09T13:21:55.464Z",
@@ -5766,5 +5766,7 @@ export const generatedEditDates = {
   "app/commerce-modules/tax/admin-widget-zones/page.mdx": "2024-12-24T08:47:13.176Z",
   "app/commerce-modules/user/admin-widget-zones/page.mdx": "2024-12-24T08:48:14.186Z",
   "app/commerce-modules/currency/links-to-other-modules/page.mdx": "2024-12-24T14:47:10.556Z",
-  "app/commerce-modules/customer/links-to-other-modules/page.mdx": "2024-12-24T14:48:54.689Z"
+  "app/commerce-modules/customer/links-to-other-modules/page.mdx": "2024-12-24T14:48:54.689Z",
+  "app/commerce-modules/fulfillment/events/page.mdx": "2024-12-31T09:37:49.253Z",
+  "app/commerce-modules/payment/events/page.mdx": "2024-12-31T09:41:56.582Z"
 }

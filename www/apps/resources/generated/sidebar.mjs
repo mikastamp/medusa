@@ -3515,6 +3515,14 @@ export const generatedSidebar = [
                 "loaded": true,
                 "isPathHref": true,
                 "type": "link",
+                "path": "/commerce-modules/fulfillment/events",
+                "title": "Events Reference",
+                "children": []
+              },
+              {
+                "loaded": true,
+                "isPathHref": true,
+                "type": "link",
                 "path": "/commerce-modules/fulfillment/admin-widget-zones",
                 "title": "Admin Widget Zones",
                 "children": []
@@ -8041,6 +8049,14 @@ export const generatedSidebar = [
             "initialOpen": false,
             "description": "Find references for data models, methods, and more. These are useful for your customizations.",
             "children": [
+              {
+                "loaded": true,
+                "isPathHref": true,
+                "type": "link",
+                "path": "/commerce-modules/payment/events",
+                "title": "Events Reference",
+                "children": []
+              },
               {
                 "loaded": true,
                 "isPathHref": true,
