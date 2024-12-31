@@ -14,7 +14,7 @@ Automatically detect the region and location of your customer using ipstack.
 
 ## Prerequisites
 
-- [Medusa backend](https://docs.medusajs.com/development/backend/install)
+- [Medusa backend](https://docs.medusajs.com/v1/development/backend/install)
 - [ipstack account](https://ipstack.com)
 
 ---

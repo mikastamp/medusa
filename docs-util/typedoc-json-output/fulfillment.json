@@ -67,7 +67,7 @@
 					},
 					{
 						"kind": "code",
-						"text": "```ts title=src/services/my-fulfillment.ts\nimport { AbstractFulfillmentService } from \"@medusajs/medusa\"\n\nclass MyFulfillmentService extends AbstractFulfillmentService {\n  // methods here...\n}\n\nexport default MyFulfillmentService\n```"
+						"text": "```ts title=\"src/services/my-fulfillment.ts\"\nimport { AbstractFulfillmentService } from \"@medusajs/medusa\"\n\nclass MyFulfillmentService extends AbstractFulfillmentService {\n  // methods here...\n}\n\nexport default MyFulfillmentService\n```"
 					},
 					{
 						"kind": "text",
@@ -103,7 +103,7 @@
 					},
 					{
 						"kind": "text",
-						"text": " property in the fulfillment provider service is used when the fulfillment provider is added to the database.\n\nThe value of this property is also used to reference the fulfillment provider throughout Medusa. For example, it is used to [add a fulfillment provider](https://docs.medusajs.com/api/admin#regions_postregionsregionfulfillmentproviders) to a region.\n\n"
+						"text": " property in the fulfillment provider service is used when the fulfillment provider is added to the database.\n\nThe value of this property is also used to reference the fulfillment provider throughout Medusa. For example, it is used to [add a fulfillment provider](https://docs.medusajs.com/v1/api/admin#regions_postregionsregionfulfillmentproviders) to a region.\n\n"
 					},
 					{
 						"kind": "code",
@@ -133,7 +133,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "This method is used when retrieving the list of fulfillment options available in a region, particularly by the [List Fulfillment Options API Route](https://docs.medusajs.com/api/admin#regions_getregionsregionfulfillmentoptions).\nFor example, if you’re integrating UPS as a fulfillment provider, you might support two fulfillment options: UPS Express Shipping and UPS Access Point. Each of these options can have different data associated with them."
+										"text": "This method is used when retrieving the list of fulfillment options available in a region, particularly by the [List Fulfillment Options API Route](https://docs.medusajs.com/v1/api/admin#regions_getregionsregionfulfillmentoptions).\nFor example, if you’re integrating UPS as a fulfillment provider, you might support two fulfillment options: UPS Express Shipping and UPS Access Point. Each of these options can have different data associated with them."
 									}
 								],
 								"blockTags": [
@@ -142,7 +142,7 @@
 										"content": [
 											{
 												"kind": "text",
-												"text": "The list of fulfillment options. These options don't have any required format. Later on, these options can be used when creating a shipping option,\nsuch as when using the [Create Shipping Option API Route](https://docs.medusajs.com/api/admin#shipping-options_postshippingoptions). The chosen fulfillment option, which is one of the\nitems in the array returned by this method, will be set in the "
+												"text": "The list of fulfillment options. These options don't have any required format. Later on, these options can be used when creating a shipping option,\nsuch as when using the [Create Shipping Option API Route](https://docs.medusajs.com/v1/api/admin#shipping-options_postshippingoptions). The chosen fulfillment option, which is one of the\nitems in the array returned by this method, will be set in the "
 											},
 											{
 												"kind": "code",
@@ -386,7 +386,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "Once the admin creates the shipping option, the data of the shipping option will be validated first using this method. This method is called when the [Create Shipping Option API Route](https://docs.medusajs.com/api/admin#shipping-options_postshippingoptions) is used."
+										"text": "Once the admin creates the shipping option, the data of the shipping option will be validated first using this method. This method is called when the [Create Shipping Option API Route](https://docs.medusajs.com/v1/api/admin#shipping-options_postshippingoptions) is used."
 									}
 								],
 								"blockTags": [
@@ -1177,7 +1177,7 @@
 									},
 									{
 										"kind": "text",
-										"text": " property is true or if an admin creates a Return Shipping Option from the settings.\nThis method is used when the admin [creates a return request](https://docs.medusajs.com/api/admin#orders_postordersorderreturns) for an order,\n[creates a swap](https://docs.medusajs.com/api/admin#orders_postordersorderswaps) for an order, or when the\n[customer creates a return of their order](https://docs.medusajs.com/api/store#returns_postreturns). The fulfillment is created automatically for the order return."
+										"text": " property is true or if an admin creates a Return Shipping Option from the settings.\nThis method is used when the admin [creates a return request](https://docs.medusajs.com/v1/api/admin#orders_postordersorderreturns) for an order,\n[creates a swap](https://docs.medusajs.com/v1/api/admin#orders_postordersorderswaps) for an order, or when the\n[customer creates a return of their order](https://docs.medusajs.com/v1/api/store#returns_postreturns). The fulfillment is created automatically for the order return."
 									}
 								],
 								"blockTags": [
@@ -2670,7 +2670,7 @@
 							},
 							{
 								"kind": "text",
-								"text": " property in the class is used when the fulfillment provider is created in the database.\nThe value of this property is also used to reference the fulfillment provider throughout Medusa. For example, it is used to [add a fulfillment provider](https://docs.medusajs.com/api/admin#regions_postregionsregionfulfillmentproviders) to a region."
+								"text": " property in the class is used when the fulfillment provider is created in the database.\nThe value of this property is also used to reference the fulfillment provider throughout Medusa. For example, it is used to [add a fulfillment provider](https://docs.medusajs.com/v1/api/admin#regions_postregionsregionfulfillmentproviders) to a region."
 							}
 						],
 						"blockTags": [
@@ -2709,7 +2709,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "This method is used when retrieving the list of fulfillment options available in a region, particularly by the [List Fulfillment Options API Route](https://docs.medusajs.com/api/admin#regions_getregionsregionfulfillmentoptions).\nFor example, if you’re integrating UPS as a fulfillment provider, you might support two fulfillment options: UPS Express Shipping and UPS Access Point. Each of these options can have different data associated with them."
+										"text": "This method is used when retrieving the list of fulfillment options available in a region, particularly by the [List Fulfillment Options API Route](https://docs.medusajs.com/v1/api/admin#regions_getregionsregionfulfillmentoptions).\nFor example, if you’re integrating UPS as a fulfillment provider, you might support two fulfillment options: UPS Express Shipping and UPS Access Point. Each of these options can have different data associated with them."
 									}
 								],
 								"blockTags": [
@@ -2718,7 +2718,7 @@
 										"content": [
 											{
 												"kind": "text",
-												"text": "The list of fulfillment options. These options don't have any required format. Later on, these options can be used when creating a shipping option,\nsuch as when using the [Create Shipping Option API Route](https://docs.medusajs.com/api/admin#shipping-options_postshippingoptions). The chosen fulfillment option, which is one of the\nitems in the array returned by this method, will be set in the "
+												"text": "The list of fulfillment options. These options don't have any required format. Later on, these options can be used when creating a shipping option,\nsuch as when using the [Create Shipping Option API Route](https://docs.medusajs.com/v1/api/admin#shipping-options_postshippingoptions). The chosen fulfillment option, which is one of the\nitems in the array returned by this method, will be set in the "
 											},
 											{
 												"kind": "code",
@@ -2986,7 +2986,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "Once the admin creates the shipping option, the data of the shipping option will be validated first using this method. This method is called when the [Create Shipping Option API Route](https://docs.medusajs.com/api/admin#shipping-options_postshippingoptions) is used."
+										"text": "Once the admin creates the shipping option, the data of the shipping option will be validated first using this method. This method is called when the [Create Shipping Option API Route](https://docs.medusajs.com/v1/api/admin#shipping-options_postshippingoptions) is used."
 									}
 								],
 								"blockTags": [
@@ -3837,7 +3837,7 @@
 									},
 									{
 										"kind": "text",
-										"text": " property is true or if an admin creates a Return Shipping Option from the settings.\nThis method is used when the admin [creates a return request](https://docs.medusajs.com/api/admin#orders_postordersorderreturns) for an order,\n[creates a swap](https://docs.medusajs.com/api/admin#orders_postordersorderswaps) for an order, or when the\n[customer creates a return of their order](https://docs.medusajs.com/api/store#returns_postreturns). The fulfillment is created automatically for the order return."
+										"text": " property is true or if an admin creates a Return Shipping Option from the settings.\nThis method is used when the admin [creates a return request](https://docs.medusajs.com/v1/api/admin#orders_postordersorderreturns) for an order,\n[creates a swap](https://docs.medusajs.com/v1/api/admin#orders_postordersorderswaps) for an order, or when the\n[customer creates a return of their order](https://docs.medusajs.com/v1/api/store#returns_postreturns). The fulfillment is created automatically for the order return."
 									}
 								],
 								"blockTags": [

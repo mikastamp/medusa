@@ -13,7 +13,7 @@ import { cleanResponseData } from "../../../../utils/clean-response-data"
  * x-authenticated: true
  * externalDocs:
  *   description: Canceling a swap
- *   url: https://docs.medusajs.com/modules/orders/swaps#canceling-a-swap
+ *   url: https://docs.medusajs.com/v1/modules/orders/swaps#canceling-a-swap
  * parameters:
  *   - (path) id=* {string} The ID of the Order the swap is associated with.
  *   - (path) swap_id=* {string} The ID of the Swap.

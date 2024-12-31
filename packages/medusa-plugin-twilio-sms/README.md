@@ -2,7 +2,7 @@
 
 Utilize Twilio's SMS APIs to send customers SMS notifications.
 
-[Twilio SMS Plugin Documentation](https://docs.medusajs.com/plugins/notifications/twilio-sms) | [Medusa Website](https://medusajs.com) | [Medusa Repository](https://github.com/medusajs/medusa)
+[Twilio SMS Plugin Documentation](https://docs.medusajs.com/v1/plugins/notifications/twilio-sms) | [Medusa Website](https://medusajs.com) | [Medusa Repository](https://github.com/medusajs/medusa)
 
 ## Features
 
@@ -12,7 +12,7 @@ Utilize Twilio's SMS APIs to send customers SMS notifications.
 
 ## Prerequisites
 
-- [Medusa backend](https://docs.medusajs.com/development/backend/install)
+- [Medusa backend](https://docs.medusajs.com/v1/development/backend/install)
 - [Twilio account](https://www.twilio.com/sms)
 
 ---
@@ -59,4 +59,4 @@ In your code, use the `TwilioSmsService` where necessary to send your customers 
 
 ## Additional Resources
 
-- [Twilio SMS Plugin Documentation](https://docs.medusajs.com/plugins/notifications/twilio-sms)
+- [Twilio SMS Plugin Documentation](https://docs.medusajs.com/v1/plugins/notifications/twilio-sms)

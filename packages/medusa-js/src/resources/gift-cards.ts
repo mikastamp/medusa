@@ -3,13 +3,13 @@ import { ResponsePromise } from "../typings"
 import BaseResource from "./base"
 
 /**
- * This class is used to send requests to [Store Gift Card API Routes](https://docs.medusajs.com/api/store#gift-cards). All its method
+ * This class is used to send requests to [Store Gift Card API Routes](https://docs.medusajs.com/v1/api/store#gift-cards). All its method
  * are available in the JS Client under the `medusa.giftCards` property.
  * 
  * Customers can use gift cards during checkout to deduct the gift card's balance from the checkout total.
  * The methods in this class allow retrieving a gift card's details by its code. A gift card can be applied to a cart using {@link CartsResource}.
  * 
- * Related Guide: [How to use gift cards in a storefront](https://docs.medusajs.com/modules/gift-cards/storefront/use-gift-cards).
+ * Related Guide: [How to use gift cards in a storefront](https://docs.medusajs.com/v1/modules/gift-cards/storefront/use-gift-cards).
  */
 class GiftCardsResource extends BaseResource {
   /**

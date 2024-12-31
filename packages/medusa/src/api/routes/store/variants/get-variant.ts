@@ -23,7 +23,7 @@ import { promiseAll } from "@medusajs/utils"
  *   You can alternatively use a publishable API key in the request header instead of passing a `sales_channel_id`.
  * externalDocs:
  *   description: "How to pass product pricing parameters"
- *   url: "https://docs.medusajs.com/modules/products/storefront/show-products#product-pricing-parameters"
+ *   url: "https://docs.medusajs.com/v1/modules/products/storefront/show-products#product-pricing-parameters"
  * parameters:
  *   - (path) id=* {string} The ID of the Product Variant.
  *   - (query) sales_channel_id {string} The ID of the sales channel the customer is viewing the product variant from.

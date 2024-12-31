@@ -8,7 +8,7 @@
 </h1>
 
 <h4 align="center">
-  <a href="https://docs.medusajs.com">Documentation</a> |
+  <a href="https://docs.medusajs.com/v1">Documentation</a> |
   <a href="https://www.medusajs.com">Website</a>
 </h4>
 

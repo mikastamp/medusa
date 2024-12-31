@@ -14,20 +14,20 @@ import BaseResource from "./base"
 import PaymentMethodsResource from "./payment-methods"
 
 /**
- * This class is used to send requests to [Store Customer API Routes](https://docs.medusajs.com/api/store#customers_postcustomers). All its method
+ * This class is used to send requests to [Store Customer API Routes](https://docs.medusajs.com/v1/api/store#customers_postcustomers). All its method
  * are available in the JS Client under the `medusa.customers` property.
  * 
  * A customer can register and manage their information such as addresses, orders, payment methods, and more.
  * 
- * Related Guide: [How to implement customer profiles in your storefront](https://docs.medusajs.com/modules/customers/storefront/implement-customer-profiles).
+ * Related Guide: [How to implement customer profiles in your storefront](https://docs.medusajs.com/v1/modules/customers/storefront/implement-customer-profiles).
  */
 class CustomerResource extends BaseResource {
   /**
-   * An instance of {@link PaymentMethodsResource} used to send requests to payment-related routes part of the [Store Customer API Routes](https://docs.medusajs.com/api/store#customers_postcustomers).
+   * An instance of {@link PaymentMethodsResource} used to send requests to payment-related routes part of the [Store Customer API Routes](https://docs.medusajs.com/v1/api/store#customers_postcustomers).
    */
   public paymentMethods = new PaymentMethodsResource(this.client)
   /**
-   * An instance of {@link AddressesResource} used to send requests to address-related routes part of the [Store Customer API Routes](https://docs.medusajs.com/api/store#customers_postcustomers).
+   * An instance of {@link AddressesResource} used to send requests to address-related routes part of the [Store Customer API Routes](https://docs.medusajs.com/v1/api/store#customers_postcustomers).
    */
   public addresses = new AddressesResource(this.client)
 

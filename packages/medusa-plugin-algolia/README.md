@@ -2,19 +2,19 @@
 
 Provide powerful indexing and searching features in your commerce application with Algolia.
 
-[Algolia Plugin Documentation](https://docs.medusajs.com/plugins/search/algolia) | [Medusa Website](https://medusajs.com) | [Medusa Repository](https://github.com/medusajs/medusa)
+[Algolia Plugin Documentation](https://docs.medusajs.com/v1/plugins/search/algolia) | [Medusa Website](https://medusajs.com) | [Medusa Repository](https://github.com/medusajs/medusa)
 
 ## Features
 
 - Flexible configurations for specifying searchable and retrievable attributes.
-- Ready-integration with [Medusa's Next.js starter storefront](https://docs.medusajs.com/starters/nextjs-medusa-starter).
+- Ready-integration with [Medusa's Next.js starter storefront](https://docs.medusajs.com/v1/starters/nextjs-medusa-starter).
 - Utilize Algolia's powerful search functionalities including typo-tolerance, query suggestions, results ranking, and more.
 
 ---
 
 ## Prerequisites
 
-- [Medusa backend](https://docs.medusajs.com/development/backend/install)
+- [Medusa backend](https://docs.medusajs.com/v1/development/backend/install)
 - [Algolia account](https://www.algolia.com/)
 
 ---
@@ -83,10 +83,10 @@ const plugins = [
   npm run start
   ```
 
-2\. Try searching products either using your storefront or using the [Store APIs](https://docs.medusajs.com/api/store#tag/Product/operation/PostProductsSearch).
+2\. Try searching products either using your storefront or using the [Store APIs](https://docs.medusajs.com/v1/api/store#tag/Product/operation/PostProductsSearch).
 
 ---
 
 ## Additional Resources
 
-- [Algolia Plugin Documentation](https://docs.medusajs.com/plugins/search/algolia)
+- [Algolia Plugin Documentation](https://docs.medusajs.com/v1/plugins/search/algolia)

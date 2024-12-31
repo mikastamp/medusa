@@ -13,7 +13,7 @@ Generate dynamic discount codes in your Medusa backend.
 
 ## Prerequisites
 
-- [Medusa backend](https://docs.medusajs.com/development/backend/install)
+- [Medusa backend](https://docs.medusajs.com/v1/development/backend/install)
 
 ---
 

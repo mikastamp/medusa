@@ -33,7 +33,7 @@ type ShippingMethodData = Record<string, unknown>
  *
  * The `FulfillmentProvider` entity has 2 properties: `identifier` and `is_installed`. The `identifier` property in the fulfillment provider service is used when the fulfillment provider is added to the database.
  *
- * The value of this property is also used to reference the fulfillment provider throughout Medusa. For example, it is used to [add a fulfillment provider](https://docs.medusajs.com/api/admin#regions_postregionsregionfulfillmentproviders) to a region.
+ * The value of this property is also used to reference the fulfillment provider throughout Medusa. For example, it is used to [add a fulfillment provider](https://docs.medusajs.com/v1/api/admin#regions_postregionsregionfulfillmentproviders) to a region.
  *
  * ```ts
  * class MyFulfillmentService extends AbstractFulfillmentService {
@@ -54,11 +54,11 @@ export interface FulfillmentService extends TransactionBaseService {
   getIdentifier(): string
 
   /**
-   * This method is used when retrieving the list of fulfillment options available in a region, particularly by the [List Fulfillment Options API Route](https://docs.medusajs.com/api/admin#regions_getregionsregionfulfillmentoptions).
+   * This method is used when retrieving the list of fulfillment options available in a region, particularly by the [List Fulfillment Options API Route](https://docs.medusajs.com/v1/api/admin#regions_getregionsregionfulfillmentoptions).
    * For example, if you’re integrating UPS as a fulfillment provider, you might support two fulfillment options: UPS Express Shipping and UPS Access Point. Each of these options can have different data associated with them.
    *
    * @returns {Promise<any[]>} The list of fulfillment options. These options don't have any required format. Later on, these options can be used when creating a shipping option,
-   * such as when using the [Create Shipping Option API Route](https://docs.medusajs.com/api/admin#shipping-options_postshippingoptions). The chosen fulfillment option, which is one of the
+   * such as when using the [Create Shipping Option API Route](https://docs.medusajs.com/v1/api/admin#shipping-options_postshippingoptions). The chosen fulfillment option, which is one of the
    * items in the array returned by this method, will be set in the `data` object of the shipping option.
    *
    * @example
@@ -119,7 +119,7 @@ export interface FulfillmentService extends TransactionBaseService {
   ): Promise<Record<string, unknown>>
 
   /**
-   * Once the admin creates the shipping option, the data of the shipping option will be validated first using this method. This method is called when the [Create Shipping Option API Route](https://docs.medusajs.com/api/admin#shipping-options_postshippingoptions) is used.
+   * Once the admin creates the shipping option, the data of the shipping option will be validated first using this method. This method is called when the [Create Shipping Option API Route](https://docs.medusajs.com/v1/api/admin#shipping-options_postshippingoptions) is used.
    *
    * @param {ShippingOptionData} data - the data object that is sent in the body of the request, basically, the data object of the shipping option. You can use this data to validate the shipping option before it is saved.
    * @returns {Promise<boolean>} Whether the fulfillment option is valid. If the returned value is false, an error is thrown and the shipping option will not be saved.
@@ -280,9 +280,9 @@ export interface FulfillmentService extends TransactionBaseService {
 
   /**
    * Fulfillment providers can also be used to return products. A shipping option can be used for returns if the `is_return` property is true or if an admin creates a Return Shipping Option from the settings.
-   * This method is used when the admin [creates a return request](https://docs.medusajs.com/api/admin#orders_postordersorderreturns) for an order,
-   * [creates a swap](https://docs.medusajs.com/api/admin#orders_postordersorderswaps) for an order, or when the
-   * [customer creates a return of their order](https://docs.medusajs.com/api/store#returns_postreturns). The fulfillment is created automatically for the order return.
+   * This method is used when the admin [creates a return request](https://docs.medusajs.com/v1/api/admin#orders_postordersorderreturns) for an order,
+   * [creates a swap](https://docs.medusajs.com/v1/api/admin#orders_postordersorderswaps) for an order, or when the
+   * [customer creates a return of their order](https://docs.medusajs.com/v1/api/store#returns_postreturns). The fulfillment is created automatically for the order return.
    *
    * @param {CreateReturnType} returnOrder - the return that the fulfillment is being created for.
    * @returns {Promise<Record<string, unknown>>} Used to set the value of the `shipping_data` attribute of the return being created.
@@ -441,7 +441,7 @@ export abstract class AbstractFulfillmentService
 
   /**
    * The `FulfillmentProvider` entity has 2 properties: `identifier` and `is_installed`. The `identifier` property in the class is used when the fulfillment provider is created in the database.
-   * The value of this property is also used to reference the fulfillment provider throughout Medusa. For example, it is used to [add a fulfillment provider](https://docs.medusajs.com/api/admin#regions_postregionsregionfulfillmentproviders) to a region.
+   * The value of this property is also used to reference the fulfillment provider throughout Medusa. For example, it is used to [add a fulfillment provider](https://docs.medusajs.com/v1/api/admin#regions_postregionsregionfulfillmentproviders) to a region.
    *
    * @example
    * class MyFulfillmentService extends AbstractFulfillmentService {

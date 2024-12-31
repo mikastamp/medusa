@@ -17,7 +17,7 @@ import BaseResource from "../base"
 import { ResponsePromise } from "../.."
 
 /**
- * This class is used to send requests to [Admin Customer Group API Routes](https://docs.medusajs.com/api/admin#customer-groups). All its method
+ * This class is used to send requests to [Admin Customer Group API Routes](https://docs.medusajs.com/v1/api/admin#customer-groups). All its method
  * are available in the JS Client under the `medusa.admin.customerGroups` property.
  * 
  * All methods in this class require {@link AdminAuthResource.createSession | user authentication}.
@@ -25,7 +25,7 @@ import { ResponsePromise } from "../.."
  * Customer Groups can be used to organize customers that share similar data or attributes into dedicated groups.
  * This can be useful for different purposes such as setting a different price for a specific customer group.
  * 
- * Related Guide: [How to manage customer groups](https://docs.medusajs.com/modules/customers/admin/manage-customer-groups).
+ * Related Guide: [How to manage customer groups](https://docs.medusajs.com/v1/modules/customers/admin/manage-customer-groups).
  */
 class AdminCustomerGroupsResource extends BaseResource {
   /**

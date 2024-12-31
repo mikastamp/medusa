@@ -170,7 +170,7 @@ export const EditProfileForm = ({ user, usageInsights }: EditProfileProps) => {
                           <a
                             key="hint-link"
                             className="text-ui-fg-interactive hover:text-ui-fg-interactive-hover transition-fg underline"
-                            href="https://docs.medusajs.com/usage#admin-analytics"
+                            href="https://docs.medusajs.com/v1/usage#admin-analytics"
                             target="_blank"
                             rel="noopener noreferrer"
                           />,

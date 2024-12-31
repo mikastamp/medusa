@@ -72,7 +72,7 @@
 											},
 											{
 												"kind": "text",
-												"text": ".\n\nThe context provides helper functions and mutations for managing the cart and checkout. You can refer to the following guides for examples on how to use them:\n\n- [How to Add Cart Functionality](https://docs.medusajs.com/modules/carts-and-checkout/storefront/implement-cart)\n- [How to Implement Checkout Flow](https://docs.medusajs.com/modules/carts-and-checkout/storefront/implement-checkout-flow)"
+												"text": ".\n\nThe context provides helper functions and mutations for managing the cart and checkout. You can refer to the following guides for examples on how to use them:\n\n- [How to Add Cart Functionality](https://docs.medusajs.com/v1/modules/carts-and-checkout/storefront/implement-cart)\n- [How to Implement Checkout Flow](https://docs.medusajs.com/v1/modules/carts-and-checkout/storefront/implement-checkout-flow)"
 											}
 										],
 										"blockTags": [
@@ -317,7 +317,7 @@
 											},
 											{
 												"kind": "text",
-												"text": ". It's useful if you want access to the \n[Medusa JS Client](https://docs.medusajs.com/js-client/overview)."
+												"text": ". It's useful if you want access to the \n[Medusa JS Client](https://docs.medusajs.com/v1/js-client/overview)."
 											}
 										],
 										"blockTags": [
@@ -1248,7 +1248,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "Queries and mutations listed here are used to send requests to the [Admin Auth API Routes](https://docs.medusajs.com/api/admin#auth_getauth).\n\nThey allow admin users to manage their session, such as login or log out.\nYou can send authenticated requests for an admin user either using the Cookie header, their API token, or the JWT Token.\nWhen you log the admin user in using the "
+										"text": "Queries and mutations listed here are used to send requests to the [Admin Auth API Routes](https://docs.medusajs.com/v1/api/admin#auth_getauth).\n\nThey allow admin users to manage their session, such as login or log out.\nYou can send authenticated requests for an admin user either using the Cookie header, their API token, or the JWT Token.\nWhen you log the admin user in using the "
 									},
 									{
 										"kind": "inline-tag",
@@ -1258,7 +1258,7 @@
 									},
 									{
 										"kind": "text",
-										"text": " hook, Medusa React will automatically attach the\ncookie header in all subsequent requests.\n\nRelated Guide: [How to implement user profiles](https://docs.medusajs.com/modules/users/admin/manage-profile)."
+										"text": " hook, Medusa React will automatically attach the\ncookie header in all subsequent requests.\n\nRelated Guide: [How to implement user profiles](https://docs.medusajs.com/v1/modules/users/admin/manage-profile)."
 									}
 								],
 								"modifierTags": [
@@ -2031,7 +2031,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "Queries and mutations listed here are used to send requests to the [Admin Batch Job API Routes](https://docs.medusajs.com/api/admin#batch-jobs).\n\nAll hooks listed require "
+										"text": "Queries and mutations listed here are used to send requests to the [Admin Batch Job API Routes](https://docs.medusajs.com/v1/api/admin#batch-jobs).\n\nAll hooks listed require "
 									},
 									{
 										"kind": "inline-tag",
@@ -2041,7 +2041,7 @@
 									},
 									{
 										"kind": "text",
-										"text": ".\n\nA batch job is a task that is performed by the Medusa backend asynchronusly. For example, the Import Product feature is implemented using batch jobs.\nThe methods in this class allow admins to manage the batch jobs and their state.\n\nRelated Guide: [How to import products](https://docs.medusajs.com/modules/products/admin/import-products)."
+										"text": ".\n\nA batch job is a task that is performed by the Medusa backend asynchronusly. For example, the Import Product feature is implemented using batch jobs.\nThe methods in this class allow admins to manage the batch jobs and their state.\n\nRelated Guide: [How to import products](https://docs.medusajs.com/v1/modules/products/admin/import-products)."
 									}
 								],
 								"modifierTags": [
@@ -3566,7 +3566,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "Mutations listed here are used to send requests to the [Admin Order API Routes related to claims](https://docs.medusajs.com/api/admin#orders).\n\nAll hooks listed require "
+										"text": "Mutations listed here are used to send requests to the [Admin Order API Routes related to claims](https://docs.medusajs.com/v1/api/admin#orders).\n\nAll hooks listed require "
 									},
 									{
 										"kind": "inline-tag",
@@ -3576,7 +3576,7 @@
 									},
 									{
 										"kind": "text",
-										"text": ".\n\nA claim represents a return or replacement request of order items. It allows refunding the customer or replacing some or all of its\norder items with new items.\n\nRelated Guide: [How to manage claims](https://docs.medusajs.com/modules/orders/admin/manage-claims)."
+										"text": ".\n\nA claim represents a return or replacement request of order items. It allows refunding the customer or replacing some or all of its\norder items with new items.\n\nRelated Guide: [How to manage claims](https://docs.medusajs.com/v1/modules/orders/admin/manage-claims)."
 									}
 								],
 								"modifierTags": [
@@ -4827,7 +4827,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "Queries and Mutations listed here are used to send requests to the [Admin Product Collection API Routes](https://docs.medusajs.com/api/admin#product-collections).\n\nAll hooks listed require "
+										"text": "Queries and Mutations listed here are used to send requests to the [Admin Product Collection API Routes](https://docs.medusajs.com/v1/api/admin#product-collections).\n\nAll hooks listed require "
 									},
 									{
 										"kind": "inline-tag",
@@ -6873,7 +6873,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "Queries and Mutations listed here are used to send requests to the [Admin Currency API Routes](https://docs.medusajs.com/api/admin#currencies).\n\nAll hooks listed require "
+										"text": "Queries and Mutations listed here are used to send requests to the [Admin Currency API Routes](https://docs.medusajs.com/v1/api/admin#currencies).\n\nAll hooks listed require "
 									},
 									{
 										"kind": "inline-tag",
@@ -6883,7 +6883,7 @@
 									},
 									{
 										"kind": "text",
-										"text": ".\n\nA store can use unlimited currencies, and each region must be associated with at least one currency.\nCurrencies are defined within the Medusa backend. The methods in this class allow admins to list and update currencies.\n\nRelated Guide: [How to manage currencies](https://docs.medusajs.com/modules/regions-and-currencies/admin/manage-currencies)."
+										"text": ".\n\nA store can use unlimited currencies, and each region must be associated with at least one currency.\nCurrencies are defined within the Medusa backend. The methods in this class allow admins to list and update currencies.\n\nRelated Guide: [How to manage currencies](https://docs.medusajs.com/v1/modules/regions-and-currencies/admin/manage-currencies)."
 									}
 								],
 								"modifierTags": [
@@ -9009,7 +9009,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "Queries and Mutations listed here are used to send requests to the [Admin Customer Group API Routes](https://docs.medusajs.com/api/admin#customer-groups).\n\nAll hooks listed require "
+										"text": "Queries and Mutations listed here are used to send requests to the [Admin Customer Group API Routes](https://docs.medusajs.com/v1/api/admin#customer-groups).\n\nAll hooks listed require "
 									},
 									{
 										"kind": "inline-tag",
@@ -9019,7 +9019,7 @@
 									},
 									{
 										"kind": "text",
-										"text": ".\n\nCustomer Groups can be used to organize customers that share similar data or attributes into dedicated groups.\nThis can be useful for different purposes such as setting a different price for a specific customer group.\n\nRelated Guide: [How to manage customer groups](https://docs.medusajs.com/modules/customers/admin/manage-customer-groups)."
+										"text": ".\n\nCustomer Groups can be used to organize customers that share similar data or attributes into dedicated groups.\nThis can be useful for different purposes such as setting a different price for a specific customer group.\n\nRelated Guide: [How to manage customer groups](https://docs.medusajs.com/v1/modules/customers/admin/manage-customer-groups)."
 									}
 								],
 								"modifierTags": [
@@ -12079,7 +12079,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "Queries and Mutations listed here are used to send requests to the [Admin Customer API Routes](https://docs.medusajs.com/api/admin#customers).\n\nAll hooks listed require "
+										"text": "Queries and Mutations listed here are used to send requests to the [Admin Customer API Routes](https://docs.medusajs.com/v1/api/admin#customers).\n\nAll hooks listed require "
 									},
 									{
 										"kind": "inline-tag",
@@ -12089,7 +12089,7 @@
 									},
 									{
 										"kind": "text",
-										"text": ".\n\nRelated Guide: [How to manage customers](https://docs.medusajs.com/modules/customers/admin/manage-customers)."
+										"text": ".\n\nRelated Guide: [How to manage customers](https://docs.medusajs.com/v1/modules/customers/admin/manage-customers)."
 									}
 								],
 								"modifierTags": [
@@ -13589,7 +13589,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "Queries and Mutations listed here are used to send requests to the [Admin Discount API Routes](https://docs.medusajs.com/api/admin#discounts).\n\nAll hooks listed require "
+										"text": "Queries and Mutations listed here are used to send requests to the [Admin Discount API Routes](https://docs.medusajs.com/v1/api/admin#discounts).\n\nAll hooks listed require "
 									},
 									{
 										"kind": "inline-tag",
@@ -13599,7 +13599,7 @@
 									},
 									{
 										"kind": "text",
-										"text": ".\n\nAdmins can create discounts with conditions and rules, providing them with advanced settings for variety of cases.\nThe methods in this class can be used to manage discounts, their conditions, resources, and more.\n\nRelated Guide: [How to manage discounts](https://docs.medusajs.com/modules/discounts/admin/manage-discounts)."
+										"text": ".\n\nAdmins can create discounts with conditions and rules, providing them with advanced settings for variety of cases.\nThe methods in this class can be used to manage discounts, their conditions, resources, and more.\n\nRelated Guide: [How to manage discounts](https://docs.medusajs.com/v1/modules/discounts/admin/manage-discounts)."
 									}
 								],
 								"modifierTags": [
@@ -17993,7 +17993,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "Queries and Mutations listed here are used to send requests to the [Admin Draft Order API Routes](https://docs.medusajs.com/api/admin#draft-orders).\n\nAll hooks listed require "
+										"text": "Queries and Mutations listed here are used to send requests to the [Admin Draft Order API Routes](https://docs.medusajs.com/v1/api/admin#draft-orders).\n\nAll hooks listed require "
 									},
 									{
 										"kind": "inline-tag",
@@ -18003,7 +18003,7 @@
 									},
 									{
 										"kind": "text",
-										"text": ".\n\nA draft order is an order created manually by the admin. It allows admins to create orders without direct involvement from the customer.\n\nRelated Guide: [How to manage draft orders](https://docs.medusajs.com/modules/orders/admin/manage-draft-orders)."
+										"text": ".\n\nA draft order is an order created manually by the admin. It allows admins to create orders without direct involvement from the customer.\n\nRelated Guide: [How to manage draft orders](https://docs.medusajs.com/v1/modules/orders/admin/manage-draft-orders)."
 									}
 								],
 								"modifierTags": [
@@ -20386,7 +20386,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "Queries and Mutations listed here are used to send requests to the [Admin Gift Card API Routes](https://docs.medusajs.com/api/admin#gift-cards).\n\nAll hooks listed require "
+										"text": "Queries and Mutations listed here are used to send requests to the [Admin Gift Card API Routes](https://docs.medusajs.com/v1/api/admin#gift-cards).\n\nAll hooks listed require "
 									},
 									{
 										"kind": "inline-tag",
@@ -20406,7 +20406,7 @@
 									},
 									{
 										"kind": "text",
-										"text": ".\n\nRelated Guide: [How to manage gift cards](https://docs.medusajs.com/modules/gift-cards/admin/manage-gift-cards#manage-custom-gift-cards)."
+										"text": ".\n\nRelated Guide: [How to manage gift cards](https://docs.medusajs.com/v1/modules/gift-cards/admin/manage-gift-cards#manage-custom-gift-cards)."
 									}
 								],
 								"modifierTags": [
@@ -22078,7 +22078,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "Queries and Mutations listed here are used to send requests to the [Admin Inventory Item API Routes](https://docs.medusajs.com/api/admin#inventory-items). \nTo use these hooks, make sure to install the\n[@medusajs/inventory](https://docs.medusajs.com/modules/multiwarehouse/install-modules#inventory-module) module in your Medusa backend.\n\nAll hooks listed require "
+										"text": "Queries and Mutations listed here are used to send requests to the [Admin Inventory Item API Routes](https://docs.medusajs.com/v1/api/admin#inventory-items). \nTo use these hooks, make sure to install the\n[@medusajs/inventory](https://docs.medusajs.com/v1/modules/multiwarehouse/install-modules#inventory-module) module in your Medusa backend.\n\nAll hooks listed require "
 									},
 									{
 										"kind": "inline-tag",
@@ -22088,7 +22088,7 @@
 									},
 									{
 										"kind": "text",
-										"text": ".\n\nInventory items, provided by the [Inventory Module](https://docs.medusajs.com/modules/multiwarehouse/inventory-module), can be \nused to manage the inventory of saleable items in your store.\n\nRelated Guide: [How to manage inventory items](https://docs.medusajs.com/modules/multiwarehouse/admin/manage-inventory-items)."
+										"text": ".\n\nInventory items, provided by the [Inventory Module](https://docs.medusajs.com/v1/modules/multiwarehouse/inventory-module), can be \nused to manage the inventory of saleable items in your store.\n\nRelated Guide: [How to manage inventory items](https://docs.medusajs.com/v1/modules/multiwarehouse/admin/manage-inventory-items)."
 									}
 								],
 								"modifierTags": [
@@ -24914,7 +24914,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "Queries and Mutations listed here are used to send requests to the [Admin Invite API Routes](https://docs.medusajs.com/api/admin#invites).\n\nAll hooks listed require "
+										"text": "Queries and Mutations listed here are used to send requests to the [Admin Invite API Routes](https://docs.medusajs.com/v1/api/admin#invites).\n\nAll hooks listed require "
 									},
 									{
 										"kind": "inline-tag",
@@ -24924,7 +24924,7 @@
 									},
 									{
 										"kind": "text",
-										"text": ".\n\nAn admin can invite new users to manage their team. This would allow new users to authenticate as admins and perform admin functionalities.\n\nRelated Guide: [How to manage invites](https://docs.medusajs.com/modules/users/admin/manage-invites)."
+										"text": ".\n\nAn admin can invite new users to manage their team. This would allow new users to authenticate as admins and perform admin functionalities.\n\nRelated Guide: [How to manage invites](https://docs.medusajs.com/v1/modules/users/admin/manage-invites)."
 									}
 								],
 								"modifierTags": [
@@ -25786,7 +25786,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "Queries and Mutations listed here are used to send requests to the [Admin Note API Routes](https://docs.medusajs.com/api/admin#notes).\n\nAll hooks listed require "
+										"text": "Queries and Mutations listed here are used to send requests to the [Admin Note API Routes](https://docs.medusajs.com/v1/api/admin#notes).\n\nAll hooks listed require "
 									},
 									{
 										"kind": "inline-tag",
@@ -27468,7 +27468,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "Queries and Mutations listed here are used to send requests to the [Admin Notification API Routes](https://docs.medusajs.com/api/admin#notifications).\n\nAll hooks listed require "
+										"text": "Queries and Mutations listed here are used to send requests to the [Admin Notification API Routes](https://docs.medusajs.com/v1/api/admin#notifications).\n\nAll hooks listed require "
 									},
 									{
 										"kind": "inline-tag",
@@ -28460,7 +28460,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "Queries and Mutations listed here are used to send requests to the [Admin Order Edit API Routes](https://docs.medusajs.com/api/admin#order-edits).\n\nAll hooks listed require "
+										"text": "Queries and Mutations listed here are used to send requests to the [Admin Order Edit API Routes](https://docs.medusajs.com/v1/api/admin#order-edits).\n\nAll hooks listed require "
 									},
 									{
 										"kind": "inline-tag",
@@ -28478,7 +28478,7 @@
 									},
 									{
 										"kind": "text",
-										"text": ".\n\nRelated Guide: [How to edit an order](https://docs.medusajs.com/modules/orders/admin/edit-order)."
+										"text": ".\n\nRelated Guide: [How to edit an order](https://docs.medusajs.com/v1/modules/orders/admin/edit-order)."
 									}
 								],
 								"modifierTags": [
@@ -31501,7 +31501,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "Queries and Mutations listed here are used to send requests to the [Admin Order API Routes](https://docs.medusajs.com/api/admin#orders).\n\nAll hooks listed require "
+										"text": "Queries and Mutations listed here are used to send requests to the [Admin Order API Routes](https://docs.medusajs.com/v1/api/admin#orders).\n\nAll hooks listed require "
 									},
 									{
 										"kind": "inline-tag",
@@ -31511,7 +31511,7 @@
 									},
 									{
 										"kind": "text",
-										"text": ".\n\nOrders are purchases made by customers, typically through a storefront using cart. Managing orders include managing fulfillment, payment, claims, reservations, and more.\n\nRelated Guide: [How to manage orders](https://docs.medusajs.com/modules/orders/admin/manage-orders)."
+										"text": ".\n\nOrders are purchases made by customers, typically through a storefront using cart. Managing orders include managing fulfillment, payment, claims, reservations, and more.\n\nRelated Guide: [How to manage orders](https://docs.medusajs.com/v1/modules/orders/admin/manage-orders)."
 									}
 								],
 								"modifierTags": [
@@ -34795,7 +34795,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "Queries and Mutations listed here are used to send requests to the [Admin Payment Collection API Routes](https://docs.medusajs.com/api/admin#payment-collections).\n\nAll hooks listed require "
+										"text": "Queries and Mutations listed here are used to send requests to the [Admin Payment Collection API Routes](https://docs.medusajs.com/v1/api/admin#payment-collections).\n\nAll hooks listed require "
 									},
 									{
 										"kind": "inline-tag",
@@ -35773,7 +35773,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "Queries and Mutations listed here are used to send requests to the [Admin Payment API Routes](https://docs.medusajs.com/api/admin#payments).\n\nAll hooks listed require "
+										"text": "Queries and Mutations listed here are used to send requests to the [Admin Payment API Routes](https://docs.medusajs.com/v1/api/admin#payments).\n\nAll hooks listed require "
 									},
 									{
 										"kind": "inline-tag",
@@ -36547,7 +36547,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "Queries and Mutations listed here are used to send requests to the [Admin Price List API Routes](https://docs.medusajs.com/api/admin#price-lists).\n\nAll hooks listed require "
+										"text": "Queries and Mutations listed here are used to send requests to the [Admin Price List API Routes](https://docs.medusajs.com/v1/api/admin#price-lists).\n\nAll hooks listed require "
 									},
 									{
 										"kind": "inline-tag",
@@ -36557,7 +36557,7 @@
 									},
 									{
 										"kind": "text",
-										"text": ".\n\nA price list are special prices applied to products based on a set of conditions, such as customer group.\n\nRelated Guide: [How to manage price lists](https://docs.medusajs.com/modules/price-lists/admin/manage-price-lists)."
+										"text": ".\n\nA price list are special prices applied to products based on a set of conditions, such as customer group.\n\nRelated Guide: [How to manage price lists](https://docs.medusajs.com/v1/modules/price-lists/admin/manage-price-lists)."
 									}
 								],
 								"modifierTags": [
@@ -39994,7 +39994,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "Queries and Mutations listed here are used to send requests to the [Admin Product Category API Routes](https://docs.medusajs.com/api/admin#product-categories).\n\nAll hooks listed require "
+										"text": "Queries and Mutations listed here are used to send requests to the [Admin Product Category API Routes](https://docs.medusajs.com/v1/api/admin#product-categories).\n\nAll hooks listed require "
 									},
 									{
 										"kind": "inline-tag",
@@ -40004,7 +40004,7 @@
 									},
 									{
 										"kind": "text",
-										"text": ".\n\nProducts can be categoriezed into categories. A product can be added into more than one category.\n\nRelated Guide: [How to manage product categories](https://docs.medusajs.com/modules/products/admin/manage-categories)."
+										"text": ".\n\nProducts can be categoriezed into categories. A product can be added into more than one category.\n\nRelated Guide: [How to manage product categories](https://docs.medusajs.com/v1/modules/products/admin/manage-categories)."
 									}
 								],
 								"blockTags": [
@@ -42081,7 +42081,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "Queries and Mutations listed here are used to send requests to the [Admin Product Tag API Routes](https://docs.medusajs.com/api/admin#product-tags).\n\nAll hooks listed require "
+										"text": "Queries and Mutations listed here are used to send requests to the [Admin Product Tag API Routes](https://docs.medusajs.com/v1/api/admin#product-tags).\n\nAll hooks listed require "
 									},
 									{
 										"kind": "inline-tag",
@@ -42878,7 +42878,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "Queries and Mutations listed here are used to send requests to the [Admin Product Type API Routes](https://docs.medusajs.com/api/admin#product-types).\n\nAll hooks listed require "
+										"text": "Queries and Mutations listed here are used to send requests to the [Admin Product Type API Routes](https://docs.medusajs.com/v1/api/admin#product-types).\n\nAll hooks listed require "
 									},
 									{
 										"kind": "inline-tag",
@@ -43675,7 +43675,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "Queries and Mutations listed here are used to send requests to the [Admin Product API Routes](https://docs.medusajs.com/api/admin#products).\n\nAll hooks listed require "
+										"text": "Queries and Mutations listed here are used to send requests to the [Admin Product API Routes](https://docs.medusajs.com/v1/api/admin#products).\n\nAll hooks listed require "
 									},
 									{
 										"kind": "inline-tag",
@@ -43685,7 +43685,7 @@
 									},
 									{
 										"kind": "text",
-										"text": ".\n\nProducts are saleable items in a store. This also includes [saleable gift cards](https://docs.medusajs.com/modules/gift-cards/admin/manage-gift-cards#manage-gift-card-product) in a store.\n\nRelated Guide: [How to manage products](https://docs.medusajs.com/modules/products/admin/manage-products)."
+										"text": ".\n\nProducts are saleable items in a store. This also includes [saleable gift cards](https://docs.medusajs.com/v1/modules/gift-cards/admin/manage-gift-cards#manage-gift-card-product) in a store.\n\nRelated Guide: [How to manage products](https://docs.medusajs.com/v1/modules/products/admin/manage-products)."
 									}
 								],
 								"modifierTags": [
@@ -47153,7 +47153,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "Queries and Mutations listed here are used to send requests to the [Admin Publishable API Key API Routes](https://docs.medusajs.com/api/admin#publishable-api-keys).\n\nAll hooks listed require "
+										"text": "Queries and Mutations listed here are used to send requests to the [Admin Publishable API Key API Routes](https://docs.medusajs.com/v1/api/admin#publishable-api-keys).\n\nAll hooks listed require "
 									},
 									{
 										"kind": "inline-tag",
@@ -47163,7 +47163,7 @@
 									},
 									{
 										"kind": "text",
-										"text": ".\n\nPublishable API Keys can be used to scope Store API calls with an API key, determining what resources are retrieved when querying the API.\nFor example, a publishable API key can be associated with one or more sales channels.\n\nWhen it is passed in the header of a request to the List Product store API Route,\nthe sales channels are inferred from the key and only products associated with those sales channels are retrieved.\n\nAdmins can manage publishable API keys and their associated resources. Currently, only Sales Channels are supported as a resource.\n\nRelated Guide: [How to manage publishable API keys](https://docs.medusajs.com/development/publishable-api-keys/admin/manage-publishable-api-keys)."
+										"text": ".\n\nPublishable API Keys can be used to scope Store API calls with an API key, determining what resources are retrieved when querying the API.\nFor example, a publishable API key can be associated with one or more sales channels.\n\nWhen it is passed in the header of a request to the List Product store API Route,\nthe sales channels are inferred from the key and only products associated with those sales channels are retrieved.\n\nAdmins can manage publishable API keys and their associated resources. Currently, only Sales Channels are supported as a resource.\n\nRelated Guide: [How to manage publishable API keys](https://docs.medusajs.com/v1/development/publishable-api-keys/admin/manage-publishable-api-keys)."
 									}
 								],
 								"modifierTags": [
@@ -49808,7 +49808,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "Queries and Mutations listed here are used to send requests to the [Admin Region API Routes](https://docs.medusajs.com/api/admin#regions).\n\nAll hooks listed require "
+										"text": "Queries and Mutations listed here are used to send requests to the [Admin Region API Routes](https://docs.medusajs.com/v1/api/admin#regions).\n\nAll hooks listed require "
 									},
 									{
 										"kind": "inline-tag",
@@ -49818,7 +49818,7 @@
 									},
 									{
 										"kind": "text",
-										"text": ".\n\nRegions are different countries or geographical regions that the commerce store serves customers in.\nAdmins can manage these regions, their providers, and more.\n\nRelated Guide: [How to manage regions](https://docs.medusajs.com/modules/regions-and-currencies/admin/manage-regions)."
+										"text": ".\n\nRegions are different countries or geographical regions that the commerce store serves customers in.\nAdmins can manage these regions, their providers, and more.\n\nRelated Guide: [How to manage regions](https://docs.medusajs.com/v1/modules/regions-and-currencies/admin/manage-regions)."
 									}
 								],
 								"modifierTags": [
@@ -52962,7 +52962,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "Queries and Mutations listed here are used to send requests to the [Admin Reservation API Routes](https://docs.medusajs.com/api/admin#reservations).\nTo use these hooks, make sure to install the\n[@medusajs/inventory](https://docs.medusajs.com/modules/multiwarehouse/install-modules#inventory-module) module in your Medusa backend.\n\nAll hooks listed require "
+										"text": "Queries and Mutations listed here are used to send requests to the [Admin Reservation API Routes](https://docs.medusajs.com/v1/api/admin#reservations).\nTo use these hooks, make sure to install the\n[@medusajs/inventory](https://docs.medusajs.com/v1/modules/multiwarehouse/install-modules#inventory-module) module in your Medusa backend.\n\nAll hooks listed require "
 									},
 									{
 										"kind": "inline-tag",
@@ -52972,7 +52972,7 @@
 									},
 									{
 										"kind": "text",
-										"text": ".\n\nReservations, provided by the [Inventory Module](https://docs.medusajs.com/modules/multiwarehouse/inventory-module), \nare quantities of an item that are reserved, typically when an order is placed but not yet fulfilled.\nReservations can be associated with any resources, but commonly with line items of an order.\n\nRelated Guide: [How to manage item allocations in orders](https://docs.medusajs.com/modules/multiwarehouse/admin/manage-item-allocations-in-orders)."
+										"text": ".\n\nReservations, provided by the [Inventory Module](https://docs.medusajs.com/v1/modules/multiwarehouse/inventory-module), \nare quantities of an item that are reserved, typically when an order is placed but not yet fulfilled.\nReservations can be associated with any resources, but commonly with line items of an order.\n\nRelated Guide: [How to manage item allocations in orders](https://docs.medusajs.com/v1/modules/multiwarehouse/admin/manage-item-allocations-in-orders)."
 									}
 								],
 								"modifierTags": [
@@ -54660,7 +54660,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "Queries and Mutations listed here are used to send requests to the [Admin Return Reason API Routes](https://docs.medusajs.com/api/admin#return-reasons).\n\nAll hooks listed require "
+										"text": "Queries and Mutations listed here are used to send requests to the [Admin Return Reason API Routes](https://docs.medusajs.com/v1/api/admin#return-reasons).\n\nAll hooks listed require "
 									},
 									{
 										"kind": "inline-tag",
@@ -54670,7 +54670,7 @@
 									},
 									{
 										"kind": "text",
-										"text": ".\n\nReturn reasons are key-value pairs that are used to specify why an order return is being created.\nAdmins can manage available return reasons, and they can be used by both admins and customers when creating a return.\n\nRelated Guide: [How to manage return reasons](https://docs.medusajs.com/modules/orders/admin/manage-returns#manage-return-reasons)."
+										"text": ".\n\nReturn reasons are key-value pairs that are used to specify why an order return is being created.\nAdmins can manage available return reasons, and they can be used by both admins and customers when creating a return.\n\nRelated Guide: [How to manage return reasons](https://docs.medusajs.com/v1/modules/orders/admin/manage-returns#manage-return-reasons)."
 									}
 								],
 								"modifierTags": [
@@ -55931,7 +55931,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "Queries and Mutations listed here are used to send requests to the [Admin Return API Routes](https://docs.medusajs.com/api/admin#returns).\n\nAll hooks listed require "
+										"text": "Queries and Mutations listed here are used to send requests to the [Admin Return API Routes](https://docs.medusajs.com/v1/api/admin#returns).\n\nAll hooks listed require "
 									},
 									{
 										"kind": "inline-tag",
@@ -55941,7 +55941,7 @@
 									},
 									{
 										"kind": "text",
-										"text": ".\n\nA return can be created by a customer or an admin to return items in an order.\nAdmins can manage these returns and change their state.\n\nRelated Guide: [How to manage returns](https://docs.medusajs.com/modules/orders/admin/manage-returns)."
+										"text": ".\n\nA return can be created by a customer or an admin to return items in an order.\nAdmins can manage these returns and change their state.\n\nRelated Guide: [How to manage returns](https://docs.medusajs.com/v1/modules/orders/admin/manage-returns)."
 									}
 								],
 								"modifierTags": [
@@ -56970,7 +56970,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "Queries and Mutations listed here are used to send requests to the [Admin Sales Channel API Routes](https://docs.medusajs.com/api/admin#sales-channels).\n\nAll hooks listed require "
+										"text": "Queries and Mutations listed here are used to send requests to the [Admin Sales Channel API Routes](https://docs.medusajs.com/v1/api/admin#sales-channels).\n\nAll hooks listed require "
 									},
 									{
 										"kind": "inline-tag",
@@ -56980,7 +56980,7 @@
 									},
 									{
 										"kind": "text",
-										"text": ".\n\nA sales channel indicates a channel where products can be sold in. For example, a webshop or a mobile app.\nAdmins can manage sales channels and the products available in them.\n\nRelated Guide: [How to manage sales channels](https://docs.medusajs.com/modules/sales-channels/admin/manage)."
+										"text": ".\n\nA sales channel indicates a channel where products can be sold in. For example, a webshop or a mobile app.\nAdmins can manage sales channels and the products available in them.\n\nRelated Guide: [How to manage sales channels](https://docs.medusajs.com/v1/modules/sales-channels/admin/manage)."
 									}
 								],
 								"modifierTags": [
@@ -57876,7 +57876,7 @@
 												"summary": [
 													{
 														"kind": "text",
-														"text": "This hook associates a stock location with a sales channel. It requires the \n[@medusajs/stock-location](https://docs.medusajs.com/modules/multiwarehouse/install-modules#stock-location-module) module to be installed in\nyour Medusa backend."
+														"text": "This hook associates a stock location with a sales channel. It requires the \n[@medusajs/stock-location](https://docs.medusajs.com/v1/modules/multiwarehouse/install-modules#stock-location-module) module to be installed in\nyour Medusa backend."
 													}
 												],
 												"blockTags": [
@@ -58137,7 +58137,7 @@
 												"summary": [
 													{
 														"kind": "text",
-														"text": "This hook removes a stock location from a sales channel. This only removes the association between the stock \nlocation and the sales channel. It does not delete the stock location. This hook requires the \n[@medusajs/stock-location](https://docs.medusajs.com/modules/multiwarehouse/install-modules#stock-location-module) module to be installed in\nyour Medusa backend."
+														"text": "This hook removes a stock location from a sales channel. This only removes the association between the stock \nlocation and the sales channel. It does not delete the stock location. This hook requires the \n[@medusajs/stock-location](https://docs.medusajs.com/v1/modules/multiwarehouse/install-modules#stock-location-module) module to be installed in\nyour Medusa backend."
 													}
 												],
 												"blockTags": [
@@ -59558,7 +59558,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "Queries and Mutations listed here are used to send requests to the [Admin Shipping Option API Routes](https://docs.medusajs.com/api/admin#shipping-options).\n\nAll hooks listed require "
+										"text": "Queries and Mutations listed here are used to send requests to the [Admin Shipping Option API Routes](https://docs.medusajs.com/v1/api/admin#shipping-options).\n\nAll hooks listed require "
 									},
 									{
 										"kind": "inline-tag",
@@ -59568,7 +59568,7 @@
 									},
 									{
 										"kind": "text",
-										"text": ".\n\nA shipping option is used to define the available shipping methods during checkout or when creating a return.\nAdmins can create an unlimited number of shipping options, each associated with a shipping profile and fulfillment provider, among other resources.\n\nRelated Guide: [Shipping Option architecture](https://docs.medusajs.com/modules/carts-and-checkout/shipping#shipping-option)."
+										"text": ".\n\nA shipping option is used to define the available shipping methods during checkout or when creating a return.\nAdmins can create an unlimited number of shipping options, each associated with a shipping profile and fulfillment provider, among other resources.\n\nRelated Guide: [Shipping Option architecture](https://docs.medusajs.com/v1/modules/carts-and-checkout/shipping#shipping-option)."
 									}
 								],
 								"modifierTags": [
@@ -61186,7 +61186,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "Queries and Mutations listed here are used to send requests to the [Admin Shipping Profile API Routes](https://docs.medusajs.com/api/admin#shipping-profiles).\n\nAll hooks listed require "
+										"text": "Queries and Mutations listed here are used to send requests to the [Admin Shipping Profile API Routes](https://docs.medusajs.com/v1/api/admin#shipping-profiles).\n\nAll hooks listed require "
 									},
 									{
 										"kind": "inline-tag",
@@ -61196,7 +61196,7 @@
 									},
 									{
 										"kind": "text",
-										"text": ".\n\nA shipping profile is used to group products that can be shipped in the same manner.\nThey are created by the admin and they're not associated with a fulfillment provider.\n\nRelated Guide: [Shipping Profile architecture](https://docs.medusajs.com/modules/carts-and-checkout/shipping#shipping-profile)."
+										"text": ".\n\nA shipping profile is used to group products that can be shipped in the same manner.\nThey are created by the admin and they're not associated with a fulfillment provider.\n\nRelated Guide: [Shipping Profile architecture](https://docs.medusajs.com/v1/modules/carts-and-checkout/shipping#shipping-profile)."
 									}
 								],
 								"modifierTags": [
@@ -62483,7 +62483,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "Queries and Mutations listed here are used to send requests to the [Admin Stock Location API Routes](https://docs.medusajs.com/api/admin#stock-locations).\nTo use these hooks, make sure to install the\n[@medusajs/stock-location](https://docs.medusajs.com/modules/multiwarehouse/install-modules#stock-location-module) module in your Medusa backend.\n\nAll hooks listed require "
+										"text": "Queries and Mutations listed here are used to send requests to the [Admin Stock Location API Routes](https://docs.medusajs.com/v1/api/admin#stock-locations).\nTo use these hooks, make sure to install the\n[@medusajs/stock-location](https://docs.medusajs.com/v1/modules/multiwarehouse/install-modules#stock-location-module) module in your Medusa backend.\n\nAll hooks listed require "
 									},
 									{
 										"kind": "inline-tag",
@@ -62493,7 +62493,7 @@
 									},
 									{
 										"kind": "text",
-										"text": ".\n\nA stock location, provided by the [Stock Location module](https://docs.medusajs.com/modules/multiwarehouse/stock-location-module), \nindicates a physical address that stock-kept items, such as physical products, can be stored in.\nAn admin can create and manage available stock locations.\n\nRelated Guide: [How to manage stock locations](https://docs.medusajs.com/modules/multiwarehouse/admin/manage-stock-locations)."
+										"text": ".\n\nA stock location, provided by the [Stock Location module](https://docs.medusajs.com/v1/modules/multiwarehouse/stock-location-module), \nindicates a physical address that stock-kept items, such as physical products, can be stored in.\nAn admin can create and manage available stock locations.\n\nRelated Guide: [How to manage stock locations](https://docs.medusajs.com/v1/modules/multiwarehouse/admin/manage-stock-locations)."
 									}
 								],
 								"modifierTags": [
@@ -64181,7 +64181,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "Queries and Mutations listed here are used to send requests to the [Admin Store API Routes](https://docs.medusajs.com/api/admin#store).\n\nAll hooks listed require "
+										"text": "Queries and Mutations listed here are used to send requests to the [Admin Store API Routes](https://docs.medusajs.com/v1/api/admin#store).\n\nAll hooks listed require "
 									},
 									{
 										"kind": "inline-tag",
@@ -64377,7 +64377,7 @@
 												"summary": [
 													{
 														"kind": "text",
-														"text": "This hook adds a currency code to the available currencies in a store. This doesn't create new currencies, as currencies are defined within the Medusa backend. \nTo create a currency, you can [create a migration](https://docs.medusajs.com/development/entities/migrations/create) that inserts the currency into the database."
+														"text": "This hook adds a currency code to the available currencies in a store. This doesn't create new currencies, as currencies are defined within the Medusa backend. \nTo create a currency, you can [create a migration](https://docs.medusajs.com/v1/development/entities/migrations/create) that inserts the currency into the database."
 													}
 												],
 												"blockTags": [
@@ -65793,7 +65793,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "Queries and Mutations listed here are used to send requests to the [Admin Swap API Routes](https://docs.medusajs.com/api/admin#swaps).\n\nAll hooks listed require "
+										"text": "Queries and Mutations listed here are used to send requests to the [Admin Swap API Routes](https://docs.medusajs.com/v1/api/admin#swaps).\n\nAll hooks listed require "
 									},
 									{
 										"kind": "inline-tag",
@@ -65803,7 +65803,7 @@
 									},
 									{
 										"kind": "text",
-										"text": ".\n\nA swap is created by a customer or an admin to exchange an item with a new one.\nCreating a swap implicitely includes creating a return for the item being exchanged.\n\nRelated Guide: [How to manage swaps](https://docs.medusajs.com/modules/orders/admin/manage-swaps)"
+										"text": ".\n\nA swap is created by a customer or an admin to exchange an item with a new one.\nCreating a swap implicitely includes creating a return for the item being exchanged.\n\nRelated Guide: [How to manage swaps](https://docs.medusajs.com/v1/modules/orders/admin/manage-swaps)"
 									}
 								],
 								"modifierTags": [
@@ -68152,7 +68152,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "Queries and Mutations listed here are used to send requests to the [Admin Tax Rate API Routes](https://docs.medusajs.com/api/admin#tax-rates).\n\nAll hooks listed require "
+										"text": "Queries and Mutations listed here are used to send requests to the [Admin Tax Rate API Routes](https://docs.medusajs.com/v1/api/admin#tax-rates).\n\nAll hooks listed require "
 									},
 									{
 										"kind": "inline-tag",
@@ -68162,7 +68162,7 @@
 									},
 									{
 										"kind": "text",
-										"text": ".\n\nEach region has at least a default tax rate. Admins can create and manage additional tax rates that can be applied for certain conditions, such as for specific product types.\n\nRelated Guide: [How to manage tax rates](https://docs.medusajs.com/modules/taxes/admin/manage-tax-rates)."
+										"text": ".\n\nEach region has at least a default tax rate. Admins can create and manage additional tax rates that can be applied for certain conditions, such as for specific product types.\n\nRelated Guide: [How to manage tax rates](https://docs.medusajs.com/v1/modules/taxes/admin/manage-tax-rates)."
 									}
 								],
 								"modifierTags": [
@@ -70980,7 +70980,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "Mutations listed here are used to send requests to the [Admin Upload API Routes](https://docs.medusajs.com/api/admin#uploads).\n\nAll hooks listed require "
+										"text": "Mutations listed here are used to send requests to the [Admin Upload API Routes](https://docs.medusajs.com/v1/api/admin#uploads).\n\nAll hooks listed require "
 									},
 									{
 										"kind": "inline-tag",
@@ -70990,7 +70990,7 @@
 									},
 									{
 										"kind": "text",
-										"text": ".\n\nThe methods in this class are used to upload any type of resources. For example, they can be used to upload CSV files that are used to import products into the store.\n\nRelated Guide: [How to upload CSV file when importing a product](https://docs.medusajs.com/modules/products/admin/import-products#1-upload-csv-file)."
+										"text": ".\n\nThe methods in this class are used to upload any type of resources. For example, they can be used to upload CSV files that are used to import products into the store.\n\nRelated Guide: [How to upload CSV file when importing a product](https://docs.medusajs.com/v1/modules/products/admin/import-products#1-upload-csv-file)."
 									}
 								],
 								"modifierTags": [
@@ -71676,7 +71676,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "Queries and Mutations listed here are used to send requests to the [Admin User API Routes](https://docs.medusajs.com/api/admin#users).\n\nAll hooks listed require "
+										"text": "Queries and Mutations listed here are used to send requests to the [Admin User API Routes](https://docs.medusajs.com/v1/api/admin#users).\n\nAll hooks listed require "
 									},
 									{
 										"kind": "inline-tag",
@@ -71686,7 +71686,7 @@
 									},
 									{
 										"kind": "text",
-										"text": ".\n\nA store can have more than one user, each having the same privileges. Admins can manage users, their passwords, and more.\n\nRelated Guide: [How to manage users](https://docs.medusajs.com/modules/users/admin/manage-users)."
+										"text": ".\n\nA store can have more than one user, each having the same privileges. Admins can manage users, their passwords, and more.\n\nRelated Guide: [How to manage users](https://docs.medusajs.com/v1/modules/users/admin/manage-users)."
 									}
 								],
 								"modifierTags": [
@@ -73808,7 +73808,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "Queries listed here are used to send requests to the [Admin Product Variant API Routes](https://docs.medusajs.com/api/admin#product-variants).\n\nAll hooks listed require "
+										"text": "Queries listed here are used to send requests to the [Admin Product Variant API Routes](https://docs.medusajs.com/v1/api/admin#product-variants).\n\nAll hooks listed require "
 									},
 									{
 										"kind": "inline-tag",
@@ -73818,7 +73818,7 @@
 									},
 									{
 										"kind": "text",
-										"text": ".\n\nProduct variants are the actual salable item in your store. Each variant is a combination of the different option values available on the product.\n\nRelated Guide: [How to manage product variants](https://docs.medusajs.com/modules/products/admin/manage-products#manage-product-variants)."
+										"text": ".\n\nProduct variants are the actual salable item in your store. Each variant is a combination of the different option values available on the product.\n\nRelated Guide: [How to manage product variants](https://docs.medusajs.com/v1/modules/products/admin/manage-products#manage-product-variants)."
 									}
 								],
 								"modifierTags": [
@@ -75454,7 +75454,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "Queries and Mutations listed here are used to send requests to the [Store Cart API Routes](https://docs.medusajs.com/api/store#carts).\n\nA cart is a virtual shopping bag that customers can use to add items they want to purchase.\nA cart is then used to checkout and place an order.\n\nThe hooks listed have general examples on how to use them, but it's highly recommended to use the "
+										"text": "Queries and Mutations listed here are used to send requests to the [Store Cart API Routes](https://docs.medusajs.com/v1/api/store#carts).\n\nA cart is a virtual shopping bag that customers can use to add items they want to purchase.\nA cart is then used to checkout and place an order.\n\nThe hooks listed have general examples on how to use them, but it's highly recommended to use the "
 									},
 									{
 										"kind": "inline-tag",
@@ -75474,7 +75474,7 @@
 									},
 									{
 										"kind": "text",
-										"text": " hook to manage your cart and access the current cart across your application.\n\nRelated Guide: [How to implement cart functionality in your storefront](https://docs.medusajs.com/modules/carts-and-checkout/storefront/implement-cart)."
+										"text": " hook to manage your cart and access the current cart across your application.\n\nRelated Guide: [How to implement cart functionality in your storefront](https://docs.medusajs.com/v1/modules/carts-and-checkout/storefront/implement-cart)."
 									}
 								],
 								"modifierTags": [
@@ -77715,7 +77715,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "Queries listed here are used to send requests to the [Store Product Collection API Routes](https://docs.medusajs.com/api/store#product-collections).\n\nA product collection is used to organize products for different purposes such as marketing or discount purposes. For example, you can create a Summer Collection.\nUsing the methods in this class, you can list or retrieve a collection's details and products."
+										"text": "Queries listed here are used to send requests to the [Store Product Collection API Routes](https://docs.medusajs.com/v1/api/store#product-collections).\n\nA product collection is used to organize products for different purposes such as marketing or discount purposes. For example, you can create a Summer Collection.\nUsing the methods in this class, you can list or retrieve a collection's details and products."
 									}
 								],
 								"modifierTags": [
@@ -78873,7 +78873,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "Queries and Mutations listed here are used to send requests to the [Store Customer API Routes](https://docs.medusajs.com/api/store#customers_postcustomers).\n\nA customer can register and manage their information such as addresses, orders, payment methods, and more.\n\nRelated Guide: [How to implement customer profiles in your storefront](https://docs.medusajs.com/modules/customers/storefront/implement-customer-profiles)."
+										"text": "Queries and Mutations listed here are used to send requests to the [Store Customer API Routes](https://docs.medusajs.com/v1/api/store#customers_postcustomers).\n\nA customer can register and manage their information such as addresses, orders, payment methods, and more.\n\nRelated Guide: [How to implement customer profiles in your storefront](https://docs.medusajs.com/v1/modules/customers/storefront/implement-customer-profiles)."
 									}
 								],
 								"modifierTags": [
@@ -79048,7 +79048,7 @@
 												"summary": [
 													{
 														"kind": "text",
-														"text": "This hook updates the logged-in customer's details. This hook requires [customer authentication](https://docs.medusajs.com/medusa-react/overview#customer-authentication)."
+														"text": "This hook updates the logged-in customer's details. This hook requires [customer authentication](https://docs.medusajs.com/v1/medusa-react/overview#customer-authentication)."
 													}
 												],
 												"blockTags": [
@@ -79192,7 +79192,7 @@
 												"summary": [
 													{
 														"kind": "text",
-														"text": "This hook retrieves the logged-in customer's details. It requires [customer authentication](https://docs.medusajs.com/medusa-react/overview#customer-authentication)."
+														"text": "This hook retrieves the logged-in customer's details. It requires [customer authentication](https://docs.medusajs.com/v1/medusa-react/overview#customer-authentication)."
 													}
 												],
 												"blockTags": [
@@ -79618,7 +79618,7 @@
 													},
 													{
 														"kind": "text",
-														"text": ". The orders can also be paginated.\nThis hook requires [customer authentication](https://docs.medusajs.com/medusa-react/overview#customer-authentication)."
+														"text": ". The orders can also be paginated.\nThis hook requires [customer authentication](https://docs.medusajs.com/v1/medusa-react/overview#customer-authentication)."
 													}
 												],
 												"blockTags": [
@@ -80311,7 +80311,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "Queries listed here are used to send requests to the [Store Gift Card API Routes](https://docs.medusajs.com/api/store#gift-cards).\n\nCustomers can use gift cards during checkout to deduct the gift card's balance from the checkout total.\n\nRelated Guide: [How to use gift cards in a storefront](https://docs.medusajs.com/modules/gift-cards/storefront/use-gift-cards)."
+										"text": "Queries listed here are used to send requests to the [Store Gift Card API Routes](https://docs.medusajs.com/v1/api/store#gift-cards).\n\nCustomers can use gift cards during checkout to deduct the gift card's balance from the checkout total.\n\nRelated Guide: [How to use gift cards in a storefront](https://docs.medusajs.com/v1/modules/gift-cards/storefront/use-gift-cards)."
 									}
 								],
 								"modifierTags": [
@@ -80716,7 +80716,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "Mutations listed here are used to send requests to the Line Item API Routes part of the [Store Cart API Routes](https://docs.medusajs.com/api/store#carts).\n\nThe hooks listed have general examples on how to use them, but it's highly recommended to use the "
+										"text": "Mutations listed here are used to send requests to the Line Item API Routes part of the [Store Cart API Routes](https://docs.medusajs.com/v1/api/store#carts).\n\nThe hooks listed have general examples on how to use them, but it's highly recommended to use the "
 									},
 									{
 										"kind": "inline-tag",
@@ -81337,7 +81337,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "Queries and Mutations listed here are used to send requests to the [Store Order Edits API Routes](https://docs.medusajs.com/api/store#order-edits).\n\nOrder edits are changes made to items in an order such as adding, updating their quantity, or deleting them. Order edits are created by the admin.\nA customer can review order edit requests created by an admin and confirm or decline them.\n\nRelated Guide: [How to handle order edits in a storefront](https://docs.medusajs.com/modules/orders/storefront/handle-order-edits)."
+										"text": "Queries and Mutations listed here are used to send requests to the [Store Order Edits API Routes](https://docs.medusajs.com/v1/api/store#order-edits).\n\nOrder edits are changes made to items in an order such as adding, updating their quantity, or deleting them. Order edits are created by the admin.\nA customer can review order edit requests created by an admin and confirm or decline them.\n\nRelated Guide: [How to handle order edits in a storefront](https://docs.medusajs.com/v1/modules/orders/storefront/handle-order-edits)."
 									}
 								],
 								"modifierTags": [
@@ -82239,7 +82239,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "Queries and Mutations listed here are used to send requests to the [Store Order API Routes](https://docs.medusajs.com/api/store#orders).\n\nOrders are purchases made by customers, typically through a storefront.\nOrders are placed and created using "
+										"text": "Queries and Mutations listed here are used to send requests to the [Store Order API Routes](https://docs.medusajs.com/v1/api/store#orders).\n\nOrders are purchases made by customers, typically through a storefront.\nOrders are placed and created using "
 									},
 									{
 										"kind": "inline-tag",
@@ -82249,7 +82249,7 @@
 									},
 									{
 										"kind": "text",
-										"text": " hooks. The listed hooks allow retrieving and claiming orders.\n\nRelated Guide: [How to retrieve order details in a storefront](https://docs.medusajs.com/modules/orders/storefront/retrieve-order-details)."
+										"text": " hooks. The listed hooks allow retrieving and claiming orders.\n\nRelated Guide: [How to retrieve order details in a storefront](https://docs.medusajs.com/v1/modules/orders/storefront/retrieve-order-details)."
 									}
 								],
 								"modifierTags": [
@@ -83872,7 +83872,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "Queries and Mutations listed here are used to send requests to the [Store Payment Collection API Routes](https://docs.medusajs.com/api/store#payment-collections).\n\nA payment collection is useful for managing additional payments, such as for Order Edits, or installment payments."
+										"text": "Queries and Mutations listed here are used to send requests to the [Store Payment Collection API Routes](https://docs.medusajs.com/v1/api/store#payment-collections).\n\nA payment collection is useful for managing additional payments, such as for Order Edits, or installment payments."
 									}
 								],
 								"modifierTags": [
@@ -85210,7 +85210,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "Queries listed here are used to send requests to the [Store Product Category API Routes](https://docs.medusajs.com/api/store#product-categories_getproductcategories).\n\nProducts can be categoriezed into categories. A product can be associated more than one category.\n\nRelated Guide: [How to use product categories in a storefront](https://docs.medusajs.com/modules/products/storefront/use-categories)."
+										"text": "Queries listed here are used to send requests to the [Store Product Category API Routes](https://docs.medusajs.com/v1/api/store#product-categories_getproductcategories).\n\nProducts can be categoriezed into categories. A product can be associated more than one category.\n\nRelated Guide: [How to use product categories in a storefront](https://docs.medusajs.com/v1/modules/products/storefront/use-categories)."
 									}
 								],
 								"blockTags": [
@@ -86433,7 +86433,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "Queries listed here are used to send requests to the [Store Product Tag API Routes](https://docs.medusajs.com/api/store#product-tags).\n\nProduct tags are string values that can be used to filter products by.\nProducts can have more than one tag, and products can share tags."
+										"text": "Queries listed here are used to send requests to the [Store Product Tag API Routes](https://docs.medusajs.com/v1/api/store#product-tags).\n\nProduct tags are string values that can be used to filter products by.\nProducts can have more than one tag, and products can share tags."
 									}
 								],
 								"modifierTags": [
@@ -87220,7 +87220,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "Queries listed here are used to send requests to the [Store Product Type API Routes](https://docs.medusajs.com/api/store#product-types).\n\nProduct types are string values that can be used to filter products by.\nProducts can have more than one tag, and products can share types."
+										"text": "Queries listed here are used to send requests to the [Store Product Type API Routes](https://docs.medusajs.com/v1/api/store#product-types).\n\nProduct types are string values that can be used to filter products by.\nProducts can have more than one tag, and products can share types."
 									}
 								],
 								"modifierTags": [
@@ -88007,7 +88007,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "Queries listed here are used to send requests to the [Store Product API Routes](https://docs.medusajs.com/api/store#products).\n\nProducts are saleable items in a store. This also includes [saleable gift cards](https://docs.medusajs.com/modules/gift-cards/storefront/use-gift-cards) in a store.\nUsing the methods in this class, you can filter products by categories, collections, sales channels, and more.\n\nRelated Guide: [How to show products in a storefront](https://docs.medusajs.com/modules/products/storefront/show-products)."
+										"text": "Queries listed here are used to send requests to the [Store Product API Routes](https://docs.medusajs.com/v1/api/store#products).\n\nProducts are saleable items in a store. This also includes [saleable gift cards](https://docs.medusajs.com/v1/modules/gift-cards/storefront/use-gift-cards) in a store.\nUsing the methods in this class, you can filter products by categories, collections, sales channels, and more.\n\nRelated Guide: [How to show products in a storefront](https://docs.medusajs.com/v1/modules/products/storefront/show-products)."
 									}
 								],
 								"modifierTags": [
@@ -89267,7 +89267,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "Queries listed here are used to send requests to the [Store Region API Routes](https://docs.medusajs.com/api/store#regions_getregions).\n\nRegions are different countries or geographical regions that the commerce store serves customers in.\nCustomers can choose what region they're in, which can be used to change the prices shown based on the region and its currency.\n\nRelated Guide: [How to use regions in a storefront](https://docs.medusajs.com/modules/regions-and-currencies/storefront/use-regions)."
+										"text": "Queries listed here are used to send requests to the [Store Region API Routes](https://docs.medusajs.com/v1/api/store#regions_getregions).\n\nRegions are different countries or geographical regions that the commerce store serves customers in.\nCustomers can choose what region they're in, which can be used to change the prices shown based on the region and its currency.\n\nRelated Guide: [How to use regions in a storefront](https://docs.medusajs.com/v1/modules/regions-and-currencies/storefront/use-regions)."
 									}
 								],
 								"modifierTags": [
@@ -90308,7 +90308,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "Queries listed here are used to send requests to the [Store Return Reason API Routes](https://docs.medusajs.com/api/store#return-reasons).\n\nReturn reasons are key-value pairs that are used to specify why an order return is being created."
+										"text": "Queries listed here are used to send requests to the [Store Return Reason API Routes](https://docs.medusajs.com/v1/api/store#return-reasons).\n\nReturn reasons are key-value pairs that are used to specify why an order return is being created."
 									}
 								],
 								"modifierTags": [
@@ -91073,7 +91073,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "Mutations listed here are used to send requests to the [Store Return API Routes](https://docs.medusajs.com/api/store#returns).\n\nA return can be created by a customer to return items in an order.\n\nRelated Guide: [How to create a return in a storefront](https://docs.medusajs.com/modules/orders/storefront/create-return)."
+										"text": "Mutations listed here are used to send requests to the [Store Return API Routes](https://docs.medusajs.com/v1/api/store#returns).\n\nA return can be created by a customer to return items in an order.\n\nRelated Guide: [How to create a return in a storefront](https://docs.medusajs.com/v1/modules/orders/storefront/create-return)."
 									}
 								],
 								"modifierTags": [
@@ -91259,7 +91259,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "Queries listed here are used to send requests to the [Store Shipping Option API Routes](https://docs.medusajs.com/api/store#shipping-options).\n\nA shipping option is used to define the available shipping methods during checkout or when creating a return.\n\nRelated Guide: [Shipping Option architecture](https://docs.medusajs.com/modules/carts-and-checkout/shipping#shipping-option)."
+										"text": "Queries listed here are used to send requests to the [Store Shipping Option API Routes](https://docs.medusajs.com/v1/api/store#shipping-options).\n\nA shipping option is used to define the available shipping methods during checkout or when creating a return.\n\nRelated Guide: [Shipping Option architecture](https://docs.medusajs.com/v1/modules/carts-and-checkout/shipping#shipping-option)."
 									}
 								],
 								"modifierTags": [
@@ -92105,7 +92105,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "Queries and Mutations listed here are used to send requests to the [Store Swap API Routes](https://docs.medusajs.com/api/store#swaps).\n\nA swap is created by a customer or an admin to exchange an item with a new one.\nCreating a swap implicitely includes creating a return for the item being exchanged.\n\nRelated Guide: [How to create a swap in a storefront](https://docs.medusajs.com/modules/orders/storefront/create-swap)"
+										"text": "Queries and Mutations listed here are used to send requests to the [Store Swap API Routes](https://docs.medusajs.com/v1/api/store#swaps).\n\nA swap is created by a customer or an admin to exchange an item with a new one.\nCreating a swap implicitely includes creating a return for the item being exchanged.\n\nRelated Guide: [How to create a swap in a storefront](https://docs.medusajs.com/v1/modules/orders/storefront/create-swap)"
 									}
 								],
 								"modifierTags": [
@@ -93612,7 +93612,7 @@
 						"summary": [
 							{
 								"kind": "text",
-								"text": "API key used for authenticating admin requests. Follow [this guide](https://docs.medusajs.com/api/admin#authentication) to learn how to create an API key for an admin user."
+								"text": "API key used for authenticating admin requests. Follow [this guide](https://docs.medusajs.com/v1/api/admin#authentication) to learn how to create an API key for an admin user."
 							}
 						]
 					},
@@ -93633,7 +93633,7 @@
 						"summary": [
 							{
 								"kind": "text",
-								"text": "Publishable API key used for storefront requests. You can create a publishable API key either using the \n[admin APIs](https://docs.medusajs.com/development/publishable-api-keys/admin/manage-publishable-api-keys) or the \n[Medusa admin](https://docs.medusajs.com/user-guide/settings/publishable-api-keys#create-publishable-api-key)."
+								"text": "Publishable API key used for storefront requests. You can create a publishable API key either using the \n[admin APIs](https://docs.medusajs.com/v1/development/publishable-api-keys/admin/manage-publishable-api-keys) or the \n[Medusa admin](https://docs.medusajs.com/v1/user-guide/settings/publishable-api-keys#create-publishable-api-key)."
 							}
 						]
 					},

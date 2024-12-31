@@ -15,7 +15,7 @@ import {
  * description: "Complete an Order Edit and reflect its changes on the original order. Any additional payment required must be authorized first using the Payment Collection API Routes."
  * externalDocs:
  *   description: "How to handle order edits in a storefront"
- *   url: "https://docs.medusajs.com/modules/orders/storefront/handle-order-edits"
+ *   url: "https://docs.medusajs.com/v1/modules/orders/storefront/handle-order-edits"
  * parameters:
  *   - (path) id=* {string} The ID of the Order Edit.
  * x-codegen:

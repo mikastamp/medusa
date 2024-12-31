@@ -21,7 +21,7 @@ import { cleanResponseData } from "../../../../utils/clean-response-data"
  * x-authenticated: true
  * externalDocs:
  *   description: Handling swap fulfillments
- *   url: https://docs.medusajs.com/modules/orders/swaps#handling-swap-fulfillment
+ *   url: https://docs.medusajs.com/v1/modules/orders/swaps#handling-swap-fulfillment
  * parameters:
  *   - (path) id=* {string} The ID of the Order.
  *   - (path) swap_id=* {string} The ID of the Swap.

@@ -15,7 +15,7 @@ import {
  *  show the customer all available regions to choose from."
  * externalDocs:
  *   description: "How to use regions in a storefront"
- *   url: "https://docs.medusajs.com/modules/regions-and-currencies/storefront/use-regions"
+ *   url: "https://docs.medusajs.com/v1/modules/regions-and-currencies/storefront/use-regions"
  * parameters:
  *   - (query) offset=0 {integer} The number of regions to skip when retrieving the regions.
  *   - (query) limit=100 {integer} Limit the number of regions returned.

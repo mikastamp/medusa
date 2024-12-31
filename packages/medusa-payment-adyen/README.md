@@ -17,7 +17,7 @@ Receive payments on your Medusa commerce application using Adyen.
 
 ## Prerequisites
 
-- [Medusa backend](https://docs.medusajs.com/development/backend/install)
+- [Medusa backend](https://docs.medusajs.com/v1/development/backend/install)
 - [Adyen account](https://www.adyen.com)
 
 ---
@@ -74,6 +74,6 @@ Receive payments on your Medusa commerce application using Adyen.
   npm run start
   ```
 
-2\. Enable Adyen in a region in the admin. You can refer to [this User Guide](https://docs.medusajs.com/user-guide/regions/providers) to learn how to do that. Alternatively, you can use the [Admin APIs](https://docs.medusajs.com/api/admin#tag/Region/operation/PostRegionsRegion).
+2\. Enable Adyen in a region in the admin. You can refer to [this User Guide](https://docs.medusajs.com/v1/user-guide/regions/providers) to learn how to do that. Alternatively, you can use the [Admin APIs](https://docs.medusajs.com/v1/api/admin#tag/Region/operation/PostRegionsRegion).
 
-3\. Place an order using a storefront or the [Store APIs](https://docs.medusajs.com/api/store). You should be able to use Stripe as a payment method.
+3\. Place an order using a storefront or the [Store APIs](https://docs.medusajs.com/v1/api/store). You should be able to use Stripe as a payment method.

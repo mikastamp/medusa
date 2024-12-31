@@ -18,7 +18,7 @@ import { Logger } from "@medusajs/types"
  *   key in the `Idempotency-Key` header.
  * externalDocs:
  *   description: "Cart completion overview"
- *   url: "https://docs.medusajs.com/modules/carts-and-checkout/cart#cart-completion"
+ *   url: "https://docs.medusajs.com/v1/modules/carts-and-checkout/cart#cart-completion"
  * parameters:
  *   - (path) id=* {String} The Cart ID.
  * x-codegen:

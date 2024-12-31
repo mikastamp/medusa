@@ -1028,7 +1028,7 @@ const validatePresets = (
 }
 
 /**
- * This component is based on the [Calendar](https://docs.medusajs.com/ui/components/calendar)
+ * This component is based on the [Calendar](https://docs.medusajs.com/v1/ui/components/calendar)
  * component and [Radix UI Popover](https://www.radix-ui.com/primitives/docs/components/popover).
  */
 const DatePicker = ({

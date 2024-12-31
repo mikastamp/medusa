@@ -10,14 +10,14 @@ import { ResponsePromise } from "../.."
 import BaseResource from "../base"
 
 /**
- * This class is used to send requests to [Admin Customer API Routes](https://docs.medusajs.com/api/admin#customers). All its method
+ * This class is used to send requests to [Admin Customer API Routes](https://docs.medusajs.com/v1/api/admin#customers). All its method
  * are available in the JS Client under the `medusa.admin.customers` property.
  * 
  * All methods in this class require {@link AdminAuthResource.createSession | user authentication}.
  * 
  * Customers can either be created when they register through the {@link CustomersResource.create} method, or created by the admin using the {@link create} method.
  * 
- * Related Guide: [How to manage customers](https://docs.medusajs.com/modules/customers/admin/manage-customers).
+ * Related Guide: [How to manage customers](https://docs.medusajs.com/v1/modules/customers/admin/manage-customers).
  */
 class AdminCustomersResource extends BaseResource {
   /**

@@ -16,7 +16,7 @@ import { ResponsePromise } from "../../typings"
 import BaseResource from "../base"
 
 /**
- * This class is used to send requests to [Admin Region API Routes](https://docs.medusajs.com/api/admin#regions). All its method
+ * This class is used to send requests to [Admin Region API Routes](https://docs.medusajs.com/v1/api/admin#regions). All its method
  * are available in the JS Client under the `medusa.admin.regions` property.
  *
  * All methods in this class require {@link AdminAuthResource.createSession | user authentication}.
@@ -24,7 +24,7 @@ import BaseResource from "../base"
  * Regions are different countries or geographical regions that the commerce store serves customers in.
  * Admins can manage these regions, their providers, and more.
  *
- * Related Guide: [How to manage regions](https://docs.medusajs.com/modules/regions-and-currencies/admin/manage-regions).
+ * Related Guide: [How to manage regions](https://docs.medusajs.com/v1/modules/regions-and-currencies/admin/manage-regions).
  */
 class AdminRegionsResource extends BaseResource {
   /**

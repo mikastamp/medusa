@@ -15,9 +15,9 @@ Manage your commerce accounting with e-conomic.
 
 ## Prerequisites
 
-- [Medusa backend](https://docs.medusajs.com/development/backend/install)
+- [Medusa backend](https://docs.medusajs.com/v1/development/backend/install)
 - [Visma e-conomic account](https://www.e-conomic.com/developer/connect)
-- [Redis](https://docs.medusajs.com/development/backend/prepare-environment#redis)
+- [Redis](https://docs.medusajs.com/v1/development/backend/prepare-environment#redis)
 
 ---
 
@@ -81,4 +81,4 @@ Manage your commerce accounting with e-conomic.
   npm run start
   ```
 
-2\. Try creating an order using the storefront or the [Store APIs](https://docs.medusajs.com/api/store#tag/Cart). Once the order is placed, a draft invoice will be created in e-conomic.
+2\. Try creating an order using the storefront or the [Store APIs](https://docs.medusajs.com/v1/api/store#tag/Cart). Once the order is placed, a draft invoice will be created in e-conomic.

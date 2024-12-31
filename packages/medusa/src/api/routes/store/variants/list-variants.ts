@@ -28,7 +28,7 @@ import { promiseAll } from "@medusajs/utils"
  *   You can alternatively use a publishable API key in the request header instead of passing a `sales_channel_id`.
  * externalDocs:
  *   description: "How to pass product pricing parameters"
- *   url: "https://docs.medusajs.com/modules/products/storefront/show-products#product-pricing-parameters"
+ *   url: "https://docs.medusajs.com/v1/modules/products/storefront/show-products#product-pricing-parameters"
  * parameters:
  *   - (query) ids {string} Filter by a comma-separated list of IDs. If supplied, it overrides the `id` parameter.
  *   - in: query

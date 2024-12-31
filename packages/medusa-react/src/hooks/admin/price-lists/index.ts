@@ -1,13 +1,13 @@
 /**
  * @packageDocumentation
  * 
- * Queries and Mutations listed here are used to send requests to the [Admin Price List API Routes](https://docs.medusajs.com/api/admin#price-lists).
+ * Queries and Mutations listed here are used to send requests to the [Admin Price List API Routes](https://docs.medusajs.com/v1/api/admin#price-lists).
  * 
  * All hooks listed require {@link Hooks.Admin.Auth.useAdminLogin | user authentication}.
  * 
  * A price list are special prices applied to products based on a set of conditions, such as customer group.
  * 
- * Related Guide: [How to manage price lists](https://docs.medusajs.com/modules/price-lists/admin/manage-price-lists).
+ * Related Guide: [How to manage price lists](https://docs.medusajs.com/v1/modules/price-lists/admin/manage-price-lists).
  * 
  * @customNamespace Hooks.Admin.Price Lists
  */

@@ -21,15 +21,15 @@ import { AdminPostInventoryItemsInventoryItemParams } from "@medusajs/medusa"
 import { AdminPostInventoryItemsItemLocationLevelsLevelParams } from "@medusajs/medusa"
 
 /**
- * This class is used to send requests to [Admin Inventory Item API Routes](https://docs.medusajs.com/api/admin#inventory-items). To use these API Routes, make sure to install the
- * [@medusajs/inventory](https://docs.medusajs.com/modules/multiwarehouse/install-modules#inventory-module) module in your Medusa backend. All its method
+ * This class is used to send requests to [Admin Inventory Item API Routes](https://docs.medusajs.com/v1/api/admin#inventory-items). To use these API Routes, make sure to install the
+ * [@medusajs/inventory](https://docs.medusajs.com/v1/modules/multiwarehouse/install-modules#inventory-module) module in your Medusa backend. All its method
  * are available in the JS Client under the `medusa.admin.inventoryItems` property.
  * 
  * All methods in this class require {@link AdminAuthResource.createSession | user authentication}.
  * 
- * Inventory items, provided by the [Inventory Module](https://docs.medusajs.com/modules/multiwarehouse/inventory-module), can be used to manage the inventory of saleable items in your store.
+ * Inventory items, provided by the [Inventory Module](https://docs.medusajs.com/v1/modules/multiwarehouse/inventory-module), can be used to manage the inventory of saleable items in your store.
  * 
- * Related Guide: [How to manage inventory items](https://docs.medusajs.com/modules/multiwarehouse/admin/manage-inventory-items).
+ * Related Guide: [How to manage inventory items](https://docs.medusajs.com/v1/modules/multiwarehouse/admin/manage-inventory-items).
  */
 class AdminInventoryItemsResource extends BaseResource {
   /**

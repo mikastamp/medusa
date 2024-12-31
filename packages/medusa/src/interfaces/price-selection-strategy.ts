@@ -196,7 +196,7 @@ export interface IPriceSelectionStrategy extends ITransactionBaseService {
    *
    * :::note
    *
-   * Learn more about the cache service in [this documentation](https://docs.medusajs.com/development/cache/overview).
+   * Learn more about the cache service in [this documentation](https://docs.medusajs.com/v1/development/cache/overview).
    *
    * :::
    */
@@ -311,7 +311,7 @@ export type PriceSelectionContext = {
   include_discount_prices?: boolean
   /**
    * The tax rates to be applied. This is only used for
-   * [Tax-Inclusive Pricing](https://docs.medusajs.com/modules/taxes/inclusive-pricing).
+   * [Tax-Inclusive Pricing](https://docs.medusajs.com/v1/modules/taxes/inclusive-pricing).
    */
   tax_rates?: TaxServiceRate[]
   /**
@@ -350,7 +350,7 @@ export type PriceSelectionResult = {
   originalPrice: number | null
   /**
    * Whether the original price includes taxes or not. This is only available
-   * for [Tax-Inclusive Pricing](https://docs.medusajs.com/modules/taxes/inclusive-pricing).
+   * for [Tax-Inclusive Pricing](https://docs.medusajs.com/v1/modules/taxes/inclusive-pricing).
    */
   originalPriceIncludesTax?: boolean | null
   /**
@@ -359,7 +359,7 @@ export type PriceSelectionResult = {
   calculatedPrice: number | null
   /**
    * Whether the calculated price includes taxes or not.
-   * This is only available for [Tax-Inclusive Pricing](https://docs.medusajs.com/modules/taxes/inclusive-pricing).
+   * This is only available for [Tax-Inclusive Pricing](https://docs.medusajs.com/v1/modules/taxes/inclusive-pricing).
    */
   calculatedPriceIncludesTax?: boolean | null
   /**

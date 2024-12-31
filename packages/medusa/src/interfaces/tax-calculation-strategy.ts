@@ -55,7 +55,7 @@ export interface ITaxCalculationStrategy {
    *
    * This method is used whenever taxes are calculated. If automatic tax calculation is disabled in a region,
    * then it's only triggered when taxes are calculated manually as explained in
-   * [this guide](https://docs.medusajs.com/modules/taxes/storefront/manual-calculation).
+   * [this guide](https://docs.medusajs.com/v1/modules/taxes/storefront/manual-calculation).
    *
    * @param {LineItem[]} items - The line items to calculate the tax total for.
    * @param {(ShippingMethodTaxLine | LineItemTaxLine)[]} taxLines - The tax lines used for the calculation

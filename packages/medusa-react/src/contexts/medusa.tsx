@@ -22,7 +22,7 @@ const MedusaContext = React.createContext<MedusaContextState | null>(null)
 
 /**
  * This hook gives you access to context of {@link MedusaProvider}. It's useful if you want access to the 
- * [Medusa JS Client](https://docs.medusajs.com/js-client/overview).
+ * [Medusa JS Client](https://docs.medusajs.com/v1/js-client/overview).
  * 
  * @example
  * import React from "react"
@@ -78,13 +78,13 @@ export interface MedusaProviderProps {
    */
   children: React.ReactNode
   /**
-   * API key used for authenticating admin requests. Follow [this guide](https://docs.medusajs.com/api/admin#authentication) to learn how to create an API key for an admin user.
+   * API key used for authenticating admin requests. Follow [this guide](https://docs.medusajs.com/v1/api/admin#authentication) to learn how to create an API key for an admin user.
    */
   apiKey?: string
   /**
    * Publishable API key used for storefront requests. You can create a publishable API key either using the 
-   * [admin APIs](https://docs.medusajs.com/development/publishable-api-keys/admin/manage-publishable-api-keys) or the 
-   * [Medusa admin](https://docs.medusajs.com/user-guide/settings/publishable-api-keys#create-publishable-api-key).
+   * [admin APIs](https://docs.medusajs.com/v1/development/publishable-api-keys/admin/manage-publishable-api-keys) or the 
+   * [Medusa admin](https://docs.medusajs.com/v1/user-guide/settings/publishable-api-keys#create-publishable-api-key).
    */
   publishableApiKey?: string
   /**

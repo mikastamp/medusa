@@ -8,15 +8,15 @@ Send notifications to subscribed customers when an item has been restocked.
 
 - Triggers an event when a product variant has been restocked.
 - Provides an endpoint to subscribe customers to receive restock notifications.
-- Does not implement the email or notification sending mechanisms. Instead, it is compatible with Notification plugins such as [SendGrid](https://docs.medusajs.com/plugins/notifications/sendgrid).
+- Does not implement the email or notification sending mechanisms. Instead, it is compatible with Notification plugins such as [SendGrid](https://docs.medusajs.com/v1/plugins/notifications/sendgrid).
 
 ---
 
 ## Prerequisites
 
-- [Medusa backend](https://docs.medusajs.com/development/backend/install)
-- [Redis](https://docs.medusajs.com/development/backend/prepare-environment#redis)
-- [PostgreSQL](https://docs.medusajs.com/development/backend/prepare-environment#postgresql)
+- [Medusa backend](https://docs.medusajs.com/v1/development/backend/install)
+- [Redis](https://docs.medusajs.com/v1/development/backend/prepare-environment#redis)
+- [PostgreSQL](https://docs.medusajs.com/v1/development/backend/prepare-environment#postgresql)
 
 ---
 

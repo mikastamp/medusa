@@ -2,7 +2,7 @@
 
 Receive payments on your Medusa commerce application using Stripe.
 
-[Stripe Plugin Documentation](https://docs.medusajs.com/plugins/payment/stripe) | [Medusa Website](https://medusajs.com/) | [Medusa Repository](https://github.com/medusajs/medusa)
+[Stripe Plugin Documentation](https://docs.medusajs.com/v1/plugins/payment/stripe) | [Medusa Website](https://medusajs.com/) | [Medusa Repository](https://github.com/medusajs/medusa)
 
 ## Features
 
@@ -10,14 +10,14 @@ Receive payments on your Medusa commerce application using Stripe.
 - Support for Bancontact, BLIK, giropay, iDEAL, and Przelewy24.
 - Capture payments from the admin dashboard.
 - View payment analytics through Stripe's dashboard.
-- Ready-integration with [Medusa's Next.js starter storefront](https://docs.medusajs.com/starters/nextjs-medusa-starter).
+- Ready-integration with [Medusa's Next.js starter storefront](https://docs.medusajs.com/v1/starters/nextjs-medusa-starter).
 - Support for Stripe Webhooks.
 
 ---
 
 ## Prerequisites
 
-- [Medusa backend](https://docs.medusajs.com/development/backend/install)
+- [Medusa backend](https://docs.medusajs.com/v1/development/backend/install)
 - [Stripe account](https://stripe.com/)
 
 ---
@@ -63,12 +63,12 @@ Receive payments on your Medusa commerce application using Stripe.
   npm run start
   ```
 
-2\. Enable Stripe in a region in the admin. You can refer to [this User Guide](https://docs.medusajs.com/user-guide/regions/providers) to learn how to do that. Alternatively, you can use the [Admin APIs](https://docs.medusajs.com/api/admin#tag/Region/operation/PostRegionsRegion).
+2\. Enable Stripe in a region in the admin. You can refer to [this User Guide](https://docs.medusajs.com/v1/user-guide/regions/providers) to learn how to do that. Alternatively, you can use the [Admin APIs](https://docs.medusajs.com/v1/api/admin#tag/Region/operation/PostRegionsRegion).
 
-3\. Place an order using a storefront or the [Store APIs](https://docs.medusajs.com/api/store). You should be able to use Stripe as a payment method.
+3\. Place an order using a storefront or the [Store APIs](https://docs.medusajs.com/v1/api/store). You should be able to use Stripe as a payment method.
 
 ---
 
 ## Additional Resources
 
-- [Stripe Plugin Documentation](https://docs.medusajs.com/plugins/payment/stripe)
+- [Stripe Plugin Documentation](https://docs.medusajs.com/v1/plugins/payment/stripe)

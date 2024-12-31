@@ -9,10 +9,10 @@ import { EntityManager } from "typeorm"
  * summary: "Request Password Reset"
  * description: "Generate a password token for an admin user with a given email. This also triggers the `user.password_reset` event. So, if you have a Notification Service installed
  * that can handle this event, a notification, such as an email, will be sent to the user. The token is triggered as part of the `user.password_reset` event's payload.
- * That token must be used later to reset the password using the [Reset Password](https://docs.medusajs.com/api/admin#users_postusersuserpassword) API Route."
+ * That token must be used later to reset the password using the [Reset Password](https://docs.medusajs.com/v1/api/admin#users_postusersuserpassword) API Route."
  * externalDocs:
  *   description: How to reset a user's password
- *   url: https://docs.medusajs.com/modules/users/admin/manage-profile#reset-password
+ *   url: https://docs.medusajs.com/v1/modules/users/admin/manage-profile#reset-password
  * requestBody:
  *   content:
  *     application/json:

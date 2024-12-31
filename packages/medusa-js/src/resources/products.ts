@@ -11,17 +11,17 @@ import BaseResource from "./base"
 import ProductVariantsResource from "./product-variants"
 
 /**
- * This class is used to send requests to [Store Product API Routes](https://docs.medusajs.com/api/store#products). All its method
+ * This class is used to send requests to [Store Product API Routes](https://docs.medusajs.com/v1/api/store#products). All its method
  * are available in the JS Client under the `medusa.products` property.
  * 
- * Products are saleable items in a store. This also includes [saleable gift cards](https://docs.medusajs.com/modules/gift-cards/storefront/use-gift-cards) in a store.
+ * Products are saleable items in a store. This also includes [saleable gift cards](https://docs.medusajs.com/v1/modules/gift-cards/storefront/use-gift-cards) in a store.
  * Using the methods in this class, you can filter products by categories, collections, sales channels, and more.
  * 
- * Related Guide: [How to show products in a storefront](https://docs.medusajs.com/modules/products/storefront/show-products).
+ * Related Guide: [How to show products in a storefront](https://docs.medusajs.com/v1/modules/products/storefront/show-products).
  */
 class ProductsResource extends BaseResource {
   /**
-   * An instance of {@link ProductVariantsResource} used to send requests to [Store Product Variant API Routes](https://docs.medusajs.com/api/store#product-variants_getvariants).
+   * An instance of {@link ProductVariantsResource} used to send requests to [Store Product Variant API Routes](https://docs.medusajs.com/v1/api/store#product-variants_getvariants).
    */
   public variants = new ProductVariantsResource(this.client)
 

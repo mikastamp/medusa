@@ -12,7 +12,7 @@
 </h1>
 
 <h4 align="center">
-  <a href="https://docs.medusajs.com/ui">Documentation</a> |
+  <a href="https://docs.medusajs.com/v1/ui">Documentation</a> |
   <a href="https://www.medusajs.com">Website</a>
 </h4>
 
@@ -49,4 +49,4 @@ const App = () => <Button variant="primary">Hello World</Button>
 
 ## Documentation
 
-You can find the documentation for Medusa UI [on the documentation site](https://docs.medusajs.com/ui).
+You can find the documentation for Medusa UI [on the documentation site](https://docs.medusajs.com/v1/ui).

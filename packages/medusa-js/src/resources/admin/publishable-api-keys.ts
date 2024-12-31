@@ -17,7 +17,7 @@ import { ResponsePromise } from "../../typings"
 import BaseResource from "../base"
 
 /**
- * This class is used to send requests to [Admin Publishable API Key API Routes](https://docs.medusajs.com/api/admin#publishable-api-keys). All its method
+ * This class is used to send requests to [Admin Publishable API Key API Routes](https://docs.medusajs.com/v1/api/admin#publishable-api-keys). All its method
  * are available in the JS Client under the `medusa.admin.publishableApiKeys` property.
  *
  * All methods in this class require {@link AdminAuthResource.createSession | user authentication}.
@@ -27,7 +27,7 @@ import BaseResource from "../base"
  * the sales channels are inferred from the key and only products associated with those sales channels are retrieved.
  * Admins can manage publishable API keys and their associated resources. Currently, only Sales Channels are supported as a resource.
  *
- * Related Guide: [How to manage publishable API keys](https://docs.medusajs.com/development/publishable-api-keys/admin/manage-publishable-api-keys).
+ * Related Guide: [How to manage publishable API keys](https://docs.medusajs.com/v1/development/publishable-api-keys/admin/manage-publishable-api-keys).
  */
 class AdminPublishableApiKeyResource extends BaseResource {
   /**

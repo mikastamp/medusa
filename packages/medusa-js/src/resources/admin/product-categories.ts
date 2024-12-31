@@ -15,14 +15,14 @@ import { ResponsePromise } from "../../typings"
 import BaseResource from "../base"
 
 /**
- * This class is used to send requests to [Admin Product Category API Routes](https://docs.medusajs.com/api/admin#product-categories). All its method
+ * This class is used to send requests to [Admin Product Category API Routes](https://docs.medusajs.com/v1/api/admin#product-categories). All its method
  * are available in the JS Client under the `medusa.admin.productCategories` property.
  * 
  * All methods in this class require {@link AdminAuthResource.createSession | user authentication}.
  * 
  * Products can be categoriezed into categories. A product can be added into more than one category.
  * 
- * Related Guide: [How to manage product categories](https://docs.medusajs.com/modules/products/admin/manage-categories).
+ * Related Guide: [How to manage product categories](https://docs.medusajs.com/v1/modules/products/admin/manage-categories).
  * 
  * @featureFlag product_categories
  */

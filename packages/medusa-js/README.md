@@ -6,6 +6,6 @@ The Medusa JS Client provides easy access to the Medusa API from a client writte
 
 ## Documentation
 
-You can learn more about how to install and use this client in [our documentation](https://docs.medusajs.com/js-client/overview).
+You can learn more about how to install and use this client in [our documentation](https://docs.medusajs.com/v1/js-client/overview).
 
-To learn more about the API endpoints that this client allows you to access check out our [API reference](https://docs.medusajs.com/api/store).
+To learn more about the API endpoints that this client allows you to access check out our [API reference](https://docs.medusajs.com/v1/api/store).

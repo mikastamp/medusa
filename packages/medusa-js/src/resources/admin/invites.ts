@@ -7,14 +7,14 @@ import { AdminPostInvitesPayload, ResponsePromise } from "../.."
 import BaseResource from "../base"
 
 /**
- * This class is used to send requests to [Admin Invite API Routes](https://docs.medusajs.com/api/admin#invites). All its method
+ * This class is used to send requests to [Admin Invite API Routes](https://docs.medusajs.com/v1/api/admin#invites). All its method
  * are available in the JS Client under the `medusa.admin.invites` property.
  * 
  * All methods in this class require {@link AdminAuthResource.createSession | user authentication}.
  * 
  * An admin can invite new users to manage their team. This would allow new users to authenticate as admins and perform admin functionalities.
  * 
- * Related Guide: [How to manage invites](https://docs.medusajs.com/modules/users/admin/manage-invites).
+ * Related Guide: [How to manage invites](https://docs.medusajs.com/v1/modules/users/admin/manage-invites).
  */
 class AdminInvitesResource extends BaseResource {
   /**

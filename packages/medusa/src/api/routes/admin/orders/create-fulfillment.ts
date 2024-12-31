@@ -30,7 +30,7 @@ import { promiseAll } from "@medusajs/utils"
  * x-authenticated: true
  * externalDocs:
  *   description: Fulfillments of orders
- *   url: https://docs.medusajs.com/modules/orders/#fulfillments-in-orders
+ *   url: https://docs.medusajs.com/v1/modules/orders/#fulfillments-in-orders
  * parameters:
  *   - (path) id=* {string} The ID of the Order.
  *   - (query) expand {string} Comma-separated relations that should be expanded in the returned order.
@@ -276,7 +276,7 @@ export const updateInventoryAndReservations = async (
  *     type: object
  *     externalDocs:
  *       description: "Learn about the metadata attribute, and how to delete and update it."
- *       url: "https://docs.medusajs.com/development/entities/overview#metadata-attribute"
+ *       url: "https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute"
  */
 export class AdminPostOrdersOrderFulfillmentsReq {
   @IsArray()

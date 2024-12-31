@@ -19,7 +19,7 @@ import { updateInventoryAndReservations } from "./create-fulfillment"
  * x-authenticated: true
  * externalDocs:
  *   description: Fulfill a claim
- *   url: https://docs.medusajs.com/modules/orders/claims#fulfill-a-claim
+ *   url: https://docs.medusajs.com/v1/modules/orders/claims#fulfill-a-claim
  * parameters:
  *   - (path) id=* {string} The ID of the Order the claim is associated with.
  *   - (path) claim_id=* {string} The ID of the Claim.
@@ -176,7 +176,7 @@ export default async (req, res) => {
  *     type: object
  *     externalDocs:
  *       description: "Learn about the metadata attribute, and how to delete and update it."
- *       url: "https://docs.medusajs.com/development/entities/overview#metadata-attribute"
+ *       url: "https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute"
  *   no_notification:
  *     description: >-
  *       If set to `true`, no notification will be sent to the customer related to this Claim.

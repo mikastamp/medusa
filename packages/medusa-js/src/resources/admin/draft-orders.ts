@@ -14,14 +14,14 @@ import { ResponsePromise } from "../../typings"
 import BaseResource from "../base"
 
 /**
- * This class is used to send requests to [Admin Draft Order API Routes](https://docs.medusajs.com/api/admin#draft-orders). All its method
+ * This class is used to send requests to [Admin Draft Order API Routes](https://docs.medusajs.com/v1/api/admin#draft-orders). All its method
  * are available in the JS Client under the `medusa.admin.draftOrders` property.
  * 
  * All methods in this class require {@link AdminAuthResource.createSession | user authentication}.
  * 
  * A draft order is an order created manually by the admin. It allows admins to create orders without direct involvement from the customer.
  * 
- * Related Guide: [How to manage draft orders](https://docs.medusajs.com/modules/orders/admin/manage-draft-orders).
+ * Related Guide: [How to manage draft orders](https://docs.medusajs.com/v1/modules/orders/admin/manage-draft-orders).
  */
 class AdminDraftOrdersResource extends BaseResource {
   /**

@@ -3,13 +3,13 @@ import { StoreRegionsListRes, StoreRegionsRes } from "@medusajs/medusa"
 import BaseResource from "./base"
 
 /**
- * This class is used to send requests to [Store Region API Routes](https://docs.medusajs.com/api/store#regions_getregions). All its method
+ * This class is used to send requests to [Store Region API Routes](https://docs.medusajs.com/v1/api/store#regions_getregions). All its method
  * are available in the JS Client under the `medusa.regions` property.
  * 
  * Regions are different countries or geographical regions that the commerce store serves customers in.
  * Customers can choose what region they're in, which can be used to change the prices shown based on the region and its currency.
  * 
- * Related Guide: [How to use regions in a storefront](https://docs.medusajs.com/modules/regions-and-currencies/storefront/use-regions).
+ * Related Guide: [How to use regions in a storefront](https://docs.medusajs.com/v1/modules/regions-and-currencies/storefront/use-regions).
  */
 class RegionsResource extends BaseResource {
   /**

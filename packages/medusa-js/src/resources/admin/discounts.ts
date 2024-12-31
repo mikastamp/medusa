@@ -22,7 +22,7 @@ import { ResponsePromise } from "../../typings"
 import BaseResource from "../base"
 
 /**
- * This class is used to send requests to [Admin Discount API Routes](https://docs.medusajs.com/api/admin#discounts). All its method
+ * This class is used to send requests to [Admin Discount API Routes](https://docs.medusajs.com/v1/api/admin#discounts). All its method
  * are available in the JS Client under the `medusa.admin.discounts` property.
  *
  * All methods in this class require {@link AdminAuthResource.createSession | user authentication}.
@@ -30,7 +30,7 @@ import BaseResource from "../base"
  * Admins can create discounts with conditions and rules, providing them with advanced settings for variety of cases.
  * The methods in this class can be used to manage discounts, their conditions, resources, and more.
  *
- * Related Guide: [How to manage discounts](https://docs.medusajs.com/modules/discounts/admin/manage-discounts).
+ * Related Guide: [How to manage discounts](https://docs.medusajs.com/v1/modules/discounts/admin/manage-discounts).
  */
 class AdminDiscountsResource extends BaseResource {
   /**

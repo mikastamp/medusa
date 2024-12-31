@@ -9,7 +9,7 @@ import { ResponsePromise } from "../../typings"
 import BaseResource from "../base"
 
 /**
- * This class is used to send requests to [Admin Store API Routes](https://docs.medusajs.com/api/admin#store). All its method
+ * This class is used to send requests to [Admin Store API Routes](https://docs.medusajs.com/v1/api/admin#store). All its method
  * are available in the JS Client under the `medusa.admin.store` property.
  * 
  * All methods in this class require {@link AdminAuthResource.createSession | user authentication}.
@@ -45,7 +45,7 @@ class AdminStoresResource extends BaseResource {
 
   /**
    * Add a currency code to the available currencies in a store. This doesn't create new currencies, as currencies are defined within the Medusa backend. 
-   * To create a currency, you can [create a migration](https://docs.medusajs.com/development/entities/migrations/create) that inserts the currency into the database.
+   * To create a currency, you can [create a migration](https://docs.medusajs.com/v1/development/entities/migrations/create) that inserts the currency into the database.
    * @param {string} currency_code - The code of the currency to add to the store.
    * @param {Record<string, any>} customHeaders - Custom headers to attach to the request.
    * @returns {ResponsePromise<AdminStoresRes>} Resolves to the store's details.

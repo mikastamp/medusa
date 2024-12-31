@@ -107,7 +107,7 @@ abstract class StripeBase extends AbstractPaymentProcessor {
 
 ## constructor
 
-You can use the `constructor` of your Payment Processor to have access to different services in Medusa through [dependency injection](https://docs.medusajs.com/development/fundamentals/dependency-injection).
+You can use the `constructor` of your Payment Processor to have access to different services in Medusa through [dependency injection](https://docs.medusajs.com/v1/development/fundamentals/dependency-injection).
 
 You can also use the constructor to initialize your integration with the third-party provider. For example, if you use a client to connect to the third-party provider’s APIs,
 you can initialize it in the constructor and use it in other methods in the service.
@@ -134,27 +134,17 @@ class MyPaymentService extends AbstractPaymentProcessor {
 
 ### Parameters
 
-<TypeList types={[{"name":"container","type":"`Record<string, unknown>`","description":"An instance of `MedusaContainer` that allows you to access other resources, such as services, in your Medusa backend through [dependency injection](https://docs.medusajs.com/development/fundamentals/dependency-injection)","optional":false,"defaultValue":"","expandable":false,"children":[]},{"name":"config","type":"`Record<string, unknown>`","description":"If this fulfillment provider is created in a plugin, the plugin's options are passed in this parameter.","optional":true,"defaultValue":"","expandable":false,"children":[]}]} expandUrl="https://docs.medusajs.com/development/entities/repositories#retrieving-a-list-of-records" sectionTitle="new AbstractPaymentProcessor"/>
+<TypeList types={[{"name":"container","type":"`Record<string, unknown>`","description":"An instance of `MedusaContainer` that allows you to access other resources, such as services, in your Medusa backend through [dependency injection](https://docs.medusajs.com/v1/development/fundamentals/dependency-injection)","optional":false,"defaultValue":"","expandable":false,"children":[]},{"name":"config","type":"`Record<string, unknown>`","description":"If this payment processor is created in a plugin, the plugin's options are passed in this parameter.","optional":true,"defaultValue":"","expandable":false,"children":[]}]} expandUrl="https://docs.medusajs.com/development/entities/repositories#retrieving-a-list-of-records" sectionTitle="new AbstractPaymentProcessor"/>
 
 ___
 
 ## Properties
 
-<TypeList types={[{"name":"container","type":"`Record<string, unknown>`","description":"An instance of `MedusaContainer` that allows you to access other resources, such as services, in your Medusa backend through [dependency injection](https://docs.medusajs.com/development/fundamentals/dependency-injection)","optional":false,"defaultValue":"","expandable":false,"children":[]},{"name":"_isPaymentProcessor","type":"`boolean`","description":"","optional":false,"defaultValue":"true","expandable":false,"children":[]},{"name":"identifier","type":"`string`","description":"The `PaymentProvider` entity has 2 properties: `id` and `is_installed`. The `identifier` property in the payment processor service is used when the payment processor is added to the database.\n\nThe value of this property is also used to reference the payment processor throughout Medusa.\nFor example, it is used to [add a payment processor](https://docs.medusajs.com/v1/api/admin#regions\\_postregionsregionpaymentproviders) to a region.\n\n```ts\nclass MyPaymentService extends AbstractPaymentProcessor {\n  static identifier = \"my-payment\"\n  // ...\n}\n```","optional":false,"defaultValue":"","expandable":false,"children":[]},{"name":"config","type":"`Record<string, unknown>`","description":"If this fulfillment provider is created in a plugin, the plugin's options are passed in this parameter.","optional":true,"defaultValue":"","expandable":false,"children":[]}]} expandUrl="https://docs.medusajs.com/development/entities/repositories#retrieving-a-list-of-records" sectionTitle="AbstractPaymentProcessor"/>
+<TypeList types={[{"name":"container","type":"`Record<string, unknown>`","description":"An instance of `MedusaContainer` that allows you to access other resources, such as services, in your Medusa backend through [dependency injection](https://docs.medusajs.com/v1/development/fundamentals/dependency-injection)","optional":false,"defaultValue":"","expandable":false,"children":[]},{"name":"identifier","type":"`string`","description":"The `PaymentProvider` entity has 2 properties: `id` and `is_installed`. The `identifier` property in the payment processor service is used when the payment processor is added to the database.\n\nThe value of this property is also used to reference the payment processor throughout Medusa.\nFor example, it is used to [add a payment processor](https://docs.medusajs.com/v1/api/admin#regions\\_postregionsregionpaymentproviders) to a region.\n\n```ts\nclass MyPaymentService extends AbstractPaymentProcessor {\n  static identifier = \"my-payment\"\n  // ...\n}\n```","optional":false,"defaultValue":"","expandable":false,"children":[]},{"name":"config","type":"`Record<string, unknown>`","description":"If this payment processor is created in a plugin, the plugin's options are passed in this parameter.","optional":true,"defaultValue":"","expandable":false,"children":[]}]} expandUrl="https://docs.medusajs.com/development/entities/repositories#retrieving-a-list-of-records" sectionTitle="AbstractPaymentProcessor"/>
 
 ___
 
 ## Methods
-
-### isPaymentProcessor
-
-#### Parameters
-
-<TypeList types={[{"name":"object","type":"`any`","description":"","optional":false,"defaultValue":"","expandable":false,"children":[]}]} expandUrl="https://docs.medusajs.com/development/entities/repositories#retrieving-a-list-of-records" sectionTitle="isPaymentProcessor"/>
-
-#### Returns
-
-<TypeList types={[{"name":"boolean","type":"`boolean`","optional":false,"defaultValue":"","description":"","expandable":false,"children":[]}]} expandUrl="https://docs.medusajs.com/development/entities/repositories#retrieving-a-list-of-records" sectionTitle="isPaymentProcessor"/>
 
 ### capturePayment
 
@@ -263,7 +253,7 @@ class MyPaymentService extends AbstractPaymentProcessor {
 
 #### Parameters
 
-<TypeList types={[{"name":"paymentSessionData","type":"`Record<string, unknown>`","description":"The `data` field of the payment session.","optional":false,"defaultValue":"","expandable":false,"children":[]},{"name":"context","type":"`Record<string, unknown>`","description":"The context of the authorization. It may include some of the following fields:\n\n- `ip`: The customer’s IP.\n- `idempotency_key`: The [Idempotency Key](https://docs.medusajs.com/modules/carts-and-checkout/payment#idempotency-key) that is associated with the current cart. It is useful when retrying payments, retrying checkout at a failed point, or for payments that require additional actions from the customer.\n- `cart_id`: The ID of a cart. This is only during operations like placing an order or creating a swap.","optional":false,"defaultValue":"","expandable":false,"children":[]}]} expandUrl="https://docs.medusajs.com/development/entities/repositories#retrieving-a-list-of-records" sectionTitle="authorizePayment"/>
+<TypeList types={[{"name":"paymentSessionData","type":"`Record<string, unknown>`","description":"The `data` field of the payment session.","optional":false,"defaultValue":"","expandable":false,"children":[]},{"name":"context","type":"`Record<string, unknown>`","description":"The context of the authorization. It may include some of the following fields:\n\n- `ip`: The customer’s IP.\n- `idempotency_key`: The [Idempotency Key](https://docs.medusajs.com/v1/modules/carts-and-checkout/payment#idempotency-key) that is associated with the current cart. It is useful when retrying payments, retrying checkout at a failed point, or for payments that require additional actions from the customer.\n- `cart_id`: The ID of a cart. This is only during operations like placing an order or creating a swap.","optional":false,"defaultValue":"","expandable":false,"children":[]}]} expandUrl="https://docs.medusajs.com/development/entities/repositories#retrieving-a-list-of-records" sectionTitle="authorizePayment"/>
 
 #### Returns
 
@@ -326,8 +316,8 @@ It is used to allow you to make any necessary calls to the third-party provider 
 
 ```ts
 import {
-  PaymentContext,
-  PaymentSessionResponse,
+  PaymentProcessorContext,
+  PaymentProcessorSessionResponse,
   // ...
 } from "@medusajs/medusa"
 

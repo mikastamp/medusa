@@ -111,7 +111,7 @@ export type TaxCalculationContext = {
  *
  * The `TaxProvider` entity has 2 properties: `identifier` and `is_installed`. The `identifier` property in the tax provider service is used when the tax provider is added to the database.
  *
- * The value of this property is also used to reference the tax provider throughout Medusa. For example, it is used to [change the tax provider](https://docs.medusajs.com/modules/taxes/admin/manage-tax-settings#change-tax-provider-of-a-region) to a region.
+ * The value of this property is also used to reference the tax provider throughout Medusa. For example, it is used to [change the tax provider](https://docs.medusajs.com/v1/modules/taxes/admin/manage-tax-settings#change-tax-provider-of-a-region) to a region.
  *
  * ```ts title="src/services/my-tax.ts"
  * class MyTaxService extends AbstractTaxService {

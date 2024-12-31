@@ -13,7 +13,7 @@ import { cleanResponseData } from "../../../../utils/clean-response-data"
  * x-authenticated: true
  * externalDocs:
  *   description: Canceling a claim
- *   url: https://docs.medusajs.com/modules/orders/claims#cancel-a-claim
+ *   url: https://docs.medusajs.com/v1/modules/orders/claims#cancel-a-claim
  * parameters:
  *   - (path) id=* {string} The ID of the order the claim is associated with.
  *   - (path) claim_id=* {string} The ID of the Claim.

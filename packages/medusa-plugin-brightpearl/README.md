@@ -14,7 +14,7 @@ Manage and streamline your business processes using Brightpearl.
 
 ## Prerequisites
 
-- [Medusa backend](https://docs.medusajs.com/development/backend/install)
+- [Medusa backend](https://docs.medusajs.com/v1/development/backend/install)
 - [Brightpearl account](https://www.brightpearl.com)
 
 ---

@@ -9,7 +9,7 @@ import { ResponsePromise } from "../../typings"
 import BaseResource from "../base"
 
 /**
- * This class is used to send requests to [Admin Currency API Routes](https://docs.medusajs.com/api/admin#currencies). All its method
+ * This class is used to send requests to [Admin Currency API Routes](https://docs.medusajs.com/v1/api/admin#currencies). All its method
  * are available in the JS Client under the `medusa.admin.currencies` property.
  * 
  * All methods in this class require {@link AdminAuthResource.createSession | user authentication}.
@@ -17,7 +17,7 @@ import BaseResource from "../base"
  * A store can use unlimited currencies, and each region must be associated with at least one currency.
  * Currencies are defined within the Medusa backend. The methods in this class allow admins to list and update currencies.
  * 
- * Related Guide: [How to manage currencies](https://docs.medusajs.com/modules/regions-and-currencies/admin/manage-currencies).
+ * Related Guide: [How to manage currencies](https://docs.medusajs.com/v1/modules/regions-and-currencies/admin/manage-currencies).
  */
 class AdminCurrenciesResource extends BaseResource {
   /**

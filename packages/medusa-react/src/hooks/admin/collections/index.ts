@@ -1,7 +1,7 @@
 /**
  * @packageDocumentation
  * 
- * Queries and Mutations listed here are used to send requests to the [Admin Product Collection API Routes](https://docs.medusajs.com/api/admin#product-collections).
+ * Queries and Mutations listed here are used to send requests to the [Admin Product Collection API Routes](https://docs.medusajs.com/v1/api/admin#product-collections).
  * 
  * All hooks listed require {@link Hooks.Admin.Auth.useAdminLogin | user authentication}.
  * 

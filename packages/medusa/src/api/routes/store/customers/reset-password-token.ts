@@ -11,7 +11,7 @@ import { EntityManager } from "typeorm"
  *  installed in the Medusa backend and is configured to handle this event, a notification to the customer, such as an email, may be sent with reset instructions."
  * externalDocs:
  *   description: "How to reset password"
- *   url: "https://docs.medusajs.com/modules/customers/storefront/implement-customer-profiles#reset-password"
+ *   url: "https://docs.medusajs.com/v1/modules/customers/storefront/implement-customer-profiles#reset-password"
  * requestBody:
  *   content:
  *     application/json:

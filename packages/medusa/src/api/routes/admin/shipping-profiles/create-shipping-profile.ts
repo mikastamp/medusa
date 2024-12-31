@@ -130,7 +130,7 @@ export default async (req, res) => {
  *     type: object
  *     externalDocs:
  *       description: "Learn about the metadata attribute, and how to delete and update it."
- *       url: "https://docs.medusajs.com/development/entities/overview#metadata-attribute"
+ *       url: "https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute"
  */
 export class AdminPostShippingProfilesReq {
   @IsString()

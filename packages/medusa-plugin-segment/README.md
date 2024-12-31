@@ -2,7 +2,7 @@
 
 Track essential commerce analytics with Segment.
 
-[Segment Plugin Documentation](https://docs.medusajs.com/plugins/analytics/segment) | [Medusa Website](https://medusajs.com) | [Medusa Repository](https://github.com/medusajs/medusa)
+[Segment Plugin Documentation](https://docs.medusajs.com/v1/plugins/analytics/segment) | [Medusa Website](https://medusajs.com) | [Medusa Repository](https://github.com/medusajs/medusa)
 
 ## Features
 
@@ -13,7 +13,7 @@ Track essential commerce analytics with Segment.
 
 ## Prerequisites
 
-- [Medusa backend](https://docs.medusajs.com/development/backend/install)
+- [Medusa backend](https://docs.medusajs.com/v1/development/backend/install)
 - [Segment account](https://app.segment.com/signup)
 
 ---
@@ -56,10 +56,10 @@ Track essential commerce analytics with Segment.
   npm run start
   ```
 
-2\. Place an order using a storefront or the [Store APIs](https://docs.medusajs.com/api/store). You should see the event tracked in Segment.
+2\. Place an order using a storefront or the [Store APIs](https://docs.medusajs.com/v1/api/store). You should see the event tracked in Segment.
 
 ---
 
 ## Additional Resources
 
-- [Segment Plugin Documentation](https://docs.medusajs.com/plugins/analytics/segment)
+- [Segment Plugin Documentation](https://docs.medusajs.com/v1/plugins/analytics/segment)

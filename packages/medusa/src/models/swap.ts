@@ -315,7 +315,7 @@ export class Swap extends SoftDeletableEntity {
  *     nullable: true
  *     type: string
  *     externalDocs:
- *       url: https://docs.medusajs.com/development/idempotency-key/overview.md
+ *       url: https://docs.medusajs.com/v1/development/idempotency-key/overview.md
  *       description: Learn more how to use the idempotency key.
  *   created_at:
  *     description: The date with timezone at which the resource was created.
@@ -337,5 +337,5 @@ export class Swap extends SoftDeletableEntity {
  *     example: {car: "white"}
  *     externalDocs:
  *       description: "Learn about the metadata attribute, and how to delete and update it."
- *       url: "https://docs.medusajs.com/development/entities/overview#metadata-attribute"
+ *       url: "https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute"
  */

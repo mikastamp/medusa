@@ -10,7 +10,7 @@ import { ResponsePromise } from "../.."
 import BaseResource from "../base"
 
 /**
- * This class is used to send requests to [Admin Product Variant API Routes](https://docs.medusajs.com/api/admin#product-variants). All its method
+ * This class is used to send requests to [Admin Product Variant API Routes](https://docs.medusajs.com/v1/api/admin#product-variants). All its method
  * are available in the JS Client under the `medusa.admin.variants` property.
  * 
  * All methods in this class require {@link AdminAuthResource.createSession | user authentication}.
@@ -18,7 +18,7 @@ import BaseResource from "../base"
  * Product variants are the actual salable item in your store. Each variant is a combination of the different option values available on the product.
  * Product variants can be managed through {@link AdminProductsResource}.
  * 
- * Related Guide: [How to manage product variants](https://docs.medusajs.com/modules/products/admin/manage-products#manage-product-variants).
+ * Related Guide: [How to manage product variants](https://docs.medusajs.com/v1/modules/products/admin/manage-products#manage-product-variants).
  */
 class AdminVariantsResource extends BaseResource {
   /**

@@ -15,7 +15,7 @@ import { ResponsePromise } from "../../typings"
 import BaseResource from "../base"
 
 /**
- * This class is used to send requests to [Admin Sales Channel API Routes](https://docs.medusajs.com/api/admin#sales-channels). All its method
+ * This class is used to send requests to [Admin Sales Channel API Routes](https://docs.medusajs.com/v1/api/admin#sales-channels). All its method
  * are available in the JS Client under the `medusa.admin.salesChannels` property.
  * 
  * All methods in this class require {@link AdminAuthResource.createSession | user authentication}.
@@ -23,7 +23,7 @@ import BaseResource from "../base"
  * A sales channel indicates a channel where products can be sold in. For example, a webshop or a mobile app.
  * Admins can manage sales channels and the products available in them.
  * 
- * Related Guide: [How to manage sales channels](https://docs.medusajs.com/modules/sales-channels/admin/manage).
+ * Related Guide: [How to manage sales channels](https://docs.medusajs.com/v1/modules/sales-channels/admin/manage).
  */
 class AdminSalesChannelsResource extends BaseResource {
   /**
@@ -252,7 +252,7 @@ class AdminSalesChannelsResource extends BaseResource {
 
   /**
    * Associate a stock location with a sales channel. It requires the 
-   * [@medusajs/stock-location](https://docs.medusajs.com/modules/multiwarehouse/install-modules#stock-location-module) module to be installed in
+   * [@medusajs/stock-location](https://docs.medusajs.com/v1/modules/multiwarehouse/install-modules#stock-location-module) module to be installed in
    * your Medusa backend.
    * @param {string} salesChannelId - The sales channel's ID. 
    * @param {AdminPostSalesChannelsChannelStockLocationsReq} payload - The stock location to associate with the sales channel.

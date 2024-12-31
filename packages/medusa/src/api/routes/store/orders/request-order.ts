@@ -15,7 +15,7 @@ import { TokenEvents } from "../../../../types/token"
  *  the customer should receive instructions on how to finalize their claim ownership."
  * externalDocs:
  *   description: "How to implement claim-order flow in a storefront"
- *   url: "https://docs.medusajs.com/modules/orders/storefront/implement-claim-order"
+ *   url: "https://docs.medusajs.com/v1/modules/orders/storefront/implement-claim-order"
  * x-authenticated: true
  * requestBody:
  *   content:

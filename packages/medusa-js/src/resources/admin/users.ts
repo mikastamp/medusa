@@ -15,14 +15,14 @@ import {
 import BaseResource from "../base"
 
 /**
- * This class is used to send requests to [Admin User API Routes](https://docs.medusajs.com/api/admin#users). All its method
+ * This class is used to send requests to [Admin User API Routes](https://docs.medusajs.com/v1/api/admin#users). All its method
  * are available in the JS Client under the `medusa.admin.users` property.
  *
  * All methods in this class require {@link AdminAuthResource.createSession | user authentication}.
  *
  * A store can have more than one user, each having the same privileges. Admins can manage users, their passwords, and more.
  *
- * Related Guide: [How to manage users](https://docs.medusajs.com/modules/users/admin/manage-users).
+ * Related Guide: [How to manage users](https://docs.medusajs.com/v1/modules/users/admin/manage-users).
  */
 class AdminUsersResource extends BaseResource {
   /**

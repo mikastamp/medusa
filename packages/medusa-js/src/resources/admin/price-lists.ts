@@ -19,14 +19,14 @@ import { ResponsePromise } from "../../typings"
 import BaseResource from "../base"
 
 /**
- * This class is used to send requests to [Admin Price List API Routes](https://docs.medusajs.com/api/admin#price-lists). All its method
+ * This class is used to send requests to [Admin Price List API Routes](https://docs.medusajs.com/v1/api/admin#price-lists). All its method
  * are available in the JS Client under the `medusa.admin.priceLists` property.
  * 
  * All methods in this class require {@link AdminAuthResource.createSession | user authentication}.
  * 
  * A price list are special prices applied to products based on a set of conditions, such as customer group.
  * 
- * Related Guide: [How to manage price lists](https://docs.medusajs.com/modules/price-lists/admin/manage-price-lists).
+ * Related Guide: [How to manage price lists](https://docs.medusajs.com/v1/modules/price-lists/admin/manage-price-lists).
  */
 class AdminPriceListResource extends BaseResource {
   /**

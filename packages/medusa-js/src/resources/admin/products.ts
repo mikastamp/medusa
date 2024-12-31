@@ -22,14 +22,14 @@ import { ResponsePromise } from "../../typings"
 import BaseResource from "../base"
 
 /**
- * This class is used to send requests to [Admin Product API Routes](https://docs.medusajs.com/api/admin#products). All its method
+ * This class is used to send requests to [Admin Product API Routes](https://docs.medusajs.com/v1/api/admin#products). All its method
  * are available in the JS Client under the `medusa.admin.products` property.
  *
  * All methods in this class require {@link AdminAuthResource.createSession | user authentication}.
  *
- * Products are saleable items in a store. This also includes [saleable gift cards](https://docs.medusajs.com/modules/gift-cards/admin/manage-gift-cards#manage-gift-card-product) in a store.
+ * Products are saleable items in a store. This also includes [saleable gift cards](https://docs.medusajs.com/v1/modules/gift-cards/admin/manage-gift-cards#manage-gift-card-product) in a store.
  *
- * Related Guide: [How to manage products](https://docs.medusajs.com/modules/products/admin/manage-products).
+ * Related Guide: [How to manage products](https://docs.medusajs.com/v1/modules/products/admin/manage-products).
  */
 class AdminProductsResource extends BaseResource {
   /**
@@ -230,7 +230,7 @@ class AdminProductsResource extends BaseResource {
 
   /**
    * Set the metadata of a product. It can be any key-value pair, which allows adding custom data to a product. Learn about how you can update and delete the metadata attribute
-   * [here](https://docs.medusajs.com/development/entities/overview#metadata-attribute).
+   * [here](https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute).
    * @param {string} id - The product's ID.
    * @param {AdminPostProductsProductMetadataReq} payload - The metadata details to add, update, or delete.
    * @param {Record<string, any>} customHeaders - Custom headers to attach to the request.

@@ -2,7 +2,7 @@
 
 Thank you for considering contributing to Medusa! This document will outline how to submit changes to this repository and which conventions to follow. If you are ever in doubt about anything we encourage you to reach out either by submitting an issue here or reaching out [via Discord](https://discord.gg/xpCwq3Kfn8).
 
-If you're contributing to our documentation, make sure to also check out the [contribution guidelines on our documentation website](https://docs.medusajs.com/contribution-guidelines).
+If you're contributing to our documentation, make sure to also check out the [contribution guidelines on our documentation website](https://docs.medusajs.com/v1/contribution-guidelines).
 
 ### Important
 
@@ -15,7 +15,7 @@ If you, as a community contributor, wish to work on more extensive features, ple
 ## Prerequisites
 
 - **You're familiar with GitHub Issues and Pull Requests**
-- **You've read the [docs](https://docs.medusajs.com).**
+- **You've read the [docs](https://docs.medusajs.com/v1).**
 - **You've setup a test project with `medusa new`**
 
 ## Issues before PRs

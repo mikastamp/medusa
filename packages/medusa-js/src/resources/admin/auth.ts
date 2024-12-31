@@ -4,7 +4,7 @@ import JwtTokenManager from "../../jwt-token-manager"
 import BaseResource from "../base"
 
 /**
- * This class is used to send requests to [Admin Auth API Routes](https://docs.medusajs.com/api/admin#auth_getauth). All its method
+ * This class is used to send requests to [Admin Auth API Routes](https://docs.medusajs.com/v1/api/admin#auth_getauth). All its method
  * are available in the JS Client under the `medusa.admin.auth` property.
  * 
  * The methods in this class allow admin users to manage their session, such as login or log out.
@@ -12,7 +12,7 @@ import BaseResource from "../base"
  * When you log the admin user in using the {@link createSession} method, the JS client will automatically attach the
  * cookie header in all subsequent requests.
  * 
- * Related Guide: [How to implement user profiles](https://docs.medusajs.com/modules/users/admin/manage-profile).
+ * Related Guide: [How to implement user profiles](https://docs.medusajs.com/v1/modules/users/admin/manage-profile).
  */
 class AdminAuthResource extends BaseResource {
   /**

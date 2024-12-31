@@ -593,7 +593,7 @@
 					},
 					{
 						"kind": "text",
-						"text": " property in the payment processor service is used when the payment processor is added to the database.\n\nThe value of this property is also used to reference the payment processor throughout Medusa.\nFor example, it is used to [add a payment processor](https://docs.medusajs.com/api/admin#regions_postregionsregionpaymentproviders) to a region.\n\n"
+						"text": " property in the payment processor service is used when the payment processor is added to the database.\n\nThe value of this property is also used to reference the payment processor throughout Medusa.\nFor example, it is used to [add a payment processor](https://docs.medusajs.com/v1/api/admin#regions_postregionsregionpaymentproviders) to a region.\n\n"
 					},
 					{
 						"kind": "code",
@@ -655,7 +655,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "This method is called either if a region has only one payment provider enabled or when [a Payment Session is selected](https://docs.medusajs.com/api/store#carts_postcartscartpaymentsession),\nwhich occurs when the customer selects their preferred payment method during checkout.\n\nIt is used to allow you to make any necessary calls to the third-party provider to initialize the payment. For example, in Stripe this method is used to create a Payment Intent for the customer."
+										"text": "This method is called either if a region has only one payment provider enabled or when [a Payment Session is selected](https://docs.medusajs.com/v1/api/store#carts_postcartscartpaymentsession),\nwhich occurs when the customer selects their preferred payment method during checkout.\n\nIt is used to allow you to make any necessary calls to the third-party provider to initialize the payment. For example, in Stripe this method is used to create a Payment Intent for the customer."
 									}
 								],
 								"blockTags": [
@@ -750,7 +750,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "This method is used to update the payment session when the payment amount changes. It's called whenever the cart or any of its related data is updated.\nFor example, when a [line item is added to the cart](https://docs.medusajs.com/api/store#carts_postcartscartlineitems) or when a\n[shipping method is selected](https://docs.medusajs.com/api/store#carts_postcartscartshippingmethod)."
+										"text": "This method is used to update the payment session when the payment amount changes. It's called whenever the cart or any of its related data is updated.\nFor example, when a [line item is added to the cart](https://docs.medusajs.com/v1/api/store#carts_postcartscartlineitems) or when a\n[shipping method is selected](https://docs.medusajs.com/v1/api/store#carts_postcartscartshippingmethod)."
 									}
 								],
 								"blockTags": [
@@ -849,7 +849,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "This method is used to refund an order’s payment. This is typically triggered manually by the store operator from the admin. The refund amount might be the total order amount or part of it.\n\nThis method is also used for refunding payments of a swap or a claim of an order, or when a request is sent to the [Refund Payment API Route](https://docs.medusajs.com/api/admin#payments_postpaymentspaymentrefunds).\n\nYou can utilize this method to interact with the third-party provider and perform any actions necessary to refund the payment."
+										"text": "This method is used to refund an order’s payment. This is typically triggered manually by the store operator from the admin. The refund amount might be the total order amount or part of it.\n\nThis method is also used for refunding payments of a swap or a claim of an order, or when a request is sent to the [Refund Payment API Route](https://docs.medusajs.com/v1/api/admin#payments_postpaymentspaymentrefunds).\n\nYou can utilize this method to interact with the third-party provider and perform any actions necessary to refund the payment."
 									}
 								],
 								"blockTags": [
@@ -1005,7 +1005,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "This method is used to authorize payment using the Payment Session of an order. This is called when the\n[cart is completed](https://docs.medusajs.com/api/store#carts_postcartscartcomplete) and before the order is created.\n\nThis method is also used for authorizing payments of a swap of an order and when authorizing sessions in a payment collection.\nYou can interact with a third-party provider and perform any actions necessary to authorize the payment.\n\nThe payment authorization might require additional action from the customer before it is declared authorized. Once that additional action is performed,\nthe "
+										"text": "This method is used to authorize payment using the Payment Session of an order. This is called when the\n[cart is completed](https://docs.medusajs.com/v1/api/store#carts_postcartscartcomplete) and before the order is created.\n\nThis method is also used for authorizing payments of a swap of an order and when authorizing sessions in a payment collection.\nYou can interact with a third-party provider and perform any actions necessary to authorize the payment.\n\nThe payment authorization might require additional action from the customer before it is declared authorized. Once that additional action is performed,\nthe "
 									},
 									{
 										"kind": "code",
@@ -1141,7 +1141,7 @@
 											},
 											{
 												"kind": "text",
-												"text": ": The [Idempotency Key](https://docs.medusajs.com/modules/carts-and-checkout/payment#idempotency-key) that is associated with the current cart. It is useful when retrying payments, retrying checkout at a failed point, or for payments that require additional actions from the customer.\n- "
+												"text": ": The [Idempotency Key](https://docs.medusajs.com/v1/modules/carts-and-checkout/payment#idempotency-key) that is associated with the current cart. It is useful when retrying payments, retrying checkout at a failed point, or for payments that require additional actions from the customer.\n- "
 											},
 											{
 												"kind": "code",
@@ -1319,7 +1319,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "This method is used to capture the payment amount of an order. This is typically triggered manually by the store operator from the admin.\n\nThis method is also used for capturing payments of a swap of an order, or when a request is sent to the [Capture Payment API Route](https://docs.medusajs.com/api/admin#payments_postpaymentspaymentcapture).\n\nYou can utilize this method to interact with the third-party provider and perform any actions necessary to capture the payment."
+										"text": "This method is used to capture the payment amount of an order. This is typically triggered manually by the store operator from the admin.\n\nThis method is also used for capturing payments of a swap of an order, or when a request is sent to the [Capture Payment API Route](https://docs.medusajs.com/v1/api/admin#payments_postpaymentspaymentcapture).\n\nYou can utilize this method to interact with the third-party provider and perform any actions necessary to capture the payment."
 									}
 								],
 								"blockTags": [
@@ -1456,7 +1456,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "This method is used to perform any actions necessary before a Payment Session is deleted. The Payment Session is deleted in one of the following cases:\n\n1. When a request is sent to [delete the Payment Session](https://docs.medusajs.com/api/store#carts_deletecartscartpaymentsessionssession).\n2. When the [Payment Session is refreshed](https://docs.medusajs.com/api/store#carts_postcartscartpaymentsessionssession). The Payment Session is deleted so that a newer one is initialized instead.\n3. When the Payment Processor is no longer available. This generally happens when the store operator removes it from the available Payment Processor in the admin.\n4. When the region of the store is changed based on the cart information and the Payment Processor is not available in the new region."
+										"text": "This method is used to perform any actions necessary before a Payment Session is deleted. The Payment Session is deleted in one of the following cases:\n\n1. When a request is sent to [delete the Payment Session](https://docs.medusajs.com/v1/api/store#carts_deletecartscartpaymentsessionssession).\n2. When the [Payment Session is refreshed](https://docs.medusajs.com/v1/api/store#carts_postcartscartpaymentsessionssession). The Payment Session is deleted so that a newer one is initialized instead.\n3. When the Payment Processor is no longer available. This generally happens when the store operator removes it from the available Payment Processor in the admin.\n4. When the region of the store is changed based on the cart information and the Payment Processor is not available in the new region."
 									}
 								],
 								"blockTags": [
@@ -1983,7 +1983,7 @@
 									},
 									{
 										"kind": "text",
-										"text": " field of a payment session. It's called when a request is sent to the\n[Update Payment Session API Route](https://docs.medusajs.com/api/store#carts_postcartscartpaymentsessionupdate), or when the "
+										"text": " field of a payment session. It's called when a request is sent to the\n[Update Payment Session API Route](https://docs.medusajs.com/v1/api/store#carts_postcartscartpaymentsessionupdate), or when the "
 									},
 									{
 										"kind": "code",
@@ -2256,7 +2256,7 @@
 					},
 					{
 						"kind": "text",
-						"text": " property in the payment processor service is used when the payment processor is added to the database.\n\nThe value of this property is also used to reference the payment processor throughout Medusa.\nFor example, it is used to [add a payment processor](https://docs.medusajs.com/api/admin#regions_postregionsregionpaymentproviders) to a region.\n\n"
+						"text": " property in the payment processor service is used when the payment processor is added to the database.\n\nThe value of this property is also used to reference the payment processor throughout Medusa.\nFor example, it is used to [add a payment processor](https://docs.medusajs.com/v1/api/admin#regions_postregionsregionpaymentproviders) to a region.\n\n"
 					},
 					{
 						"kind": "code",
@@ -2328,7 +2328,7 @@
 									},
 									{
 										"kind": "text",
-										"text": " of your Payment Processor to have access to different services in Medusa through [dependency injection](https://docs.medusajs.com/development/fundamentals/dependency-injection).\n\nYou can also use the constructor to initialize your integration with the third-party provider. For example, if you use a client to connect to the third-party provider’s APIs,\nyou can initialize it in the constructor and use it in other methods in the service.\n\nAdditionally, if you’re creating your Payment Processor as an external plugin to be installed on any Medusa backend and you want to access the options added for the plugin,\nyou can access it in the constructor. The options are passed as a second parameter."
+										"text": " of your Payment Processor to have access to different services in Medusa through [dependency injection](https://docs.medusajs.com/v1/development/fundamentals/dependency-injection).\n\nYou can also use the constructor to initialize your integration with the third-party provider. For example, if you use a client to connect to the third-party provider’s APIs,\nyou can initialize it in the constructor and use it in other methods in the service.\n\nAdditionally, if you’re creating your Payment Processor as an external plugin to be installed on any Medusa backend and you want to access the options added for the plugin,\nyou can access it in the constructor. The options are passed as a second parameter."
 									}
 								],
 								"blockTags": [
@@ -2362,7 +2362,7 @@
 											},
 											{
 												"kind": "text",
-												"text": " that allows you to access other resources, such as services, in your Medusa backend through [dependency injection](https://docs.medusajs.com/development/fundamentals/dependency-injection)"
+												"text": " that allows you to access other resources, such as services, in your Medusa backend through [dependency injection](https://docs.medusajs.com/v1/development/fundamentals/dependency-injection)"
 											}
 										]
 									},
@@ -2453,7 +2453,7 @@
 							},
 							{
 								"kind": "text",
-								"text": " that allows you to access other resources, such as services, in your Medusa backend through [dependency injection](https://docs.medusajs.com/development/fundamentals/dependency-injection)"
+								"text": " that allows you to access other resources, such as services, in your Medusa backend through [dependency injection](https://docs.medusajs.com/v1/development/fundamentals/dependency-injection)"
 							}
 						]
 					},
@@ -2560,7 +2560,7 @@
 							},
 							{
 								"kind": "text",
-								"text": " property in the payment processor service is used when the payment processor is added to the database.\n\nThe value of this property is also used to reference the payment processor throughout Medusa.\nFor example, it is used to [add a payment processor](https://docs.medusajs.com/api/admin#regions_postregionsregionpaymentproviders) to a region.\n\n"
+								"text": " property in the payment processor service is used when the payment processor is added to the database.\n\nThe value of this property is also used to reference the payment processor throughout Medusa.\nFor example, it is used to [add a payment processor](https://docs.medusajs.com/v1/api/admin#regions_postregionsregionpaymentproviders) to a region.\n\n"
 							},
 							{
 								"kind": "code",
@@ -2592,7 +2592,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "This method is used to capture the payment amount of an order. This is typically triggered manually by the store operator from the admin.\n\nThis method is also used for capturing payments of a swap of an order, or when a request is sent to the [Capture Payment API Route](https://docs.medusajs.com/api/admin#payments_postpaymentspaymentcapture).\n\nYou can utilize this method to interact with the third-party provider and perform any actions necessary to capture the payment."
+										"text": "This method is used to capture the payment amount of an order. This is typically triggered manually by the store operator from the admin.\n\nThis method is also used for capturing payments of a swap of an order, or when a request is sent to the [Capture Payment API Route](https://docs.medusajs.com/v1/api/admin#payments_postpaymentspaymentcapture).\n\nYou can utilize this method to interact with the third-party provider and perform any actions necessary to capture the payment."
 									}
 								],
 								"blockTags": [
@@ -2741,7 +2741,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "This method is used to authorize payment using the Payment Session of an order. This is called when the\n[cart is completed](https://docs.medusajs.com/api/store#carts_postcartscartcomplete) and before the order is created.\n\nThis method is also used for authorizing payments of a swap of an order and when authorizing sessions in a payment collection.\nYou can interact with a third-party provider and perform any actions necessary to authorize the payment.\n\nThe payment authorization might require additional action from the customer before it is declared authorized. Once that additional action is performed,\nthe "
+										"text": "This method is used to authorize payment using the Payment Session of an order. This is called when the\n[cart is completed](https://docs.medusajs.com/v1/api/store#carts_postcartscartcomplete) and before the order is created.\n\nThis method is also used for authorizing payments of a swap of an order and when authorizing sessions in a payment collection.\nYou can interact with a third-party provider and perform any actions necessary to authorize the payment.\n\nThe payment authorization might require additional action from the customer before it is declared authorized. Once that additional action is performed,\nthe "
 									},
 									{
 										"kind": "code",
@@ -2877,7 +2877,7 @@
 											},
 											{
 												"kind": "text",
-												"text": ": The [Idempotency Key](https://docs.medusajs.com/modules/carts-and-checkout/payment#idempotency-key) that is associated with the current cart. It is useful when retrying payments, retrying checkout at a failed point, or for payments that require additional actions from the customer.\n- "
+												"text": ": The [Idempotency Key](https://docs.medusajs.com/v1/modules/carts-and-checkout/payment#idempotency-key) that is associated with the current cart. It is useful when retrying payments, retrying checkout at a failed point, or for payments that require additional actions from the customer.\n- "
 											},
 											{
 												"kind": "code",
@@ -3176,7 +3176,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "This method is called either if a region has only one payment provider enabled or when [a Payment Session is selected](https://docs.medusajs.com/api/store#carts_postcartscartpaymentsession),\nwhich occurs when the customer selects their preferred payment method during checkout.\n\nIt is used to allow you to make any necessary calls to the third-party provider to initialize the payment. For example, in Stripe this method is used to create a Payment Intent for the customer."
+										"text": "This method is called either if a region has only one payment provider enabled or when [a Payment Session is selected](https://docs.medusajs.com/v1/api/store#carts_postcartscartpaymentsession),\nwhich occurs when the customer selects their preferred payment method during checkout.\n\nIt is used to allow you to make any necessary calls to the third-party provider to initialize the payment. For example, in Stripe this method is used to create a Payment Intent for the customer."
 									}
 								],
 								"blockTags": [
@@ -3283,7 +3283,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "This method is used to perform any actions necessary before a Payment Session is deleted. The Payment Session is deleted in one of the following cases:\n\n1. When a request is sent to [delete the Payment Session](https://docs.medusajs.com/api/store#carts_deletecartscartpaymentsessionssession).\n2. When the [Payment Session is refreshed](https://docs.medusajs.com/api/store#carts_postcartscartpaymentsessionssession). The Payment Session is deleted so that a newer one is initialized instead.\n3. When the Payment Processor is no longer available. This generally happens when the store operator removes it from the available Payment Processor in the admin.\n4. When the region of the store is changed based on the cart information and the Payment Processor is not available in the new region."
+										"text": "This method is used to perform any actions necessary before a Payment Session is deleted. The Payment Session is deleted in one of the following cases:\n\n1. When a request is sent to [delete the Payment Session](https://docs.medusajs.com/v1/api/store#carts_deletecartscartpaymentsessionssession).\n2. When the [Payment Session is refreshed](https://docs.medusajs.com/v1/api/store#carts_postcartscartpaymentsessionssession). The Payment Session is deleted so that a newer one is initialized instead.\n3. When the Payment Processor is no longer available. This generally happens when the store operator removes it from the available Payment Processor in the admin.\n4. When the region of the store is changed based on the cart information and the Payment Processor is not available in the new region."
 									}
 								],
 								"blockTags": [
@@ -3552,7 +3552,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "This method is used to refund an order’s payment. This is typically triggered manually by the store operator from the admin. The refund amount might be the total order amount or part of it.\n\nThis method is also used for refunding payments of a swap or a claim of an order, or when a request is sent to the [Refund Payment API Route](https://docs.medusajs.com/api/admin#payments_postpaymentspaymentrefunds).\n\nYou can utilize this method to interact with the third-party provider and perform any actions necessary to refund the payment."
+										"text": "This method is used to refund an order’s payment. This is typically triggered manually by the store operator from the admin. The refund amount might be the total order amount or part of it.\n\nThis method is also used for refunding payments of a swap or a claim of an order, or when a request is sent to the [Refund Payment API Route](https://docs.medusajs.com/v1/api/admin#payments_postpaymentspaymentrefunds).\n\nYou can utilize this method to interact with the third-party provider and perform any actions necessary to refund the payment."
 									}
 								],
 								"blockTags": [
@@ -3869,7 +3869,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "This method is used to update the payment session when the payment amount changes. It's called whenever the cart or any of its related data is updated.\nFor example, when a [line item is added to the cart](https://docs.medusajs.com/api/store#carts_postcartscartlineitems) or when a\n[shipping method is selected](https://docs.medusajs.com/api/store#carts_postcartscartshippingmethod)."
+										"text": "This method is used to update the payment session when the payment amount changes. It's called whenever the cart or any of its related data is updated.\nFor example, when a [line item is added to the cart](https://docs.medusajs.com/v1/api/store#carts_postcartscartlineitems) or when a\n[shipping method is selected](https://docs.medusajs.com/v1/api/store#carts_postcartscartshippingmethod)."
 									}
 								],
 								"blockTags": [
@@ -3988,7 +3988,7 @@
 									},
 									{
 										"kind": "text",
-										"text": " field of a payment session. It's called when a request is sent to the\n[Update Payment Session API Route](https://docs.medusajs.com/api/store#carts_postcartscartpaymentsessionupdate), or when the "
+										"text": " field of a payment session. It's called when a request is sent to the\n[Update Payment Session API Route](https://docs.medusajs.com/v1/api/store#carts_postcartscartpaymentsessionupdate), or when the "
 									},
 									{
 										"kind": "code",

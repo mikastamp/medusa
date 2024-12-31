@@ -115,7 +115,7 @@ export interface PaymentProcessorError {
  * The `PaymentProvider` entity has 2 properties: `id` and `is_installed`. The `identifier` property in the payment processor service is used when the payment processor is added to the database.
  *
  * The value of this property is also used to reference the payment processor throughout Medusa.
- * For example, it is used to [add a payment processor](https://docs.medusajs.com/api/admin#regions_postregionsregionpaymentproviders) to a region.
+ * For example, it is used to [add a payment processor](https://docs.medusajs.com/v1/api/admin#regions_postregionsregionpaymentproviders) to a region.
  *
  * ```ts
  * class MyPaymentService extends AbstractPaymentProcessor {
@@ -192,7 +192,7 @@ export interface PaymentProcessor {
   getIdentifier(): string
 
   /**
-   * This method is called either if a region has only one payment provider enabled or when [a Payment Session is selected](https://docs.medusajs.com/api/store#carts_postcartscartpaymentsession),
+   * This method is called either if a region has only one payment provider enabled or when [a Payment Session is selected](https://docs.medusajs.com/v1/api/store#carts_postcartscartpaymentsession),
    * which occurs when the customer selects their preferred payment method during checkout.
    *
    * It is used to allow you to make any necessary calls to the third-party provider to initialize the payment. For example, in Stripe this method is used to create a Payment Intent for the customer.
@@ -232,8 +232,8 @@ export interface PaymentProcessor {
 
   /**
    * This method is used to update the payment session when the payment amount changes. It's called whenever the cart or any of its related data is updated.
-   * For example, when a [line item is added to the cart](https://docs.medusajs.com/api/store#carts_postcartscartlineitems) or when a
-   * [shipping method is selected](https://docs.medusajs.com/api/store#carts_postcartscartshippingmethod).
+   * For example, when a [line item is added to the cart](https://docs.medusajs.com/v1/api/store#carts_postcartscartlineitems) or when a
+   * [shipping method is selected](https://docs.medusajs.com/v1/api/store#carts_postcartscartshippingmethod).
    *
    * @param {PaymentProcessorContext} context - The context of the payment.
    * @returns {Promise<PaymentProcessorError | PaymentProcessorSessionResponse | void>} Either the payment's data or an error object.
@@ -275,7 +275,7 @@ export interface PaymentProcessor {
   /**
    * This method is used to refund an order’s payment. This is typically triggered manually by the store operator from the admin. The refund amount might be the total order amount or part of it.
    *
-   * This method is also used for refunding payments of a swap or a claim of an order, or when a request is sent to the [Refund Payment API Route](https://docs.medusajs.com/api/admin#payments_postpaymentspaymentrefunds).
+   * This method is also used for refunding payments of a swap or a claim of an order, or when a request is sent to the [Refund Payment API Route](https://docs.medusajs.com/v1/api/admin#payments_postpaymentspaymentrefunds).
    *
    * You can utilize this method to interact with the third-party provider and perform any actions necessary to refund the payment.
    *
@@ -318,7 +318,7 @@ export interface PaymentProcessor {
 
   /**
    * This method is used to authorize payment using the Payment Session of an order. This is called when the
-   * [cart is completed](https://docs.medusajs.com/api/store#carts_postcartscartcomplete) and before the order is created.
+   * [cart is completed](https://docs.medusajs.com/v1/api/store#carts_postcartscartcomplete) and before the order is created.
    *
    * This method is also used for authorizing payments of a swap of an order and when authorizing sessions in a payment collection.
    * You can interact with a third-party provider and perform any actions necessary to authorize the payment.
@@ -341,7 +341,7 @@ export interface PaymentProcessor {
    * The context of the authorization. It may include some of the following fields:
    *
    * - `ip`: The customer’s IP.
-   * - `idempotency_key`: The [Idempotency Key](https://docs.medusajs.com/modules/carts-and-checkout/payment#idempotency-key) that is associated with the current cart. It is useful when retrying payments, retrying checkout at a failed point, or for payments that require additional actions from the customer.
+   * - `idempotency_key`: The [Idempotency Key](https://docs.medusajs.com/v1/modules/carts-and-checkout/payment#idempotency-key) that is associated with the current cart. It is useful when retrying payments, retrying checkout at a failed point, or for payments that require additional actions from the customer.
    * - `cart_id`: The ID of a cart. This is only during operations like placing an order or creating a swap.
    *
    * @returns The authorization details or an error object.
@@ -403,7 +403,7 @@ export interface PaymentProcessor {
   /**
    * This method is used to capture the payment amount of an order. This is typically triggered manually by the store operator from the admin.
    *
-   * This method is also used for capturing payments of a swap of an order, or when a request is sent to the [Capture Payment API Route](https://docs.medusajs.com/api/admin#payments_postpaymentspaymentcapture).
+   * This method is also used for capturing payments of a swap of an order, or when a request is sent to the [Capture Payment API Route](https://docs.medusajs.com/v1/api/admin#payments_postpaymentspaymentcapture).
    *
    * You can utilize this method to interact with the third-party provider and perform any actions necessary to capture the payment.
    *
@@ -444,8 +444,8 @@ export interface PaymentProcessor {
   /**
    * This method is used to perform any actions necessary before a Payment Session is deleted. The Payment Session is deleted in one of the following cases:
    *
-   * 1. When a request is sent to [delete the Payment Session](https://docs.medusajs.com/api/store#carts_deletecartscartpaymentsessionssession).
-   * 2. When the [Payment Session is refreshed](https://docs.medusajs.com/api/store#carts_postcartscartpaymentsessionssession). The Payment Session is deleted so that a newer one is initialized instead.
+   * 1. When a request is sent to [delete the Payment Session](https://docs.medusajs.com/v1/api/store#carts_deletecartscartpaymentsessionssession).
+   * 2. When the [Payment Session is refreshed](https://docs.medusajs.com/v1/api/store#carts_postcartscartpaymentsessionssession). The Payment Session is deleted so that a newer one is initialized instead.
    * 3. When the Payment Processor is no longer available. This generally happens when the store operator removes it from the available Payment Processor in the admin.
    * 4. When the region of the store is changed based on the cart information and the Payment Processor is not available in the new region.
    *
@@ -590,7 +590,7 @@ export interface PaymentProcessor {
 
   /**
    * This method is used to update the `data` field of a payment session. It's called when a request is sent to the
-   * [Update Payment Session API Route](https://docs.medusajs.com/api/store#carts_postcartscartpaymentsessionupdate), or when the `CartService`'s `updatePaymentSession` is used.
+   * [Update Payment Session API Route](https://docs.medusajs.com/v1/api/store#carts_postcartscartpaymentsessionupdate), or when the `CartService`'s `updatePaymentSession` is used.
    *
    * This method can also be used to update the data in the third-party payment provider, if necessary.
    *
@@ -644,7 +644,7 @@ export interface PaymentProcessor {
 
 export abstract class AbstractPaymentProcessor implements PaymentProcessor {
   /**
-   * You can use the `constructor` of your Payment Processor to have access to different services in Medusa through [dependency injection](https://docs.medusajs.com/development/fundamentals/dependency-injection).
+   * You can use the `constructor` of your Payment Processor to have access to different services in Medusa through [dependency injection](https://docs.medusajs.com/v1/development/fundamentals/dependency-injection).
    *
    * You can also use the constructor to initialize your integration with the third-party provider. For example, if you use a client to connect to the third-party provider’s APIs,
    * you can initialize it in the constructor and use it in other methods in the service.
@@ -652,7 +652,7 @@ export abstract class AbstractPaymentProcessor implements PaymentProcessor {
    * Additionally, if you’re creating your Payment Processor as an external plugin to be installed on any Medusa backend and you want to access the options added for the plugin,
    * you can access it in the constructor. The options are passed as a second parameter.
    *
-   * @param {Record<string, unknown>} container - An instance of `MedusaContainer` that allows you to access other resources, such as services, in your Medusa backend through [dependency injection](https://docs.medusajs.com/development/fundamentals/dependency-injection)
+   * @param {Record<string, unknown>} container - An instance of `MedusaContainer` that allows you to access other resources, such as services, in your Medusa backend through [dependency injection](https://docs.medusajs.com/v1/development/fundamentals/dependency-injection)
    * @param {Record<string, unknown>} config - If this payment processor is created in a plugin, the plugin's options are passed in this parameter.
    *
    * @example
@@ -692,7 +692,7 @@ export abstract class AbstractPaymentProcessor implements PaymentProcessor {
    * The `PaymentProvider` entity has 2 properties: `id` and `is_installed`. The `identifier` property in the payment processor service is used when the payment processor is added to the database.
    *
    * The value of this property is also used to reference the payment processor throughout Medusa.
-   * For example, it is used to [add a payment processor](https://docs.medusajs.com/api/admin#regions_postregionsregionpaymentproviders) to a region.
+   * For example, it is used to [add a payment processor](https://docs.medusajs.com/v1/api/admin#regions_postregionsregionpaymentproviders) to a region.
    *
    * ```ts
    * class MyPaymentService extends AbstractPaymentProcessor {

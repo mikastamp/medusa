@@ -3,12 +3,12 @@ import { ResponsePromise } from "../typings"
 import { StoreReturnsRes, StorePostReturnsReq } from "@medusajs/medusa"
 
 /**
- * This class is used to send requests to [Store Return API Routes](https://docs.medusajs.com/api/store#returns). All its method
+ * This class is used to send requests to [Store Return API Routes](https://docs.medusajs.com/v1/api/store#returns). All its method
  * are available in the JS Client under the `medusa.returns` property.
  * 
  * A return can be created by a customer to return items in an order.
  * 
- * Related Guide: [How to create a return in a storefront](https://docs.medusajs.com/modules/orders/storefront/create-return).
+ * Related Guide: [How to create a return in a storefront](https://docs.medusajs.com/v1/modules/orders/storefront/create-return).
  */
 class ReturnsResource extends BaseResource {
   /**

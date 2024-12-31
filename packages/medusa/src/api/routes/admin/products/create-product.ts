@@ -583,12 +583,12 @@ class ProductVariantReq {
  *           type: object
  *           externalDocs:
  *             description: "Learn about the metadata attribute, and how to delete and update it."
- *             url: "https://docs.medusajs.com/development/entities/overview#metadata-attribute"
+ *             url: "https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute"
  *         prices:
  *           type: array
  *           description: An array of product variant prices. A product variant can have different prices for each region or currency code.
  *           externalDocs:
- *             url: https://docs.medusajs.com/modules/products/admin/manage-products#product-variant-prices
+ *             url: https://docs.medusajs.com/v1/modules/products/admin/manage-products#product-variant-prices
  *             description: Product variant pricing.
  *           items:
  *             type: object
@@ -617,7 +617,7 @@ class ProductVariantReq {
  *           type: array
  *           description: An array of Product Option values that the variant corresponds to. The option values should be added into the array in the same index as in the `options` field of the product.
  *           externalDocs:
- *             url: https://docs.medusajs.com/modules/products/admin/manage-products#create-a-product
+ *             url: https://docs.medusajs.com/v1/modules/products/admin/manage-products#create-a-product
  *             description: Example of how to create a product with options and variants
  *           items:
  *             type: object
@@ -656,7 +656,7 @@ class ProductVariantReq {
  *     type: object
  *     externalDocs:
  *       description: "Learn about the metadata attribute, and how to delete and update it."
- *       url: "https://docs.medusajs.com/development/entities/overview#metadata-attribute"
+ *       url: "https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute"
  */
 export class AdminPostProductsReq {
   @IsString()

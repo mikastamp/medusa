@@ -12,7 +12,7 @@
 </h1>
 
 <h4 align="center">
-  <a href="https://docs.medusajs.com/ui">Documentation</a> |
+  <a href="https://docs.medusajs.com/v1/ui">Documentation</a> |
   <a href="https://www.medusajs.com">Website</a>
 </h4>
 

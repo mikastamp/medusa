@@ -28,7 +28,7 @@ export type ReturnedData = {
  *
  * :::note[Prerequisites]
  *
- * Before creating a Notification Provider, [install an event bus module](https://docs.medusajs.com/development/events/modules/redis).
+ * Before creating a Notification Provider, [install an event bus module](https://docs.medusajs.com/v1/development/events/modules/redis).
  *
  * :::
  *
@@ -82,7 +82,7 @@ export type ReturnedData = {
  * The `NotificationProvider` entity has 2 properties: `identifier` and `is_installed`. The value of the `identifier` property in the notification provider
  * class is used when the Notification Provider is created in the database.
  *
- * The value of this property is also used later when you want to subscribe the Notification Provider to events in a [Loader](https://docs.medusajs.com/development/loaders/overview).
+ * The value of this property is also used later when you want to subscribe the Notification Provider to events in a [Loader](https://docs.medusajs.com/v1/development/loaders/overview).
  *
  * For example:
  *
@@ -97,7 +97,7 @@ export type ReturnedData = {
  */
 export interface INotificationService extends TransactionBaseService {
   /**
-   * When an event is triggered that your Notification Provider is registered as a handler for, the [`NotificationService`](https://docs.medusajs.com/references/services/classes/services.NotificationService)
+   * When an event is triggered that your Notification Provider is registered as a handler for, the [`NotificationService`](https://docs.medusajs.com/v1/references/services/classes/services.NotificationService)
    * in the Medusa backend executes this method of your Notification Provider.
    *
    * In this method, you can perform the necessary operation to send the Notification. For example, you can send an email to the customer when they place an order.
@@ -105,9 +105,9 @@ export interface INotificationService extends TransactionBaseService {
    * @param {string} event - The name of the event that was triggered. For example, `order.placed`.
    * @param {unknown} data - The data payload of the event that was triggered. For example, if the `order.placed` event is triggered,
    * the `eventData` object contains the property `id` which is the ID of the order that was placed. You can refer to the
-   * [Events reference](https://docs.medusajs.com/development/events/events-list) for information on all events and their payloads.
+   * [Events reference](https://docs.medusajs.com/v1/development/events/events-list) for information on all events and their payloads.
    * @param {unknown} attachmentGenerator - If you’ve previously register an attachment generator to the `NotificationService` using the
-   * [`registerAttachmentGenerator`](https://docs.medusajs.com/references/services/classes/services.NotificationService#registerattachmentgenerator) method,
+   * [`registerAttachmentGenerator`](https://docs.medusajs.com/v1/references/services/classes/services.NotificationService#registerattachmentgenerator) method,
    * you have access to it here. You can use the `attachmentGenerator` to generate on-demand invoices or other documents. The default value of this parameter is `null`.
    * @returns {Promise<ReturnedData>} The sending details.
    *
@@ -152,15 +152,15 @@ export interface INotificationService extends TransactionBaseService {
 
   /**
    * This method is used to resend notifications, which is typically triggered by the
-   * [Resend Notification API Route](https://docs.medusajs.com/api/admin#notifications_postnotificationsnotificationresend).
+   * [Resend Notification API Route](https://docs.medusajs.com/v1/api/admin#notifications_postnotificationsnotificationresend).
    *
-   * @param {unknown} notification - The original [Notification record](https://docs.medusajs.com/references/entities/classes/Notification) that was created after you sent the
+   * @param {unknown} notification - The original [Notification record](https://docs.medusajs.com/v1/references/entities/classes/Notification) that was created after you sent the
    * notification with `sendNotification`. It includes the `to` and `data` attributes which are populated originally using the `to` and `data` properties of
    * the object you return in {@link sendNotification}.
-   * @param {unknown} config - The new configuration used to resend the notification. The [Resend Notification API Route](https://docs.medusajs.com/api/admin#notifications_postnotificationsnotificationresend),
+   * @param {unknown} config - The new configuration used to resend the notification. The [Resend Notification API Route](https://docs.medusajs.com/v1/api/admin#notifications_postnotificationsnotificationresend),
    * allows you to pass a new `to` field. If specified, it will be available in this config object.
    * @param {unknown} attachmentGenerator - f you’ve previously register an attachment generator to the `NotificationService` using the
-   * [`registerAttachmentGenerator`](https://docs.medusajs.com/references/services/classes/services.NotificationService#registerattachmentgenerator) method,
+   * [`registerAttachmentGenerator`](https://docs.medusajs.com/v1/references/services/classes/services.NotificationService#registerattachmentgenerator) method,
    * you have access to it here. You can use the `attachmentGenerator` to generate on-demand invoices or other documents. The default value of this parameter is `null`.
    * @returns {Promise<ReturnedData>} The resend details.
    *

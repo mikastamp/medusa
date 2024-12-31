@@ -77,7 +77,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "This method calculates the tax amount for a given set of line items under applicable\ntax conditions and calculation contexts.\n\nThis method is used whenever taxes are calculated. If automatic tax calculation is disabled in a region,\nthen it's only triggered when taxes are calculated manually as explained in\n[this guide](https://docs.medusajs.com/modules/taxes/storefront/manual-calculation)."
+										"text": "This method calculates the tax amount for a given set of line items under applicable\ntax conditions and calculation contexts.\n\nThis method is used whenever taxes are calculated. If automatic tax calculation is disabled in a region,\nthen it's only triggered when taxes are calculated manually as explained in\n[this guide](https://docs.medusajs.com/v1/modules/taxes/storefront/manual-calculation)."
 									}
 								],
 								"blockTags": [
@@ -155,19 +155,19 @@
 												{
 													"type": "reference",
 													"target": {
-														"sourceFileName": "../../../packages/medusa/src/models/line-item-tax-line.ts",
-														"qualifiedName": "LineItemTaxLine"
+														"sourceFileName": "../../../packages/medusa/src/models/shipping-method-tax-line.ts",
+														"qualifiedName": "ShippingMethodTaxLine"
 													},
-													"name": "LineItemTaxLine",
+													"name": "ShippingMethodTaxLine",
 													"package": "@medusajs/medusa"
 												},
 												{
 													"type": "reference",
 													"target": {
-														"sourceFileName": "../../../packages/medusa/src/models/shipping-method-tax-line.ts",
-														"qualifiedName": "ShippingMethodTaxLine"
+														"sourceFileName": "../../../packages/medusa/src/models/line-item-tax-line.ts",
+														"qualifiedName": "LineItemTaxLine"
 													},
-													"name": "ShippingMethodTaxLine",
+													"name": "LineItemTaxLine",
 													"package": "@medusajs/medusa"
 												}
 											]
@@ -486,7 +486,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "This method calculates the tax amount for a given set of line items under applicable\ntax conditions and calculation contexts.\n\nThis method is used whenever taxes are calculated. If automatic tax calculation is disabled in a region,\nthen it's only triggered when taxes are calculated manually as explained in\n[this guide](https://docs.medusajs.com/modules/taxes/storefront/manual-calculation)."
+										"text": "This method calculates the tax amount for a given set of line items under applicable\ntax conditions and calculation contexts.\n\nThis method is used whenever taxes are calculated. If automatic tax calculation is disabled in a region,\nthen it's only triggered when taxes are calculated manually as explained in\n[this guide](https://docs.medusajs.com/v1/modules/taxes/storefront/manual-calculation)."
 									}
 								],
 								"blockTags": [
@@ -564,19 +564,19 @@
 												{
 													"type": "reference",
 													"target": {
-														"sourceFileName": "../../../packages/medusa/src/models/line-item-tax-line.ts",
-														"qualifiedName": "LineItemTaxLine"
+														"sourceFileName": "../../../packages/medusa/src/models/shipping-method-tax-line.ts",
+														"qualifiedName": "ShippingMethodTaxLine"
 													},
-													"name": "LineItemTaxLine",
+													"name": "ShippingMethodTaxLine",
 													"package": "@medusajs/medusa"
 												},
 												{
 													"type": "reference",
 													"target": {
-														"sourceFileName": "../../../packages/medusa/src/models/shipping-method-tax-line.ts",
-														"qualifiedName": "ShippingMethodTaxLine"
+														"sourceFileName": "../../../packages/medusa/src/models/line-item-tax-line.ts",
+														"qualifiedName": "LineItemTaxLine"
 													},
-													"name": "ShippingMethodTaxLine",
+													"name": "LineItemTaxLine",
 													"package": "@medusajs/medusa"
 												}
 											]

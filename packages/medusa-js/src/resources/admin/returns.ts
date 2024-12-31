@@ -10,7 +10,7 @@ import { ResponsePromise } from "../../typings"
 import BaseResource from "../base"
 
 /**
- * This class is used to send requests to [Admin Return API Routes](https://docs.medusajs.com/api/admin#returns). All its method
+ * This class is used to send requests to [Admin Return API Routes](https://docs.medusajs.com/v1/api/admin#returns). All its method
  * are available in the JS Client under the `medusa.admin.returns` property.
  * 
  * All methods in this class require {@link AdminAuthResource.createSession | user authentication}.
@@ -18,7 +18,7 @@ import BaseResource from "../base"
  * A return can be created by a customer or an admin to return items in an order.
  * Admins can manage these returns and change their state.
  * 
- * Related Guide: [How to manage returns](https://docs.medusajs.com/modules/orders/admin/manage-returns).
+ * Related Guide: [How to manage returns](https://docs.medusajs.com/v1/modules/orders/admin/manage-returns).
  */
 class AdminReturnsResource extends BaseResource {
   /**

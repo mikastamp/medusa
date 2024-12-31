@@ -41,7 +41,7 @@ import { defaultStoreProductRemoteQueryObject } from "./index"
  *   You can alternatively use a publishable API key in the request header instead of passing a `sales_channel_id`.
  * externalDocs:
  *   description: "How to retrieve a product by its handle"
- *   url: "https://docs.medusajs.com/modules/products/storefront/show-products#retrieve-product-by-handle"
+ *   url: "https://docs.medusajs.com/v1/modules/products/storefront/show-products#retrieve-product-by-handle"
  * parameters:
  *   - (query) q {string} term used to search products' title, description, variant's title, variant's sku, and collection's title.
  *   - in: query

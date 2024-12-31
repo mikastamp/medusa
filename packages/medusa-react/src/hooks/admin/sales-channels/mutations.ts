@@ -324,7 +324,7 @@ export const useAdminAddProductsToSalesChannel = (
 
 /**
  * This hook associates a stock location with a sales channel. It requires the 
- * [@medusajs/stock-location](https://docs.medusajs.com/modules/multiwarehouse/install-modules#stock-location-module) module to be installed in
+ * [@medusajs/stock-location](https://docs.medusajs.com/v1/modules/multiwarehouse/install-modules#stock-location-module) module to be installed in
  * your Medusa backend.
  * 
  * @example
@@ -397,7 +397,7 @@ export const useAdminAddLocationToSalesChannel = (
 /**
  * This hook removes a stock location from a sales channel. This only removes the association between the stock 
  * location and the sales channel. It does not delete the stock location. This hook requires the 
- * [@medusajs/stock-location](https://docs.medusajs.com/modules/multiwarehouse/install-modules#stock-location-module) module to be installed in
+ * [@medusajs/stock-location](https://docs.medusajs.com/v1/modules/multiwarehouse/install-modules#stock-location-module) module to be installed in
  * your Medusa backend.
  * 
  * @example

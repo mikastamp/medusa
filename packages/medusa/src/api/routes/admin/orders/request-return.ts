@@ -28,7 +28,7 @@ import { cleanResponseData } from "../../../../utils/clean-response-data"
  * x-authenticated: true
  * externalDocs:
  *   description: Return creation process
- *   url: https://docs.medusajs.com/modules/orders/returns#returns-process
+ *   url: https://docs.medusajs.com/v1/modules/orders/returns#returns-process
  * parameters:
  *   - (path) id=* {string} The ID of the Order.
  *   - (query) expand {string} Comma-separated relations that should be expanded in the returned order.

@@ -25,7 +25,7 @@ import { Logger } from "@medusajs/types"
  * description: "Create a Return for an Order. If a return shipping method is specified, the return is automatically fulfilled."
  * externalDocs:
  *   description: "How to create a return in a storefront"
- *   url: "https://docs.medusajs.com/modules/orders/storefront/create-return"
+ *   url: "https://docs.medusajs.com/v1/modules/orders/storefront/create-return"
  * requestBody:
  *   content:
  *     application/json:

@@ -4,7 +4,7 @@ Store uploaded files to your Medusa backend locally.
 
 > Not suited for production environments
 
-[Plugin Documentation](https://docs.medusajs.com/plugins/file-service/local) | [Medusa Website](https://medusajs.com) | [Medusa Repository](https://github.com/medusajs/medusa)
+[Plugin Documentation](https://docs.medusajs.com/v1/plugins/file-service/local) | [Medusa Website](https://medusajs.com) | [Medusa Repository](https://github.com/medusajs/medusa)
 
 ## Features
 
@@ -14,7 +14,7 @@ Store uploaded files to your Medusa backend locally.
 
 ## Prerequisites
 
-- [Medusa backend](https://docs.medusajs.com/development/backend/install)
+- [Medusa backend](https://docs.medusajs.com/v1/development/backend/install)
 
 ---
 
@@ -51,5 +51,5 @@ const plugins = [
 npm run start
 ```
 
-2\. Upload an image for a product using the admin dashboard or using [the Admin APIs](https://docs.medusajs.com/api/admin#tag/Upload).
+2\. Upload an image for a product using the admin dashboard or using [the Admin APIs](https://docs.medusajs.com/v1/api/admin#tag/Upload).
 

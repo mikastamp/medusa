@@ -13,7 +13,7 @@ import { Logger } from "@medusajs/types"
  *  Medusa's system provider, this may lead to sending requests to third-party services."
  * externalDocs:
  *   description: "How to calculate taxes manually during checkout"
- *   url: "https://docs.medusajs.com/modules/taxes/storefront/manual-calculation"
+ *   url: "https://docs.medusajs.com/v1/modules/taxes/storefront/manual-calculation"
  * parameters:
  *   - (path) id=* {String} The Cart ID.
  * x-codegen:

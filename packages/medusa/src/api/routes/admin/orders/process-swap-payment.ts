@@ -13,7 +13,7 @@ import { cleanResponseData } from "../../../../utils/clean-response-data"
  * x-authenticated: true
  * externalDocs:
  *   description: Handling a swap's payment
- *   url: https://docs.medusajs.com/modules/orders/swaps#handling-swap-payment
+ *   url: https://docs.medusajs.com/v1/modules/orders/swaps#handling-swap-payment
  * parameters:
  *   - (path) id=* {string} The ID of the order the swap is associated with.
  *   - (path) swap_id=* {string} The ID of the swap.

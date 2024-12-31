@@ -8,7 +8,7 @@ import ShippingProfileService from "../../../../services/shipping-profile"
  * description: "Retrieve a list of Shipping Options available for a cart."
  * externalDocs:
  *   description: "How to implement shipping step in checkout"
- *   url: "https://docs.medusajs.com/modules/carts-and-checkout/storefront/implement-checkout-flow#shipping-step"
+ *   url: "https://docs.medusajs.com/v1/modules/carts-and-checkout/storefront/implement-checkout-flow#shipping-step"
  * parameters:
  *   - (path) cart_id {string} The ID of the Cart.
  * x-codegen:

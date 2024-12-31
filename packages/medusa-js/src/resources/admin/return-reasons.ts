@@ -9,7 +9,7 @@ import { ResponsePromise } from "../../typings"
 import BaseResource from "../base"
 
 /**
- * This class is used to send requests to [Admin Return Reason API Routes](https://docs.medusajs.com/api/admin#return-reasons). All its method
+ * This class is used to send requests to [Admin Return Reason API Routes](https://docs.medusajs.com/v1/api/admin#return-reasons). All its method
  * are available in the JS Client under the `medusa.admin.returnReasons` property.
  * 
  * All methods in this class require {@link AdminAuthResource.createSession | user authentication}.
@@ -17,7 +17,7 @@ import BaseResource from "../base"
  * Return reasons are key-value pairs that are used to specify why an order return is being created.
  * Admins can manage available return reasons, and they can be used by both admins and customers when creating a return.
  * 
- * Related Guide: [How to manage return reasons](https://docs.medusajs.com/modules/orders/admin/manage-returns#manage-return-reasons).
+ * Related Guide: [How to manage return reasons](https://docs.medusajs.com/v1/modules/orders/admin/manage-returns#manage-return-reasons).
  */
 class AdminReturnReasonsResource extends BaseResource {
   /**

@@ -1,7 +1,7 @@
 /**
  * @packageDocumentation
  * 
- * Queries and Mutations listed here are used to send requests to the [Admin Publishable API Key API Routes](https://docs.medusajs.com/api/admin#publishable-api-keys).
+ * Queries and Mutations listed here are used to send requests to the [Admin Publishable API Key API Routes](https://docs.medusajs.com/v1/api/admin#publishable-api-keys).
  * 
  * All hooks listed require {@link Hooks.Admin.Auth.useAdminLogin | user authentication}.
  * 
@@ -13,7 +13,7 @@
  * 
  * Admins can manage publishable API keys and their associated resources. Currently, only Sales Channels are supported as a resource.
  * 
- * Related Guide: [How to manage publishable API keys](https://docs.medusajs.com/development/publishable-api-keys/admin/manage-publishable-api-keys).
+ * Related Guide: [How to manage publishable API keys](https://docs.medusajs.com/v1/development/publishable-api-keys/admin/manage-publishable-api-keys).
  * 
  * @customNamespace Hooks.Admin.Publishable API Keys
  */

@@ -269,7 +269,7 @@
 											},
 											{
 												"kind": "text",
-												"text": "\n\n:::note\n\nLearn more about the cache service in [this documentation](https://docs.medusajs.com/development/cache/overview).\n\n:::"
+												"text": "\n\n:::note\n\nLearn more about the cache service in [this documentation](https://docs.medusajs.com/v1/development/cache/overview).\n\n:::"
 											}
 										]
 									}
@@ -854,7 +854,7 @@
 											},
 											{
 												"kind": "text",
-												"text": "\n\n:::note\n\nLearn more about the cache service in [this documentation](https://docs.medusajs.com/development/cache/overview).\n\n:::"
+												"text": "\n\n:::note\n\nLearn more about the cache service in [this documentation](https://docs.medusajs.com/v1/development/cache/overview).\n\n:::"
 											}
 										]
 									}
@@ -1273,7 +1273,7 @@
 						"summary": [
 							{
 								"kind": "text",
-								"text": "The tax rates to be applied. This is only used for\n[Tax-Inclusive Pricing](https://docs.medusajs.com/modules/taxes/inclusive-pricing)."
+								"text": "The tax rates to be applied. This is only used for\n[Tax-Inclusive Pricing](https://docs.medusajs.com/v1/modules/taxes/inclusive-pricing)."
 							}
 						]
 					},
@@ -1496,7 +1496,7 @@
 						"summary": [
 							{
 								"kind": "text",
-								"text": "Whether the original price includes taxes or not. This is only available\nfor [Tax-Inclusive Pricing](https://docs.medusajs.com/modules/taxes/inclusive-pricing)."
+								"text": "Whether the original price includes taxes or not. This is only available\nfor [Tax-Inclusive Pricing](https://docs.medusajs.com/v1/modules/taxes/inclusive-pricing)."
 							}
 						]
 					},
@@ -1554,7 +1554,7 @@
 						"summary": [
 							{
 								"kind": "text",
-								"text": "Whether the calculated price includes taxes or not.\nThis is only available for [Tax-Inclusive Pricing](https://docs.medusajs.com/modules/taxes/inclusive-pricing)."
+								"text": "Whether the calculated price includes taxes or not.\nThis is only available for [Tax-Inclusive Pricing](https://docs.medusajs.com/v1/modules/taxes/inclusive-pricing)."
 							}
 						]
 					},

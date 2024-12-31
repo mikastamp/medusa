@@ -2,7 +2,7 @@
 
 Receive new order notifications on Slack.
 
-[Slack Plugin Documentation](https://docs.medusajs.com/plugins/notifications/slack) | [Medusa Website](https://medusajs.com) | [Medusa Repository](https://github.com/medusajs/medusa)
+[Slack Plugin Documentation](https://docs.medusajs.com/v1/plugins/notifications/slack) | [Medusa Website](https://medusajs.com) | [Medusa Repository](https://github.com/medusajs/medusa)
 
 ## Features
 
@@ -12,9 +12,9 @@ Receive new order notifications on Slack.
 
 ## Prerequisites
 
-- [Medusa backend](https://docs.medusajs.com/development/backend/install)
+- [Medusa backend](https://docs.medusajs.com/v1/development/backend/install)
 - [Slack account](https://slack.com)
-- [Redis](https://docs.medusajs.com/development/backend/prepare-environment#redis)
+- [Redis](https://docs.medusajs.com/v1/development/backend/prepare-environment#redis)
 
 ---
 
@@ -59,10 +59,10 @@ Receive new order notifications on Slack.
   npm run start
   ```
 
-2\. Place an order using a storefront or the [Store APIs](https://docs.medusajs.com/api/store). You should receive a notification on your Slack workspace.
+2\. Place an order using a storefront or the [Store APIs](https://docs.medusajs.com/v1/api/store). You should receive a notification on your Slack workspace.
 
 ---
 
 ## Additional Resources
 
-- [Slack Plugin Documentation](https://docs.medusajs.com/plugins/notifications/slack)
+- [Slack Plugin Documentation](https://docs.medusajs.com/v1/plugins/notifications/slack)

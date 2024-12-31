@@ -169,7 +169,7 @@ export abstract class AbstractSearchService
    * }
    * ```
    * 
-   * Another example of how the [MeiliSearch plugin](https://docs.medusajs.com/plugins/search/meilisearch) uses the
+   * Another example of how the [MeiliSearch plugin](https://docs.medusajs.com/v1/plugins/search/meilisearch) uses the
    * `options` parameter:
    * 
    * ```ts
@@ -315,7 +315,7 @@ export abstract class AbstractSearchService
   /**
    * This method is used to search through an index by a query.
    * 
-   * In the Medusa backend, this method is used within the [Search Products API Route](https://docs.medusajs.com/api/store#products_postproductssearch) 
+   * In the Medusa backend, this method is used within the [Search Products API Route](https://docs.medusajs.com/v1/api/store#products_postproductssearch) 
    * to retrieve the search results. The API route's response type is an array of items, though the item's format is not defined as it depends on the
    * data returned by this method.
    *

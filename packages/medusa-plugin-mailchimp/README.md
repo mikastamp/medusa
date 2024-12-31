@@ -2,7 +2,7 @@
 
 Manage newsletter subscriptions in your commerce application with Mailchimp.
 
-[Mailchimp Plugin Documentation](https://docs.medusajs.com/plugins/notifications/mailchimp) | [Medusa Website](https://medusajs.com/) | [Medusa Repository](https://github.com/medusajs/medusa)
+[Mailchimp Plugin Documentation](https://docs.medusajs.com/v1/plugins/notifications/mailchimp) | [Medusa Website](https://medusajs.com/) | [Medusa Repository](https://github.com/medusajs/medusa)
 
 ## Features
 
@@ -13,7 +13,7 @@ Manage newsletter subscriptions in your commerce application with Mailchimp.
 
 ## Prerequisites
 
-- [Medusa backend](https://docs.medusajs.com/development/backend/install)
+- [Medusa backend](https://docs.medusajs.com/v1/development/backend/install)
 - [Mailchimp account](https://mailchimp.com/signup)
 
 ---
@@ -64,4 +64,4 @@ npm run start
 
 ## Additional Resources
 
-- [Mailchimp Plugin Documentation](https://docs.medusajs.com/plugins/notifications/mailchimp)
+- [Mailchimp Plugin Documentation](https://docs.medusajs.com/v1/plugins/notifications/mailchimp)

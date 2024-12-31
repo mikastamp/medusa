@@ -186,7 +186,7 @@ async function getPublicOas(
   apiType: ApiType,
   v2?: boolean
 ) {
-  const url = `https://docs.medusajs.com/api/download/${apiType}?version=${v2 ? "2" : "1"}`
+  const url = `https://docs.medusajs.com/v1/api/download/${apiType}?version=${v2 ? "2" : "1"}`
   return await OpenAPIParser.parse(url) as OpenAPIObject
 }
 

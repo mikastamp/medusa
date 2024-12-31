@@ -75,8 +75,8 @@ const CartContext = React.createContext<CartContext | null>(null)
  * 
  * The context provides helper functions and mutations for managing the cart and checkout. You can refer to the following guides for examples on how to use them:
  * 
- * - [How to Add Cart Functionality](https://docs.medusajs.com/modules/carts-and-checkout/storefront/implement-cart)
- * - [How to Implement Checkout Flow](https://docs.medusajs.com/modules/carts-and-checkout/storefront/implement-checkout-flow)
+ * - [How to Add Cart Functionality](https://docs.medusajs.com/v1/modules/carts-and-checkout/storefront/implement-cart)
+ * - [How to Implement Checkout Flow](https://docs.medusajs.com/v1/modules/carts-and-checkout/storefront/implement-checkout-flow)
  * 
  * @example
  * ```tsx title="src/Cart.ts"

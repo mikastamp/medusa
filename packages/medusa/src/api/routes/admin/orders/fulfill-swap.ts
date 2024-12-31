@@ -20,7 +20,7 @@ import { updateInventoryAndReservations } from "./create-fulfillment"
  * x-authenticated: true
  * externalDocs:
  *   description: Handling a swap's fulfillment
- *   url: https://docs.medusajs.com/modules/orders/swaps#handling-swap-fulfillment
+ *   url: https://docs.medusajs.com/v1/modules/orders/swaps#handling-swap-fulfillment
  * parameters:
  *   - (path) id=* {string} The ID of the Order the swap is associated with.
  *   - (path) swap_id=* {string} The ID of the Swap.
@@ -188,7 +188,7 @@ export default async (req, res) => {
  *     type: object
  *     externalDocs:
  *       description: "Learn about the metadata attribute, and how to delete and update it."
- *       url: "https://docs.medusajs.com/development/entities/overview#metadata-attribute"
+ *       url: "https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute"
  *   no_notification:
  *     description: If set to `true`, no notification will be sent to the customer related to this swap.
  *     type: boolean

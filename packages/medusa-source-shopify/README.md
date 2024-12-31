@@ -13,7 +13,7 @@ Migrate your products and categories from Shopify to Medusa.
 
 ## Prerequisites
 
-- [Medusa backend](https://docs.medusajs.com/development/backend/install)
+- [Medusa backend](https://docs.medusajs.com/v1/development/backend/install)
 - [Shopify account](https://shopify.dev/)
 
 ---

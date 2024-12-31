@@ -276,7 +276,7 @@ export interface IPaymentProvider {
    * This method is called when a payment session should be authorized.
    * You can interact with a third-party provider and perform the necessary actions to authorize the payment.
    *
-   * Refer to [this guide](https://docs.medusajs.com/experimental/payment/payment-flow/#3-authorize-payment-session)
+   * Refer to [this guide](https://docs.medusajs.com/v1/experimental/payment/payment-flow/#3-authorize-payment-session)
    * to learn more about how this fits into the payment flow and how to handle required actions.
    *
    * @param {Record<string, unknown>} paymentSessionData - The `data` field of the payment session.
@@ -294,7 +294,7 @@ export interface IPaymentProvider {
    *
    * - The payment provider supports automatically capturing the payment after authorization.
    * - The merchant requests to capture the payment after its associated payment session was authorized.
-   * - A webhook event occurred that instructs the payment provider to capture the payment session. Learn more about handing webhook events in [this guide](https://docs.medusajs.com/experimental/payment/webhook-events/)
+   * - A webhook event occurred that instructs the payment provider to capture the payment session. Learn more about handing webhook events in [this guide](https://docs.medusajs.com/v1/experimental/payment/webhook-events/)
    *
    * In this method, you can interact with the third-party provider and perform any actions necessary to capture the payment.
    *
@@ -360,7 +360,7 @@ export interface IPaymentProvider {
    *
    * The method is responsible for normalizing the received event and inform the Payment Module of actions to perform, such as authorize or capture payment.
    *
-   * Learn more about handling webhook events in [this guide](https://docs.medusajs.com/experimental/payment/webhook-events/)
+   * Learn more about handling webhook events in [this guide](https://docs.medusajs.com/v1/experimental/payment/webhook-events/)
    *
    * @param data - The webhook event's details.
    */

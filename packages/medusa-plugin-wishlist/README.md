@@ -12,7 +12,7 @@ Add wishlist capabilities to your commerce application.
 
 ## Prerequisites
 
-- [Medusa backend](https://docs.medusajs.com/development/backend/install)
+- [Medusa backend](https://docs.medusajs.com/v1/development/backend/install)
 
 ---
 
@@ -37,4 +37,4 @@ Add wishlist capabilities to your commerce application.
 
 ## Test the Plugin
 
-Learn about testing the plugin in [the documentation](https://docs.medusajs.com/plugins/other/wishlist)
+Learn about testing the plugin in [the documentation](https://docs.medusajs.com/v1/plugins/other/wishlist)

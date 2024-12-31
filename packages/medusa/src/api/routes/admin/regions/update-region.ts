@@ -147,7 +147,7 @@ export default async (req, res) => {
  *     description: >-
  *       If set to `true`, the Medusa backend will automatically calculate taxes for carts in this region. If set to `false`, the taxes must be calculated manually.
  *     externalDocs:
- *       url: https://docs.medusajs.com/modules/taxes/storefront/manual-calculation
+ *       url: https://docs.medusajs.com/v1/modules/taxes/storefront/manual-calculation
  *       description: How to calculate taxes in a storefront.
  *     type: boolean
  *   gift_cards_taxable:

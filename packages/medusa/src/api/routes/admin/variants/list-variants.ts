@@ -60,7 +60,7 @@ import { IsType } from "../../../../utils/validators/is-type"
  *       type: string
  *       externalDocs:
  *         description: "Price selection context overview"
- *         url: "https://docs.medusajs.com/modules/price-lists/price-selection-strategy#context-object"
+ *         url: "https://docs.medusajs.com/v1/modules/price-lists/price-selection-strategy#context-object"
  *   - in: query
  *     name: currency_code
  *     style: form
@@ -70,7 +70,7 @@ import { IsType } from "../../../../utils/validators/is-type"
  *       type: string
  *       externalDocs:
  *         description: "Price selection context overview"
- *         url: "https://docs.medusajs.com/modules/price-lists/price-selection-strategy#context-object"
+ *         url: "https://docs.medusajs.com/v1/modules/price-lists/price-selection-strategy#context-object"
  *   - in: query
  *     name: customer_id
  *     style: form
@@ -80,7 +80,7 @@ import { IsType } from "../../../../utils/validators/is-type"
  *       type: string
  *       externalDocs:
  *         description: "Price selection context overview"
- *         url: "https://docs.medusajs.com/modules/price-lists/price-selection-strategy#context-object"
+ *         url: "https://docs.medusajs.com/v1/modules/price-lists/price-selection-strategy#context-object"
  *   - in: query
  *     name: title
  *     style: form

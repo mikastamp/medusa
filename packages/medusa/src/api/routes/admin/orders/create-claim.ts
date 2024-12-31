@@ -26,7 +26,7 @@ import { cleanResponseData } from "../../../../utils/clean-response-data"
  *  the refund is processed as well."
  * externalDocs:
  *   description: How are claims created
- *   url: https://docs.medusajs.com/modules/orders/claims#how-are-claims-created
+ *   url: https://docs.medusajs.com/v1/modules/orders/claims#how-are-claims-created
  * x-authenticated: true
  * parameters:
  *   - (path) id=* {string} The ID of the Order.
@@ -527,7 +527,7 @@ class AdditionalItem {
  *      type: object
  *      externalDocs:
  *        description: "Learn about the metadata attribute, and how to delete and update it."
- *        url: "https://docs.medusajs.com/development/entities/overview#metadata-attribute"
+ *        url: "https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute"
  */
 export class AdminPostOrdersOrderClaimsReq {
   @IsEnum(ClaimType)

@@ -2,7 +2,7 @@
 
 Store uploaded files to your Medusa backend on Spaces.
 
-[Plugin Documentation](https://docs.medusajs.com/plugins/file-service/spaces) | [Medusa Website](https://medusajs.com) | [Medusa Repository](https://github.com/medusajs/medusa)
+[Plugin Documentation](https://docs.medusajs.com/v1/plugins/file-service/spaces) | [Medusa Website](https://medusajs.com) | [Medusa Repository](https://github.com/medusajs/medusa)
 
 ## Features
 
@@ -13,7 +13,7 @@ Store uploaded files to your Medusa backend on Spaces.
 
 ## Prerequisites
 
-- [Medusa backend](https://docs.medusajs.com/development/backend/install)
+- [Medusa backend](https://docs.medusajs.com/v1/development/backend/install)
 - [DigitalOcean Spaces](https://www.digitalocean.com/products/spaces)
 
 ---
@@ -64,10 +64,10 @@ Store uploaded files to your Medusa backend on Spaces.
   npm run start
   ```
 
-2\. Upload an image for a product using the admin dashboard or using [the Admin APIs](https://docs.medusajs.com/api/admin#tag/Upload).
+2\. Upload an image for a product using the admin dashboard or using [the Admin APIs](https://docs.medusajs.com/v1/api/admin#tag/Upload).
 
 ---
 
 ## Additional Resources
 
-- [Spaces Plugin Documentation](https://docs.medusajs.com/plugins/file-service/spaces)
+- [Spaces Plugin Documentation](https://docs.medusajs.com/v1/plugins/file-service/spaces)

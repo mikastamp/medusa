@@ -16,7 +16,7 @@ import { EntityManager } from "typeorm"
  * password with this request."
  * externalDocs:
  *   description: How to reset a user's password
- *   url: https://docs.medusajs.com/modules/users/admin/manage-profile#reset-password
+ *   url: https://docs.medusajs.com/v1/modules/users/admin/manage-profile#reset-password
  * requestBody:
  *   content:
  *     application/json:

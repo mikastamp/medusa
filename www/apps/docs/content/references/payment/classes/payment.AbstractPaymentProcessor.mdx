@@ -110,7 +110,7 @@ abstract class StripeBase extends AbstractPaymentProcessor {
 
 ## constructor
 
-You can use the `constructor` of your Payment Processor to have access to different services in Medusa through [dependency injection](https://docs.medusajs.com/development/fundamentals/dependency-injection).
+You can use the `constructor` of your Payment Processor to have access to different services in Medusa through [dependency injection](https://docs.medusajs.com/v1/development/fundamentals/dependency-injection).
 
 You can also use the constructor to initialize your integration with the third-party provider. For example, if you use a client to connect to the third-party provider’s APIs,
 you can initialize it in the constructor and use it in other methods in the service.
@@ -137,7 +137,7 @@ class MyPaymentService extends AbstractPaymentProcessor {
 
 ### Parameters
 
-<TypeList types={[{"name":"container","type":"`Record<string, unknown>`","description":"An instance of `MedusaContainer` that allows you to access other resources, such as services, in your Medusa backend through [dependency injection](https://docs.medusajs.com/development/fundamentals/dependency-injection)","optional":false,"defaultValue":"","expandable":false,"children":[]},{"name":"config","type":"`Record<string, unknown>`","description":"If this payment processor is created in a plugin, the plugin's options are passed in this parameter.","optional":true,"defaultValue":"","expandable":false,"children":[]}]}  sectionTitle="new AbstractPaymentProcessor"/>
+<TypeList types={[{"name":"container","type":"`Record<string, unknown>`","description":"An instance of `MedusaContainer` that allows you to access other resources, such as services, in your Medusa backend through [dependency injection](https://docs.medusajs.com/v1/development/fundamentals/dependency-injection)","optional":false,"defaultValue":"","expandable":false,"children":[]},{"name":"config","type":"`Record<string, unknown>`","description":"If this payment processor is created in a plugin, the plugin's options are passed in this parameter.","optional":true,"defaultValue":"","expandable":false,"children":[]}]}  sectionTitle="new AbstractPaymentProcessor"/>
 
 ___
 
@@ -250,7 +250,7 @@ class MyPaymentService extends AbstractPaymentProcessor {
 
 #### Parameters
 
-<TypeList types={[{"name":"paymentSessionData","type":"`Record<string, unknown>`","description":"The `data` field of the payment session.","optional":false,"defaultValue":"","expandable":false,"children":[]},{"name":"context","type":"`Record<string, unknown>`","description":"The context of the authorization. It may include some of the following fields:\n\n- `ip`: The customer’s IP.\n- `idempotency_key`: The [Idempotency Key](https://docs.medusajs.com/modules/carts-and-checkout/payment#idempotency-key) that is associated with the current cart. It is useful when retrying payments, retrying checkout at a failed point, or for payments that require additional actions from the customer.\n- `cart_id`: The ID of a cart. This is only during operations like placing an order or creating a swap.","optional":false,"defaultValue":"","expandable":false,"children":[]}]}  sectionTitle="authorizePayment"/>
+<TypeList types={[{"name":"paymentSessionData","type":"`Record<string, unknown>`","description":"The `data` field of the payment session.","optional":false,"defaultValue":"","expandable":false,"children":[]},{"name":"context","type":"`Record<string, unknown>`","description":"The context of the authorization. It may include some of the following fields:\n\n- `ip`: The customer’s IP.\n- `idempotency_key`: The [Idempotency Key](https://docs.medusajs.com/v1/modules/carts-and-checkout/payment#idempotency-key) that is associated with the current cart. It is useful when retrying payments, retrying checkout at a failed point, or for payments that require additional actions from the customer.\n- `cart_id`: The ID of a cart. This is only during operations like placing an order or creating a swap.","optional":false,"defaultValue":"","expandable":false,"children":[]}]}  sectionTitle="authorizePayment"/>
 
 #### Returns
 
@@ -628,6 +628,6 @@ npm run build
 npx medusa develop
 ```
 
-3\. Enable your payment processor in one or more regions. You can do that either using the [Admin APIs](https://docs.medusajs.com/v1/api/admin#regions_postregionsregionpaymentproviders) or the [Medusa Admin](https://docs.medusajs.com/user-guide/regions/providers#manage-payment-providers).
+3\. Enable your payment processor in one or more regions. You can do that either using the [Admin APIs](https://docs.medusajs.com/api/admin#regions_postregionsregionpaymentproviders) or the [Medusa Admin](https://docs.medusajs.com/user-guide/regions/providers#manage-payment-providers).
 
 4\. There are different ways to test out your payment processor, such as authorizing payment on order completion or capturing payment of an order. You test payment in a checkout flow either using the [Next.js starter](https://docs.medusajs.com/starters/nextjs-medusa-starter) or [using Medusa's APIs and clients](https://docs.medusajs.com/modules/carts-and-checkout/storefront/implement-checkout-flow).

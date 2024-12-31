@@ -8,7 +8,7 @@ import { ResponsePromise } from "../../typings"
 import BaseResource from "../base"
 
 /**
- * This class is used to send requests to [Admin Swap API Routes](https://docs.medusajs.com/api/admin#swaps). All its method
+ * This class is used to send requests to [Admin Swap API Routes](https://docs.medusajs.com/v1/api/admin#swaps). All its method
  * are available in the JS Client under the `medusa.admin.swaps` property.
  * 
  * All methods in this class require {@link AdminAuthResource.createSession | user authentication}.
@@ -16,7 +16,7 @@ import BaseResource from "../base"
  * A swap is created by a customer or an admin to exchange an item with a new one.
  * Creating a swap implicitely includes creating a return for the item being exchanged.
  * 
- * Related Guide: [How to manage swaps](https://docs.medusajs.com/modules/orders/admin/manage-swaps)
+ * Related Guide: [How to manage swaps](https://docs.medusajs.com/v1/modules/orders/admin/manage-swaps)
  */
 class AdminSwapsResource extends BaseResource {
   /**

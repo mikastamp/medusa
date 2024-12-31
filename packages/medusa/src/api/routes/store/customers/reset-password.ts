@@ -14,7 +14,7 @@ import { MedusaError } from "medusa-core-utils"
  *  you must create a new one."
  * externalDocs:
  *   description: "How to reset password"
- *   url: "https://docs.medusajs.com/modules/customers/storefront/implement-customer-profiles#reset-password"
+ *   url: "https://docs.medusajs.com/v1/modules/customers/storefront/implement-customer-profiles#reset-password"
  * requestBody:
  *   content:
  *     application/json:

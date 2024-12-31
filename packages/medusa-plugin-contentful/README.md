@@ -2,7 +2,7 @@
 
 Manage the content of your storefront with rich Content Management System (CMS) capabilities using Contentful.
 
-[Contentful Plugin Documentation](https://docs.medusajs.com/plugins/cms/contentful/) | [Medusa Website](https://medusajs.com/) | [Medusa Repository](https://github.com/medusajs/medusa)
+[Contentful Plugin Documentation](https://docs.medusajs.com/v1/plugins/cms/contentful/) | [Medusa Website](https://medusajs.com/) | [Medusa Repository](https://github.com/medusajs/medusa)
 
 ## Features
 
@@ -15,9 +15,9 @@ Manage the content of your storefront with rich Content Management System (CMS) 
 ## Prerequisites
 
 - [Contentful account](https://www.contentful.com)
-- [Medusa CLI Tool](https://docs.medusajs.com/cli/reference#how-to-install-cli-tool)
-- [PostgreSQL](https://docs.medusajs.com/development/backend/prepare-environment#postgresql)
-- [Redis](https://docs.medusajs.com/development/backend/prepare-environment#redis)
+- [Medusa CLI Tool](https://docs.medusajs.com/v1/cli/reference#how-to-install-cli-tool)
+- [PostgreSQL](https://docs.medusajs.com/v1/development/backend/prepare-environment#postgresql)
+- [Redis](https://docs.medusajs.com/v1/development/backend/prepare-environment#redis)
 
 ---
 
@@ -67,10 +67,10 @@ Manage the content of your storefront with rich Content Management System (CMS) 
   npm run start
   ```
 
-2\. You can then setup the [Gatsby Contentful Storefront](https://docs.medusajs.com/plugins/cms/contentful/#setup-gatsby-storefront), or connect to Contentful from your own storefront to retrieve content data.
+2\. You can then setup the [Gatsby Contentful Storefront](https://docs.medusajs.com/v1/plugins/cms/contentful/#setup-gatsby-storefront), or connect to Contentful from your own storefront to retrieve content data.
 
 ---
 
 ## Additional Resources
 
-- [Contentful Plugin Documentation](https://docs.medusajs.com/plugins/cms/contentful/)
+- [Contentful Plugin Documentation](https://docs.medusajs.com/v1/plugins/cms/contentful/)

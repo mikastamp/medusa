@@ -9,7 +9,7 @@ import { ResponsePromise } from "../../typings"
 import BaseResource from "../base"
 
 /**
- * This class is used to send requests to [Admin Shipping Profile API Routes](https://docs.medusajs.com/api/admin#shipping-profiles). All its method
+ * This class is used to send requests to [Admin Shipping Profile API Routes](https://docs.medusajs.com/v1/api/admin#shipping-profiles). All its method
  * are available in the JS Client under the `medusa.admin.shippingProfiles` property.
  * 
  * All methods in this class require {@link AdminAuthResource.createSession | user authentication}.
@@ -17,7 +17,7 @@ import BaseResource from "../base"
  * A shipping profile is used to group products that can be shipped in the same manner.
  * They are created by the admin and they're not associated with a fulfillment provider.
  * 
- * Related Guide: [Shipping Profile architecture](https://docs.medusajs.com/modules/carts-and-checkout/shipping#shipping-profile).
+ * Related Guide: [Shipping Profile architecture](https://docs.medusajs.com/v1/modules/carts-and-checkout/shipping#shipping-profile).
  */
 class AdminShippingProfilesResource extends BaseResource {
   /**

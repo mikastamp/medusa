@@ -10,7 +10,7 @@ import BaseResource from "../base"
 import { stringifyNullProperties } from "../../utils"
 
 /**
- * This class is used to send requests to [Admin Batch Job API Routes](https://docs.medusajs.com/api/admin#batch-jobs). All its method
+ * This class is used to send requests to [Admin Batch Job API Routes](https://docs.medusajs.com/v1/api/admin#batch-jobs). All its method
  * are available in the JS Client under the `medusa.admin.batchJobs` property.
  * 
  * All methods in this class require {@link AdminAuthResource.createSession | user authentication}.
@@ -18,7 +18,7 @@ import { stringifyNullProperties } from "../../utils"
  * A batch job is a task that is performed by the Medusa backend asynchronusly. For example, the Import Product feature is implemented using batch jobs.
  * The methods in this class allow admins to manage the batch jobs and their state.
  * 
- * Related Guide: [How to import products](https://docs.medusajs.com/modules/products/admin/import-products).
+ * Related Guide: [How to import products](https://docs.medusajs.com/v1/modules/products/admin/import-products).
  */
 class AdminBatchJobsResource extends BaseResource {
 

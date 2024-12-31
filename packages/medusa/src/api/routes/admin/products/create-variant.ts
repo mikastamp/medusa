@@ -306,12 +306,12 @@ class ProductVariantOptionReq {
  *     type: object
  *     externalDocs:
  *       description: "Learn about the metadata attribute, and how to delete and update it."
- *       url: "https://docs.medusajs.com/development/entities/overview#metadata-attribute"
+ *       url: "https://docs.medusajs.com/v1/development/entities/overview#metadata-attribute"
  *   prices:
  *     type: array
  *     description: An array of product variant prices. A product variant can have different prices for each region or currency code.
  *     externalDocs:
- *       url: https://docs.medusajs.com/modules/products/admin/manage-products#product-variant-prices
+ *       url: https://docs.medusajs.com/v1/modules/products/admin/manage-products#product-variant-prices
  *       description: Product variant pricing.
  *     items:
  *       type: object

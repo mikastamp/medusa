@@ -1,7 +1,7 @@
 /**
  * @packageDocumentation
  * 
- * Queries and Mutations listed here are used to send requests to the [Admin Payment API Routes](https://docs.medusajs.com/api/admin#payments).
+ * Queries and Mutations listed here are used to send requests to the [Admin Payment API Routes](https://docs.medusajs.com/v1/api/admin#payments).
  * 
  * All hooks listed require {@link Hooks.Admin.Auth.useAdminLogin | user authentication}.
  * 

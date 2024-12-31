@@ -11,16 +11,16 @@ import { ResponsePromise } from "../../typings"
 import BaseResource from "../base"
 
 /**
- * This class is used to send requests to [Admin Reservation API Routes](https://docs.medusajs.com/api/admin#reservations). To use these API Routes, make sure to install the
- * [@medusajs/inventory](https://docs.medusajs.com/modules/multiwarehouse/install-modules#inventory-module) module in your Medusa backend.
+ * This class is used to send requests to [Admin Reservation API Routes](https://docs.medusajs.com/v1/api/admin#reservations). To use these API Routes, make sure to install the
+ * [@medusajs/inventory](https://docs.medusajs.com/v1/modules/multiwarehouse/install-modules#inventory-module) module in your Medusa backend.
  * 
  * All methods in this class require {@link AdminAuthResource.createSession | user authentication}. The methods
  * are available in the JS Client under the `medusa.admin.reservations` property.
  * 
- * Reservations, provided by the [Inventory Module](https://docs.medusajs.com/modules/multiwarehouse/inventory-module), are quantities of an item that are reserved, typically when an order is placed but not yet fulfilled.
+ * Reservations, provided by the [Inventory Module](https://docs.medusajs.com/v1/modules/multiwarehouse/inventory-module), are quantities of an item that are reserved, typically when an order is placed but not yet fulfilled.
  * Reservations can be associated with any resources, but commonly with line items of an order.
  * 
- * Related Guide: [How to manage item allocations in orders](https://docs.medusajs.com/modules/multiwarehouse/admin/manage-item-allocations-in-orders).
+ * Related Guide: [How to manage item allocations in orders](https://docs.medusajs.com/v1/modules/multiwarehouse/admin/manage-item-allocations-in-orders).
  */
 class AdminReservationsResource extends BaseResource {
   /**

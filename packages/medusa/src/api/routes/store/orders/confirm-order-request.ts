@@ -14,7 +14,7 @@ import { promiseAll } from "@medusajs/utils"
  * description: "Verify the claim order token provided to the customer when they request ownership of an order."
  * externalDocs:
  *   description: "How to implement claim-order flow in a storefront"
- *   url: "https://docs.medusajs.com/modules/orders/storefront/implement-claim-order"
+ *   url: "https://docs.medusajs.com/v1/modules/orders/storefront/implement-claim-order"
  * requestBody:
  *   content:
  *     application/json:

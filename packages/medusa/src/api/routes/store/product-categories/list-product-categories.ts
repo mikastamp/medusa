@@ -16,7 +16,7 @@ import { defaultStoreCategoryScope } from "."
  * x-featureFlag: "product_categories"
  * externalDocs:
  *   description: "How to retrieve a product category by its handle"
- *   url: "https://docs.medusajs.com/modules/products/storefront/use-categories#get-a-category-by-its-handle"
+ *   url: "https://docs.medusajs.com/v1/modules/products/storefront/use-categories#get-a-category-by-its-handle"
  * parameters:
  *   - (query) q {string} term used to search product category's names and handles.
  *   - (query) handle {string} Filter by handle.

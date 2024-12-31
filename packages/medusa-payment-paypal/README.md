@@ -2,21 +2,21 @@
 
 Receive payments on your Medusa commerce application using PayPal.
 
-[PayPal Plugin Documentation](https://docs.medusajs.com/plugins/payment/paypal) | [Medusa Website](https://medusajs.com/) | [Medusa Repository](https://github.com/medusajs/medusa)
+[PayPal Plugin Documentation](https://docs.medusajs.com/v1/plugins/payment/paypal) | [Medusa Website](https://medusajs.com/) | [Medusa Repository](https://github.com/medusajs/medusa)
 
 ## Features
 
 - Authorize payments on orders from any sales channel.
 - Capture payments from the admin dashboard.
 - View payment analytics through PayPal's dashboard.
-- Ready-integration with [Medusa's Next.js starter storefront](https://docs.medusajs.com/starters/nextjs-medusa-starter).
+- Ready-integration with [Medusa's Next.js starter storefront](https://docs.medusajs.com/v1/starters/nextjs-medusa-starter).
 - Support for Webhooks.
 
 ---
 
 ## Prerequisites
 
-- [Medusa backend](https://docs.medusajs.com/development/backend/install)
+- [Medusa backend](https://docs.medusajs.com/v1/development/backend/install)
 - [PayPal account](https://www.paypal.com)
 
 ---
@@ -65,12 +65,12 @@ Receive payments on your Medusa commerce application using PayPal.
   npm run start
   ```
 
-2\. Enable PayPal in a region in the admin. You can refer to [this User Guide](https://docs.medusajs.com/user-guide/regions/providers) to learn how to do that. Alternatively, you can use the [Admin APIs](https://docs.medusajs.com/api/admin#tag/Region/operation/PostRegionsRegion).
+2\. Enable PayPal in a region in the admin. You can refer to [this User Guide](https://docs.medusajs.com/v1/user-guide/regions/providers) to learn how to do that. Alternatively, you can use the [Admin APIs](https://docs.medusajs.com/v1/api/admin#tag/Region/operation/PostRegionsRegion).
 
-3\. Place an order using a storefront or the [Store APIs](https://docs.medusajs.com/api/store). You should be able to use Stripe as a payment method.
+3\. Place an order using a storefront or the [Store APIs](https://docs.medusajs.com/v1/api/store). You should be able to use Stripe as a payment method.
 
 ---
 
 ## Additional Resources
 
-- [PayPal Plugin Documentation](https://docs.medusajs.com/plugins/payment/paypal)
+- [PayPal Plugin Documentation](https://docs.medusajs.com/v1/plugins/payment/paypal)

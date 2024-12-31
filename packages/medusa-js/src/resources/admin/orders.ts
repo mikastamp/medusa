@@ -22,7 +22,7 @@ import { ResponsePromise } from "../../typings"
 import BaseResource from "../base"
 
 /**
- * This class is used to send requests to [Admin Order API Routes](https://docs.medusajs.com/api/admin#orders). All its method
+ * This class is used to send requests to [Admin Order API Routes](https://docs.medusajs.com/v1/api/admin#orders). All its method
  * are available in the JS Client under the `medusa.admin.orders` property.
  * 
  * All methods in this class require {@link AdminAuthResource.createSession | user authentication}.
@@ -30,7 +30,7 @@ import BaseResource from "../base"
  * Orders are purchases made by customers, typically through a storefront using {@link CartsResource}. Draft orders created by the admin are also transformed to an Order once the payment is captured.
  * Managing orders include managing fulfillment, payment, claims, reservations, and more.
  * 
- * Related Guide: [How to manage orders](https://docs.medusajs.com/modules/orders/admin/manage-orders).
+ * Related Guide: [How to manage orders](https://docs.medusajs.com/v1/modules/orders/admin/manage-orders).
  */
 class AdminOrdersResource extends BaseResource {
   /**

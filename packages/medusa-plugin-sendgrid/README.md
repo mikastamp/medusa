@@ -2,7 +2,7 @@
 
 Handle sending emails to customers related to orders, restock notifications, users, or custom events.
 
-[SendGrid Plugin Documentation](https://docs.medusajs.com/plugins/notifications/sendgrid) | [Medusa Website](https://medusajs.com) | [Medusa Repository](https://github.com/medusajs/medusa)
+[SendGrid Plugin Documentation](https://docs.medusajs.com/v1/plugins/notifications/sendgrid) | [Medusa Website](https://medusajs.com) | [Medusa Repository](https://github.com/medusajs/medusa)
 
 ## Features
 
@@ -14,7 +14,7 @@ Handle sending emails to customers related to orders, restock notifications, use
 
 ## Prerequisites
 
-- [Medusa backend](https://docs.medusajs.com/development/backend/install)
+- [Medusa backend](https://docs.medusajs.com/v1/development/backend/install)
 - [SendGrid account](https://signup.sendgrid.com/)
 
 ---
@@ -69,10 +69,10 @@ Handle sending emails to customers related to orders, restock notifications, use
   npm run start
   ```
 
-2\. Place an order using a storefront or the [Store APIs](https://docs.medusajs.com/api/store). You should receive a confirmation email.
+2\. Place an order using a storefront or the [Store APIs](https://docs.medusajs.com/v1/api/store). You should receive a confirmation email.
 
 ---
 
 ## Additional Resources
 
-- [SendGrid Plugin Documentation](https://docs.medusajs.com/plugins/notifications/sendgrid)
+- [SendGrid Plugin Documentation](https://docs.medusajs.com/v1/plugins/notifications/sendgrid)

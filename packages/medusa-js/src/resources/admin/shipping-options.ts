@@ -11,7 +11,7 @@ import { ResponsePromise } from "../../typings"
 import BaseResource from "../base"
 
 /**
- * This class is used to send requests to [Admin Shipping Option API Routes](https://docs.medusajs.com/api/admin#shipping-options). All its method
+ * This class is used to send requests to [Admin Shipping Option API Routes](https://docs.medusajs.com/v1/api/admin#shipping-options). All its method
  * are available in the JS Client under the `medusa.admin.shippingOptions` property.
  * 
  * All methods in this class require {@link AdminAuthResource.createSession | user authentication}.
@@ -19,7 +19,7 @@ import BaseResource from "../base"
  * A shipping option is used to define the available shipping methods during checkout or when creating a return.
  * Admins can create an unlimited number of shipping options, each associated with a shipping profile and fulfillment provider, among other resources.
  * 
- * Related Guide: [Shipping Option architecture](https://docs.medusajs.com/modules/carts-and-checkout/shipping#shipping-option).
+ * Related Guide: [Shipping Option architecture](https://docs.medusajs.com/v1/modules/carts-and-checkout/shipping#shipping-option).
  */
 class AdminShippingOptionsResource extends BaseResource {
   /**

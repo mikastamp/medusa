@@ -9,7 +9,7 @@ import JwtTokenManager from "../jwt-token-manager"
 import BaseResource from "./base"
 
 /**
- * This class is used to send requests to [Store Auth API Routes](https://docs.medusajs.com/api/store#auth). All its method
+ * This class is used to send requests to [Store Auth API Routes](https://docs.medusajs.com/v1/api/store#auth). All its method
  * are available in the JS Client under the `medusa.auth` property.
  * 
  * The methods in this class allows you to manage a customer's session, such as login or log out.
@@ -17,7 +17,7 @@ import BaseResource from "./base"
  * When you log the customer in using the {@link authenticate} method, the JS client will automatically attach the
  * cookie header in all subsequent requests.
  * 
- * Related Guide: [How to implement customer profiles in your storefront](https://docs.medusajs.com/modules/customers/storefront/implement-customer-profiles).
+ * Related Guide: [How to implement customer profiles in your storefront](https://docs.medusajs.com/v1/modules/customers/storefront/implement-customer-profiles).
  */
 class AuthResource extends BaseResource {
   /**

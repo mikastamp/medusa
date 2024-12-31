@@ -100,7 +100,7 @@ const AnalyticsPreferencesModal = () => {
                 "To create the most compelling e-commerce experience we would like to gain insights in how you use Medusa. User insights allow us to build a better, more engaging, and more usable products. We only collect data for product improvements. Read what data we gather in our"
               )}{" "}
               <a
-                href="https://docs.medusajs.com/usage"
+                href="https://docs.medusajs.com/v1/usage"
                 rel="noreferrer noopener"
                 target="_blank"
                 className="text-violet-60"

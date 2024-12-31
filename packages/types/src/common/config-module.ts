@@ -576,7 +576,7 @@ export type ProjectConfigOptions = {
    * - Use `worker` to run the a worker process only.
    * - Use `server` to run the application server only.
    *
-   * Learn more in [this guide](https://docs.medusajs.com/development/medusa-worker).
+   * Learn more in [this guide](https://docs.medusajs.com/v1/development/medusa-worker).
    *
    * @example
    * ```js title="medusa-config.js"
@@ -633,7 +633,7 @@ export type ConfigModule = {
   projectConfig: ProjectConfigOptions
 
   /**
-   * On your Medusa backend, you can use [Plugins](https://docs.medusajs.com/development/plugins/overview) to add custom features or integrate third-party services.
+   * On your Medusa backend, you can use [Plugins](https://docs.medusajs.com/v1/development/plugins/overview) to add custom features or integrate third-party services.
    * For example, installing a plugin to use Stripe as a payment processor.
    *
    * Aside from installing the plugin with NPM, you need to pass the plugin you installed into the `plugins` array defined in `medusa-config.js`.
@@ -672,7 +672,7 @@ export type ConfigModule = {
   )[]
 
   /**
-   * In Medusa, commerce and core logic are modularized to allow developers to extend or replace certain [modules](https://docs.medusajs.com/development/modules/overview)
+   * In Medusa, commerce and core logic are modularized to allow developers to extend or replace certain [modules](https://docs.medusajs.com/v1/development/modules/overview)
    * with custom implementations.
    *
    * Aside from installing the module with NPM, you must add it to the exported object in `medusa-config.js`.
@@ -684,7 +684,7 @@ export type ConfigModule = {
    * 3. Or an object having the following properties, but typically you would mainly use the `resolve` and `options` properties only:
    *     1. `resolve`: a string indicating the name of the module.
    *     2. `options`: an object indicating the options to pass to the module. These options vary for each module, and you should refer to the module’s documentation for details on them.
-   *     3. `resources`: a string indicating whether the module shares the dependency container with the Medusa core. Its value can either be `shared` or `isolated`. Refer to the [Modules documentation](https://docs.medusajs.com/development/modules/create#module-scope) for more details.
+   *     3. `resources`: a string indicating whether the module shares the dependency container with the Medusa core. Its value can either be `shared` or `isolated`. Refer to the [Modules documentation](https://docs.medusajs.com/v1/development/modules/create#module-scope) for more details.
    *     4. `alias`: a string indicating a unique alias to register the module under. Other modules can’t use the same alias.
    *     5. `main`: a boolean value indicating whether this module is the main registered module. This is useful when an alias is used.
    *
@@ -719,7 +719,7 @@ export type ConfigModule = {
    * You can specify whether a feature should or shouldn’t be used in your backend by enabling its feature flag. Feature flags can be enabled through either environment
    * variables or through this configuration exported in `medusa-config.js`.
    *
-   * If you want to use the environment variables method, learn more about it in the [Feature Flags documentation](https://docs.medusajs.com/development/feature-flags/toggle#method-one-using-environment-variables).
+   * If you want to use the environment variables method, learn more about it in the [Feature Flags documentation](https://docs.medusajs.com/v1/development/feature-flags/toggle#method-one-using-environment-variables).
    *
    * The `featureFlags` configuration is an object. Its properties are the names of the feature flags. Each property’s value is a boolean indicating whether the feature flag is enabled.
    *
@@ -738,7 +738,7 @@ export type ConfigModule = {
    *
    * :::note
    *
-   * After enabling a feature flag, make sure to [run migrations](https://docs.medusajs.com/development/entities/migrations/overview#migrate-command) as it may require making changes to the database.
+   * After enabling a feature flag, make sure to [run migrations](https://docs.medusajs.com/v1/development/entities/migrations/overview#migrate-command) as it may require making changes to the database.
    *
    * :::
    */

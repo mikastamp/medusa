@@ -7,7 +7,7 @@ import { ResponsePromise } from "../typings"
 import BaseResource from "./base"
 
 /**
- * This class is used to send requests to [Store Product Type API Routes](https://docs.medusajs.com/api/store#product-types). All its method
+ * This class is used to send requests to [Store Product Type API Routes](https://docs.medusajs.com/v1/api/store#product-types). All its method
  * are available in the JS Client under the `medusa.productTypes` property.
  * 
  * Product types are string values that can be used to filter products by.

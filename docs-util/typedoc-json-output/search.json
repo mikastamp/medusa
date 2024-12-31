@@ -345,7 +345,7 @@
 											},
 											{
 												"kind": "text",
-												"text": "\n\nAnother example of how the [MeiliSearch plugin](https://docs.medusajs.com/plugins/search/meilisearch) uses the\n"
+												"text": "\n\nAnother example of how the [MeiliSearch plugin](https://docs.medusajs.com/v1/plugins/search/meilisearch) uses the\n"
 											},
 											{
 												"kind": "code",
@@ -982,7 +982,7 @@
 								"summary": [
 									{
 										"kind": "text",
-										"text": "This method is used to search through an index by a query.\n\nIn the Medusa backend, this method is used within the [Search Products API Route](https://docs.medusajs.com/api/store#products_postproductssearch) \nto retrieve the search results. The API route's response type is an array of items, though the item's format is not defined as it depends on the\ndata returned by this method."
+										"text": "This method is used to search through an index by a query.\n\nIn the Medusa backend, this method is used within the [Search Products API Route](https://docs.medusajs.com/v1/api/store#products_postproductssearch) \nto retrieve the search results. The API route's response type is an array of items, though the item's format is not defined as it depends on the\ndata returned by this method."
 									}
 								],
 								"blockTags": [

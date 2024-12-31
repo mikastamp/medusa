@@ -9,14 +9,14 @@ import { AdminCreateUploadPayload, ResponsePromise } from "../../typings"
 import BaseResource from "../base"
 
 /**
- * This class is used to send requests to [Admin Upload API Routes](https://docs.medusajs.com/api/admin#uploads). All its method
+ * This class is used to send requests to [Admin Upload API Routes](https://docs.medusajs.com/v1/api/admin#uploads). All its method
  * are available in the JS Client under the `medusa.admin.uploads` property.
  * 
  * All methods in this class require {@link AdminAuthResource.createSession | user authentication}.
  * 
  * The methods in this class are used to upload any type of resources. For example, they can be used to upload CSV files that are used to import products into the store.
  * 
- * Related Guide: [How to upload CSV file when importing a product](https://docs.medusajs.com/modules/products/admin/import-products#1-upload-csv-file).
+ * Related Guide: [How to upload CSV file when importing a product](https://docs.medusajs.com/v1/modules/products/admin/import-products#1-upload-csv-file).
  */
 class AdminUploadsResource extends BaseResource {
   /**

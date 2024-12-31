@@ -11,7 +11,7 @@ import { ResponsePromise } from "../../typings"
 import BaseResource from "../base"
 
 /**
- * This class is used to send requests to [Admin Gift Card API Routes](https://docs.medusajs.com/api/admin#gift-cards). All its method
+ * This class is used to send requests to [Admin Gift Card API Routes](https://docs.medusajs.com/v1/api/admin#gift-cards). All its method
  * are available in the JS Client under the `medusa.admin.giftCards` property.
  * 
  * All methods in this class require {@link AdminAuthResource.createSession | user authentication}.
@@ -19,7 +19,7 @@ import BaseResource from "../base"
  * Admins can create gift cards and send them directly to customers, specifying options like their balance, region, and more.
  * These gift cards are different than the saleable gift cards in a store, which are created and managed through {@link AdminProductsResource}.
  * 
- * Related Guide: [How to manage gift cards](https://docs.medusajs.com/modules/gift-cards/admin/manage-gift-cards#manage-custom-gift-cards).
+ * Related Guide: [How to manage gift cards](https://docs.medusajs.com/v1/modules/gift-cards/admin/manage-gift-cards#manage-custom-gift-cards).
  */
 class AdminGiftCardsResource extends BaseResource {
   /**

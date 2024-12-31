@@ -246,7 +246,7 @@ const LoggedInUser = () => {
       <DropdownMenu.Content align="center">
         <Profile />
         <DropdownMenu.Separator />
-        <Link to="https://docs.medusajs.com/user-guide" target="_blank">
+        <Link to="https://docs.medusajs.com/v1/user-guide" target="_blank">
           <DropdownMenu.Item>
             <BookOpen className="text-ui-fg-subtle mr-2" />
             Documentation

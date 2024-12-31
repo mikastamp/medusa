@@ -39,156 +39,156 @@ import AdminUsersResource from "./users"
 import AdminVariantsResource from "./variants"
 
 /**
- * This class includes properties used to send requests to the [Admin API Routes](https://docs.medusajs.com/api/admin). All its properties
+ * This class includes properties used to send requests to the [Admin API Routes](https://docs.medusajs.com/v1/api/admin). All its properties
  * are available in the JS Client under the `medusa.admin` property.
  */
 class Admin extends BaseResource {
   /**
-   * An instance of {@link AdminAuthResource} used to send requests to [Admin Auth API Routes](https://docs.medusajs.com/api/admin#auth).
+   * An instance of {@link AdminAuthResource} used to send requests to [Admin Auth API Routes](https://docs.medusajs.com/v1/api/admin#auth).
    */
   public auth = new AdminAuthResource(this.client)
   /**
-   * An instance of {@link AdminBatchJobsResource} used to send requests to [Admin Batch Job API Routes](https://docs.medusajs.com/api/admin#batch-jobs).
+   * An instance of {@link AdminBatchJobsResource} used to send requests to [Admin Batch Job API Routes](https://docs.medusajs.com/v1/api/admin#batch-jobs).
    */
   public batchJobs = new AdminBatchJobsResource(this.client)
   /**
-   * An instance of {@link AdminCustomersResource} used to send requests to [Admin Customer API Routes](https://docs.medusajs.com/api/admin#customers).
+   * An instance of {@link AdminCustomersResource} used to send requests to [Admin Customer API Routes](https://docs.medusajs.com/v1/api/admin#customers).
    */
   public customers = new AdminCustomersResource(this.client)
   /**
-   * An instance of {@link AdminCustomerGroupsResource} used to send requests to [Admin Customer Group API Routes](https://docs.medusajs.com/api/admin#customer-groups).
+   * An instance of {@link AdminCustomerGroupsResource} used to send requests to [Admin Customer Group API Routes](https://docs.medusajs.com/v1/api/admin#customer-groups).
    */
   public customerGroups = new AdminCustomerGroupsResource(this.client)
   /**
-   * An instance of {@link AdminDiscountsResource} used to send requests to [Admin Discount API Routes](https://docs.medusajs.com/api/admin#discounts).
+   * An instance of {@link AdminDiscountsResource} used to send requests to [Admin Discount API Routes](https://docs.medusajs.com/v1/api/admin#discounts).
    */
   public discounts = new AdminDiscountsResource(this.client)
   /**
-   * An instance of {@link AdminCurrenciesResource} used to send requests to [Admin Currency API Routes](https://docs.medusajs.com/api/admin#currencies_getcurrencies).
+   * An instance of {@link AdminCurrenciesResource} used to send requests to [Admin Currency API Routes](https://docs.medusajs.com/v1/api/admin#currencies_getcurrencies).
    */
   public currencies = new AdminCurrenciesResource(this.client)
   /**
-   * An instance of {@link AdminCollectionsResource} used to send requests to [Admin Product Collection API Routes](https://docs.medusajs.com/api/admin#product-collections).
+   * An instance of {@link AdminCollectionsResource} used to send requests to [Admin Product Collection API Routes](https://docs.medusajs.com/v1/api/admin#product-collections).
    */
   public collections = new AdminCollectionsResource(this.client)
   /**
-   * An instance of {@link AdminDraftOrdersResource} used to send requests to [Admin Draft Order API Routes](https://docs.medusajs.com/api/admin#draft-orders).
+   * An instance of {@link AdminDraftOrdersResource} used to send requests to [Admin Draft Order API Routes](https://docs.medusajs.com/v1/api/admin#draft-orders).
    */
   public draftOrders = new AdminDraftOrdersResource(this.client)
   /**
-   * An instance of {@link AdminGiftCardsResource} used to send requests to [Admin Gift Card API Routes](https://docs.medusajs.com/api/admin#gift-cards).
+   * An instance of {@link AdminGiftCardsResource} used to send requests to [Admin Gift Card API Routes](https://docs.medusajs.com/v1/api/admin#gift-cards).
    */
   public giftCards = new AdminGiftCardsResource(this.client)
   /**
-   * An instance of {@link AdminInvitesResource} used to send requests to [Admin Invite API Routes](https://docs.medusajs.com/api/admin#invites).
+   * An instance of {@link AdminInvitesResource} used to send requests to [Admin Invite API Routes](https://docs.medusajs.com/v1/api/admin#invites).
    */
   public invites = new AdminInvitesResource(this.client)
   /**
-   * An instance of {@link AdminInventoryItemsResource} used to send requests to [Admin Inventory Item API Routes](https://docs.medusajs.com/api/admin#inventory-items).
+   * An instance of {@link AdminInventoryItemsResource} used to send requests to [Admin Inventory Item API Routes](https://docs.medusajs.com/v1/api/admin#inventory-items).
    */
   public inventoryItems = new AdminInventoryItemsResource(this.client)
   /**
-   * An instance of {@link AdminNotesResource} used to send requests to [Admin Note API Routes](https://docs.medusajs.com/api/admin#notes).
+   * An instance of {@link AdminNotesResource} used to send requests to [Admin Note API Routes](https://docs.medusajs.com/v1/api/admin#notes).
    */
   public notes = new AdminNotesResource(this.client)
   /**
-   * An instance of {@link AdminPriceListResource} used to send requests to [Admin Price List API Routes](https://docs.medusajs.com/api/admin#price-lists).
+   * An instance of {@link AdminPriceListResource} used to send requests to [Admin Price List API Routes](https://docs.medusajs.com/v1/api/admin#price-lists).
    */
   public priceLists = new AdminPriceListResource(this.client)
   /**
-   * An instance of {@link AdminProductsResource} used to send requests to [Admin Product API Routes](https://docs.medusajs.com/api/admin#products).
+   * An instance of {@link AdminProductsResource} used to send requests to [Admin Product API Routes](https://docs.medusajs.com/v1/api/admin#products).
    */
   public products = new AdminProductsResource(this.client)
   /**
-   * An instance of {@link AdminProductTagsResource} used to send requests to [Admin Product Tag API Routes](https://docs.medusajs.com/api/admin#product-tags).
+   * An instance of {@link AdminProductTagsResource} used to send requests to [Admin Product Tag API Routes](https://docs.medusajs.com/v1/api/admin#product-tags).
    */
   public productTags = new AdminProductTagsResource(this.client)
   /**
-   * An instance of {@link AdminProductTypesResource} used to send requests to [Admin Product Type API Routes](https://docs.medusajs.com/api/admin#product-types).
+   * An instance of {@link AdminProductTypesResource} used to send requests to [Admin Product Type API Routes](https://docs.medusajs.com/v1/api/admin#product-types).
    */
   public productTypes = new AdminProductTypesResource(this.client)
   /**
-   * An instance of {@link AdminUsersResource} used to send requests to [Admin User API Routes](https://docs.medusajs.com/api/admin#users).
+   * An instance of {@link AdminUsersResource} used to send requests to [Admin User API Routes](https://docs.medusajs.com/v1/api/admin#users).
    */
   public users = new AdminUsersResource(this.client)
   /**
-   * An instance of {@link AdminReturnsResource} used to send requests to [Admin Return API Routes](https://docs.medusajs.com/api/admin#returns).
+   * An instance of {@link AdminReturnsResource} used to send requests to [Admin Return API Routes](https://docs.medusajs.com/v1/api/admin#returns).
    */
   public returns = new AdminReturnsResource(this.client)
   /**
-   * An instance of {@link AdminOrdersResource} used to send requests to [Admin Order API Routes](https://docs.medusajs.com/api/admin#orders).
+   * An instance of {@link AdminOrdersResource} used to send requests to [Admin Order API Routes](https://docs.medusajs.com/v1/api/admin#orders).
    */
   public orders = new AdminOrdersResource(this.client)
   /**
-   * An instance of {@link AdminOrderEditsResource} used to send requests to [Admin Order Edit API Routes](https://docs.medusajs.com/api/admin#order-edits).
+   * An instance of {@link AdminOrderEditsResource} used to send requests to [Admin Order Edit API Routes](https://docs.medusajs.com/v1/api/admin#order-edits).
    */
   public orderEdits = new AdminOrderEditsResource(this.client)
   /**
-   * An instance of {@link AdminPublishableApiKeyResource} used to send requests to [Admin Publishable API Key API Routes](https://docs.medusajs.com/api/admin#publishable-api-keys).
+   * An instance of {@link AdminPublishableApiKeyResource} used to send requests to [Admin Publishable API Key API Routes](https://docs.medusajs.com/v1/api/admin#publishable-api-keys).
    */
   public publishableApiKeys = new AdminPublishableApiKeyResource(this.client)
   /**
-   * An instance of {@link AdminReturnReasonsResource} used to send requests to [Admin Return Reason API Routes](https://docs.medusajs.com/api/admin#return-reasons).
+   * An instance of {@link AdminReturnReasonsResource} used to send requests to [Admin Return Reason API Routes](https://docs.medusajs.com/v1/api/admin#return-reasons).
    */
   public returnReasons = new AdminReturnReasonsResource(this.client)
   /**
-   * @props variants - An instance of {@link AdminVariantsResource} used to send requests to [Admin Product Variant API Routes](https://docs.medusajs.com/api/admin#product-variants).
+   * @props variants - An instance of {@link AdminVariantsResource} used to send requests to [Admin Product Variant API Routes](https://docs.medusajs.com/v1/api/admin#product-variants).
    */
   public variants = new AdminVariantsResource(this.client)
   /**
-   * An instance of {@link AdminSalesChannelsResource} used to send requests to [Admin Sales Channel API Routes](https://docs.medusajs.com/api/admin#sales-channels).
+   * An instance of {@link AdminSalesChannelsResource} used to send requests to [Admin Sales Channel API Routes](https://docs.medusajs.com/v1/api/admin#sales-channels).
    */
   public salesChannels = new AdminSalesChannelsResource(this.client)
   /**
-   * An instance of {@link AdminSwapsResource} used to send requests to [Admin Swap API Routes](https://docs.medusajs.com/api/admin#swaps).
+   * An instance of {@link AdminSwapsResource} used to send requests to [Admin Swap API Routes](https://docs.medusajs.com/v1/api/admin#swaps).
    */
   public swaps = new AdminSwapsResource(this.client)
   /**
-   * An instance of {@link AdminShippingProfilesResource} used to send requests to [Admin Shipping Profile API Routes](https://docs.medusajs.com/api/admin#shipping-profiles).
+   * An instance of {@link AdminShippingProfilesResource} used to send requests to [Admin Shipping Profile API Routes](https://docs.medusajs.com/v1/api/admin#shipping-profiles).
    */
   public shippingProfiles = new AdminShippingProfilesResource(this.client)
   /**
-   * An instance of {@link AdminStockLocationsResource} used to send requests to [Admin Stock Location API Routes](https://docs.medusajs.com/api/admin#stock-locations).
+   * An instance of {@link AdminStockLocationsResource} used to send requests to [Admin Stock Location API Routes](https://docs.medusajs.com/v1/api/admin#stock-locations).
    */
   public stockLocations = new AdminStockLocationsResource(this.client)
   /**
-   * An instance of {@link AdminStoresResource} used to send requests to [Admin Store API Routes](https://docs.medusajs.com/api/admin#store).
+   * An instance of {@link AdminStoresResource} used to send requests to [Admin Store API Routes](https://docs.medusajs.com/v1/api/admin#store).
    */
   public store = new AdminStoresResource(this.client)
   /**
-   * An instance of {@link AdminShippingOptionsResource} used to send requests to [Admin Shipping Option API Routes](https://docs.medusajs.com/api/admin#shipping-options).
+   * An instance of {@link AdminShippingOptionsResource} used to send requests to [Admin Shipping Option API Routes](https://docs.medusajs.com/v1/api/admin#shipping-options).
    */
   public shippingOptions = new AdminShippingOptionsResource(this.client)
   /**
-   * An instance of {@link AdminRegionsResource} used to send requests to [Admin Region API Routes](https://docs.medusajs.com/api/admin#regions).
+   * An instance of {@link AdminRegionsResource} used to send requests to [Admin Region API Routes](https://docs.medusajs.com/v1/api/admin#regions).
    */
   public regions = new AdminRegionsResource(this.client)
   /**
-   * An instance of {@link AdminReservationsResource} used to send requests to [Admin Reservation API Routes](https://docs.medusajs.com/api/admin#reservations).
+   * An instance of {@link AdminReservationsResource} used to send requests to [Admin Reservation API Routes](https://docs.medusajs.com/v1/api/admin#reservations).
    */
   public reservations = new AdminReservationsResource(this.client)
   /**
-   * An instance of {@link AdminNotificationsResource} used to send requests to [Admin Notification API Routes](https://docs.medusajs.com/api/admin#notifications).
+   * An instance of {@link AdminNotificationsResource} used to send requests to [Admin Notification API Routes](https://docs.medusajs.com/v1/api/admin#notifications).
    */
   public notifications = new AdminNotificationsResource(this.client)
   /**
-   * An instance of {@link AdminTaxRatesResource} used to send requests to [Admin Tax Rate API Routes](https://docs.medusajs.com/api/admin#tax-rates).
+   * An instance of {@link AdminTaxRatesResource} used to send requests to [Admin Tax Rate API Routes](https://docs.medusajs.com/v1/api/admin#tax-rates).
    */
   public taxRates = new AdminTaxRatesResource(this.client)
   /**
-   * An instance of {@link AdminUploadsResource} used to send requests to [Admin Upload API Routes](https://docs.medusajs.com/api/admin#uploads).
+   * An instance of {@link AdminUploadsResource} used to send requests to [Admin Upload API Routes](https://docs.medusajs.com/v1/api/admin#uploads).
    */
   public uploads = new AdminUploadsResource(this.client)
   /**
-   * An instance of {@link AdminPaymentCollectionsResource} used to send requests to [Admin Payment Collection API Routes](https://docs.medusajs.com/api/admin#payment-collections).
+   * An instance of {@link AdminPaymentCollectionsResource} used to send requests to [Admin Payment Collection API Routes](https://docs.medusajs.com/v1/api/admin#payment-collections).
    */
   public paymentCollections = new AdminPaymentCollectionsResource(this.client)
   /**
-   * An instance of {@link AdminPaymentsResource} used to send requests to [Admin Payment API Routes](https://docs.medusajs.com/api/admin#payments).
+   * An instance of {@link AdminPaymentsResource} used to send requests to [Admin Payment API Routes](https://docs.medusajs.com/v1/api/admin#payments).
    */
   public payments = new AdminPaymentsResource(this.client)
   /**
-   * An instance of {@link AdminProductCategoriesResource} used to send requests to [Admin Product Category API Routes](https://docs.medusajs.com/api/admin#product-categories).
+   * An instance of {@link AdminProductCategoriesResource} used to send requests to [Admin Product Category API Routes](https://docs.medusajs.com/v1/api/admin#product-categories).
    */
   public productCategories = new AdminProductCategoriesResource(this.client)
   /**

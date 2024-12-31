@@ -21,7 +21,7 @@ import { cleanResponseData } from "../../../../utils/clean-response-data"
  * x-authenticated: true
  * externalDocs:
  *   description: Fulfillments of orders
- *   url: https://docs.medusajs.com/modules/orders/#fulfillments-in-orders
+ *   url: https://docs.medusajs.com/v1/modules/orders/#fulfillments-in-orders
  * parameters:
  *   - (path) id=* {string} The ID of the Order.
  *   - (query) expand {string} Comma-separated relations that should be expanded in the returned order.

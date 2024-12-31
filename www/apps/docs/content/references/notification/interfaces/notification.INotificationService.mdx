@@ -10,7 +10,7 @@ import TypeList from "@site/src/components/TypeList"
 
 :::note[Prerequisites]
 
-Before creating a Notification Provider, [install an event bus module](https://docs.medusajs.com/development/events/modules/redis).
+Before creating a Notification Provider, [install an event bus module](https://docs.medusajs.com/v1/development/events/modules/redis).
 
 :::
 
@@ -64,7 +64,7 @@ export default EmailSenderService
 The `NotificationProvider` entity has 2 properties: `identifier` and `is_installed`. The value of the `identifier` property in the notification provider
 class is used when the Notification Provider is created in the database.
 
-The value of this property is also used later when you want to subscribe the Notification Provider to events in a [Loader](https://docs.medusajs.com/development/loaders/overview).
+The value of this property is also used later when you want to subscribe the Notification Provider to events in a [Loader](https://docs.medusajs.com/v1/development/loaders/overview).
 
 For example:
 
@@ -97,7 +97,7 @@ ___
 
 ### sendNotification
 
-When an event is triggered that your Notification Provider is registered as a handler for, the [`NotificationService`](https://docs.medusajs.com/references/services/classes/services.NotificationService)
+When an event is triggered that your Notification Provider is registered as a handler for, the [`NotificationService`](https://docs.medusajs.com/v1/references/services/classes/services.NotificationService)
 in the Medusa backend executes this method of your Notification Provider.
 
 In this method, you can perform the necessary operation to send the Notification. For example, you can send an email to the customer when they place an order.
@@ -140,7 +140,7 @@ class EmailSenderService extends AbstractNotificationService {
 
 #### Parameters
 
-<TypeList types={[{"name":"event","type":"`string`","description":"The name of the event that was triggered. For example, `order.placed`.","optional":false,"defaultValue":"","expandable":false,"children":[]},{"name":"data","type":"`unknown`","description":"The data payload of the event that was triggered. For example, if the `order.placed` event is triggered,\nthe `eventData` object contains the property `id` which is the ID of the order that was placed. You can refer to the\n[Events reference](https://docs.medusajs.com/development/events/events-list) for information on all events and their payloads.","optional":false,"defaultValue":"","expandable":false,"children":[]},{"name":"attachmentGenerator","type":"`unknown`","description":"If you’ve previously register an attachment generator to the `NotificationService` using the\n[`registerAttachmentGenerator`](https://docs.medusajs.com/references/services/classes/services.NotificationService#registerattachmentgenerator) method,\nyou have access to it here. You can use the `attachmentGenerator` to generate on-demand invoices or other documents. The default value of this parameter is `null`.","optional":false,"defaultValue":"","expandable":false,"children":[]}]}  sectionTitle="sendNotification"/>
+<TypeList types={[{"name":"event","type":"`string`","description":"The name of the event that was triggered. For example, `order.placed`.","optional":false,"defaultValue":"","expandable":false,"children":[]},{"name":"data","type":"`unknown`","description":"The data payload of the event that was triggered. For example, if the `order.placed` event is triggered,\nthe `eventData` object contains the property `id` which is the ID of the order that was placed. You can refer to the\n[Events reference](https://docs.medusajs.com/v1/development/events/events-list) for information on all events and their payloads.","optional":false,"defaultValue":"","expandable":false,"children":[]},{"name":"attachmentGenerator","type":"`unknown`","description":"If you’ve previously register an attachment generator to the `NotificationService` using the\n[`registerAttachmentGenerator`](https://docs.medusajs.com/v1/references/services/classes/services.NotificationService#registerattachmentgenerator) method,\nyou have access to it here. You can use the `attachmentGenerator` to generate on-demand invoices or other documents. The default value of this parameter is `null`.","optional":false,"defaultValue":"","expandable":false,"children":[]}]}  sectionTitle="sendNotification"/>
 
 #### Returns
 
@@ -183,7 +183,7 @@ class EmailSenderService extends AbstractNotificationService {
 
 #### Parameters
 
-<TypeList types={[{"name":"notification","type":"`unknown`","description":"The original [Notification record](https://docs.medusajs.com/references/entities/classes/Notification) that was created after you sent the\nnotification with `sendNotification`. It includes the `to` and `data` attributes which are populated originally using the `to` and `data` properties of\nthe object you return in [sendNotification](notification.INotificationService.mdx#sendnotification).","optional":false,"defaultValue":"","expandable":false,"children":[]},{"name":"config","type":"`unknown`","description":"The new configuration used to resend the notification. The [Resend Notification API Route](https://docs.medusajs.com/v1/api/admin#notifications\\_postnotificationsnotificationresend),\nallows you to pass a new `to` field. If specified, it will be available in this config object.","optional":false,"defaultValue":"","expandable":false,"children":[]},{"name":"attachmentGenerator","type":"`unknown`","description":"f you’ve previously register an attachment generator to the `NotificationService` using the\n[`registerAttachmentGenerator`](https://docs.medusajs.com/references/services/classes/services.NotificationService#registerattachmentgenerator) method,\nyou have access to it here. You can use the `attachmentGenerator` to generate on-demand invoices or other documents. The default value of this parameter is `null`.","optional":false,"defaultValue":"","expandable":false,"children":[]}]}  sectionTitle="resendNotification"/>
+<TypeList types={[{"name":"notification","type":"`unknown`","description":"The original [Notification record](https://docs.medusajs.com/v1/references/entities/classes/Notification) that was created after you sent the\nnotification with `sendNotification`. It includes the `to` and `data` attributes which are populated originally using the `to` and `data` properties of\nthe object you return in [sendNotification](notification.INotificationService.mdx#sendnotification).","optional":false,"defaultValue":"","expandable":false,"children":[]},{"name":"config","type":"`unknown`","description":"The new configuration used to resend the notification. The [Resend Notification API Route](https://docs.medusajs.com/v1/api/admin#notifications\\_postnotificationsnotificationresend),\nallows you to pass a new `to` field. If specified, it will be available in this config object.","optional":false,"defaultValue":"","expandable":false,"children":[]},{"name":"attachmentGenerator","type":"`unknown`","description":"f you’ve previously register an attachment generator to the `NotificationService` using the\n[`registerAttachmentGenerator`](https://docs.medusajs.com/v1/references/services/classes/services.NotificationService#registerattachmentgenerator) method,\nyou have access to it here. You can use the `attachmentGenerator` to generate on-demand invoices or other documents. The default value of this parameter is `null`.","optional":false,"defaultValue":"","expandable":false,"children":[]}]}  sectionTitle="resendNotification"/>
 
 #### Returns
 
