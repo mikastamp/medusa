@@ -159,13 +159,20 @@ export async function loadModules(args: {
     return allModules
   }
 
-  for (const { moduleKey } of modulesToLoad) {
+  for (const { moduleKey, declaration } of modulesToLoad) {
     const service = loaded.find((loadedModule) => loadedModule[moduleKey])?.[
       moduleKey
     ]
     if (!service) {
       throw new Error(`Module ${moduleKey} could not be loaded.`)
     }
+
+    /**
+     * @todo
+     * Find a better place to define the resolve path
+     * on the service
+     */
+    service.resolvePath = (declaration as any).resolve
 
     sharedContainer.register({
       [service.__definition.key]: asValue(service),
@@ -332,8 +339,8 @@ async function MedusaApp_({
     modulesConfig ??
     (
       await dynamicImport(
-        await (modulesConfigPath ??
-          process.cwd() + (modulesConfigFileName ?? "/modules-config"))
+        modulesConfigPath ??
+          process.cwd() + (modulesConfigFileName ?? "/modules-config")
       )
     ).default
 

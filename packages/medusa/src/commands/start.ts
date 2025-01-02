@@ -1,5 +1,5 @@
 import os from "os"
-import path from "path"
+import path, { join } from "path"
 import http from "http"
 import express from "express"
 import cluster from "cluster"
@@ -12,12 +12,14 @@ import {
   gqlSchemaToTypes,
   GracefulShutdownServer,
   isPresent,
+  toCamelCase,
+  upperCaseFirst,
 } from "@medusajs/framework/utils"
 import { logger } from "@medusajs/framework/logger"
 
 import loaders from "../loaders"
 import { MedusaModule } from "@medusajs/framework/modules-sdk"
-import { MedusaContainer } from "@medusajs/framework/types"
+import { LoadedModule, MedusaContainer } from "@medusajs/framework/types"
 
 const EVERY_SIXTH_HOUR = "0 */6 * * *"
 const CRON_SCHEDULE = EVERY_SIXTH_HOUR
@@ -49,6 +51,48 @@ export async function registerInstrumentation(directory: string) {
       "Skipping instrumentation registration. No register function found."
     )
   }
+}
+
+export async function generateModulesDefinition(
+  modules: Record<string, LoadedModule | LoadedModule[]>,
+  basePath: string
+) {
+  const { imports, mappings } = Object.keys(modules).reduce(
+    (result, key) => {
+      const mods = Array.isArray(modules[key]) ? modules[key] : [modules[key]]
+      mods.forEach((one) => {
+        const serviceName = upperCaseFirst(toCamelCase(one.__definition.key))
+        let servicePath: string = (one as any).resolvePath
+        servicePath =
+          servicePath.startsWith("./") || servicePath.startsWith("../")
+            ? join("../", "../", servicePath)
+            : servicePath
+
+        result.imports.push(`import type ${serviceName} from '${servicePath}'`)
+        result.mappings.push(
+          `${one.__definition.key}: InstanceType<(typeof ${serviceName})['service']>,`
+        )
+      })
+      return result
+    },
+    {
+      imports: [],
+      mappings: [],
+    } as {
+      imports: string[]
+      mappings: string[]
+    }
+  )
+
+  const fileSystem = new FileSystem(basePath)
+  await fileSystem.create(
+    "modules-bindings.d.ts",
+    `${imports.join("\n")}\n\ndeclare module '@medusajs/framework/types' {
+  export interface ModuleImplementations {
+    ${mappings.join("\n    ")}
+  }
+}`
+  )
 }
 
 /**
@@ -120,10 +164,15 @@ async function start(args: {
     })
 
     try {
-      const { shutdown, gqlSchema, container } = await loaders({
+      const { shutdown, gqlSchema, container, modules } = await loaders({
         directory,
         expressApp: app,
       })
+
+      await generateModulesDefinition(
+        modules,
+        path.join(directory, ".medusa/types")
+      )
 
       if (gqlSchema && generateTypes) {
         const outputDirGeneratedTypes = path.join(directory, ".medusa/types")
