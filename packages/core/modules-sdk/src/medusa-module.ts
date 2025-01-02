@@ -513,12 +513,6 @@ class MedusaModule {
         container,
       })
 
-      service.resolvePath =
-        "resolve" in modDeclaration &&
-        typeof modDeclaration.resolve === "string"
-          ? modDeclaration.resolve
-          : undefined
-
       MedusaModule.instances_.set(hashKey, service)
       finishLoading(service)
       MedusaModule.loading_.delete(hashKey)
@@ -565,6 +559,11 @@ class MedusaModule {
 
       services[keyName] = container.resolve(keyName)
       services[keyName].__definition = resolution.definition
+      services[keyName].__definition.resolvePath =
+        "resolve" in modDeclaration &&
+        typeof modDeclaration.resolve === "string"
+          ? modDeclaration.resolve
+          : undefined
 
       if (resolution.definition.isQueryable) {
         let joinerConfig!: ModuleJoinerConfig

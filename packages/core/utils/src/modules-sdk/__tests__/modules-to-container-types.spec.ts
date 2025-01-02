@@ -13,11 +13,11 @@ describe("generateContainerTypes", function () {
     await generateContainerTypes(
       {
         cache: {
-          resolvePath: "@medusajs/foo",
           __definition: {
             key: "cache",
             label: "Cache",
             defaultPackage: "@medusajs/foo",
+            resolvePath: "@medusajs/foo",
             defaultModuleDeclaration: {
               scope: "internal",
             },
@@ -48,11 +48,11 @@ describe("generateContainerTypes", function () {
     await generateContainerTypes(
       {
         cache: {
-          resolvePath: "./foo/bar",
           __definition: {
             key: "cache",
             label: "Cache",
             defaultPackage: "./foo/bar",
+            resolvePath: "./foo/bar",
             defaultModuleDeclaration: {
               scope: "internal",
             },
