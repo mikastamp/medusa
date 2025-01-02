@@ -47,6 +47,10 @@ export async function generateContainerTypes(
         : [modules[key]]
 
       services.forEach((service) => {
+        if (!service.resolvePath) {
+          return
+        }
+
         /**
          * Key registered within the container
          */
@@ -56,7 +60,7 @@ export async function generateContainerTypes(
          * @todo. The property should exist on "LoadedModule"
          */
         let servicePath: string = normalizeModuleResolvePath(
-          (service as any).resolvePath
+          service.resolvePath
         )
 
         /**

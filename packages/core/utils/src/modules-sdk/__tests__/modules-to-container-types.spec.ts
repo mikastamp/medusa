@@ -13,7 +13,6 @@ describe("generateContainerTypes", function () {
     await generateContainerTypes(
       {
         cache: {
-          // @ts-expect-error
           resolvePath: "@medusajs/foo",
           __definition: {
             key: "cache",
@@ -49,7 +48,6 @@ describe("generateContainerTypes", function () {
     await generateContainerTypes(
       {
         cache: {
-          // @ts-expect-error
           resolvePath: "./foo/bar",
           __definition: {
             key: "cache",

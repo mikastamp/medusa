@@ -118,6 +118,7 @@ export type ModuleConfig = ModuleDeclaration & {
 }
 
 export type LoadedModule = unknown & {
+  resolvePath?: string
   __joinerConfig: ModuleJoinerConfig
   __definition: ModuleDefinition
 }

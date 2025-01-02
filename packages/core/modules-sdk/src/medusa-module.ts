@@ -513,6 +513,12 @@ class MedusaModule {
         container,
       })
 
+      service.resolvePath =
+        "resolve" in modDeclaration &&
+        typeof modDeclaration.resolve === "string"
+          ? modDeclaration.resolve
+          : undefined
+
       MedusaModule.instances_.set(hashKey, service)
       finishLoading(service)
       MedusaModule.loading_.delete(hashKey)
