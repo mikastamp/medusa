@@ -131,7 +131,7 @@ async function start(args: {
           outputDir: path.join(directory, ".medusa/types"),
           interfaceName: "ModuleImplementations",
         })
-        logger.info("Generated container types")
+        logger.debug("Generated container types")
 
         if (gqlSchema) {
           const outputDirGeneratedTypes = path.join(directory, ".medusa/types")
@@ -142,7 +142,7 @@ async function start(args: {
             schema: gqlSchema,
             joinerConfigs: MedusaModule.getAllJoinerConfigs(),
           })
-          logger.info("Generated modules types")
+          logger.debug("Generated modules types")
         }
       }
 
