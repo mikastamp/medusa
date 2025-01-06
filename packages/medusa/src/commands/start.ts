@@ -127,17 +127,23 @@ async function start(args: {
       })
 
       if (generateTypes) {
+        const typesDirectory = path.join(directory, ".medusa/types")
+
+        /**
+         * Cleanup existing types directory before creating new artifacts
+         */
+        await new FileSystem(typesDirectory).cleanup({ recursive: true })
+
         await generateContainerTypes(modules, {
-          outputDir: path.join(directory, ".medusa/types"),
+          outputDir: typesDirectory,
           interfaceName: "ModuleImplementations",
         })
         logger.debug("Generated container types")
 
         if (gqlSchema) {
-          const outputDirGeneratedTypes = path.join(directory, ".medusa/types")
           await gqlSchemaToTypes({
-            outputDir: outputDirGeneratedTypes,
-            filename: "remote-query-entry-points",
+            outputDir: typesDirectory,
+            filename: "query-entry-points",
             interfaceName: "RemoteQueryEntryPoints",
             schema: gqlSchema,
             joinerConfigs: MedusaModule.getAllJoinerConfigs(),
