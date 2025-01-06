@@ -57,7 +57,14 @@ export const cancelBeginOrderClaimWorkflow = createWorkflow(
   function (input: CancelBeginOrderClaimWorkflowInput): WorkflowData<void> {
     const orderClaim: OrderClaimDTO = useRemoteQueryStep({
       entry_point: "order_claim",
-      fields: ["id", "status", "order_id", "return_id", "canceled_at"],
+      fields: [
+        "id",
+        "status",
+        "order_id",
+        "return",
+        "return_id",
+        "canceled_at",
+      ],
       variables: { id: input.claim_id },
       list: false,
       throw_if_key_not_found: true,

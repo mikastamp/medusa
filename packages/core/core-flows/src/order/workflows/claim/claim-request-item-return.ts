@@ -64,7 +64,7 @@ export const orderClaimRequestItemReturnWorkflow = createWorkflow(
   ): WorkflowResponse<OrderPreviewDTO> {
     const orderClaim = useRemoteQueryStep({
       entry_point: "order_claim",
-      fields: ["id", "order_id", "return_id", "canceled_at"],
+      fields: ["id", "order_id", "return", "return_id", "canceled_at"],
       variables: { id: input.claim_id },
       list: false,
       throw_if_key_not_found: true,
