@@ -5316,7 +5316,7 @@ __metadata:
   dependencies:
     "@medusajs/framework": ^2.1.3
     "@medusajs/test-utils": ^2.1.3
-    "@mikro-orm/cli": 6.4.1
+    "@mikro-orm/cli": 6.4.2
     "@swc/core": ^1.7.28
     "@swc/jest": ^0.2.36
     jest: ^29.7.0
@@ -5325,9 +5325,9 @@ __metadata:
     typescript: ^5.6.2
   peerDependencies:
     "@medusajs/framework": ^2.0.0
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     awilix: ^8.0.1
   languageName: unknown
   linkType: soft
@@ -5387,10 +5387,10 @@ __metadata:
   dependencies:
     "@medusajs/framework": ^2.1.3
     "@medusajs/test-utils": ^2.1.3
-    "@mikro-orm/cli": 6.4.1
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/cli": 6.4.2
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     "@swc/core": ^1.7.28
     "@swc/jest": ^0.2.36
     jest: ^29.7.0
@@ -5399,9 +5399,9 @@ __metadata:
     typescript: ^5.6.2
   peerDependencies:
     "@medusajs/framework": ^2.0.0
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     awilix: ^8.0.1
   languageName: unknown
   linkType: soft
@@ -5444,10 +5444,10 @@ __metadata:
   dependencies:
     "@medusajs/framework": ^2.1.3
     "@medusajs/test-utils": ^2.1.3
-    "@mikro-orm/cli": 6.4.1
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/cli": 6.4.2
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     "@swc/core": ^1.7.28
     "@swc/jest": ^0.2.36
     jest: ^29.7.0
@@ -5456,9 +5456,9 @@ __metadata:
     typescript: ^5.6.2
   peerDependencies:
     "@medusajs/framework": ^2.0.0
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     awilix: ^8.0.1
   languageName: unknown
   linkType: soft
@@ -5469,10 +5469,10 @@ __metadata:
   dependencies:
     "@medusajs/telemetry": ^2.1.3
     "@medusajs/utils": 2.1.3
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/knex": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/knex": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     "@swc/core": ^1.7.28
     "@swc/jest": ^0.2.36
     "@types/express": ^4.17.17
@@ -5503,10 +5503,10 @@ __metadata:
     winston: ^3.8.2
     yargs: ^15.3.1
   peerDependencies:
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/knex": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/knex": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     awilix: ^8.0.1
     pg: ^8.13.0
   bin:
@@ -5519,10 +5519,10 @@ __metadata:
   resolution: "@medusajs/core-flows@workspace:packages/core/core-flows"
   dependencies:
     "@medusajs/framework": ^2.1.3
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/knex": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/knex": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     "@swc/core": ^1.7.28
     "@swc/jest": ^0.2.36
     awilix: ^8.0.1
@@ -5544,10 +5544,10 @@ __metadata:
   dependencies:
     "@medusajs/framework": ^2.1.3
     "@medusajs/test-utils": ^2.1.3
-    "@mikro-orm/cli": 6.4.1
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/cli": 6.4.2
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     "@swc/core": ^1.7.28
     "@swc/jest": ^0.2.36
     jest: ^29.7.0
@@ -5556,9 +5556,9 @@ __metadata:
     typescript: ^5.6.2
   peerDependencies:
     "@medusajs/framework": ^2.0.0
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     awilix: ^8.0.1
   languageName: unknown
   linkType: soft
@@ -5569,10 +5569,10 @@ __metadata:
   dependencies:
     "@medusajs/framework": ^2.1.3
     "@medusajs/test-utils": ^2.1.3
-    "@mikro-orm/cli": 6.4.1
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/cli": 6.4.2
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     "@swc/core": ^1.7.28
     "@swc/jest": ^0.2.36
     jest: ^29.7.0
@@ -5581,9 +5581,9 @@ __metadata:
     typescript: ^5.6.2
   peerDependencies:
     "@medusajs/framework": ^2.0.0
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     awilix: ^8.0.1
   languageName: unknown
   linkType: soft
@@ -5719,10 +5719,10 @@ __metadata:
   dependencies:
     "@medusajs/framework": ^2.1.3
     "@medusajs/test-utils": ^2.1.3
-    "@mikro-orm/cli": 6.4.1
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/cli": 6.4.2
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     "@swc/core": ^1.7.28
     "@swc/jest": ^0.2.36
     jest: ^29.7.0
@@ -5747,10 +5747,10 @@ __metadata:
     "@medusajs/types": ^2.1.3
     "@medusajs/utils": ^2.1.3
     "@medusajs/workflows-sdk": ^2.1.3
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/knex": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/knex": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     "@opentelemetry/api": ^1.9.0
     "@swc/core": ^1.7.28
     "@swc/jest": ^0.2.36
@@ -5776,11 +5776,11 @@ __metadata:
     zod: 3.22.4
   peerDependencies:
     "@medusajs/cli": ^2.0.0
-    "@mikro-orm/cli": 6.4.1
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/knex": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/cli": 6.4.2
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/knex": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     awilix: ^8.0.1
     ioredis: ^5.4.1
     pg: ^8.13.0
@@ -5818,10 +5818,10 @@ __metadata:
   dependencies:
     "@medusajs/framework": ^2.1.3
     "@medusajs/test-utils": ^2.1.3
-    "@mikro-orm/cli": 6.4.1
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/cli": 6.4.2
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     "@swc/core": ^1.7.28
     "@swc/jest": ^0.2.36
     jest: ^29.7.0
@@ -5830,9 +5830,9 @@ __metadata:
     typescript: ^5.6.2
   peerDependencies:
     "@medusajs/framework": ^2.0.0
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     awilix: ^8.0.1
   languageName: unknown
   linkType: soft
@@ -5877,11 +5877,11 @@ __metadata:
   dependencies:
     "@medusajs/framework": ^2.1.3
     "@medusajs/test-utils": ^2.1.3
-    "@mikro-orm/cli": 6.4.1
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/knex": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/cli": 6.4.2
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/knex": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     "@swc/core": ^1.7.28
     "@swc/jest": ^0.2.36
     jest: ^29.7.0
@@ -5890,10 +5890,10 @@ __metadata:
     typescript: ^5.6.2
   peerDependencies:
     "@medusajs/framework": ^2.0.0
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/knex": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/knex": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     awilix: ^8.0.1
   languageName: unknown
   linkType: soft
@@ -5904,10 +5904,10 @@ __metadata:
   dependencies:
     "@medusajs/framework": ^2.1.3
     "@medusajs/test-utils": ^2.1.3
-    "@mikro-orm/cli": 6.4.1
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/cli": 6.4.2
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     "@swc/core": ^1.7.28
     "@swc/jest": ^0.2.36
     jest: ^29.7.0
@@ -5916,9 +5916,9 @@ __metadata:
     typescript: ^5.6.2
   peerDependencies:
     "@medusajs/framework": ^2.0.0
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     awilix: ^8.0.1
   languageName: unknown
   linkType: soft
@@ -5943,9 +5943,9 @@ __metadata:
   dependencies:
     "@medusajs/framework": ^2.1.3
     "@medusajs/test-utils": ^2.1.3
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     "@swc/core": ^1.7.28
     "@swc/jest": ^0.2.36
     cross-env: ^5.2.1
@@ -5955,9 +5955,9 @@ __metadata:
     typescript: ^5.6.2
   peerDependencies:
     "@medusajs/framework": ^2.0.0
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     awilix: ^8.0.1
   languageName: unknown
   linkType: soft
@@ -5967,10 +5967,10 @@ __metadata:
   resolution: "@medusajs/locking-postgres@workspace:packages/modules/providers/locking-postgres"
   dependencies:
     "@medusajs/framework": ^2.1.3
-    "@mikro-orm/cli": 6.4.1
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/cli": 6.4.2
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     "@swc/core": ^1.7.28
     "@swc/jest": ^0.2.36
     jest: ^29.7.0
@@ -6003,10 +6003,10 @@ __metadata:
   dependencies:
     "@medusajs/framework": ^2.1.3
     "@medusajs/test-utils": ^2.1.3
-    "@mikro-orm/cli": 6.4.1
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/cli": 6.4.2
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     "@swc/core": ^1.7.28
     "@swc/jest": ^0.2.36
     jest: ^29.7.0
@@ -6015,9 +6015,9 @@ __metadata:
     typescript: ^5.6.2
   peerDependencies:
     "@medusajs/framework": ^2.0.0
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     awilix: ^8.0.1
   languageName: unknown
   linkType: soft
@@ -6134,10 +6134,10 @@ __metadata:
     zod: 3.22.4
   peerDependencies:
     "@medusajs/framework": ^2.0.0
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/knex": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/knex": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     awilix: ^8.0.1
   languageName: unknown
   linkType: soft
@@ -6149,10 +6149,10 @@ __metadata:
     "@medusajs/orchestration": ^2.1.3
     "@medusajs/types": ^2.1.3
     "@medusajs/utils": ^2.1.3
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/knex": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/knex": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     "@swc/core": ^1.7.28
     "@swc/jest": ^0.2.36
     awilix: ^8.0.1
@@ -6162,10 +6162,10 @@ __metadata:
     rimraf: ^5.0.1
     typescript: ^5.6.2
   peerDependencies:
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/knex": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/knex": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     awilix: ^8.0.1
     express: ^4.21.0
     pg: ^8.13.0
@@ -6209,10 +6209,10 @@ __metadata:
   dependencies:
     "@medusajs/framework": ^2.1.3
     "@medusajs/test-utils": ^2.1.3
-    "@mikro-orm/cli": 6.4.1
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/cli": 6.4.2
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     "@swc/core": ^1.7.28
     "@swc/jest": ^0.2.36
     jest: ^29.7.0
@@ -6221,9 +6221,9 @@ __metadata:
     typescript: ^5.6.2
   peerDependencies:
     "@medusajs/framework": ^2.0.0
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     awilix: ^8.0.1
   languageName: unknown
   linkType: soft
@@ -6243,10 +6243,10 @@ __metadata:
   dependencies:
     "@medusajs/types": ^2.1.3
     "@medusajs/utils": ^2.1.3
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/knex": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/knex": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     "@swc/core": ^1.7.28
     "@swc/jest": ^0.2.36
     awilix: ^8.0.1
@@ -6255,10 +6255,10 @@ __metadata:
     rimraf: ^5.0.1
     typescript: ^5.6.2
   peerDependencies:
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/knex": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/knex": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     awilix: ^8.0.1
     express: ^4.21.0
     pg: ^8.13.0
@@ -6271,10 +6271,10 @@ __metadata:
   dependencies:
     "@medusajs/framework": ^2.1.3
     "@medusajs/test-utils": ^2.1.3
-    "@mikro-orm/cli": 6.4.1
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/cli": 6.4.2
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     "@swc/core": ^1.7.28
     "@swc/jest": ^0.2.36
     jest: ^29.7.0
@@ -6283,9 +6283,9 @@ __metadata:
     typescript: ^5.6.2
   peerDependencies:
     "@medusajs/framework": ^2.0.0
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     awilix: ^8.0.1
   languageName: unknown
   linkType: soft
@@ -6313,10 +6313,10 @@ __metadata:
   dependencies:
     "@medusajs/framework": ^2.1.3
     "@medusajs/test-utils": ^2.1.3
-    "@mikro-orm/cli": 6.4.1
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/cli": 6.4.2
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     "@swc/core": ^1.7.28
     "@swc/jest": ^0.2.36
     jest: ^29.7.0
@@ -6325,9 +6325,9 @@ __metadata:
     typescript: ^5.6.2
   peerDependencies:
     "@medusajs/framework": ^2.0.0
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     awilix: ^8.0.1
   languageName: unknown
   linkType: soft
@@ -6338,10 +6338,10 @@ __metadata:
   dependencies:
     "@medusajs/framework": ^2.1.3
     "@medusajs/test-utils": ^2.1.3
-    "@mikro-orm/cli": 6.4.1
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/cli": 6.4.2
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     "@swc/core": ^1.7.28
     "@swc/jest": ^0.2.36
     jest: ^29.7.0
@@ -6350,9 +6350,9 @@ __metadata:
     typescript: ^5.6.2
   peerDependencies:
     "@medusajs/framework": ^2.0.0
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     awilix: ^8.0.1
   languageName: unknown
   linkType: soft
@@ -6363,10 +6363,10 @@ __metadata:
   dependencies:
     "@medusajs/framework": ^2.1.3
     "@medusajs/test-utils": ^2.1.3
-    "@mikro-orm/cli": 6.4.1
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/cli": 6.4.2
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     "@swc/core": ^1.7.28
     "@swc/jest": ^0.2.36
     faker: ^5.5.3
@@ -6376,9 +6376,9 @@ __metadata:
     typescript: ^5.6.2
   peerDependencies:
     "@medusajs/framework": ^2.0.0
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     awilix: ^8.0.1
   languageName: unknown
   linkType: soft
@@ -6389,10 +6389,10 @@ __metadata:
   dependencies:
     "@medusajs/framework": ^2.1.3
     "@medusajs/test-utils": ^2.1.3
-    "@mikro-orm/cli": 6.4.1
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/cli": 6.4.2
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     "@swc/core": ^1.7.28
     "@swc/jest": ^0.2.36
     jest: ^29.7.0
@@ -6401,9 +6401,9 @@ __metadata:
     typescript: ^5.6.2
   peerDependencies:
     "@medusajs/framework": ^2.0.0
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     awilix: ^8.0.1
   languageName: unknown
   linkType: soft
@@ -6414,10 +6414,10 @@ __metadata:
   dependencies:
     "@medusajs/framework": ^2.1.3
     "@medusajs/test-utils": ^2.1.3
-    "@mikro-orm/cli": 6.4.1
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/cli": 6.4.2
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     "@swc/core": ^1.7.28
     "@swc/jest": ^0.2.36
     jest: ^29.7.0
@@ -6426,9 +6426,9 @@ __metadata:
     typescript: ^5.6.2
   peerDependencies:
     "@medusajs/framework": ^2.0.0
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     awilix: ^8.0.1
   languageName: unknown
   linkType: soft
@@ -6439,10 +6439,10 @@ __metadata:
   dependencies:
     "@medusajs/framework": ^2.1.3
     "@medusajs/test-utils": ^2.1.3
-    "@mikro-orm/cli": 6.4.1
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/cli": 6.4.2
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     "@swc/core": ^1.7.28
     "@swc/jest": ^0.2.36
     jest: ^29.7.0
@@ -6451,9 +6451,9 @@ __metadata:
     typescript: ^5.6.2
   peerDependencies:
     "@medusajs/framework": ^2.0.0
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     awilix: ^8.0.1
   languageName: unknown
   linkType: soft
@@ -6464,10 +6464,10 @@ __metadata:
   dependencies:
     "@medusajs/framework": ^2.1.3
     "@medusajs/test-utils": ^2.1.3
-    "@mikro-orm/cli": 6.4.1
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/cli": 6.4.2
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     "@swc/core": ^1.7.28
     "@swc/jest": ^0.2.36
     jest: ^29.7.0
@@ -6476,9 +6476,9 @@ __metadata:
     typescript: ^5.6.2
   peerDependencies:
     "@medusajs/framework": ^2.0.0
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     awilix: ^8.0.1
   languageName: unknown
   linkType: soft
@@ -6489,10 +6489,10 @@ __metadata:
   dependencies:
     "@medusajs/framework": ^2.1.3
     "@medusajs/test-utils": ^2.1.3
-    "@mikro-orm/cli": 6.4.1
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/cli": 6.4.2
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     "@swc/core": ^1.7.28
     "@swc/jest": ^0.2.36
     jest: ^29.7.0
@@ -6501,9 +6501,9 @@ __metadata:
     typescript: ^5.6.2
   peerDependencies:
     "@medusajs/framework": ^2.0.0
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     awilix: ^8.0.1
   languageName: unknown
   linkType: soft
@@ -6514,10 +6514,10 @@ __metadata:
   dependencies:
     "@medusajs/framework": ^2.1.3
     "@medusajs/test-utils": ^2.1.3
-    "@mikro-orm/cli": 6.4.1
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/cli": 6.4.2
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     "@swc/core": ^1.7.28
     "@swc/jest": ^0.2.36
     jest: ^29.7.0
@@ -6526,9 +6526,9 @@ __metadata:
     typescript: ^5.6.2
   peerDependencies:
     "@medusajs/framework": ^2.0.0
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     awilix: ^8.0.1
   languageName: unknown
   linkType: soft
@@ -6560,10 +6560,10 @@ __metadata:
   resolution: "@medusajs/test-utils@workspace:packages/medusa-test-utils"
   dependencies:
     "@medusajs/framework": ^2.1.3
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/knex": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/knex": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     "@types/express": ^4.17.17
     awilix: ^8.0.1
     axios: ^0.21.4
@@ -6578,7 +6578,7 @@ __metadata:
   peerDependencies:
     "@medusajs/framework": ^2.0.0
     "@medusajs/medusa": ^2.0.0
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/postgresql": 6.4.2
     awilix: ^8.0.1
   peerDependenciesMeta:
     "@medusajs/medusa":
@@ -6728,10 +6728,10 @@ __metadata:
   dependencies:
     "@medusajs/framework": ^2.1.3
     "@medusajs/test-utils": ^2.1.3
-    "@mikro-orm/cli": 6.4.1
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/cli": 6.4.2
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     "@swc/core": ^1.7.28
     "@swc/jest": ^0.2.36
     jest: ^29.7.0
@@ -6741,9 +6741,9 @@ __metadata:
     typescript: ^5.6.2
   peerDependencies:
     "@medusajs/framework": ^2.0.0
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     awilix: ^8.0.1
   languageName: unknown
   linkType: soft
@@ -6757,10 +6757,10 @@ __metadata:
     "@graphql-tools/merge": ^9.0.7
     "@graphql-tools/schema": ^10.0.6
     "@medusajs/types": ^2.1.3
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/knex": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/knex": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     "@swc/core": ^1.7.28
     "@swc/jest": ^0.2.36
     "@types/express": ^4.17.21
@@ -6782,10 +6782,10 @@ __metadata:
     typescript: ^5.6.2
     ulid: ^2.3.0
   peerDependencies:
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/knex": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/knex": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     awilix: ^8.0.1
     express: ^4.21.0
     pg: ^8.13.0
@@ -6798,10 +6798,10 @@ __metadata:
   dependencies:
     "@medusajs/framework": ^2.1.3
     "@medusajs/test-utils": ^2.1.3
-    "@mikro-orm/cli": 6.4.1
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/cli": 6.4.2
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     "@swc/core": ^1.7.28
     "@swc/jest": ^0.2.36
     cron-parser: ^4.9.0
@@ -6812,9 +6812,9 @@ __metadata:
     ulid: ^2.3.0
   peerDependencies:
     "@medusajs/framework": ^2.0.0
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     awilix: ^8.0.1
   languageName: unknown
   linkType: soft
@@ -6825,10 +6825,10 @@ __metadata:
   dependencies:
     "@medusajs/framework": ^2.1.3
     "@medusajs/test-utils": ^2.1.3
-    "@mikro-orm/cli": 6.4.1
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/cli": 6.4.2
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     "@swc/core": ^1.7.28
     "@swc/jest": ^0.2.36
     bullmq: 5.13.0
@@ -6840,9 +6840,9 @@ __metadata:
     ulid: ^2.3.0
   peerDependencies:
     "@medusajs/framework": ^2.0.0
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     awilix: ^8.0.1
   languageName: unknown
   linkType: soft
@@ -6855,10 +6855,10 @@ __metadata:
     "@medusajs/orchestration": ^2.1.3
     "@medusajs/types": ^2.1.3
     "@medusajs/utils": ^2.1.3
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/knex": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/knex": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     "@swc/core": ^1.7.28
     "@swc/jest": ^0.2.36
     awilix: ^8.0.1
@@ -6868,51 +6868,51 @@ __metadata:
     typescript: ^5.6.2
     ulid: ^2.3.0
   peerDependencies:
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/knex": 6.4.1
-    "@mikro-orm/migrations": 6.4.1
-    "@mikro-orm/postgresql": 6.4.1
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/knex": 6.4.2
+    "@mikro-orm/migrations": 6.4.2
+    "@mikro-orm/postgresql": 6.4.2
     awilix: ^8.0.1
     express: ^4.21.0
     pg: ^8.13.0
   languageName: unknown
   linkType: soft
 
-"@mikro-orm/cli@npm:6.4.1":
-  version: 6.4.1
-  resolution: "@mikro-orm/cli@npm:6.4.1"
+"@mikro-orm/cli@npm:6.4.2":
+  version: 6.4.2
+  resolution: "@mikro-orm/cli@npm:6.4.2"
   dependencies:
     "@jercle/yargonaut": 1.1.5
-    "@mikro-orm/core": 6.4.1
-    "@mikro-orm/knex": 6.4.1
+    "@mikro-orm/core": 6.4.2
+    "@mikro-orm/knex": 6.4.2
     fs-extra: 11.2.0
     tsconfig-paths: 4.2.0
     yargs: 17.7.2
   bin:
     mikro-orm: ./cli
     mikro-orm-esm: ./esm
-  checksum: 6b92bb031243de3e0d3ec82d596ac740994230b82cc5efc45e1e916325fca15868b6a0b440ceaf8b60097c8929cd1e960b3b986ca1d5f13f97b4de4a794672c0
+  checksum: 50f8784c5f66ac42e9e7b56b9041ea38ebec9186702b1fc89c6583686803fddb655061dde762225738ac5d01784aede12b8d34d79ec934be10870d8fd40bbbe8
   languageName: node
   linkType: hard
 
-"@mikro-orm/core@npm:6.4.1":
-  version: 6.4.1
-  resolution: "@mikro-orm/core@npm:6.4.1"
+"@mikro-orm/core@npm:6.4.2":
+  version: 6.4.2
+  resolution: "@mikro-orm/core@npm:6.4.2"
   dependencies:
     dataloader: 2.2.3
     dotenv: 16.4.7
     esprima: 4.0.1
     fs-extra: 11.2.0
     globby: 11.1.0
-    mikro-orm: 6.4.1
+    mikro-orm: 6.4.2
     reflect-metadata: 0.2.2
-  checksum: 2ff7c4c84ed10433c13896fd5716b57ffe4d85cb51bc244184ace413daa81ca91e9cf021f6fb2e87f520efe7f59f0d32080a99e703a6bf83af683160b70b2ce1
+  checksum: b121626e485f519d947fe50ba204bce3004b940c6473b52e0daefb0cb1da0d70a2c55b194abce597a805fe0fbd47e83e3ecee9e06cd8be728240031ae147e9b5
   languageName: node
   linkType: hard
 
-"@mikro-orm/knex@npm:6.4.1":
-  version: 6.4.1
-  resolution: "@mikro-orm/knex@npm:6.4.1"
+"@mikro-orm/knex@npm:6.4.2":
+  version: 6.4.2
+  resolution: "@mikro-orm/knex@npm:6.4.2"
   dependencies:
     fs-extra: 11.2.0
     knex: 3.1.0
@@ -6929,35 +6929,35 @@ __metadata:
       optional: true
     mariadb:
       optional: true
-  checksum: 3692e21978a112b7b8384b5ef1efccb0084f4f89bd0d07c217ea12eb9f79c05623d2d49ca37b3f6800b103b0e0ce700f9ba03d95dfa3db4d92a6bd650b4c3b41
+  checksum: 76c19d2a0a00eddf81c089c4dad2b976c2003205b8faefc9ccdf005c6d3de7e4e715adf261b0ba591979ffa86ea7a215e380598446a1fc0dc8e79ca6edc725f0
   languageName: node
   linkType: hard
 
-"@mikro-orm/migrations@npm:6.4.1":
-  version: 6.4.1
-  resolution: "@mikro-orm/migrations@npm:6.4.1"
+"@mikro-orm/migrations@npm:6.4.2":
+  version: 6.4.2
+  resolution: "@mikro-orm/migrations@npm:6.4.2"
   dependencies:
-    "@mikro-orm/knex": 6.4.1
+    "@mikro-orm/knex": 6.4.2
     fs-extra: 11.2.0
     umzug: 3.8.2
   peerDependencies:
     "@mikro-orm/core": ^6.0.0
-  checksum: 67a8f46e10c34c29df2e548be2840fd63e059e5d9421f9937d536aa68768cbc40b339451a3770a288716650774d22755d763968ccd3aee453516d7e4f08c5218
+  checksum: 28a46ceca4ab5b5292204071babe90523616f766a897779353ded98fced11ee04debe500c8d15a9ce17a7ca94db1afd8d20969866852d4f7b029d82911e55474
   languageName: node
   linkType: hard
 
-"@mikro-orm/postgresql@npm:6.4.1":
-  version: 6.4.1
-  resolution: "@mikro-orm/postgresql@npm:6.4.1"
+"@mikro-orm/postgresql@npm:6.4.2":
+  version: 6.4.2
+  resolution: "@mikro-orm/postgresql@npm:6.4.2"
   dependencies:
-    "@mikro-orm/knex": 6.4.1
+    "@mikro-orm/knex": 6.4.2
     pg: 8.13.1
     postgres-array: 3.0.2
     postgres-date: 2.1.0
     postgres-interval: 4.0.2
   peerDependencies:
     "@mikro-orm/core": ^6.0.0
-  checksum: 6d4ede8d20fc3a11e7bd19a966079e849c11bef909f80a343e3c1e1d8a00545ef5c7b853dbbc22d0165ed84269488201a91316667134b29df7cd8d306b924dae
+  checksum: 303a96af794e734b404e21d1085eec04ab7042053e7a95b38b64b911b61dacf25c113d84132f8bafcbca17634b4826ea77d8b6058cea53e169ff391d9c6ff92c
   languageName: node
   linkType: hard
 
@@ -24810,10 +24810,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mikro-orm@npm:6.4.1":
-  version: 6.4.1
-  resolution: "mikro-orm@npm:6.4.1"
-  checksum: 8cd06b83490496abd8686bcc50e88e398ba6e726bc85cdbfd2530072cdf7e24ec6a989df9254f20d1e39ec5571efa312d5e7c2a384a0ce73c25c2c31b0a1aaaf
+"mikro-orm@npm:6.4.2":
+  version: 6.4.2
+  resolution: "mikro-orm@npm:6.4.2"
+  checksum: fc96b6945b7712648ef1371d6e08acbc6b9cd14092e3835d47ac7c8616e2f5fa11eb2fee764dc6fd26f9a528f7be90b958ee1ba9ea78b92b821ab2aa058a972d
   languageName: node
   linkType: hard
 
