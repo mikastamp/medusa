@@ -126,12 +126,12 @@ const nextConfig = {
       },
     ]
   },
-  experimental: {
-    outputFileTracingExcludes: {
-      "*": ["node_modules/@medusajs/icons"],
-    },
+  outputFileTracingExcludes: {
+    "*": ["node_modules/@medusajs/icons"],
   },
-  optimizePackageImports: ["@medusajs/icons", "@medusajs/ui"],
+  experimental: {
+    optimizePackageImports: ["@medusajs/icons", "@medusajs/ui"],
+  },
 }
 
 const withBundleAnalyzer = bundleAnalyzer({

@@ -48,6 +48,8 @@ import {
  *
  *     this.logger_ = logger
  *     this.options_ = options
+ * 
+ *     // TODO initialize your client
  *   }
  * }
  *
@@ -227,13 +229,22 @@ export class AbstractFulfillmentProviderService
    * @returns The calculated price's details.
    *
    * @example
+   * import { CalculateShippingOptionPriceDTO } from "@medusajs/framework/types"
    * class MyFulfillmentProviderService extends AbstractFulfillmentProviderService {
    *   // ...
-   *   async calculatePrice(optionData: any, data: any, context: any): Promise<number> {
+   *   async calculatePrice(
+   *     optionData: CalculateShippingOptionPriceDTO["optionData"],
+   *     data: CalculateShippingOptionPriceDTO["data"],
+   *     context: CalculateShippingOptionPriceDTO["context"]
+   *   ): Promise<CalculatedShippingOptionPrice> {
    *     // assuming the client can calculate the price using
    *     // the third-party service
    *     const price = await this.client.calculate(data)
-   *     return price
+   *     return {
+   *       calculated_amount: price,
+   *       // Update this boolean value based on your logic
+   *       is_calculated_price_tax_inclusive: true,
+   *     }
    *   }
    * }
    */
@@ -344,7 +355,7 @@ export class AbstractFulfillmentProviderService
    * `data` property, it's stored in the fulfillment's `data` property.
    *
    * The `data` property is useful when handling the fulfillment later,
-   * as you can access information useful for your integration. For example, you 
+   * as you can access information useful for your integration. For example, you
    * can store an ID for the fulfillment in the third-party service.
    *
    * Use this method to perform actions necessary in the third-party fulfillment service, such as
