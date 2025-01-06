@@ -31,7 +31,7 @@ function createExchangeAndReturnEntities(em, data, order) {
     refund_amount: (data.refund_amount as unknown) ?? null,
   })
 
-  exchangeReference.return_id = returnReference.id
+  exchangeReference.return = returnReference
 
   return { exchangeReference, returnReference }
 }

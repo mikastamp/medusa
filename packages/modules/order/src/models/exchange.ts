@@ -23,7 +23,7 @@ const _OrderExchange = model
     }),
     return: model
       .hasOne<() => typeof Return>(() => Return, {
-        mappedBy: undefined,
+        mappedBy: "exchange",
         foreignKey: true,
       })
       .nullable(),

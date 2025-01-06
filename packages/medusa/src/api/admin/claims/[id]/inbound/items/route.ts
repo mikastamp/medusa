@@ -8,9 +8,9 @@ import {
   AuthenticatedMedusaRequest,
   MedusaResponse,
 } from "@medusajs/framework/http"
+import { HttpTypes } from "@medusajs/framework/types"
 import { defaultAdminDetailsReturnFields } from "../../../../returns/query-config"
 import { AdminPostReturnsRequestItemsReqSchemaType } from "../../../../returns/validators"
-import { HttpTypes } from "@medusajs/framework/types"
 
 export const POST = async (
   req: AuthenticatedMedusaRequest<AdminPostReturnsRequestItemsReqSchemaType>,
@@ -26,7 +26,7 @@ export const POST = async (
       variables: {
         id,
       },
-      fields: ["return_id"],
+      fields: ["return", "return_id"],
     }),
     {
       throwIfKeyNotFound: true,

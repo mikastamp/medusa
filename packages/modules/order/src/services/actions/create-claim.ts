@@ -35,7 +35,7 @@ function createClaimAndReturnEntities(em, data, order) {
         })
       : undefined
 
-  claimReference.return_id = returnReference?.id
+  claimReference.return = returnReference
 
   return { claimReference, returnReference }
 }
