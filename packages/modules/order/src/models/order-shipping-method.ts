@@ -6,40 +6,35 @@ import { Return } from "./return"
 import { OrderShippingMethod } from "./shipping-method"
 
 const _OrderShipping = model
-  .define(
-    {
-      tableName: "order_shipping",
-    },
-    {
-      id: model.id({ prefix: "ordspmv" }).primaryKey(),
-      version: model.number().default(1),
-      order: model.belongsTo<() => typeof Order>(() => Order, {
+  .define("OrderShipping", {
+    id: model.id({ prefix: "ordspmv" }).primaryKey(),
+    version: model.number().default(1),
+    order: model.belongsTo<() => typeof Order>(() => Order, {
+      mappedBy: "shipping_methods",
+    }),
+    return: model
+      .belongsTo<() => typeof Return>(() => Return, {
         mappedBy: "shipping_methods",
-      }),
-      return: model
-        .belongsTo<() => typeof Return>(() => Return, {
-          mappedBy: "shipping_methods",
-        })
-        .nullable(),
-      exchange: model
-        .belongsTo<() => typeof OrderExchange>(() => OrderExchange, {
-          mappedBy: "shipping_methods",
-        })
-        .nullable(),
-      claim: model
-        .belongsTo<() => typeof OrderClaim>(() => OrderClaim, {
-          mappedBy: "shipping_methods",
-        })
-        .nullable(),
-      shipping_method: model.hasOne<() => typeof OrderShippingMethod>(
-        () => OrderShippingMethod,
-        {
-          mappedBy: undefined,
-          foreignKey: true,
-        }
-      ),
-    }
-  )
+      })
+      .nullable(),
+    exchange: model
+      .belongsTo<() => typeof OrderExchange>(() => OrderExchange, {
+        mappedBy: "shipping_methods",
+      })
+      .nullable(),
+    claim: model
+      .belongsTo<() => typeof OrderClaim>(() => OrderClaim, {
+        mappedBy: "shipping_methods",
+      })
+      .nullable(),
+    shipping_method: model.hasOne<() => typeof OrderShippingMethod>(
+      () => OrderShippingMethod,
+      {
+        mappedBy: undefined,
+        foreignKey: true,
+      }
+    ),
+  })
   .indexes([
     {
       name: "IDX_order_shipping_order_id",

@@ -20,9 +20,9 @@ const _Return = model
     requested_at: model.dateTime().nullable(),
     received_at: model.dateTime().nullable(),
     canceled_at: model.dateTime().nullable(),
-    order: model.hasOne<() => typeof Order>(() => Order, {
-      mappedBy: undefined,
-      foreignKey: true,
+    order: model.belongsTo<() => typeof Order>(() => Order, {
+      mappedBy: "returns",
+      // foreignKey: true,
     }),
     exchange: model
       .belongsTo<() => typeof OrderExchange>(() => OrderExchange, {

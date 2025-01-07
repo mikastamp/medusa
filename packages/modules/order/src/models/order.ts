@@ -5,55 +5,54 @@ import { OrderItem } from "./order-item"
 import { OrderShipping } from "./order-shipping-method"
 import { OrderSummary } from "./order-summary"
 import { OrderTransaction } from "./transaction"
+import { Return } from "@models"
 
 const _Order = model
-  .define(
-    {
-      tableName: "order",
-    },
-    {
-      id: model.id({ prefix: "order" }).primaryKey(),
-      display_id: model.autoincrement(),
-      region_id: model.text().nullable(),
-      customer_id: model.text().nullable(),
-      version: model.number().default(1),
-      sales_channel_id: model.text().nullable(),
-      status: model.enum(OrderStatus).default(OrderStatus.PENDING),
-      is_draft_order: model.boolean().default(false),
-      email: model.text().searchable().nullable(),
-      currency_code: model.text(),
-      no_notification: model.boolean().nullable(),
-      metadata: model.json().nullable(),
-      canceled_at: model.dateTime().nullable(),
-      shipping_address: model
-        .hasOne<any>(() => OrderAddress, {
-          mappedBy: undefined,
-          foreignKey: true,
-        })
-        .nullable(),
-      billing_address: model
-        .hasOne<any>(() => OrderAddress, {
-          mappedBy: undefined,
-          foreignKey: true,
-        })
-        .nullable(),
-      summary: model.hasMany<any>(() => OrderSummary, {
-        mappedBy: "order",
-      }),
-      items: model.hasMany<any>(() => OrderItem, {
-        mappedBy: "order",
-      }),
-      shipping_methods: model.hasMany<any>(() => OrderShipping, {
-        mappedBy: "order",
-      }),
-      transactions: model.hasMany<any>(() => OrderTransaction, {
-        mappedBy: "order",
-      }),
-      credit_lines: model.hasMany<any>(() => OrderCreditLine, {
-        mappedBy: "order",
-      }),
-    }
-  )
+  .define("Order", {
+    id: model.id({ prefix: "order" }).primaryKey(),
+    display_id: model.autoincrement(),
+    region_id: model.text().nullable(),
+    customer_id: model.text().nullable(),
+    version: model.number().default(1),
+    sales_channel_id: model.text().nullable(),
+    status: model.enum(OrderStatus).default(OrderStatus.PENDING),
+    is_draft_order: model.boolean().default(false),
+    email: model.text().searchable().nullable(),
+    currency_code: model.text(),
+    no_notification: model.boolean().nullable(),
+    metadata: model.json().nullable(),
+    canceled_at: model.dateTime().nullable(),
+    shipping_address: model
+      .hasOne<any>(() => OrderAddress, {
+        mappedBy: undefined,
+        foreignKey: true,
+      })
+      .nullable(),
+    billing_address: model
+      .hasOne<any>(() => OrderAddress, {
+        mappedBy: undefined,
+        foreignKey: true,
+      })
+      .nullable(),
+    summary: model.hasMany<any>(() => OrderSummary, {
+      mappedBy: "order",
+    }),
+    items: model.hasMany<any>(() => OrderItem, {
+      mappedBy: "order",
+    }),
+    shipping_methods: model.hasMany<any>(() => OrderShipping, {
+      mappedBy: "order",
+    }),
+    transactions: model.hasMany<any>(() => OrderTransaction, {
+      mappedBy: "order",
+    }),
+    credit_lines: model.hasMany<any>(() => OrderCreditLine, {
+      mappedBy: "order",
+    }),
+    returns: model.hasMany<any>(() => Return, {
+      mappedBy: "order",
+    }),
+  })
   .cascades({
     delete: ["summary", "items", "shipping_methods", "transactions"],
   })

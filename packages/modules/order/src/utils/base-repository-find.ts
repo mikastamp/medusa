@@ -29,7 +29,8 @@ export function setFindMethods<T>(klass: Constructor<T>, entity: any) {
       }
     }
 
-    const isRelatedEntity = entity !== Order
+    const isRelatedEntity = entity.name !== Order.name
+
     const config = mapRepositoryToOrderModel(findOptions_, isRelatedEntity)
     config.options ??= {}
     config.options.populate ??= []
@@ -106,7 +107,8 @@ export function setFindMethods<T>(klass: Constructor<T>, entity: any) {
       })
     }
 
-    const isRelatedEntity = entity !== Order
+    const isRelatedEntity = entity.name !== Order.name
+
     const config = mapRepositoryToOrderModel(findOptions_, isRelatedEntity)
 
     let orderAlias = "o0"
@@ -172,11 +174,6 @@ function configurePopulateWhere(
   if (isRelatedEntity) {
     popWhere.order ??= {}
     popWhere.order.version = version
-
-    if (hasRelation("shipping_methods")) {
-      popWhere.shipping_methods ??= {}
-      popWhere.shipping_methods.version = version
-    }
 
     if (hasRelation("shipping_methods")) {
       popWhere.shipping_methods ??= {}
