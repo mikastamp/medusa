@@ -22,7 +22,6 @@ const _Return = model
     canceled_at: model.dateTime().nullable(),
     order: model.belongsTo<() => typeof Order>(() => Order, {
       mappedBy: "returns",
-      // foreignKey: true,
     }),
     exchange: model
       .belongsTo<() => typeof OrderExchange>(() => OrderExchange, {

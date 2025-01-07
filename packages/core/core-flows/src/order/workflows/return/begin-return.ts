@@ -58,7 +58,7 @@ export const beginReturnOrderWorkflow = createWorkflow(
         return {
           change_type: "return_request" as const,
           order_id: input.order_id,
-          return_id: created[0].id,
+          return: created[0].id,
           created_by: input.created_by,
           description: input.description,
           internal_note: input.internal_note,

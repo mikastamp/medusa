@@ -26,7 +26,7 @@ export const POST = async (
       variables: {
         id,
       },
-      fields: ["return", "return_id"],
+      fields: ["id", "return_id"],
     }),
     {
       throwIfKeyNotFound: true,

@@ -58,7 +58,7 @@ export const beginExchangeOrderWorkflow = createWorkflow(
         return {
           change_type: "exchange" as const,
           order_id: input.order_id,
-          exchange_id: created[0].id,
+          exchange: created[0].id,
           created_by: input.created_by,
           description: input.description,
           internal_note: input.internal_note,
