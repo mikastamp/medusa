@@ -1,6 +1,6 @@
 {
   "name": "@medusajs/locking",
-  "version": "2.1.3",
+  "version": "2.2.0",
   "description": "Locking Module for Medusa",
   "main": "dist/index.js",
   "repository": {
@@ -32,8 +32,8 @@
     "orm:cache:clear": " MIKRO_ORM_CLI=./mikro-orm.config.dev.ts medusa-mikro-orm cache:clear"
   },
   "devDependencies": {
-    "@medusajs/framework": "^2.1.3",
-    "@medusajs/test-utils": "^2.1.3",
+    "@medusajs/framework": "^2.2.0",
+    "@medusajs/test-utils": "^2.2.0",
     "@mikro-orm/cli": "6.4.2",
     "@mikro-orm/core": "6.4.2",
     "@mikro-orm/migrations": "6.4.2",

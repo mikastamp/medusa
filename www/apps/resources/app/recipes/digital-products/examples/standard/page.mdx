@@ -671,7 +671,7 @@ You’ll test out the workflow in the next section.
 
 - [How to Create a Workflow](!docs!/learn/fundamentals/workflows)
 - [What is the Compensation Function](!docs!/learn/fundamentals/workflows/compensation-function)
-- [Learn more about the remote link function](!docs!/learn/fundamentals/module-links/remote-link)
+- [Learn more about Link functions](!docs!/learn/fundamentals/module-links/link)
 
 ---
 
@@ -1706,7 +1706,13 @@ Then, create the file `src/modules/digital-product-fulfillment/service.ts` with 
 
 ```ts title="src/modules/digital-product-fulfillment/service.ts"
 import { AbstractFulfillmentProviderService } from "@medusajs/framework/utils"
-import { FulfillmentOption } from "@medusajs/framework/types"
+import { 
+  CreateFulfillmentResult, 
+  FulfillmentDTO, 
+  FulfillmentItemDTO, 
+  FulfillmentOption, 
+  FulfillmentOrderDTO
+} from "@medusajs/framework/types"
 
 class DigitalProductFulfillmentService extends AbstractFulfillmentProviderService {
   static identifier = "digital"
@@ -1735,9 +1741,17 @@ class DigitalProductFulfillmentService extends AbstractFulfillmentProviderServic
     return true
   }
 
-  async createFulfillment(): Promise<Record<string, any>> {
+  async createFulfillment(
+    data: Record<string, unknown>, 
+    items: Partial<Omit<FulfillmentItemDTO, "fulfillment">>[], 
+    order: Partial<FulfillmentOrderDTO> | undefined, 
+    fulfillment: Partial<Omit<FulfillmentDTO, "provider_id" | "data" | "items">>
+  ): Promise<CreateFulfillmentResult> {
     // No data is being sent anywhere
-    return {}
+    return {
+      data,
+      labels: []
+    }
   }
 
   async cancelFulfillment(): Promise<any> {

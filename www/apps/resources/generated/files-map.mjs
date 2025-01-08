@@ -4780,6 +4780,10 @@ export const filesMap = [
     "pathname": "/references/core_flows/Payment/Steps_Payment/functions/core_flows.Payment.Steps_Payment.refundPaymentStep"
   },
   {
+    "filePath": "/www/apps/resources/references/core_flows/Payment/Steps_Payment/functions/core_flows.Payment.Steps_Payment.refundPaymentsStep/page.mdx",
+    "pathname": "/references/core_flows/Payment/Steps_Payment/functions/core_flows.Payment.Steps_Payment.refundPaymentsStep"
+  },
+  {
     "filePath": "/www/apps/resources/references/core_flows/Payment/Steps_Payment/variables/core_flows.Payment.Steps_Payment.authorizePaymentSessionStepId/page.mdx",
     "pathname": "/references/core_flows/Payment/Steps_Payment/variables/core_flows.Payment.Steps_Payment.authorizePaymentSessionStepId"
   },
@@ -4796,6 +4800,10 @@ export const filesMap = [
     "pathname": "/references/core_flows/Payment/Steps_Payment/variables/core_flows.Payment.Steps_Payment.refundPaymentStepId"
   },
   {
+    "filePath": "/www/apps/resources/references/core_flows/Payment/Steps_Payment/variables/core_flows.Payment.Steps_Payment.refundPaymentsStepId/page.mdx",
+    "pathname": "/references/core_flows/Payment/Steps_Payment/variables/core_flows.Payment.Steps_Payment.refundPaymentsStepId"
+  },
+  {
     "filePath": "/www/apps/resources/references/core_flows/Payment/Workflows_Payment/functions/core_flows.Payment.Workflows_Payment.capturePaymentWorkflow/page.mdx",
     "pathname": "/references/core_flows/Payment/Workflows_Payment/functions/core_flows.Payment.Workflows_Payment.capturePaymentWorkflow"
   },
@@ -4806,6 +4814,14 @@ export const filesMap = [
   {
     "filePath": "/www/apps/resources/references/core_flows/Payment/Workflows_Payment/functions/core_flows.Payment.Workflows_Payment.refundPaymentWorkflow/page.mdx",
     "pathname": "/references/core_flows/Payment/Workflows_Payment/functions/core_flows.Payment.Workflows_Payment.refundPaymentWorkflow"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Payment/Workflows_Payment/functions/core_flows.Payment.Workflows_Payment.refundPaymentsWorkflow/page.mdx",
+    "pathname": "/references/core_flows/Payment/Workflows_Payment/functions/core_flows.Payment.Workflows_Payment.refundPaymentsWorkflow"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Payment/Workflows_Payment/functions/core_flows.Payment.Workflows_Payment.validatePaymentsRefundStep/page.mdx",
+    "pathname": "/references/core_flows/Payment/Workflows_Payment/functions/core_flows.Payment.Workflows_Payment.validatePaymentsRefundStep"
   },
   {
     "filePath": "/www/apps/resources/references/core_flows/Payment/Workflows_Payment/functions/core_flows.Payment.Workflows_Payment.validateRefundStep/page.mdx",
@@ -4822,6 +4838,10 @@ export const filesMap = [
   {
     "filePath": "/www/apps/resources/references/core_flows/Payment/Workflows_Payment/variables/core_flows.Payment.Workflows_Payment.refundPaymentWorkflowId/page.mdx",
     "pathname": "/references/core_flows/Payment/Workflows_Payment/variables/core_flows.Payment.Workflows_Payment.refundPaymentWorkflowId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Payment/Workflows_Payment/variables/core_flows.Payment.Workflows_Payment.refundPaymentsWorkflowId/page.mdx",
+    "pathname": "/references/core_flows/Payment/Workflows_Payment/variables/core_flows.Payment.Workflows_Payment.refundPaymentsWorkflowId"
   },
   {
     "filePath": "/www/apps/resources/references/core_flows/Payment/core_flows.Payment.Steps_Payment/page.mdx",
@@ -6300,6 +6320,10 @@ export const filesMap = [
     "pathname": "/references/core_flows/Tax/Steps_Tax/functions/core_flows.Tax.Steps_Tax.updateTaxRatesStep"
   },
   {
+    "filePath": "/www/apps/resources/references/core_flows/Tax/Steps_Tax/functions/core_flows.Tax.Steps_Tax.updateTaxRegionsStep/page.mdx",
+    "pathname": "/references/core_flows/Tax/Steps_Tax/functions/core_flows.Tax.Steps_Tax.updateTaxRegionsStep"
+  },
+  {
     "filePath": "/www/apps/resources/references/core_flows/Tax/Steps_Tax/variables/core_flows.Tax.Steps_Tax.createTaxRateRulesStepId/page.mdx",
     "pathname": "/references/core_flows/Tax/Steps_Tax/variables/core_flows.Tax.Steps_Tax.createTaxRateRulesStepId"
   },
@@ -6338,6 +6362,10 @@ export const filesMap = [
   {
     "filePath": "/www/apps/resources/references/core_flows/Tax/Steps_Tax/variables/core_flows.Tax.Steps_Tax.updateTaxRatesStepId/page.mdx",
     "pathname": "/references/core_flows/Tax/Steps_Tax/variables/core_flows.Tax.Steps_Tax.updateTaxRatesStepId"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/Tax/Steps_Tax/variables/core_flows.Tax.Steps_Tax.updateTaxRegionsStepId/page.mdx",
+    "pathname": "/references/core_flows/Tax/Steps_Tax/variables/core_flows.Tax.Steps_Tax.updateTaxRegionsStepId"
   },
   {
     "filePath": "/www/apps/resources/references/core_flows/Tax/Workflows_Tax/functions/core_flows.Tax.Workflows_Tax.createTaxRateRulesWorkflow/page.mdx",
@@ -8684,6 +8712,10 @@ export const filesMap = [
     "pathname": "/references/fulfillment/types/fulfillment.CalculatedShippingOptionPrice"
   },
   {
+    "filePath": "/www/apps/resources/references/fulfillment/types/fulfillment.CartPropsForFulfillment/page.mdx",
+    "pathname": "/references/fulfillment/types/fulfillment.CartPropsForFulfillment"
+  },
+  {
     "filePath": "/www/apps/resources/references/fulfillment/types/fulfillment.ChangeActionType/page.mdx",
     "pathname": "/references/fulfillment/types/fulfillment.ChangeActionType"
   },
@@ -8818,6 +8850,10 @@ export const filesMap = [
   {
     "filePath": "/www/apps/resources/references/fulfillment/types/fulfillment.UpdateGeoZoneDTO/page.mdx",
     "pathname": "/references/fulfillment/types/fulfillment.UpdateGeoZoneDTO"
+  },
+  {
+    "filePath": "/www/apps/resources/references/fulfillment/types/fulfillment.ValidateFulfillmentDataContext/page.mdx",
+    "pathname": "/references/fulfillment/types/fulfillment.ValidateFulfillmentDataContext"
   },
   {
     "filePath": "/www/apps/resources/references/fulfillment_models/types/fulfillment_models.GeoZoneSchema/page.mdx",
@@ -11492,12 +11528,12 @@ export const filesMap = [
     "pathname": "/references/modules/workflows"
   },
   {
-    "filePath": "/www/apps/resources/references/modules_sdk/classes/modules_sdk.Query/page.mdx",
-    "pathname": "/references/modules_sdk/classes/modules_sdk.Query"
+    "filePath": "/www/apps/resources/references/modules_sdk/classes/modules_sdk.Link/page.mdx",
+    "pathname": "/references/modules_sdk/classes/modules_sdk.Link"
   },
   {
-    "filePath": "/www/apps/resources/references/modules_sdk/classes/modules_sdk.RemoteLink/page.mdx",
-    "pathname": "/references/modules_sdk/classes/modules_sdk.RemoteLink"
+    "filePath": "/www/apps/resources/references/modules_sdk/classes/modules_sdk.Query/page.mdx",
+    "pathname": "/references/modules_sdk/classes/modules_sdk.Query"
   },
   {
     "filePath": "/www/apps/resources/references/modules_sdk/classes/modules_sdk.RemoteQuery/page.mdx",
@@ -15336,12 +15372,20 @@ export const filesMap = [
     "pathname": "/references/stock_location_next/IStockLocationService/methods/stock_location_next.IStockLocationService.createStockLocations"
   },
   {
+    "filePath": "/www/apps/resources/references/stock_location_next/IStockLocationService/methods/stock_location_next.IStockLocationService.deleteStockLocationAddresses/page.mdx",
+    "pathname": "/references/stock_location_next/IStockLocationService/methods/stock_location_next.IStockLocationService.deleteStockLocationAddresses"
+  },
+  {
     "filePath": "/www/apps/resources/references/stock_location_next/IStockLocationService/methods/stock_location_next.IStockLocationService.deleteStockLocations/page.mdx",
     "pathname": "/references/stock_location_next/IStockLocationService/methods/stock_location_next.IStockLocationService.deleteStockLocations"
   },
   {
     "filePath": "/www/apps/resources/references/stock_location_next/IStockLocationService/methods/stock_location_next.IStockLocationService.listAndCountStockLocations/page.mdx",
     "pathname": "/references/stock_location_next/IStockLocationService/methods/stock_location_next.IStockLocationService.listAndCountStockLocations"
+  },
+  {
+    "filePath": "/www/apps/resources/references/stock_location_next/IStockLocationService/methods/stock_location_next.IStockLocationService.listStockLocationAddresses/page.mdx",
+    "pathname": "/references/stock_location_next/IStockLocationService/methods/stock_location_next.IStockLocationService.listStockLocationAddresses"
   },
   {
     "filePath": "/www/apps/resources/references/stock_location_next/IStockLocationService/methods/stock_location_next.IStockLocationService.listStockLocations/page.mdx",
@@ -15364,6 +15408,10 @@ export const filesMap = [
     "pathname": "/references/stock_location_next/IStockLocationService/methods/stock_location_next.IStockLocationService.updateStockLocations"
   },
   {
+    "filePath": "/www/apps/resources/references/stock_location_next/IStockLocationService/methods/stock_location_next.IStockLocationService.upsertStockLocationAddresses/page.mdx",
+    "pathname": "/references/stock_location_next/IStockLocationService/methods/stock_location_next.IStockLocationService.upsertStockLocationAddresses"
+  },
+  {
     "filePath": "/www/apps/resources/references/stock_location_next/IStockLocationService/methods/stock_location_next.IStockLocationService.upsertStockLocations/page.mdx",
     "pathname": "/references/stock_location_next/IStockLocationService/methods/stock_location_next.IStockLocationService.upsertStockLocations"
   },
@@ -15374,6 +15422,10 @@ export const filesMap = [
   {
     "filePath": "/www/apps/resources/references/stock_location_next/interfaces/stock_location_next.Context/page.mdx",
     "pathname": "/references/stock_location_next/interfaces/stock_location_next.Context"
+  },
+  {
+    "filePath": "/www/apps/resources/references/stock_location_next/interfaces/stock_location_next.FilterableStockLocationAddressProps/page.mdx",
+    "pathname": "/references/stock_location_next/interfaces/stock_location_next.FilterableStockLocationAddressProps"
   },
   {
     "filePath": "/www/apps/resources/references/stock_location_next/interfaces/stock_location_next.FilterableStockLocationProps/page.mdx",
@@ -15582,6 +15634,10 @@ export const filesMap = [
   {
     "filePath": "/www/apps/resources/references/stock_location_next/types/stock_location_next.UpdateStockLocationInput/page.mdx",
     "pathname": "/references/stock_location_next/types/stock_location_next.UpdateStockLocationInput"
+  },
+  {
+    "filePath": "/www/apps/resources/references/stock_location_next/types/stock_location_next.UpsertStockLocationAddressInput/page.mdx",
+    "pathname": "/references/stock_location_next/types/stock_location_next.UpsertStockLocationAddressInput"
   },
   {
     "filePath": "/www/apps/resources/references/stock_location_next_models/variables/stock_location_next_models.StockLocation/page.mdx",
@@ -18468,6 +18524,10 @@ export const filesMap = [
     "pathname": "/references/types/HttpTypes/interfaces/types.HttpTypes.StoreProductImage"
   },
   {
+    "filePath": "/www/apps/resources/references/types/HttpTypes/interfaces/types.HttpTypes.StoreProductListParams/page.mdx",
+    "pathname": "/references/types/HttpTypes/interfaces/types.HttpTypes.StoreProductListParams"
+  },
+  {
     "filePath": "/www/apps/resources/references/types/HttpTypes/interfaces/types.HttpTypes.StoreProductOption/page.mdx",
     "pathname": "/references/types/HttpTypes/interfaces/types.HttpTypes.StoreProductOption"
   },
@@ -18482,6 +18542,10 @@ export const filesMap = [
   {
     "filePath": "/www/apps/resources/references/types/HttpTypes/interfaces/types.HttpTypes.StoreProductParams/page.mdx",
     "pathname": "/references/types/HttpTypes/interfaces/types.HttpTypes.StoreProductParams"
+  },
+  {
+    "filePath": "/www/apps/resources/references/types/HttpTypes/interfaces/types.HttpTypes.StoreProductPricingContext/page.mdx",
+    "pathname": "/references/types/HttpTypes/interfaces/types.HttpTypes.StoreProductPricingContext"
   },
   {
     "filePath": "/www/apps/resources/references/types/HttpTypes/interfaces/types.HttpTypes.StoreProductResponse/page.mdx",
@@ -19264,6 +19328,10 @@ export const filesMap = [
     "pathname": "/references/types/SearchTypes/types/types.SearchTypes.IndexSettings"
   },
   {
+    "filePath": "/www/apps/resources/references/types/StockLocationTypes/interfaces/types.StockLocationTypes.FilterableStockLocationAddressProps/page.mdx",
+    "pathname": "/references/types/StockLocationTypes/interfaces/types.StockLocationTypes.FilterableStockLocationAddressProps"
+  },
+  {
     "filePath": "/www/apps/resources/references/types/StockLocationTypes/interfaces/types.StockLocationTypes.FilterableStockLocationProps/page.mdx",
     "pathname": "/references/types/StockLocationTypes/interfaces/types.StockLocationTypes.FilterableStockLocationProps"
   },
@@ -19296,8 +19364,16 @@ export const filesMap = [
     "pathname": "/references/types/StockLocationTypes/types/types.StockLocationTypes.StockLocationExpandedDTO"
   },
   {
+    "filePath": "/www/apps/resources/references/types/StockLocationTypes/types/types.StockLocationTypes.UpdateStockLocationAddressInput/page.mdx",
+    "pathname": "/references/types/StockLocationTypes/types/types.StockLocationTypes.UpdateStockLocationAddressInput"
+  },
+  {
     "filePath": "/www/apps/resources/references/types/StockLocationTypes/types/types.StockLocationTypes.UpdateStockLocationInput/page.mdx",
     "pathname": "/references/types/StockLocationTypes/types/types.StockLocationTypes.UpdateStockLocationInput"
+  },
+  {
+    "filePath": "/www/apps/resources/references/types/StockLocationTypes/types/types.StockLocationTypes.UpsertStockLocationAddressInput/page.mdx",
+    "pathname": "/references/types/StockLocationTypes/types/types.StockLocationTypes.UpsertStockLocationAddressInput"
   },
   {
     "filePath": "/www/apps/resources/references/types/TransactionBaseTypes/interfaces/types.TransactionBaseTypes.ITransactionBaseService/page.mdx",

@@ -12583,6 +12583,14 @@ export const generatedSidebar = [
                         "loaded": true,
                         "isPathHref": true,
                         "type": "link",
+                        "path": "/references/stock-location-next/deleteStockLocationAddresses",
+                        "title": "deleteStockLocationAddresses",
+                        "children": []
+                      },
+                      {
+                        "loaded": true,
+                        "isPathHref": true,
+                        "type": "link",
                         "path": "/references/stock-location-next/deleteStockLocations",
                         "title": "deleteStockLocations",
                         "children": []
@@ -12593,6 +12601,14 @@ export const generatedSidebar = [
                         "type": "link",
                         "path": "/references/stock-location-next/listAndCountStockLocations",
                         "title": "listAndCountStockLocations",
+                        "children": []
+                      },
+                      {
+                        "loaded": true,
+                        "isPathHref": true,
+                        "type": "link",
+                        "path": "/references/stock-location-next/listStockLocationAddresses",
+                        "title": "listStockLocationAddresses",
                         "children": []
                       },
                       {
@@ -12633,6 +12649,14 @@ export const generatedSidebar = [
                         "type": "link",
                         "path": "/references/stock-location-next/updateStockLocations",
                         "title": "updateStockLocations",
+                        "children": []
+                      },
+                      {
+                        "loaded": true,
+                        "isPathHref": true,
+                        "type": "link",
+                        "path": "/references/stock-location-next/upsertStockLocationAddresses",
+                        "title": "upsertStockLocationAddresses",
                         "children": []
                       },
                       {
@@ -14768,14 +14792,6 @@ export const generatedSidebar = [
             "loaded": true,
             "isPathHref": true,
             "type": "link",
-            "path": "/storefront-development/cart",
-            "title": "Overview",
-            "children": []
-          },
-          {
-            "loaded": true,
-            "isPathHref": true,
-            "type": "link",
             "path": "/storefront-development/cart/create",
             "title": "Create Cart",
             "children": []
@@ -14885,14 +14901,6 @@ export const generatedSidebar = [
         "type": "category",
         "title": "Customers",
         "children": [
-          {
-            "loaded": true,
-            "isPathHref": true,
-            "type": "link",
-            "path": "/storefront-development/customers",
-            "title": "Overview",
-            "children": []
-          },
           {
             "loaded": true,
             "isPathHref": true,
@@ -19678,6 +19686,14 @@ export const generatedSidebar = [
                     "path": "/references/medusa-workflows/refundPaymentWorkflow",
                     "title": "refundPaymentWorkflow",
                     "children": []
+                  },
+                  {
+                    "loaded": true,
+                    "isPathHref": true,
+                    "type": "link",
+                    "path": "/references/medusa-workflows/refundPaymentsWorkflow",
+                    "title": "refundPaymentsWorkflow",
+                    "children": []
                   }
                 ],
                 "loaded": true
@@ -19716,6 +19732,22 @@ export const generatedSidebar = [
                     "type": "link",
                     "path": "/references/medusa-workflows/steps/refundPaymentStep",
                     "title": "refundPaymentStep",
+                    "children": []
+                  },
+                  {
+                    "loaded": true,
+                    "isPathHref": true,
+                    "type": "link",
+                    "path": "/references/medusa-workflows/steps/refundPaymentsStep",
+                    "title": "refundPaymentsStep",
+                    "children": []
+                  },
+                  {
+                    "loaded": true,
+                    "isPathHref": true,
+                    "type": "link",
+                    "path": "/references/medusa-workflows/validatePaymentsRefundStep",
+                    "title": "validatePaymentsRefundStep",
                     "children": []
                   },
                   {
@@ -21519,6 +21551,14 @@ export const generatedSidebar = [
                     "type": "link",
                     "path": "/references/medusa-workflows/steps/updateTaxRatesStep",
                     "title": "updateTaxRatesStep",
+                    "children": []
+                  },
+                  {
+                    "loaded": true,
+                    "isPathHref": true,
+                    "type": "link",
+                    "path": "/references/medusa-workflows/steps/updateTaxRegionsStep",
+                    "title": "updateTaxRegionsStep",
                     "children": []
                   },
                   {
