@@ -56,9 +56,7 @@ describe("@MikroOrmBigNumberProperty", () => {
     try {
       ;(testAmount as any).amount = null
     } catch (e) {
-      expect(e.message).toEqual(
-        "Invalid BigNumber value: null. Should be one of: string, number, BigNumber (bignumber.js), BigNumberRawValue"
-      )
+      expect(e.message).toEqual("Cannot set value null for amount.")
     }
 
     testAmount.nullable_amount = null
