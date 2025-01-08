@@ -83,6 +83,28 @@ describe("getResolvedPlugins | relative paths", () => {
       },
     ])
   })
+
+  test("throw error when package.json file is missing", async () => {
+    const resolvePlugins = async () =>
+      getResolvedPlugins(
+        fs.basePath,
+        defineConfig({
+          plugins: [
+            {
+              resolve: "./plugins/dummy",
+              options: {
+                apiKey: "asecret",
+              },
+            },
+          ],
+        }),
+        false
+      )
+
+    await expect(resolvePlugins()).rejects.toThrow(
+      `Unable to resolve plugin "./plugins/dummy". Make sure the plugin directory has a package.json file`
+    )
+  })
 })
 
 describe("getResolvedPlugins | package reference", () => {
@@ -163,5 +185,27 @@ describe("getResolvedPlugins | package reference", () => {
         ],
       },
     ])
+  })
+
+  test("throw error when package.json file is missing", async () => {
+    const resolvePlugins = async () =>
+      getResolvedPlugins(
+        fs.basePath,
+        defineConfig({
+          plugins: [
+            {
+              resolve: "@plugins/dummy",
+              options: {
+                apiKey: "asecret",
+              },
+            },
+          ],
+        }),
+        false
+      )
+
+    await expect(resolvePlugins()).rejects.toThrow(
+      `Unable to resolve plugin "@plugins/dummy". Make sure the plugin directory has a package.json file`
+    )
   })
 })

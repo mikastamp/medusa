@@ -1,10 +1,10 @@
-import fs from "fs"
 import path from "path"
+import fs from "fs/promises"
 import { isString, readDir } from "@medusajs/framework/utils"
 import { ConfigModule, PluginDetails } from "@medusajs/framework/types"
 
-export const MEDUSA_PROJECT_NAME = "project-plugin"
 const MEDUSA_APP_SOURCE_PATH = "src"
+export const MEDUSA_PROJECT_NAME = "project-plugin"
 
 function createPluginId(name: string): string {
   return name
@@ -12,6 +12,32 @@ function createPluginId(name: string): string {
 
 function createFileContentHash(path: string, files: string): string {
   return path + files
+}
+
+/**
+ * Returns the absolute path to the package.json file for a
+ * given plugin identifier.
+ */
+async function resolvePluginPkgFile(
+  rootDirectory: string,
+  pluginPath: string
+): Promise<{ path: string; contents: any }> {
+  try {
+    const pkgJSONPath = require.resolve(path.join(pluginPath, "package.json"), {
+      paths: [rootDirectory],
+    })
+    const packageJSONContents = JSON.parse(
+      await fs.readFile(pkgJSONPath, "utf-8")
+    )
+    return { path: pkgJSONPath, contents: packageJSONContents }
+  } catch (error) {
+    if (error.code === "MODULE_NOT_FOUND" || error.code === "ENOENT") {
+      throw new Error(
+        `Unable to resolve plugin "${pluginPath}". Make sure the plugin directory has a package.json file`
+      )
+    }
+    throw error
+  }
 }
 
 /**
@@ -27,18 +53,14 @@ async function resolvePlugin(
   pluginPath: string,
   options?: any
 ): Promise<PluginDetails> {
-  /**
-   * The package.json file should be requirable in order to resolve
-   * the plugin
-   */
-  const pkgJSONPath = require.resolve(path.join(pluginPath, "package.json"), {
-    paths: [rootDirectory],
-  })
-  const resolvedPath = path.dirname(pkgJSONPath)
-  const packageJSON = JSON.parse(fs.readFileSync(pkgJSONPath, "utf-8"))
+  const pkgJSON = await resolvePluginPkgFile(rootDirectory, pluginPath)
+  const resolvedPath = path.dirname(pkgJSON.path)
 
-  const name = packageJSON.name || pluginPath
-  const srcDir = packageJSON.main ? path.dirname(packageJSON.main) : "build"
+  const name = pkgJSON.contents.name || pluginPath
+  const srcDir = pkgJSON.contents.main
+    ? path.dirname(pkgJSON.contents.main)
+    : "build"
+
   const resolve = path.join(resolvedPath, srcDir)
   const modules = await readDir(path.join(resolve, "modules"), {
     ignoreMissing: true,
@@ -50,7 +72,7 @@ async function resolvePlugin(
     name,
     id: createPluginId(name),
     options: pluginOptions,
-    version: packageJSON.version || "0.0.0",
+    version: pkgJSON.contents.version || "0.0.0",
     modules: modules.map((mod) => {
       return {
         resolve: `${pluginPath}/${srcDir}/modules/${mod.name}`,
