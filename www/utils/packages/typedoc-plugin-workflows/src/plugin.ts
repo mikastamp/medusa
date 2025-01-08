@@ -384,7 +384,7 @@ class WorkflowsPlugin {
       whenInitializer.arguments.length === 2 ||
       whenInitializer.arguments.length === 3
 
-    const conditionIndex = whenInitializer.arguments.length === 3 ? 2 : 1
+    const conditionIndex = whenInitializer.arguments.length - 1
 
     if (
       !validArgumentsLength ||
