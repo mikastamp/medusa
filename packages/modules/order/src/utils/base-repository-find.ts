@@ -134,20 +134,19 @@ export function setFindMethods<T>(klass: Constructor<T>, entity: any) {
     let defaultVersion = knex.raw(`"${orderAlias}"."version"`)
     const strategy = config.options.strategy ?? LoadStrategy.JOINED
     if (strategy === LoadStrategy.SELECT_IN) {
-      const sql = manager
-        .qb(toMikroORMEntity(Order), "_sub0")
-        .select("version")
-        .where({ id: knex.raw(`"${orderAlias}"."order_id"`) })
-        .getKnexQuery()
-        .toString()
-
-      defaultVersion = knex.raw(`(${sql})`)
+      defaultVersion = getVersionSubQuery(manager, orderAlias)
     }
 
     const version = config.where.version ?? defaultVersion
     delete config.where.version
 
-    configurePopulateWhere(config, isRelatedEntity, version)
+    configurePopulateWhere(
+      config,
+      isRelatedEntity,
+      version,
+      strategy === LoadStrategy.SELECT_IN,
+      manager
+    )
 
     if (!config.options.orderBy) {
       config.options.orderBy = { id: "ASC" }
@@ -157,10 +156,24 @@ export function setFindMethods<T>(klass: Constructor<T>, entity: any) {
   }
 }
 
+function getVersionSubQuery(manager, alias, field = "order_id") {
+  const knex = manager.getKnex()
+  const sql = manager
+    .qb(toMikroORMEntity(Order), "_sub0")
+    .select("version")
+    .where({ id: knex.raw(`"${alias}"."${field}"`) })
+    .getKnexQuery()
+    .toString()
+
+  return knex.raw(`(${sql})`)
+}
+
 function configurePopulateWhere(
   config: any,
   isRelatedEntity: boolean,
-  version: any
+  version: any,
+  isSelectIn = false,
+  manager?
 ) {
   const requestedPopulate = config.options?.populate ?? []
   const hasRelation = (relation: string) =>
@@ -173,11 +186,15 @@ function configurePopulateWhere(
 
   if (isRelatedEntity) {
     popWhere.order ??= {}
-    popWhere.order.version = version
+    popWhere.order.version = isSelectIn
+      ? getVersionSubQuery(manager, "o0", "id")
+      : version
 
     if (hasRelation("shipping_methods")) {
       popWhere.shipping_methods ??= {}
-      popWhere.shipping_methods.version = version
+      popWhere.shipping_methods.version = isSelectIn
+        ? getVersionSubQuery(manager, "s0")
+        : version
     }
   }
 
@@ -185,16 +202,22 @@ function configurePopulateWhere(
 
   if (hasRelation("summary")) {
     orderWhere.summary ??= {}
-    orderWhere.summary.version = version
+    orderWhere.summary.version = isSelectIn
+      ? getVersionSubQuery(manager, "s0")
+      : version
   }
 
   if (hasRelation("items") || hasRelation("order.items")) {
     orderWhere.items ??= {}
-    orderWhere.items.version = version
+    orderWhere.items.version = isSelectIn
+      ? getVersionSubQuery(manager, "i0")
+      : version
   }
 
   if (hasRelation("shipping_methods")) {
     orderWhere.shipping_methods ??= {}
-    orderWhere.shipping_methods.version = version
+    orderWhere.shipping_methods.version = isSelectIn
+      ? getVersionSubQuery(manager, "s0")
+      : version
   }
 }

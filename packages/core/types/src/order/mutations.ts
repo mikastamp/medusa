@@ -1737,7 +1737,7 @@ export interface UpdateOrderClaimDTO {
    * The associated return's ID, if the
    * claim's {@link type} is `replace`.
    */
-  return_id?: string
+  return?: string
 
   /**
    * The type of the claim.
@@ -1777,7 +1777,7 @@ export interface UpdateOrderExchangeDTO {
   /**
    * The associated return's ID.
    */
-  return_id?: string
+  return?: string
 
   /**
    * Whether backorders are allowed on the exchange's items.

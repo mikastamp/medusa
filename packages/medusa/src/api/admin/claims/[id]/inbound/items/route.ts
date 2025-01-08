@@ -41,10 +41,11 @@ export const POST = async (
     },
   })
 
+  const returnId = result.order_change.return_id
   const queryObject = remoteQueryObjectFromString({
     entryPoint: "return",
     variables: {
-      id: claim.return_id,
+      id: returnId,
     },
     fields: defaultAdminDetailsReturnFields,
   })

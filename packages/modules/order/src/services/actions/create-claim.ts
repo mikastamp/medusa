@@ -30,12 +30,12 @@ function createClaimAndReturnEntities(em, data, order) {
           order_id: data.order_id,
           order_version: order.version,
           status: ReturnStatus.REQUESTED,
-          claim_id: claimReference.id,
+          claim: claimReference.id,
           refund_amount: (data.refund_amount as unknown) ?? null,
         })
       : undefined
 
-  claimReference.return = returnReference
+  claimReference.return = returnReference?.id
 
   return { claimReference, returnReference }
 }

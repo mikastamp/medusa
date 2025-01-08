@@ -1,14 +1,14 @@
 import { model } from "@medusajs/framework/utils"
 
-import { OrderClaim } from "./claim"
-import { OrderExchange } from "./exchange"
-import { Order } from "./order"
 import { OrderChange } from "./order-change"
-import { Return } from "./return"
 
 const _OrderChangeAction = model
   .define("OrderChangeAction", {
     id: model.id({ prefix: "ordchact" }).primaryKey(),
+    order_id: model.text(),
+    return_id: model.text().nullable(),
+    claim_id: model.text().nullable(),
+    exchange_id: model.text().nullable(),
     ordering: model.autoincrement(),
     version: model.number().nullable(),
     reference: model.text().nullable(),
@@ -18,28 +18,6 @@ const _OrderChangeAction = model
     amount: model.bigNumber().nullable(),
     internal_note: model.text().nullable(),
     applied: model.boolean().default(false),
-    order: model.hasOne<() => typeof OrderChange>(() => Order, {
-      mappedBy: undefined,
-      foreignKey: true,
-    }),
-    return: model
-      .hasOne<() => typeof Return>(() => Return, {
-        mappedBy: undefined,
-        foreignKey: true,
-      })
-      .nullable(),
-    claim: model
-      .hasOne<() => typeof OrderClaim>(() => OrderClaim, {
-        mappedBy: undefined,
-        foreignKey: true,
-      })
-      .nullable(),
-    exchange: model
-      .hasOne<() => typeof OrderExchange>(() => OrderExchange, {
-        mappedBy: undefined,
-        foreignKey: true,
-      })
-      .nullable(),
     order_change: model
       .belongsTo<() => typeof OrderChange>(() => OrderChange, {
         mappedBy: "actions",

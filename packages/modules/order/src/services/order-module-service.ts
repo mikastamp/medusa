@@ -144,23 +144,12 @@ const generateMethodForModels = {
   MikroORMEntity.prototype["onInit_OrderChangeAction"] = function () {
     this.version ??= this.order_change?.version ?? null
 
-    this.order ??= rel(
-      toMikroORMEntity(Order),
-      this.order_change?.order_id ?? null
-    )
-    this.claim ??= rel(
-      toMikroORMEntity(OrderClaim),
-      this.order_change?.claim_id ?? null
-    )
-    this.exchange ??= rel(
-      toMikroORMEntity(OrderExchange),
-      this.order_change?.exchange_id ?? null
-    )
+    this.order_id ??= this.order_change?.order_id ?? null
+    this.claim_id ??= this.order_change?.claim_id ?? null
+    this.exchange_id ??= this.order_change?.exchange_id ?? null
 
     if (!this.claim_id && !this.exchange_id) {
-      const ret_id = this.return?.id ?? this.order_change?.return_id ?? null
-
-      this.return = rel(toMikroORMEntity(Return), ret_id)
+      this.return_id = this.return?.id ?? this.order_change?.return_id ?? null
     }
   }
   OnInit()(MikroORMEntity.prototype, "onInit_OrderChangeAction")
@@ -3522,7 +3511,7 @@ export default class OrderModuleService
   ): Promise<OrderTypes.OrderExchangeDTO> {
     const ret = await this.createExchange_(data, sharedContext)
 
-    const claim = await this.retrieveOrderExchange(
+    const exchange = await this.retrieveOrderExchange(
       ret.id,
       {
         relations: [
@@ -3540,7 +3529,7 @@ export default class OrderModuleService
     )
 
     return await this.baseRepository_.serialize<OrderTypes.OrderExchangeDTO>(
-      claim,
+      exchange,
       {
         populate: true,
       }

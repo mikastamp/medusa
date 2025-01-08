@@ -24,13 +24,15 @@ const _Return = model
       mappedBy: "returns",
     }),
     exchange: model
-      .belongsTo<() => typeof OrderExchange>(() => OrderExchange, {
-        mappedBy: "return",
+      .hasOne<() => typeof OrderExchange>(() => OrderExchange, {
+        mappedBy: undefined,
+        foreignKey: true,
       })
       .nullable(),
     claim: model
-      .belongsTo<() => typeof OrderClaim>(() => OrderClaim, {
-        mappedBy: "return",
+      .hasOne<() => typeof OrderClaim>(() => OrderClaim, {
+        mappedBy: undefined,
+        foreignKey: true,
       })
       .nullable(),
     items: model.hasMany<() => typeof ReturnItem>(() => ReturnItem, {

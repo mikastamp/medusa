@@ -22,7 +22,7 @@ const _OrderClaim = model
     }),
     return: model
       .hasOne<() => typeof Return>(() => Return, {
-        mappedBy: "claim",
+        mappedBy: undefined,
         foreignKey: true,
       })
       .nullable(),

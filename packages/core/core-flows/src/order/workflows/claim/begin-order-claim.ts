@@ -59,7 +59,7 @@ export const beginClaimOrderWorkflow = createWorkflow(
         return {
           change_type: "claim" as const,
           order_id: input.order_id,
-          claim: created[0].id,
+          claim_id: created[0].id,
           created_by: input.created_by,
           description: input.description,
           internal_note: input.internal_note,
