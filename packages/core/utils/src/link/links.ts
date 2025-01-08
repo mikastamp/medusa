@@ -116,4 +116,10 @@ export const LINKS = {
     Modules.FULFILLMENT,
     "fulfillment_id"
   ),
+  ProductShippingProfile: composeLinkName(
+    Modules.PRODUCT,
+    "product_id",
+    Modules.FULFILLMENT,
+    "shipping_profile_id"
+  ),
 }

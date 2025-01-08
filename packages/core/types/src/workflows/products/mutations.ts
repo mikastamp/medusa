@@ -14,10 +14,12 @@ export type CreateProductWorkflowInputDTO = Omit<
   ProductTypes.CreateProductDTO,
   "variants"
 > & {
+  shipping_profile_id?: string
   sales_channels?: { id: string }[]
   variants?: CreateProductVariantWorkflowInputDTO[]
 }
 
 export type UpdateProductWorkflowInputDTO = ProductTypes.UpsertProductDTO & {
   sales_channels?: { id: string }[]
+  shipping_profile_id?: string
 }

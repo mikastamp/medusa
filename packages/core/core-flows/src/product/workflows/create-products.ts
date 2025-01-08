@@ -1,6 +1,7 @@
 import {
   AdditionalData,
   CreateProductWorkflowInputDTO,
+  LinkDefinition,
   PricingTypes,
   ProductTypes,
 } from "@medusajs/framework/types"
@@ -8,6 +9,7 @@ import {
   ProductWorkflowEvents,
   isPresent,
   MedusaError,
+  Modules,
 } from "@medusajs/framework/utils"
 import {
   WorkflowData,
@@ -17,7 +19,7 @@ import {
   transform,
   createStep,
 } from "@medusajs/framework/workflows-sdk"
-import { emitEventStep } from "../../common"
+import { createRemoteLinkStep, emitEventStep } from "../../common"
 import { associateProductsWithSalesChannelsStep } from "../../sales-channel"
 import { createProductsStep } from "../steps/create-products"
 import { createProductVariantsWorkflow } from "./create-product-variants"
@@ -66,6 +68,7 @@ export const createProductsWorkflow = createWorkflow(
       data.input.products.map((p) => ({
         ...p,
         sales_channels: undefined,
+        shipping_profile_id: undefined,
         variants: undefined,
       }))
     )
@@ -89,6 +92,30 @@ export const createProductsWorkflow = createWorkflow(
     })
 
     associateProductsWithSalesChannelsStep({ links: salesChannelLinks })
+
+    const shippingProfileLinks = transform(
+      { input, createdProducts },
+      (data) => {
+        return data.createdProducts
+          .map((createdProduct, i) => {
+            if (!data.input.products[i].shipping_profile_id) {
+              return undefined
+            }
+
+            return {
+              [Modules.PRODUCT]: {
+                product_id: createdProduct.id,
+              },
+              [Modules.FULFILLMENT]: {
+                shipping_profile_id: data.input.products[i].shipping_profile_id,
+              },
+            }
+          })
+          .filter((i) => Boolean(i))
+      }
+    )
+
+    createRemoteLinkStep(shippingProfileLinks as LinkDefinition[])
 
     const variantsInput = transform({ input, createdProducts }, (data) => {
       // TODO: Move this to a unified place for all product workflow types

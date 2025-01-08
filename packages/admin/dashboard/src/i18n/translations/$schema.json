@@ -2146,6 +2146,22 @@
               ],
               "additionalProperties": false
             },
+            "shipping_profile": {
+              "type": "object",
+              "properties": {
+                "label": {
+                  "type": "string"
+                },
+                "hint": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "label",
+                "hint"
+              ],
+              "additionalProperties": false
+            },
             "type": {
               "type": "object",
               "properties": {
@@ -2365,6 +2381,7 @@
             "handle",
             "description",
             "discountable",
+            "shipping_profile",
             "type",
             "collection",
             "categories",
