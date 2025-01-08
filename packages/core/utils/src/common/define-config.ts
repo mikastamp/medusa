@@ -1,6 +1,6 @@
 import {
   ConfigModule,
-  ExternalModuleDeclaration,
+  InputConfig,
   InternalModuleDeclaration,
 } from "@medusajs/types"
 import {
@@ -29,42 +29,6 @@ export const DEFAULT_STORE_RESTRICTED_FIELDS = [
   "payment_collections"*/
 ]
 
-type InternalModuleDeclarationOverride = InternalModuleDeclaration & {
-  /**
-   * Optional key to be used to identify the module, if not provided, it will be inferred from the module joiner config service name.
-   */
-  key?: string
-  /**
-   * By default, modules are enabled, if provided as true, this will disable the module entirely.
-   */
-  disable?: boolean
-}
-
-type ExternalModuleDeclarationOverride = ExternalModuleDeclaration & {
-  /**
-   * key to be used to identify the module, if not provided, it will be inferred from the module joiner config service name.
-   */
-  key: string
-  /**
-   * By default, modules are enabled, if provided as true, this will disable the module entirely.
-   */
-  disable?: boolean
-}
-
-type Config = Partial<
-  Omit<ConfigModule, "admin" | "modules"> & {
-    admin: Partial<ConfigModule["admin"]>
-    modules:
-      | Partial<
-          InternalModuleDeclarationOverride | ExternalModuleDeclarationOverride
-        >[]
-      /**
-       * @deprecated use the array instead
-       */
-      | ConfigModule["modules"]
-  }
->
-
 /**
  * The "defineConfig" helper can be used to define the configuration
  * of a medusa application.
@@ -73,7 +37,7 @@ type Config = Partial<
  * make an application work seamlessly, but still provide you the ability
  * to override configuration as needed.
  */
-export function defineConfig(config: Config = {}): ConfigModule {
+export function defineConfig(config: InputConfig = {}): ConfigModule {
   const { http, ...restOfProjectConfig } = config.projectConfig || {}
 
   /**
@@ -132,14 +96,14 @@ export function defineConfig(config: Config = {}): ConfigModule {
  * @param configModules
  */
 function resolveModules(
-  configModules: Config["modules"]
+  configModules: InputConfig["modules"]
 ): ConfigModule["modules"] {
   /**
    * The default set of modules to always use. The end user can swap
    * the modules by providing an alternate implementation via their
    * config. But they can never remove a module from this list.
    */
-  const modules: Config["modules"] = [
+  const modules: InputConfig["modules"] = [
     { resolve: MODULE_PACKAGE_NAMES[Modules.CACHE] },
     { resolve: MODULE_PACKAGE_NAMES[Modules.EVENT_BUS] },
     { resolve: MODULE_PACKAGE_NAMES[Modules.WORKFLOW_ENGINE] },

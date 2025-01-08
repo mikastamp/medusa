@@ -922,10 +922,50 @@ export type ConfigModule = {
   featureFlags: Record<string, boolean | string | Record<string, boolean>>
 }
 
+type InternalModuleDeclarationOverride = InternalModuleDeclaration & {
+  /**
+   * Optional key to be used to identify the module, if not provided, it will be inferred from the module joiner config service name.
+   */
+  key?: string
+  /**
+   * By default, modules are enabled, if provided as true, this will disable the module entirely.
+   */
+  disable?: boolean
+}
+
+type ExternalModuleDeclarationOverride = ExternalModuleDeclaration & {
+  /**
+   * key to be used to identify the module, if not provided, it will be inferred from the module joiner config service name.
+   */
+  key: string
+  /**
+   * By default, modules are enabled, if provided as true, this will disable the module entirely.
+   */
+  disable?: boolean
+}
+
+/**
+ * The configuration accepted by the "defineConfig" helper
+ */
+export type InputConfig = Partial<
+  Omit<ConfigModule, "admin" | "modules"> & {
+    admin: Partial<ConfigModule["admin"]>
+    modules:
+      | Partial<
+          InternalModuleDeclarationOverride | ExternalModuleDeclarationOverride
+        >[]
+      /**
+       * @deprecated use the array instead
+       */
+      | ConfigModule["modules"]
+  }
+>
+
 export type PluginDetails = {
   resolve: string
   name: string
   id: string
   options: Record<string, unknown>
   version: string
+  modules?: InputConfig["modules"]
 }

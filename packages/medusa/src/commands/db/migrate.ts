@@ -37,7 +37,7 @@ export async function migrate({
     ContainerRegistrationKeys.CONFIG_MODULE
   )
 
-  const plugins = getResolvedPlugins(directory, configModule, true) || []
+  const plugins = await getResolvedPlugins(directory, configModule, true)
   const linksSourcePaths = plugins.map((plugin) =>
     join(plugin.resolve, "links")
   )

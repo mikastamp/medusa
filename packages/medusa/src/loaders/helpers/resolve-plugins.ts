@@ -1,148 +1,81 @@
-import { ConfigModule, PluginDetails } from "@medusajs/framework/types"
-import { isString } from "@medusajs/framework/utils"
 import fs from "fs"
-import { sync as existsSync } from "fs-exists-cached"
-import path, { isAbsolute } from "path"
+import path from "path"
+import { isString, readDir } from "@medusajs/framework/utils"
+import { ConfigModule, PluginDetails } from "@medusajs/framework/types"
 
 export const MEDUSA_PROJECT_NAME = "project-plugin"
+const MEDUSA_APP_SOURCE_PATH = "src"
+
 function createPluginId(name: string): string {
   return name
 }
 
-function createFileContentHash(path, files): string {
+function createFileContentHash(path: string, files: string): string {
   return path + files
-}
-
-function getExtensionDirectoryPath() {
-  return "src"
-}
-
-/**
- * Load plugin details from a path. Return undefined if does not contains a package.json
- * @param pluginName
- * @param path
- * @param includeExtensionDirectoryPath should include src | dist for the resolved details
- */
-function loadPluginDetails({
-  pluginName,
-  resolvedPath,
-  includeExtensionDirectoryPath,
-}: {
-  pluginName: string
-  resolvedPath: string
-  includeExtensionDirectoryPath?: boolean
-}) {
-  if (existsSync(`${resolvedPath}/package.json`)) {
-    const packageJSON = JSON.parse(
-      fs.readFileSync(`${resolvedPath}/package.json`, `utf-8`)
-    )
-    const name = packageJSON.name || pluginName
-
-    const extensionDirectoryPath = getExtensionDirectoryPath()
-    const resolve = includeExtensionDirectoryPath
-      ? path.join(resolvedPath, extensionDirectoryPath)
-      : resolvedPath
-
-    return {
-      resolve,
-      name,
-      id: createPluginId(name),
-      options: {},
-      version: packageJSON.version || createFileContentHash(path, `**`),
-    }
-  }
-
-  // Make package.json a requirement for local plugins too
-  throw new Error(`Plugin ${pluginName} requires a package.json file`)
 }
 
 /**
  * Finds the correct path for the plugin. If it is a local plugin it will be
  * found in the plugins folder. Otherwise we will look for the plugin in the
  * installed npm packages.
- * @param {string} pluginName - the name of the plugin to find. Should match
+ * @param {string} pluginPath - the name of the plugin to find. Should match
  *    the name of the folder where the plugin is contained.
  * @return {object} the plugin details
  */
-function resolvePlugin(pluginName: string): {
-  resolve: string
-  id: string
-  name: string
-  options: Record<string, unknown>
-  version: string
-} {
-  if (!isAbsolute(pluginName)) {
-    let resolvedPath = path.resolve(`./plugins/${pluginName}`)
-    const doesExistsInPlugin = existsSync(resolvedPath)
+async function resolvePlugin(
+  rootDirectory: string,
+  pluginPath: string,
+  options?: any
+): Promise<PluginDetails> {
+  /**
+   * The package.json file should be requirable in order to resolve
+   * the plugin
+   */
+  const pkgJSONPath = require.resolve(path.join(pluginPath, "package.json"), {
+    paths: [rootDirectory],
+  })
+  const resolvedPath = path.dirname(pkgJSONPath)
+  const packageJSON = JSON.parse(fs.readFileSync(pkgJSONPath, "utf-8"))
 
-    if (doesExistsInPlugin) {
-      return loadPluginDetails({
-        pluginName,
-        resolvedPath,
-      })
-    }
+  const name = packageJSON.name || pluginPath
+  const srcDir = packageJSON.main ? path.dirname(packageJSON.main) : "build"
+  const resolve = path.join(resolvedPath, srcDir)
+  const modules = await readDir(path.join(resolve, "modules"), {
+    ignoreMissing: true,
+  })
+  const pluginOptions = options ?? {}
 
-    // Find the plugin in the file system
-    resolvedPath = path.resolve(pluginName)
-    const doesExistsInFileSystem = existsSync(resolvedPath)
-
-    if (doesExistsInFileSystem) {
-      return loadPluginDetails({
-        pluginName,
-        resolvedPath,
-        includeExtensionDirectoryPath: true,
-      })
-    }
-
-    throw new Error(`Unable to find the plugin "${pluginName}".`)
-  }
-
-  try {
-    // If the path is absolute, resolve the directory of the internal plugin,
-    // otherwise resolve the directory containing the package.json
-    const resolvedPath = require.resolve(pluginName, {
-      paths: [process.cwd()],
-    })
-
-    const packageJSON = JSON.parse(
-      fs.readFileSync(`${resolvedPath}/package.json`, `utf-8`)
-    )
-
-    const computedResolvedPath = path.join(resolvedPath, "dist")
-
-    return {
-      resolve: computedResolvedPath,
-      id: createPluginId(packageJSON.name),
-      name: packageJSON.name,
-      options: {},
-      version: packageJSON.version,
-    }
-  } catch (err) {
-    throw new Error(
-      `Unable to find plugin "${pluginName}". Perhaps you need to install its package?`
-    )
+  return {
+    resolve,
+    name,
+    id: createPluginId(name),
+    options: pluginOptions,
+    version: packageJSON.version || "0.0.0",
+    modules: modules.map((mod) => {
+      return {
+        resolve: `${pluginPath}/${srcDir}/modules/${mod.name}`,
+        options: pluginOptions,
+      }
+    }),
   }
 }
 
-export function getResolvedPlugins(
+export async function getResolvedPlugins(
   rootDirectory: string,
   configModule: ConfigModule,
   isMedusaProject = false
-): undefined | PluginDetails[] {
-  const resolved = configModule?.plugins?.map((plugin) => {
-    if (isString(plugin)) {
-      return resolvePlugin(plugin)
-    }
-
-    const details = resolvePlugin(plugin.resolve)
-    details.options = plugin.options
-
-    return details
-  })
+): Promise<PluginDetails[]> {
+  const resolved = await Promise.all(
+    (configModule?.plugins || []).map(async (plugin) => {
+      if (isString(plugin)) {
+        return resolvePlugin(rootDirectory, plugin)
+      }
+      return resolvePlugin(rootDirectory, plugin.resolve, plugin.options)
+    })
+  )
 
   if (isMedusaProject) {
-    const extensionDirectoryPath = getExtensionDirectoryPath()
-    const extensionDirectory = path.join(rootDirectory, extensionDirectoryPath)
+    const extensionDirectory = path.join(rootDirectory, MEDUSA_APP_SOURCE_PATH)
     resolved.push({
       resolve: extensionDirectory,
       name: MEDUSA_PROJECT_NAME,
