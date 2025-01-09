@@ -166,9 +166,9 @@ export const cancelOrderFulfillmentWorkflow = createWorkflow(
       }
     })
 
-    adjustInventoryLevelsStep(inventoryAdjustment)
     parallelize(
       cancelOrderFulfillmentStep(cancelOrderFulfillmentData),
+      adjustInventoryLevelsStep(inventoryAdjustment),
       emitEventStep({
         eventName: OrderWorkflowEvents.FULFILLMENT_CANCELED,
         data: eventData,
