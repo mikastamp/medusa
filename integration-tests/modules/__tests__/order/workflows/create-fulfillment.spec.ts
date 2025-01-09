@@ -3,6 +3,7 @@ import {
   createOrderFulfillmentWorkflow,
   createShippingOptionsWorkflow,
 } from "@medusajs/core-flows"
+import { medusaIntegrationTestRunner } from "@medusajs/test-utils"
 import {
   FulfillmentWorkflow,
   IOrderModuleService,
@@ -20,7 +21,6 @@ import {
   Modules,
   remoteQueryObjectFromString,
 } from "@medusajs/utils"
-import { medusaIntegrationTestRunner } from "@medusajs/test-utils"
 
 jest.setTimeout(500000)
 
@@ -433,7 +433,6 @@ medusaIntegrationTestRunner({
         await cancelOrderFulfillmentWorkflow(container).run({
           input: cancelFulfillmentData,
         })
-
         const remoteQueryObjectFulfill = remoteQueryObjectFromString({
           entryPoint: "order",
           variables: {
