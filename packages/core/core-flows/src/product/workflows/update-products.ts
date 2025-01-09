@@ -105,6 +105,25 @@ function findProductsWithSalesChannels({
   return !input.update?.sales_channels ? [] : productIds
 }
 
+function findProductsWithShippingProfile({
+  updatedProducts,
+  input,
+}: {
+  updatedProducts: ProductTypes.ProductDTO[]
+  input: UpdateProductWorkflowInput
+}) {
+  let productIds = updatedProducts.map((p) => p.id)
+
+  if ("products" in input) {
+    const discardedProductIds: string[] = input.products
+      .filter((p) => !p.shipping_profile_id)
+      .map((p) => p.id as string)
+    return arrayDifference(productIds, discardedProductIds)
+  }
+
+  return !input.update?.shipping_profile_id ? [] : productIds
+}
+
 function prepareSalesChannelLinks({
   input,
   updatedProducts,
@@ -142,6 +161,44 @@ function prepareSalesChannelLinks({
         },
       }))
     )
+  }
+
+  return []
+}
+
+function prepareShippingProfileLinks({
+  input,
+  updatedProducts,
+}: {
+  updatedProducts: ProductTypes.ProductDTO[]
+  input: UpdateProductWorkflowInput
+}): Record<string, Record<string, any>>[] {
+  if ("products" in input) {
+    if (!input.products.length) {
+      return []
+    }
+
+    return input.products
+      .filter((p) => p.shipping_profile_id)
+      .map((p) => ({
+        [Modules.PRODUCT]: {
+          product_id: p.id,
+        },
+        [Modules.FULFILLMENT]: {
+          shipping_profile_id: p.shipping_profile_id,
+        },
+      }))
+  }
+
+  if (input.selector && input.update?.shipping_profile_id) {
+    return updatedProducts.map((p) => ({
+      [Modules.PRODUCT]: {
+        product_id: p.id,
+      },
+      [Modules.FULFILLMENT]: {
+        shipping_profile_id: input.update.shipping_profile_id,
+      },
+    }))
   }
 
   return []
@@ -217,6 +274,30 @@ function prepareToDeleteSalesChannelLinks({
   }))
 }
 
+function prepareToDeleteShippingProfileLinks({
+  currentShippingProfileLinks,
+}: {
+  currentShippingProfileLinks: {
+    product_id: string
+    shipping_profile_id: string
+  }[]
+}) {
+  if (!currentShippingProfileLinks.length) {
+    return []
+  }
+
+  return currentShippingProfileLinks.map(
+    ({ product_id, shipping_profile_id }) => ({
+      [Modules.PRODUCT]: {
+        product_id,
+      },
+      [Modules.FULFILLMENT]: {
+        shipping_profile_id,
+      },
+    })
+  )
+}
+
 export const updateProductsWorkflowId = "update-products"
 /**
  * This workflow updates one or more products.
@@ -263,6 +344,11 @@ export const updateProductsWorkflow = createWorkflow(
       prepareSalesChannelLinks
     )
 
+    const shippingProfileLinks = transform(
+      { input, updatedProducts },
+      prepareShippingProfileLinks
+    )
+
     const variantPrices = transform(
       { input, updatedProducts },
       prepareVariantPrices
@@ -273,22 +359,44 @@ export const updateProductsWorkflow = createWorkflow(
       findProductsWithSalesChannels
     )
 
+    const productsWithShippingProfile = transform(
+      { updatedProducts, input },
+      findProductsWithShippingProfile
+    )
+
     const currentSalesChannelLinks = useRemoteQueryStep({
       entry_point: "product_sales_channel",
       fields: ["product_id", "sales_channel_id"],
       variables: { filters: { product_id: productsWithSalesChannels } },
     }).config({ name: "get-current-sales-channel-links-step" })
 
+    const currentShippingProfileLinks = useRemoteQueryStep({
+      entry_point: "product_shipping_profile",
+      fields: ["product_id", "shipping_profile_id"],
+      variables: { filters: { product_id: productsWithShippingProfile } },
+    }).config({ name: "get-current-shipping-profile-links-step" })
+
     const toDeleteSalesChannelLinks = transform(
       { currentSalesChannelLinks },
       prepareToDeleteSalesChannelLinks
+    )
+
+    const toDeleteShippingProfileLinks = transform(
+      { currentShippingProfileLinks },
+      prepareToDeleteShippingProfileLinks
     )
 
     upsertVariantPricesWorkflow.runAsStep({
       input: { variantPrices, previousVariantIds },
     })
 
-    dismissRemoteLinkStep(toDeleteSalesChannelLinks)
+    dismissRemoteLinkStep(toDeleteSalesChannelLinks).config({
+      name: "delete-sales-channel-links-step",
+    })
+
+    dismissRemoteLinkStep(toDeleteShippingProfileLinks).config({
+      name: "delete-shipping-profile-links-step",
+    })
 
     const productIdEvents = transform(
       { updatedProducts },
@@ -300,7 +408,12 @@ export const updateProductsWorkflow = createWorkflow(
     )
 
     parallelize(
-      createRemoteLinkStep(salesChannelLinks),
+      createRemoteLinkStep(salesChannelLinks).config({
+        name: "create-sales-channel-links-step",
+      }),
+      createRemoteLinkStep(shippingProfileLinks).config({
+        name: "create-shipping-profile-links-step",
+      }),
       emitEventStep({
         eventName: ProductWorkflowEvents.UPDATED,
         data: productIdEvents,
