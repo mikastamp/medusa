@@ -184,6 +184,10 @@ function configurePopulateWhere(
   config.options.populateWhere ??= {}
   const popWhere = config.options.populateWhere
 
+  if (isSelectIn) {
+    version = getVersionSubQuery(manager, "o0")
+  }
+
   if (isRelatedEntity) {
     popWhere.order ??= {}
     popWhere.order.version = isSelectIn
@@ -202,22 +206,16 @@ function configurePopulateWhere(
 
   if (hasRelation("summary")) {
     orderWhere.summary ??= {}
-    orderWhere.summary.version = isSelectIn
-      ? getVersionSubQuery(manager, "s0")
-      : version
+    orderWhere.summary.version = version
   }
 
   if (hasRelation("items") || hasRelation("order.items")) {
     orderWhere.items ??= {}
-    orderWhere.items.version = isSelectIn
-      ? getVersionSubQuery(manager, "i0")
-      : version
+    orderWhere.items.version = version
   }
 
   if (hasRelation("shipping_methods")) {
     orderWhere.shipping_methods ??= {}
-    orderWhere.shipping_methods.version = isSelectIn
-      ? getVersionSubQuery(manager, "s0")
-      : version
+    orderWhere.shipping_methods.version = version
   }
 }
