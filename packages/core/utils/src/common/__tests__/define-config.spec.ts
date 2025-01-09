@@ -142,6 +142,9 @@ describe("defineConfig", function () {
             },
             "storeCors": "http://localhost:8000",
           },
+          "redisOptions": {
+            "retryStrategy": [Function],
+          },
         },
       }
     `)
@@ -297,6 +300,9 @@ describe("defineConfig", function () {
               ],
             },
             "storeCors": "http://localhost:8000",
+          },
+          "redisOptions": {
+            "retryStrategy": [Function],
           },
         },
       }
@@ -461,6 +467,9 @@ describe("defineConfig", function () {
               ],
             },
             "storeCors": "http://localhost:8000",
+          },
+          "redisOptions": {
+            "retryStrategy": [Function],
           },
         },
       }
@@ -627,6 +636,9 @@ describe("defineConfig", function () {
             },
             "storeCors": "http://localhost:8000",
           },
+          "redisOptions": {
+            "retryStrategy": [Function],
+          },
         },
       }
     `)
@@ -780,6 +792,9 @@ describe("defineConfig", function () {
             },
             "storeCors": "http://localhost:8000",
           },
+          "redisOptions": {
+            "retryStrategy": [Function],
+          },
         },
       }
     `)
@@ -932,6 +947,9 @@ describe("defineConfig", function () {
               ],
             },
             "storeCors": "http://localhost:8000",
+          },
+          "redisOptions": {
+            "retryStrategy": [Function],
           },
         },
       }
