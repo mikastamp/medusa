@@ -184,38 +184,57 @@ function configurePopulateWhere(
   config.options.populateWhere ??= {}
   const popWhere = config.options.populateWhere
 
-  if (isSelectIn) {
-    version = getVersionSubQuery(manager, "o0")
-  }
-
+  // isSelectIn && isRelatedEntity - Order is always the FROM clause (field o0.id)
   if (isRelatedEntity) {
     popWhere.order ??= {}
-    popWhere.order.version = isSelectIn
+
+    const popWhereOrder = popWhere.order
+
+    popWhereOrder.version = isSelectIn
       ? getVersionSubQuery(manager, "o0", "id")
       : version
 
+    // related entity shipping method
     if (hasRelation("shipping_methods")) {
       popWhere.shipping_methods ??= {}
       popWhere.shipping_methods.version = isSelectIn
         ? getVersionSubQuery(manager, "s0")
         : version
     }
+
+    if (hasRelation("items") || hasRelation("order.items")) {
+      popWhereOrder.items ??= {}
+      popWhereOrder.items.version = isSelectIn
+        ? getVersionSubQuery(manager, "o0", "id")
+        : version
+    }
+
+    if (hasRelation("shipping_methods")) {
+      popWhereOrder.shipping_methods ??= {}
+      popWhereOrder.shipping_methods.version = isSelectIn
+        ? getVersionSubQuery(manager, "o0", "id")
+        : version
+    }
+
+    return
   }
 
-  const orderWhere = isRelatedEntity ? popWhere.order : popWhere
+  if (isSelectIn) {
+    version = getVersionSubQuery(manager, "o0")
+  }
 
   if (hasRelation("summary")) {
-    orderWhere.summary ??= {}
-    orderWhere.summary.version = version
+    popWhere.summary ??= {}
+    popWhere.summary.version = version
   }
 
   if (hasRelation("items") || hasRelation("order.items")) {
-    orderWhere.items ??= {}
-    orderWhere.items.version = version
+    popWhere.items ??= {}
+    popWhere.items.version = version
   }
 
   if (hasRelation("shipping_methods")) {
-    orderWhere.shipping_methods ??= {}
-    orderWhere.shipping_methods.version = version
+    popWhere.shipping_methods ??= {}
+    popWhere.shipping_methods.version = version
   }
 }
