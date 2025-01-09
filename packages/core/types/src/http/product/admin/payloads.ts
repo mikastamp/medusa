@@ -465,6 +465,10 @@ export interface AdminUpdateProduct {
     id: string
   }[]
   /**
+   * The ID of the product's shipping profile.
+   */
+  shipping_profile_id?: string
+  /**
    * The product's weight.
    */
   weight?: number | null

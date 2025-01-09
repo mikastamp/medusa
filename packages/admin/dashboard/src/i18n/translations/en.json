@@ -650,7 +650,13 @@
       }
     },
     "shippingProfile": {
-      "header": "Shipping configuration"
+      "header": "Shipping configuration",
+      "edit": {
+        "header": "Shipping Configuration",
+        "toasts": {
+          "success": "Successfully updated the shipping profile for {{title}}."
+        }
+      }
     },
     "toasts": {
       "delete": {

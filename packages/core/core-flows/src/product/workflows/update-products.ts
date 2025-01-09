@@ -31,6 +31,7 @@ export type UpdateProductsWorkflowInputSelector = {
   selector: ProductTypes.FilterableProductProps
   update: Omit<ProductTypes.UpdateProductDTO, "variants"> & {
     sales_channels?: { id: string }[]
+    shipping_profile_id?: string
     variants?: UpdateProductVariantWorkflowInputDTO[]
   }
 } & AdditionalData
@@ -38,6 +39,7 @@ export type UpdateProductsWorkflowInputSelector = {
 export type UpdateProductsWorkflowInputProducts = {
   products: (Omit<ProductTypes.UpsertProductDTO, "variants"> & {
     sales_channels?: { id: string }[]
+    shipping_profile_id?: string
     variants?: UpdateProductVariantWorkflowInputDTO[]
   })[]
 } & AdditionalData
@@ -60,6 +62,7 @@ function prepareUpdateProductInput({
       products: input.products.map((p) => ({
         ...p,
         sales_channels: undefined,
+        shipping_profile_id: undefined,
         variants: p.variants?.map((v) => ({
           ...v,
           prices: undefined,
@@ -73,6 +76,7 @@ function prepareUpdateProductInput({
     update: {
       ...input.update,
       sales_channels: undefined,
+      shipping_profile_id: undefined,
       variants: input.update?.variants?.map((v) => ({
         ...v,
         prices: undefined,
