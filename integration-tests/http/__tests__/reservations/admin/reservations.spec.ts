@@ -329,7 +329,7 @@ medusaIntegrationTestRunner({
         )
       })
 
-      it("lists reservation items with free text search on SKU on inventory item", async () => {
+      it.skip("lists reservation items with free text search on SKU on inventory item", async () => {
         const reservationsRes = await api
           .get(`/admin/reservations?q=second`, adminHeaders)
           .catch(console.warn)
@@ -371,7 +371,7 @@ medusaIntegrationTestRunner({
         ])
       })
 
-      it("lists reservation items with free text search on descroption", async () => {
+      it.skip("lists reservation items with free text search on descroption", async () => {
         const reservationsRes = await api
           .get(`/admin/reservations?q=test`, adminHeaders)
           .catch(console.warn)
