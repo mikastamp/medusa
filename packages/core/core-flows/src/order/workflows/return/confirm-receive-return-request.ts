@@ -292,6 +292,7 @@ export const confirmReturnReceiveWorkflow = createWorkflow(
 
     confirmReceiveReturnValidationStep({ order, orderReturn, orderChange })
 
+    adjustInventoryLevelsStep(inventoryAdjustment)
     parallelize(
       updateReturnsStep([updateReturn]),
       updateReturnItemsStep(updateReturnItem),
@@ -300,7 +301,6 @@ export const confirmReturnReceiveWorkflow = createWorkflow(
         orderId: order.id,
         confirmed_by: input.confirmed_by,
       }),
-      adjustInventoryLevelsStep(inventoryAdjustment),
       emitEventStep({
         eventName: OrderWorkflowEvents.RETURN_RECEIVED,
         data: {
