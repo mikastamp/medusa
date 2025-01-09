@@ -296,6 +296,10 @@ export const filesMap = [
     "pathname": "/commerce-modules/inventory/inventory-in-flows"
   },
   {
+    "filePath": "/www/apps/resources/app/commerce-modules/inventory/inventory-kit/page.mdx",
+    "pathname": "/commerce-modules/inventory/inventory-kit"
+  },
+  {
     "filePath": "/www/apps/resources/app/commerce-modules/inventory/links-to-other-modules/page.mdx",
     "pathname": "/commerce-modules/inventory/links-to-other-modules"
   },

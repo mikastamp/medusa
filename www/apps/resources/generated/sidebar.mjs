@@ -644,7 +644,7 @@ export const generatedSidebar = [
                 "loaded": true,
                 "isPathHref": true,
                 "type": "ref",
-                "title": "Retrieve Customer in Storefront",
+                "title": "Retrieve Logged-In Customer in Storefront",
                 "path": "/storefront-development/customers/retrieve",
                 "children": []
               },
@@ -1235,6 +1235,14 @@ export const generatedSidebar = [
                 "type": "ref",
                 "title": "addToCartWorkflow",
                 "path": "/references/medusa-workflows/addToCartWorkflow",
+                "children": []
+              },
+              {
+                "loaded": true,
+                "isPathHref": true,
+                "type": "ref",
+                "title": "completeCartWorkflow",
+                "path": "/references/medusa-workflows/completeCartWorkflow",
                 "children": []
               },
               {
@@ -2258,7 +2266,7 @@ export const generatedSidebar = [
                 "loaded": true,
                 "isPathHref": true,
                 "type": "ref",
-                "title": "Retrieve Customer in Storefront",
+                "title": "Retrieve Logged-In Customer in Storefront",
                 "path": "/storefront-development/customers/retrieve",
                 "children": []
               },
@@ -4265,6 +4273,14 @@ export const generatedSidebar = [
                 "loaded": true,
                 "isPathHref": true,
                 "type": "link",
+                "path": "/commerce-modules/inventory/inventory-kit",
+                "title": "Inventory Kit",
+                "children": []
+              },
+              {
+                "loaded": true,
+                "isPathHref": true,
+                "type": "link",
                 "path": "/commerce-modules/inventory/links-to-other-modules",
                 "title": "Links to Modules",
                 "children": []
@@ -4306,6 +4322,14 @@ export const generatedSidebar = [
                 "type": "ref",
                 "title": "addToCartWorkflow",
                 "path": "/references/medusa-workflows/addToCartWorkflow",
+                "children": []
+              },
+              {
+                "loaded": true,
+                "isPathHref": true,
+                "type": "ref",
+                "title": "completeCartWorkflow",
+                "path": "/references/medusa-workflows/completeCartWorkflow",
                 "children": []
               },
               {
@@ -5229,6 +5253,14 @@ export const generatedSidebar = [
                 "loaded": true,
                 "isPathHref": true,
                 "type": "ref",
+                "title": "completeCartWorkflow",
+                "path": "/references/medusa-workflows/completeCartWorkflow",
+                "children": []
+              },
+              {
+                "loaded": true,
+                "isPathHref": true,
+                "type": "ref",
                 "title": "acceptOrderTransferWorkflow",
                 "path": "/references/medusa-workflows/acceptOrderTransferWorkflow",
                 "children": []
@@ -5871,6 +5903,14 @@ export const generatedSidebar = [
                 "type": "ref",
                 "title": "refundPaymentWorkflow",
                 "path": "/references/medusa-workflows/refundPaymentWorkflow",
+                "children": []
+              },
+              {
+                "loaded": true,
+                "isPathHref": true,
+                "type": "ref",
+                "title": "refundPaymentsWorkflow",
+                "path": "/references/medusa-workflows/refundPaymentsWorkflow",
                 "children": []
               },
               {
@@ -7777,6 +7817,14 @@ export const generatedSidebar = [
                 "loaded": true,
                 "isPathHref": true,
                 "type": "ref",
+                "title": "completeCartWorkflow",
+                "path": "/references/medusa-workflows/completeCartWorkflow",
+                "children": []
+              },
+              {
+                "loaded": true,
+                "isPathHref": true,
+                "type": "ref",
                 "title": "createCartWorkflow",
                 "path": "/references/medusa-workflows/createCartWorkflow",
                 "children": []
@@ -7843,6 +7891,14 @@ export const generatedSidebar = [
                 "type": "ref",
                 "title": "refundPaymentWorkflow",
                 "path": "/references/medusa-workflows/refundPaymentWorkflow",
+                "children": []
+              },
+              {
+                "loaded": true,
+                "isPathHref": true,
+                "type": "ref",
+                "title": "refundPaymentsWorkflow",
+                "path": "/references/medusa-workflows/refundPaymentsWorkflow",
                 "children": []
               },
               {
@@ -7926,6 +7982,14 @@ export const generatedSidebar = [
                 "type": "ref",
                 "title": "refundPaymentStep",
                 "path": "/references/medusa-workflows/steps/refundPaymentStep",
+                "children": []
+              },
+              {
+                "loaded": true,
+                "isPathHref": true,
+                "type": "ref",
+                "title": "refundPaymentsStep",
+                "path": "/references/medusa-workflows/steps/refundPaymentsStep",
                 "children": []
               },
               {
@@ -9407,6 +9471,8 @@ export const generatedSidebar = [
             "type": "category",
             "title": "Concepts",
             "initialOpen": false,
+            "autogenerate_tags": "concept+product",
+            "autogenerate_as_ref": true,
             "children": [
               {
                 "loaded": true,
@@ -9414,6 +9480,14 @@ export const generatedSidebar = [
                 "type": "link",
                 "path": "/commerce-modules/product/links-to-other-modules",
                 "title": "Links to Other Modules",
+                "children": []
+              },
+              {
+                "loaded": true,
+                "isPathHref": true,
+                "type": "ref",
+                "title": "Inventory Kits",
+                "path": "/commerce-modules/inventory/inventory-kit",
                 "children": []
               }
             ]
@@ -13347,6 +13421,14 @@ export const generatedSidebar = [
                 "title": "updateTaxRatesWorkflow",
                 "path": "/references/medusa-workflows/updateTaxRatesWorkflow",
                 "children": []
+              },
+              {
+                "loaded": true,
+                "isPathHref": true,
+                "type": "ref",
+                "title": "updateTaxRegionsWorkflow",
+                "path": "/references/medusa-workflows/updateTaxRegionsWorkflow",
+                "children": []
               }
             ]
           },
@@ -13429,6 +13511,14 @@ export const generatedSidebar = [
                 "type": "ref",
                 "title": "updateTaxRatesStep",
                 "path": "/references/medusa-workflows/steps/updateTaxRatesStep",
+                "children": []
+              },
+              {
+                "loaded": true,
+                "isPathHref": true,
+                "type": "ref",
+                "title": "updateTaxRegionsStep",
+                "path": "/references/medusa-workflows/steps/updateTaxRegionsStep",
                 "children": []
               }
             ]

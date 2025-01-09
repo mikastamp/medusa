@@ -30,6 +30,11 @@ export const inventorySidebar = [
           },
           {
             type: "link",
+            path: "/commerce-modules/inventory/inventory-kit",
+            title: "Inventory Kit",
+          },
+          {
+            type: "link",
             path: "/commerce-modules/inventory/links-to-other-modules",
             title: "Links to Modules",
           },

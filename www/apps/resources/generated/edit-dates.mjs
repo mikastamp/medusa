@@ -30,7 +30,7 @@ export const generatedEditDates = {
   "app/commerce-modules/inventory/_events/page.mdx": "2024-07-03T19:27:13+03:00",
   "app/commerce-modules/inventory/concepts/page.mdx": "2024-10-08T15:11:27.634Z",
   "app/commerce-modules/inventory/inventory-in-flows/page.mdx": "2025-01-08T12:21:12.157Z",
-  "app/commerce-modules/inventory/page.mdx": "2024-12-25T15:55:02.850Z",
+  "app/commerce-modules/inventory/page.mdx": "2025-01-09T09:28:33.889Z",
   "app/commerce-modules/order/_events/_events-table/page.mdx": "2024-07-03T19:27:13+03:00",
   "app/commerce-modules/order/_events/page.mdx": "2024-07-03T19:27:13+03:00",
   "app/commerce-modules/order/claim/page.mdx": "2024-10-09T10:11:12.090Z",
@@ -64,7 +64,7 @@ export const generatedEditDates = {
   "app/commerce-modules/product/_events/page.mdx": "2024-07-03T19:27:13+03:00",
   "app/commerce-modules/product/guides/price/page.mdx": "2024-12-25T15:10:37.730Z",
   "app/commerce-modules/product/guides/price-with-taxes/page.mdx": "2024-12-25T15:10:40.879Z",
-  "app/commerce-modules/product/page.mdx": "2024-12-25T15:55:02.850Z",
+  "app/commerce-modules/product/page.mdx": "2025-01-09T09:29:05.898Z",
   "app/commerce-modules/promotion/_events/_events-table/page.mdx": "2024-07-03T19:27:13+03:00",
   "app/commerce-modules/promotion/_events/page.mdx": "2024-07-03T19:27:13+03:00",
   "app/commerce-modules/promotion/actions/page.mdx": "2024-10-09T14:49:01.645Z",
@@ -5787,5 +5787,6 @@ export const generatedEditDates = {
   "references/types/HttpTypes/interfaces/types.HttpTypes.StoreProductPricingContext/page.mdx": "2025-01-07T12:54:22.026Z",
   "references/types/StockLocationTypes/interfaces/types.StockLocationTypes.FilterableStockLocationAddressProps/page.mdx": "2025-01-07T12:54:23.060Z",
   "references/types/StockLocationTypes/types/types.StockLocationTypes.UpdateStockLocationAddressInput/page.mdx": "2025-01-07T12:54:23.057Z",
-  "references/types/StockLocationTypes/types/types.StockLocationTypes.UpsertStockLocationAddressInput/page.mdx": "2025-01-07T12:54:23.058Z"
+  "references/types/StockLocationTypes/types/types.StockLocationTypes.UpsertStockLocationAddressInput/page.mdx": "2025-01-07T12:54:23.058Z",
+  "app/commerce-modules/inventory/inventory-kit/page.mdx": "2025-01-09T09:39:50.221Z"
 }

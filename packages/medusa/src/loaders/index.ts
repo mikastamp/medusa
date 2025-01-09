@@ -146,7 +146,7 @@ export default async ({
     ContainerRegistrationKeys.CONFIG_MODULE
   )
 
-  const plugins = getResolvedPlugins(rootDirectory, configModule, true) || []
+  const plugins = await getResolvedPlugins(rootDirectory, configModule, true)
   const linksSourcePaths = plugins.map((plugin) =>
     join(plugin.resolve, "links")
   )
