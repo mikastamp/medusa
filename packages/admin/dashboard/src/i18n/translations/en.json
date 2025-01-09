@@ -656,6 +656,11 @@
         "toasts": {
           "success": "Successfully updated the shipping profile for {{title}}."
         }
+      },
+      "create": {
+        "errors": {
+          "required": "Shipping profile is required"
+        }
       }
     },
     "toasts": {

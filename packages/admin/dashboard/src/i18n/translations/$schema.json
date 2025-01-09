@@ -2696,11 +2696,33 @@
                 "toasts"
               ],
               "additionalProperties": false
+            },
+            "create": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "object",
+                  "properties": {
+                    "required": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "required"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "errors"
+              ],
+              "additionalProperties": false
             }
           },
           "required": [
             "header",
-            "edit"
+            "edit",
+            "create"
           ],
           "additionalProperties": false
         },
