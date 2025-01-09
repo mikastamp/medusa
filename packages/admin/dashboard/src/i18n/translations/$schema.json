@@ -2666,6 +2666,18 @@
           ],
           "additionalProperties": false
         },
+        "shippingProfile": {
+          "type": "object",
+          "properties": {
+            "header": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "header"
+          ],
+          "additionalProperties": false
+        },
         "toasts": {
           "type": "object",
           "properties": {
@@ -2738,6 +2750,7 @@
         "variant",
         "options",
         "organization",
+        "shippingProfile",
         "toasts"
       ],
       "additionalProperties": false

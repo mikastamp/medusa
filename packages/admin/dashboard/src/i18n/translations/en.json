@@ -649,6 +649,9 @@
         }
       }
     },
+    "shippingProfile": {
+      "header": "Shipping configuration"
+    },
     "toasts": {
       "delete": {
         "success": {
