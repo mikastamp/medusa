@@ -78,6 +78,8 @@ import ifMemberShowTitleHelper from "./resources/helpers/if-member-show-title.js
 import signatureCommentHelper from "./resources/helpers/signature-comment.js"
 import versionHelper from "./resources/helpers/version.js"
 import sourceCodeLinkHelper from "./resources/helpers/source-code-link.js"
+import workflowExamplesHelper from "./resources/helpers/workflow-examples.js"
+import stepExamplesHelper from "./resources/helpers/step-examples.js"
 import { MarkdownTheme } from "./theme.js"
 import { getDirname } from "utils"
 
@@ -187,4 +189,6 @@ export function registerHelpers(theme: MarkdownTheme) {
   signatureCommentHelper()
   versionHelper()
   sourceCodeLinkHelper()
+  workflowExamplesHelper()
+  stepExamplesHelper()
 }

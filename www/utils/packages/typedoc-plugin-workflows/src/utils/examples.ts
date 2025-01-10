@@ -1,5 +1,4 @@
 import { DeclarationReflection, ParameterReflection } from "typedoc"
-import { getFakeJsObjectValue } from "utils/src"
 
 export default class Examples {
   generateHookExample({
@@ -32,25 +31,5 @@ export default class Examples {
     str += ` }, { container }) => {\n\t\t//TODO\n\t})\n)`
 
     return str
-  }
-
-  generateWorkflowExample(workflowReflection: DeclarationReflection) {
-    if (!workflowReflection.signatures?.length) {
-      return
-    }
-    const exampleTags = workflowReflection.comment?.blockTags.filter(
-      (tag) => tag.tag === "@example"
-    )
-
-    if (exampleTags?.length) {
-      return
-    }
-
-    // generate example
-    return `const { result } = await ${
-      workflowReflection.name
-    }(container)\n\t.run(\n\t\t{\n\t\t\tinput: ${getFakeJsObjectValue(
-      workflowReflection.signatures[0]
-    )}\n\t\t})`
   }
 }

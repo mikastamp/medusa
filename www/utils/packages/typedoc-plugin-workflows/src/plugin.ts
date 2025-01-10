@@ -232,20 +232,6 @@ class WorkflowsPlugin {
     ])
 
     this.updateWorkflowsTagsMap(workflowId, uniqueResources)
-
-    // try to generate example
-    const generatedExample =
-      this.examplesHelper.generateWorkflowExample(parentReflection)
-    if (generatedExample) {
-      parentReflection.comment?.blockTags.push(
-        new CommentTag(`@example`, [
-          {
-            kind: "code",
-            text: generatedExample,
-          },
-        ])
-      )
-    }
   }
 
   /**
