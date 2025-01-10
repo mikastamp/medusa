@@ -522,10 +522,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@faker-js/faker@npm:^8.4.0":
-  version: 8.4.0
-  resolution: "@faker-js/faker@npm:8.4.0"
-  checksum: 2dd9a3f6a38a70baa8d8ae222d9d371eea2b56eba4bd12bb138230e9481687686330fddee7581d3f285cf8ea8fe1534e08e43a110de8743e561a6eccc3fdc670
+"@faker-js/faker@npm:^9.3.0":
+  version: 9.3.0
+  resolution: "@faker-js/faker@npm:9.3.0"
+  checksum: 6528e2f0bf0abc315780024534074a449e01e7f581f1a50a20ee7103d29d842e1c4d7dd6b27aa173f668308bf55a1d64c2547286c0c4e5a8e08d0b8269aaedc7
   languageName: node
   linkType: hard
 
@@ -2607,7 +2607,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "docs-generator@workspace:packages/docs-generator"
   dependencies:
-    "@faker-js/faker": ^8.4.0
     "@octokit/core": ^5.0.2
     "@types/eslint": 8.56.6
     "@types/node": ^20.12.10
@@ -6050,6 +6049,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "utils@workspace:packages/utils"
   dependencies:
+    "@faker-js/faker": ^9.3.0
     "@types/node": ^20.12.10
     octokit: ^3.1.2
     rimraf: ^5.0.5
