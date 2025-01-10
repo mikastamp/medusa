@@ -248,6 +248,10 @@ class DistributedTransaction extends EventEmitter {
     step: TransactionStep,
     interval: number
   ): Promise<void> {
+    if (this.hasFinished()) {
+      return
+    }
+
     await this.saveCheckpoint()
     await DistributedTransaction.keyValueStore.scheduleRetry(
       this,
