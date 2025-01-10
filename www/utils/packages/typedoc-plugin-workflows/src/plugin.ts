@@ -511,6 +511,7 @@ class WorkflowsPlugin {
 
     if (parameter.type.name === "__object") {
       parameter.type.name = "object"
+      parameter.type.qualifiedName = "object"
     }
 
     signatureReflection.parameters = []

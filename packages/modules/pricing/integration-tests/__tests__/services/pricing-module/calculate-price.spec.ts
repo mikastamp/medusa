@@ -1814,6 +1814,74 @@ moduleIntegrationTestRunner<IPricingModuleService>({
               },
             ])
           })
+
+          it("should not return price list prices when price is deleted", async () => {
+            const [priceList] = await createPriceLists(
+              service,
+              {},
+              { region_id: ["DE", "PL"] },
+              [
+                {
+                  amount: 111,
+                  currency_code: "PLN",
+                  price_set_id: "price-set-PLN",
+                  rules: {
+                    region_id: "DE",
+                  },
+                },
+              ]
+            )
+
+            const priceSetsResult1 = await service.calculatePrices(
+              { id: ["price-set-EUR", "price-set-PLN"] },
+              {
+                context: {
+                  currency_code: "PLN",
+                  region_id: "DE",
+                  customer_group_id: "vip-customer-group-id",
+                  company_id: "medusa-company-id",
+                },
+              }
+            )
+
+            expect(priceSetsResult1).toEqual([
+              expect.objectContaining({
+                id: "price-set-PLN",
+                is_calculated_price_price_list: true,
+                calculated_amount: 111,
+                is_original_price_price_list: false,
+                original_amount: 400,
+              }),
+            ])
+
+            const test = await service.softDeletePrices(
+              priceList.prices.map((p) => p.id)
+            )
+
+            console.log("test -- ", JSON.stringify(test, null, 4))
+
+            const priceSetsResult2 = await service.calculatePrices(
+              { id: ["price-set-EUR", "price-set-PLN"] },
+              {
+                context: {
+                  currency_code: "PLN",
+                  region_id: "DE",
+                  customer_group_id: "vip-customer-group-id",
+                  company_id: "medusa-company-id",
+                },
+              }
+            )
+
+            expect(priceSetsResult2).toEqual([
+              expect.objectContaining({
+                id: "price-set-PLN",
+                is_calculated_price_price_list: false,
+                calculated_amount: 400,
+                is_original_price_price_list: false,
+                original_amount: 400,
+              }),
+            ])
+          })
         })
 
         describe("Tax inclusivity", () => {
