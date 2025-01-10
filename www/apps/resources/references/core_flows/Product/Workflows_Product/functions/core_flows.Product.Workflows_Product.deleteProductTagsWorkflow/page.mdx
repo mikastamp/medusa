@@ -1,6 +1,10 @@
 ---
 slug: /references/medusa-workflows/deleteProductTagsWorkflow
 sidebar_label: deleteProductTagsWorkflow
+tags:
+  - product
+  - event bus
+  - workflow
 ---
 
 import { TypeList, WorkflowDiagram } from "docs-ui"
@@ -13,7 +17,7 @@ This workflow deletes one or more product tags.
 
 ## Steps
 
-<WorkflowDiagram workflow={{"name":"deleteProductTagsWorkflow","steps":[{"type":"step","name":"deleteProductTagsStep","description":"This step deletes one or more product tags.","link":"../../../Steps_Product/functions/core_flows.Product.Steps_Product.deleteProductTagsStep/page.mdx","depth":1},{"type":"hook","name":"productTagsDeleted","description":"This step is a hook that you can inject custom functionality into.\n\n","link":"#productTagsDeleted","depth":2},{"type":"step","name":"emitEventStep","description":"Emit an event.\n\n","link":"../../../../Common/Steps_Common/functions/core_flows.Common.Steps_Common.emitEventStep/page.mdx","depth":3}]}} />
+<WorkflowDiagram workflow={{"name":"deleteProductTagsWorkflow","steps":[{"type":"step","name":"deleteProductTagsStep","description":"This step deletes one or more product tags.\n\n","link":"../../../Steps_Product/functions/core_flows.Product.Steps_Product.deleteProductTagsStep/page.mdx","depth":1},{"type":"hook","name":"productTagsDeleted","description":"This step is a hook that you can inject custom functionality into.\n\n","link":"#productTagsDeleted","depth":2},{"type":"step","name":"emitEventStep","description":"Emit an event.\n\n","link":"../../../../Common/Steps_Common/functions/core_flows.Common.Steps_Common.emitEventStep/page.mdx","depth":3}]}} />
 
 ## Input
 
@@ -39,4 +43,4 @@ deleteProductTagsWorkflow.hooks.productTagsDeleted(
 
 Handlers consuming this hook accept the following input.
 
-<TypeList types={[{"name":"input","type":"[__type](../../../core_flows.Product.Workflows_Product/page.mdx#__type-18)","description":"","optional":false,"defaultValue":"","expandable":false,"children":[{"name":"ids","type":"`string`[]","description":"","optional":false,"defaultValue":"","expandable":false,"children":[]}]}]} expandUrl="https://docs.medusajs.com/learn/fundamentals/data-models/manage-relationships#retrieve-records-of-relation" sectionTitle="productTagsDeleted"/>
+<TypeList types={[{"name":"input","type":"object","description":"","optional":false,"defaultValue":"","expandable":false,"children":[{"name":"ids","type":"`string`[]","description":"","optional":false,"defaultValue":"","expandable":false,"children":[]}]}]} expandUrl="https://docs.medusajs.com/learn/fundamentals/data-models/manage-relationships#retrieve-records-of-relation" sectionTitle="productTagsDeleted"/>

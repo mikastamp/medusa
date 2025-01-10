@@ -14,7 +14,7 @@ import {
 } from "typedoc"
 import ts, { SyntaxKind, VariableStatement } from "typescript"
 import { WorkflowManager, WorkflowDefinition } from "@medusajs/orchestration"
-import Helper, { WORKFLOW_AS_STEP_SUFFIX } from "./utils/helper"
+import Helper, { WORKFLOW_AS_STEP_SUFFIX } from "./utils/helper.js"
 import {
   findReflectionInNamespaces,
   isWorkflow,
@@ -23,7 +23,7 @@ import {
   getResolvedResourcesOfStep,
   getUniqueStrArray,
 } from "utils"
-import { StepType } from "./types"
+import { StepType } from "./types.js"
 
 type ParsedStep = {
   stepReflection: DeclarationReflection
@@ -223,7 +223,11 @@ class WorkflowsPlugin {
       stepDepth++
     })
 
-    const uniqueResources = addTagsToReflection(parentReflection, resources)
+    const uniqueResources = addTagsToReflection(parentReflection, [
+      ...resources,
+      "workflow",
+    ])
+
     this.updateWorkflowsTagsMap(workflowId, uniqueResources)
   }
 
@@ -376,10 +380,16 @@ class WorkflowsPlugin {
       .expression as ts.CallExpression
     const thenInitializer = initializer
 
+    const validArgumentsLength =
+      whenInitializer.arguments.length === 2 ||
+      whenInitializer.arguments.length === 3
+
+    const conditionIndex = whenInitializer.arguments.length - 1
+
     if (
-      whenInitializer.arguments.length < 2 ||
-      (!ts.isFunctionExpression(whenInitializer.arguments[1]) &&
-        !ts.isArrowFunction(whenInitializer.arguments[1])) ||
+      !validArgumentsLength ||
+      (!ts.isFunctionExpression(whenInitializer.arguments[conditionIndex]) &&
+        !ts.isArrowFunction(whenInitializer.arguments[conditionIndex])) ||
       thenInitializer.arguments.length < 1 ||
       (!ts.isFunctionExpression(thenInitializer.arguments[0]) &&
         !ts.isArrowFunction(thenInitializer.arguments[0]))
@@ -389,7 +399,8 @@ class WorkflowsPlugin {
       }
     }
 
-    const whenCondition = whenInitializer.arguments[1].body.getText()
+    const whenCondition =
+      whenInitializer.arguments[conditionIndex].body.getText()
 
     const thenStatements = (thenInitializer.arguments[0].body as ts.Block)
       .statements
@@ -500,6 +511,7 @@ class WorkflowsPlugin {
 
     if (parameter.type.name === "__object") {
       parameter.type.name = "object"
+      parameter.type.qualifiedName = "object"
     }
 
     signatureReflection.parameters = []
@@ -560,7 +572,9 @@ class WorkflowsPlugin {
         },
       ])
     )
-    addTagsToReflection(stepReflection, resources)
+    const resourcesForType =
+      stepType === "step" || stepType === "hook" ? [stepType] : []
+    addTagsToReflection(stepReflection, [...resources, ...resourcesForType])
 
     if (parentReflection.isDocument()) {
       parentReflection.addChild(documentReflection)
