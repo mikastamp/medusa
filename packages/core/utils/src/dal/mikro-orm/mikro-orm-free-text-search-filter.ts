@@ -102,7 +102,7 @@ function retrieveRelationsConstraints(
         mapToPk: innerRelation.mapToPk,
         type: innerRelation.type,
       },
-      metadata,
+      innerRelation.targetMeta!,
       searchValue,
       branchVisited,
       isSelfCircularDependency
