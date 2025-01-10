@@ -77,6 +77,7 @@ import workflowHooksHelper from "./resources/helpers/workflow-hooks.js"
 import ifMemberShowTitleHelper from "./resources/helpers/if-member-show-title.js"
 import signatureCommentHelper from "./resources/helpers/signature-comment.js"
 import versionHelper from "./resources/helpers/version.js"
+import sourceCodeLinkHelper from "./resources/helpers/source-code-link.js"
 import { MarkdownTheme } from "./theme.js"
 import { getDirname } from "utils"
 
@@ -185,4 +186,5 @@ export function registerHelpers(theme: MarkdownTheme) {
   ifMemberShowTitleHelper(theme)
   signatureCommentHelper()
   versionHelper()
+  sourceCodeLinkHelper()
 }
