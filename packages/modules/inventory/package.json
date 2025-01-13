@@ -50,9 +50,9 @@
     "build": "rimraf dist && tsc --build && npm run resolve:aliases",
     "test": "jest --runInBand --bail --forceExit -- src/**/__tests__/**/*.ts",
     "test:integration": "jest --runInBand --forceExit -- integration-tests/**/__tests__/**/*.spec.ts",
-    "migration:initial": " MIKRO_ORM_CLI=./mikro-orm.config.dev.ts medusa-mikro-orm migration:create --initial -n InitialSetupMigration",
-    "migration:create": " MIKRO_ORM_CLI=./mikro-orm.config.dev.ts medusa-mikro-orm migration:create",
-    "migration:up": " MIKRO_ORM_CLI=./mikro-orm.config.dev.ts medusa-mikro-orm migration:up",
-    "orm:cache:clear": " MIKRO_ORM_CLI=./mikro-orm.config.dev.ts medusa-mikro-orm cache:clear"
+    "migration:initial": " MIKRO_ORM_CLI_CONFIG=./mikro-orm.config.dev.ts medusa-mikro-orm migration:create --initial -n InitialSetupMigration",
+    "migration:create": " MIKRO_ORM_CLI_CONFIG=./mikro-orm.config.dev.ts medusa-mikro-orm migration:create",
+    "migration:up": " MIKRO_ORM_CLI_CONFIG=./mikro-orm.config.dev.ts medusa-mikro-orm migration:up",
+    "orm:cache:clear": " MIKRO_ORM_CLI_CONFIG=./mikro-orm.config.dev.ts medusa-mikro-orm cache:clear"
   }
 }

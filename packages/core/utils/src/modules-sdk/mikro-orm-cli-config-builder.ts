@@ -43,7 +43,7 @@ export function defineMikroOrmCliConfig(
 
   const dmlEntities = options.entities.filter(DmlEntity.isDmlEntity)
   const nonDmlEntities = options.entities.filter(
-    (entity) => !DmlEntity.isDmlEntity(entity)
+    (entity) => entity && !DmlEntity.isDmlEntity(entity)
   )
 
   const entities = nonDmlEntities.concat(
