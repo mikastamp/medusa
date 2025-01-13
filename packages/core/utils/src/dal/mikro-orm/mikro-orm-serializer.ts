@@ -126,7 +126,7 @@ export class EntitySerializer {
     let contextCreated = false
 
     if (!wrapped.__serializationContext.root) {
-      const root = new SerializationContext<T>({} as any) // TODO: fix this: v6 Migration
+      const root = new SerializationContext<T>({} as any)
       SerializationContext.propagate(
         root,
         entity,

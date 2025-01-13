@@ -75,7 +75,6 @@ medusaIntegrationTestRunner({
       const planner = getMigrationPlanner(dbConfig, linkDefinition)
       let plans = await planner.createPlan()
 
-      // TODO: review update plan of Order module tables
       plans = plans.filter((p) => p.action !== "update")
       await planner.executePlan(plans)
       links = await initialize(dbConfig, linkDefinition)

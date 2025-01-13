@@ -94,8 +94,8 @@ export const orderClaimRequestItemReturnWorkflow = createWorkflow(
     })
 
     const orderReturn: ReturnDTO = transform(
-      { createdReturn, existingOrderReturn, orderClaim },
-      ({ createdReturn, existingOrderReturn, orderClaim }) => {
+      { createdReturn, existingOrderReturn },
+      ({ createdReturn, existingOrderReturn }) => {
         return existingOrderReturn ?? (createdReturn?.[0] as ReturnDTO)
       }
     )
@@ -123,12 +123,9 @@ export const orderClaimRequestItemReturnWorkflow = createWorkflow(
       name: "order-change-query",
     })
 
-    when(
-      { createdReturn, orderClaim, orderChange },
-      ({ createdReturn, orderClaim, orderChange }) => {
-        return !!createdReturn?.length
-      }
-    ).then(() => {
+    when({ createdReturn }, ({ createdReturn }) => {
+      return !!createdReturn?.length
+    }).then(() => {
       updateOrderChangesStep([
         {
           id: orderChange.id,

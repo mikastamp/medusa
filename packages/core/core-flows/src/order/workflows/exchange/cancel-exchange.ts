@@ -70,7 +70,6 @@ export const cancelOrderExchangeWorkflow = createWorkflow(
         fields: [
           "id",
           "order_id",
-          "return",
           "return_id",
           "canceled_at",
           "fulfillments.canceled_at",

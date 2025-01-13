@@ -1,10 +1,10 @@
 import { CustomTsMigrationGenerator } from "../mikro-orm-create-connection"
 
 function unwrapSql(sql: string) {
-  return sql.match(/this.addSql\('(.*?)'\)/)?.[1]
+  return sql.toString().match(/this.addSql\(`(.*?)`\)/)?.[1]
 }
 
-describe.skip("CustomTsMigrationGenerator", () => {
+describe("CustomTsMigrationGenerator", () => {
   it('should add "if not exists" to "create table" statements', () => {
     const sql = "create table my_table (id int)"
     const result = unwrapSql(

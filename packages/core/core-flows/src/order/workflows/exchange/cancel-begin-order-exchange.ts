@@ -56,14 +56,7 @@ export const cancelBeginOrderExchangeWorkflow = createWorkflow(
   function (input: CancelBeginOrderExchangeWorkflowInput): WorkflowData<void> {
     const orderExchange: OrderExchangeDTO = useRemoteQueryStep({
       entry_point: "order_exchange",
-      fields: [
-        "id",
-        "status",
-        "order_id",
-        "return",
-        "return_id",
-        "canceled_at",
-      ],
+      fields: ["id", "status", "order_id", "return_id", "canceled_at"],
       variables: { id: input.exchange_id },
       list: false,
       throw_if_key_not_found: true,
