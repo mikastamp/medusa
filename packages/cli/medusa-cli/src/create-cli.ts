@@ -255,9 +255,19 @@ function buildLocalCommands(cli, isLocalProject) {
       ),
     })
     .command({
+      command: "plugin:build",
+      desc: "Build plugin source for publishing to a package registry",
+      handler: handlerP(
+        getCommandHandler("plugin/build", (args, cmd) => {
+          process.env.NODE_ENV = process.env.NODE_ENV || `development`
+          cmd(args)
+          return new Promise((resolve) => {})
+        })
+      ),
+    })
+    .command({
       command: "plugin:develop",
       desc: "Start plugin development process in watch mode. Changes will be re-published to the local packages registry",
-      builder: (builder) => {},
       handler: handlerP(
         getCommandHandler("plugin/develop", (args, cmd) => {
           process.env.NODE_ENV = process.env.NODE_ENV || `development`
