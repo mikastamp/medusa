@@ -2146,22 +2146,6 @@
               ],
               "additionalProperties": false
             },
-            "shipping_profile": {
-              "type": "object",
-              "properties": {
-                "label": {
-                  "type": "string"
-                },
-                "hint": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "label",
-                "hint"
-              ],
-              "additionalProperties": false
-            },
             "type": {
               "type": "object",
               "properties": {
@@ -2381,7 +2365,6 @@
             "handle",
             "description",
             "discountable",
-            "shipping_profile",
             "type",
             "collection",
             "categories",
@@ -2666,64 +2649,33 @@
           ],
           "additionalProperties": false
         },
-        "shippingProfile": {
+        "stock": {
           "type": "object",
           "properties": {
-            "header": {
+            "heading": {
               "type": "string"
             },
-            "edit": {
+            "description": {
+              "type": "string"
+            },
+            "loading": {
+              "type": "string"
+            },
+            "tooltips": {
               "type": "object",
               "properties": {
-                "header": {
+                "alreadyManaged": {
                   "type": "string"
                 },
-                "toasts": {
-                  "type": "object",
-                  "properties": {
-                    "success": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "success"
-                  ],
-                  "additionalProperties": false
+                "alreadyManagedWithSku": {
+                  "type": "string"
                 }
               },
-              "required": [
-                "header",
-                "toasts"
-              ],
-              "additionalProperties": false
-            },
-            "create": {
-              "type": "object",
-              "properties": {
-                "errors": {
-                  "type": "object",
-                  "properties": {
-                    "required": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "required"
-                  ],
-                  "additionalProperties": false
-                }
-              },
-              "required": [
-                "errors"
-              ],
+              "required": ["alreadyManaged", "alreadyManagedWithSku"],
               "additionalProperties": false
             }
           },
-          "required": [
-            "header",
-            "edit",
-            "create"
-          ],
+          "required": ["heading", "description", "loading", "tooltips"],
           "additionalProperties": false
         },
         "toasts": {
@@ -2798,7 +2750,7 @@
         "variant",
         "options",
         "organization",
-        "shippingProfile",
+        "stock",
         "toasts"
       ],
       "additionalProperties": false
@@ -3385,6 +3337,46 @@
             "updateItem"
           ],
           "additionalProperties": false
+        },
+        "stock": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "action": {
+              "type": "string"
+            },
+            "placeholder": {
+              "type": "string"
+            },
+            "disablePrompt_one": {
+              "type": "string"
+            },
+            "disablePrompt_other": {
+              "type": "string"
+            },
+            "disabledToggleTooltip": {
+              "type": "string"
+            },
+            "successToast": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "title",
+            "description",
+            "action",
+            "placeholder",
+            "disablePrompt_one",
+            "disablePrompt_other",
+            "disabledToggleTooltip",
+            "successToast"
+          ],
+          "additionalProperties": false
         }
       },
       "required": [
@@ -3400,7 +3392,8 @@
         "create",
         "reservation",
         "adjustInventory",
-        "toast"
+        "toast",
+        "stock"
       ],
       "additionalProperties": false
     },
