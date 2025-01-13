@@ -78,11 +78,12 @@ export function OrderCreateFulfillmentForm({
 
   const { stock_locations = [] } = useStockLocations()
 
-  const { shipping_options = [] } = useShippingOptions({
-    stock_location_id: selectedLocationId,
-    // is_return: false, // TODO: 500 when enabled
-    fields: "+service_zone.fulfillment_set.location.id",
-  })
+  const { shipping_options = [], isLoading: isShippingOptionsLoading } =
+    useShippingOptions({
+      stock_location_id: selectedLocationId,
+      // is_return: false, // TODO: 500 when enabled
+      fields: "+service_zone.fulfillment_set.location.id",
+    })
 
   const shippingOptionId = useWatch({
     name: "shipping_option_id",
@@ -93,6 +94,22 @@ export function OrderCreateFulfillmentForm({
     const selectedShippingOption = shipping_options.find(
       (o) => o.id === shippingOptionId
     )
+
+    if (requiresShipping && !selectedShippingOption) {
+      form.setError("shipping_option_id", {
+        type: "manual",
+        message: t("orders.fulfillment.error.noShippingOption"),
+      })
+      return
+    }
+
+    if (requiresShipping && !selectedLocationId) {
+      form.setError("location_id", {
+        type: "manual",
+        message: t("orders.fulfillment.error.noLocation"),
+      })
+      return
+    }
 
     const selectedShippingProfileId =
       selectedShippingOption?.shipping_profile_id
@@ -284,7 +301,13 @@ export function OrderCreateFulfillmentForm({
                                       className="bg-ui-bg-base"
                                       ref={ref}
                                     >
-                                      <Select.Value />
+                                      {isShippingOptionsLoading ? (
+                                        <span className="text-right">
+                                          {t("labels.loading")}...
+                                        </span>
+                                      ) : (
+                                        <Select.Value />
+                                      )}
                                     </Select.Trigger>
                                     <Select.Content>
                                       {shipping_options.map((o) => (

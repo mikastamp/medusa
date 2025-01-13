@@ -1252,7 +1252,9 @@
       "error": {
         "wrongQuantity": "Only one item is available for fulfillment",
         "wrongQuantity_other": "Quantity should be a number between 1 and {{number}}",
-        "noItems": "No items to fulfill."
+        "noItems": "No items to fulfill.",
+        "noShippingOption": "Shipping option is required",
+        "noLocation": "Location is required"
       },
       "status": {
         "notFulfilled": "Not fulfilled",
@@ -2708,7 +2710,8 @@
     "removed": "Removed",
     "from": "From",
     "to": "To",
-    "beaware": "Be aware"
+    "beaware": "Be aware",
+    "loading": "Loading"
   },
   "fields": {
     "amount": "Amount",

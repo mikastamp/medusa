@@ -11309,6 +11309,9 @@
         },
         "beaware": {
           "type": "string"
+        },
+        "loading": {
+          "type": "string"
         }
       },
       "required": [
@@ -11320,7 +11323,8 @@
         "removed",
         "from",
         "to",
-        "beaware"
+        "beaware",
+        "loading"
       ],
       "additionalProperties": false
     },
