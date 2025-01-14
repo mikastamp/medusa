@@ -1,0 +1,55 @@
+{
+    "compilerOptions": {
+        "lib": [
+            "es2021"
+        ],
+        "target": "es2021",
+        "outDir": "./dist",
+        "esModuleInterop": true,
+        "declaration": true,
+        "declarationMap": true,
+        "noUnusedLocals": true,
+        "module": "node16",
+        "moduleResolution": "node16",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "sourceMap": true,
+        "noImplicitReturns": true,
+        "resolveJsonModule": true,
+        "forceConsistentCasingInFileNames": true,
+        "strictNullChecks": true,
+        "strictFunctionTypes": true,
+        "noImplicitThis": true,
+        "allowJs": true,
+        "skipLibCheck": true,
+        "incremental": false,
+        "paths": {
+            "@models": [
+                "./src/models"
+            ],
+            "@services": [
+                "./src/services"
+            ],
+            "@repositories": [
+                "./src/repositories"
+            ],
+            "@types": [
+                "./src/types"
+            ],
+            "@utils": [
+                "./src/utils"
+            ]
+        },
+        "moduleDetection": "force",
+        "allowSyntheticDefaultImports": true,
+        "resolvePackageJsonExports": true,
+        "resolvePackageJsonImports": true
+    },
+    "include": [
+        "/Users/kasperkristensen/work/medusa/packages/modules/index/src"
+    ],
+    "exclude": [
+        "/Users/kasperkristensen/work/medusa/packages/modules/index/dist",
+        "/Users/kasperkristensen/work/medusa/packages/modules/index/node_modules"
+    ]
+}
