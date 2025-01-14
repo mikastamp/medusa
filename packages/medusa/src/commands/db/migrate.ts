@@ -22,11 +22,13 @@ const TERMINAL_SIZE = process.stdout.columns
 export async function migrate({
   directory,
   skipLinks,
+  skipScripts,
   executeAllLinks,
   executeSafeLinks,
 }: {
   directory: string
   skipLinks: boolean
+  skipScripts: boolean
   executeAllLinks: boolean
   executeSafeLinks: boolean
 }): Promise<boolean> {
@@ -70,14 +72,16 @@ export async function migrate({
     })
   }
 
-  /**
-   * Run migration scripts
-   */
-  console.log(new Array(TERMINAL_SIZE).join("-"))
-  await runMigrationScripts({
-    directory,
-    container,
-  })
+  if (!skipScripts) {
+    /**
+     * Run migration scripts
+     */
+    console.log(new Array(TERMINAL_SIZE).join("-"))
+    await runMigrationScripts({
+      directory,
+      container,
+    })
+  }
 
   return true
 }
@@ -85,6 +89,7 @@ export async function migrate({
 const main = async function ({
   directory,
   skipLinks,
+  skipScripts,
   executeAllLinks,
   executeSafeLinks,
 }) {
@@ -92,6 +97,7 @@ const main = async function ({
     const migrated = await migrate({
       directory,
       skipLinks,
+      skipScripts,
       executeAllLinks,
       executeSafeLinks,
     })
