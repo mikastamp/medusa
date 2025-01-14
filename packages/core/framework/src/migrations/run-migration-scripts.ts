@@ -26,7 +26,9 @@ export class MigrationScriptsMigrator extends Migrator {
         )
       }
 
-      await this.insertMigration([{ script_name: `'${basename(script)}'` }])
+      const scriptName = basename(script)
+
+      await this.insertMigration([{ script_name: `'${scriptName}'` }])
 
       logger.info(`Running migration script ${script}`)
       try {
@@ -38,10 +40,10 @@ export class MigrationScriptsMigrator extends Migrator {
           `Migration script ${script} completed (${tracker.getSeconds()}s)`
         )
 
-        await this.#updateMigrationFinishedAt(script)
+        await this.#updateMigrationFinishedAt(scriptName)
       } catch (error) {
         logger.error(`Failed to run migration script ${script}:`, error)
-        await this.#deleteMigration(basename(script))
+        await this.#deleteMigration(scriptName)
         throw error
       }
     }
