@@ -1,8 +1,7 @@
 import { MedusaContainer } from "@medusajs/types"
-import { Migrator } from "./migrator"
 import { dynamicImport } from "@medusajs/utils"
-import { basename } from "path"
 import { logger } from "../logger"
+import { Migrator } from "./migrator"
 
 export class MigrationScriptsMigrator extends Migrator {
   protected migration_table_name = "script_migrations"
