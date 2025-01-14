@@ -1,8 +1,8 @@
 import { MedusaContainer } from "@medusajs/types"
-import { dynamicImport } from "@medusajs/utils"
+import { dynamicImport, Modules } from "@medusajs/utils"
+import { basename } from "path"
 import { logger } from "../logger"
 import { Migrator } from "./migrator"
-import { basename } from "path"
 
 export class MigrationScriptsMigrator extends Migrator {
   protected migration_table_name = "script_migrations"
@@ -16,51 +16,62 @@ export class MigrationScriptsMigrator extends Migrator {
    * @param paths - The paths from which to load the scripts
    */
   async run(paths: string[]): Promise<void> {
-    const scriptPaths = await this.getPendingMigrations(paths)
-    for (const script of scriptPaths) {
-      const scriptFn = await dynamicImport(script)
+    const lockService = this.container.resolve(Modules.LOCKING)
 
-      if (!scriptFn.default) {
-        throw new Error(
-          `Failed to load migration script ${script}. No default export found.`
-        )
-      }
+    const lockKey = "migration-scripts-running"
+    await lockService.acquire(lockKey, {
+      expire: 60 * 60,
+    })
 
-      const scriptName = basename(script)
+    try {
+      const scriptPaths = await this.getPendingMigrations(paths)
+      for (const script of scriptPaths) {
+        const scriptFn = await dynamicImport(script)
 
-      const err = await this.insertMigration([
-        { script_name: `'${scriptName}'` },
-      ]).catch((e) => e)
-
-      /**
-       * In case another processes is running in parallel, the migration might
-       * have already been executed and therefore the insert will fail because of the
-       * unique constraint.
-       */
-      if (err) {
-        if (err.constraint === "idx_script_name_unique") {
-          continue
+        if (!scriptFn.default) {
+          throw new Error(
+            `Failed to load migration script ${script}. No default export found.`
+          )
         }
 
-        throw err
+        const scriptName = basename(script)
+
+        const err = await this.insertMigration([
+          { script_name: `'${scriptName}'` },
+        ]).catch((e) => e)
+
+        /**
+         * In case another processes is running in parallel, the migration might
+         * have already been executed and therefore the insert will fail because of the
+         * unique constraint.
+         */
+        if (err) {
+          if (err.constraint === "idx_script_name_unique") {
+            continue
+          }
+
+          throw err
+        }
+
+        logger.info(`Running migration script ${script}`)
+        try {
+          const tracker = this.trackDuration()
+
+          await scriptFn.default({ container: this.container })
+
+          logger.info(
+            `Migration script ${script} completed (${tracker.getSeconds()}s)`
+          )
+
+          await this.#updateMigrationFinishedAt(scriptName)
+        } catch (error) {
+          logger.error(`Failed to run migration script ${script}:`, error)
+          await this.#deleteMigration(scriptName)
+          throw error
+        }
       }
-
-      logger.info(`Running migration script ${script}`)
-      try {
-        const tracker = this.trackDuration()
-
-        await scriptFn.default({ container: this.container })
-
-        logger.info(
-          `Migration script ${script} completed (${tracker.getSeconds()}s)`
-        )
-
-        await this.#updateMigrationFinishedAt(scriptName)
-      } catch (error) {
-        logger.error(`Failed to run migration script ${script}:`, error)
-        await this.#deleteMigration(scriptName)
-        throw error
-      }
+    } finally {
+      await lockService.release(lockKey)
     }
   }
 

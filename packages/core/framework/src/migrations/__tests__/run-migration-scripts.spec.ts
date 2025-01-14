@@ -2,16 +2,24 @@ import { MedusaContainer } from "@medusajs/types"
 import { MigrationScriptsMigrator } from "../run-migration-scripts"
 import { jest } from "@jest/globals"
 import path from "path"
-import { ContainerRegistrationKeys } from "@medusajs/utils"
+import { ContainerRegistrationKeys, Modules } from "@medusajs/utils"
 
 const mockPgConnection = {
   raw: jest.fn(),
+}
+
+const mockLockService = {
+  acquire: jest.fn(),
+  release: jest.fn(),
 }
 
 const mockContainer = {
   resolve: (key: string) => {
     if (key === ContainerRegistrationKeys.PG_CONNECTION) {
       return mockPgConnection
+    }
+    if (key === Modules.LOCKING) {
+      return mockLockService
     }
 
     throw new Error(`Unknown key: ${key}`)
