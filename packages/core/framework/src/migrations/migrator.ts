@@ -95,11 +95,22 @@ export abstract class Migrator {
     }
   }
 
-  async loadMigrationFiles(paths: string[]): Promise<string[]> {
+  /**
+   * Load migration files from the given paths
+   *
+   * @param paths - The paths to load migration files from
+   * @param options - The options for loading migration files
+   * @param options.force - Whether to force loading migration files even if they have already been loaded
+   * @returns The loaded migration file paths
+   */
+  async loadMigrationFiles(
+    paths: string[],
+    { force = false }: { force?: boolean }
+  ): Promise<string[]> {
     const allScripts: string[] = []
 
     for (const basePath of paths) {
-      if (this.#alreadyLoadedPaths.has(basePath)) {
+      if (!force && this.#alreadyLoadedPaths.has(basePath)) {
         allScripts.push(...this.#alreadyLoadedPaths.get(basePath))
         continue
       }
