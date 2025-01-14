@@ -11,6 +11,7 @@ import { syncLinks } from "./sync-links"
 import { ensureDbExists } from "../utils"
 import { initializeContainer } from "../../loaders"
 import { getResolvedPlugins } from "../../loaders/helpers/resolve-plugins"
+import { runMigrationScripts } from "./run-scripts"
 
 const TERMINAL_SIZE = process.stdout.columns
 
@@ -68,6 +69,15 @@ export async function migrate({
       executeSafe: executeSafeLinks,
     })
   }
+
+  /**
+   * Run migration scripts
+   */
+  console.log(new Array(TERMINAL_SIZE).join("-"))
+  await runMigrationScripts({
+    directory,
+    container,
+  })
 
   return true
 }
