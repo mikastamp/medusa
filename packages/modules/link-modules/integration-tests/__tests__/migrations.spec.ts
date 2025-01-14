@@ -144,11 +144,7 @@ moduleIntegrationTestRunner<ILinkModule>({
             toModel: "car",
           },
           tableName: "user_user_car_car",
-          sql:
-            "set names 'utf8';\n" +
-            "\n" +
-            'alter table if exists "user_user_car_car" add column if not exists "data" jsonb not null;\n' +
-            "\n",
+          sql: 'alter table if exists "user_user_car_car" add column if not exists "data" jsonb not null;',
         })
 
         /**
