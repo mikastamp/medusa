@@ -20,6 +20,19 @@ export abstract class Migrator {
     )
   }
 
+  /**
+   * Util to track duration using hrtime
+   */
+  protected trackDuration() {
+    const startTime = process.hrtime()
+    return {
+      getSeconds() {
+        const duration = process.hrtime(startTime)
+        return (duration[0] + duration[1] / 1e9).toFixed(2)
+      },
+    }
+  }
+
   async ensureDatabase(): Promise<void> {
     const pgConnection = this.container.resolve(
       ContainerRegistrationKeys.PG_CONNECTION
@@ -105,7 +118,7 @@ export abstract class Migrator {
    */
   async loadMigrationFiles(
     paths: string[],
-    { force = false }: { force?: boolean }
+    { force }: { force?: boolean } = { force: false }
   ): Promise<string[]> {
     const allScripts: string[] = []
 

@@ -2,6 +2,7 @@ import { MedusaContainer } from "@medusajs/types"
 import { dynamicImport } from "@medusajs/utils"
 import { logger } from "../logger"
 import { Migrator } from "./migrator"
+import { basename } from "path"
 
 export class MigrationScriptsMigrator extends Migrator {
   protected migration_table_name = "script_migrations"
@@ -25,13 +26,22 @@ export class MigrationScriptsMigrator extends Migrator {
         )
       }
 
+      await this.insertMigration([{ script_name: `'${basename(script)}'` }])
+
       logger.info(`Running migration script ${script}`)
       try {
+        const tracker = this.trackDuration()
+
         await scriptFn.default({ container: this.container })
-        await this.insertMigration([{ script_name: `'${script}'` }])
-        logger.info(`Migration script ${script} completed`)
+
+        logger.info(
+          `Migration script ${script} completed (${tracker.getSeconds()}s)`
+        )
+
+        await this.#updateMigrationFinishedAt(script)
       } catch (error) {
         logger.error(`Failed to run migration script ${script}:`, error)
+        await this.#deleteMigration(basename(script))
         throw error
       }
     }
@@ -43,7 +53,7 @@ export class MigrationScriptsMigrator extends Migrator {
     )
     const all = await this.loadMigrationFiles(migrationPaths)
 
-    return all.filter((item) => !executedMigrations.has(item))
+    return all.filter((item) => !executedMigrations.has(basename(item)))
   }
 
   protected async createMigrationTable(): Promise<void> {
@@ -51,8 +61,21 @@ export class MigrationScriptsMigrator extends Migrator {
       CREATE TABLE IF NOT EXISTS ${this.migration_table_name} (
         id SERIAL PRIMARY KEY,
         script_name VARCHAR(255) NOT NULL,
-        created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+        created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+        finished_at TIMESTAMP WITH TIME ZONE
       )
     `)
+  }
+
+  #updateMigrationFinishedAt(scriptName: string) {
+    return this.pgConnection.raw(
+      `UPDATE ${this.migration_table_name} SET finished_at = CURRENT_TIMESTAMP WHERE script_name = '${scriptName}'`
+    )
+  }
+
+  #deleteMigration(scriptName: string) {
+    return this.pgConnection.raw(
+      `DELETE FROM ${this.migration_table_name} WHERE script_name = '${scriptName}'`
+    )
   }
 }
