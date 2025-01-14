@@ -28,7 +28,22 @@ export class MigrationScriptsMigrator extends Migrator {
 
       const scriptName = basename(script)
 
-      await this.insertMigration([{ script_name: `'${scriptName}'` }])
+      const err = await this.insertMigration([
+        { script_name: `'${scriptName}'` },
+      ]).catch((e) => e)
+
+      /**
+       * In case another processes is running in parallel, the migration might
+       * have already been executed and therefore the insert will fail because of the
+       * unique constraint.
+       */
+      if (err) {
+        if (err.constraint === "idx_script_name_unique") {
+          continue
+        }
+
+        throw err
+      }
 
       logger.info(`Running migration script ${script}`)
       try {
@@ -65,7 +80,9 @@ export class MigrationScriptsMigrator extends Migrator {
         script_name VARCHAR(255) NOT NULL,
         created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
         finished_at TIMESTAMP WITH TIME ZONE
-      )
+      );
+
+      CREATE UNIQUE INDEX IF NOT EXISTS idx_script_name_unique ON ${this.migration_table_name} (script_name);
     `)
   }
 

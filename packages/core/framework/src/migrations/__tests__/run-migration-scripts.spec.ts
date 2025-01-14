@@ -94,6 +94,38 @@ describe("MigrationScriptsMigrator", () => {
         expect.stringContaining("DELETE FROM script_migrations")
       )
     })
+
+    it("should skip migration when unique constraint error occurs", async () => {
+      const scriptPath = "/path/to/migration.ts"
+      const uniqueError = new Error("Unique constraint violation")
+      ;(uniqueError as any).constraint = "idx_script_name_unique"
+
+      jest
+        .spyOn(migrator as any, "getPendingMigrations")
+        .mockResolvedValue([scriptPath])
+      jest
+        .spyOn(migrator as any, "insertMigration")
+        .mockRejectedValue(uniqueError)
+      jest
+        .spyOn(migrator as any, "trackDuration")
+        .mockReturnValue({ getSeconds: () => 1 })
+
+      const mockScript = jest.fn()
+      jest.mock(
+        scriptPath,
+        () => ({
+          default: mockScript,
+        }),
+        { virtual: true }
+      )
+
+      await migrator.run([scriptPath])
+
+      expect(mockScript).not.toHaveBeenCalled()
+      expect(mockPgConnection.raw).not.toHaveBeenCalledWith(
+        expect.stringContaining("UPDATE script_migrations")
+      )
+    })
   })
 
   describe("getPendingMigrations", () => {
