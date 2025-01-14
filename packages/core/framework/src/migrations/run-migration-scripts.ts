@@ -99,13 +99,15 @@ export class MigrationScriptsMigrator extends Migrator {
 
   #updateMigrationFinishedAt(scriptName: string) {
     return this.pgConnection.raw(
-      `UPDATE ${this.migration_table_name} SET finished_at = CURRENT_TIMESTAMP WHERE script_name = '${scriptName}'`
+      `UPDATE ${this.migration_table_name} SET finished_at = CURRENT_TIMESTAMP WHERE script_name = ?`,
+      [scriptName]
     )
   }
 
   #deleteMigration(scriptName: string) {
     return this.pgConnection.raw(
-      `DELETE FROM ${this.migration_table_name} WHERE script_name = '${scriptName}'`
+      `DELETE FROM ${this.migration_table_name} WHERE script_name = ?`,
+      [scriptName]
     )
   }
 }

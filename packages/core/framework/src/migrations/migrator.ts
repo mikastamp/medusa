@@ -97,7 +97,8 @@ export abstract class Migrator {
       await this.pgConnection.raw(
         `INSERT INTO ${this.migration_table_name} (${columns.join(
           ", "
-        )}) VALUES ${values.map((value) => `(${value.join(", ")})`).join(", ")}`
+        )}) VALUES (${new Array(values.length).fill("?").join(",")})`,
+        values
       )
     } catch (error) {
       logger.error(
