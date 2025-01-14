@@ -73,10 +73,8 @@ medusaIntegrationTestRunner({
       }) as any)
 
       const planner = getMigrationPlanner(dbConfig, linkDefinition)
-      let plans = await planner.createPlan()
+      await planner.executePlan(await planner.createPlan())
 
-      plans = plans.filter((p) => p.action !== "update")
-      await planner.executePlan(plans)
       links = await initialize(dbConfig, linkDefinition)
     })
 
