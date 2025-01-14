@@ -78,6 +78,7 @@ export async function runMigrationScripts({
       logger.info("No pending migration scripts to execute")
       return true
     }
+
     console.log(new Array(TERMINAL_SIZE).join("-"))
     logger.info("Pending migration scripts to execute")
     logger.info(`${pendingScripts.join("\n")}`)
