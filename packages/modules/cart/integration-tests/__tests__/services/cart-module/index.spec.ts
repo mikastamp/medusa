@@ -2512,6 +2512,7 @@ moduleIntegrationTestRunner<ICartModuleService>({
             requires_shipping: true,
             is_discountable: true,
             is_tax_inclusive: false,
+            is_custom_price: false,
             raw_compare_at_unit_price: null,
             raw_unit_price: {
               value: "100",
@@ -2617,6 +2618,7 @@ moduleIntegrationTestRunner<ICartModuleService>({
             requires_shipping: true,
             is_discountable: true,
             is_tax_inclusive: false,
+            is_custom_price: false,
             raw_compare_at_unit_price: null,
             raw_unit_price: {
               value: "200",

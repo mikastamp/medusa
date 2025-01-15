@@ -16,7 +16,12 @@ import {
   WorkflowData,
   WorkflowResponse,
 } from "@medusajs/framework/workflows-sdk"
-import { emitEventStep, useRemoteQueryStep } from "../../common"
+import {
+  emitEventStep,
+  useQueryGraphStep,
+  useRemoteQueryStep,
+} from "../../common"
+import { deleteLineItemsStep } from "../../line-item"
 import {
   findOrCreateCustomerStep,
   findSalesChannelStep,
@@ -24,13 +29,57 @@ import {
 } from "../steps"
 import { refreshCartItemsWorkflow } from "./refresh-cart-items"
 
+/**
+ * The data to update the cart, along with custom data that's passed to the workflow's hooks.
+ */
+export type UpdateCartWorkflowInput = UpdateCartWorkflowInputDTO & AdditionalData
+
 export const updateCartWorkflowId = "update-cart"
 /**
- * This workflow updates a cart.
+ * This workflow updates a cart and returns it. You can update the cart's region, address, and more. This workflow is executed by the 
+ * [Update Cart Store API Route](https://docs.medusajs.com/api/store#carts_postcartsid).
+ * 
+ * :::note
+ * 
+ * This workflow doesn't allow updating a cart's line items. Instead, use {@link addToCartWorkflow} and {@link updateLineItemInCartWorkflow}.
+ * 
+ * :::
+ * 
+ * This workflow has a hook that allows you to perform custom actions on the updated cart. For example, you can pass custom data under the `additional_data` property of the Update Cart API route, 
+ * then update any associated details related to the cart in the workflow's hook.
+ * 
+ * You can also use this workflow within your own custom workflows, allowing you to wrap custom logic around updating a cart.
+ * 
+ * @example
+ * const { result } = await updateCartWorkflow(container)
+ * .run({
+ *   input: {
+ *     id: "cart_123",
+ *     region_id: "region_123",
+ *     shipping_address: {
+ *       first_name: "John",
+ *       last_name: "Doe",
+ *       address_1: "1234 Main St",
+ *       city: "San Francisco",
+ *       country_code: "US",
+ *       postal_code: "94111",
+ *       phone: "1234567890",
+ *     },
+ *     additional_data: {
+ *       external_id: "123"
+ *     }
+ *   }
+ * })
+ * 
+ * @summary
+ * 
+ * Update a cart's details, such as region, address, and more.
+ * 
+ * @property hooks.cartUpdated - This hook is executed after a cart is update. You can consume this hook to perform custom actions on the updated cart.
  */
 export const updateCartWorkflow = createWorkflow(
   updateCartWorkflowId,
-  (input: WorkflowData<UpdateCartWorkflowInputDTO & AdditionalData>) => {
+  (input: WorkflowData<UpdateCartWorkflowInput>) => {
     const cartToUpdate = useRemoteQueryStep({
       entry_point: "cart",
       variables: { id: input.id },
@@ -167,11 +216,18 @@ export const updateCartWorkflow = createWorkflow(
     })
     */
 
-    when({ input, cartToUpdate }, ({ input, cartToUpdate }) => {
-      return (
-        isDefined(input.region_id) &&
-        input.region_id !== cartToUpdate?.region?.id
-      )
+    const regionUpdated = transform(
+      { input, cartToUpdate },
+      ({ input, cartToUpdate }) => {
+        return (
+          isDefined(input.region_id) &&
+          input.region_id !== cartToUpdate?.region?.id
+        )
+      }
+    )
+
+    when({ regionUpdated }, ({ regionUpdated }) => {
+      return !!regionUpdated
     }).then(() => {
       emitEventStep({
         eventName: CartWorkflowEvents.REGION_UPDATED,
@@ -186,6 +242,27 @@ export const updateCartWorkflow = createWorkflow(
         data: { id: input.id },
       })
     )
+
+    // In case the region is updated, we might have a new currency OR tax inclusivity setting
+    // Therefore, we need to delete line items with a custom price for good measure
+    when({ regionUpdated }, ({ regionUpdated }) => {
+      return !!regionUpdated
+    }).then(() => {
+      const lineItems = useQueryGraphStep({
+        entity: "line_items",
+        filters: {
+          cart_id: input.id,
+          is_custom_price: true,
+        },
+        fields: ["id"],
+      })
+
+      const lineItemIds = transform({ lineItems }, ({ lineItems }) => {
+        return lineItems.data.map((i) => i.id)
+      })
+
+      deleteLineItemsStep(lineItemIds)
+    })
 
     const cart = refreshCartItemsWorkflow.runAsStep({
       input: { cart_id: cartInput.id, promo_codes: input.promo_codes },

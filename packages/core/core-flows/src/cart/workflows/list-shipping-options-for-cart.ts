@@ -1,4 +1,3 @@
-import { deepFlatMap } from "@medusajs/framework/utils"
 import {
   createWorkflow,
   transform,
@@ -41,7 +40,12 @@ export const listShippingOptionsForCartWorkflow = createWorkflow(
     const scFulfillmentSetQuery = useQueryGraphStep({
       entity: "sales_channels",
       filters: { id: cart.sales_channel_id },
-      fields: ["stock_locations.fulfillment_sets.id"],
+      fields: [
+        "stock_locations.fulfillment_sets.id",
+        "stock_locations.id",
+        "stock_locations.name",
+        "stock_locations.address.*",
+      ],
     }).config({ name: "sales_channels-fulfillment-query" })
 
     const scFulfillmentSets = transform(
@@ -49,22 +53,20 @@ export const listShippingOptionsForCartWorkflow = createWorkflow(
       ({ scFulfillmentSetQuery }) => scFulfillmentSetQuery.data[0]
     )
 
-    const fulfillmentSetIds = transform(
-      { options: scFulfillmentSets },
-      (data) => {
+    const { fulfillmentSetIds } = transform(
+      { scFulfillmentSets },
+      ({ scFulfillmentSets }) => {
         const fulfillmentSetIds = new Set<string>()
 
-        deepFlatMap(
-          data.options,
-          "stock_locations.fulfillment_sets",
-          ({ fulfillment_sets: fulfillmentSet }) => {
-            if (fulfillmentSet?.id) {
-              fulfillmentSetIds.add(fulfillmentSet.id)
-            }
-          }
-        )
+        scFulfillmentSets.stock_locations.forEach((stockLocation) => {
+          stockLocation.fulfillment_sets.forEach((fulfillmentSet) => {
+            fulfillmentSetIds.add(fulfillmentSet.id)
+          })
+        })
 
-        return Array.from(fulfillmentSetIds)
+        return {
+          fulfillmentSetIds: Array.from(fulfillmentSetIds),
+        }
       }
     )
 
@@ -103,6 +105,7 @@ export const listShippingOptionsForCartWorkflow = createWorkflow(
         "shipping_profile_id",
         "provider_id",
         "data",
+        "service_zone.fulfillment_set_id",
 
         "type.id",
         "type.label",

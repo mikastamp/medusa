@@ -1,11 +1,11 @@
-import { MarkdownTheme } from "../../theme"
-import * as Handlebars from "handlebars"
+import { MarkdownTheme } from "../../theme.js"
+import Handlebars from "handlebars"
 import {
   DocumentReflection,
   ReflectionKind,
   SignatureReflection,
 } from "typedoc"
-import { formatWorkflowDiagramComponent } from "../../utils/format-workflow-diagram-component"
+import { formatWorkflowDiagramComponent } from "../../utils/format-workflow-diagram-component.js"
 import { findReflectionInNamespaces, getProjectChild } from "utils"
 
 export default function (theme: MarkdownTheme) {
@@ -101,9 +101,11 @@ function getStep({
   return {
     type,
     name: document.name,
-    description: associatedReflection?.comment
-      ? Handlebars.helpers.comments(associatedReflection.comment, true)
-      : "",
+    description: associatedReflection?.comment?.summary
+      ? Handlebars.helpers.comment(associatedReflection.comment.summary)
+      : associatedReflection?.comment
+        ? Handlebars.helpers.comments(associatedReflection.comment, true)
+        : "",
     link:
       type === "hook" || !associatedReflection?.url
         ? `#${document.name}`

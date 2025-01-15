@@ -1,7 +1,7 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import { HttpTypes } from "@medusajs/types"
 import { Button, ProgressStatus, ProgressTabs, toast } from "@medusajs/ui"
-import { useForm } from "react-hook-form"
+import { useForm, useWatch } from "react-hook-form"
 import { useTranslation } from "react-i18next"
 
 import { useState } from "react"
@@ -20,6 +20,7 @@ import {
   CreateShippingOptionDetailsSchema,
   CreateShippingOptionSchema,
 } from "./schema"
+import { useFulfillmentProviderOptions } from "../../../../../hooks/api"
 
 enum Tab {
   DETAILS = "details",
@@ -50,6 +51,7 @@ export function CreateShippingOptionsForm({
       enabled_in_store: true,
       shipping_profile_id: "",
       provider_id: "",
+      fulfillment_option_id: "",
       region_prices: {},
       currency_prices: {},
       conditional_region_prices: {},
@@ -57,6 +59,16 @@ export function CreateShippingOptionsForm({
     },
     resolver: zodResolver(CreateShippingOptionSchema),
   })
+
+  const selectedProviderId = useWatch({
+    control: form.control,
+    name: "provider_id",
+  })
+
+  const { fulfillment_options: fulfillmentProviderOptions } =
+    useFulfillmentProviderOptions(selectedProviderId, {
+      enabled: !!selectedProviderId,
+    })
 
   const isCalculatedPriceType =
     form.watch("price_type") === ShippingOptionPriceType.Calculated
@@ -123,6 +135,10 @@ export function CreateShippingOptionsForm({
       ...conditionalRegionPrices,
     ]
 
+    const fulfillmentOptionData = fulfillmentProviderOptions?.find(
+      (fo) => fo.id === data.fulfillment_option_id
+    )!
+
     await mutateAsync(
       {
         name: data.name,
@@ -131,6 +147,7 @@ export function CreateShippingOptionsForm({
         shipping_profile_id: data.shipping_profile_id,
         provider_id: data.provider_id,
         prices: allPrices,
+        data: fulfillmentOptionData as unknown as Record<string, unknown>,
         rules: [
           {
             // eslint-disable-next-line
@@ -293,6 +310,8 @@ export function CreateShippingOptionsForm({
                 zone={zone}
                 isReturn={isReturn}
                 locationId={locationId}
+                fulfillmentProviderOptions={fulfillmentProviderOptions || []}
+                selectedProviderId={selectedProviderId}
               />
             </ProgressTabs.Content>
             <ProgressTabs.Content value={Tab.PRICING} className="size-full">
