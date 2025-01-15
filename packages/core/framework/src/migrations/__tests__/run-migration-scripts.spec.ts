@@ -64,7 +64,8 @@ describe("MigrationScriptsMigrator", () => {
       expect(mockScript).toHaveBeenCalled()
 
       expect(mockPgConnection.raw).toHaveBeenCalledWith(
-        expect.stringContaining("UPDATE script_migrations")
+        expect.stringContaining("UPDATE script_migrations"),
+        [path.basename(scriptPath)]
       )
       expect(migrator["insertMigration"]).toHaveBeenCalledWith([
         { script_name: `'${path.basename(scriptPath)}'` },
@@ -99,7 +100,8 @@ describe("MigrationScriptsMigrator", () => {
       )
 
       expect(mockPgConnection.raw).toHaveBeenCalledWith(
-        expect.stringContaining("DELETE FROM script_migrations")
+        expect.stringContaining("DELETE FROM script_migrations"),
+        [path.basename(scriptPath)]
       )
     })
 
