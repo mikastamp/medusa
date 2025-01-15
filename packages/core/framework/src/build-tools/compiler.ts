@@ -1,6 +1,13 @@
 import type { AdminOptions, ConfigModule, Logger } from "@medusajs/types"
 import { getConfigFile } from "@medusajs/utils"
-import { access, constants, copyFile, rm } from "fs/promises"
+import {
+  access,
+  constants,
+  copyFile,
+  readFile,
+  rm,
+  writeFile,
+} from "fs/promises"
 import path from "path"
 import type tsStatic from "typescript"
 
@@ -432,6 +439,26 @@ export class Compiler {
     return true
   }
 
+  async #updatePackageJson(root: string) {
+    const pkgPath = path.join(root, "package.json")
+    const pkg = JSON.parse(await readFile(pkgPath, "utf-8"))
+
+    pkg.__medusa = {
+      localResolve: path.resolve(root, "src"),
+    }
+
+    await writeFile(pkgPath, JSON.stringify(pkg, null, 2))
+  }
+
+  async #restorePackageJson(root: string) {
+    const pkgPath = path.join(root, "package.json")
+    const pkg = JSON.parse(await readFile(pkgPath, "utf-8"))
+
+    delete pkg.__medusa
+
+    await writeFile(pkgPath, JSON.stringify(pkg, null, 2))
+  }
+
   /**
    * Compiles the backend source code of a plugin project in watch
    * mode. Type-checking is disabled to keep compilation fast.
@@ -441,6 +468,7 @@ export class Compiler {
    */
   async developPluginBackend(onFileChange?: () => void) {
     const ts = await this.#loadTSCompiler()
+    await this.#updatePackageJson(this.#projectRoot)
 
     /**
      * Format host is needed to print diagnostic messages
@@ -484,7 +512,18 @@ export class Compiler {
       onFileChange?.()
     }
 
-    ts.createWatchProgram(host)
+    const watchProgram = ts.createWatchProgram(host)
+
+    // Handle watch termination
+    process.on("SIGINT", () => {
+      watchProgram.close()
+      this.#restorePackageJson(this.#projectRoot)
+    })
+
+    process.on("SIGTERM", () => {
+      watchProgram.close()
+      this.#restorePackageJson(this.#projectRoot)
+    })
   }
 
   async buildPluginAdminExtensions(bundler: {

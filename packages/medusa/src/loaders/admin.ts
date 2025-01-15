@@ -35,12 +35,17 @@ export default async function adminLoader({
   const sources: string[] = []
 
   for (const plugin of plugins) {
-    const pluginSource = path.join(plugin.resolve, "admin")
+    const pluginSource = path.join(
+      plugin.localResolve || plugin.resolve,
+      "admin"
+    )
 
     if (fs.existsSync(pluginSource)) {
       sources.push(pluginSource)
     }
   }
+
+  console.log("sources", sources)
 
   const adminOptions: IntializedOptions = {
     disable: false,

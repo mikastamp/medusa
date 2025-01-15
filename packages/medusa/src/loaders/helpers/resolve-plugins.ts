@@ -1,7 +1,7 @@
-import path from "path"
-import fs from "fs/promises"
-import { isString, readDir } from "@medusajs/framework/utils"
 import { ConfigModule, PluginDetails } from "@medusajs/framework/types"
+import { isString, readDir } from "@medusajs/framework/utils"
+import fs from "fs/promises"
+import path from "path"
 
 const MEDUSA_APP_SOURCE_PATH = "src"
 const MEDUSA_PLUGIN_SOURCE_PATH = ".medusa/server/src"
@@ -60,6 +60,7 @@ async function resolvePlugin(
   const name = pkgJSON.contents.name || pluginPath
 
   const resolve = path.join(resolvedPath, MEDUSA_PLUGIN_SOURCE_PATH)
+  const localResolve = pkgJSON.contents.__medusa?.localResolve || null
   const modules = await readDir(path.join(resolve, "modules"), {
     ignoreMissing: true,
   })
@@ -67,6 +68,7 @@ async function resolvePlugin(
 
   return {
     resolve,
+    localResolve,
     name,
     id: createPluginId(name),
     options: pluginOptions,
@@ -98,6 +100,7 @@ export async function getResolvedPlugins(
     const extensionDirectory = path.join(rootDirectory, MEDUSA_APP_SOURCE_PATH)
     resolved.push({
       resolve: extensionDirectory,
+      localResolve: null,
       name: MEDUSA_PROJECT_NAME,
       id: createPluginId(MEDUSA_PROJECT_NAME),
       options: configModule,
