@@ -45,8 +45,6 @@ export default async function adminLoader({
     }
   }
 
-  console.log("sources", sources)
-
   const adminOptions: IntializedOptions = {
     disable: false,
     sources,
