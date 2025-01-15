@@ -315,8 +315,11 @@ export const createOrderFulfillmentWorkflow = createWorkflow(
       return { data: data.shipping_methods?.[0]?.data }
     })
 
-    const shippingOptionId = transform(order, (data) => {
-      return data.shipping_methods?.[0]?.shipping_option_id
+    const shippingOptionId = transform({ order, input }, (data) => {
+      return (
+        data.input.shipping_option_id ??
+        data.order.shipping_methods?.[0]?.shipping_option_id
+      )
     })
 
     const shippingOption = useRemoteQueryStep({

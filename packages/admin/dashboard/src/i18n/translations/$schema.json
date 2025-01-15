@@ -5088,6 +5088,12 @@
             "markAsDeliveredWarning": {
               "type": "string"
             },
+            "differentOptionSelected": {
+              "type": "string"
+            },
+            "disabledItemTooltip": {
+              "type": "string"
+            },
             "unfulfilledItems": {
               "type": "string"
             },
@@ -5248,6 +5254,8 @@
           "required": [
             "cancelWarning",
             "markAsDeliveredWarning",
+            "differentOptionSelected",
+            "disabledItemTooltip",
             "unfulfilledItems",
             "statusLabel",
             "statusTitle",
@@ -11298,6 +11306,12 @@
         },
         "to": {
           "type": "string"
+        },
+        "beaware": {
+          "type": "string"
+        },
+        "loading": {
+          "type": "string"
         }
       },
       "required": [
@@ -11308,7 +11322,9 @@
         "added",
         "removed",
         "from",
-        "to"
+        "to",
+        "beaware",
+        "loading"
       ],
       "additionalProperties": false
     },
