@@ -22,15 +22,15 @@ const myWorkflow = createWorkflow(
   () => {
     const data = throwUnlessPaymentCollectionNotPaid({
       "paymentCollection": {
-        "id": "id_Pgk2JAD7RMhnVjPJM3vY",
+        "id": "id_BwFtlWJ4wLE",
         "currency_code": "{value}",
         "region_id": "{value}",
         "amount": {
-          "numeric": 4
+          "numeric": 42
         },
-        "status": "not_paid",
+        "status": "partially_authorized",
         "payment_providers": [{
-          "id": "id_PTrNyd8ywYBzi7Rw",
+          "id": "id_b2wkxqqOqfLQtbWozF",
           "is_enabled": false
         }]
       }
