@@ -5156,12 +5156,20 @@
                 },
                 "noItems": {
                   "type": "string"
+                },
+                "noShippingOption": {
+                  "type": "string"
+                },
+                "noLocation": {
+                  "type": "string"
                 }
               },
               "required": [
                 "wrongQuantity",
                 "wrongQuantity_other",
-                "noItems"
+                "noItems",
+                "noShippingOption",
+                "noLocation"
               ],
               "additionalProperties": false
             },
