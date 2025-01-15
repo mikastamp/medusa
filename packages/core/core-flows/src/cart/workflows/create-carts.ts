@@ -48,7 +48,7 @@ export const createCartWorkflowId = "create-cart"
  * 
  * This workflow has a hook that allows you to perform custom actions on the created cart. You can see an example in [this guide](https://docs.medusajs.com/resources/commerce-modules/cart/extend#step-4-consume-cartcreated-workflow-hook).
  * 
- * You can also use this workflow within your own custom workflows, allowing you to wrap custom logic around cart creation.
+ * You can also use this workflow within your customizations or your own custom workflows, allowing you to wrap custom logic around cart creation.
  * 
  * @example
  * const { result } = await createCartWorkflow(container)

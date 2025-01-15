@@ -48,7 +48,7 @@ export const updateCartWorkflowId = "update-cart"
  * This workflow has a hook that allows you to perform custom actions on the updated cart. For example, you can pass custom data under the `additional_data` property of the Update Cart API route, 
  * then update any associated details related to the cart in the workflow's hook.
  * 
- * You can also use this workflow within your own custom workflows, allowing you to wrap custom logic around updating a cart.
+ * You can also use this workflow within your customizations or your own custom workflows, allowing you to wrap custom logic around updating a cart.
  * 
  * @example
  * const { result } = await updateCartWorkflow(container)

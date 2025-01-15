@@ -337,15 +337,15 @@ function prepareToDeleteShippingProfileLinks({
 export const updateProductsWorkflowId = "update-products"
 /**
  * This workflow updates one or more products. It's used by the [Update Product Admin API Route](https://docs.medusajs.com/api/admin#products_postproductsid).
- *
- * This workflow has a hook that allows you to perform custom actions on the updated products. For example, you can pass under `additional_data` custom data that
+ * 
+ * This workflow has a hook that allows you to perform custom actions on the updated products. For example, you can pass under `additional_data` custom data that 
  * allows you to update custom data models linked to the products.
- *
- * You can also use this workflow within your own custom workflows, allowing you to wrap custom logic around product update.
- *
+ * 
+ * You can also use this workflow within your customizations or your own custom workflows, allowing you to wrap custom logic around product update.
+ * 
  * @example
  * To update products by their IDs:
- *
+ * 
  * ```ts
  * const { result } = await updateProductsWorkflow(container)
  * .run({
@@ -373,9 +373,9 @@ export const updateProductsWorkflowId = "update-products"
  *   }
  * })
  * ```
- *
+ * 
  * You can also update products by a selector:
- *
+ * 
  * ```ts
  * const { result } = await updateProductsWorkflow(container)
  * .run({
@@ -392,11 +392,11 @@ export const updateProductsWorkflowId = "update-products"
  *   }
  * })
  * ```
- *
+ * 
  * @summary
- *
+ * 
  * Update one or more products with options and variants.
- *
+ * 
  * @property hooks.productsUpdated - This hook is executed after the products are updated. You can consume this hook to perform custom actions on the updated products.
  */
 export const updateProductsWorkflow = createWorkflow(
