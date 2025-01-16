@@ -968,6 +968,7 @@ medusaIntegrationTestRunner({
               sales_channel_id: expect.stringContaining("sc_"),
               currency_code: "usd",
               region_id: expect.stringContaining("reg_"),
+              shipping_address: null,
               item_total: 0,
               total: 0,
               email: null,
