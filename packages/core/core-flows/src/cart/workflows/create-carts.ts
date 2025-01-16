@@ -73,7 +73,7 @@ export const createCartWorkflowId = "create-cart"
  *
  * Create a cart specifying region, items, and more.
  *
- * @property hooks.validate - This hook is executed before all operations. You can consume this hook to perform any custom validation.
+ * @property hooks.validate - This hook is executed before all operations. You can consume this hook to perform any custom validation. If validation fails, you can throw an error to stop the workflow execution.
  * @property hooks.cartCreated - This hook is executed after a cart is created. You can consume this hook to perform custom actions on the created cart.
  */
 export const createCartWorkflow = createWorkflow(
