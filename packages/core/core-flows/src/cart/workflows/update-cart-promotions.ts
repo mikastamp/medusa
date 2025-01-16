@@ -64,6 +64,8 @@ export const updateCartPromotionsWorkflowId = "update-cart-promotions"
  * @summary
  * 
  * Update a cart's applied promotions to add, replace, or remove them.
+ * 
+ * @property hooks.validate - This hook is executed before all operations. You can consume this hook to perform any custom validation. If validation fails, you can throw an error to stop the workflow execution.
  */
 export const updateCartPromotionsWorkflow = createWorkflow(
   updateCartPromotionsWorkflowId,

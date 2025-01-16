@@ -26,6 +26,9 @@ export type FulfillmentOption = {
   [k: string]: unknown
 }
 
+/**
+ * A calculated shipping option price.
+ */
 export type CalculatedShippingOptionPrice = {
   /**
    * The calculated price.

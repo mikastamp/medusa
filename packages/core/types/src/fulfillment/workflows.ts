@@ -5,15 +5,33 @@ import {
   UpdateShippingOptionRuleDTO,
 } from "./mutations"
 
+/**
+ * The data to create shipping option rules.
+ */
 export type AddFulfillmentShippingOptionRulesWorkflowDTO = {
+  /**
+   * The shipping option rules to create.
+   */
   data: CreateShippingOptionRuleDTO[]
 }
 
+/**
+ * The data to delete shipping option rules.
+ */
 export type RemoveFulfillmentShippingOptionRulesWorkflowDTO = {
+  /**
+   * The IDs of the shipping option rules to delete.
+   */
   ids: string[]
 }
 
+/**
+ * The data to update shipping option rules.
+ */
 export type UpdateFulfillmentShippingOptionRulesWorkflowDTO = {
+  /**
+   * The shipping option rules to update.
+   */
   data: UpdateShippingOptionRuleDTO[]
 }
 

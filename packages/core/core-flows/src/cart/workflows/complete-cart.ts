@@ -75,6 +75,8 @@ export const completeCartWorkflowId = "complete-cart"
  * @summary
  * 
  * Complete a cart and place an order.
+ * 
+ * @property hooks.validate - This hook is executed before all operations. You can consume this hook to perform any custom validation. If validation fails, you can throw an error to stop the workflow execution.
  */
 export const completeCartWorkflow = createWorkflow(
   {

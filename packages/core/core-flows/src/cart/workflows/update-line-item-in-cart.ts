@@ -44,6 +44,8 @@ export const updateLineItemInCartWorkflowId = "update-line-item-in-cart"
  * @summary
  * 
  * Update a cart's line item.
+ *
+ * @property hooks.validate - This hook is executed before all operations. You can consume this hook to perform any custom validation. If validation fails, you can throw an error to stop the workflow execution.
  */
 export const updateLineItemInCartWorkflow = createWorkflow(
   updateLineItemInCartWorkflowId,

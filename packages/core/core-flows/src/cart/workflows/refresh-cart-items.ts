@@ -65,6 +65,8 @@ export const refreshCartItemsWorkflowId = "refresh-cart-items"
  * @summary
  * 
  * Refresh a cart's details after an update.
+ * 
+ * @property hooks.validate - This hook is executed before all operations. You can consume this hook to perform any custom validation. If validation fails, you can throw an error to stop the workflow execution.
  */
 export const refreshCartItemsWorkflow = createWorkflow(
   refreshCartItemsWorkflowId,

@@ -63,6 +63,8 @@ export const addToCartWorkflowId = "add-to-cart"
  * @summary
  * 
  * Add a line item to a cart.
+ * 
+ * @property hooks.validate - This hook is executed before all operations. You can consume this hook to perform any custom validation. If validation fails, you can throw an error to stop the workflow execution.
  */
 export const addToCartWorkflow = createWorkflow(
   addToCartWorkflowId,

@@ -75,6 +75,8 @@ export const addShippingMethodToCartWorkflowId = "add-shipping-method-to-cart"
  * @summary
  * 
  * Add a shipping method to a cart.
+ * 
+ * @property hooks.validate - This hook is executed before all operations. You can consume this hook to perform any custom validation. If validation fails, you can throw an error to stop the workflow execution.
  */
 export const addShippingMethodToCartWorkflow = createWorkflow(
   addShippingMethodToCartWorkflowId,
