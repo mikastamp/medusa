@@ -39,13 +39,13 @@ export abstract class AbstractPaymentProvider<TConfig = Record<string, unknown>>
   static validateOptions(options: Record<any, any>): void | never {}
 
   /**
-   * The constructor allows you to access resources from the [module's container](https://docs.medusajs.com/learn/fundamentals/modules/container) 
+   * The constructor allows you to access resources from the [module's container](https://docs.medusajs.com/learn/fundamentals/modules/container)
    * using the first parameter, and the module's options using the second parameter.
-   * 
+   *
    * :::note
-   * 
+   *
    * A module's options are passed when you register it in the Medusa application.
-   * 
+   *
    * :::
    *
    * @param {Record<string, unknown>} cradle - The module's container cradle used to resolve resources.
@@ -55,35 +55,35 @@ export abstract class AbstractPaymentProvider<TConfig = Record<string, unknown>>
    * @example
    * import { AbstractPaymentProvider } from "@medusajs/framework/utils"
    * import { Logger } from "@medusajs/framework/types"
-   * 
+   *
    * type Options = {
    *   apiKey: string
    * }
-   * 
+   *
    * type InjectedDependencies = {
    *   logger: Logger
    * }
-   * 
+   *
    * class MyPaymentProviderService extends AbstractPaymentProvider<Options> {
    *   protected logger_: Logger
    *   protected options_: Options
    *   // assuming you're initializing a client
    *   protected client
-   * 
+   *
    *   constructor(
    *     container: InjectedDependencies,
    *     options: Options
    *   ) {
    *     super(container, options)
-   * 
+   *
    *     this.logger_ = container.logger
    *     this.options_ = options
-   * 
+   *
    *     // TODO initialize your client
    *   }
    *   // ...
    * }
-   * 
+   *
    * export default MyPaymentProviderService
    */
   protected constructor(
@@ -696,17 +696,4 @@ export abstract class AbstractPaymentProvider<TConfig = Record<string, unknown>>
   abstract getWebhookActionAndData(
     data: ProviderWebhookPayload["payload"]
   ): Promise<WebhookActionResult>
-}
-
-/**
- * @ignore
- */
-export function isPaymentProviderError(obj: any): obj is PaymentProviderError {
-  return (
-    obj &&
-    typeof obj === "object" &&
-    "error" in obj &&
-    "code" in obj &&
-    "detail" in obj
-  )
 }

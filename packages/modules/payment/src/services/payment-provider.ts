@@ -13,11 +13,7 @@ import {
   UpdatePaymentProviderSession,
   WebhookActionResult,
 } from "@medusajs/framework/types"
-import {
-  isPaymentProviderError,
-  MedusaError,
-  ModulesSdkUtils,
-} from "@medusajs/framework/utils"
+import { MedusaError, ModulesSdkUtils } from "@medusajs/framework/utils"
 import { PaymentProvider } from "@models"
 import { EOL } from "os"
 
@@ -170,4 +166,14 @@ Please make sure that the provider is registered in the container and it is conf
       errObj.code
     )
   }
+}
+
+function isPaymentProviderError(obj: any): obj is PaymentProviderError {
+  return (
+    obj &&
+    typeof obj === "object" &&
+    "error" in obj &&
+    "code" in obj &&
+    "detail" in obj
+  )
 }

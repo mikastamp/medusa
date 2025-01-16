@@ -1,20 +1,53 @@
 import {
+  createHook,
   createWorkflow,
   transform,
   when,
   WorkflowData,
+  WorkflowResponse,
 } from "@medusajs/framework/workflows-sdk"
 import { useQueryGraphStep } from "../../common"
 import { updateCartsStep } from "../steps"
 import { refreshCartItemsWorkflow } from "./refresh-cart-items"
 
+/**
+ * The cart ownership transfer details.
+ */
+export type TransferCartCustomerWorkflowInput = { 
+  /**
+   * The cart's ID.
+   */
+  id: string; 
+  /**
+   * The ID of the customer to transfer the cart to.
+   */
+  customer_id: string
+}
+
 export const transferCartCustomerWorkflowId = "transfer-cart-customer"
 /**
- * This workflow transfers cart's customer.
+ * This workflow transfers a cart's customer ownership to another customer. It's useful if a customer logs in after
+ * adding the items to their cart, allowing you to transfer the cart's ownership to the logged-in customer. This workflow is used
+ * by the [Set Cart's Customer Store API Route](https://docs.medusajs.com/api/store#carts_postcartsidcustomer).
+ * 
+ * You can use this workflow within your own custom workflows, allowing you to set the cart's customer within your custom flows.
+ * 
+ * @example
+ * const { result } = await transferCartCustomerWorkflow(container)
+ * .run({
+ *   input: {
+ *     id: "cart_123",
+ *     customer_id: "cus_123"
+ *   }
+ * })
+ * 
+ * @summary
+ * 
+ * Refresh a cart's payment collection details.
  */
 export const transferCartCustomerWorkflow = createWorkflow(
   transferCartCustomerWorkflowId,
-  (input: WorkflowData<{ id: string; customer_id: string }>) => {
+  (input: WorkflowData<TransferCartCustomerWorkflowInput>) => {
     const cartQuery = useQueryGraphStep({
       entity: "cart",
       filters: { id: input.id },
@@ -31,6 +64,11 @@ export const transferCartCustomerWorkflow = createWorkflow(
     }).config({ name: "get-cart" })
 
     const cart = transform({ cartQuery }, ({ cartQuery }) => cartQuery.data[0])
+
+    const validate = createHook("validate", {
+      input,
+      cart,
+    })
 
     const customerQuery = useQueryGraphStep({
       entity: "customer",
@@ -72,5 +110,9 @@ export const transferCartCustomerWorkflow = createWorkflow(
         })
       }
     )
+
+    return new WorkflowResponse(void 0, {
+      hooks: [validate],
+    })
   }
 )
