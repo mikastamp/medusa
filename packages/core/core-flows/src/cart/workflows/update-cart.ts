@@ -99,25 +99,22 @@ export const updateCartWorkflow = createWorkflow(
       throw_if_key_not_found: true,
     }).config({ name: "get-cart" })
 
-    const cartDataInputDataInput = transform(
-      { input, cartToUpdate },
-      (data) => {
-        return {
-          sales_channel_id:
-            data.input.sales_channel_id ?? data.cartToUpdate.sales_channel_id,
-          customer_id: data.cartToUpdate.customer_id,
-          email: data.input.email ?? data.cartToUpdate.email,
-        }
+    const cartDataInput = transform({ input, cartToUpdate }, (data) => {
+      return {
+        sales_channel_id:
+          data.input.sales_channel_id ?? data.cartToUpdate.sales_channel_id,
+        customer_id: data.cartToUpdate.customer_id,
+        email: data.input.email ?? data.cartToUpdate.email,
       }
-    )
+    })
 
     const [salesChannel, customer] = parallelize(
       findSalesChannelStep({
-        salesChannelId: cartDataInputDataInput.sales_channel_id,
+        salesChannelId: cartDataInput.sales_channel_id,
       }),
       findOrCreateCustomerStep({
-        customerId: cartDataInputDataInput.customer_id,
-        email: cartDataInputDataInput.email,
+        customerId: cartDataInput.customer_id,
+        email: cartDataInput.email,
       })
     )
 
