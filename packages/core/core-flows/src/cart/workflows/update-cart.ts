@@ -113,7 +113,7 @@ export const updateCartWorkflow = createWorkflow(
 
     const [salesChannel, customer] = parallelize(
       findSalesChannelStep({
-        salesChannelId: input.sales_channel_id,
+        salesChannelId: cartDataInputDataInput.sales_channel_id,
       }),
       findOrCreateCustomerStep({
         customerId: cartDataInputDataInput.customer_id,
