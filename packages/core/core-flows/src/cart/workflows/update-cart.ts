@@ -76,7 +76,7 @@ export const updateCartWorkflowId = "update-cart"
  *
  * Update a cart's details, such as region, address, and more.
  *
- * @property hooks.validate - This hook is executed before all operations. You can consume this hook to perform any custom validation.
+ * @property hooks.validate - This hook is executed before all operations. You can consume this hook to perform any custom validation. If validation fails, you can throw an error to stop the workflow execution.
  * @property hooks.cartUpdated - This hook is executed after a cart is update. You can consume this hook to perform custom actions on the updated cart.
  */
 export const updateCartWorkflow = createWorkflow(

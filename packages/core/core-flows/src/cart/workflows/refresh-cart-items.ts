@@ -51,7 +51,7 @@ export const refreshCartItemsWorkflowId = "refresh-cart-items"
  * This workflow is used by other cart-related workflows, such as the {@link addToCartWorkflow} after an item
  * is added to the cart.
  * 
- * You can use this workflow within your own custom workflows, allowing you to refresh the cart after making updates to it in your
+ * You can use this workflow within your own customizations or custom workflows, allowing you to refresh the cart after making updates to it in your
  * custom flows.
  * 
  * @example
@@ -65,6 +65,8 @@ export const refreshCartItemsWorkflowId = "refresh-cart-items"
  * @summary
  * 
  * Refresh a cart's details after an update.
+ * 
+ * @property hooks.validate - This hook is executed before all operations. You can consume this hook to perform any custom validation. If validation fails, you can throw an error to stop the workflow execution.
  */
 export const refreshCartItemsWorkflow = createWorkflow(
   refreshCartItemsWorkflowId,

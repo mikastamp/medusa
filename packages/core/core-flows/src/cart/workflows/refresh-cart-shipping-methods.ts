@@ -29,7 +29,7 @@ export const refreshCartShippingMethodsWorkflowId =
  * This workflow refreshes a cart's shipping methods, ensuring that their associated shipping options can still be used on the cart,
  * and retrieve their correct pricing after a cart update. This workflow is used by the {@link refreshCartItemsWorkflow}.
  * 
- * You can use this workflow within your own custom workflows, allowing you to refresh the cart's shipping method after making updates to the cart.
+ * You can use this workflow within your own customizations or custom workflows, allowing you to refresh the cart's shipping method after making updates to the cart.
  * 
  * @example
  * const { result } = await refreshCartShippingMethodsWorkflow(container)
@@ -42,6 +42,8 @@ export const refreshCartShippingMethodsWorkflowId =
  * @summary
  * 
  * Refresh a cart's shipping methods after an update.
+ * 
+ * @property hooks.validate - This hook is executed before all operations. You can consume this hook to perform any custom validation. If validation fails, you can throw an error to stop the workflow execution.
  */
 export const refreshCartShippingMethodsWorkflow = createWorkflow(
   refreshCartShippingMethodsWorkflowId,

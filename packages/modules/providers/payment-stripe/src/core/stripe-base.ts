@@ -2,6 +2,8 @@ import Stripe from "stripe"
 
 import {
   CreatePaymentProviderSession,
+  PaymentMethodResponse,
+  PaymentProviderContext,
   PaymentProviderError,
   PaymentProviderSessionResponse,
   ProviderWebhookPayload,
@@ -85,6 +87,8 @@ abstract class StripeBase extends AbstractPaymentProvider<StripeOptions> {
     res.confirm = extra?.confirm as boolean | undefined
 
     res.payment_method = extra?.payment_method as string | undefined
+
+    res.return_url = extra?.return_url as string | undefined
 
     return res
   }
@@ -292,6 +296,27 @@ abstract class StripeBase extends AbstractPaymentProvider<StripeOptions> {
         return this.buildError("An error occurred in updatePayment", e)
       }
     }
+  }
+
+  async listPaymentMethods(
+    context: PaymentProviderContext
+  ): Promise<PaymentMethodResponse[]> {
+    const customerId = context.customer?.metadata?.stripe_id
+    if (!customerId) {
+      return []
+    }
+
+    const paymentMethods = await this.stripe_.customers.listPaymentMethods(
+      customerId as string,
+      // In order to keep the interface simple, we just list the maximum payment methods, which should be enough in almost all cases.
+      // We can always extend the interface to allow additional filtering, if necessary.
+      { limit: 100 }
+    )
+
+    return paymentMethods.data.map((method) => ({
+      id: method.id,
+      data: method as unknown as Record<string, unknown>,
+    }))
   }
 
   async getWebhookActionAndData(

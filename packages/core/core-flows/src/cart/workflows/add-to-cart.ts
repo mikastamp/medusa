@@ -38,7 +38,7 @@ export const addToCartWorkflowId = "add-to-cart"
  * This workflow adds a product variant to a cart as a line item. It's executed by the 
  * [Add Line Item Store API Route](https://docs.medusajs.com/api/store#carts_postcartsidlineitems).
  * 
- * You can use this workflow within your own custom workflows, allowing you to wrap custom logic around adding an item to the cart.
+ * You can use this workflow within your own customizations or custom workflows, allowing you to wrap custom logic around adding an item to the cart.
  * For example, you can use this workflow to add a line item to the cart with a custom price.
  * 
  * @example
@@ -63,6 +63,8 @@ export const addToCartWorkflowId = "add-to-cart"
  * @summary
  * 
  * Add a line item to a cart.
+ * 
+ * @property hooks.validate - This hook is executed before all operations. You can consume this hook to perform any custom validation. If validation fails, you can throw an error to stop the workflow execution.
  */
 export const addToCartWorkflow = createWorkflow(
   addToCartWorkflowId,

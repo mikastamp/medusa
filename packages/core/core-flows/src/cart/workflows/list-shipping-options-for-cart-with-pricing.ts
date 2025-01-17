@@ -48,7 +48,7 @@ export const listShippingOptionsForCartWithPricingWorkflowId =
  * This workflow is executed in other cart-related workflows, such as {@link addShippingMethodToCartWorkflow} to retrieve the
  * price of the shipping method being added to the cart.
  * 
- * You can use this workflow within your own custom workflows, allowing you to retrieve the shipping options of a cart and their prices 
+ * You can use this workflow within your own customizations or custom workflows, allowing you to retrieve the shipping options of a cart and their prices 
  * in your custom flows.
  * 
  * @example

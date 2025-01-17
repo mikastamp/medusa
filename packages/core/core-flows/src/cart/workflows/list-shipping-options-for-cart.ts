@@ -22,7 +22,7 @@ export const listShippingOptionsForCartWorkflowId =
  * 
  * :::
  * 
- * You can use this workflow within your own custom workflows, allowing you to wrap custom logic around to retrieve the shipping options of a cart  
+ * You can use this workflow within your own customizations or custom workflows, allowing you to wrap custom logic around to retrieve the shipping options of a cart  
  * in your custom flows.
  * 
  * @example

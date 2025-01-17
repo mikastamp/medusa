@@ -4,7 +4,9 @@ import {
   DAL,
   IPaymentProvider,
   Logger,
+  PaymentMethodResponse,
   PaymentProviderAuthorizeResponse,
+  PaymentProviderContext,
   PaymentProviderDataInput,
   PaymentProviderError,
   PaymentProviderSessionResponse,
@@ -148,6 +150,14 @@ Please make sure that the provider is registered in the container and it is conf
     }
 
     return res as Record<string, unknown>
+  }
+
+  async listPaymentMethods(
+    providerId: string,
+    context: PaymentProviderContext
+  ): Promise<PaymentMethodResponse[]> {
+    const provider = this.retrieveProvider(providerId)
+    return await provider.listPaymentMethods(context)
   }
 
   async getWebhookActionAndData(
