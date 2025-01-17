@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.20.11
+
+### Patch Changes
+
+- [`02560f512f029e8a0f4e8a9e1d89eb5d78b46f56`](https://github.com/medusajs/medusa/commit/02560f512f029e8a0f4e8a9e1d89eb5d78b46f56) Thanks [@olivermrbl](https://github.com/olivermrbl)! - chore: Abort the `develop` command when the `serve` option is equal to `false`
+
 ## 1.20.10
 
 ### Patch Changes

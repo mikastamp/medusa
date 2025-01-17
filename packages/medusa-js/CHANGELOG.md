@@ -1,5 +1,11 @@
 # Change Log
 
+## 6.1.10
+
+### Patch Changes
+
+- [`02560f512f029e8a0f4e8a9e1d89eb5d78b46f56`](https://github.com/medusajs/medusa/commit/02560f512f029e8a0f4e8a9e1d89eb5d78b46f56) Thanks [@olivermrbl](https://github.com/olivermrbl)! - chore: Add missing changeset
+
 ## 6.1.9
 
 ### Patch Changes
