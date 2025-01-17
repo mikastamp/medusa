@@ -9,6 +9,10 @@ class JwtTokenManager {
    * Set a store or admin jwt token to be sent with each request.
    */
   public registerJwt(token: string, domain: "admin" | "store") {
+    if (typeof window === 'undefined') {
+      return;
+    }
+
     if (domain === "admin") {
       this.adminJwt = token;
     } else if (domain === "store") {
@@ -22,6 +26,10 @@ class JwtTokenManager {
    * Retrieve the store or admin jwt token
    */
   public getJwt(domain: "admin" | "store") {
+    if (typeof window === 'undefined') {
+      return;
+    }
+    
     if (domain === "admin") {
       return this.adminJwt;
     } else if (domain === "store") {
