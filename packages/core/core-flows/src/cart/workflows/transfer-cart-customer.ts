@@ -30,7 +30,7 @@ export const transferCartCustomerWorkflowId = "transfer-cart-customer"
  * adding the items to their cart, allowing you to transfer the cart's ownership to the logged-in customer. This workflow is used
  * by the [Set Cart's Customer Store API Route](https://docs.medusajs.com/api/store#carts_postcartsidcustomer).
  * 
- * You can use this workflow within your own custom workflows, allowing you to set the cart's customer within your custom flows.
+ * You can use this workflow within your own customizations or custom workflows, allowing you to set the cart's customer within your custom flows.
  * 
  * @example
  * const { result } = await transferCartCustomerWorkflow(container)

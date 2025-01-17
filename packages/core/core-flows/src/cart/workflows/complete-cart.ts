@@ -60,7 +60,7 @@ export const completeCartWorkflowId = "complete-cart"
  * This workflow completes a cart and places an order for the customer. It's executed by the 
  * [Complete Cart Store API Route](https://docs.medusajs.com/api/store#carts_postcartsidcomplete).
  * 
- * You can use this workflow within your own custom workflows, allowing you to wrap custom logic around completing a cart.
+ * You can use this workflow within your own customizations or custom workflows, allowing you to wrap custom logic around completing a cart.
  * For example, in the [Subscriptions recipe](https://docs.medusajs.com/resources/recipes/subscriptions/examples/standard#create-workflow), 
  * this workflow is used within another workflow that creates a subscription order.
  * 

@@ -18,7 +18,7 @@ export const createReturnFulfillmentWorkflowId =
  * This workflow creates a fulfillment for a return. It's used by other return-related workflows,
  * such as {@link createAndCompleteReturnOrderWorkflow}.
  * 
- * You can use this workflow within your own custom workflows, allowing you to
+ * You can use this workflow within your own customizations or custom workflows, allowing you to
  * create a fulfillment for a return within your custom flows.
  * 
  * :::note

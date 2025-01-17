@@ -27,7 +27,7 @@ export const updateLineItemInCartWorkflowId = "update-line-item-in-cart"
  * This workflow updates a line item's details in a cart. You can update the line item's quantity, unit price, and more. This workflow is executed
  * by the [Update Line Item Store API Route](https://docs.medusajs.com/api/store#carts_postcartsidlineitemsline_id).
  * 
- * You can use this workflow within your own custom workflows, allowing you to update a line item's details in your custom flows.
+ * You can use this workflow within your own customizations or custom workflows, allowing you to update a line item's details in your custom flows.
  * 
  * @example
  * const { result } = await updateLineItemInCartWorkflow(container)

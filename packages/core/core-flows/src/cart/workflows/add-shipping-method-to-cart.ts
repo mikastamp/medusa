@@ -51,7 +51,7 @@ export const addShippingMethodToCartWorkflowId = "add-shipping-method-to-cart"
  * This workflow adds a shipping method to a cart. It's executed by the 
  * [Add Shipping Method Store API Route](https://docs.medusajs.com/api/store#carts_postcartsidshippingmethods).
  * 
- * You can use this workflow within your own custom workflows, allowing you to wrap custom logic around adding a shipping method to the cart.
+ * You can use this workflow within your own customizations or custom workflows, allowing you to wrap custom logic around adding a shipping method to the cart.
  * 
  * @example
  * const { result } = await addShippingMethodToCartWorkflow(container)

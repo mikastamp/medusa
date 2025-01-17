@@ -44,7 +44,7 @@ export const batchShippingOptionRulesWorkflowId = "batch-shipping-option-rules"
  * This workflow manages shipping option rules allowing you to create, update, or delete them. It's used by the
  * [Manage the Rules of Shipping Option Admin API Route](https://docs.medusajs.com/api/admin#shipping-options_postshippingoptionsidrulesbatch).
  * 
- * You can use this workflow within your own custom workflows, allowing you to 
+ * You can use this workflow within your own customizations or custom workflows, allowing you to 
  * manage shipping option rules within your custom flows.
  * 
  * @example

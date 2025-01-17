@@ -22,7 +22,7 @@ export const calculateShippingOptionsPricesWorkflowId =
  * 
  * :::
  * 
- * You can use this workflow within your own custom workflows, allowing you to
+ * You can use this workflow within your own customizations or custom workflows, allowing you to
  * calculate the prices of shipping options within your custom flows.
  * 
  * @example

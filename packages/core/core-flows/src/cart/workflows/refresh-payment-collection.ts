@@ -32,7 +32,7 @@ export const refreshPaymentCollectionForCartWorkflowId =
  * This workflow is used by other cart-related workflows, such as the {@link refreshCartItemsWorkflow} to refresh the cart's
  * payment collection after an update.
  * 
- * You can use this workflow within your own custom workflows, allowing you to refresh the cart's payment collection after making updates to it in your
+ * You can use this workflow within your own customizations or custom workflows, allowing you to refresh the cart's payment collection after making updates to it in your
  * custom flows.
  * 
  * @example

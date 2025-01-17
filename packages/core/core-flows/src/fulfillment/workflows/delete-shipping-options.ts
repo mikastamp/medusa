@@ -9,7 +9,7 @@ export const deleteShippingOptionsWorkflowId =
  * This workflow deletes one or more shipping options. It's used by the
  * [Delete Shipping Options Admin API Route](https://docs.medusajs.com/api/admin#shipping-options_deleteshippingoptionsid).
  * 
- * You can use this workflow within your own custom workflows, allowing you to
+ * You can use this workflow within your own customizations or custom workflows, allowing you to
  * delete shipping options within your custom flows.
  * 
  * @example

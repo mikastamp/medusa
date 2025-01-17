@@ -16,7 +16,7 @@ export const deleteServiceZonesWorkflowId = "delete-service-zones-workflow"
  * This workflow deletes one or more service zones. It's used by the
  * [Remove Service Zones from Fulfillment Set Admin API Route](https://docs.medusajs.com/api/admin#fulfillment-sets_deletefulfillmentsetsidservicezoneszone_id).
  * 
- * You can use this workflow within your own custom workflows, allowing you to
+ * You can use this workflow within your own customizations or custom workflows, allowing you to
  * delete service zones within your custom flows.
  * 
  * @example
