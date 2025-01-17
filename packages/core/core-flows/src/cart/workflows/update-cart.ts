@@ -28,6 +28,7 @@ import {
   updateCartsStep,
 } from "../steps"
 import { refreshCartItemsWorkflow } from "./refresh-cart-items"
+import { validateSalesChannelStep } from "../steps/validate-sales-channel"
 
 /**
  * The data to update the cart, along with custom data that's passed to the workflow's hooks.
@@ -89,6 +90,7 @@ export const updateCartWorkflow = createWorkflow(
         "id",
         "email",
         "customer_id",
+        "sales_channel_id",
         "shipping_address.*",
         "region.*",
         "region.countries.*",
@@ -97,22 +99,29 @@ export const updateCartWorkflow = createWorkflow(
       throw_if_key_not_found: true,
     }).config({ name: "get-cart" })
 
-    const customerDataInput = transform({ input, cartToUpdate }, (data) => {
-      return {
-        customer_id: data.cartToUpdate.customer_id,
-        email: data.input.email ?? data.cartToUpdate.email,
+    const cartDataInputDataInput = transform(
+      { input, cartToUpdate },
+      (data) => {
+        return {
+          sales_channel_id:
+            data.input.sales_channel_id ?? data.cartToUpdate.sales_channel_id,
+          customer_id: data.cartToUpdate.customer_id,
+          email: data.input.email ?? data.cartToUpdate.email,
+        }
       }
-    })
+    )
 
     const [salesChannel, customer] = parallelize(
       findSalesChannelStep({
         salesChannelId: input.sales_channel_id,
       }),
       findOrCreateCustomerStep({
-        customerId: customerDataInput.customer_id,
-        email: customerDataInput.email,
+        customerId: cartDataInputDataInput.customer_id,
+        email: cartDataInputDataInput.email,
       })
     )
+
+    validateSalesChannelStep({ salesChannel })
 
     const newRegion = when({ input }, (data) => {
       return !!data.input.region_id
@@ -200,7 +209,7 @@ export const updateCartWorkflow = createWorkflow(
         }
 
         if (isDefined(updateCartData.sales_channel_id)) {
-          data_.sales_channel_id = data.salesChannel?.id || null
+          data_.sales_channel_id = data.salesChannel!.id
         }
 
         return data_
