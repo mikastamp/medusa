@@ -7,28 +7,38 @@ export default async function assignProductsToShippingProfile({
   const logger = container.resolve(ContainerRegistrationKeys.LOGGER)
   const link = container.resolve(ContainerRegistrationKeys.LINK)
   const query = container.resolve(ContainerRegistrationKeys.QUERY)
+  const fulfillmentService = container.resolve(Modules.FULFILLMENT)
 
   const shippingProfiles = await query.graph({
     entity: "shipping_profile",
     fields: ["id", "name"],
   })
 
+  let shippingProfileId: string | null = null
+
   if (!shippingProfiles.data.length) {
-    logger.error(
-      "No shipping profiles found, please create a default shipping profile first"
+    logger.info(
+      "No shipping profiles found, creating a default shipping profile"
     )
+
+    const shippingProfile = await fulfillmentService.createShippingProfiles({
+      name: "Default Shipping Profile",
+      type: "default",
+    })
+
+    shippingProfileId = shippingProfile.id
+  } else {
+    shippingProfileId = (
+      shippingProfiles.data.find((p) =>
+        p.name.toLocaleLowerCase().includes("default")
+      ) || shippingProfiles.data[0]
+    ).id
   }
 
   const products = await query.graph({
     entity: "product",
     fields: ["id"],
   })
-
-  const shippingProfileId = (
-    shippingProfiles.data.find((p) =>
-      p.name.toLocaleLowerCase().includes("default")
-    ) || shippingProfiles.data[0]
-  ).id
 
   const links = products.data.map((product) => ({
     [Modules.PRODUCT]: {
