@@ -35,6 +35,7 @@ import { confirmVariantInventoryWorkflow } from "./confirm-variant-inventory"
 import { refreshPaymentCollectionForCartWorkflow } from "./refresh-payment-collection"
 import { updateCartPromotionsWorkflow } from "./update-cart-promotions"
 import { updateTaxLinesWorkflow } from "./update-tax-lines"
+import { validateSalesChannelStep } from "../steps/validate-sales-channel"
 
 /**
  * The data to create the cart, along with custom data that's passed to the workflow's hooks.
@@ -96,6 +97,8 @@ export const createCartWorkflow = createWorkflow(
       })
     )
 
+    validateSalesChannelStep({ salesChannel })
+
     // TODO: This is on par with the context used in v1.*, but we can be more flexible.
     const pricingContext = transform(
       { input, region, customerData },
@@ -155,9 +158,7 @@ export const createCartWorkflow = createWorkflow(
           data_.email = data.input?.email ?? data.customerData.customer.email
         }
 
-        if (data.salesChannel?.id) {
-          data_.sales_channel_id = data.salesChannel.id
-        }
+        data_.sales_channel_id = data.salesChannel!.id
 
         // If there is only one country in the region, we prepare a shipping address with that country's code.
         if (
