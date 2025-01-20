@@ -2259,6 +2259,22 @@
               ],
               "additionalProperties": false
             },
+            "shipping_profile": {
+              "type": "object",
+              "properties": {
+                "label": {
+                  "type": "string"
+                },
+                "hint": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "label",
+                "hint"
+              ],
+              "additionalProperties": false
+            },
             "type": {
               "type": "object",
               "properties": {
@@ -2478,6 +2494,7 @@
             "handle",
             "description",
             "discountable",
+            "shipping_profile",
             "type",
             "collection",
             "categories",
@@ -2799,6 +2816,66 @@
           ],
           "additionalProperties": false
         },
+        "shippingProfile": {
+          "type": "object",
+          "properties": {
+            "header": {
+              "type": "string"
+            },
+            "edit": {
+              "type": "object",
+              "properties": {
+                "header": {
+                  "type": "string"
+                },
+                "toasts": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "success"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "header",
+                "toasts"
+              ],
+              "additionalProperties": false
+            },
+            "create": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "object",
+                  "properties": {
+                    "required": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "required"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "errors"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "header",
+            "edit",
+            "create"
+          ],
+          "additionalProperties": false
+        },
         "toasts": {
           "type": "object",
           "properties": {
@@ -2872,6 +2949,7 @@
         "options",
         "organization",
         "stock",
+        "shippingProfile",
         "toasts"
       ],
       "additionalProperties": false
@@ -5166,6 +5244,12 @@
             "markAsDeliveredWarning": {
               "type": "string"
             },
+            "differentOptionSelected": {
+              "type": "string"
+            },
+            "disabledItemTooltip": {
+              "type": "string"
+            },
             "unfulfilledItems": {
               "type": "string"
             },
@@ -5228,12 +5312,20 @@
                 },
                 "noItems": {
                   "type": "string"
+                },
+                "noShippingOption": {
+                  "type": "string"
+                },
+                "noLocation": {
+                  "type": "string"
                 }
               },
               "required": [
                 "wrongQuantity",
                 "wrongQuantity_other",
-                "noItems"
+                "noItems",
+                "noShippingOption",
+                "noLocation"
               ],
               "additionalProperties": false
             },
@@ -5326,6 +5418,8 @@
           "required": [
             "cancelWarning",
             "markAsDeliveredWarning",
+            "differentOptionSelected",
+            "disabledItemTooltip",
             "unfulfilledItems",
             "statusLabel",
             "statusTitle",
@@ -11439,6 +11533,12 @@
         },
         "to": {
           "type": "string"
+        },
+        "beaware": {
+          "type": "string"
+        },
+        "loading": {
+          "type": "string"
         }
       },
       "required": [
@@ -11449,7 +11549,9 @@
         "added",
         "removed",
         "from",
-        "to"
+        "to",
+        "beaware",
+        "loading"
       ],
       "additionalProperties": false
     },
