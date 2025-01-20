@@ -22,7 +22,7 @@ Use `batchInventoryItemLevels` instead.
 
 :::
 
-<SourceCodeLink link="https://github.com/medusajs/medusa/blob/402a5c3cd48a84bacc35c599da7bcd8ba4d2af27/packages/core/core-flows/src/inventory/workflows/bulk-create-delete-levels.ts#L25" />
+<SourceCodeLink link="https://github.com/medusajs/medusa/blob/644c8b9d3022fb4bc4ec6760ee4fed93b92d1b96/packages/core/core-flows/src/inventory/workflows/bulk-create-delete-levels.ts#L25" />
 
 ## Examples
 
@@ -159,7 +159,7 @@ const myWorkflow = createWorkflow(
 
 ## Steps
 
-<WorkflowDiagram workflow={{"name":"bulkCreateDeleteLevelsWorkflow","steps":[{"type":"when","condition":"{\n      return !!input.deletes?.length\n    }","depth":"1","steps":[{"type":"workflow","name":"deleteInventoryLevelsWorkflow","description":"This workflow deletes one or more inventory levels. It's used by the\n[Delete Inventory Levels Admin API Route](https://docs.medusajs.com/api/admin#inventory-items\\_deleteinventoryitemsidlocationlevelslocation\\_id).\n\nYou can use this workflow within your own customizations or custom workflows, allowing you\nto delete inventory levels in your custom flows.","link":"../core_flows.Inventory.Workflows_Inventory.deleteInventoryLevelsWorkflow/page.mdx","depth":1}]},{"type":"when","condition":"{\n      return !!input.creates?.length\n    }","depth":"2","steps":[{"type":"step","name":"createInventoryLevelsStep","description":"This step creates one or more inventory levels.","link":"../../../Steps_Inventory/functions/core_flows.Inventory.Steps_Inventory.createInventoryLevelsStep/page.mdx","depth":2}]}]}} />
+<WorkflowDiagram workflow={{"name":"bulkCreateDeleteLevelsWorkflow","steps":[{"type":"when","condition":"{\n      return !!input.deletes?.length\n    }","depth":"1","steps":[{"type":"workflow","name":"deleteInventoryLevelsWorkflow","description":"Delete one or more inventory levels.","link":"../core_flows.Inventory.Workflows_Inventory.deleteInventoryLevelsWorkflow/page.mdx","depth":1}]},{"type":"when","condition":"{\n      return !!input.creates?.length\n    }","depth":"2","steps":[{"type":"step","name":"createInventoryLevelsStep","description":"This step creates one or more inventory levels.","link":"../../../Steps_Inventory/functions/core_flows.Inventory.Steps_Inventory.createInventoryLevelsStep/page.mdx","depth":2}]}]}} />
 
 ## Input
 
