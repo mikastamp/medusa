@@ -95,8 +95,6 @@ export interface AdminCancelOrderFulfillment {
   no_notification?: boolean
 }
 
-export interface AdminMarkOrderFulfillmentAsDelivered {}
-
 export interface AdminRequestOrderTransfer {
   customer_id: string
   internal_note?: string
