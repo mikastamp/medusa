@@ -31,14 +31,17 @@ export interface ValidateProductInputStepInput {
   /**
    * The products to validate.
    */
-  products: CreateProductWorkflowInputDTO[]
+  products: Omit<
+    CreateProductWorkflowInputDTO,
+    "sales_channels" | "shipping_profile_id"
+  >[]
 }
 
 const validateProductInputStepId = "validate-product-input"
 /**
  * This step validates that all provided products have options.
  * If a product is missing options, an error is thrown.
- * 
+ *
  * @example
  * const data = validateProductInputStep({
  *   products: [
@@ -104,11 +107,11 @@ export const createProductsWorkflowId = "create-products"
 /**
  * This workflow creates one or more products. It's used by the [Create Product Admin API Route](https://docs.medusajs.com/api/admin#products_postproducts).
  * It can also be useful to you when creating [seed scripts](https://docs.medusajs.com/learn/fundamentals/custom-cli-scripts/seed-data), for example.
- * 
+ *
  * This workflow has a hook that allows you to perform custom actions on the created products. You can see an example in [this guide](https://docs.medusajs.com/resources/commerce-modules/product/extend).
- * 
+ *
  * You can also use this workflow within your customizations or your own custom workflows, allowing you to wrap custom logic around product creation.
- * 
+ *
  * @example
  * const { result } = await createProductsWorkflow(container)
  * .run({
@@ -145,11 +148,11 @@ export const createProductsWorkflowId = "create-products"
  *     }
  *   }
  * })
- * 
+ *
  * @summary
- * 
+ *
  * Create one or more products with options and variants.
- * 
+ *
  * @property hooks.productCreated - This hook is executed after the products are created. You can consume this hook to perform custom actions on the created products.
  */
 export const createProductsWorkflow = createWorkflow(

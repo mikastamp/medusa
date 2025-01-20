@@ -141,25 +141,6 @@ function findProductsWithSalesChannels({
   return !input.update?.sales_channels ? [] : productIds
 }
 
-function findProductsWithShippingProfile({
-  updatedProducts,
-  input,
-}: {
-  updatedProducts: ProductTypes.ProductDTO[]
-  input: UpdateProductWorkflowInput
-}) {
-  let productIds = updatedProducts.map((p) => p.id)
-
-  if ("products" in input) {
-    const discardedProductIds: string[] = input.products
-      .filter((p) => !p.shipping_profile_id)
-      .map((p) => p.id as string)
-    return arrayDifference(productIds, discardedProductIds)
-  }
-
-  return !input.update?.shipping_profile_id ? [] : productIds
-}
-
 function prepareSalesChannelLinks({
   input,
   updatedProducts,
@@ -337,15 +318,15 @@ function prepareToDeleteShippingProfileLinks({
 export const updateProductsWorkflowId = "update-products"
 /**
  * This workflow updates one or more products. It's used by the [Update Product Admin API Route](https://docs.medusajs.com/api/admin#products_postproductsid).
- * 
- * This workflow has a hook that allows you to perform custom actions on the updated products. For example, you can pass under `additional_data` custom data that 
+ *
+ * This workflow has a hook that allows you to perform custom actions on the updated products. For example, you can pass under `additional_data` custom data that
  * allows you to update custom data models linked to the products.
- * 
+ *
  * You can also use this workflow within your customizations or your own custom workflows, allowing you to wrap custom logic around product update.
- * 
+ *
  * @example
  * To update products by their IDs:
- * 
+ *
  * ```ts
  * const { result } = await updateProductsWorkflow(container)
  * .run({
@@ -373,9 +354,9 @@ export const updateProductsWorkflowId = "update-products"
  *   }
  * })
  * ```
- * 
+ *
  * You can also update products by a selector:
- * 
+ *
  * ```ts
  * const { result } = await updateProductsWorkflow(container)
  * .run({
@@ -392,11 +373,11 @@ export const updateProductsWorkflowId = "update-products"
  *   }
  * })
  * ```
- * 
+ *
  * @summary
- * 
+ *
  * Update one or more products with options and variants.
- * 
+ *
  * @property hooks.productsUpdated - This hook is executed after the products are updated. You can consume this hook to perform custom actions on the updated products.
  */
 export const updateProductsWorkflow = createWorkflow(
@@ -436,6 +417,10 @@ export const updateProductsWorkflow = createWorkflow(
     const toUpdateInput = transform({ input }, prepareUpdateProductInput)
     const updatedProducts = updateProductsStep(toUpdateInput)
 
+    const updatedPorductIds = transform({ updatedProducts }, (data) => {
+      return data.updatedProducts.map((p) => p.id)
+    })
+
     const salesChannelLinks = transform(
       { input, updatedProducts },
       prepareSalesChannelLinks
@@ -456,11 +441,6 @@ export const updateProductsWorkflow = createWorkflow(
       findProductsWithSalesChannels
     )
 
-    const productsWithShippingProfile = transform(
-      { updatedProducts, input },
-      findProductsWithShippingProfile
-    )
-
     const currentSalesChannelLinks = useRemoteQueryStep({
       entry_point: "product_sales_channel",
       fields: ["product_id", "sales_channel_id"],
@@ -470,7 +450,7 @@ export const updateProductsWorkflow = createWorkflow(
     const currentShippingProfileLinks = useRemoteQueryStep({
       entry_point: "product_shipping_profile",
       fields: ["product_id", "shipping_profile_id"],
-      variables: { filters: { product_id: productsWithShippingProfile } },
+      variables: { filters: { product_id: updatedPorductIds } },
     }).config({ name: "get-current-shipping-profile-links-step" })
 
     const toDeleteSalesChannelLinks = transform(

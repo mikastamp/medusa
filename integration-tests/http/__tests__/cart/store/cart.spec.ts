@@ -107,7 +107,8 @@ medusaIntegrationTestRunner({
         salesChannel,
         cart,
         customer,
-        promotion
+        promotion,
+        shippingProfile
 
       beforeAll(async () => {
         appContainer = getContainer()
@@ -132,6 +133,14 @@ medusaIntegrationTestRunner({
           },
         }
 
+        shippingProfile = (
+          await api.post(
+            `/admin/shipping-profiles`,
+            { name: "default", type: "default" },
+            adminHeaders
+          )
+        ).data.shipping_profile
+
         await setupTaxStructure(appContainer.resolve(Modules.TAX))
 
         region = (
@@ -150,8 +159,13 @@ medusaIntegrationTestRunner({
           )
         ).data.region
 
-        product = (await api.post("/admin/products", productData, adminHeaders))
-          .data.product
+        product = (
+          await api.post(
+            "/admin/products",
+            { ...productData, shipping_profile_id: shippingProfile.id },
+            adminHeaders
+          )
+        ).data.product
 
         salesChannel = (
           await api.post(
