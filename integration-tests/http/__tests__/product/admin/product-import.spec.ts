@@ -40,6 +40,7 @@ medusaIntegrationTestRunner({
     let baseTag2
     let baseTag3
     let newTag
+    let shippingProfile
 
     let eventBus: IEventBusModuleService
     beforeAll(async () => {
@@ -84,12 +85,21 @@ medusaIntegrationTestRunner({
         )
       ).data.product_tag
 
+      shippingProfile = (
+        await api.post(
+          `/admin/shipping-profiles`,
+          { name: "Test", type: "default" },
+          adminHeaders
+        )
+      ).data.shipping_profile
+
       baseProduct = (
         await api.post(
           "/admin/products",
           getProductFixture({
             title: "Base product",
             tags: [{ id: baseTag1.id }, { id: baseTag2.id }],
+            shipping_profile_id: shippingProfile.id,
           }),
           adminHeaders
         )

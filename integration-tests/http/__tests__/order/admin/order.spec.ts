@@ -11,13 +11,21 @@ jest.setTimeout(300000)
 
 medusaIntegrationTestRunner({
   testSuite: ({ dbConnection, getContainer, api }) => {
-    let order, seeder, inventoryItemOverride3, productOverride3
+    let order, seeder, inventoryItemOverride3, productOverride3, shippingProfile
 
     beforeEach(async () => {
       const container = getContainer()
 
       await setupTaxStructure(container.resolve(ModuleRegistrationName.TAX))
       await createAdminUser(dbConnection, adminHeaders, container)
+
+      shippingProfile = (
+        await api.post(
+          `/admin/shipping-profiles`,
+          { name: "Test", type: "default" },
+          adminHeaders
+        )
+      ).data.shipping_profile
     })
 
     describe("POST /orders/:id", () => {
@@ -558,6 +566,7 @@ medusaIntegrationTestRunner({
             "/admin/products",
             {
               title: `Test fixture`,
+              shipping_profile_id: shippingProfile.id,
               options: [
                 { title: "size", values: ["large", "small"] },
                 { title: "color", values: ["green"] },
@@ -628,6 +637,7 @@ medusaIntegrationTestRunner({
             "/admin/products",
             {
               title: `Test fixture 2`,
+              shipping_profile_id: shippingProfile.id,
               options: [
                 { title: "size", values: ["large", "small"] },
                 { title: "color", values: ["green"] },
@@ -664,6 +674,7 @@ medusaIntegrationTestRunner({
             "/admin/products",
             {
               title: `Test fixture 3`,
+              shipping_profile_id: shippingProfile.id,
               options: [
                 { title: "size", values: ["large", "small"] },
                 { title: "color", values: ["green"] },

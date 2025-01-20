@@ -811,6 +811,7 @@ medusaIntegrationTestRunner({
             "/admin/products",
             {
               title: "product 1",
+              shipping_profile_id: shippingProfile.id,
               options: [
                 { title: "size", values: ["large", "medium", "small"] },
               ],
