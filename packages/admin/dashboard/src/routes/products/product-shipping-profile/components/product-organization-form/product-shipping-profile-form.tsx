@@ -30,11 +30,6 @@ export const ProductShippingProfileForm = ({
   const { t } = useTranslation()
   const { handleSuccess } = useRouteModal()
 
-  // TODO
-  // const { getFormConfigs, getFormFields } = useDashboardExtension()
-  // const configs = getFormConfigs("product", "shipping-profile")
-  // const fields = getFormFields("product", "shipping-profile")
-
   const shippingProfiles = useComboboxData({
     queryKey: ["shipping_profiles"],
     queryFn: (params) => sdk.admin.shippingProfile.list(params),
