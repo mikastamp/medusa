@@ -65,6 +65,10 @@ export const batchProductVariantsWorkflowId = "batch-product-variants"
  *     delete: ["variant_321"]
  *   }
  * })
+ * 
+ * @summary
+ * 
+ * Create, update, and delete product variants.
  */
 export const batchProductVariantsWorkflow = createWorkflow(
   batchProductVariantsWorkflowId,
