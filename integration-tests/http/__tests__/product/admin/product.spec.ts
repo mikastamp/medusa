@@ -1117,6 +1117,7 @@ medusaIntegrationTestRunner({
             title: "Test product - 1",
             handle: "test-1",
             options: [{ title: "size", values: ["x", "l"] }],
+            shipping_profile_id: shippingProfile.id,
             variants: [
               {
                 title: "Custom inventory 1",
@@ -1160,6 +1161,7 @@ medusaIntegrationTestRunner({
             title: "Test product - 1",
             handle: "test-1",
             options: [{ title: "size", values: ["x", "l"] }],
+            shipping_profile_id: shippingProfile.id,
             variants: [
               {
                 title: "Custom inventory 1",
@@ -1661,6 +1663,7 @@ medusaIntegrationTestRunner({
 
         it("updates product variants (update price on existing variant, create new variant)", async () => {
           const payload = {
+            shipping_profile_id: shippingProfile.id,
             variants: [
               {
                 id: baseProduct.variants[0].id,
@@ -2181,6 +2184,7 @@ medusaIntegrationTestRunner({
             title: "Test product - 1",
             handle: "test-1",
             options: [{ title: "size", values: ["x", "l"] }],
+            shipping_profile_id: shippingProfile.id,
             variants: [
               {
                 title: "Custom inventory 1",
@@ -2294,6 +2298,7 @@ medusaIntegrationTestRunner({
             title: "Test product - 1",
             handle: "test-1",
             options: [{ title: "size", values: ["x", "l"] }],
+            shipping_profile_id: shippingProfile.id,
             variants: [
               {
                 title: "Custom inventory 1",
@@ -2520,6 +2525,7 @@ medusaIntegrationTestRunner({
                 title: "Test product - 1",
                 handle: "test-1",
                 options: [{ title: "size", values: ["l"] }],
+                shipping_profile_id: shippingProfile.id,
                 variants: [
                   {
                     title: "Custom inventory 1",
@@ -2550,6 +2556,7 @@ medusaIntegrationTestRunner({
               title: "Test product - 2",
               handle: "test-2",
               options: [{ title: "size", values: ["l"] }],
+              shipping_profile_id: shippingProfile.id,
               variants: [
                 {
                   title: "W/ shared inventory item",
@@ -2634,6 +2641,7 @@ medusaIntegrationTestRunner({
                 title: "Test product - 1",
                 handle: "test-1",
                 options: [{ title: "size", values: ["l"] }],
+                shipping_profile_id: shippingProfile.id,
                 variants: [
                   {
                     title: "Custom inventory 1",
@@ -2980,6 +2988,7 @@ medusaIntegrationTestRunner({
           const createPayload = getProductFixture({
             title: "Test batch create",
             handle: "test-batch-create",
+            shipping_profile_id: shippingProfile.id,
           })
 
           const updatePayload = {
