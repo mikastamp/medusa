@@ -18013,7 +18013,7 @@ export const generatedSidebar = [
                     "type": "link",
                     "path": "/references/medusa-workflows/linkSalesChannelsToApiKeyWorkflow",
                     "title": "linkSalesChannelsToApiKeyWorkflow",
-                    "description": "",
+                    "description": "Manage the sales channels of a publishable API key.",
                     "children": []
                   },
                   {
@@ -19179,7 +19179,7 @@ export const generatedSidebar = [
                     "type": "link",
                     "path": "/references/medusa-workflows/createReturnFulfillmentWorkflow",
                     "title": "createReturnFulfillmentWorkflow",
-                    "description": "",
+                    "description": "Create a fulfillment for a return.",
                     "children": []
                   },
                   {
@@ -20083,7 +20083,7 @@ export const generatedSidebar = [
                     "type": "link",
                     "path": "/references/medusa-workflows/cancelReturnWorkflow",
                     "title": "cancelReturnWorkflow",
-                    "description": "",
+                    "description": "Cancel a return.",
                     "children": []
                   },
                   {
@@ -20173,7 +20173,7 @@ export const generatedSidebar = [
                     "type": "link",
                     "path": "/references/medusa-workflows/createOrUpdateOrderPaymentCollectionWorkflow",
                     "title": "createOrUpdateOrderPaymentCollectionWorkflow",
-                    "description": "",
+                    "description": "Create or update payment collection for an order.",
                     "children": []
                   },
                   {
@@ -20443,7 +20443,7 @@ export const generatedSidebar = [
                     "type": "link",
                     "path": "/references/medusa-workflows/removeItemClaimActionWorkflow",
                     "title": "removeItemClaimActionWorkflow",
-                    "description": "",
+                    "description": "Remove order items from a claim.",
                     "children": []
                   },
                   {
@@ -21707,7 +21707,7 @@ export const generatedSidebar = [
                     "type": "link",
                     "path": "/references/medusa-workflows/refundPaymentsWorkflow",
                     "title": "refundPaymentsWorkflow",
-                    "description": "",
+                    "description": "Refund one or more payments.",
                     "children": []
                   }
                 ],
@@ -21958,7 +21958,7 @@ export const generatedSidebar = [
                     "type": "link",
                     "path": "/references/medusa-workflows/deletePriceListsWorkflow",
                     "title": "deletePriceListsWorkflow",
-                    "description": "",
+                    "description": "Delete one or more price lists.",
                     "children": []
                   },
                   {
@@ -22218,7 +22218,7 @@ export const generatedSidebar = [
                     "type": "link",
                     "path": "/references/medusa-workflows/batchProductVariantsWorkflow",
                     "title": "batchProductVariantsWorkflow",
-                    "description": "",
+                    "description": "Create, update, and delete product variants.",
                     "children": []
                   },
                   {
@@ -22811,7 +22811,7 @@ export const generatedSidebar = [
                     "type": "link",
                     "path": "/references/medusa-workflows/createPromotionRulesWorkflow",
                     "title": "createPromotionRulesWorkflow",
-                    "description": "",
+                    "description": "Create one or more promotion rules.",
                     "children": []
                   },
                   {
@@ -23022,7 +23022,7 @@ export const generatedSidebar = [
                     "type": "link",
                     "path": "/references/medusa-workflows/createRegionsWorkflow",
                     "title": "createRegionsWorkflow",
-                    "description": "",
+                    "description": "Create one or more regions.",
                     "children": []
                   },
                   {
@@ -23116,7 +23116,7 @@ export const generatedSidebar = [
                     "type": "link",
                     "path": "/references/medusa-workflows/deleteReservationsByLineItemsWorkflow",
                     "title": "deleteReservationsByLineItemsWorkflow",
-                    "description": "",
+                    "description": "Delete reservations by their associated line items.",
                     "children": []
                   },
                   {
@@ -23583,7 +23583,7 @@ export const generatedSidebar = [
                     "type": "link",
                     "path": "/references/medusa-workflows/deleteStoresWorkflow",
                     "title": "deleteStoresWorkflow",
-                    "description": "",
+                    "description": "Delete one or more stores.",
                     "children": []
                   },
                   {

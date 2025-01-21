@@ -4209,6 +4209,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@faker-js/faker@npm:^9.2.0":
+  version: 9.2.0
+  resolution: "@faker-js/faker@npm:9.2.0"
+  checksum: d711a5d206558f90e3ce9ecafe366e236fbe190b4df9d3968b512ccb87ec625843c919d16050beade88b790ed3df6332f6a837e41fba6de33e7a2f8daa67f08d
+  languageName: node
+  linkType: hard
+
 "@floating-ui/core@npm:^1.0.0":
   version: 1.6.1
   resolution: "@floating-ui/core@npm:1.6.1"
@@ -6663,6 +6670,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@medusajs/ui@workspace:packages/design-system/ui"
   dependencies:
+    "@faker-js/faker": ^9.2.0
     "@medusajs/icons": ^2.2.0
     "@medusajs/ui-preset": ^2.2.0
     "@radix-ui/react-accordion": 1.2.0
@@ -6688,6 +6696,7 @@ __metadata:
     "@storybook/react": ^8.3.5
     "@storybook/react-vite": ^8.3.5
     "@storybook/testing-library": ^0.2.2
+    "@tanstack/react-table": 8.20.5
     "@testing-library/dom": ^9.3.1
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^14.0.0

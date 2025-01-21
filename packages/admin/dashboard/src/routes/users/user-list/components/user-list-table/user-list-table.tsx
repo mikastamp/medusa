@@ -2,7 +2,7 @@ import { Button, Container, Heading } from "@medusajs/ui"
 import { keepPreviousData } from "@tanstack/react-query"
 import { useTranslation } from "react-i18next"
 import { Link } from "react-router-dom"
-import { DataTable } from "../../../../../components/table/data-table"
+import { _DataTable } from "../../../../../components/table/data-table"
 import { useUsers } from "../../../../../hooks/api/users"
 import { useDataTable } from "../../../../../hooks/use-data-table"
 import { useUserTableColumns } from "./use-user-table-columns"
@@ -49,7 +49,7 @@ export const UserListTable = () => {
           <Link to="invite">{t("users.invite")}</Link>
         </Button>
       </div>
-      <DataTable
+      <_DataTable
         table={table}
         columns={columns}
         count={count}
