@@ -160,6 +160,11 @@ medusaIntegrationTestRunner({
           fileContent = fileContent.replace(/pcol_\w*\d*/g, baseCollection.id)
           fileContent = fileContent.replace(/ptyp_\w*\d*/g, baseType.id)
 
+          fileContent = fileContent.replace(
+            /import-shipping-profile*/g,
+            shippingProfile.id
+          )
+
           const { form, meta } = getUploadReq({
             name: "test.csv",
             content: fileContent,
@@ -410,6 +415,11 @@ medusaIntegrationTestRunner({
         fileContent = fileContent.replace(/ptyp_\w*\d*/g, baseType.id)
         fileContent = fileContent.replace(/pcat_\w*\d*/g, baseCategory.id)
 
+        fileContent = fileContent.replace(
+          /import-shipping-profile*/g,
+          shippingProfile.id
+        )
+
         const { form, meta } = getUploadReq({
           name: "test.csv",
           content: fileContent,
@@ -450,6 +460,11 @@ medusaIntegrationTestRunner({
           { encoding: "utf-8" }
         )
 
+        fileContent = fileContent.replace(
+          /import-shipping-profile*/g,
+          shippingProfile.id
+        )
+
         const { form, meta } = getUploadReq({
           name: "test.csv",
           content: fileContent,
@@ -476,6 +491,11 @@ medusaIntegrationTestRunner({
 
         fileContent = fileContent.replace(/pcol_\w*\d*/g, baseCollection.id)
         fileContent = fileContent.replace(/ptyp_\w*\d*/g, baseType.id)
+
+        fileContent = fileContent.replace(
+          /import-shipping-profile*/g,
+          shippingProfile.id
+        )
 
         const { form, meta } = getUploadReq({
           name: "test.csv",
@@ -526,6 +546,11 @@ medusaIntegrationTestRunner({
 
         fileContent = fileContent.replace(/pcol_\w*\d*/g, baseCollection.id)
         fileContent = fileContent.replace(/ptyp_\w*\d*/g, baseType.id)
+
+        fileContent = fileContent.replace(
+          /import-shipping-profile*/g,
+          shippingProfile.id
+        )
 
         const { form, meta } = getUploadReq({
           name: "test.csv",
@@ -590,6 +615,11 @@ medusaIntegrationTestRunner({
         fileContent = fileContent.replace(
           /test-collection2/g,
           baseCollection.handle
+        )
+
+        fileContent = fileContent.replace(
+          /import-shipping-profile*/g,
+          shippingProfile.id
         )
 
         const { form, meta } = getUploadReq({
