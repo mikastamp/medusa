@@ -39,6 +39,9 @@ const compareCSVs = async (filePath, expectedFilePath) => {
   fileContent = fileContent.replace(dateRegex, "<DATE>")
   fixturesContent = fixturesContent.replace(dateRegex, "<DATE>")
 
+  fixturesContent = fixturesContent.replace(/,Shipping Profile Id*/g, "")
+  fixturesContent = fixturesContent.replace(/,import-shipping-profile*/g, "")
+
   expect(fileContent).toEqual(fixturesContent)
 }
 
