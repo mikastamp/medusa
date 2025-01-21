@@ -201,18 +201,16 @@ export const createProductsWorkflow = createWorkflow(
     const shippingProfileLinks = transform(
       { input, createdProducts },
       (data) => {
-        return data.createdProducts
-          .map((createdProduct, i) => {
-            return {
-              [Modules.PRODUCT]: {
-                product_id: createdProduct.id,
-              },
-              [Modules.FULFILLMENT]: {
-                shipping_profile_id: data.input.products[i].shipping_profile_id,
-              },
-            }
-          })
-          .filter((i) => Boolean(i))
+        return data.createdProducts.map((createdProduct, i) => {
+          return {
+            [Modules.PRODUCT]: {
+              product_id: createdProduct.id,
+            },
+            [Modules.FULFILLMENT]: {
+              shipping_profile_id: data.input.products[i].shipping_profile_id,
+            },
+          }
+        })
       }
     )
 
