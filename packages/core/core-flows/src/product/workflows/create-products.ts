@@ -31,10 +31,7 @@ export interface ValidateProductInputStepInput {
   /**
    * The products to validate.
    */
-  products: Omit<
-    CreateProductWorkflowInputDTO,
-    "sales_channels" | "shipping_profile_id"
-  >[]
+  products: Omit<CreateProductWorkflowInputDTO, "sales_channels">[]
 }
 
 const validateProductInputStepId = "validate-product-input"
@@ -86,6 +83,19 @@ export const validateProductInputStep = createStep(
       throw new MedusaError(
         MedusaError.Types.INVALID_DATA,
         `Product options are not provided for: [${missingOptionsProductTitles.join(
+          ", "
+        )}].`
+      )
+    }
+
+    const missingShippingProfileProductTitles = products
+      .filter((product) => !product.shipping_profile_id)
+      .map((product) => product.title)
+
+    if (missingShippingProfileProductTitles.length) {
+      throw new MedusaError(
+        MedusaError.Types.INVALID_DATA,
+        `Shipping profile is not provided for: [${missingShippingProfileProductTitles.join(
           ", "
         )}].`
       )
@@ -168,7 +178,7 @@ export const createProductsWorkflow = createWorkflow(
       }))
     )
 
-    validateProductInputStep({ products: productWithoutExternalRelations })
+    validateProductInputStep({ products: input.products })
 
     const createdProducts = createProductsStep(productWithoutExternalRelations)
 
@@ -193,10 +203,6 @@ export const createProductsWorkflow = createWorkflow(
       (data) => {
         return data.createdProducts
           .map((createdProduct, i) => {
-            if (!data.input.products[i].shipping_profile_id) {
-              return undefined
-            }
-
             return {
               [Modules.PRODUCT]: {
                 product_id: createdProduct.id,
