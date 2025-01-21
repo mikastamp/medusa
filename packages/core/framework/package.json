@@ -51,7 +51,7 @@
     "watch": "tsc --watch ",
     "watch:test": "tsc --watch",
     "build": "rimraf dist && tsc --build",
-    "test": "jest --runInBand --bail --passWithNoTests --forceExit"
+    "test": "jest --runInBand --bail --forceExit -- src/**/__tests__/**/*.ts"
   },
   "devDependencies": {
     "@medusajs/cli": "^2.3.1",
