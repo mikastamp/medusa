@@ -178,6 +178,7 @@ export function defineHasOneRelationship(
  */
 export function defineHasOneWithFKRelationship(
   MikroORMEntity: EntityConstructor<any>,
+  entity: DmlEntity<any, any>,
   relationship: RelationshipMetadata,
   { relatedModelName }: { relatedModelName: string },
   cascades: EntityCascades<string[], string[]>
@@ -198,6 +199,7 @@ export function defineHasOneWithFKRelationship(
     fieldName: foreignKeyName,
     ...(relationship.nullable ? { nullable: relationship.nullable } : {}),
     ...(mappedBy ? { mappedBy } : {}),
+    unique: false,
     //orphanRemoval: true,
   } as OneToOneOptions<any, any>
 
@@ -508,6 +510,10 @@ export function defineBelongsToRelationship(
       mappedBy: mappedBy,
       fieldName: foreignKeyName,
       owner: true,
+      /**
+       * If we decide to support non soft deletable then this should be true and the unique index id should be removed
+       */
+      unique: false,
       // orphanRemoval: true,
     }
 
@@ -523,6 +529,7 @@ export function defineBelongsToRelationship(
       {
         on: [foreignKeyName],
         where: "deleted_at IS NULL",
+        unique: true,
       },
     ])
 
@@ -821,6 +828,7 @@ export function defineRelationship(
     case "hasOneWithFK":
       defineHasOneWithFKRelationship(
         MikroORMEntity,
+        entity,
         relationship,
         relatedEntityInfo,
         cascades
