@@ -353,9 +353,19 @@ medusaIntegrationTestRunner({
 
     describe("POST /orders/:id/cancel", () => {
       beforeEach(async () => {
+        const inventoryItemOverride = (
+          await api.post(
+            `/admin/inventory-items`,
+            { sku: "test-variant", requires_shipping: false },
+            adminHeaders
+          )
+        ).data.inventory_item
+
         seeder = await createOrderSeeder({
           api,
           container: getContainer(),
+          inventoryItemOverride,
+          withoutShipping: true,
         })
         order = seeder.order
 
@@ -544,8 +554,12 @@ medusaIntegrationTestRunner({
     })
 
     describe("POST /orders/:id/fulfillments", () => {
+      let productOverride4WithOverrideShippingProfile,
+        shippingProfileOverride,
+        stockChannelOverride
+
       beforeEach(async () => {
-        const stockChannelOverride = (
+        stockChannelOverride = (
           await api.post(
             `/admin/stock-locations`,
             { name: "test location" },
@@ -614,6 +628,14 @@ medusaIntegrationTestRunner({
           )
         ).data.inventory_item
 
+        const inventoryItemOverride4RequiresShipping = (
+          await api.post(
+            `/admin/inventory-items`,
+            { sku: "test-variant-4", requires_shipping: true },
+            adminHeaders
+          )
+        ).data.inventory_item
+
         await api.post(
           `/admin/inventory-items/${inventoryItemOverride2.id}/location-levels`,
           {
@@ -625,6 +647,15 @@ medusaIntegrationTestRunner({
 
         await api.post(
           `/admin/inventory-items/${inventoryItemOverride3.id}/location-levels`,
+          {
+            location_id: stockChannelOverride.id,
+            stocked_quantity: 10,
+          },
+          adminHeaders
+        )
+
+        await api.post(
+          `/admin/inventory-items/${inventoryItemOverride4RequiresShipping.id}/location-levels`,
           {
             location_id: stockChannelOverride.id,
             stocked_quantity: 10,
@@ -706,6 +737,52 @@ medusaIntegrationTestRunner({
           )
         ).data.product
 
+        shippingProfileOverride = (
+          await api.post(
+            `/admin/shipping-profiles`,
+            { name: `test-${stockChannelOverride.id}`, type: "default" },
+            adminHeaders
+          )
+        ).data.shipping_profile
+
+        productOverride4WithOverrideShippingProfile = (
+          await api.post(
+            "/admin/products",
+            {
+              title: `Test fixture 4`,
+              shipping_profile_id: shippingProfileOverride.id,
+              options: [
+                { title: "size", values: ["large", "small"] },
+                { title: "color", values: ["green"] },
+              ],
+              variants: [
+                {
+                  title: "Test variant 4",
+                  sku: "test-variant-4",
+                  inventory_items: [
+                    {
+                      inventory_item_id:
+                        inventoryItemOverride4RequiresShipping.id,
+                      required_quantity: 1,
+                    },
+                  ],
+                  prices: [
+                    {
+                      currency_code: "usd",
+                      amount: 100,
+                    },
+                  ],
+                  options: {
+                    size: "small",
+                    color: "green",
+                  },
+                },
+              ],
+            },
+            adminHeaders
+          )
+        ).data.product
+
         seeder = await createOrderSeeder({
           api,
           container: getContainer(),
@@ -713,9 +790,15 @@ medusaIntegrationTestRunner({
           additionalProducts: [
             { variant_id: productOverride2.variants[0].id, quantity: 1 },
             { variant_id: productOverride3.variants[0].id, quantity: 3 },
+            {
+              variant_id:
+                productOverride4WithOverrideShippingProfile.variants[0].id,
+              quantity: 1,
+            },
           ],
           stockChannelOverride,
           inventoryItemOverride,
+          shippingProfileOverride: shippingProfile,
         })
         order = seeder.order
         order = (await api.get(`/admin/orders/${order.id}`, adminHeaders)).data
@@ -835,6 +918,30 @@ medusaIntegrationTestRunner({
         expect(res.response.status).toBe(400)
         expect(res.response.data.message).toBe(
           `Quantity to fulfill exceeds the reserved quantity for the item: ${orderItemId}`
+        )
+      })
+
+      it("should throw if shipping profile of the product doesn't match the shipping profile of the shipping option", async () => {
+        const orderItemId = order.items.find(
+          (i) =>
+            i.variant_id ===
+            productOverride4WithOverrideShippingProfile.variants[0].id
+        ).id
+
+        const res = await api
+          .post(
+            `/admin/orders/${order.id}/fulfillments`,
+            {
+              location_id: stockChannelOverride.id,
+              items: [{ id: orderItemId, quantity: 1 }],
+            },
+            adminHeaders
+          )
+          .catch((e) => e)
+
+        expect(res.response.status).toBe(400)
+        expect(res.response.data.message).toBe(
+          `Shipping profile ${seeder.shippingProfile.id} does not match the shipping profile of the order item ${orderItemId}`
         )
       })
 
