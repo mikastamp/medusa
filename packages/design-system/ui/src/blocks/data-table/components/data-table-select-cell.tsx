@@ -21,6 +21,7 @@ const DataTableSelectCell = <TData,>(props: DataTableSelectCellProps<TData>) => 
     />
   )
 }
+DataTableSelectCell.displayName = "DataTable.SelectCell"
 
 interface DataTableSelectHeaderProps<TData> {
   ctx: DataTableHeaderContext<TData, unknown>
