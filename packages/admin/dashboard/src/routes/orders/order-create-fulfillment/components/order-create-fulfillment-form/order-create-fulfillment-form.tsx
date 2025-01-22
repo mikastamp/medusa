@@ -95,7 +95,7 @@ export function OrderCreateFulfillmentForm({
       (o) => o.id === shippingOptionId
     )
 
-    if (requiresShipping && !selectedShippingOption) {
+    if (!selectedShippingOption) {
       form.setError("shipping_option_id", {
         type: "manual",
         message: t("orders.fulfillment.error.noShippingOption"),
@@ -103,7 +103,7 @@ export function OrderCreateFulfillmentForm({
       return
     }
 
-    if (requiresShipping && !selectedLocationId) {
+    if (!selectedLocationId) {
       form.setError("location_id", {
         type: "manual",
         message: t("orders.fulfillment.error.noLocation"),
@@ -123,6 +123,8 @@ export function OrderCreateFulfillmentForm({
     )
 
     const payload: HttpTypes.AdminCreateOrderFulfillment = {
+      location_id: selectedLocationId,
+      shipping_option_id: shippingOptionId,
       no_notification: !data.send_notification,
       items: Object.entries(data.quantity)
         .filter(
@@ -133,11 +135,6 @@ export function OrderCreateFulfillmentForm({
           id,
           quantity,
         })),
-    }
-
-    if (requiresShipping) {
-      payload.location_id = selectedLocationId
-      payload.shipping_option_id = shippingOptionId
     }
 
     try {
@@ -151,10 +148,6 @@ export function OrderCreateFulfillmentForm({
   })
 
   useEffect(() => {
-    if (!requiresShipping) {
-      return
-    }
-
     if (stock_locations?.length && shipping_options?.length) {
       const initialShippingOptionId =
         order.shipping_methods?.[0]?.shipping_option_id
@@ -230,114 +223,110 @@ export function OrderCreateFulfillmentForm({
           <div className="flex size-full flex-col items-center overflow-auto p-16">
             <div className="flex w-full max-w-[736px] flex-col justify-center px-2 pb-2">
               <div className="flex flex-col divide-y divide-dashed">
-                {requiresShipping && (
-                  <div className="pb-8">
-                    <Form.Field
-                      control={form.control}
-                      name="location_id"
-                      render={({ field: { onChange, ref, ...field } }) => {
-                        return (
-                          <Form.Item>
-                            <div className="flex flex-col gap-2 xl:flex-row xl:items-center">
-                              <div className="flex-1">
-                                <Form.Label>{t("fields.location")}</Form.Label>
-                                <Form.Hint>
-                                  {t("orders.fulfillment.locationDescription")}
-                                </Form.Hint>
-                              </div>
-                              <div className="flex-1">
-                                <Form.Control>
-                                  <Select onValueChange={onChange} {...field}>
-                                    <Select.Trigger
-                                      className="bg-ui-bg-base"
-                                      ref={ref}
-                                    >
-                                      <Select.Value />
-                                    </Select.Trigger>
-                                    <Select.Content>
-                                      {stock_locations.map((l) => (
-                                        <Select.Item key={l.id} value={l.id}>
-                                          {l.name}
-                                        </Select.Item>
-                                      ))}
-                                    </Select.Content>
-                                  </Select>
-                                </Form.Control>
-                              </div>
+                <div className="pb-8">
+                  <Form.Field
+                    control={form.control}
+                    name="location_id"
+                    render={({ field: { onChange, ref, ...field } }) => {
+                      return (
+                        <Form.Item>
+                          <div className="flex flex-col gap-2 xl:flex-row xl:items-center">
+                            <div className="flex-1">
+                              <Form.Label>{t("fields.location")}</Form.Label>
+                              <Form.Hint>
+                                {t("orders.fulfillment.locationDescription")}
+                              </Form.Hint>
                             </div>
-                            <Form.ErrorMessage />
-                          </Form.Item>
-                        )
-                      }}
-                    />
-                  </div>
-                )}
-
-                {requiresShipping && (
-                  <div className="py-8">
-                    <Form.Field
-                      control={form.control}
-                      name="shipping_option_id"
-                      render={({ field: { onChange, ref, ...field } }) => {
-                        return (
-                          <Form.Item>
-                            <div className="flex flex-col gap-2 xl:flex-row xl:items-center">
-                              <div className="flex-1">
-                                <Form.Label>
-                                  {t("fields.shippingMethod")}
-                                </Form.Label>
-                                <Form.Hint>
-                                  {t("orders.fulfillment.methodDescription")}
-                                </Form.Hint>
-                              </div>
-                              <div className="flex-1">
-                                <Form.Control>
-                                  <Select
-                                    onValueChange={onChange}
-                                    {...field}
-                                    disabled={!selectedLocationId}
+                            <div className="flex-1">
+                              <Form.Control>
+                                <Select onValueChange={onChange} {...field}>
+                                  <Select.Trigger
+                                    className="bg-ui-bg-base"
+                                    ref={ref}
                                   >
-                                    <Select.Trigger
-                                      className="bg-ui-bg-base"
-                                      ref={ref}
-                                    >
-                                      {isShippingOptionsLoading ? (
-                                        <span className="text-right">
-                                          {t("labels.loading")}...
-                                        </span>
-                                      ) : (
-                                        <Select.Value />
-                                      )}
-                                    </Select.Trigger>
-                                    <Select.Content>
-                                      {shipping_options.map((o) => (
-                                        <Select.Item key={o.id} value={o.id}>
-                                          {o.name}
-                                        </Select.Item>
-                                      ))}
-                                    </Select.Content>
-                                  </Select>
-                                </Form.Control>
-                              </div>
+                                    <Select.Value />
+                                  </Select.Trigger>
+                                  <Select.Content>
+                                    {stock_locations.map((l) => (
+                                      <Select.Item key={l.id} value={l.id}>
+                                        {l.name}
+                                      </Select.Item>
+                                    ))}
+                                  </Select.Content>
+                                </Select>
+                              </Form.Control>
                             </div>
-                            <Form.ErrorMessage />
-                          </Form.Item>
-                        )
-                      }}
-                    />
+                          </div>
+                          <Form.ErrorMessage />
+                        </Form.Item>
+                      )
+                    }}
+                  />
+                </div>
 
-                    {differentOptionSelected && (
-                      <Alert className="p-4 mt-4" variant="warning">
-                        <span className="font-semibold block -mt-[3px]">
-                          {t("labels.beaware")}
-                        </span>
-                        <span className="text-ui-fg-muted">
-                          {t("orders.fulfillment.differentOptionSelected")}
-                        </span>
-                      </Alert>
-                    )}
-                  </div>
-                )}
+                <div className="py-8">
+                  <Form.Field
+                    control={form.control}
+                    name="shipping_option_id"
+                    render={({ field: { onChange, ref, ...field } }) => {
+                      return (
+                        <Form.Item>
+                          <div className="flex flex-col gap-2 xl:flex-row xl:items-center">
+                            <div className="flex-1">
+                              <Form.Label>
+                                {t("fields.shippingMethod")}
+                              </Form.Label>
+                              <Form.Hint>
+                                {t("orders.fulfillment.methodDescription")}
+                              </Form.Hint>
+                            </div>
+                            <div className="flex-1">
+                              <Form.Control>
+                                <Select
+                                  onValueChange={onChange}
+                                  {...field}
+                                  disabled={!selectedLocationId}
+                                >
+                                  <Select.Trigger
+                                    className="bg-ui-bg-base"
+                                    ref={ref}
+                                  >
+                                    {isShippingOptionsLoading ? (
+                                      <span className="text-right">
+                                        {t("labels.loading")}...
+                                      </span>
+                                    ) : (
+                                      <Select.Value />
+                                    )}
+                                  </Select.Trigger>
+                                  <Select.Content>
+                                    {shipping_options.map((o) => (
+                                      <Select.Item key={o.id} value={o.id}>
+                                        {o.name}
+                                      </Select.Item>
+                                    ))}
+                                  </Select.Content>
+                                </Select>
+                              </Form.Control>
+                            </div>
+                          </div>
+                          <Form.ErrorMessage />
+                        </Form.Item>
+                      )
+                    }}
+                  />
+
+                  {differentOptionSelected && (
+                    <Alert className="mt-4 p-4" variant="warning">
+                      <span className="-mt-[3px] block font-semibold">
+                        {t("labels.beaware")}
+                      </span>
+                      <span className="text-ui-fg-muted">
+                        {t("orders.fulfillment.differentOptionSelected")}
+                      </span>
+                    </Alert>
+                  )}
+                </div>
                 <div>
                   <Form.Item className="mt-8">
                     <Form.Label>
@@ -427,7 +416,7 @@ export function OrderCreateFulfillmentForm({
               size="small"
               type="submit"
               isLoading={isMutating}
-              disabled={requiresShipping && !shippingOptionId}
+              disabled={!shippingOptionId}
             >
               {t("orders.fulfillment.create")}
             </Button>
