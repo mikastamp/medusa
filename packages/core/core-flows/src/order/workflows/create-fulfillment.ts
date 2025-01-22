@@ -339,6 +339,7 @@ export const createOrderFulfillmentWorkflow = createWorkflow(
         "items.variant.width",
         "items.variant.material",
         "shipping_address.*",
+        "shipping_methods.id",
         "shipping_methods.shipping_option_id",
         "shipping_methods.data",
       ],
