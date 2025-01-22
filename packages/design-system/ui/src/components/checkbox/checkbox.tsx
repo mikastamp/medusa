@@ -36,7 +36,7 @@ const Checkbox = React.forwardRef<
           "group-data-[state=indeterminate]:bg-ui-bg-interactive group-data-[state=indeterminate]:shadow-borders-interactive-with-shadow"
         )}
       >
-        <Primitives.Indicator className="absolute inset-0 flex items-center justify-center">
+        <Primitives.Indicator>
           {checked === "indeterminate" ? <MinusMini /> : <CheckMini />}
         </Primitives.Indicator>
       </div>

@@ -10,8 +10,13 @@ import {
   th,
   tr,
   uk,
+  ro,
   mk,
+  mn,
+  ar,
+  zhCN
 } from "date-fns/locale"
+
 import { Language } from "./types"
 
 export const languages: Language[] = [
@@ -82,9 +87,33 @@ export const languages: Language[] = [
     date_locale: uk,
   },
   {
+    code: "ro",
+    display_name: "Română",
+    ltr: true,
+    date_locale: ro,
+  },
+  {
     code: "mk",
     display_name: "Македонски",
     ltr: true,
     date_locale: mk,
+  },
+  {
+    code: "mn",
+    display_name: "Монгол",
+    ltr: true,
+    date_locale: mn,
+  },
+  {
+    code: "ar",
+    display_name: "العربية",
+    ltr: false,
+    date_locale: ar,
+  },
+  {
+    code: "zhCN",
+    display_name: "简体中文",
+    ltr: true,
+    date_locale: zhCN,
   },
 ]
