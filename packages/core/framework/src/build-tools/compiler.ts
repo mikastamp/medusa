@@ -1,7 +1,7 @@
 import path from "path"
 import { getConfigFile } from "@medusajs/utils"
 import type { AdminOptions, ConfigModule, Logger } from "@medusajs/types"
-import { rm, access, constants, copyFile, writeFile } from "fs/promises"
+import { rm, access, constants, copyFile, writeFile, mkdir } from "fs/promises"
 import type tsStatic from "typescript"
 
 /**
@@ -163,6 +163,7 @@ export class Compiler {
    * for MedusaJS loaders during development
    */
   async #createPluginOptionsFile() {
+    await mkdir(path.dirname(this.#pluginOptionsPath), { recursive: true })
     await writeFile(
       this.#pluginOptionsPath,
       JSON.stringify(
@@ -511,6 +512,9 @@ export class Compiler {
     ts.createWatchProgram(host)
   }
 
+  /**
+   * Builds the plugin admin extensions for publishing to npm
+   */
   async buildPluginAdminExtensions(bundler: {
     plugin: (options: { root: string; outDir: string }) => Promise<void>
   }) {
