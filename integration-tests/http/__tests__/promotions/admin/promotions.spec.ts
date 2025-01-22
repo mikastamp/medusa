@@ -521,7 +521,10 @@ medusaIntegrationTestRunner({
             const product = (
               await api.post(
                 "/admin/products",
-                medusaTshirtProduct,
+                {
+                  ...medusaTshirtProduct,
+                  shipping_profile_id: shippingProfile.id,
+                },
                 adminHeaders
               )
             ).data.product
