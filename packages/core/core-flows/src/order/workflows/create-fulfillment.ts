@@ -156,7 +156,8 @@ function prepareFulfillmentData({
 
     if (
       orderItem.requires_shipping &&
-      (orderItem as any).variant?.product?.shipping_profile?.id !==
+      (orderItem as any).variant?.product &&
+      (orderItem as any).variant?.product.shipping_profile?.id !==
         shippingOption.shipping_profile_id
     ) {
       throw new MedusaError(
