@@ -6,10 +6,12 @@ import { normalizeMigrationSQL } from "../utils"
 
 type FilterDef = Parameters<typeof MikroORMFilter>[0]
 
-let sqlPatches: string[] = []
 export class CustomTsMigrationGenerator extends TSMigrationGenerator {
   // TODO: temporary fix to drop unique constraint before creating unique index
-  private dropUniqueConstraintBeforeUniqueIndex(sql: string) {
+  private dropUniqueConstraintBeforeUniqueIndex(
+    sqlPatches: string[],
+    sql: string
+  ) {
     // DML unique index
     const uniqueIndexName = sql.match(/"IDX_(.+?)_unique"/)?.[1]
     if (!uniqueIndexName) {
@@ -29,10 +31,14 @@ export class CustomTsMigrationGenerator extends TSMigrationGenerator {
     className: string,
     diff: { up: string[]; down: string[] }
   ): string {
-    for (const sql of sqlPatches) {
-      diff.up.unshift(super.createStatement(sql, 0))
+    const sqlPatches: string[] = []
+    for (const sql of diff.up) {
+      this.dropUniqueConstraintBeforeUniqueIndex(sqlPatches, sql)
     }
-    sqlPatches = []
+
+    for (const sql of sqlPatches) {
+      diff.up.unshift(sql)
+    }
 
     return super.generateMigrationFile(className, diff)
   }
@@ -40,7 +46,6 @@ export class CustomTsMigrationGenerator extends TSMigrationGenerator {
   createStatement(sql: string, padLeft: number): string {
     if (isString(sql)) {
       sql = normalizeMigrationSQL(sql)
-      this.dropUniqueConstraintBeforeUniqueIndex(sql)
     }
 
     return super.createStatement(sql, padLeft)
