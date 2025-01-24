@@ -6,32 +6,41 @@ import { normalizeMigrationSQL } from "../utils"
 
 type FilterDef = Parameters<typeof MikroORMFilter>[0]
 
+let sqlPatches: string[] = []
 export class CustomTsMigrationGenerator extends TSMigrationGenerator {
   // TODO: temporary fix to drop unique constraint before creating unique index
   private dropUniqueConstraintBeforeUniqueIndex(sql: string) {
     // DML unique index
     const uniqueIndexName = sql.match(/"IDX_(.+?)_unique"/)?.[1]
     if (!uniqueIndexName) {
-      return sql
+      return
     }
 
     // Add drop unique constraint if it exists, using the same name as index without IDX_ prefix
-    let patchedSql = sql
-
     const tableName = sql.match(/ON "(.+?)"/)?.[1]
     if (tableName) {
-      patchedSql =
-        `alter table if exists "${tableName}" drop constraint if exists "${uniqueIndexName}_unique";
-      ` + sql
+      sqlPatches.push(
+        `alter table if exists "${tableName}" drop constraint if exists "${uniqueIndexName}_unique";`
+      )
     }
+  }
 
-    return patchedSql
+  generateMigrationFile(
+    className: string,
+    diff: { up: string[]; down: string[] }
+  ): string {
+    for (const sql of sqlPatches) {
+      diff.up.unshift(super.createStatement(sql, 0))
+    }
+    sqlPatches = []
+
+    return super.generateMigrationFile(className, diff)
   }
 
   createStatement(sql: string, padLeft: number): string {
     if (isString(sql)) {
       sql = normalizeMigrationSQL(sql)
-      sql = this.dropUniqueConstraintBeforeUniqueIndex(sql)
+      this.dropUniqueConstraintBeforeUniqueIndex(sql)
     }
 
     return super.createStatement(sql, padLeft)
