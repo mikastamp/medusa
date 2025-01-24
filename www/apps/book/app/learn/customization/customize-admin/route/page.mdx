@@ -410,6 +410,12 @@ You first define pagination-related variables:
 
 Then, you use `useQuery` from [Tanstack (React) Query](https://tanstack.com/query/latest) to query the Medusa server. Tanstack Query provides features like asynchronous state management and optimized caching.
 
+<Note type="warning">
+
+Do not install Tanstack Query as that will cause unexpected errors in your development. If you prefer installing it for better auto-completion in your code editor, make sure to install `v5.64.2` as a development dependency.
+
+</Note>
+
 In the `queryFn` function that executes the query, you use the JS SDK's `client.fetch` method to send a request to your custom API route. The first parameter is the route's path, and the second is an object of request configuration and data. You pass the query parameters in the `query` property.
 
 This sends a request to the [Get Brands API route](#1-get-brands-api-route), passing the pagination query parameters. Whenever `currentPage` is updated, the `offset` is also updated, which will send a new request to retrieve the brands for the current page.
