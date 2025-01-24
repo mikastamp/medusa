@@ -191,6 +191,23 @@ export const updateCartWorkflow = createWorkflow(
           if (!data_.shipping_address?.country_code) {
             data_.shipping_address = null
           }
+        } else {
+          if (
+            !cartToUpdate.shippingAddress &&
+            shippingAddress &&
+            !shippingAddress.country_code
+          ) {
+            if (data.region.countries.length === 1) {
+              data_.shipping_address = {
+                country_code: data.region.countries[0].iso_2,
+              }
+            } else {
+              throw new MedusaError(
+                MedusaError.Types.INVALID_DATA,
+                "Cannot set shipping address without a country code"
+              )
+            }
+          }
         }
 
         if (isDefined(updateCartData.email) && data.customer?.customer) {
