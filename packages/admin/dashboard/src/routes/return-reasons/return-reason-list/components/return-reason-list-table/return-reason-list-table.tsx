@@ -1,25 +1,31 @@
 import { PencilSquare, Trash } from "@medusajs/icons"
 import { HttpTypes } from "@medusajs/types"
-import { Button, Container, Heading, Text } from "@medusajs/ui"
+import {
+  Badge,
+  Container,
+  createDataTableColumnHelper,
+  DataTableEmptyStateProps,
+  toast,
+  usePrompt,
+} from "@medusajs/ui"
 import { keepPreviousData } from "@tanstack/react-query"
-import { createColumnHelper } from "@tanstack/react-table"
-import { useMemo } from "react"
+import { useCallback, useMemo } from "react"
 import { useTranslation } from "react-i18next"
-import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
-import { ActionMenu } from "../../../../../components/common/action-menu"
-import { _DataTable } from "../../../../../components/table/data-table"
-import { useReturnReasons } from "../../../../../hooks/api/return-reasons"
-import { useReturnReasonTableColumns } from "../../../../../hooks/table/columns"
-import { useReturnReasonTableQuery } from "../../../../../hooks/table/query"
-import { useDataTable } from "../../../../../hooks/use-data-table"
-import { useDeleteReturnReasonAction } from "../../../common/hooks/use-delete-return-reason-action"
+import { DataTable } from "../../../../../components/data-table"
+import { useDataTableDateFilters } from "../../../../../components/data-table/hooks/general/use-data-table-date-filters"
+import {
+  useDeleteReturnReasonLazy,
+  useReturnReasons,
+} from "../../../../../hooks/api/return-reasons"
+import { useQueryParams } from "../../../../../hooks/use-query-params"
 
 const PAGE_SIZE = 20
 
 export const ReturnReasonListTable = () => {
   const { t } = useTranslation()
-  const { searchParams, raw } = useReturnReasonTableQuery({
+  const searchParams = useReturnReasonTableQuery({
     pageSize: PAGE_SIZE,
   })
 
@@ -31,98 +37,165 @@ export const ReturnReasonListTable = () => {
   )
 
   const columns = useColumns()
-
-  const { table } = useDataTable({
-    data: return_reasons,
-    columns,
-    count,
-    getRowId: (row) => row.id,
-    pageSize: PAGE_SIZE,
-  })
-
+  const filters = useFilters()
+  const emptyState = useEmptyState()
   if (isError) {
     throw error
   }
 
   return (
-    <Container className="divide-y px-0 py-0">
-      <div className="flex items-center justify-between px-6 py-4">
-        <div>
-          <Heading>{t("returnReasons.domain")}</Heading>
-          <Text className="text-ui-fg-subtle" size="small">
-            {t("returnReasons.subtitle")}
-          </Text>
-        </div>
-        <Button variant="secondary" size="small" asChild>
-          <Link to="create">{t("actions.create")}</Link>
-        </Button>
-      </div>
-      <_DataTable
-        table={table}
-        queryObject={raw}
-        count={count}
-        isLoading={isPending}
+    <Container className="px-0 py-0">
+      <DataTable
+        data={return_reasons}
         columns={columns}
+        filters={filters}
+        getRowId={(row) => row.id}
+        heading={t("returnReasons.domain")}
+        // subtitle={t("returnReasons.subtitle")}
+        action={{
+          label: t("actions.create"),
+          to: "create",
+        }}
+        rowCount={count}
+        isLoading={isPending}
         pageSize={PAGE_SIZE}
-        noHeader={true}
-        pagination
-        search
+        emptyState={emptyState}
       />
     </Container>
   )
 }
 
-type ReturnReasonRowActionsProps = {
-  returnReason: HttpTypes.AdminReturnReason
-}
-
-const ReturnReasonRowActions = ({
-  returnReason,
-}: ReturnReasonRowActionsProps) => {
+const useEmptyState = (): DataTableEmptyStateProps => {
   const { t } = useTranslation()
-  const handleDelete = useDeleteReturnReasonAction(returnReason)
 
-  return (
-    <ActionMenu
-      groups={[
-        {
-          actions: [
-            {
-              icon: <PencilSquare />,
-              label: t("actions.edit"),
-              to: `${returnReason.id}/edit`,
-            },
-          ],
-        },
-        {
-          actions: [
-            {
-              icon: <Trash />,
-              label: t("actions.delete"),
-              onClick: handleDelete,
-            },
-          ],
-        },
-      ]}
-    />
-  )
+  return {
+    empty: {
+      heading: t("returnReasons.list.empty.heading"),
+      description: t("returnReasons.list.empty.description"),
+    },
+    filtered: {
+      heading: t("returnReasons.list.filtered.heading"),
+      description: t("returnReasons.list.filtered.description"),
+    },
+  }
 }
 
-const columnHelper = createColumnHelper<HttpTypes.AdminReturnReason>()
+const useReturnReasonTableQuery = ({
+  pageSize,
+  prefix,
+}: {
+  pageSize: number
+  prefix?: string
+}) => {
+  const { offset, q, order, created_at, updated_at } = useQueryParams(
+    ["offset", "q", "order", "created_at", "updated_at"],
+    prefix
+  )
+
+  const searchParams: HttpTypes.AdminReturnReasonListParams = {
+    limit: pageSize,
+    offset: offset ? Number(offset) : 0,
+    order,
+    created_at: created_at ? JSON.parse(created_at) : undefined,
+    updated_at: updated_at ? JSON.parse(updated_at) : undefined,
+    q,
+  }
+
+  return searchParams
+}
+
+const useFilters = () => {
+  const dateFilters = useDataTableDateFilters()
+
+  return dateFilters
+}
+
+const columnHelper = createDataTableColumnHelper<HttpTypes.AdminReturnReason>()
 
 const useColumns = () => {
-  const base = useReturnReasonTableColumns()
+  const { t } = useTranslation()
+  const prompt = usePrompt()
+  const navigate = useNavigate()
+
+  const { mutateAsync } = useDeleteReturnReasonLazy()
+
+  const handleDelete = useCallback(
+    async (returnReason: HttpTypes.AdminReturnReason) => {
+      const result = await prompt({
+        title: t("general.areYouSure"),
+        description: t("returnReasons.delete.confirmation", {
+          label: returnReason.label,
+        }),
+        confirmText: t("actions.delete"),
+        cancelText: t("actions.cancel"),
+      })
+
+      if (!result) {
+        return
+      }
+
+      await mutateAsync(returnReason.id, {
+        onSuccess: () => {
+          toast.success(
+            t("returnReasons.delete.successToast", {
+              label: returnReason.label,
+            })
+          )
+        },
+        onError: (e) => {
+          toast.error(e.message)
+        },
+      })
+    },
+    [mutateAsync, prompt, t]
+  )
 
   return useMemo(
     () => [
-      ...base,
-      columnHelper.display({
-        id: "actions",
-        cell: ({ row }) => (
-          <ReturnReasonRowActions returnReason={row.original} />
-        ),
+      columnHelper.accessor("label", {
+        header: t("fields.label"),
+        enableSorting: true,
+        sortLabel: t("fields.label"),
+        sortAscLabel: t("filters.sorting.alphabeticallyAsc"),
+        sortDescLabel: t("filters.sorting.alphabeticallyDesc"),
+      }),
+      columnHelper.accessor("value", {
+        header: t("fields.value"),
+        cell: ({ getValue }) => <Badge size="2xsmall">{getValue()}</Badge>,
+        enableSorting: true,
+        sortLabel: t("fields.value"),
+        sortAscLabel: t("filters.sorting.alphabeticallyAsc"),
+        sortDescLabel: t("filters.sorting.alphabeticallyDesc"),
+      }),
+      columnHelper.accessor("description", {
+        header: t("fields.description"),
+        enableSorting: true,
+        sortLabel: t("fields.description"),
+        sortAscLabel: t("filters.sorting.alphabeticallyAsc"),
+        sortDescLabel: t("filters.sorting.alphabeticallyDesc"),
+        maxSize: 250,
+      }),
+      columnHelper.action({
+        actions: (ctx) => {
+          return [
+            [
+              {
+                label: t("actions.edit"),
+                onClick: () => navigate(`${ctx.row.original.id}/edit`),
+                icon: <PencilSquare />,
+              },
+            ],
+            [
+              {
+                label: t("actions.delete"),
+                onClick: () => handleDelete(ctx.row.original),
+                icon: <Trash />,
+              },
+            ],
+          ]
+        },
       }),
     ],
-    [base]
+    [t, navigate, handleDelete]
   )
 }
