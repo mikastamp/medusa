@@ -1,7 +1,7 @@
 import { CustomTsMigrationGenerator } from "../mikro-orm-create-connection"
 
 function unwrapSql(sql: string) {
-  return sql.toString().match(/this.addSql\(`(.*?)`\)/)?.[1]
+  return sql.toString().match(/this.addSql\(`([\s\S]*?)`\)/m)?.[1]
 }
 
 describe("CustomTsMigrationGenerator", () => {
@@ -89,5 +89,23 @@ describe("CustomTsMigrationGenerator", () => {
       CustomTsMigrationGenerator.prototype.createStatement(sql, 0)
     )
     expect(result).toBe("drop constraint if exists fk_name")
+  })
+
+  it("should patch unique index to drop the constraint", () => {
+    const sql =
+      'CREATE UNIQUE INDEX IF NOT EXISTS "IDX_payment_payment_session_id_unique" ON "payment" (payment_session_id) WHERE deleted_at IS NULL;'
+    const result = unwrapSql(
+      CustomTsMigrationGenerator.prototype.createStatement(sql, 0)
+    )
+
+    const commands = result!
+      .split(";")
+      .map((s) => s.trim())
+      .join(";")
+
+    expect(commands).toEqual(
+      'alter table if exists "payment" drop constraint if exists "payment_payment_session_id_unique";' +
+        sql
+    )
   })
 })
