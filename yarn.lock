@@ -79,36 +79,36 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ariakit/core@npm:0.4.6":
-  version: 0.4.6
-  resolution: "@ariakit/core@npm:0.4.6"
-  checksum: ca95be5acfd55ad99fa2eaddfdcf2dd178622ac64634bec80709dc4c722f8f15ac6d321831c72ab034001fe00964f7a2531e519916f29cf885d8cf3ffdbb6776
+"@ariakit/core@npm:0.4.14":
+  version: 0.4.14
+  resolution: "@ariakit/core@npm:0.4.14"
+  checksum: 7faf79069d25b9a869143fc8d25f87ce02be3fbc87183055a5cb93abf6a7989281155493cf1fe18b5d8144f6fab5a60063699d6d53b7e3d3de253e8afd0c33c2
   languageName: node
   linkType: hard
 
-"@ariakit/react-core@npm:0.4.6":
-  version: 0.4.6
-  resolution: "@ariakit/react-core@npm:0.4.6"
+"@ariakit/react-core@npm:0.4.15":
+  version: 0.4.15
+  resolution: "@ariakit/react-core@npm:0.4.15"
   dependencies:
-    "@ariakit/core": 0.4.6
+    "@ariakit/core": 0.4.14
     "@floating-ui/dom": ^1.0.0
     use-sync-external-store: ^1.2.0
   peerDependencies:
-    react: ^17.0.0 || ^18.0.0
-    react-dom: ^17.0.0 || ^18.0.0
-  checksum: cd24d020a380a5de48607119c7f46a1b64bc8780d7b4a18f09207b2a3c13957cfc1c5dc0256ad8dd0924714b074e30f4af5702d25b438885516d9c900cc8ce91
+    react: ^17.0.0 || ^18.0.0 || ^19.0.0
+    react-dom: ^17.0.0 || ^18.0.0 || ^19.0.0
+  checksum: 8da567eadee423b38b54ea4c58ec19a84e329da141bf0277906a8a69b428ea6326e31e28a7f0fc67c4c8b1c420500137b6bee04e8c12253f2b7b290fb2173439
   languageName: node
   linkType: hard
 
-"@ariakit/react@npm:^0.4.1":
-  version: 0.4.6
-  resolution: "@ariakit/react@npm:0.4.6"
+"@ariakit/react@npm:^0.4.15":
+  version: 0.4.15
+  resolution: "@ariakit/react@npm:0.4.15"
   dependencies:
-    "@ariakit/react-core": 0.4.6
+    "@ariakit/react-core": 0.4.15
   peerDependencies:
-    react: ^17.0.0 || ^18.0.0
-    react-dom: ^17.0.0 || ^18.0.0
-  checksum: 647d540c81d116de690e80544152471be59ced91ca1a31e81dbafea162397e3ce16844401eac708c06e8ad834ca6779eb373fc4634e28d6ecdb7e0f2fce4a061
+    react: ^17.0.0 || ^18.0.0 || ^19.0.0
+    react-dom: ^17.0.0 || ^18.0.0 || ^19.0.0
+  checksum: e89ccb1e56df17cf372b6f6df3217f2e2258bad920ac21044303948f59de4a61ae42142162d12c05b65e4ff63f08a450fa7429aafbb74a9817a65f36607ff980
   languageName: node
   linkType: hard
 
@@ -5253,6 +5253,7 @@ __metadata:
     "@medusajs/admin-vite-plugin": 2.3.1
     "@medusajs/dashboard": 2.3.1
     "@medusajs/types": ~2.3.1
+    "@rollup/plugin-node-resolve": ^16.0.0
     "@types/compression": ^1.7.5
     "@vitejs/plugin-react": ^4.2.1
     autoprefixer: ^10.4.16
@@ -5600,7 +5601,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@medusajs/dashboard@workspace:packages/admin/dashboard"
   dependencies:
-    "@ariakit/react": ^0.4.1
+    "@ariakit/react": ^0.4.15
     "@dnd-kit/core": ^6.1.0
     "@dnd-kit/sortable": ^8.0.0
     "@hookform/error-message": ^2.0.1
@@ -5613,7 +5614,7 @@ __metadata:
     "@medusajs/ui": 4.0.3
     "@medusajs/ui-preset": 2.3.1
     "@radix-ui/react-collapsible": 1.1.0
-    "@tanstack/react-query": ^5.28.14
+    "@tanstack/react-query": 5.64.2
     "@tanstack/react-table": 8.20.5
     "@tanstack/react-virtual": ^3.8.3
     "@types/node": ^20.11.15
@@ -5766,6 +5767,7 @@ __metadata:
     "@types/express": ^4.17.17
     "@types/jsonwebtoken": ^8.5.9
     awilix: ^8.0.1
+    chokidar: ^3.4.2
     compression: 1.7.4
     connect-redis: 5.2.0
     cookie-parser: ^1.4.6
@@ -10931,6 +10933,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@rollup/plugin-node-resolve@npm:^16.0.0":
+  version: 16.0.0
+  resolution: "@rollup/plugin-node-resolve@npm:16.0.0"
+  dependencies:
+    "@rollup/pluginutils": ^5.0.1
+    "@types/resolve": 1.20.2
+    deepmerge: ^4.2.2
+    is-module: ^1.0.0
+    resolve: ^1.22.1
+  peerDependencies:
+    rollup: ^2.78.0||^3.0.0||^4.0.0
+  peerDependenciesMeta:
+    rollup:
+      optional: true
+  checksum: b63deb6fc14b37070ccaffacc8c10c9720f28ce7632f4fe2ee77064c0c79bcc3fe060fb77160e673c9fd847307252f25a2983030bd54f1888324063c69ae1399
+  languageName: node
+  linkType: hard
+
 "@rollup/plugin-replace@npm:^5.0.2":
   version: 5.0.5
   resolution: "@rollup/plugin-replace@npm:5.0.5"
@@ -13031,21 +13051,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/query-core@npm:5.35.1":
-  version: 5.35.1
-  resolution: "@tanstack/query-core@npm:5.35.1"
-  checksum: c991efeb29ec42f9aadf43130dac5e4e9e0651880ef96e0cb5f0dc3224b9b919b34f0e4af53231a7de32582aa7ba801ed6683ed7448e41e7b2a344803f08f3fe
+"@tanstack/query-core@npm:5.64.2":
+  version: 5.64.2
+  resolution: "@tanstack/query-core@npm:5.64.2"
+  checksum: 96dfaa334d2e3aeb3bcd55a3b8b3f3b4f7283b435d90681302ca6c08d0a597a5745c3c790d0242908266af6188efe804aac3c82ca8ed3fd7cd73c24220d93acc
   languageName: node
   linkType: hard
 
-"@tanstack/react-query@npm:^5.28.14":
-  version: 5.35.1
-  resolution: "@tanstack/react-query@npm:5.35.1"
+"@tanstack/react-query@npm:5.64.2":
+  version: 5.64.2
+  resolution: "@tanstack/react-query@npm:5.64.2"
   dependencies:
-    "@tanstack/query-core": 5.35.1
+    "@tanstack/query-core": 5.64.2
   peerDependencies:
-    react: ^18.0.0
-  checksum: 80b3d4e295b05171e34f522c1856bcd561c58963e7661ae2340f3406a3097b7c9896d4f67005876c634ce1d808791498a987b200f00341e6df9fcc862060e6ad
+    react: ^18 || ^19
+  checksum: 4e81c8e922ced8ef5f2e5975d7784409b532ce007b1771fe8569e380d08666b5323a90fa91de6ef10f9f2f8882d3fdf1be109eeb99a54bd84b1fa2075de9e75b
   languageName: node
   linkType: hard
 
