@@ -77,6 +77,7 @@ const DataTableActionCell = <TData,>({
     </DropdownMenu>
   )
 }
+DataTableActionCell.displayName = "DataTable.ActionCell"
 
 export { DataTableActionCell }
 export type { DataTableActionCellProps }

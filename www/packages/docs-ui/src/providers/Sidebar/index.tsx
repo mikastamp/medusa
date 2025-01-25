@@ -21,6 +21,7 @@ import {
   InteractiveSidebarItem,
   SidebarItemCategory,
   SidebarItemLinkWithParent,
+  SidebarItemTypes,
 } from "types"
 import { useIsBrowser } from "../BrowserProvider"
 
@@ -70,6 +71,7 @@ export const SidebarContext = createContext<SidebarContextType | null>(null)
 export type ActionOptionsType = {
   section?: SidebarItemSections
   parent?: {
+    type: SidebarItemTypes
     path: string
     title: string
     changeLoaded?: boolean
@@ -106,17 +108,20 @@ export const isSidebarItemLink = (
 }
 
 const areItemsEqual = (itemA: SidebarItem, itemB: SidebarItem): boolean => {
-  if (itemA.type === "separator" || itemB.type === "separator") {
+  if (
+    itemA.type === "separator" ||
+    itemB.type === "separator" ||
+    itemA.type !== itemB.type
+  ) {
     return false
   }
   const hasSameTitle = itemA.title === itemB.title
   const hasSamePath =
-    isSidebarItemLink(itemA) &&
-    isSidebarItemLink(itemB) &&
-    itemA.type === itemB.type &&
+    !isSidebarItemLink(itemA) ||
+    !isSidebarItemLink(itemB) ||
     itemA.path === itemB.path
 
-  return hasSameTitle || hasSamePath
+  return hasSameTitle && hasSamePath
 }
 
 const findItem = (

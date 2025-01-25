@@ -18,12 +18,11 @@ import { useTranslation } from "react-i18next"
 import { CellContext } from "@tanstack/react-table"
 import { useNavigate } from "react-router-dom"
 import { DataTable } from "../../../../../components/data-table"
+import { useDataTableDateFilters } from "../../../../../components/data-table/hooks/general/use-data-table-date-filters"
 import {
   useDeleteVariantLazy,
   useProductVariants,
 } from "../../../../../hooks/api/products"
-import { useDateFilterOptions } from "../../../../../hooks/filters/use-date-filter-options"
-import { useDate } from "../../../../../hooks/use-date"
 import { useQueryParams } from "../../../../../hooks/use-query-params"
 import { PRODUCT_VARIANT_IDS_KEY } from "../../../common/constants"
 
@@ -64,7 +63,7 @@ export const ProductVariantSection = ({
     product.id,
     {
       q,
-      order,
+      order: order ? order : "variant_rank",
       offset: offset ? parseInt(offset) : undefined,
       limit: PAGE_SIZE,
       allow_backorder: allow_backorder
@@ -357,8 +356,7 @@ const filterHelper =
 
 const useFilters = () => {
   const { t } = useTranslation()
-  const { getFullDate } = useDate()
-  const dateFilterOptions = useDateFilterOptions()
+  const dateFilters = useDataTableDateFilters()
 
   return useMemo(() => {
     return [
@@ -378,28 +376,9 @@ const useFilters = () => {
           { label: t("filters.radio.no"), value: "false" },
         ],
       }),
-      filterHelper.accessor("created_at", {
-        type: "date",
-        label: t("fields.createdAt"),
-        format: "date",
-        formatDateValue: (date) => getFullDate({ date }),
-        rangeOptionStartLabel: t("filters.date.starting"),
-        rangeOptionEndLabel: t("filters.date.ending"),
-        rangeOptionLabel: t("filters.date.custom"),
-        options: dateFilterOptions,
-      }),
-      filterHelper.accessor("updated_at", {
-        type: "date",
-        label: t("fields.updatedAt"),
-        format: "date",
-        rangeOptionStartLabel: t("filters.date.starting"),
-        rangeOptionEndLabel: t("filters.date.ending"),
-        rangeOptionLabel: t("filters.date.custom"),
-        formatDateValue: (date) => getFullDate({ date }),
-        options: dateFilterOptions,
-      }),
+      ...dateFilters,
     ]
-  }, [t, dateFilterOptions, getFullDate])
+  }, [t, dateFilters])
 }
 
 const commandHelper = createDataTableCommandHelper()
