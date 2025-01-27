@@ -73,8 +73,9 @@ const TagSectionSchema = ({ schema, tagName }: TagSectionSchemaProps) => {
       {
         section: SidebarItemSections.DEFAULT,
         parent: {
+          type: "category",
           title: tagName,
-          path: tagSlugName,
+          path: "",
           changeLoaded: true,
         },
         indexPosition: 0,

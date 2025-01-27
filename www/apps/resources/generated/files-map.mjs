@@ -8,6 +8,10 @@ export const filesMap = [
     "pathname": "/admin-components/components/container"
   },
   {
+    "filePath": "/www/apps/resources/app/admin-components/components/data-table/page.mdx",
+    "pathname": "/admin-components/components/data-table"
+  },
+  {
     "filePath": "/www/apps/resources/app/admin-components/components/forms/page.mdx",
     "pathname": "/admin-components/components/forms"
   },
@@ -820,6 +824,10 @@ export const filesMap = [
     "pathname": "/medusa-cli/commands/new"
   },
   {
+    "filePath": "/www/apps/resources/app/medusa-cli/commands/plugin/page.mdx",
+    "pathname": "/medusa-cli/commands/plugin"
+  },
+  {
     "filePath": "/www/apps/resources/app/medusa-cli/commands/start/page.mdx",
     "pathname": "/medusa-cli/commands/start"
   },
@@ -858,6 +866,14 @@ export const filesMap = [
   {
     "filePath": "/www/apps/resources/app/page.mdx",
     "pathname": "/"
+  },
+  {
+    "filePath": "/www/apps/resources/app/plugins/guides/wishlist/page.mdx",
+    "pathname": "/plugins/guides/wishlist"
+  },
+  {
+    "filePath": "/www/apps/resources/app/plugins/page.mdx",
+    "pathname": "/plugins"
   },
   {
     "filePath": "/www/apps/resources/app/recipes/b2b/page.mdx",
@@ -6980,6 +6996,38 @@ export const filesMap = [
     "pathname": "/references/core_flows/interfaces/core_flows.BatchInventoryItemLevelsWorkflowInput"
   },
   {
+    "filePath": "/www/apps/resources/references/core_flows/interfaces/core_flows.BatchInventoryItemLevelsWorkflowOutput/page.mdx",
+    "pathname": "/references/core_flows/interfaces/core_flows.BatchInventoryItemLevelsWorkflowOutput"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/interfaces/core_flows.BatchProductVariantsWorkflowInput/page.mdx",
+    "pathname": "/references/core_flows/interfaces/core_flows.BatchProductVariantsWorkflowInput"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/interfaces/core_flows.BatchProductVariantsWorkflowOutput/page.mdx",
+    "pathname": "/references/core_flows/interfaces/core_flows.BatchProductVariantsWorkflowOutput"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/interfaces/core_flows.BatchProductWorkflowInput/page.mdx",
+    "pathname": "/references/core_flows/interfaces/core_flows.BatchProductWorkflowInput"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/interfaces/core_flows.BatchPromotionRulesWorkflowInput/page.mdx",
+    "pathname": "/references/core_flows/interfaces/core_flows.BatchPromotionRulesWorkflowInput"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/interfaces/core_flows.BatchPromotionRulesWorkflowOutput/page.mdx",
+    "pathname": "/references/core_flows/interfaces/core_flows.BatchPromotionRulesWorkflowOutput"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/interfaces/core_flows.BatchShippingOptionRulesInput/page.mdx",
+    "pathname": "/references/core_flows/interfaces/core_flows.BatchShippingOptionRulesInput"
+  },
+  {
+    "filePath": "/www/apps/resources/references/core_flows/interfaces/core_flows.BatchShippingOptionRulesOutput/page.mdx",
+    "pathname": "/references/core_flows/interfaces/core_flows.BatchShippingOptionRulesOutput"
+  },
+  {
     "filePath": "/www/apps/resources/references/core_flows/interfaces/core_flows.BulkCreateDeleteLevelsWorkflowInput/page.mdx",
     "pathname": "/references/core_flows/interfaces/core_flows.BulkCreateDeleteLevelsWorkflowInput"
   },
@@ -7284,40 +7332,8 @@ export const filesMap = [
     "pathname": "/references/core_flows/types/core_flows.AuthorizePaymentSessionStepInput"
   },
   {
-    "filePath": "/www/apps/resources/references/core_flows/types/core_flows.BatchInventoryItemLevelsWorkflowOutput/page.mdx",
-    "pathname": "/references/core_flows/types/core_flows.BatchInventoryItemLevelsWorkflowOutput"
-  },
-  {
     "filePath": "/www/apps/resources/references/core_flows/types/core_flows.BatchPriceListPricesWorkflowInput/page.mdx",
     "pathname": "/references/core_flows/types/core_flows.BatchPriceListPricesWorkflowInput"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/types/core_flows.BatchProductVariantsWorkflowInput/page.mdx",
-    "pathname": "/references/core_flows/types/core_flows.BatchProductVariantsWorkflowInput"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/types/core_flows.BatchProductVariantsWorkflowOutput/page.mdx",
-    "pathname": "/references/core_flows/types/core_flows.BatchProductVariantsWorkflowOutput"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/types/core_flows.BatchProductWorkflowInput/page.mdx",
-    "pathname": "/references/core_flows/types/core_flows.BatchProductWorkflowInput"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/types/core_flows.BatchPromotionRulesWorkflowInput/page.mdx",
-    "pathname": "/references/core_flows/types/core_flows.BatchPromotionRulesWorkflowInput"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/types/core_flows.BatchPromotionRulesWorkflowOutput/page.mdx",
-    "pathname": "/references/core_flows/types/core_flows.BatchPromotionRulesWorkflowOutput"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/types/core_flows.BatchShippingOptionRulesInput/page.mdx",
-    "pathname": "/references/core_flows/types/core_flows.BatchShippingOptionRulesInput"
-  },
-  {
-    "filePath": "/www/apps/resources/references/core_flows/types/core_flows.BatchShippingOptionRulesOutput/page.mdx",
-    "pathname": "/references/core_flows/types/core_flows.BatchShippingOptionRulesOutput"
   },
   {
     "filePath": "/www/apps/resources/references/core_flows/types/core_flows.BeginClaimOrderValidationStepInput/page.mdx",
