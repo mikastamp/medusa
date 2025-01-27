@@ -53,10 +53,10 @@ export const validateCartShippingOptionsStep = createStep(
   async (data: ValidateCartShippingOptionsStepInput, { container }) => {
     const { option_ids: optionIds = [], cart, shippingOptionsContext } = data
 
-    if (!cart.shipping_address?.country_code) {
+    if (cart.shipping_address && !cart.shipping_address.country_code) {
       throw new MedusaError(
         MedusaError.Types.INVALID_DATA,
-        "Cart shipping address must have a country code."
+        "Cart shipping address must have at least a country code for shipping option validation."
       )
     }
 
