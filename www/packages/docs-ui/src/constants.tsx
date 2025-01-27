@@ -146,7 +146,9 @@ export const navDropdownItems: NavigationItem[] = [
         link: "/learn/fundamentals/admin",
       },
       {
-        type: "divider",
+        type: "link",
+        title: "Plugins",
+        link: "/learn/fundamentals/plugins",
       },
       {
         type: "link",
