@@ -185,10 +185,19 @@ export const generatedSidebar = [
         "loaded": true,
         "isPathHref": true,
         "type": "link",
+        "title": "Re-Use Customizations",
+        "path": "/learn/customization/reuse-customizations",
+        "children": [],
+        "chapterTitle": "2.5. Re-Use Customizations"
+      },
+      {
+        "loaded": true,
+        "isPathHref": true,
+        "type": "link",
         "title": "Next Steps",
         "path": "/learn/customization/next-steps",
         "children": [],
-        "chapterTitle": "2.5. Next Steps"
+        "chapterTitle": "2.6. Next Steps"
       }
     ],
     "chapterTitle": "2. Customize"
@@ -664,10 +673,19 @@ export const generatedSidebar = [
             "loaded": true,
             "isPathHref": true,
             "type": "link",
+            "path": "/learn/fundamentals/workflows/store-executions",
+            "title": "Store Workflow Executions",
+            "children": [],
+            "chapterTitle": "3.6.11. Store Workflow Executions"
+          },
+          {
+            "loaded": true,
+            "isPathHref": true,
+            "type": "link",
             "path": "/learn/fundamentals/workflows/long-running-workflow",
             "title": "Long-Running Workflow",
             "children": [],
-            "chapterTitle": "3.6.11. Long-Running Workflow"
+            "chapterTitle": "3.6.12. Long-Running Workflow"
           },
           {
             "loaded": true,
@@ -676,7 +694,7 @@ export const generatedSidebar = [
             "path": "/learn/fundamentals/workflows/execute-another-workflow",
             "title": "Execute Another Workflow",
             "children": [],
-            "chapterTitle": "3.6.12. Execute Another Workflow"
+            "chapterTitle": "3.6.13. Execute Another Workflow"
           },
           {
             "loaded": true,
@@ -685,7 +703,7 @@ export const generatedSidebar = [
             "path": "/learn/fundamentals/workflows/multiple-step-usage",
             "title": "Multiple Step Usage",
             "children": [],
-            "chapterTitle": "3.6.13. Multiple Step Usage"
+            "chapterTitle": "3.6.14. Multiple Step Usage"
           }
         ],
         "chapterTitle": "3.6. Workflows"
@@ -787,6 +805,25 @@ export const generatedSidebar = [
         "loaded": true,
         "isPathHref": true,
         "type": "link",
+        "path": "/learn/fundamentals/plugins",
+        "title": "Plugins",
+        "children": [
+          {
+            "loaded": true,
+            "isPathHref": true,
+            "type": "link",
+            "path": "/learn/fundamentals/plugins/create",
+            "title": "Create Plugin",
+            "children": [],
+            "chapterTitle": "3.10.1. Create Plugin"
+          }
+        ],
+        "chapterTitle": "3.10. Plugins"
+      },
+      {
+        "loaded": true,
+        "isPathHref": true,
+        "type": "link",
         "path": "/learn/fundamentals/custom-cli-scripts",
         "title": "Custom CLI Scripts",
         "children": [
@@ -797,10 +834,10 @@ export const generatedSidebar = [
             "path": "/learn/fundamentals/custom-cli-scripts/seed-data",
             "title": "Seed Data",
             "children": [],
-            "chapterTitle": "3.10.1. Seed Data"
+            "chapterTitle": "3.11.1. Seed Data"
           }
         ],
-        "chapterTitle": "3.10. Custom CLI Scripts"
+        "chapterTitle": "3.11. Custom CLI Scripts"
       },
       {
         "loaded": true,
@@ -809,7 +846,7 @@ export const generatedSidebar = [
         "title": "Environment Variables",
         "path": "/learn/fundamentals/environment-variables",
         "children": [],
-        "chapterTitle": "3.11. Environment Variables"
+        "chapterTitle": "3.12. Environment Variables"
       }
     ],
     "chapterTitle": "3. Fundamentals"
@@ -964,7 +1001,25 @@ export const generatedSidebar = [
   },
   {
     "type": "category",
-    "title": "7. More Resources",
+    "title": "7. Updates",
+    "children": [
+      {
+        "loaded": true,
+        "isPathHref": true,
+        "type": "link",
+        "path": "/learn/update",
+        "title": "Updating Medusa",
+        "chapterTitle": "7. Updates",
+        "children": [],
+        "childrenSameLevel": true
+      }
+    ],
+    "loaded": true,
+    "initialOpen": false
+  },
+  {
+    "type": "category",
+    "title": "8. More Resources",
     "children": [
       {
         "loaded": true,
@@ -974,7 +1029,7 @@ export const generatedSidebar = [
         "title": "More Resources",
         "children": [],
         "childrenSameLevel": true,
-        "chapterTitle": "7. More Resources"
+        "chapterTitle": "8. More Resources"
       }
     ],
     "loaded": true,

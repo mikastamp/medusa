@@ -33,7 +33,6 @@ const TagSectionSchema = ({ schema, tagName }: TagSectionSchemaProps) => {
   const paramsRef = useRef<HTMLDivElement>(null)
   const { addItems, setActivePath, activePath } = useSidebar()
   const { displayedArea } = useArea()
-  const tagSlugName = useMemo(() => getSectionId([tagName]), [tagName])
   const formattedName = useMemo(
     () => singular(tagName).replaceAll(" ", ""),
     [tagName]

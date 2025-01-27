@@ -8,6 +8,10 @@ export const filesMap = [
     "pathname": "/admin-components/components/container"
   },
   {
+    "filePath": "/www/apps/resources/app/admin-components/components/data-table/page.mdx",
+    "pathname": "/admin-components/components/data-table"
+  },
+  {
     "filePath": "/www/apps/resources/app/admin-components/components/forms/page.mdx",
     "pathname": "/admin-components/components/forms"
   },
@@ -820,6 +824,10 @@ export const filesMap = [
     "pathname": "/medusa-cli/commands/new"
   },
   {
+    "filePath": "/www/apps/resources/app/medusa-cli/commands/plugin/page.mdx",
+    "pathname": "/medusa-cli/commands/plugin"
+  },
+  {
     "filePath": "/www/apps/resources/app/medusa-cli/commands/start/page.mdx",
     "pathname": "/medusa-cli/commands/start"
   },
@@ -858,6 +866,14 @@ export const filesMap = [
   {
     "filePath": "/www/apps/resources/app/page.mdx",
     "pathname": "/"
+  },
+  {
+    "filePath": "/www/apps/resources/app/plugins/guides/wishlist/page.mdx",
+    "pathname": "/plugins/guides/wishlist"
+  },
+  {
+    "filePath": "/www/apps/resources/app/plugins/page.mdx",
+    "pathname": "/plugins"
   },
   {
     "filePath": "/www/apps/resources/app/recipes/b2b/page.mdx",
