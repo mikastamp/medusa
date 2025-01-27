@@ -30,7 +30,6 @@ export type TagSectionSchemaProps = {
 }
 
 const TagSectionSchema = ({ schema, tagName }: TagSectionSchemaProps) => {
-  const paramsRef = useRef<HTMLDivElement>(null)
   const { addItems, setActivePath, activePath } = useSidebar()
   const { displayedArea } = useArea()
   const formattedName = useMemo(
@@ -128,7 +127,7 @@ const TagSectionSchema = ({ schema, tagName }: TagSectionSchemaProps) => {
         root={root}
         threshold={0.1}
       >
-        <SectionContainer ref={paramsRef}>
+        <SectionContainer>
           <DividedLayout
             mainContent={
               <div>
