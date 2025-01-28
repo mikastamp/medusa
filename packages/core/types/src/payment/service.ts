@@ -3,9 +3,11 @@ import { RestoreReturn, SoftDeleteReturn } from "../dal"
 import { IModuleService } from "../modules-sdk"
 import { Context } from "../shared-context"
 import {
+  AccountHolderDTO,
   CaptureDTO,
   FilterableCaptureProps,
   FilterablePaymentCollectionProps,
+  FilterablePaymentMethodProps,
   FilterablePaymentProps,
   FilterablePaymentProviderProps,
   FilterablePaymentSessionProps,
@@ -13,6 +15,7 @@ import {
   FilterableRefundReasonProps,
   PaymentCollectionDTO,
   PaymentDTO,
+  PaymentMethodDTO,
   PaymentProviderDTO,
   PaymentSessionDTO,
   RefundDTO,
@@ -29,6 +32,7 @@ import {
   UpdatePaymentDTO,
   UpdatePaymentSessionDTO,
   UpdateRefundReasonDTO,
+  CreateAccountHolderDTO,
   UpsertPaymentCollectionDTO,
 } from "./mutations"
 import { WebhookActionResult } from "./provider"
@@ -50,12 +54,10 @@ export interface IPaymentModuleService extends IModuleService {
    * const paymentCollections =
    *   await paymentModuleService.createPaymentCollections([
    *     {
-   *       region_id: "reg_123",
    *       currency_code: "usd",
    *       amount: 3000,
    *     },
    *     {
-   *       region_id: "reg_321",
    *       currency_code: "eur",
    *       amount: 2000,
    *     },
@@ -76,7 +78,6 @@ export interface IPaymentModuleService extends IModuleService {
    * @example
    * const paymentCollection =
    *   await paymentModuleService.createPaymentCollections({
-   *     region_id: "reg_123",
    *     currency_code: "usd",
    *     amount: 3000,
    *   })
@@ -300,10 +301,8 @@ export interface IPaymentModuleService extends IModuleService {
    *   await paymentModuleService.upsertPaymentCollections([
    *     {
    *       id: "pay_col_123",
-   *       region_id: "reg_123",
    *     },
    *     {
-   *       region_id: "reg_123",
    *       currency_code: "usd",
    *       amount: 3000,
    *     },
@@ -326,7 +325,6 @@ export interface IPaymentModuleService extends IModuleService {
    * const paymentCollection =
    *   await paymentModuleService.upsertPaymentCollections({
    *     id: "pay_col_123",
-   *     region_id: "reg_123",
    *   })
    */
   upsertPaymentCollections(
@@ -652,7 +650,6 @@ export interface IPaymentModuleService extends IModuleService {
    * @example
    * const payment = await paymentModuleService.updatePayment({
    *   id: "pay_123",
-   *   customer_id: "cus_123",
    * })
    */
   updatePayment(
@@ -755,6 +752,131 @@ export interface IPaymentModuleService extends IModuleService {
     config?: FindConfig<PaymentProviderDTO>,
     sharedContext?: Context
   ): Promise<[PaymentProviderDTO[], number]>
+
+  /**
+   * This method creates(if supported by provider) the account holder in the payment provider.
+   *
+   * @param {CreateAccountHolderDTO} data - The details of the account holder.
+   * @param {Context} sharedContext - A context used to share resources, such as transaction manager, between the application and the module.
+   * @returns {Promise<Record<string, unknown>>} The account holder's details in the payment provider, typically just the ID.
+   *
+   * @example
+   * const accountHolder =
+   *   await paymentModuleService.createAccountHolder(
+   *     {
+   *       provider_id: "stripe",
+   *       context: {
+   *         customer: {
+   *           id: "cus_123",
+   *         },
+   *       },
+   *     }
+   *   )
+   *
+   *  remoteLink.create([{
+   *    [Modules.CUSTOMER]: {
+   *      customer_id: "cus_123",
+   *    },
+   *    [Modules.PAYMENT]: {
+   *      account_holder_id: accountHolder.id,
+   *    },
+   *  }])
+   */
+  createAccountHolder(
+    input: CreateAccountHolderDTO,
+    sharedContext?: Context
+  ): Promise<AccountHolderDTO>
+
+  /**
+   * This method deletes the account holder in the payment provider.
+   *
+   * @param {string} id - The account holder's ID.
+   * @param {Context} sharedContext - A context used to share resources, such as transaction manager, between the application and the module.
+   * @returns {Promise<void>} Resolves when the account holder is deleted successfully.
+   *
+   * @example
+   * await paymentModuleService.deleteAccountHolder({
+   *   id: "acc_holder_123",
+   * })
+   *
+   * remoteLink.dismiss([{
+   *    [Modules.CUSTOMER]: {
+   *      customer_id: "cus_123",
+   *    },
+   *    [Modules.PAYMENT]: {
+   *      account_holder_id: "acc_holder_123",
+   *    },
+   *  }])
+   */
+  deleteAccountHolder(id: string, sharedContext?: Context): Promise<void>
+
+  /**
+   * This method retrieves all payment methods based on the context and configuration.
+   *
+   * @param {FilterablePaymentMethodProps} filters - The filters to apply on the retrieved payment methods.
+   * @param {FindConfig<PaymentMethodDTO>} config - The configurations determining how the payment method is retrieved. Its properties, such as `select` or `relations`, accept the
+   * attributes or relations associated with a payment method.
+   * @param {Context} sharedContext - A context used to share resources, such as transaction manager, between the application and the module.
+   * @returns {Promise<PaymentMethodDTO[]>} The list of payment methods.
+   *
+   * @example
+   * To retrieve a list of payment methods for a customer:
+   *
+   * ```ts
+   * const paymentMethods =
+   *   await paymentModuleService.listPaymentMethods({
+   *     provider_id: "pp_stripe_stripe",
+   *     context: {
+   *       customer: {
+   *         id: "cus_123",
+   *         metadata: {
+   *           pp_stripe_stripe_customer_id: "str_1234"
+   *         }
+   *       },
+   *     },
+   *   })
+   * ```
+   *
+   */
+  listPaymentMethods(
+    filters: FilterablePaymentMethodProps,
+    config: FindConfig<PaymentMethodDTO>,
+    sharedContext?: Context
+  ): Promise<PaymentMethodDTO[]>
+
+  /**
+   * This method retrieves all payment methods along with the total count of available payment methods, based on the context and configuration.
+   *
+   * @param {FilterablePaymentMethodProps} filters - The filters to apply on the retrieved payment methods.
+   * @param {FindConfig<PaymentMethodDTO>} config - The configurations determining how the payment method is retrieved. Its properties, such as `select` or `relations`, accept the
+   * attributes or relations associated with a payment method.
+   * @param {Context} sharedContext - A context used to share resources, such as transaction manager, between the application and the module.
+   * @returns {Promise<[PaymentMethodDTO[], number]>} The list of payment methods along with their total count.
+   *
+   * @example
+   * To retrieve a list of payment methods for a customer:
+   *
+   * ```ts
+   * const [paymentMethods, count] =
+   *   await paymentModuleService.listAndCountPaymentMethods({
+   *     provider_id: "pp_stripe_stripe",
+   *     context: {
+   *       customer: {
+   *         id: "cus_123",
+   *         metadata: {
+   *           pp_stripe_stripe_customer_id: "str_1234"
+   *         }
+   *       },
+   *     },
+   *   })
+   * ```
+   *
+   */
+  listAndCountPaymentMethods(
+    filters: FilterablePaymentMethodProps,
+    config: FindConfig<PaymentMethodDTO>,
+    sharedContext?: Context
+  ): Promise<[PaymentMethodDTO[], number]>
 
   /**
    * This method retrieves a paginated list of captures based on optional filters and configuration.
@@ -1077,7 +1199,9 @@ export interface IPaymentModuleService extends IModuleService {
    * })
    * ```
    */
-  getWebhookActionAndData(data: ProviderWebhookPayload): Promise<WebhookActionResult>
+  getWebhookActionAndData(
+    data: ProviderWebhookPayload
+  ): Promise<WebhookActionResult>
 }
 
 /**

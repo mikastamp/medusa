@@ -1,4 +1,5 @@
 import {
+  IFulfillmentModuleService,
   IProductModuleService,
   IRegionModuleService,
   ISalesChannelModuleService,
@@ -9,13 +10,22 @@ import { normalizeForImport } from "../helpers/normalize-for-import"
 import { normalizeV1Products } from "../helpers/normalize-v1-import"
 import { convertCsvToJson } from "../utlils"
 
+/**
+ * The CSV file content to parse.
+ */
+export type ParseProductCsvStepInput = string
+
 export const parseProductCsvStepId = "parse-product-csv"
 /**
- * This step parses a CSV file holding products to import.
+ * This step parses a CSV file holding products to import, returning the products as
+ * objects that can be imported.
+ *
+ * @example
+ * const data = parseProductCsvStep("products.csv")
  */
 export const parseProductCsvStep = createStep(
   parseProductCsvStepId,
-  async (fileContent: string, { container }) => {
+  async (fileContent: ParseProductCsvStepInput, { container }) => {
     const regionService = container.resolve<IRegionModuleService>(
       Modules.REGION
     )
@@ -26,20 +36,25 @@ export const parseProductCsvStep = createStep(
       Modules.SALES_CHANNEL
     )
 
+    const fulfillmentService = container.resolve<IFulfillmentModuleService>(
+      Modules.FULFILLMENT
+    )
+
     const csvProducts = convertCsvToJson(fileContent)
 
-    const [productTypes, productCollections, salesChannels] = await Promise.all(
-      [
+    const [productTypes, productCollections, salesChannels, shippingProfiles] =
+      await Promise.all([
         productService.listProductTypes({}, {}),
         productService.listProductCollections({}, {}),
         salesChannelService.listSalesChannels({}, {}),
-      ]
-    )
+        fulfillmentService.listShippingProfiles({}, {}),
+      ])
 
     const v1Normalized = normalizeV1Products(csvProducts, {
       productTypes,
       productCollections,
       salesChannels,
+      shippingProfiles,
     })
 
     // We use the handle to group products and variants correctly.

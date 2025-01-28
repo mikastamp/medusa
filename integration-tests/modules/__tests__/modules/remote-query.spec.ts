@@ -209,9 +209,18 @@ medusaIntegrationTestRunner({
       beforeEach(async () => {
         await createAdminUser(dbConnection, adminHeaders, appContainer)
 
+        const shippingProfile = (
+          await api.post(
+            `/admin/shipping-profiles`,
+            { name: "Test", type: "default" },
+            adminHeaders
+          )
+        ).data.shipping_profile
+
         const payload = {
           title: "Test Giftcard",
           is_giftcard: true,
+          shipping_profile_id: shippingProfile.id,
           description: "test-giftcard-description",
           options: [{ title: "Denominations", values: ["100"] }],
           variants: [

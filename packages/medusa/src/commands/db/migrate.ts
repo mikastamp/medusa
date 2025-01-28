@@ -1,18 +1,21 @@
-import { join } from "path"
+import { MEDUSA_CLI_PATH, MedusaAppLoader } from "@medusajs/framework"
+import { LinkLoader } from "@medusajs/framework/links"
+import { logger } from "@medusajs/framework/logger"
 import {
   ContainerRegistrationKeys,
   mergePluginModules,
 } from "@medusajs/framework/utils"
-import { LinkLoader } from "@medusajs/framework/links"
-import { logger } from "@medusajs/framework/logger"
-import { MedusaAppLoader } from "@medusajs/framework"
+import { join } from "path"
 
-import { syncLinks } from "./sync-links"
-import { ensureDbExists } from "../utils"
+import { fork } from "child_process"
+import path from "path"
 import { initializeContainer } from "../../loaders"
 import { getResolvedPlugins } from "../../loaders/helpers/resolve-plugins"
-
+import { ensureDbExists } from "../utils"
+import { syncLinks } from "./sync-links"
 const TERMINAL_SIZE = process.stdout.columns
+
+const cliPath = path.resolve(MEDUSA_CLI_PATH, "..", "..", "cli.js")
 
 /**
  * A low-level utility to migrate the database. This util should
@@ -21,11 +24,13 @@ const TERMINAL_SIZE = process.stdout.columns
 export async function migrate({
   directory,
   skipLinks,
+  skipScripts,
   executeAllLinks,
   executeSafeLinks,
 }: {
   directory: string
   skipLinks: boolean
+  skipScripts: boolean
   executeAllLinks: boolean
   executeSafeLinks: boolean
 }): Promise<boolean> {
@@ -69,12 +74,33 @@ export async function migrate({
     })
   }
 
+  if (!skipScripts) {
+    /**
+     * Run migration scripts
+     */
+    console.log(new Array(TERMINAL_SIZE).join("-"))
+    const childProcess = fork(cliPath, ["db:migrate:scripts"], {
+      cwd: directory,
+      env: process.env,
+    })
+
+    await new Promise<void>((resolve, reject) => {
+      childProcess.on("error", (error) => {
+        reject(error)
+      })
+      childProcess.on("close", () => {
+        resolve()
+      })
+    })
+  }
+
   return true
 }
 
 const main = async function ({
   directory,
   skipLinks,
+  skipScripts,
   executeAllLinks,
   executeSafeLinks,
 }) {
@@ -82,6 +108,7 @@ const main = async function ({
     const migrated = await migrate({
       directory,
       skipLinks,
+      skipScripts,
       executeAllLinks,
       executeSafeLinks,
     })

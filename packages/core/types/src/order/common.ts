@@ -2728,6 +2728,21 @@ export interface FilterableOrderChangeProps
   order_id?: string | string[] | OperatorMap<string>
 
   /**
+   * Filter the changes by their associated return's ID.
+   */
+  return_id?: string | string[] | OperatorMap<string>
+
+  /**
+   * Filter the changes by their associated claim's ID.
+   */
+  claim_id?: string | string[] | OperatorMap<string>
+
+  /**
+   * Filter the changes by their associated exchange's ID.
+   */
+  exchange_id?: string | string[] | OperatorMap<string>
+
+  /**
    * Filter the order changes by their status.
    */
   status?: string | string[] | OperatorMap<string>
@@ -3034,13 +3049,28 @@ export interface OrderChangeReturn {
   shippingMethods: any[]
 }
 
+/**
+ * The details of an order after a change is applied on it.
+ */
 export interface OrderPreviewDTO
   extends Omit<OrderDTO, "items" | "shipping_methods"> {
+  /**
+   * The details of the changes made on the order.
+   */
   order_change: OrderChangeDTO
+  /**
+   * The items of the order, along with changes on the items.
+   */
   items: (OrderLineItemDTO & { actions?: OrderChangeActionDTO[] })[]
+  /**
+   * The shipping methods of the order, along with changes on the shipping methods.
+   */
   shipping_methods: (OrderShippingMethodDTO & {
     actions?: OrderChangeActionDTO[]
   })[]
+  /**
+   * The total amount for the requested return.
+   */
   return_requested_total: number
 }
 

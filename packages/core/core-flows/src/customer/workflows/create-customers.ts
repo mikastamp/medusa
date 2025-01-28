@@ -1,6 +1,7 @@
 import { AdditionalData, CreateCustomerDTO } from "@medusajs/framework/types"
 import { CustomerWorkflowEvents } from "@medusajs/framework/utils"
 import {
+  WorkflowData,
   WorkflowResponse,
   createHook,
   createWorkflow,
@@ -25,7 +26,7 @@ export const createCustomersWorkflowId = "create-customers"
  * 
  * This workflow has a hook that allows you to perform custom actions on the created customer. You can see an example in [this guide](https://docs.medusajs.com/resources/commerce-modules/customer/extend).
  * 
- * You can also use this workflow within your own custom workflows, allowing you to wrap custom logic around creating customers.
+ * You can also use this workflow within your customizations or your own custom workflows, allowing you to wrap custom logic around creating customers.
  * 
  * @example
  * const { result } = await createCustomersWorkflow(container)
@@ -52,7 +53,7 @@ export const createCustomersWorkflowId = "create-customers"
  */
 export const createCustomersWorkflow = createWorkflow(
   createCustomersWorkflowId,
-  (input: CreateCustomersWorkflowInput) => {
+  (input: WorkflowData<CreateCustomersWorkflowInput>) => {
     const createdCustomers = createCustomersStep(input.customersData)
     const customersCreated = createHook("customersCreated", {
       customers: createdCustomers,

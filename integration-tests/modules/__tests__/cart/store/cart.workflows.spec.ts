@@ -845,6 +845,11 @@ medusaIntegrationTestRunner({
 
       describe("UpdateCartWorkflow", () => {
         it("should remove item with custom price when region is updated", async () => {
+          const hookCallback = jest.fn()
+          addToCartWorkflow.hooks.validate((data) => {
+            hookCallback(data)
+          })
+
           const salesChannel = await scModuleService.createSalesChannels({
             name: "Webshop",
           })
@@ -926,33 +931,50 @@ medusaIntegrationTestRunner({
             select: ["id", "region_id", "currency_code", "sales_channel_id"],
           })
 
+          const wfInput = {
+            items: [
+              {
+                variant_id: product.variants[0].id,
+                quantity: 1,
+              },
+              {
+                title: "Test item",
+                subtitle: "Test subtitle",
+                thumbnail: "some-url",
+                requires_shipping: true,
+                is_discountable: false,
+                is_tax_inclusive: false,
+                unit_price: 1500,
+                metadata: {
+                  foo: "bar",
+                },
+                quantity: 1,
+              },
+            ],
+            cart_id: cart.id,
+          }
           await addToCartWorkflow(appContainer).run({
-            input: {
-              items: [
-                {
-                  variant_id: product.variants[0].id,
-                  quantity: 1,
-                },
-                {
-                  title: "Test item",
-                  subtitle: "Test subtitle",
-                  thumbnail: "some-url",
-                  requires_shipping: true,
-                  is_discountable: false,
-                  is_tax_inclusive: false,
-                  unit_price: 1500,
-                  metadata: {
-                    foo: "bar",
-                  },
-                  quantity: 1,
-                },
-              ],
-              cart_id: cart.id,
-            },
+            input: wfInput,
           })
 
           cart = await cartModuleService.retrieveCart(cart.id, {
             relations: ["items"],
+          })
+
+          expect(hookCallback).toHaveBeenCalledWith({
+            cart: {
+              completed_at: null,
+              id: expect.stringContaining("cart_"),
+              sales_channel_id: expect.stringContaining("sc_"),
+              currency_code: "usd",
+              region_id: expect.stringContaining("reg_"),
+              shipping_address: null,
+              item_total: 0,
+              total: 0,
+              email: null,
+              customer_id: null,
+            },
+            input: wfInput,
           })
 
           expect(cart).toEqual(
@@ -2522,7 +2544,6 @@ medusaIntegrationTestRunner({
             await paymentModule.createPaymentCollections({
               amount: 5001,
               currency_code: "dkk",
-              region_id: defaultRegion.id,
             })
 
           const paymentSession = await paymentModule.createPaymentSession(
@@ -2594,7 +2615,6 @@ medusaIntegrationTestRunner({
               await paymentModule.createPaymentCollections({
                 amount: 5000,
                 currency_code: "dkk",
-                region_id: defaultRegion.id,
               })
 
             const paymentSession = await paymentModule.createPaymentSession(

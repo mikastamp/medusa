@@ -1,7 +1,6 @@
 import { AddressDTO } from "../address"
-import { CustomerDTO } from "../customer"
 import { BigNumberInput, BigNumberValue } from "../totals"
-import { PaymentSessionStatus } from "./common"
+import { AccountHolderDTO, PaymentSessionStatus } from "./common"
 import { ProviderWebhookPayload } from "./mutations"
 
 /**
@@ -12,7 +11,19 @@ export type PaymentAddressDTO = Partial<AddressDTO>
 /**
  * The customer associated with the payment.
  */
-export type PaymentCustomerDTO = Partial<CustomerDTO>
+export type PaymentCustomerDTO = {
+  id: string
+  email: string
+  company_name?: string | null
+  first_name?: string | null
+  last_name?: string | null
+  phone?: string | null
+  billing_address?: PaymentAddressDTO | null
+}
+
+export type PaymentAccountHolderDTO = {
+  data: Record<string, unknown>
+}
 
 /**
  * Normalized events from payment provider to internal payment module events.
@@ -26,33 +37,26 @@ export type PaymentActions =
 /**
  * @interface
  *
- * Context data provided to the payment provider when authorizing a payment session.
+ * Context data provided to the payment provider
  */
 export type PaymentProviderContext = {
   /**
-   * The payment's billing address.
+   * The account holder information, if available for the payment provider.
    */
-  billing_address?: PaymentAddressDTO
+  account_holder?: PaymentAccountHolderDTO
 
   /**
-   * The associated customer's email.
-   */
-  email?: string
-
-  /**
-   * The ID of payment session the provider payment is associated with.
-   */
-  session_id?: string
-
-  /**
-   * The customer associated with this payment.
+   * The customer information from Medusa.
    */
   customer?: PaymentCustomerDTO
+}
 
-  /**
-   * The extra fields specific to the provider session.
-   */
-  extra?: Record<string, unknown>
+export type PaymentProviderInput = {
+  // Data is a combination of the input from the user and whatever is stored in the DB for this entity.
+  data?: Record<string, unknown>
+
+  // The context for this payment operation. The data is guaranteed to be validated and not directly provided by the user.
+  context?: PaymentProviderContext
 }
 
 /**
@@ -61,12 +65,7 @@ export type PaymentProviderContext = {
  * The data used initiate a payment in a provider when a payment
  * session is created.
  */
-export type CreatePaymentProviderSession = {
-  /**
-   * A context necessary for the payment provider.
-   */
-  context: PaymentProviderContext
-
+export type InitiatePaymentInput = PaymentProviderInput & {
   /**
    * The amount to be authorized.
    */
@@ -83,17 +82,7 @@ export type CreatePaymentProviderSession = {
  *
  * The attributes to update a payment related to a payment session in a provider.
  */
-export type UpdatePaymentProviderSession = {
-  /**
-   * A payment's context.
-   */
-  context: PaymentProviderContext
-
-  /**
-   * The `data` field of the payment session.
-   */
-  data: Record<string, unknown>
-
+export type UpdatePaymentInput = PaymentProviderInput & {
   /**
    * The payment session's amount.
    */
@@ -105,17 +94,58 @@ export type UpdatePaymentProviderSession = {
   currency_code: string
 }
 
+export type DeletePaymentInput = PaymentProviderInput
+
+export type AuthorizePaymentInput = PaymentProviderInput
+
+export type CapturePaymentInput = PaymentProviderInput
+
+export type RefundPaymentInput = PaymentProviderInput & {
+  /**
+   * The amount to refund.
+   */
+  amount: BigNumberInput
+}
+
+export type RetrievePaymentInput = PaymentProviderInput
+
+export type CancelPaymentInput = PaymentProviderInput
+
+export type CreateAccountHolderInput = PaymentProviderInput & {
+  context: Omit<PaymentProviderContext, "customer"> & {
+    customer: PaymentCustomerDTO
+  }
+}
+
+export type DeleteAccountHolderInput = PaymentProviderInput & {
+  context: Omit<PaymentProviderContext, "account_holder"> & {
+    account_holder: Partial<AccountHolderDTO>
+  }
+}
+
+export type ListPaymentMethodsInput = PaymentProviderInput
+
+export type SavePaymentMethodInput = PaymentProviderInput
+
+export type GetPaymentStatusInput = PaymentProviderInput
+
 /**
  * @interface
  *
  * The response of operations on a payment.
  */
-export type PaymentProviderSessionResponse = {
+export type PaymentProviderOutput = {
   /**
-   * The data to be stored in the `data` field of the Payment Session to be created.
-   * The `data` field is useful to hold any data required by the third-party provider to process the payment or retrieve its details at a later point.
+   * The unstrucvtured data returned from the payment provider. The content will vary between providers.
    */
-  data: Record<string, unknown>
+  data?: Record<string, unknown>
+}
+
+export type InitiatePaymentOutput = PaymentProviderOutput & {
+  /**
+   * The ID of the payment session in the payment provider.
+   */
+  id: string
 }
 
 /**
@@ -123,54 +153,53 @@ export type PaymentProviderSessionResponse = {
  *
  * The successful result of authorizing a payment session using a payment provider.
  */
-export type PaymentProviderAuthorizeResponse = {
+export type AuthorizePaymentOutput = PaymentProviderOutput & {
   /**
    * The status of the payment, which will be stored in the payment session's `status` field.
    */
   status: PaymentSessionStatus
-
-  /**
-   * The `data` to be stored in the payment session's `data` field.
-   */
-  data: PaymentProviderSessionResponse["data"]
 }
 
-/**
- * @interface
- *
- * The details of which payment provider to use to perform an action, and what
- * data to be passed to that provider.
- */
-export type PaymentProviderDataInput = {
-  /**
-   * The ID of the provider to be used to perform an action.
-   */
-  provider_id: string
+export type UpdatePaymentOutput = PaymentProviderOutput
 
+export type DeletePaymentOutput = PaymentProviderOutput
+
+export type CapturePaymentOutput = PaymentProviderOutput
+
+export type RefundPaymentOutput = PaymentProviderOutput
+
+export type RetrievePaymentOutput = PaymentProviderOutput
+
+export type CancelPaymentOutput = PaymentProviderOutput
+
+export type CreateAccountHolderOutput = PaymentProviderOutput & {
   /**
-   * The data to be passed to the provider.
+   * The ID of the account holder in the payment provider.
    */
-  data: Record<string, unknown>
+  id: string
 }
 
-/**
- * An object that is returned in case of an error.
- */
-export interface PaymentProviderError {
-  /**
-   * The error message
-   */
-  error: string
+export type DeleteAccountHolderOutput = PaymentProviderOutput
 
+export type ListPaymentMethodsOutput = (PaymentProviderOutput & {
   /**
-   * The error code.
+   * The ID of the payment method in the payment provider.
    */
-  code?: string
+  id: string
+})[]
 
+export type SavePaymentMethodOutput = PaymentProviderOutput & {
   /**
-   * Any additional helpful details.
+   * The ID of the payment method in the payment provider.
    */
-  detail?: any
+  id: string
+}
+
+export type GetPaymentStatusOutput = PaymentProviderOutput & {
+  /**
+   * The status of the payment, which will be stored in the payment session's `status` field.
+   */
+  status: PaymentSessionStatus
 }
 
 /**
@@ -215,43 +244,39 @@ export interface IPaymentProvider {
    */
   getIdentifier(): string
 
-  initiatePayment(
-    data: CreatePaymentProviderSession
-  ): Promise<PaymentProviderError | PaymentProviderSessionResponse>
+  initiatePayment(data: InitiatePaymentInput): Promise<InitiatePaymentOutput>
 
-  updatePayment(
-    context: UpdatePaymentProviderSession
-  ): Promise<PaymentProviderError | PaymentProviderSessionResponse>
+  updatePayment(data: UpdatePaymentInput): Promise<UpdatePaymentOutput>
 
-  deletePayment(
-    paymentSessionData: Record<string, unknown>
-  ): Promise<PaymentProviderError | PaymentProviderSessionResponse["data"]>
+  deletePayment(data: DeletePaymentInput): Promise<DeletePaymentOutput>
 
-  authorizePayment(
-    paymentSessionData: Record<string, unknown>,
-    context: Record<string, unknown>
-  ): Promise<PaymentProviderError | PaymentProviderAuthorizeResponse>
+  authorizePayment(data: AuthorizePaymentInput): Promise<AuthorizePaymentOutput>
 
-  capturePayment(
-    paymentSessionData: Record<string, unknown>
-  ): Promise<PaymentProviderError | PaymentProviderSessionResponse["data"]>
+  capturePayment(data: CapturePaymentInput): Promise<CapturePaymentOutput>
 
-  refundPayment(
-    paymentSessionData: Record<string, unknown>,
-    refundAmount: BigNumberInput
-  ): Promise<PaymentProviderError | PaymentProviderSessionResponse["data"]>
+  refundPayment(data: RefundPaymentInput): Promise<RefundPaymentOutput>
 
-  retrievePayment(
-    paymentSessionData: Record<string, unknown>
-  ): Promise<PaymentProviderError | PaymentProviderSessionResponse["data"]>
+  retrievePayment(data: RetrievePaymentInput): Promise<RetrievePaymentOutput>
 
-  cancelPayment(
-    paymentSessionData: Record<string, unknown>
-  ): Promise<PaymentProviderError | PaymentProviderSessionResponse["data"]>
+  cancelPayment(data: CancelPaymentInput): Promise<CancelPaymentOutput>
 
-  getPaymentStatus(
-    paymentSessionData: Record<string, unknown>
-  ): Promise<PaymentSessionStatus>
+  createAccountHolder?(
+    data: CreateAccountHolderInput
+  ): Promise<CreateAccountHolderOutput>
+
+  deleteAccountHolder?(
+    data: DeleteAccountHolderInput
+  ): Promise<DeleteAccountHolderOutput>
+
+  listPaymentMethods?(
+    data: ListPaymentMethodsInput
+  ): Promise<ListPaymentMethodsOutput>
+
+  savePaymentMethod?(
+    data: SavePaymentMethodInput
+  ): Promise<SavePaymentMethodOutput>
+
+  getPaymentStatus(data: GetPaymentStatusInput): Promise<GetPaymentStatusOutput>
 
   getWebhookActionAndData(
     data: ProviderWebhookPayload["payload"]

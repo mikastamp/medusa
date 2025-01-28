@@ -1,6 +1,7 @@
 import { AdditionalData, CreateOrderDTO } from "@medusajs/framework/types"
 import { MedusaError, isDefined, isPresent } from "@medusajs/framework/utils"
 import {
+  WorkflowData,
   WorkflowResponse,
   createHook,
   createWorkflow,
@@ -76,6 +77,9 @@ function getOrderInput(data) {
   return data_
 }
 
+/**
+ * The data to create an order, along with custom data that's passed to the workflow's hooks.
+ */
 export type CreateOrderWorkflowInput = CreateOrderDTO & AdditionalData
 
 export const createOrdersWorkflowId = "create-orders"
@@ -86,7 +90,7 @@ export const createOrdersWorkflowId = "create-orders"
  * This workflow has a hook that allows you to perform custom actions on the created order. For example, you can pass under `additional_data` custom data that 
  * allows you to create custom data models linked to the order.
  * 
- * You can also use this workflow within your own custom workflows, allowing you to wrap custom logic around creating an order. For example,
+ * You can also use this workflow within your customizations or your own custom workflows, allowing you to wrap custom logic around creating an order. For example,
  * you can create a workflow that imports orders from an external system, then uses this workflow to create the orders in Medusa.
  * 
  * @example
@@ -126,7 +130,7 @@ export const createOrdersWorkflowId = "create-orders"
  */
 export const createOrderWorkflow = createWorkflow(
   createOrdersWorkflowId,
-  (input: CreateOrderWorkflowInput) => {
+  (input: WorkflowData<CreateOrderWorkflowInput>) => {
     const variantIds = transform({ input }, (data) => {
       return (data.input.items ?? [])
         .map((item) => item.variant_id)
@@ -224,7 +228,6 @@ export const createOrderWorkflow = createWorkflow(
 )
 
 /**
- * @deprecated
- * Instead use the singular name "createOrderWorkflow"
+ * @deprecated Instead use the singular name `createOrderWorkflow`.
  */
 export const createOrdersWorkflow = createOrderWorkflow
