@@ -60,6 +60,18 @@ For example:
 }
 ```
 
+In addition, make sure that the `keywords` field in `package.json` includes the keyword `medusa-plugin` and `medusa-v2`. This helps Medusa list community plugins on the Medusa website:
+
+```json title="package.json"
+{
+  "keywords": [
+    "medusa-plugin",
+    "medusa-v2"
+  ],
+  // ...
+}
+```
+
 ---
 
 ## 3. Publish Plugin Locally for Development and Testing

@@ -122,4 +122,10 @@ export const LINKS = {
     Modules.FULFILLMENT,
     "shipping_profile_id"
   ),
+  CustomerAccountHolder: composeLinkName(
+    Modules.CUSTOMER,
+    "customer_id",
+    Modules.PAYMENT,
+    "account_holder_id"
+  ),
 }

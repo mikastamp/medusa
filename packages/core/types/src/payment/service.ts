@@ -3,6 +3,7 @@ import { RestoreReturn, SoftDeleteReturn } from "../dal"
 import { IModuleService } from "../modules-sdk"
 import { Context } from "../shared-context"
 import {
+  AccountHolderDTO,
   CaptureDTO,
   FilterableCaptureProps,
   FilterablePaymentCollectionProps,
@@ -31,6 +32,7 @@ import {
   UpdatePaymentDTO,
   UpdatePaymentSessionDTO,
   UpdateRefundReasonDTO,
+  CreateAccountHolderDTO,
   UpsertPaymentCollectionDTO,
 } from "./mutations"
 import { WebhookActionResult } from "./provider"
@@ -750,6 +752,63 @@ export interface IPaymentModuleService extends IModuleService {
     config?: FindConfig<PaymentProviderDTO>,
     sharedContext?: Context
   ): Promise<[PaymentProviderDTO[], number]>
+
+  /**
+   * This method creates(if supported by provider) the account holder in the payment provider.
+   *
+   * @param {CreateAccountHolderDTO} data - The details of the account holder.
+   * @param {Context} sharedContext - A context used to share resources, such as transaction manager, between the application and the module.
+   * @returns {Promise<Record<string, unknown>>} The account holder's details in the payment provider, typically just the ID.
+   *
+   * @example
+   * const accountHolder =
+   *   await paymentModuleService.createAccountHolder(
+   *     {
+   *       provider_id: "stripe",
+   *       context: {
+   *         customer: {
+   *           id: "cus_123",
+   *         },
+   *       },
+   *     }
+   *   )
+   *
+   *  remoteLink.create([{
+   *    [Modules.CUSTOMER]: {
+   *      customer_id: "cus_123",
+   *    },
+   *    [Modules.PAYMENT]: {
+   *      account_holder_id: accountHolder.id,
+   *    },
+   *  }])
+   */
+  createAccountHolder(
+    input: CreateAccountHolderDTO,
+    sharedContext?: Context
+  ): Promise<AccountHolderDTO>
+
+  /**
+   * This method deletes the account holder in the payment provider.
+   *
+   * @param {string} id - The account holder's ID.
+   * @param {Context} sharedContext - A context used to share resources, such as transaction manager, between the application and the module.
+   * @returns {Promise<void>} Resolves when the account holder is deleted successfully.
+   *
+   * @example
+   * await paymentModuleService.deleteAccountHolder({
+   *   id: "acc_holder_123",
+   * })
+   *
+   * remoteLink.dismiss([{
+   *    [Modules.CUSTOMER]: {
+   *      customer_id: "cus_123",
+   *    },
+   *    [Modules.PAYMENT]: {
+   *      account_holder_id: "acc_holder_123",
+   *    },
+   *  }])
+   */
+  deleteAccountHolder(id: string, sharedContext?: Context): Promise<void>
 
   /**
    * This method retrieves all payment methods based on the context and configuration.
