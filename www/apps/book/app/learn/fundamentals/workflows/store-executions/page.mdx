@@ -36,12 +36,12 @@ You can view stored workflow executions from the Medusa Admin dashboard by going
 `createWorkflow` from the Workflows SDK can accept an object as a first parameter to set the workflow's configuration. To enable storing a workflow's executions:
 
 - Enable the `store` option. If your workflow is a [Long-Running Workflow](../long-running-workflow/page.mdx), this option is enabled by default.
-- Set the `retentionTime` option to the number of milliseconds that the workflow execution should be stored in the database.
+- Set the `retentionTime` option to the number of seconds that the workflow execution should be stored in the database.
 
 For example:
 
 export const highlights = [
-  ["15", "retentionTime", "The number of milliseconds that the workflow's executions should be stored in the database."],
+  ["15", "retentionTime", "The number of seconds that the workflow's executions should be stored in the database."],
   ["16", "store", "Enable storing the workflow's executions in the database."],
 ]
 
