@@ -90,7 +90,7 @@ export type ExtractKeysFromConfig<ModelsConfig> = ModelsConfig extends {
   : keyof ModelsConfig
 
 export type AbstractModuleService<
-  TModelsDtoConfig extends Record<string, any>
+  TModelsDtoConfig extends Record<string, { dto: any }>
 > = {
   [TModelName in keyof TModelsDtoConfig as `retrieve${ExtractSingularName<
     TModelsDtoConfig,
@@ -155,7 +155,15 @@ export type AbstractModuleService<
     TModelsDtoConfig,
     TModelName
   >}`]: {
-    (...args: any[]): Promise<any>
+    (
+      ...args: [
+        (
+          | Partial<TModelsDtoConfig[TModelName]["dto"]>
+          | Partial<TModelsDtoConfig[TModelName]["dto"]>[]
+        ),
+        ...any[]
+      ]
+    ): Promise<any>
   }
 } & {
   [TModelName in keyof TModelsDtoConfig as `update${ExtractPluralName<

@@ -12,6 +12,7 @@ import {
   ModuleJoinerConfig,
   ModulesSdkTypes,
   PricePreferenceDTO,
+  PriceRuleDTO,
   PriceSetDTO,
   PricingContext,
   PricingFilters,
@@ -427,6 +428,7 @@ export default class PricingModuleService
     sharedContext?: Context
   ): Promise<PriceSetDTO>
 
+  // @ts-expect-error
   async createPriceSets(
     data: PricingTypes.CreatePriceSetDTO[],
     sharedContext?: Context
@@ -434,6 +436,7 @@ export default class PricingModuleService
 
   @InjectManager()
   @EmitEvents()
+  // @ts-expect-error
   async createPriceSets(
     data: PricingTypes.CreatePriceSetDTO | PricingTypes.CreatePriceSetDTO[],
     @MedusaContext() sharedContext: Context = {}
@@ -809,10 +812,19 @@ export default class PricingModuleService
   }
 
   // @ts-expect-error
+  async createPriceRules(
+    data: CreatePriceRuleDTO[],
+    sharedContext?: Context
+  ): Promise<PriceRuleDTO[]> {
+    return super.createPriceRules(data, sharedContext)
+  }
+
+  // @ts-expect-error
   async createPricePreferences(
     data: PricingTypes.CreatePricePreferenceDTO,
     sharedContext?: Context
   ): Promise<PricePreferenceDTO>
+  // @ts-expect-error
   async createPricePreferences(
     data: PricingTypes.CreatePricePreferenceDTO[],
     sharedContext?: Context
@@ -820,6 +832,7 @@ export default class PricingModuleService
 
   @InjectManager()
   @EmitEvents()
+  // @ts-expect-error
   async createPricePreferences(
     data:
       | PricingTypes.CreatePricePreferenceDTO

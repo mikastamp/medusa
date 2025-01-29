@@ -60,12 +60,14 @@ export default class SalesChannelModuleService
     data: CreateSalesChannelDTO[],
     sharedContext?: Context
   ): Promise<SalesChannelDTO[]>
+  // @ts-expect-error
   async createSalesChannels(
     data: CreateSalesChannelDTO,
     sharedContext?: Context
   ): Promise<SalesChannelDTO>
 
   @InjectManager()
+  // @ts-expect-error
   async createSalesChannels(
     data: CreateSalesChannelDTO | CreateSalesChannelDTO[],
     @MedusaContext() sharedContext: Context = {}

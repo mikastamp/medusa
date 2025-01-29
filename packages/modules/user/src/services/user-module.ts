@@ -170,6 +170,7 @@ export default class UserModuleService
     data: UserTypes.CreateUserDTO[],
     sharedContext?: Context
   ): Promise<UserTypes.UserDTO[]>
+  // @ts-expect-error
   createUsers(
     data: UserTypes.CreateUserDTO,
     sharedContext?: Context
@@ -177,6 +178,7 @@ export default class UserModuleService
 
   @InjectManager()
   @EmitEvents()
+  // @ts-expect-error
   async createUsers(
     data: UserTypes.CreateUserDTO[] | UserTypes.CreateUserDTO,
     @MedusaContext() sharedContext: Context = {}
@@ -245,11 +247,12 @@ export default class UserModuleService
     return Array.isArray(data) ? serializedUsers : serializedUsers[0]
   }
 
-  // @ts-ignore
+  // @ts-expect-error
   createInvites(
     data: UserTypes.CreateInviteDTO[],
     sharedContext?: Context
   ): Promise<UserTypes.InviteDTO[]>
+  // @ts-expect-error
   createInvites(
     data: UserTypes.CreateInviteDTO,
     sharedContext?: Context
@@ -257,6 +260,7 @@ export default class UserModuleService
 
   @InjectManager()
   @EmitEvents()
+  // @ts-expect-error
   async createInvites(
     data: UserTypes.CreateInviteDTO[] | UserTypes.CreateInviteDTO,
     @MedusaContext() sharedContext: Context = {}

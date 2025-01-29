@@ -81,12 +81,13 @@ export default class StockLocationModuleService
     data: CreateStockLocationInput,
     context: Context
   ): Promise<StockLocationTypes.StockLocationDTO>
+  // @ts-expect-error
   createStockLocations(
     data: CreateStockLocationInput[],
     context: Context
   ): Promise<StockLocationTypes.StockLocationDTO[]>
-
   @InjectManager()
+  // @ts-expect-error
   async createStockLocations(
     data: CreateStockLocationInput | CreateStockLocationInput[],
     @MedusaContext() context: Context = {}

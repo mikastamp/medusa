@@ -222,11 +222,12 @@ export default class InventoryModuleService
     })
   }
 
-  // @ts-ignore
+  // @ts-expect-error
   async createReservationItems(
     input: InventoryTypes.CreateReservationItemInput[],
     context?: Context
   ): Promise<InventoryTypes.ReservationItemDTO[]>
+  // @ts-expect-error
   async createReservationItems(
     input: InventoryTypes.CreateReservationItemInput,
     context?: Context
@@ -234,6 +235,7 @@ export default class InventoryModuleService
 
   @InjectManager()
   @EmitEvents()
+  // @ts-expect-error
   async createReservationItems(
     input:
       | InventoryTypes.CreateReservationItemInput[]
@@ -380,6 +382,7 @@ export default class InventoryModuleService
     input: InventoryTypes.CreateInventoryLevelInput,
     context?: Context
   ): Promise<InventoryTypes.InventoryLevelDTO>
+  // @ts-expect-error
   createInventoryLevels(
     input: InventoryTypes.CreateInventoryLevelInput[],
     context?: Context
@@ -387,6 +390,7 @@ export default class InventoryModuleService
 
   @InjectManager()
   @EmitEvents()
+  // @ts-expect-error
   async createInventoryLevels(
     input:
       | InventoryTypes.CreateInventoryLevelInput[]

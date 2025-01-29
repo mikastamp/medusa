@@ -279,6 +279,7 @@ export default class FulfillmentModuleService
     data: FulfillmentTypes.CreateFulfillmentSetDTO[],
     sharedContext?: Context
   ): Promise<FulfillmentTypes.FulfillmentSetDTO[]>
+  // @ts-expect-error
   createFulfillmentSets(
     data: FulfillmentTypes.CreateFulfillmentSetDTO,
     sharedContext?: Context
@@ -286,6 +287,7 @@ export default class FulfillmentModuleService
 
   @InjectManager()
   @EmitEvents()
+  // @ts-expect-error
   async createFulfillmentSets(
     data:
       | FulfillmentTypes.CreateFulfillmentSetDTO
@@ -349,6 +351,7 @@ export default class FulfillmentModuleService
     data: FulfillmentTypes.CreateServiceZoneDTO[],
     sharedContext?: Context
   ): Promise<FulfillmentTypes.ServiceZoneDTO[]>
+  // @ts-expect-error
   createServiceZones(
     data: FulfillmentTypes.CreateServiceZoneDTO,
     sharedContext?: Context
@@ -356,6 +359,7 @@ export default class FulfillmentModuleService
 
   @InjectManager()
   @EmitEvents()
+  // @ts-expect-error
   async createServiceZones(
     data:
       | FulfillmentTypes.CreateServiceZoneDTO[]
@@ -413,6 +417,7 @@ export default class FulfillmentModuleService
     data: FulfillmentTypes.CreateShippingOptionDTO[],
     sharedContext?: Context
   ): Promise<FulfillmentTypes.ShippingOptionDTO[]>
+  // @ts-expect-error
   createShippingOptions(
     data: FulfillmentTypes.CreateShippingOptionDTO,
     sharedContext?: Context
@@ -420,6 +425,7 @@ export default class FulfillmentModuleService
 
   @InjectManager()
   @EmitEvents()
+  // @ts-expect-error
   async createShippingOptions(
     data:
       | FulfillmentTypes.CreateShippingOptionDTO[]
@@ -474,6 +480,7 @@ export default class FulfillmentModuleService
     data: FulfillmentTypes.CreateShippingProfileDTO[],
     sharedContext?: Context
   ): Promise<FulfillmentTypes.ShippingProfileDTO[]>
+  // @ts-expect-error
   createShippingProfiles(
     data: FulfillmentTypes.CreateShippingProfileDTO,
     sharedContext?: Context
@@ -481,6 +488,7 @@ export default class FulfillmentModuleService
 
   @InjectTransactionManager()
   @EmitEvents()
+  // @ts-expect-error
   async createShippingProfiles(
     data:
       | FulfillmentTypes.CreateShippingProfileDTO[]
@@ -523,11 +531,12 @@ export default class FulfillmentModuleService
     return await this.shippingProfileService_.create(data_, sharedContext)
   }
 
-  // @ts-ignore
+  // @ts-expect-error
   createGeoZones(
     data: FulfillmentTypes.CreateGeoZoneDTO[],
     sharedContext?: Context
   ): Promise<FulfillmentTypes.GeoZoneDTO[]>
+  // @ts-expect-error
   createGeoZones(
     data: FulfillmentTypes.CreateGeoZoneDTO,
     sharedContext?: Context
@@ -535,6 +544,7 @@ export default class FulfillmentModuleService
 
   @InjectManager()
   @EmitEvents()
+  // @ts-expect-error
   async createGeoZones(
     data:
       | FulfillmentTypes.CreateGeoZoneDTO
@@ -560,11 +570,12 @@ export default class FulfillmentModuleService
     )
   }
 
-  // @ts-ignore
+  // @ts-expect-error
   async createShippingOptionRules(
     data: FulfillmentTypes.CreateShippingOptionRuleDTO[],
     sharedContext?: Context
   ): Promise<FulfillmentTypes.ShippingOptionRuleDTO[]>
+  // @ts-expect-error
   async createShippingOptionRules(
     data: FulfillmentTypes.CreateShippingOptionRuleDTO,
     sharedContext?: Context
@@ -572,6 +583,7 @@ export default class FulfillmentModuleService
 
   @InjectManager()
   @EmitEvents()
+  // @ts-expect-error
   async createShippingOptionRules(
     data:
       | FulfillmentTypes.CreateShippingOptionRuleDTO[]

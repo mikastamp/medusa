@@ -95,12 +95,14 @@ export default class CustomerModuleService
     sharedContext?: Context
   ): Promise<CustomerTypes.CustomerDTO>
 
+  // @ts-expect-error
   async createCustomers(
     data: CustomerTypes.CreateCustomerDTO[],
     sharedContext?: Context
   ): Promise<CustomerTypes.CustomerDTO[]>
 
   @InjectManager()
+  // @ts-expect-error
   async createCustomers(
     dataOrArray:
       | CustomerTypes.CreateCustomerDTO
@@ -224,12 +226,14 @@ export default class CustomerModuleService
     sharedContext?: Context
   ): Promise<CustomerTypes.CustomerGroupDTO>
 
+  // @ts-expect-error
   async createCustomerGroups(
     dataOrArrayOfData: CustomerTypes.CreateCustomerGroupDTO[],
     sharedContext?: Context
   ): Promise<CustomerTypes.CustomerGroupDTO[]>
 
   @InjectTransactionManager()
+  // @ts-expect-error
   async createCustomerGroups(
     dataOrArrayOfData:
       | CustomerTypes.CreateCustomerGroupDTO
@@ -350,12 +354,14 @@ export default class CustomerModuleService
     addresses: CustomerTypes.CreateCustomerAddressDTO[],
     sharedContext?: Context
   ): Promise<CustomerTypes.CustomerAddressDTO[]>
+  // @ts-expect-error
   async createCustomerAddresses(
     address: CustomerTypes.CreateCustomerAddressDTO,
     sharedContext?: Context
   ): Promise<CustomerTypes.CustomerAddressDTO>
 
   @InjectManager()
+  // @ts-expect-error
   async createCustomerAddresses(
     data:
       | CustomerTypes.CreateCustomerAddressDTO

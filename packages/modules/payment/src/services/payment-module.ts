@@ -37,6 +37,7 @@ import {
   WebhookActionResult,
   CreateAccountHolderOutput,
   InitiatePaymentOutput,
+  CreateRefundReasonDTO,
 } from "@medusajs/framework/types"
 import {
   BigNumber,
@@ -151,17 +152,20 @@ export default class PaymentModuleService
     return joinerConfig
   }
 
-  // @ts-ignore
+  // @ts-expect-error
   createPaymentCollections(
     data: CreatePaymentCollectionDTO,
     sharedContext?: Context
   ): Promise<PaymentCollectionDTO>
 
+  // @ts-expect-error
   createPaymentCollections(
     data: CreatePaymentCollectionDTO[],
     sharedContext?: Context
   ): Promise<PaymentCollectionDTO[]>
   @InjectManager()
+
+  // @ts-expect-error
   async createPaymentCollections(
     data: CreatePaymentCollectionDTO | CreatePaymentCollectionDTO[],
     @MedusaContext() sharedContext?: Context
@@ -1070,6 +1074,17 @@ export default class PaymentModuleService
     })
 
     return Array.isArray(data) ? normalizedResponse : normalizedResponse[0]
+  }
+
+  // @ts-expect-error
+  async createRefundReasons(
+    data: CreateRefundReasonDTO[],
+    sharedContext?: Context
+  ): Promise<RefundReasonDTO[]> {
+    return super.createRefundReasons(
+      data as unknown as RefundReasonDTO,
+      sharedContext
+    )
   }
 
   @InjectManager()

@@ -71,12 +71,14 @@ export default class RegionModuleService
     data: CreateRegionDTO[],
     sharedContext?: Context
   ): Promise<RegionDTO[]>
+  // @ts-expect-error
   async createRegions(
     data: CreateRegionDTO,
     sharedContext?: Context
   ): Promise<RegionDTO>
 
   @InjectManager()
+  // @ts-expect-error
   async createRegions(
     data: CreateRegionDTO | CreateRegionDTO[],
     @MedusaContext() sharedContext: Context = {}

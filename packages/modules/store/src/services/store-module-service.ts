@@ -54,11 +54,13 @@ export default class StoreModuleService
     data: StoreTypes.CreateStoreDTO[],
     sharedContext?: Context
   ): Promise<StoreTypes.StoreDTO[]>
+  // @ts-expect-error
   async createStores(
     data: StoreTypes.CreateStoreDTO,
     sharedContext?: Context
   ): Promise<StoreTypes.StoreDTO>
   @InjectManager()
+  // @ts-expect-error
   async createStores(
     data: StoreTypes.CreateStoreDTO | StoreTypes.CreateStoreDTO[],
     @MedusaContext() sharedContext: Context = {}

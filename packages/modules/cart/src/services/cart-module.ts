@@ -258,12 +258,14 @@ export default class CartModuleService
     sharedContext?: Context
   ): Promise<CartTypes.CartDTO[]>
 
+  // @ts-expect-error
   async createCarts(
     data: CartTypes.CreateCartDTO,
     sharedContext?: Context
   ): Promise<CartTypes.CartDTO>
 
   @InjectManager()
+  // @ts-expect-error
   async createCarts(
     data: CartTypes.CreateCartDTO[] | CartTypes.CreateCartDTO,
     @MedusaContext() sharedContext: Context = {}
@@ -562,12 +564,14 @@ export default class CartModuleService
     data: CartTypes.CreateAddressDTO,
     sharedContext?: Context
   ): Promise<CartTypes.CartAddressDTO>
+  // @ts-expect-error
   async createAddresses(
     data: CartTypes.CreateAddressDTO[],
     sharedContext?: Context
   ): Promise<CartTypes.CartAddressDTO[]>
 
   @InjectManager()
+  // @ts-expect-error
   async createAddresses(
     data: CartTypes.CreateAddressDTO[] | CartTypes.CreateAddressDTO,
     @MedusaContext() sharedContext: Context = {}

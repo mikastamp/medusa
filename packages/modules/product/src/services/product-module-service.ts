@@ -242,11 +242,12 @@ export default class ProductModuleService
     }
   }
 
-  // @ts-ignore
+  // @ts-expect-error
   createProductVariants(
     data: ProductTypes.CreateProductVariantDTO[],
     sharedContext?: Context
   ): Promise<ProductTypes.ProductVariantDTO[]>
+  // @ts-expect-error
   createProductVariants(
     data: ProductTypes.CreateProductVariantDTO,
     sharedContext?: Context
@@ -254,6 +255,7 @@ export default class ProductModuleService
 
   @InjectManager()
   @EmitEvents()
+  // @ts-expect-error
   async createProductVariants(
     data:
       | ProductTypes.CreateProductVariantDTO[]
@@ -503,11 +505,12 @@ export default class ProductModuleService
     return productVariants
   }
 
-  // @ts-ignore
+  // @ts-expect-error
   createProductTags(
     data: ProductTypes.CreateProductTagDTO[],
     sharedContext?: Context
   ): Promise<ProductTypes.ProductTagDTO[]>
+  // @ts-expect-error
   createProductTags(
     data: ProductTypes.CreateProductTagDTO,
     sharedContext?: Context
@@ -515,6 +518,7 @@ export default class ProductModuleService
 
   @InjectManager()
   @EmitEvents()
+  // @ts-expect-error
   async createProductTags(
     data: ProductTypes.CreateProductTagDTO[] | ProductTypes.CreateProductTagDTO,
     @MedusaContext() sharedContext: Context = {}
@@ -636,17 +640,19 @@ export default class ProductModuleService
     return isString(idOrSelector) ? updatedTags[0] : updatedTags
   }
 
-  // @ts-ignore
+  // @ts-expect-error
   createProductTypes(
     data: ProductTypes.CreateProductTypeDTO[],
     sharedContext?: Context
   ): Promise<ProductTypes.ProductTypeDTO[]>
+  // @ts-expect-error
   createProductTypes(
     data: ProductTypes.CreateProductTypeDTO,
     sharedContext?: Context
   ): Promise<ProductTypes.ProductTypeDTO>
 
   @InjectManager()
+  // @ts-expect-error
   async createProductTypes(
     data:
       | ProductTypes.CreateProductTypeDTO[]
@@ -752,17 +758,19 @@ export default class ProductModuleService
     return isString(idOrSelector) ? updatedTypes[0] : updatedTypes
   }
 
-  // @ts-ignore
+  // @ts-expect-error
   createProductOptions(
     data: ProductTypes.CreateProductOptionDTO[],
     sharedContext?: Context
   ): Promise<ProductTypes.ProductOptionDTO[]>
+  // @ts-expect-error
   createProductOptions(
     data: ProductTypes.CreateProductOptionDTO,
     sharedContext?: Context
   ): Promise<ProductTypes.ProductOptionDTO>
 
   @InjectManager()
+  // @ts-expect-error
   async createProductOptions(
     data:
       | ProductTypes.CreateProductOptionDTO[]
@@ -966,11 +974,12 @@ export default class ProductModuleService
     return productOptions
   }
 
-  // @ts-ignore
+  // @ts-expect-error
   createProductCollections(
     data: ProductTypes.CreateProductCollectionDTO[],
     sharedContext?: Context
   ): Promise<ProductTypes.ProductCollectionDTO[]>
+  // @ts-expect-error
   createProductCollections(
     data: ProductTypes.CreateProductCollectionDTO,
     sharedContext?: Context
@@ -978,6 +987,7 @@ export default class ProductModuleService
 
   @InjectManager()
   @EmitEvents()
+  // @ts-expect-error
   async createProductCollections(
     data:
       | ProductTypes.CreateProductCollectionDTO[]
@@ -1216,11 +1226,12 @@ export default class ProductModuleService
     return collections
   }
 
-  // @ts-ignore
+  // @ts-expect-error
   createProductCategories(
     data: ProductTypes.CreateProductCategoryDTO[],
     sharedContext?: Context
   ): Promise<ProductTypes.ProductCategoryDTO[]>
+  // @ts-expect-error
   createProductCategories(
     data: ProductTypes.CreateProductCategoryDTO,
     sharedContext?: Context
@@ -1228,6 +1239,7 @@ export default class ProductModuleService
 
   @InjectManager()
   @EmitEvents()
+  // @ts-expect-error
   async createProductCategories(
     data:
       | ProductTypes.CreateProductCategoryDTO[]
@@ -1390,6 +1402,7 @@ export default class ProductModuleService
     data: ProductTypes.CreateProductDTO[],
     sharedContext?: Context
   ): Promise<ProductTypes.ProductDTO[]>
+  // @ts-expect-error
   createProducts(
     data: ProductTypes.CreateProductDTO,
     sharedContext?: Context
@@ -1397,6 +1410,7 @@ export default class ProductModuleService
 
   @InjectManager()
   @EmitEvents()
+  // @ts-expect-error
   async createProducts(
     data: ProductTypes.CreateProductDTO[] | ProductTypes.CreateProductDTO,
     @MedusaContext() sharedContext: Context = {}

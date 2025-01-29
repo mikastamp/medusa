@@ -663,13 +663,14 @@ export default class OrderModuleService
     data: OrderTypes.CreateOrderDTO[],
     sharedContext?: Context
   ): Promise<OrderTypes.OrderDTO[]>
-
+  // @ts-expect-error
   async createOrders(
     data: OrderTypes.CreateOrderDTO,
     sharedContext?: Context
   ): Promise<OrderTypes.OrderDTO>
 
   @InjectManager()
+  // @ts-expect-error
   async createOrders(
     data: OrderTypes.CreateOrderDTO[] | OrderTypes.CreateOrderDTO,
     @MedusaContext() sharedContext: Context = {}
@@ -891,9 +892,11 @@ export default class OrderModuleService
   createOrderLineItems(
     data: OrderTypes.CreateOrderLineItemForOrderDTO
   ): Promise<OrderTypes.OrderLineItemDTO[]>
+  // @ts-expect-error
   createOrderLineItems(
     data: OrderTypes.CreateOrderLineItemForOrderDTO[]
   ): Promise<OrderTypes.OrderLineItemDTO[]>
+  // @ts-expect-error
   createOrderLineItems(
     orderId: string,
     items: OrderTypes.CreateOrderLineItemDTO[],
@@ -901,6 +904,7 @@ export default class OrderModuleService
   ): Promise<OrderTypes.OrderLineItemDTO[]>
 
   @InjectManager()
+  // @ts-expect-error
   async createOrderLineItems(
     orderIdOrData:
       | string
@@ -1229,13 +1233,15 @@ export default class OrderModuleService
     return await this.orderItemService_.update(toUpdate, sharedContext)
   }
 
-  // @ts-ignore
+  // @ts-expect-error
   async createOrderShippingMethods(
     data: OrderTypes.CreateOrderShippingMethodDTO
   ): Promise<OrderTypes.OrderShippingMethodDTO>
+  // @ts-expect-error
   async createOrderShippingMethods(
     data: OrderTypes.CreateOrderShippingMethodDTO[]
   ): Promise<OrderTypes.OrderShippingMethodDTO[]>
+  // @ts-expect-error
   async createOrderShippingMethods(
     orderId: string,
     methods: OrderTypes.CreateOrderShippingMethodDTO[],
@@ -1243,6 +1249,7 @@ export default class OrderModuleService
   ): Promise<OrderTypes.OrderShippingMethodDTO[]>
 
   @InjectManager()
+  // @ts-expect-error
   async createOrderShippingMethods(
     orderIdOrData:
       | string
@@ -1394,9 +1401,11 @@ export default class OrderModuleService
   async createOrderLineItemAdjustments(
     adjustments: OrderTypes.CreateOrderLineItemAdjustmentDTO[]
   ): Promise<OrderTypes.OrderLineItemAdjustmentDTO[]>
+  // @ts-expect-error
   async createOrderLineItemAdjustments(
     adjustment: OrderTypes.CreateOrderLineItemAdjustmentDTO
   ): Promise<OrderTypes.OrderLineItemAdjustmentDTO[]>
+  // @ts-expect-error
   async createOrderLineItemAdjustments(
     orderId: string,
     adjustments: OrderTypes.CreateOrderLineItemAdjustmentDTO[],
@@ -1404,6 +1413,7 @@ export default class OrderModuleService
   ): Promise<OrderTypes.OrderLineItemAdjustmentDTO[]>
 
   @InjectTransactionManager()
+  // @ts-expect-error
   async createOrderLineItemAdjustments(
     orderIdOrData:
       | string
@@ -1564,9 +1574,11 @@ export default class OrderModuleService
   async createOrderShippingMethodAdjustments(
     adjustments: OrderTypes.CreateOrderShippingMethodAdjustmentDTO[]
   ): Promise<OrderTypes.OrderShippingMethodAdjustmentDTO[]>
+  // @ts-expect-error
   async createOrderShippingMethodAdjustments(
     adjustment: OrderTypes.CreateOrderShippingMethodAdjustmentDTO
   ): Promise<OrderTypes.OrderShippingMethodAdjustmentDTO>
+  // @ts-expect-error
   async createOrderShippingMethodAdjustments(
     orderId: string,
     adjustments: OrderTypes.CreateOrderShippingMethodAdjustmentDTO[],
@@ -1574,6 +1586,7 @@ export default class OrderModuleService
   ): Promise<OrderTypes.OrderShippingMethodAdjustmentDTO[]>
 
   @InjectTransactionManager()
+  // @ts-expect-error
   async createOrderShippingMethodAdjustments(
     orderIdOrData:
       | string
@@ -1643,9 +1656,11 @@ export default class OrderModuleService
   createOrderLineItemTaxLines(
     taxLines: OrderTypes.CreateOrderLineItemTaxLineDTO[]
   ): Promise<OrderTypes.OrderLineItemTaxLineDTO[]>
+  // @ts-expect-error
   createOrderLineItemTaxLines(
     taxLine: OrderTypes.CreateOrderLineItemTaxLineDTO
   ): Promise<OrderTypes.OrderLineItemTaxLineDTO>
+  // @ts-expect-error
   createOrderLineItemTaxLines(
     orderId: string,
     taxLines:
@@ -1655,6 +1670,7 @@ export default class OrderModuleService
   ): Promise<OrderTypes.OrderLineItemTaxLineDTO[]>
 
   @InjectTransactionManager()
+  // @ts-expect-error
   async createOrderLineItemTaxLines(
     orderIdOrData:
       | string
@@ -1754,9 +1770,11 @@ export default class OrderModuleService
   createOrderShippingMethodTaxLines(
     taxLines: OrderTypes.CreateOrderShippingMethodTaxLineDTO[]
   ): Promise<OrderTypes.OrderShippingMethodTaxLineDTO[]>
+  // @ts-expect-error
   createOrderShippingMethodTaxLines(
     taxLine: OrderTypes.CreateOrderShippingMethodTaxLineDTO
   ): Promise<OrderTypes.OrderShippingMethodTaxLineDTO>
+  // @ts-expect-error
   createOrderShippingMethodTaxLines(
     orderId: string,
     taxLines:
@@ -1766,6 +1784,7 @@ export default class OrderModuleService
   ): Promise<OrderTypes.OrderShippingMethodTaxLineDTO[]>
 
   @InjectTransactionManager()
+  // @ts-expect-error
   async createOrderShippingMethodTaxLines(
     orderIdOrData:
       | string
@@ -1870,12 +1889,14 @@ export default class OrderModuleService
     sharedContext?: Context
   ): Promise<OrderTypes.ReturnDTO>
 
+  // @ts-expect-error
   async createReturns(
     data: OrderTypes.CreateOrderReturnDTO[],
     sharedContext?: Context
   ): Promise<OrderTypes.ReturnDTO[]>
 
   @InjectTransactionManager()
+  // @ts-expect-error
   async createReturns(
     data: OrderTypes.CreateOrderReturnDTO | OrderTypes.CreateOrderReturnDTO[],
     @MedusaContext() sharedContext?: Context
@@ -1900,12 +1921,14 @@ export default class OrderModuleService
     sharedContext?: Context
   ): Promise<OrderTypes.OrderClaimDTO>
 
+  // @ts-expect-error
   async createOrderClaims(
     data: OrderTypes.CreateOrderClaimDTO[],
     sharedContext?: Context
   ): Promise<OrderTypes.OrderClaimDTO[]>
 
   @InjectTransactionManager()
+  // @ts-expect-error
   async createOrderClaims(
     data: OrderTypes.CreateOrderClaimDTO | OrderTypes.CreateOrderClaimDTO[],
     @MedusaContext() sharedContext?: Context
@@ -1930,12 +1953,14 @@ export default class OrderModuleService
     sharedContext?: Context
   ): Promise<OrderTypes.OrderExchangeDTO>
 
+  // @ts-expect-error
   async createOrderExchanges(
     data: OrderTypes.CreateOrderExchangeDTO[],
     sharedContext?: Context
   ): Promise<OrderTypes.OrderExchangeDTO[]>
 
   @InjectTransactionManager()
+  // @ts-expect-error
   async createOrderExchanges(
     data:
       | OrderTypes.CreateOrderExchangeDTO
@@ -3651,5 +3676,16 @@ export default class OrderModuleService
     @MedusaContext() sharedContext?: Context
   ): Promise<void> {
     return await BundledActions.registerDelivery.bind(this)(data, sharedContext)
+  }
+
+  // @ts-expect-error
+  async createReturnItems(
+    data: OrderTypes.CreateOrderReturnItemDTO,
+    sharedContext?: Context
+  ): Promise<OrderTypes.OrderReturnItemDTO> {
+    return super.createReturnItems(
+      data as unknown as OrderTypes.OrderReturnItemDTO,
+      sharedContext
+    )
   }
 }
