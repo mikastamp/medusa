@@ -35,7 +35,17 @@ export const AiAssistantChatWindowInput = () => {
       return
     }
     if (e.shiftKey) {
-      setQuestion((prev) => `${prev}\n`)
+      const { selectionStart, selectionEnd } = e.currentTarget
+      setQuestion(
+        (prev) =>
+          `${prev.substring(0, selectionStart)}\n${prev.substring(selectionEnd)}`
+      )
+      setTimeout(() => {
+        if (inputRef.current) {
+          inputRef.current.selectionStart = inputRef.current.selectionEnd =
+            selectionStart + 1
+        }
+      }, 0)
     } else {
       onSubmit()
     }
