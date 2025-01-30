@@ -398,12 +398,15 @@ export default class CartModuleService
     return result
   }
 
+  @InjectManager()
   // @ts-expect-error
   async updateShippingMethods(
-    data: CartTypes.UpdateShippingMethodDTO[]
+    data: CartTypes.UpdateShippingMethodDTO[],
+    sharedContext?: Context
   ): Promise<CartTypes.CartShippingMethodDTO[]> {
     return super.updateShippingMethods(
-      data as unknown as CartTypes.CartShippingMethodDTO[]
+      data as unknown as CartTypes.CartShippingMethodDTO[],
+      sharedContext
     ) as unknown as Promise<CartTypes.CartShippingMethodDTO[]>
   }
 

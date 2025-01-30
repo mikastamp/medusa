@@ -1078,6 +1078,7 @@ export default class PaymentModuleService
     return Array.isArray(data) ? normalizedResponse : normalizedResponse[0]
   }
 
+  @InjectManager()
   // @ts-expect-error
   async createRefundReasons(
     data: CreateRefundReasonDTO[],

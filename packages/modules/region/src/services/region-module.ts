@@ -143,8 +143,8 @@ export default class RegionModuleService
     await super.updateCountries(
       {
         selector: { region_id: ids },
-        data: { region_id: null },
-      } as any,
+        data: { region_id: null } as any,
+      },
       sharedContext
     )
 

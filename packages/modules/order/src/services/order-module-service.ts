@@ -3686,6 +3686,7 @@ export default class OrderModuleService
     return await BundledActions.registerDelivery.bind(this)(data, sharedContext)
   }
 
+  @InjectManager()
   // @ts-expect-error
   async createReturnItems(
     data: OrderTypes.CreateOrderReturnItemDTO,

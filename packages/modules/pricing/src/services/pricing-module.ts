@@ -813,6 +813,7 @@ export default class PricingModuleService
     )
   }
 
+  @InjectManager()
   // @ts-expect-error
   async createPriceRules(
     data: CreatePriceRuleDTO[],
