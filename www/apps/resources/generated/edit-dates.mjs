@@ -110,7 +110,7 @@ export const generatedEditDates = {
   "app/medusa-container-resources/page.mdx": "2025-01-06T11:19:35.623Z",
   "app/medusa-workflows-reference/page.mdx": "2025-01-20T08:21:29.962Z",
   "app/nextjs-starter/page.mdx": "2025-01-06T12:19:31.143Z",
-  "app/recipes/b2b/page.mdx": "2024-10-03T13:07:44.153Z",
+  "app/recipes/b2b/page.mdx": "2025-01-29T11:35:23.247Z",
   "app/recipes/commerce-automation/page.mdx": "2024-10-16T08:52:01.585Z",
   "app/recipes/digital-products/examples/standard/page.mdx": "2025-01-13T11:31:35.362Z",
   "app/recipes/digital-products/page.mdx": "2025-01-06T11:19:35.623Z",

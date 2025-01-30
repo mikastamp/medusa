@@ -28,7 +28,7 @@
   }
 
   body {
-    @apply text-ui-fg-subtle;
+    @apply text-ui-fg-base;
   }
 
   /* Hack to hide navbar / toc when some components like prompt are opened. */

@@ -38,7 +38,7 @@ export const MDXComponents: MDXComponentsType = {
     return (
       <p
         className={clsx(
-          "text-medusa-fg-subtle [&:not(:last-child)]:mb-docs_1.5 last:!mb-0",
+          "text-medusa-fg-base [&:not(:last-child)]:mb-docs_1.5 last:!mb-0",
           className
         )}
         {...props}
@@ -87,7 +87,7 @@ export const MDXComponents: MDXComponentsType = {
     return (
       <li
         className={clsx(
-          "text-medusa-fg-subtle [&:not(:last-child)]:mb-docs_0.5",
+          "text-medusa-fg-base [&:not(:last-child)]:mb-docs_0.5",
           "[&_ol]:mt-docs_0.5 [&_ul]:mt-docs_0.5",
           className
         )}

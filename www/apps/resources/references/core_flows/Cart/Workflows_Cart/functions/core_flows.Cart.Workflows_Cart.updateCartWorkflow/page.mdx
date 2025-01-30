@@ -219,9 +219,9 @@ This hook is executed before all operations. You can consume this hook to perfor
 #### Example
 
 ```ts
-import { addShippingMethodToCartWorkflow } from "@medusajs/medusa/core-flows"
+import { updateCartWorkflow } from "@medusajs/medusa/core-flows"
 
-addShippingMethodToCartWorkflow.hooks.validate(
+updateCartWorkflow.hooks.validate(
   (async ({ input, cart }, { container }) => {
     //TODO
   })
@@ -232,7 +232,7 @@ addShippingMethodToCartWorkflow.hooks.validate(
 
 Handlers consuming this hook accept the following input.
 
-<TypeList types={[{"name":"input","type":"object","description":"The input data for the hook.","optional":false,"defaultValue":"","expandable":false,"children":[{"name":"input","type":"[AddShippingMethodToCartWorkflowInput](../../../../interfaces/core_flows.AddShippingMethodToCartWorkflowInput/page.mdx)","description":"The data to add a shipping method to a cart.","optional":false,"defaultValue":"","expandable":false,"children":[{"name":"cart_id","type":"`string`","description":"The ID of the cart to add the shipping method to.","optional":false,"defaultValue":"","expandable":false,"children":[]},{"name":"options","type":"`object`[]","description":"The shipping options to create the shipping methods from and add to the cart.","optional":false,"defaultValue":"","expandable":false,"children":[]}]},{"name":"cart","type":"`any`","description":"","optional":false,"defaultValue":"","expandable":false,"children":[]}]}]} expandUrl="https://docs.medusajs.com/learn/fundamentals/data-models/manage-relationships#retrieve-records-of-relation" openedLevel={1} sectionTitle="validate"/>
+<TypeList types={[{"name":"input","type":"object","description":"The input data for the hook.","optional":false,"defaultValue":"","expandable":false,"children":[{"name":"input","type":"`object`","description":"","optional":false,"defaultValue":"","expandable":false,"children":[{"name":"currency_code","type":"`any`","description":"","optional":false,"defaultValue":"data.region.currency_code","expandable":false,"children":[]},{"name":"region_id","type":"`any`","description":"","optional":false,"defaultValue":"data.region.id","expandable":false,"children":[]},{"name":"id","type":"`string`","description":"The ID of the cart to update.","optional":false,"defaultValue":"","expandable":false,"children":[]},{"name":"customer_id","type":"`null` \\| `string`","description":"The ID of the cart's customer.","optional":true,"defaultValue":"","expandable":false,"children":[]},{"name":"sales_channel_id","type":"`null` \\| `string`","description":"The ID of the cart's sales channel.","optional":true,"defaultValue":"","expandable":false,"children":[]},{"name":"email","type":"`null` \\| `string`","description":"The email address of the cart's customer.","optional":true,"defaultValue":"","expandable":false,"children":[]},{"name":"metadata","type":"`null` \\| `Record<string, unknown>`","description":"Custom key-value pairs of data related to the cart.","optional":true,"defaultValue":"","expandable":false,"children":[]},{"name":"shipping_address","type":"`null` \\| [CreateAddressDTO](../../../../../cart/interfaces/cart.CreateAddressDTO/page.mdx) \\| [UpdateAddressDTO](../../../../../cart/interfaces/cart.UpdateAddressDTO/page.mdx)","description":"The cart's shipping address. You can either update the cart's existing shipping address, or create a new one.","optional":true,"defaultValue":"","expandable":false,"children":[]},{"name":"billing_address","type":"`null` \\| [CreateAddressDTO](../../../../../cart/interfaces/cart.CreateAddressDTO/page.mdx) \\| [UpdateAddressDTO](../../../../../cart/interfaces/cart.UpdateAddressDTO/page.mdx)","description":"The cart's billing address. You can either update the cart's existing billing address, or create a new one.","optional":true,"defaultValue":"","expandable":false,"children":[]}]},{"name":"cart","type":"`any`","description":"","optional":false,"defaultValue":"","expandable":false,"children":[]}]}]} expandUrl="https://docs.medusajs.com/learn/fundamentals/data-models/manage-relationships#retrieve-records-of-relation" openedLevel={1} sectionTitle="validate"/>
 
 ### cartUpdated
 

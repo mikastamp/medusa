@@ -47,7 +47,9 @@ export const MainNavVersion = () => {
             className="relative text-compact-small-plus"
             onMouseOut={afterHover}
           >
-            <span>v{version.number}</span>
+            <span className="flex justify-center items-center">
+              v{version.number}
+            </span>
             {showNewBadge && (
               <span
                 className={clsx(

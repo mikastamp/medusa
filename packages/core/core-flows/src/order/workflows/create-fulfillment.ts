@@ -384,7 +384,6 @@ export const createOrderFulfillmentWorkflow = createWorkflow(
         id: shippingOptionId,
       },
       list: false,
-      throw_if_key_not_found: true,
     }).config({ name: "get-shipping-option" })
 
     const lineItemIds = transform(

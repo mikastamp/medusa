@@ -2321,6 +2321,8 @@
     "editStore": "Edit store",
     "defaultCurrency": "Default currency",
     "defaultRegion": "Default region",
+    "defaultSalesChannel": "Default sales channel",
+    "defaultLocation": "Default location",
     "swapLinkTemplate": "Swap link template",
     "paymentLinkTemplate": "Payment link template",
     "inviteLinkTemplate": "Invite link template",
