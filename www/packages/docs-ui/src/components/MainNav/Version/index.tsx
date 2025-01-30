@@ -44,7 +44,7 @@ export const MainNavVersion = () => {
       >
         <Tooltip html="View the release notes<br/>on GitHub">
           <span
-            className="relative text-compact-small-plus"
+            className="relative text-compact-small-plus block"
             onMouseOut={afterHover}
           >
             <span className="flex justify-center items-center">

@@ -98,6 +98,7 @@ export const AiAssistantChatProvider = ({
     null
   )
   const [loading, setLoading] = useState(false)
+  const [preventAutoScroll, setPreventAutoScroll] = useState(false)
   const { getAnswer } = useAiAssistant()
   const inputRef = useRef<HTMLInputElement | HTMLTextAreaElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
@@ -107,6 +108,7 @@ export const AiAssistantChatProvider = ({
       return
     }
     setLoading(true)
+    setPreventAutoScroll(false)
     setAnswer("")
     setThread((prevThread) => [
       ...prevThread,
@@ -160,6 +162,9 @@ export const AiAssistantChatProvider = ({
   }
 
   const scrollToBottom = () => {
+    if (preventAutoScroll) {
+      return
+    }
     const parent = contentRef.current?.parentElement as HTMLElement
 
     parent.scrollTop = parent.scrollHeight
@@ -310,6 +315,43 @@ export const AiAssistantChatProvider = ({
 
     scrollToBottom()
   })
+
+  const handleUserScroll = useCallback(() => {
+    if (!question.length || preventAutoScroll) {
+      return
+    }
+
+    setPreventAutoScroll(true)
+  }, [question, preventAutoScroll])
+
+  const handleUserScrollEnd = useCallback(() => {
+    if (preventAutoScroll) {
+      setPreventAutoScroll(false)
+    }
+  }, [preventAutoScroll])
+
+  useEffect(() => {
+    if (!contentRef.current?.parentElement) {
+      return
+    }
+
+    contentRef.current.parentElement.addEventListener("wheel", handleUserScroll)
+    contentRef.current.parentElement.addEventListener(
+      "touchmove",
+      handleUserScroll
+    )
+
+    return () => {
+      contentRef.current?.parentElement?.removeEventListener(
+        "wheel",
+        handleUserScroll
+      )
+      contentRef.current?.parentElement?.removeEventListener(
+        "touchmove",
+        handleUserScroll
+      )
+    }
+  }, [contentRef.current, handleUserScroll])
 
   const getThreadItems = useCallback(() => {
     return sortThread(thread)
