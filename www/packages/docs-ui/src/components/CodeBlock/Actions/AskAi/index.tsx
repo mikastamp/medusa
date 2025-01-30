@@ -17,11 +17,14 @@ export const CodeBlockAskAiAction = ({
   inHeader,
 }: CodeBlockCopyActionProps) => {
   const { setChatOpened } = useAiAssistant()
-  const { setQuestion } = useAiAssistantChat()
+  const { setQuestion, loading } = useAiAssistantChat()
   const { config } = useSiteConfig()
 
   const handleClick = () => {
-    setQuestion(`\`\`\`\n${source.trim()}\n\`\`\`\n\nExplain the code above`)
+    if (loading) {
+      return
+    }
+    setQuestion(`\`\`\`tsx\n${source.trim()}\n\`\`\`\n\nExplain the code above`)
     setChatOpened(true)
   }
 

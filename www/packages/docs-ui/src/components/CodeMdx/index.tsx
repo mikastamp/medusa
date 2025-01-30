@@ -10,13 +10,19 @@ import { Npm2YarnCode } from "../Npm2YarnCode"
 export type CodeMdxProps = {
   className?: string
   children?: React.ReactNode
+  inlineClassName?: string
 } & CodeBlockMetaFields
 
 // due to how mdx handles code blocks
 // it is required that a code block specify a language
 // to be considered a block. Otherwise, it will be
 // considered as inline code
-export const CodeMdx = ({ className, children, ...rest }: CodeMdxProps) => {
+export const CodeMdx = ({
+  className,
+  children,
+  inlineClassName,
+  ...rest
+}: CodeMdxProps) => {
   if (!children) {
     return <></>
   }
@@ -36,5 +42,5 @@ export const CodeMdx = ({ className, children, ...rest }: CodeMdxProps) => {
     return <CodeBlock source={codeContent} lang={match[1]} {...rest} />
   }
 
-  return <InlineCode>{codeContent}</InlineCode>
+  return <InlineCode className={inlineClassName}>{codeContent}</InlineCode>
 }

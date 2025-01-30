@@ -1,6 +1,13 @@
 import clsx from "clsx"
 import React from "react"
-import { AiAssistantIcon, DotsLoading, MarkdownContent } from "@/components"
+import {
+  AiAssistantIcon,
+  CodeMdx,
+  CodeMdxProps,
+  DotsLoading,
+  MarkdownContent,
+  MDXComponents,
+} from "@/components"
 import { AiAssistantThreadItemActions } from "./Actions"
 import { AiAssistantThread } from "../../../providers/AiAssistant/Chat"
 
@@ -27,7 +34,7 @@ export const AiAssistantThreadItem = ({ item }: AiAssistantThreadItemProps) => {
           "txt-small text-medusa-fg-base",
           item.type === "question" && [
             "rounded-docs_xl bg-medusa-tag-neutral-bg",
-            "px-docs_0.75 py-docs_0.5 max-w-full [&_code]:!text-wrap",
+            "px-docs_0.75 py-docs_0.5 max-w-full",
           ],
           item.type !== "question" && "flex-1",
           item.type === "answer" && "text-pretty flex-1 max-w-[calc(100%-20px)]"
@@ -38,6 +45,24 @@ export const AiAssistantThreadItem = ({ item }: AiAssistantThreadItemProps) => {
             className="[&>*:last-child]:mb-0"
             allowedElements={["br", "p", "code", "pre"]}
             unwrapDisallowed={true}
+            components={{
+              ...MDXComponents,
+              code: (props: CodeMdxProps) => {
+                return (
+                  <CodeMdx
+                    {...props}
+                    noCopy
+                    noReport
+                    forceNoTitle
+                    noAskAi
+                    inlineClassName={clsx(
+                      props.inlineClassName,
+                      "!text-wrap !break-words"
+                    )}
+                  />
+                )
+              },
+            }}
           >
             {item.content}
           </MarkdownContent>

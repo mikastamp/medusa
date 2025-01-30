@@ -38,9 +38,11 @@ export type CodeBlockMetaFields = {
   noCopy?: boolean
   noReport?: boolean
   noLineNumbers?: boolean
+  noAskAi?: boolean
   collapsibleLines?: string
   expandButtonLabel?: string
   isTerminal?: boolean
+  forceNoTitle?: boolean
 } & CodeBlockHeaderMeta
 
 export type CodeBlockStyle = "loud" | "subtle" | "inline"
@@ -55,7 +57,6 @@ export type CodeBlockProps = {
   blockStyle?: CodeBlockStyle
   children?: React.ReactNode
   style?: React.HTMLAttributes<HTMLDivElement>["style"]
-  forceNoTitle?: boolean
   animateTokenHighlights?: boolean
   overrideColors?: {
     bg?: string
