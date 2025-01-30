@@ -44,6 +44,7 @@ export type CodeBlockMetaFields = {
   isTerminal?: boolean
   forceNoTitle?: boolean
   collapsed?: boolean
+  wrapperClassName?: string
 } & CodeBlockHeaderMeta
 
 export type CodeBlockStyle = "loud" | "subtle" | "inline"
@@ -51,7 +52,6 @@ export type CodeBlockStyle = "loud" | "subtle" | "inline"
 export type CodeBlockProps = {
   source: string
   lang?: string
-  wrapperClassName?: string
   innerClassName?: string
   className?: string
   blockStyle?: CodeBlockStyle
@@ -278,6 +278,7 @@ export const CodeBlock = ({
     getCollapsedLinesElm,
     getNonCollapsedLinesElm,
     type: collapsibleType,
+    isCollapsible,
     ...collapsibleResult
   } = useCollapsibleCodeLines({
     collapsibleLinesStr: collapsibleLines,
@@ -463,7 +464,7 @@ export const CodeBlock = ({
                       isSingleLine={tokens.length <= 1}
                     />
                   )}
-                {collapsibleType === "end" && (
+                {collapsibleType === "end" && isCollapsible(tokens) && (
                   <>
                     <CodeBlockCollapsibleFade
                       type={collapsibleType}

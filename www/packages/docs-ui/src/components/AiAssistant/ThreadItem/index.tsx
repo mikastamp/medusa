@@ -55,11 +55,25 @@ export const AiAssistantThreadItem = ({ item }: AiAssistantThreadItemProps) => {
                     noReport
                     forceNoTitle
                     noAskAi
-                    inlineClassName={clsx(
-                      props.inlineClassName,
-                      "!text-wrap !break-words"
-                    )}
-                    collapsed
+                    inlineCodeProps={{
+                      ...props.inlineCodeProps,
+                      className: "!text-wrap !break-words",
+                      variant: "grey-bg",
+                    }}
+                    collapsibleLines="11"
+                    codeBlockProps={{
+                      className: clsx(
+                        "rounded-docs_lg p-[5px]",
+                        props.className
+                      ),
+                      wrapperClassName: "rounded-docs_lg",
+                      innerClassName: "border rounded-docs_lg",
+                      overrideColors: {
+                        bg: "bg-medusa-contrast-bg-subtle",
+                        innerBg: "bg-medusa-contrast-bg-subtle",
+                        innerBorder: "border-medusa-contrast-border-bot",
+                      },
+                    }}
                   />
                 )
               },
@@ -71,7 +85,15 @@ export const AiAssistantThreadItem = ({ item }: AiAssistantThreadItemProps) => {
         {item.type === "answer" && (
           <div className="flex flex-col gap-docs_0.75">
             {!item.question_id && item.content.length === 0 && <DotsLoading />}
-            <MarkdownContent className="[&>*:last-child]:mb-0">
+            <MarkdownContent
+              className="[&>*:last-child]:mb-0"
+              components={{
+                ...MDXComponents,
+                code: (props: CodeMdxProps) => {
+                  return <CodeMdx {...props} noReport noAskAi />
+                },
+              }}
+            >
               {item.content}
             </MarkdownContent>
             {item.question_id && <AiAssistantThreadItemActions item={item} />}

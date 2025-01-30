@@ -7,6 +7,7 @@ import {
   useKeyboardShortcut,
   type useKeyboardShortcutOptions,
 } from "../use-keyboard-shortcut"
+import { useAiAssistantChat } from "../../providers/AiAssistant/Chat"
 
 export type UseAiAssistantChatNavigationProps = {
   getChatWindowElm: () => HTMLElement | null
@@ -23,6 +24,7 @@ export const useAiAssistantChatNavigation = ({
 }: UseAiAssistantChatNavigationProps) => {
   const shortcutKeys = useMemo(() => ["ArrowUp", "ArrowDown", "Enter"], [])
   const { chatOpened } = useAiAssistant()
+  const { question } = useAiAssistantChat()
 
   const handleKeyAction = (e: KeyboardEvent) => {
     const chatElm = getChatWindowElm()
@@ -30,7 +32,8 @@ export const useAiAssistantChatNavigation = ({
       !chatOpened ||
       e.metaKey ||
       e.ctrlKey ||
-      !chatElm?.contains(document.activeElement)
+      !chatElm?.contains(document.activeElement) ||
+      (question.length && question.includes("\n"))
     ) {
       return
     }
@@ -135,6 +138,7 @@ export const useAiAssistantChatNavigation = ({
     shortcutKeys: shortcutKeys,
     checkEditing: false,
     isLoading: false,
+    preventDefault: false,
     action: handleKeyAction,
     ...keyboardProps,
   })
