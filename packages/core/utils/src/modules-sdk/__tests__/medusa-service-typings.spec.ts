@@ -18,11 +18,45 @@ type CreateBlogDTO = {
   title: string | null
 }
 
+const baseRepoMock = {
+  serialize: jest.fn().mockImplementation((item) => item),
+  transaction: (task) => task("transactionManager"),
+  getFreshManager: jest.fn().mockReturnThis(),
+}
+
+const containerMock = {
+  baseRepository: baseRepoMock,
+  mainModelMockRepository: baseRepoMock,
+  otherModelMock1Repository: baseRepoMock,
+  otherModelMock2Repository: baseRepoMock,
+  mainModelMockService: {
+    retrieve: jest.fn().mockResolvedValue({ id: "1", name: "Item" }),
+    list: jest.fn().mockResolvedValue([{ id: "1", name: "Item" }]),
+    delete: jest.fn().mockResolvedValue(undefined),
+    softDelete: jest.fn().mockResolvedValue([[], {}]),
+    restore: jest.fn().mockResolvedValue([[], {}]),
+  },
+  otherModelMock1Service: {
+    retrieve: jest.fn().mockResolvedValue({ id: "1", name: "Item" }),
+    list: jest.fn().mockResolvedValue([{ id: "1", name: "Item" }]),
+    delete: jest.fn().mockResolvedValue(undefined),
+    softDelete: jest.fn().mockResolvedValue([[], {}]),
+    restore: jest.fn().mockResolvedValue([[], {}]),
+  },
+  otherModelMock2Service: {
+    retrieve: jest.fn().mockResolvedValue({ id: "1", name: "Item" }),
+    list: jest.fn().mockResolvedValue([{ id: "1", name: "Item" }]),
+    delete: jest.fn().mockResolvedValue(undefined),
+    softDelete: jest.fn().mockResolvedValue([[], {}]),
+    restore: jest.fn().mockResolvedValue([[], {}]),
+  },
+}
+
 describe("Medusa Service typings", () => {
   describe("create<Service>", () => {
     test("type-hint model properties", () => {
       class BlogService extends MedusaService({ Blog }) {}
-      const blogService = new BlogService()
+      const blogService = new BlogService(containerMock)
 
       expectTypeOf(blogService.createBlogs).parameters.toMatchTypeOf<
         [
@@ -42,7 +76,7 @@ describe("Medusa Service typings", () => {
       class BlogService extends MedusaService<{ Blog: { dto: BlogDTO } }>({
         Blog,
       }) {}
-      const blogService = new BlogService()
+      const blogService = new BlogService(containerMock)
 
       expectTypeOf(blogService.createBlogs).parameters.toMatchTypeOf<
         [Partial<BlogDTO> | Partial<BlogDTO>[], ...args: any[]]
@@ -61,7 +95,7 @@ describe("Medusa Service typings", () => {
           return {} as BlogDTO
         }
       }
-      const blogService = new BlogService()
+      const blogService = new BlogService(containerMock)
 
       expectTypeOf(blogService.createBlogs).parameters.toMatchTypeOf<
         [CreateBlogDTO]
@@ -75,7 +109,7 @@ describe("Medusa Service typings", () => {
   describe("update<Service>", () => {
     test("type-hint model properties", () => {
       class BlogService extends MedusaService({ Blog }) {}
-      const blogService = new BlogService()
+      const blogService = new BlogService(containerMock)
 
       expectTypeOf(blogService.updateBlogs).parameters.toMatchTypeOf<
         [
@@ -107,7 +141,7 @@ describe("Medusa Service typings", () => {
       class BlogService extends MedusaService<{ Blog: { dto: BlogDTO } }>({
         Blog,
       }) {}
-      const blogService = new BlogService()
+      const blogService = new BlogService(containerMock)
 
       expectTypeOf(blogService.createBlogs).parameters.toMatchTypeOf<
         [
@@ -140,7 +174,7 @@ describe("Medusa Service typings", () => {
           return {} as BlogDTO
         }
       }
-      const blogService = new BlogService()
+      const blogService = new BlogService(containerMock)
 
       expectTypeOf(blogService.updateBlogs).parameters.toMatchTypeOf<
         [id: string, data: CreateBlogDTO]
