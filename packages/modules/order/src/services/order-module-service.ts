@@ -815,11 +815,13 @@ export default class OrderModuleService
   async updateOrders(
     data: OrderTypes.UpdateOrderDTO[]
   ): Promise<OrderTypes.OrderDTO[]>
+  // @ts-expect-error
   async updateOrders(
     orderId: string,
     data: OrderTypes.UpdateOrderDTO,
     sharedContext?: Context
   ): Promise<OrderTypes.OrderDTO>
+  // @ts-expect-error
   async updateOrders(
     selector: Partial<OrderTypes.FilterableOrderProps>,
     data: OrderTypes.UpdateOrderDTO,
@@ -827,6 +829,7 @@ export default class OrderModuleService
   ): Promise<OrderTypes.OrderDTO[]>
 
   @InjectManager()
+  // @ts-expect-error
   async updateOrders(
     dataOrIdOrSelector:
       | OrderTypes.UpdateOrderDTO[]
@@ -1016,11 +1019,13 @@ export default class OrderModuleService
   updateOrderLineItems(
     data: OrderTypes.UpdateOrderLineItemWithSelectorDTO[]
   ): Promise<OrderTypes.OrderLineItemDTO[]>
+  // @ts-expect-error
   updateOrderLineItems(
     selector: Partial<OrderTypes.FilterableOrderLineItemProps>,
     data: OrderTypes.UpdateOrderLineItemDTO,
     sharedContext?: Context
   ): Promise<OrderTypes.OrderLineItemDTO[]>
+  // @ts-expect-error
   updateOrderLineItems(
     lineItemId: string,
     data: Partial<OrderTypes.UpdateOrderLineItemDTO>,
@@ -1028,6 +1033,7 @@ export default class OrderModuleService
   ): Promise<OrderTypes.OrderLineItemDTO>
 
   @InjectManager()
+  // @ts-expect-error
   async updateOrderLineItems(
     lineItemIdOrDataOrSelector:
       | string
@@ -3562,12 +3568,13 @@ export default class OrderModuleService
     )
   }
 
-  // @ts-ignore
+  // @ts-expect-error
   updateReturnReasons(
     id: string,
     data: UpdateOrderReturnReasonDTO,
     sharedContext?: Context
   ): Promise<OrderReturnReasonDTO>
+  // @ts-expect-error
   updateReturnReasons(
     selector: FilterableOrderReturnReasonProps,
     data: Partial<UpdateOrderReturnReasonDTO>,
@@ -3575,6 +3582,7 @@ export default class OrderModuleService
   ): Promise<OrderReturnReasonDTO[]>
 
   @InjectManager()
+  // @ts-expect-error
   async updateReturnReasons(
     idOrSelector: string | FilterableOrderReturnReasonProps,
     data: UpdateOrderReturnReasonDTO,

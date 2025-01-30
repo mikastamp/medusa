@@ -98,6 +98,7 @@ export default class SalesChannelModuleService
     data: UpdateSalesChannelDTO,
     sharedContext?: Context
   ): Promise<SalesChannelDTO>
+  // @ts-expect-error
   async updateSalesChannels(
     selector: FilterableSalesChannelProps,
     data: UpdateSalesChannelDTO,
@@ -105,6 +106,7 @@ export default class SalesChannelModuleService
   ): Promise<SalesChannelDTO[]>
 
   @InjectManager()
+  // @ts-expect-error
   async updateSalesChannels(
     idOrSelector: string | FilterableSalesChannelProps,
     data: UpdateSalesChannelDTO | UpdateSalesChannelDTO[],

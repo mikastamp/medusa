@@ -193,12 +193,13 @@ export default class PaymentModuleService
     return await this.paymentCollectionService_.create(data, sharedContext)
   }
 
-  // @ts-ignore
+  // @ts-expect-error
   updatePaymentCollections(
     paymentCollectionId: string,
     data: PaymentCollectionUpdatableFields,
     sharedContext?: Context
   ): Promise<PaymentCollectionDTO>
+  // @ts-expect-error
   updatePaymentCollections(
     selector: FilterablePaymentCollectionProps,
     data: PaymentCollectionUpdatableFields,
@@ -206,6 +207,7 @@ export default class PaymentModuleService
   ): Promise<PaymentCollectionDTO[]>
 
   @InjectManager()
+  // @ts-expect-error
   async updatePaymentCollections(
     idOrSelector: string | FilterablePaymentCollectionProps,
     data: PaymentCollectionUpdatableFields,
@@ -1082,7 +1084,7 @@ export default class PaymentModuleService
     sharedContext?: Context
   ): Promise<RefundReasonDTO[]> {
     return super.createRefundReasons(
-      data as unknown as RefundReasonDTO,
+      data as unknown as RefundReasonDTO[],
       sharedContext
     )
   }

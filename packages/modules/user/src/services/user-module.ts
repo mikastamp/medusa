@@ -212,6 +212,7 @@ export default class UserModuleService
     data: UserTypes.UpdateUserDTO[],
     sharedContext?: Context
   ): Promise<UserTypes.UserDTO[]>
+  // @ts-expect-error
   updateUsers(
     data: UserTypes.UpdateUserDTO,
     sharedContext?: Context
@@ -219,6 +220,7 @@ export default class UserModuleService
 
   @InjectManager()
   @EmitEvents()
+  // @ts-expect-error
   async updateUsers(
     data: UserTypes.UpdateUserDTO | UserTypes.UpdateUserDTO[],
     @MedusaContext() sharedContext: Context = {}
@@ -336,6 +338,7 @@ export default class UserModuleService
     data: UserTypes.UpdateInviteDTO[],
     sharedContext?: Context
   ): Promise<UserTypes.InviteDTO[]>
+  // @ts-expect-error
   updateInvites(
     data: UserTypes.UpdateInviteDTO,
     sharedContext?: Context
@@ -343,6 +346,7 @@ export default class UserModuleService
 
   @InjectManager()
   @EmitEvents()
+  // @ts-expect-error
   async updateInvites(
     data: UserTypes.UpdateInviteDTO | UserTypes.UpdateInviteDTO[],
     @MedusaContext() sharedContext: Context = {}

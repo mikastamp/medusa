@@ -768,6 +768,7 @@ export default class FulfillmentModuleService
     data: FulfillmentTypes.UpdateFulfillmentSetDTO[],
     sharedContext?: Context
   ): Promise<FulfillmentTypes.FulfillmentSetDTO[]>
+  // @ts-expect-error
   updateFulfillmentSets(
     data: FulfillmentTypes.UpdateFulfillmentSetDTO,
     sharedContext?: Context
@@ -775,6 +776,7 @@ export default class FulfillmentModuleService
 
   @InjectManager()
   @EmitEvents()
+  // @ts-expect-error
   async updateFulfillmentSets(
     data: UpdateFulfillmentSetDTO[] | UpdateFulfillmentSetDTO,
     @MedusaContext() sharedContext: Context = {}
@@ -1007,6 +1009,7 @@ export default class FulfillmentModuleService
     data: FulfillmentTypes.UpdateServiceZoneDTO,
     sharedContext?: Context
   ): Promise<FulfillmentTypes.ServiceZoneDTO>
+  // @ts-expect-error
   updateServiceZones(
     selector: FulfillmentTypes.FilterableServiceZoneProps,
     data: FulfillmentTypes.UpdateServiceZoneDTO,
@@ -1015,6 +1018,7 @@ export default class FulfillmentModuleService
 
   @InjectManager()
   @EmitEvents()
+  // @ts-expect-error
   async updateServiceZones(
     idOrSelector: string | FulfillmentTypes.FilterableServiceZoneProps,
     data: FulfillmentTypes.UpdateServiceZoneDTO,
@@ -1311,6 +1315,7 @@ export default class FulfillmentModuleService
     data: FulfillmentTypes.UpdateShippingOptionDTO,
     sharedContext?: Context
   ): Promise<FulfillmentTypes.ShippingOptionDTO>
+  // @ts-expect-error
   updateShippingOptions(
     selector: FulfillmentTypes.FilterableShippingOptionProps,
     data: FulfillmentTypes.UpdateShippingOptionDTO,
@@ -1319,6 +1324,7 @@ export default class FulfillmentModuleService
 
   @InjectManager()
   @EmitEvents()
+  // @ts-expect-error
   async updateShippingOptions(
     idOrSelector: string | FulfillmentTypes.FilterableShippingOptionProps,
     data: FulfillmentTypes.UpdateShippingOptionDTO,
@@ -1636,12 +1642,13 @@ export default class FulfillmentModuleService
     return [...created, ...updated]
   }
 
-  // @ts-ignore
+  // @ts-expect-error
   updateShippingProfiles(
     selector: FulfillmentTypes.FilterableShippingProfileProps,
     data: FulfillmentTypes.UpdateShippingProfileDTO,
     sharedContext?: Context
   ): Promise<FulfillmentTypes.ShippingProfileDTO[]>
+  // @ts-expect-error
   updateShippingProfiles(
     id: string,
     data: FulfillmentTypes.UpdateShippingProfileDTO,
@@ -1649,6 +1656,7 @@ export default class FulfillmentModuleService
   ): Promise<FulfillmentTypes.ShippingProfileDTO>
 
   @InjectTransactionManager()
+  // @ts-expect-error
   async updateShippingProfiles(
     idOrSelector: string | FulfillmentTypes.FilterableShippingProfileProps,
     data: FulfillmentTypes.UpdateShippingProfileDTO,
@@ -1740,11 +1748,12 @@ export default class FulfillmentModuleService
     return Array.isArray(data) ? allProfiles : allProfiles[0]
   }
 
-  // @ts-ignore
+  // @ts-expect-error
   updateGeoZones(
     data: FulfillmentTypes.UpdateGeoZoneDTO[],
     sharedContext?: Context
   ): Promise<FulfillmentTypes.GeoZoneDTO[]>
+  // @ts-expect-error
   updateGeoZones(
     data: FulfillmentTypes.UpdateGeoZoneDTO,
     sharedContext?: Context
@@ -1752,6 +1761,7 @@ export default class FulfillmentModuleService
 
   @InjectManager()
   @EmitEvents()
+  // @ts-expect-error
   async updateGeoZones(
     data:
       | FulfillmentTypes.UpdateGeoZoneDTO
@@ -1783,11 +1793,12 @@ export default class FulfillmentModuleService
     return Array.isArray(data) ? serialized : serialized[0]
   }
 
-  // @ts-ignore
+  // @ts-expect-error
   updateShippingOptionRules(
     data: FulfillmentTypes.UpdateShippingOptionRuleDTO[],
     sharedContext?: Context
   ): Promise<FulfillmentTypes.ShippingOptionRuleDTO[]>
+  // @ts-expect-error
   updateShippingOptionRules(
     data: FulfillmentTypes.UpdateShippingOptionRuleDTO,
     sharedContext?: Context
@@ -1795,6 +1806,7 @@ export default class FulfillmentModuleService
 
   @InjectManager()
   @EmitEvents()
+  // @ts-expect-error
   async updateShippingOptionRules(
     data:
       | FulfillmentTypes.UpdateShippingOptionRuleDTO[]

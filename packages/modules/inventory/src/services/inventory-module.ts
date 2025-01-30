@@ -438,6 +438,7 @@ export default class InventoryModuleService
     input: InventoryTypes.UpdateInventoryItemInput[],
     context?: Context
   ): Promise<InventoryTypes.InventoryItemDTO[]>
+  // @ts-expect-error
   updateInventoryItems(
     input: InventoryTypes.UpdateInventoryItemInput,
     context?: Context
@@ -445,6 +446,7 @@ export default class InventoryModuleService
 
   @InjectManager()
   @EmitEvents()
+  // @ts-expect-error
   async updateInventoryItems(
     input:
       | InventoryTypes.UpdateInventoryItemInput
@@ -553,6 +555,7 @@ export default class InventoryModuleService
     updates: InventoryTypes.UpdateInventoryLevelInput[],
     context?: Context
   ): Promise<InventoryTypes.InventoryLevelDTO[]>
+  // @ts-expect-error
   async updateInventoryLevels(
     updates: InventoryTypes.UpdateInventoryLevelInput,
     context?: Context
@@ -560,6 +563,7 @@ export default class InventoryModuleService
 
   @InjectManager()
   @EmitEvents()
+  // @ts-expect-error
   async updateInventoryLevels(
     updates:
       | InventoryTypes.UpdateInventoryLevelInput[]
@@ -632,11 +636,12 @@ export default class InventoryModuleService
    * @param context
    * @return The updated inventory level
    */
-  // @ts-ignore
+  // @ts-expect-error
   async updateReservationItems(
     input: InventoryTypes.UpdateReservationItemInput[],
     context?: Context
   ): Promise<InventoryTypes.ReservationItemDTO[]>
+  // @ts-expect-error
   async updateReservationItems(
     input: InventoryTypes.UpdateReservationItemInput,
     context?: Context
@@ -644,6 +649,7 @@ export default class InventoryModuleService
 
   @InjectManager()
   @EmitEvents()
+  // @ts-expect-error
   async updateReservationItems(
     input:
       | InventoryTypes.UpdateReservationItemInput

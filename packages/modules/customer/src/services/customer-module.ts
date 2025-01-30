@@ -95,14 +95,12 @@ export default class CustomerModuleService
     sharedContext?: Context
   ): Promise<CustomerTypes.CustomerDTO>
 
-  // @ts-expect-error
   async createCustomers(
     data: CustomerTypes.CreateCustomerDTO[],
     sharedContext?: Context
   ): Promise<CustomerTypes.CustomerDTO[]>
 
   @InjectManager()
-  // @ts-expect-error
   async createCustomers(
     dataOrArray:
       | CustomerTypes.CreateCustomerDTO
@@ -164,11 +162,13 @@ export default class CustomerModuleService
     data: CustomerTypes.CustomerUpdatableFields,
     sharedContext?: Context
   ): Promise<CustomerTypes.CustomerDTO>
+  // @ts-expect-error
   updateCustomers(
     customerIds: string[],
     data: CustomerTypes.CustomerUpdatableFields,
     sharedContext?: Context
   ): Promise<CustomerTypes.CustomerDTO[]>
+  // @ts-expect-error
   updateCustomers(
     selector: CustomerTypes.FilterableCustomerProps,
     data: CustomerTypes.CustomerUpdatableFields,
@@ -176,6 +176,7 @@ export default class CustomerModuleService
   ): Promise<CustomerTypes.CustomerDTO[]>
 
   @InjectTransactionManager()
+  // @ts-expect-error
   async updateCustomers(
     idsOrSelector: string | string[] | CustomerTypes.FilterableCustomerProps,
     data: CustomerTypes.CustomerUpdatableFields,
@@ -258,11 +259,13 @@ export default class CustomerModuleService
     data: CustomerTypes.CustomerGroupUpdatableFields,
     sharedContext?: Context
   ): Promise<CustomerTypes.CustomerGroupDTO>
+  // @ts-expect-error
   async updateCustomerGroups(
     groupIds: string[],
     data: CustomerTypes.CustomerGroupUpdatableFields,
     sharedContext?: Context
   ): Promise<CustomerTypes.CustomerGroupDTO[]>
+  // @ts-expect-error
   async updateCustomerGroups(
     selector: CustomerTypes.FilterableCustomerGroupProps,
     data: CustomerTypes.CustomerGroupUpdatableFields,
@@ -270,6 +273,7 @@ export default class CustomerModuleService
   ): Promise<CustomerTypes.CustomerGroupDTO[]>
 
   @InjectTransactionManager()
+  // @ts-expect-error
   async updateCustomerGroups(
     groupIdOrSelector:
       | string
@@ -402,11 +406,13 @@ export default class CustomerModuleService
     data: CustomerTypes.UpdateCustomerAddressDTO,
     sharedContext?: Context
   ): Promise<CustomerTypes.CustomerAddressDTO>
+  // @ts-expect-error
   async updateCustomerAddresses(
     addressIds: string[],
     data: CustomerTypes.UpdateCustomerAddressDTO,
     sharedContext?: Context
   ): Promise<CustomerTypes.CustomerAddressDTO[]>
+  // @ts-expect-error
   async updateCustomerAddresses(
     selector: CustomerTypes.FilterableCustomerAddressProps,
     data: CustomerTypes.UpdateCustomerAddressDTO,
@@ -414,6 +420,7 @@ export default class CustomerModuleService
   ): Promise<CustomerTypes.CustomerAddressDTO[]>
 
   @InjectTransactionManager()
+  // @ts-expect-error
   async updateCustomerAddresses(
     addressIdOrSelector:
       | string

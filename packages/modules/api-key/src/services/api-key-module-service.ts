@@ -245,6 +245,7 @@ export class ApiKeyModuleService
     data: ApiKeyTypes.UpdateApiKeyDTO,
     sharedContext?: Context
   ): Promise<ApiKeyTypes.ApiKeyDTO>
+  //@ts-expect-error
   async updateApiKeys(
     selector: FilterableApiKeyProps,
     data: ApiKeyTypes.UpdateApiKeyDTO,
@@ -252,6 +253,7 @@ export class ApiKeyModuleService
   ): Promise<ApiKeyTypes.ApiKeyDTO[]>
 
   @InjectManager()
+  //@ts-expect-error
   async updateApiKeys(
     idOrSelector: string | FilterableApiKeyProps,
     data: ApiKeyTypes.UpdateApiKeyDTO,

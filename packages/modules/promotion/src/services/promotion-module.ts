@@ -843,12 +843,14 @@ export default class PromotionModuleService
     sharedContext?: Context
   ): Promise<PromotionTypes.PromotionDTO>
 
+  // @ts-expect-error
   async updatePromotions(
     data: PromotionTypes.UpdatePromotionDTO[],
     sharedContext?: Context
   ): Promise<PromotionTypes.PromotionDTO[]>
 
   @InjectManager()
+  // @ts-expect-error
   async updatePromotions(
     data:
       | PromotionTypes.UpdatePromotionDTO
@@ -1408,18 +1410,20 @@ export default class PromotionModuleService
     }
   }
 
-  // @ts-ignore
+  // @ts-expect-error
   async updateCampaigns(
     data: PromotionTypes.UpdateCampaignDTO,
     sharedContext?: Context
   ): Promise<PromotionTypes.CampaignDTO>
 
+  // @ts-expect-error
   async updateCampaigns(
     data: PromotionTypes.UpdateCampaignDTO[],
     sharedContext?: Context
   ): Promise<PromotionTypes.CampaignDTO[]>
 
   @InjectManager()
+  // @ts-expect-error
   async updateCampaigns(
     data: PromotionTypes.UpdateCampaignDTO | PromotionTypes.UpdateCampaignDTO[],
     @MedusaContext() sharedContext: Context = {}

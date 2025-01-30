@@ -133,12 +133,14 @@ export default class StoreModuleService
     data: StoreTypes.UpdateStoreDTO,
     sharedContext?: Context
   ): Promise<StoreTypes.StoreDTO>
+  // @ts-expect-error
   async updateStores(
     selector: StoreTypes.FilterableStoreProps,
     data: StoreTypes.UpdateStoreDTO,
     sharedContext?: Context
   ): Promise<StoreTypes.StoreDTO[]>
   @InjectManager()
+  // @ts-expect-error
   async updateStores(
     idOrSelector: string | StoreTypes.FilterableStoreProps,
     data: StoreTypes.UpdateStoreDTO,

@@ -322,11 +322,13 @@ export default class CartModuleService
   async updateCarts(
     data: CartTypes.UpdateCartDTO[]
   ): Promise<CartTypes.CartDTO[]>
+  // @ts-expect-error
   async updateCarts(
     cartId: string,
     data: CartTypes.UpdateCartDataDTO,
     sharedContext?: Context
   ): Promise<CartTypes.CartDTO>
+  // @ts-expect-error
   async updateCarts(
     selector: Partial<CartTypes.CartDTO>,
     data: CartTypes.UpdateCartDataDTO,
@@ -334,6 +336,7 @@ export default class CartModuleService
   ): Promise<CartTypes.CartDTO[]>
 
   @InjectManager()
+  // @ts-expect-error
   async updateCarts(
     dataOrIdOrSelector:
       | CartTypes.UpdateCartDTO[]
@@ -393,6 +396,15 @@ export default class CartModuleService
 
     const result = await this.cartService_.update(toUpdate, sharedContext)
     return result
+  }
+
+  // @ts-expect-error
+  async updateShippingMethods(
+    data: CartTypes.UpdateShippingMethodDTO[]
+  ): Promise<CartTypes.CartShippingMethodDTO[]> {
+    return super.updateShippingMethods(
+      data as unknown as CartTypes.CartShippingMethodDTO[]
+    ) as unknown as Promise<CartTypes.CartShippingMethodDTO[]>
   }
 
   addLineItems(
@@ -470,11 +482,13 @@ export default class CartModuleService
   updateLineItems(
     data: CartTypes.UpdateLineItemWithSelectorDTO[]
   ): Promise<CartTypes.CartLineItemDTO[]>
+  // @ts-expect-error
   updateLineItems(
     selector: Partial<CartTypes.CartLineItemDTO>,
     data: CartTypes.UpdateLineItemDTO,
     sharedContext?: Context
   ): Promise<CartTypes.CartLineItemDTO[]>
+  // @ts-expect-error
   updateLineItems(
     lineItemId: string,
     data: Partial<CartTypes.UpdateLineItemDTO>,
@@ -482,6 +496,7 @@ export default class CartModuleService
   ): Promise<CartTypes.CartLineItemDTO>
 
   @InjectManager()
+  // @ts-expect-error
   async updateLineItems(
     lineItemIdOrDataOrSelector:
       | string
@@ -603,12 +618,14 @@ export default class CartModuleService
     data: CartTypes.UpdateAddressDTO,
     sharedContext?: Context
   ): Promise<CartTypes.CartAddressDTO>
+  // @ts-expect-error
   async updateAddresses(
     data: CartTypes.UpdateAddressDTO[],
     sharedContext?: Context
   ): Promise<CartTypes.CartAddressDTO[]>
 
   @InjectManager()
+  // @ts-expect-error
   async updateAddresses(
     data: CartTypes.UpdateAddressDTO[] | CartTypes.UpdateAddressDTO,
     @MedusaContext() sharedContext: Context = {}

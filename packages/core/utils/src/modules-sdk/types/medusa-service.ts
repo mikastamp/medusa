@@ -156,21 +156,41 @@ export type AbstractModuleService<
     TModelName
   >}`]: {
     (
-      ...args: [
-        (
-          | Partial<TModelsDtoConfig[TModelName]["dto"]>
-          | Partial<TModelsDtoConfig[TModelName]["dto"]>[]
-        ),
-        ...any[]
-      ]
-    ): Promise<any>
+      ...args: [Partial<TModelsDtoConfig[TModelName]["dto"]>, ...any[]]
+    ): Promise<TModelsDtoConfig[TModelName]["dto"]>
+    (
+      ...args: [Partial<TModelsDtoConfig[TModelName]["dto"]>[], ...any[]]
+    ): Promise<TModelsDtoConfig[TModelName]["dto"][]>
   }
 } & {
   [TModelName in keyof TModelsDtoConfig as `update${ExtractPluralName<
     TModelsDtoConfig,
     TModelName
   >}`]: {
-    (...args: any[]): Promise<any>
+    (
+      entity: Partial<TModelsDtoConfig[TModelName]["dto"]>,
+      ...rest: any[]
+    ): Promise<TModelsDtoConfig[TModelName]["dto"]>
+    (
+      ...args:
+        | [
+            entitiesOrOptions:
+              | Partial<TModelsDtoConfig[TModelName]["dto"]>[]
+              | {
+                  selector: Record<string, any>
+                  data:
+                    | Partial<TModelsDtoConfig[TModelName]["dto"]>
+                    | Partial<TModelsDtoConfig[TModelName]["dto"]>[]
+                }
+              | {
+                  selector: Record<string, any>
+                  data:
+                    | Partial<TModelsDtoConfig[TModelName]["dto"]>
+                    | Partial<TModelsDtoConfig[TModelName]["dto"]>[]
+                }[],
+            ...rest: any[]
+          ]
+    ): Promise<TModelsDtoConfig[TModelName]["dto"][]>
   }
 }
 
