@@ -23,7 +23,9 @@ export const AiAssistantChatWindowHeader = () => {
         <Tooltip
           tooltipChildren={
             <>
-              This site is protected by reCAPTCHA and the{" "}
+              This site is protected by reCAPTCHA and
+              <br />
+              the{" "}
               <Link href="https://policies.google.com/privacy">
                 Google Privacy Policy
               </Link>{" "}
@@ -32,6 +34,7 @@ export const AiAssistantChatWindowHeader = () => {
             </>
           }
           clickable={true}
+          tooltipClassName={"!text-compact-small-plus"}
         >
           <ShieldCheck className="text-medusa-fg-muted" />
         </Tooltip>

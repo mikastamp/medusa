@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react"
 import clsx from "clsx"
 import { useAiAssistantChat } from "../../../../providers/AiAssistant/Chat"
 import { ArrowUpCircleSolid } from "@medusajs/icons"
+import { useAiAssistant } from "../../../../providers"
 
 export const AiAssistantChatWindowInput = () => {
   const {
@@ -12,6 +13,7 @@ export const AiAssistantChatWindowInput = () => {
     loading,
     getThreadItems,
   } = useAiAssistantChat()
+  const { chatOpened } = useAiAssistant()
   const formRef = useRef<HTMLFormElement | null>(null)
 
   const onSubmit = (e?: React.FormEvent<HTMLFormElement>) => {
@@ -33,7 +35,17 @@ export const AiAssistantChatWindowInput = () => {
       return
     }
     if (e.shiftKey) {
-      setQuestion((prev) => `${prev}\n`)
+      const { selectionStart, selectionEnd } = e.currentTarget
+      setQuestion(
+        (prev) =>
+          `${prev.substring(0, selectionStart)}\n${prev.substring(selectionEnd)}`
+      )
+      setTimeout(() => {
+        if (inputRef.current) {
+          inputRef.current.selectionStart = inputRef.current.selectionEnd =
+            selectionStart + 1
+        }
+      }, 0)
     } else {
       onSubmit()
     }
@@ -52,6 +64,7 @@ export const AiAssistantChatWindowInput = () => {
 
   useEffect(() => {
     adjustTextareaHeight()
+    inputRef.current?.focus()
   }, [question])
 
   const handleTouch = (e: React.TouchEvent<HTMLTextAreaElement>) => {
@@ -60,6 +73,19 @@ export const AiAssistantChatWindowInput = () => {
       preventScroll: true,
     })
   }
+
+  useEffect(() => {
+    if (!chatOpened || !inputRef.current) {
+      return
+    }
+
+    const isCursorAtEnd =
+      inputRef.current.selectionStart === inputRef.current.value.length
+
+    if (isCursorAtEnd) {
+      inputRef.current.scrollTop = inputRef.current.scrollHeight
+    }
+  }, [chatOpened, inputRef.current])
 
   return (
     <div

@@ -40,6 +40,10 @@
   body[data-modal="opened"] {
     @apply !overflow-hidden text-ui-fg-base;
   }
+
+  .text-wrap {
+    text-wrap: wrap;
+  }
 }
 
 .grecaptcha-badge {

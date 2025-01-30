@@ -508,8 +508,8 @@ module.exports = {
         "code-label": [
           "12px",
           {
-            lineHeight: "20px",
-            fontWeight: "400",
+            lineHeight: "15px",
+            fontWeight: "500",
           },
         ],
         "code-body": [
