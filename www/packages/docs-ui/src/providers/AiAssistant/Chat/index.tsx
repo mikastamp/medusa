@@ -260,45 +260,47 @@ export const AiAssistantChatProvider = ({
 
   useEffect(() => {
     if (
-      !loading &&
-      answer.length &&
-      thread[lastAnswerIndex]?.content !== answer
+      loading ||
+      !answer.length ||
+      thread[lastAnswerIndex]?.content === answer
     ) {
-      const uniqueAnswerSources = answerSources
-        .filter(
-          (source, index) =>
-            answerSources.findIndex(
-              (s) => s.source_url === source.source_url
-            ) === index
-        )
-        .map((source) => {
-          const separatorIndex = source.title.indexOf("|")
-          return {
-            ...source,
-            title:
-              separatorIndex !== -1
-                ? source.title.slice(0, separatorIndex)
-                : source.title,
-          }
-        })
-      setThread((prevThread) => [
-        ...prevThread,
-        {
-          type: "answer",
-          content: answer,
-          question_id: identifiers?.question_answer_id,
-          order: getNewOrder(prevThread),
-          sources:
-            uniqueAnswerSources.length > 3
-              ? uniqueAnswerSources.slice(0, 3)
-              : uniqueAnswerSources,
-        },
-      ])
-      setAnswer("")
-      setAnswerSources([])
-      setMessagesCount((prev) => prev + 1)
-      inputRef.current?.focus()
+      return
     }
+
+    const uniqueAnswerSources = answerSources
+      .filter(
+        (source, index) =>
+          answerSources.findIndex((s) => s.source_url === source.source_url) ===
+          index
+      )
+      .map((source) => {
+        const separatorIndex = source.title.indexOf("|")
+        return {
+          ...source,
+          title:
+            separatorIndex !== -1
+              ? source.title.slice(0, separatorIndex)
+              : source.title,
+        }
+      })
+    setThread((prevThread) => [
+      ...prevThread,
+      {
+        type: "answer",
+        content: answer,
+        question_id: identifiers?.question_answer_id,
+        order: getNewOrder(prevThread),
+        sources:
+          uniqueAnswerSources.length > 3
+            ? uniqueAnswerSources.slice(0, 3)
+            : uniqueAnswerSources,
+      },
+    ])
+    setAnswer("")
+    setAnswerSources([])
+    setMessagesCount((prev) => prev + 1)
+    inputRef.current?.focus()
+    scrollToBottom()
   }, [loading, answer, thread, lastAnswerIndex, inputRef.current])
 
   useResizeObserver(contentRef as React.RefObject<HTMLDivElement>, () => {

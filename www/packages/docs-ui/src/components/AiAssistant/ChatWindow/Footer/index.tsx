@@ -12,7 +12,7 @@ export const AiAssistantChatWindowFooter = () => {
       )}
     >
       <span className="text-medusa-fg-muted">Chat is cleared on refresh</span>
-      <span className="h-full w-px bg-medusa-border-base"></span>
+      <span className="h-docs_0.75 w-px bg-medusa-border-base"></span>
       <div className="flex items-center gap-docs_0.5">
         <span className="text-medusa-fg-subtle">Line break</span>
         <div className="flex items-center gap-[5px]">

@@ -27,7 +27,7 @@ export const AiAssistantThreadItem = ({ item }: AiAssistantThreadItemProps) => {
           "txt-small text-medusa-fg-base",
           item.type === "question" && [
             "rounded-docs_xl bg-medusa-tag-neutral-bg",
-            "px-docs_0.75 py-docs_0.5",
+            "px-docs_0.75 py-docs_0.5 max-w-full [&_code]:!text-wrap",
           ],
           item.type !== "question" && "flex-1",
           item.type === "answer" && "text-pretty flex-1 max-w-[calc(100%-20px)]"
