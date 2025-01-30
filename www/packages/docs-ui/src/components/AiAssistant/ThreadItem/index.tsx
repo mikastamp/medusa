@@ -59,6 +59,7 @@ export const AiAssistantThreadItem = ({ item }: AiAssistantThreadItemProps) => {
                       props.inlineClassName,
                       "!text-wrap !break-words"
                     )}
+                    collapsed
                   />
                 )
               },

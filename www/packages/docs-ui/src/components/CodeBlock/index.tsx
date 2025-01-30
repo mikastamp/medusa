@@ -43,6 +43,7 @@ export type CodeBlockMetaFields = {
   expandButtonLabel?: string
   isTerminal?: boolean
   forceNoTitle?: boolean
+  collapsed?: boolean
 } & CodeBlockHeaderMeta
 
 export type CodeBlockStyle = "loud" | "subtle" | "inline"
@@ -53,7 +54,6 @@ export type CodeBlockProps = {
   wrapperClassName?: string
   innerClassName?: string
   className?: string
-  collapsed?: boolean
   blockStyle?: CodeBlockStyle
   children?: React.ReactNode
   style?: React.HTMLAttributes<HTMLDivElement>["style"]
