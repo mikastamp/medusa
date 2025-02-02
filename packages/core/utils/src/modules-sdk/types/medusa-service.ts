@@ -5,6 +5,7 @@ import {
   IDmlEntity,
   InferEntityType,
   Pluralize,
+  Prettify,
   RestoreReturn,
   SoftDeleteReturn,
 } from "@medusajs/types"
@@ -29,10 +30,22 @@ export type ModelDTOConfig = {
 
 export type ModelsConfigTemplate = { [key: string]: ModelDTOConfig }
 
+/**
+ * We do not want the DML DTO to accept auto-managed timestamps
+ * as part of the input for the "create" and the "update"
+ * methods
+ */
+type DMLDTOExcludeProperties = "created_at" | "updated_at" | "deleted_at"
+
 export type ModelConfigurationsToConfigTemplate<T extends ModelEntries> = {
   [Key in keyof T]: {
     dto: T[Key] extends DmlEntity<any, any>
       ? InferEntityType<T[Key]>
+      : T[Key] extends Constructor<any>
+      ? InstanceType<T[Key]>
+      : any
+    inputDto: T[Key] extends DmlEntity<any, any>
+      ? Omit<InferEntityType<T[Key]>, DMLDTOExcludeProperties>
       : T[Key] extends Constructor<any>
       ? InstanceType<T[Key]>
       : any
@@ -83,6 +96,16 @@ export type ModelEntries<Keys = string> = Record<
   | { name?: string; singular?: string; plural?: string }
 >
 
+/**
+ * Returns the input DTO for the servide
+ */
+type GetServiceInput<ModelConfig extends { dto: any; inputDto?: any }> =
+  Partial<
+    [undefined] extends ModelConfig["inputDto"]
+      ? ModelConfig["dto"]
+      : ModelConfig["inputDto"]
+  >
+
 export type ExtractKeysFromConfig<ModelsConfig> = ModelsConfig extends {
   __empty: any
 }
@@ -90,7 +113,7 @@ export type ExtractKeysFromConfig<ModelsConfig> = ModelsConfig extends {
   : keyof ModelsConfig
 
 export type AbstractModuleService<
-  TModelsDtoConfig extends Record<string, { dto: any }>
+  TModelsDtoConfig extends Record<string, { dto: any; inputDto?: any }>
 > = {
   [TModelName in keyof TModelsDtoConfig as `retrieve${ExtractSingularName<
     TModelsDtoConfig,
@@ -156,10 +179,12 @@ export type AbstractModuleService<
     TModelName
   >}`]: {
     (
-      ...args: [Partial<TModelsDtoConfig[TModelName]["dto"]>, ...any[]]
+      data: Prettify<GetServiceInput<TModelsDtoConfig[TModelName]>>,
+      ...rest: any[]
     ): Promise<TModelsDtoConfig[TModelName]["dto"]>
     (
-      ...args: [Partial<TModelsDtoConfig[TModelName]["dto"]>[], ...any[]]
+      data: Prettify<GetServiceInput<TModelsDtoConfig[TModelName]>>[],
+      ...rest: any[]
     ): Promise<TModelsDtoConfig[TModelName]["dto"][]>
   }
 } & {
@@ -168,28 +193,25 @@ export type AbstractModuleService<
     TModelName
   >}`]: {
     (
-      entity: Partial<TModelsDtoConfig[TModelName]["dto"]>,
+      data: Prettify<GetServiceInput<TModelsDtoConfig[TModelName]>>,
       ...rest: any[]
     ): Promise<TModelsDtoConfig[TModelName]["dto"]>
     (
-      ...args:
-        | [
-            entitiesOrOptions:
-              | Partial<TModelsDtoConfig[TModelName]["dto"]>[]
-              | {
-                  selector: Record<string, any>
-                  data:
-                    | Partial<TModelsDtoConfig[TModelName]["dto"]>
-                    | Partial<TModelsDtoConfig[TModelName]["dto"]>[]
-                }
-              | {
-                  selector: Record<string, any>
-                  data:
-                    | Partial<TModelsDtoConfig[TModelName]["dto"]>
-                    | Partial<TModelsDtoConfig[TModelName]["dto"]>[]
-                }[],
-            ...rest: any[]
-          ]
+      dataOrOptions:
+        | Prettify<GetServiceInput<TModelsDtoConfig[TModelName]>>[]
+        | {
+            selector: Record<string, any>
+            data:
+              | Prettify<GetServiceInput<TModelsDtoConfig[TModelName]>>
+              | Prettify<GetServiceInput<TModelsDtoConfig[TModelName]>>[]
+          }
+        | {
+            selector: Record<string, any>
+            data:
+              | Prettify<GetServiceInput<TModelsDtoConfig[TModelName]>>
+              | Prettify<GetServiceInput<TModelsDtoConfig[TModelName]>>[]
+          }[],
+      ...rest: any[]
     ): Promise<TModelsDtoConfig[TModelName]["dto"][]>
   }
 }

@@ -58,16 +58,25 @@ describe("Medusa Service typings", () => {
       class BlogService extends MedusaService({ Blog }) {}
       const blogService = new BlogService(containerMock)
 
-      expectTypeOf(blogService.createBlogs).parameters.toMatchTypeOf<
-        [
-          (
-            | Partial<InferTypeOf<typeof Blog>>
-            | Partial<InferTypeOf<typeof Blog>>[]
-          ),
-          ...args: any[]
-        ]
+      expectTypeOf(blogService.createBlogs).parameters.toEqualTypeOf<
+        | [
+            Partial<{
+              id: string | undefined
+              title: string | undefined
+              description: string | null | undefined
+            }>,
+            ...rest: any[]
+          ]
+        | [
+            Partial<{
+              id: string | undefined
+              title: string | undefined
+              description: string | null | undefined
+            }>[],
+            ...rest: any[]
+          ]
       >()
-      expectTypeOf(blogService.createBlogs).returns.toMatchTypeOf<
+      expectTypeOf(blogService.createBlogs).returns.toEqualTypeOf<
         Promise<InferTypeOf<typeof Blog>> | Promise<InferTypeOf<typeof Blog>[]>
       >()
     })
@@ -78,10 +87,11 @@ describe("Medusa Service typings", () => {
       }) {}
       const blogService = new BlogService(containerMock)
 
-      expectTypeOf(blogService.createBlogs).parameters.toMatchTypeOf<
-        [Partial<BlogDTO> | Partial<BlogDTO>[], ...args: any[]]
+      expectTypeOf(blogService.createBlogs).parameters.toEqualTypeOf<
+        | [Partial<BlogDTO>, ...rest: any[]]
+        | [Partial<BlogDTO>[], ...rest: any[]]
       >()
-      expectTypeOf(blogService.createBlogs).returns.toMatchTypeOf<
+      expectTypeOf(blogService.createBlogs).returns.toEqualTypeOf<
         Promise<BlogDTO> | Promise<BlogDTO[]>
       >()
     })
@@ -97,11 +107,28 @@ describe("Medusa Service typings", () => {
       }
       const blogService = new BlogService(containerMock)
 
-      expectTypeOf(blogService.createBlogs).parameters.toMatchTypeOf<
+      expectTypeOf(blogService.createBlogs).parameters.toEqualTypeOf<
         [CreateBlogDTO]
       >()
-      expectTypeOf(blogService.createBlogs).returns.toMatchTypeOf<
+      expectTypeOf(blogService.createBlogs).returns.toEqualTypeOf<
         Promise<BlogDTO>
+      >()
+    })
+
+    test("define custom DTO for inputs", () => {
+      class BlogService extends MedusaService<{
+        Blog: { dto: BlogDTO; inputDto: Omit<BlogDTO, "id"> }
+      }>({
+        Blog,
+      }) {}
+      const blogService = new BlogService(containerMock)
+
+      expectTypeOf(blogService.createBlogs).parameters.toEqualTypeOf<
+        | [Partial<{ title: string | undefined }>, ...rest: any[]]
+        | [Partial<{ title: string | undefined }>[], ...rest: any[]]
+      >()
+      expectTypeOf(blogService.createBlogs).returns.toEqualTypeOf<
+        Promise<BlogDTO> | Promise<BlogDTO[]>
       >()
     })
   })
@@ -111,28 +138,55 @@ describe("Medusa Service typings", () => {
       class BlogService extends MedusaService({ Blog }) {}
       const blogService = new BlogService(containerMock)
 
-      expectTypeOf(blogService.updateBlogs).parameters.toMatchTypeOf<
-        [
-          (
-            | {
-                selector: Record<string, any>
-                data:
-                  | Partial<InferTypeOf<typeof Blog>>
-                  | Partial<InferTypeOf<typeof Blog>>[]
-              }
-            | {
-                selector: Record<string, any>
-                data:
-                  | Partial<InferTypeOf<typeof Blog>>
-                  | Partial<InferTypeOf<typeof Blog>>[]
-              }[]
-            | Partial<InferTypeOf<typeof Blog>>
-            | Partial<InferTypeOf<typeof Blog>>[]
-          ),
-          ...args: any[]
-        ]
+      expectTypeOf(blogService.updateBlogs).parameters.toEqualTypeOf<
+        | [
+            Partial<{
+              id: string | undefined
+              title: string | undefined
+              description: string | null | undefined
+            }>,
+            ...rest: any[]
+          ]
+        | [
+            (
+              | Partial<{
+                  id: string | undefined
+                  title: string | undefined
+                  description: string | null | undefined
+                }>[]
+              | {
+                  selector: Record<string, any>
+                  data:
+                    | Partial<{
+                        id: string | undefined
+                        title: string | undefined
+                        description: string | null | undefined
+                      }>
+                    | Partial<{
+                        id: string | undefined
+                        title: string | undefined
+                        description: string | null | undefined
+                      }>[]
+                }
+              | {
+                  selector: Record<string, any>
+                  data:
+                    | Partial<{
+                        id: string | undefined
+                        title: string | undefined
+                        description: string | null | undefined
+                      }>
+                    | Partial<{
+                        id: string | undefined
+                        title: string | undefined
+                        description: string | null | undefined
+                      }>[]
+                }[]
+            ),
+            ...rest: any[]
+          ]
       >()
-      expectTypeOf(blogService.updateBlogs).returns.toMatchTypeOf<
+      expectTypeOf(blogService.updateBlogs).returns.toEqualTypeOf<
         Promise<InferTypeOf<typeof Blog>> | Promise<InferTypeOf<typeof Blog>[]>
       >()
     })
@@ -143,24 +197,24 @@ describe("Medusa Service typings", () => {
       }) {}
       const blogService = new BlogService(containerMock)
 
-      expectTypeOf(blogService.createBlogs).parameters.toMatchTypeOf<
-        [
-          (
-            | {
-                selector: Record<string, any>
-                data: Partial<BlogDTO> | Partial<BlogDTO>[]
-              }
-            | {
-                selector: Record<string, any>
-                data: Partial<BlogDTO> | Partial<BlogDTO>[]
-              }[]
-            | Partial<BlogDTO>
-            | Partial<BlogDTO>[]
-          ),
-          ...args: any[]
-        ]
+      expectTypeOf(blogService.updateBlogs).parameters.toEqualTypeOf<
+        | [Partial<BlogDTO>, ...rest: any[]]
+        | [
+            (
+              | Partial<BlogDTO>[]
+              | {
+                  selector: Record<string, any>
+                  data: Partial<BlogDTO> | Partial<BlogDTO>[]
+                }
+              | {
+                  selector: Record<string, any>
+                  data: Partial<BlogDTO> | Partial<BlogDTO>[]
+                }[]
+            ),
+            ...rest: any[]
+          ]
       >()
-      expectTypeOf(blogService.updateBlogs).returns.toMatchTypeOf<
+      expectTypeOf(blogService.updateBlogs).returns.toEqualTypeOf<
         Promise<BlogDTO> | Promise<BlogDTO[]>
       >()
     })
@@ -176,11 +230,45 @@ describe("Medusa Service typings", () => {
       }
       const blogService = new BlogService(containerMock)
 
-      expectTypeOf(blogService.updateBlogs).parameters.toMatchTypeOf<
+      expectTypeOf(blogService.updateBlogs).parameters.toEqualTypeOf<
         [id: string, data: CreateBlogDTO]
       >()
-      expectTypeOf(blogService.updateBlogs).returns.toMatchTypeOf<
+      expectTypeOf(blogService.updateBlogs).returns.toEqualTypeOf<
         Promise<BlogDTO>
+      >()
+    })
+
+    test("define custom DTO for inputs", () => {
+      class BlogService extends MedusaService<{
+        Blog: { dto: BlogDTO; inputDto: Omit<BlogDTO, "id"> }
+      }>({
+        Blog,
+      }) {}
+      const blogService = new BlogService(containerMock)
+
+      expectTypeOf(blogService.updateBlogs).parameters.toEqualTypeOf<
+        | [Partial<{ title: string | undefined }>, ...rest: any[]]
+        | [
+            (
+              | Partial<{ title: string | undefined }>[]
+              | {
+                  selector: Record<string, any>
+                  data:
+                    | Partial<{ title: string | undefined }>
+                    | Partial<{ title: string | undefined }>[]
+                }
+              | {
+                  selector: Record<string, any>
+                  data:
+                    | Partial<{ title: string | undefined }>
+                    | Partial<{ title: string | undefined }>[]
+                }[]
+            ),
+            ...rest: any[]
+          ]
+      >()
+      expectTypeOf(blogService.createBlogs).returns.toEqualTypeOf<
+        Promise<BlogDTO> | Promise<BlogDTO[]>
       >()
     })
   })
