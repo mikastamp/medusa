@@ -1,8 +1,7 @@
 "use client"
 
 import type { DataTableCellContext, DataTableHeaderContext } from "@/blocks/data-table/types"
-import { Checkbox } from "@/components/checkbox"
-import { CheckedState } from "@radix-ui/react-checkbox"
+import { Checkbox, CheckboxCheckedState } from "@/components/checkbox"
 import * as React from "react"
 
 interface DataTableSelectCellProps<TData> {
@@ -32,7 +31,7 @@ const DataTableSelectHeader = <TData,>(props: DataTableSelectHeaderProps<TData>)
     ? "indeterminate"
     : props.ctx.table.getIsAllPageRowsSelected()
 
-  const onChange = (checked: CheckedState) => {
+  const onChange = (checked: CheckboxCheckedState) => {
     props.ctx.table.toggleAllPageRowsSelected(!!checked)
   }
 

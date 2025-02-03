@@ -1236,6 +1236,10 @@ export const filesMap = [
     "pathname": "/troubleshooting/s3"
   },
   {
+    "filePath": "/www/apps/resources/app/troubleshooting/test-errors/page.mdx",
+    "pathname": "/troubleshooting/test-errors"
+  },
+  {
     "filePath": "/www/apps/resources/app/troubleshooting/workflow-errors/page.mdx",
     "pathname": "/troubleshooting/workflow-errors"
   },

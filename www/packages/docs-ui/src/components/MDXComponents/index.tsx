@@ -14,6 +14,7 @@ import {
   H2,
   H3,
   H4,
+  Link,
 } from "@/components"
 import clsx from "clsx"
 import { Text } from "@medusajs/ui"
@@ -119,6 +120,7 @@ export const MDXComponents: MDXComponentsType = {
     const { key, ...rest } = props
     return <ZoomImg {...rest} />
   },
+  a: Link,
 }
 
 export const Hr = MDXComponents["hr"] as () => React.JSX.Element

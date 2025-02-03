@@ -17293,6 +17293,14 @@ export const generatedSidebar = [
                 "path": "/troubleshooting/workflow-errors",
                 "title": "Workflow Errors",
                 "children": []
+              },
+              {
+                "loaded": true,
+                "isPathHref": true,
+                "type": "link",
+                "path": "/troubleshooting/test-errors",
+                "title": "Test Errors",
+                "children": []
               }
             ]
           },

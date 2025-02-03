@@ -8,6 +8,17 @@ import { StepResponse, createStep } from "@medusajs/framework/workflows-sdk"
 export const createPaymentAccountHolderStepId = "create-payment-account-holder"
 /**
  * This step creates the account holder in the payment provider.
+ * 
+ * @example
+ * const accountHolder = createPaymentAccountHolderStep({
+ *   provider_id: "pp_stripe_stripe",
+ *   context: {
+ *     customer: {
+ *       id: "cus_123",
+ *       email: "example@gmail.com"
+ *     }
+ *   }
+ * })
  */
 export const createPaymentAccountHolderStep = createStep(
   createPaymentAccountHolderStepId,
