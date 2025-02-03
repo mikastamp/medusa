@@ -127,14 +127,14 @@ medusaIntegrationTestRunner({
                   country_code: "US",
                   province_code: "NY",
                   city: "New York",
-                  postal_expression: { type: "regex", exp: `1000\d` }, // e.g. supporting 10001, 10002, 10003, etc.
+                  postal_expression: { type: "regex", exp: `10001` },
                 },
                 {
                   type: "zip",
                   country_code: "US",
                   province_code: "NY",
                   city: "New York",
-                  postal_expression: { type: "regex", exp: `1010\d` }, // e.g. supporting 10101, 10102, 10103, etc.
+                  postal_expression: { type: "regex", exp: `10101` },
                 },
               ],
             },
