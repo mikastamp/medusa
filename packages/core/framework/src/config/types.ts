@@ -89,8 +89,26 @@ export type AdminOptions = {
   /**
    * Configure the Vite configuration for the admin dashboard. This function receives the default Vite configuration
    * and returns the modified configuration. The default value is `undefined`.
+   * 
+   * Learn about configurations you can pass to Vite in [Vite's documentation](https://vite.dev/config/).
    *
-   * @privateRemarks TODO Add example
+   * @example
+   * For example, if you're using a third-party library that isn't ESM-compatible, add it to Vite's `optimizeDeps` configuration:
+   * 
+   * ```ts title="medusa-config.ts"
+   * module.exports = defineConfig({
+   *   admin: {
+   *     vite: () => {
+   *       return {
+   *         optimizeDeps: {
+   *           include: ["qs"],
+   *         },
+   *       };
+   *     },
+   *   },
+   *   // ...
+   * })
+   * ```
    */
   vite?: (config: InlineConfig) => InlineConfig
 }

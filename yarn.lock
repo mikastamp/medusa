@@ -5260,6 +5260,7 @@ __metadata:
     compression: ^1.7.4
     copyfiles: ^2.4.1
     express: ^4.21.0
+    get-port: ^5.1.1
     glob: ^10.3.10
     postcss: ^8.4.32
     tailwindcss: ^3.3.6
@@ -5267,7 +5268,6 @@ __metadata:
     typescript: ^5.3.3
     vite: ^5.2.11
   peerDependencies:
-    express: ^4.21.0
     react-dom: ^18.0.0
   languageName: unknown
   linkType: soft
@@ -5280,8 +5280,6 @@ __metadata:
     "@types/react": ^18.3.2
     tsup: ^8.0.1
     typescript: ^5.3.3
-    zod: ^3.22
-  peerDependencies:
     zod: ^3.22
   languageName: unknown
   linkType: soft
@@ -6153,8 +6151,11 @@ __metadata:
     "@mikro-orm/migrations": 6.4.3
     "@mikro-orm/postgresql": 6.4.3
     awilix: ^8.0.1
+    react-dom: ^18.0.0
     yalc: 1.0.0-pre.53
   peerDependenciesMeta:
+    react-dom:
+      optional: true
     yalc:
       optional: true
   languageName: unknown
