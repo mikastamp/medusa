@@ -12,7 +12,6 @@ import {
   ModuleJoinerConfig,
   ModulesSdkTypes,
   PricePreferenceDTO,
-  PriceRuleDTO,
   PriceSetDTO,
   PricingContext,
   PricingFilters,
@@ -813,17 +812,6 @@ export default class PricingModuleService
     )
   }
 
-  @InjectManager()
-  // @ts-expect-error
-  async createPriceRules(
-    data: CreatePriceRuleDTO[],
-    sharedContext?: Context
-  ): Promise<PriceRuleDTO[]> {
-    return super.createPriceRules(data, sharedContext) as unknown as Promise<
-      PriceRuleDTO[]
-    >
-  }
-
   // @ts-expect-error
   async createPricePreferences(
     data: PricingTypes.CreatePricePreferenceDTO,
@@ -947,17 +935,6 @@ export default class PricingModuleService
     >(updateResult)
 
     return isString(idOrSelector) ? pricePreferences[0] : pricePreferences
-  }
-
-  @InjectManager()
-  // @ts-expect-error
-  async updatePriceRules(
-    data: PricingTypes.UpdatePriceRuleDTO[],
-    sharedContext?: Context
-  ): Promise<PricingTypes.PriceRuleDTO[]> {
-    return super.updatePriceRules(data, sharedContext) as unknown as Promise<
-      PriceRuleDTO[]
-    >
   }
 
   @InjectTransactionManager()

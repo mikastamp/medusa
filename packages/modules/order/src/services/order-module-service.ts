@@ -188,6 +188,7 @@ const generateMethodForModels = {
 }
 
 // TODO: rm template args here, keep it for later to not collide with carlos work at least as little as possible
+// @ts-expect-error
 export default class OrderModuleService
   extends ModulesSdkUtils.MedusaService<{
     Order: { dto: OrderTypes.OrderDTO }
@@ -3686,15 +3687,15 @@ export default class OrderModuleService
     return await BundledActions.registerDelivery.bind(this)(data, sharedContext)
   }
 
-  @InjectManager()
-  // @ts-expect-error
-  async createReturnItems(
-    data: OrderTypes.CreateOrderReturnItemDTO,
-    sharedContext?: Context
-  ): Promise<OrderTypes.OrderReturnItemDTO> {
-    return super.createReturnItems(
-      data as unknown as OrderTypes.OrderReturnItemDTO,
-      sharedContext
-    )
-  }
+  // @InjectManager()
+  // // @ts-expect-error
+  // async createReturnItems(
+  //   data: OrderTypes.CreateOrderReturnItemDTO,
+  //   sharedContext?: Context
+  // ): Promise<OrderTypes.OrderReturnItemDTO> {
+  //   return super.createReturnItems(
+  //     data as unknown as OrderTypes.OrderReturnItemDTO,
+  //     sharedContext
+  //   )
+  // }
 }

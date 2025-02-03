@@ -209,15 +209,6 @@ export default class TaxModuleService
     return await this.taxRateService_.update({ selector, data }, sharedContext)
   }
 
-  @InjectManager()
-  // @ts-expect-error
-  async updateTaxRegions(
-    data: TaxTypes.UpdateTaxRegionDTO,
-    sharedContext?: Context
-  ): Promise<TaxTypes.TaxRegionDTO> {
-    return super.updateTaxRegions(data, sharedContext)
-  }
-
   private async setTaxRateRulesForTaxRates(
     idOrSelector: string | string[] | TaxTypes.FilterableTaxRateProps,
     rules: Omit<TaxTypes.CreateTaxRateRuleDTO, "tax_rate_id">[],
