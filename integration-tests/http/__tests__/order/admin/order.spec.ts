@@ -840,6 +840,7 @@ medusaIntegrationTestRunner({
         await api.post(
           `/admin/orders/${order.id}/fulfillments`,
           {
+            shipping_option_id: seeder.shippingOption.id,
             location_id: seeder.stockLocation.id,
             items: [{ id: orderItemId, quantity: 1 }],
           },
@@ -859,6 +860,7 @@ medusaIntegrationTestRunner({
         await api.post(
           `/admin/orders/${order.id}/fulfillments`,
           {
+            shipping_option_id: seeder.shippingOption.id,
             location_id: seeder.stockLocation.id,
             items: [{ id: orderItemId, quantity: 1 }],
           },
@@ -880,6 +882,7 @@ medusaIntegrationTestRunner({
         } = await api.post(
           `/admin/orders/${order.id}/fulfillments?fields=fulfillments.id`,
           {
+            shipping_option_id: seeder.shippingOption.id,
             location_id: seeder.stockLocation.id,
             items: [{ id: orderItemId, quantity: 1 }],
           },
@@ -908,6 +911,7 @@ medusaIntegrationTestRunner({
           .post(
             `/admin/orders/${order.id}/fulfillments`,
             {
+              shipping_option_id: seeder.shippingOption.id,
               location_id: seeder.stockLocation.id,
               items: [{ id: orderItemId, quantity: 5 }],
             },
@@ -956,6 +960,7 @@ medusaIntegrationTestRunner({
           .post(
             `/admin/orders/${order.id}/fulfillments`,
             {
+              shipping_option_id: seeder.shippingOption.id,
               location_id: seeder.stockLocation.id,
               items: [
                 {
@@ -982,6 +987,7 @@ medusaIntegrationTestRunner({
         } = await api.post(
           `/admin/orders/${order.id}/fulfillments?fields=+fulfillments.id,fulfillments.requires_shipping`,
           {
+            shipping_option_id: seeder.shippingOption.id,
             location_id: seeder.stockLocation.id,
             items: [{ id: i1.id, quantity: 1 }],
           },
@@ -995,6 +1001,7 @@ medusaIntegrationTestRunner({
         } = await api.post(
           `/admin/orders/${order.id}/fulfillments?fields=+fulfillments.id,fulfillments.requires_shipping`,
           {
+            shipping_option_id: seeder.shippingOption.id,
             location_id: seeder.stockLocation.id,
             items: [{ id: i2.id, quantity: 1 }],
           },
