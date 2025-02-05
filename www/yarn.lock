@@ -5868,6 +5868,7 @@ __metadata:
     build-scripts: "*"
     clsx: ^2.1.0
     docs-ui: "*"
+    docs-utils: "*"
     eslint: ^9.13.0
     eslint-plugin-prettier: ^5.2.1
     eslint-plugin-react-hooks: ^5.0.0
@@ -7198,6 +7199,7 @@ __metadata:
   dependencies:
     "@mdx-js/mdx": ^3.1.0
     "@types/node": ^20.11.20
+    react-docgen: ^7.1.0
     remark-frontmatter: ^5.0.0
     remark-mdx: ^3.1.0
     remark-parse: ^11.0.0
@@ -15044,6 +15046,7 @@ turbo@latest:
     contentlayer: ^0.3.4
     date-fns: ^3.3.1
     docs-ui: "*"
+    docs-utils: "*"
     eslint: ^9.13.0
     eslint-plugin-prettier: ^5.2.1
     eslint-plugin-react-hooks: ^5.0.0
@@ -15057,6 +15060,7 @@ turbo@latest:
     react-dom: rc
     rehype-slug: ^6.0.0
     remark: ^14.0.3
+    remark-rehype-plugins: "*"
     tailwind: "*"
     tailwindcss: 3.3.3
     ts-node: ^10.9.1

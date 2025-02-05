@@ -50,7 +50,7 @@ export const generatedEditDates = {
   "app/learn/fundamentals/scheduled-jobs/execution-number/page.mdx": "2024-10-21T13:30:21.371Z",
   "app/learn/fundamentals/api-routes/parameters/page.mdx": "2024-11-19T16:37:47.251Z",
   "app/learn/fundamentals/api-routes/http-methods/page.mdx": "2024-10-21T13:30:21.367Z",
-  "app/learn/fundamentals/admin/tips/page.mdx": "2025-01-27T08:45:19.023Z",
+  "app/learn/fundamentals/admin/tips/page.mdx": "2025-02-05T09:07:52.584Z",
   "app/learn/fundamentals/api-routes/cors/page.mdx": "2024-12-09T13:04:04.357Z",
   "app/learn/fundamentals/admin/ui-routes/page.mdx": "2024-12-09T16:44:40.198Z",
   "app/learn/fundamentals/api-routes/middlewares/page.mdx": "2024-12-09T13:04:03.712Z",
@@ -88,8 +88,8 @@ export const generatedEditDates = {
   "app/learn/customization/extend-features/extend-create-product/page.mdx": "2025-01-06T11:18:58.250Z",
   "app/learn/customization/custom-features/page.mdx": "2024-12-09T10:46:28.593Z",
   "app/learn/customization/customize-admin/page.mdx": "2024-12-09T11:02:38.801Z",
-  "app/learn/customization/customize-admin/route/page.mdx": "2025-02-04T07:35:04.523Z",
-  "app/learn/customization/customize-admin/widget/page.mdx": "2025-01-27T08:45:19.022Z",
+  "app/learn/customization/customize-admin/route/page.mdx": "2025-02-05T09:09:11.472Z",
+  "app/learn/customization/customize-admin/widget/page.mdx": "2025-02-05T09:10:18.163Z",
   "app/learn/customization/extend-features/define-link/page.mdx": "2024-12-09T11:02:39.346Z",
   "app/learn/customization/extend-features/page.mdx": "2024-12-09T11:02:39.244Z",
   "app/learn/customization/extend-features/query-linked-records/page.mdx": "2024-12-09T11:02:39.519Z",
@@ -102,7 +102,7 @@ export const generatedEditDates = {
   "app/learn/introduction/architecture/page.mdx": "2025-01-16T10:25:10.780Z",
   "app/learn/fundamentals/data-models/infer-type/page.mdx": "2024-12-09T15:54:08.713Z",
   "app/learn/fundamentals/custom-cli-scripts/seed-data/page.mdx": "2024-12-09T14:38:06.385Z",
-  "app/learn/fundamentals/environment-variables/page.mdx": "2024-12-09T11:00:57.428Z",
+  "app/learn/fundamentals/environment-variables/page.mdx": "2025-02-05T09:15:49.196Z",
   "app/learn/build/page.mdx": "2024-12-09T11:05:17.383Z",
   "app/learn/deployment/general/page.mdx": "2024-11-25T14:33:50.439Z",
   "app/learn/fundamentals/workflows/multiple-step-usage/page.mdx": "2024-11-25T16:19:32.169Z",
@@ -115,5 +115,6 @@ export const generatedEditDates = {
   "app/learn/fundamentals/plugins/page.mdx": "2025-01-22T10:14:10.433Z",
   "app/learn/customization/reuse-customizations/page.mdx": "2025-01-22T10:01:57.665Z",
   "app/learn/update/page.mdx": "2025-01-27T08:45:19.030Z",
-  "app/learn/fundamentals/module-links/query-context/page.mdx": "2025-02-03T17:04:24.479Z"
+  "app/learn/fundamentals/module-links/query-context/page.mdx": "2025-02-03T17:04:24.479Z",
+  "app/learn/fundamentals/admin/environment-variables/page.mdx": "2025-02-05T09:05:33.334Z"
 }

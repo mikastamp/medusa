@@ -7,6 +7,7 @@ export * from "./page-number.js"
 export * from "./prerequisites-link-fixer.js"
 export * from "./resolve-admonitions.js"
 export * from "./type-list-link-fixer.js"
+export * from "./ui-rehype-plugin.js"
 export * from "./workflow-diagram-link-fixer.js"
 
 export * from "./utils/fix-link.js"

@@ -2,25 +2,62 @@ import remarkMdx from "remark-mdx"
 import remarkParse from "remark-parse"
 import remarkStringify from "remark-stringify"
 import { read } from "to-vfile"
-import { UnistNode, UnistNodeWithData, UnistTree } from "types"
+import { FrontMatter, UnistNode, UnistNodeWithData, UnistTree } from "types"
 import { Plugin, Transformer, unified } from "unified"
 import { SKIP } from "unist-util-visit"
 import type { VFile } from "vfile"
 import {
+  ComponentParser,
   parseCard,
   parseCardList,
   parseCodeTabs,
+  parseColors,
+  parseComponentExample,
+  parseComponentReference,
   parseDetails,
+  parseHookValues,
+  parseIconSearch,
   parseNote,
+  parsePackageInstall,
   parsePrerequisites,
   parseSourceCodeLink,
   parseTable,
   parseTabs,
   parseTypeList,
   parseWorkflowDiagram,
-} from "./utils/parse-elms.js"
+} from "./utils/parsers.js"
+import remarkFrontmatter from "remark-frontmatter"
+import { matter } from "vfile-matter"
 
-const parseComponentsPlugin = (): Transformer => {
+const parsers: Record<string, ComponentParser> = {
+  Card: parseCard,
+  CardList: parseCardList,
+  CodeTabs: parseCodeTabs,
+  Details: parseDetails,
+  Note: parseNote,
+  Prerequisites: parsePrerequisites,
+  SourceCodeLink: parseSourceCodeLink,
+  Table: parseTable,
+  Tabs: parseTabs,
+  TypeList: parseTypeList,
+  WorkflowDiagram: parseWorkflowDiagram,
+  ComponentExample: parseComponentExample,
+  ComponentReference: parseComponentReference,
+  PackageInstall: parsePackageInstall,
+  IconSearch: parseIconSearch,
+  HookValues: parseHookValues,
+  Colors: parseColors,
+}
+
+const isComponentAllowed = (nodeName: string): boolean => {
+  return Object.keys(parsers).includes(nodeName)
+}
+
+type ParserPluginOptions = {
+  [key: string]: unknown
+}
+
+const parseComponentsPlugin = (options: ParserPluginOptions): Transformer => {
   return async (tree) => {
     const { visit } = await import("unist-util-visit")
 
@@ -50,81 +87,110 @@ const parseComponentsPlugin = (): Transformer => {
           }
         }
         if (node.type === "heading") {
-          if (
-            node.depth === 1 &&
-            node.children?.length &&
-            node.children[0].value === "metadata.title"
-          ) {
-            node.children[0] = {
-              type: "text",
-              value: pageTitle,
+          if (node.depth === 1 && node.children?.length) {
+            if (node.children[0].value === "metadata.title") {
+              node.children[0] = {
+                type: "text",
+                value: pageTitle,
+              }
+            } else {
+              node.children = node.children
+                .filter((child) => child.type === "text")
+                .map((child) => ({
+                  ...child,
+                  value: child.value?.trim(),
+                }))
             }
           }
           return
         }
         if (
           node.type === "mdxjsEsm" ||
-          node.name === "Feedback" ||
-          node.name === "ChildDocs" ||
-          node.name === "DetailsList"
+          !isComponentAllowed(node.name as string)
         ) {
           parent?.children.splice(index, 1)
           return [SKIP, index]
         }
-        switch (node.name) {
-          case "Card":
-            return parseCard(node, index, parent)
-          case "CardList":
-            return parseCardList(node as UnistNodeWithData, index, parent)
-          case "CodeTabs":
-            return parseCodeTabs(node as UnistNodeWithData, index, parent)
-          case "Details":
-            return parseDetails(node as UnistNodeWithData, index, parent)
-          case "Note":
-            return parseNote(node, index, parent)
-          case "Prerequisites":
-            return parsePrerequisites(node as UnistNodeWithData, index, parent)
-          case "SourceCodeLink":
-            return parseSourceCodeLink(node as UnistNodeWithData, index, parent)
-          case "Table":
-            return parseTable(node as UnistNodeWithData, index, parent)
-          case "Tabs":
-            return parseTabs(node as UnistNodeWithData, index, parent)
-          case "TypeList":
-            return parseTypeList(node as UnistNodeWithData, index, parent)
-          case "WorkflowDiagram":
-            return parseWorkflowDiagram(
-              node as UnistNodeWithData,
-              index,
-              parent
-            )
+
+        if (!node.name) {
+          return
+        }
+
+        const parser = parsers[node.name]
+        if (parser) {
+          const parserOptions = options[node.name] || {}
+          return parser(node as UnistNodeWithData, index, parent, parserOptions)
         }
       }
     )
   }
 }
 
-const getParsedAsString = (file: VFile): string => {
-  return file.toString().replaceAll(/^([\s]*)\* /gm, "$1- ")
+const removeFrontmatterPlugin = (): Transformer => {
+  return async (tree) => {
+    const { visit } = await import("unist-util-visit")
+
+    visit(
+      tree as UnistTree,
+      ["yaml", "toml"],
+      (node: UnistNode, index, parent) => {
+        if (typeof index !== "number" || parent?.type !== "root") {
+          return
+        }
+
+        parent.children.splice(index, 1)
+        return [SKIP, index]
+      }
+    )
+  }
 }
 
-export const getCleanMd = async (
-  filePath: string,
+const getParsedAsString = (file: VFile): string => {
+  let content = file.toString().replaceAll(/^([\s]*)\* /gm, "$1- ")
+  const frontmatter = file.data.matter as FrontMatter | undefined
+
+  if (frontmatter?.title) {
+    content = `# ${frontmatter.title}\n\n${frontmatter.description ? `${frontmatter.description}\n\n` : ""}${content}`
+  }
+
+  return content
+}
+
+type Options = {
+  filePath: string
   plugins?: {
     before?: Plugin[]
     after?: Plugin[]
   }
-): Promise<string> => {
+  parserOptions?: ParserPluginOptions
+}
+
+export const getCleanMd = async ({
+  filePath,
+  plugins,
+  parserOptions,
+}: Options): Promise<string> => {
   if (!filePath.endsWith(".md") && !filePath.endsWith(".mdx")) {
     return ""
   }
-  const unifier = unified().use(remarkParse).use(remarkMdx).use(remarkStringify)
+  const unifier = unified()
+    .use(remarkParse)
+    .use(remarkMdx)
+    .use(remarkStringify)
+    .use(remarkFrontmatter, ["yaml"])
+    .use(() => {
+      return (tree, file) => {
+        matter(file)
+      }
+    })
 
   plugins?.before?.forEach((plugin) => {
     unifier.use(...(Array.isArray(plugin) ? plugin : [plugin]))
   })
 
-  unifier.use(parseComponentsPlugin)
+  unifier
+    .use(parseComponentsPlugin, parserOptions || {})
+    .use(removeFrontmatterPlugin)
 
   plugins?.after?.forEach((plugin) => {
     unifier.use(...(Array.isArray(plugin) ? plugin : [plugin]))

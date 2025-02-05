@@ -5,9 +5,19 @@ import {
   isExpressionJsVarLiteral,
   isExpressionJsVarObj,
 } from "../expression-is-utils.js"
+import path from "path"
+import { readFileSync } from "fs"
+import type { Documentation } from "react-docgen"
 
-export const parseCard = (
-  node: UnistNode,
+export type ComponentParser<TOptions = any> = (
+  node: UnistNodeWithData,
+  index: number,
+  parent: UnistTree,
+  options?: TOptions
+) => VisitorResult
+
+export const parseCard: ComponentParser = (
+  node: UnistNodeWithData,
   index: number,
   parent: UnistTree
 ): VisitorResult => {
@@ -52,7 +62,7 @@ export const parseCard = (
   return [SKIP, index]
 }
 
-export const parseCardList = (
+export const parseCardList: ComponentParser = (
   node: UnistNodeWithData,
   index: number,
   parent: UnistTree
@@ -72,30 +82,40 @@ export const parseCardList = (
     .map((item) => {
       if (
         !isExpressionJsVarObj(item) ||
-        !("text" in item) ||
-        !("link" in item) ||
-        !isExpressionJsVarLiteral(item.text) ||
-        !isExpressionJsVarLiteral(item.link)
+        !("title" in item) ||
+        !("href" in item) ||
+        !isExpressionJsVarLiteral(item.title) ||
+        !isExpressionJsVarLiteral(item.href)
       ) {
         return null
+      }
+      const description = isExpressionJsVarLiteral(item.text)
+        ? (item.text.data as string)
+        : ""
+      const children: UnistNode[] = [
+        {
+          type: "link",
+          url: `${item.href.data}`,
+          children: [
+            {
+              type: "text",
+              value: item.title.data as string,
+            },
+          ],
+        },
+      ]
+      if (description.length) {
+        children.push({
+          type: "text",
+          value: `: ${description}`,
+        })
       }
       return {
         type: "listItem",
         children: [
           {
             type: "paragraph",
-            children: [
-              {
-                type: "link",
-                url: `#${item.link.data}`,
-                children: [
-                  {
-                    type: "text",
-                    value: item.text.data,
-                  },
-                ],
-              },
-            ],
+            children,
           },
         ],
       }
@@ -111,7 +131,7 @@ export const parseCardList = (
   return [SKIP, index]
 }
 
-export const parseCodeTabs = (
+export const parseCodeTabs: ComponentParser = (
   node: UnistNodeWithData,
   index: number,
   parent: UnistTree
@@ -131,30 +151,26 @@ export const parseCodeTabs = (
       return
     }
 
-    children.push({
-      type: "mdxJsxFlowElement",
-      name: "details",
-      children: [
-        {
-          type: "mdxJsxFlowElement",
-          name: "summary",
-          children: [
-            {
-              type: "text",
-              value: (label.value as string) || "summary",
-            },
-          ],
-        },
-        code,
-      ],
-    })
+    children.push(
+      {
+        type: "heading",
+        depth: 3,
+        children: [
+          {
+            type: "text",
+            value: label.value as string,
+          },
+        ],
+      },
+      code
+    )
   })
 
   parent?.children.splice(index, 1, ...children)
   return [SKIP, index]
 }
 
-export const parseDetails = (
+export const parseDetails: ComponentParser = (
   node: UnistNodeWithData,
   index: number,
   parent: UnistTree
@@ -163,28 +179,29 @@ export const parseDetails = (
     (attr) => attr.name === "summaryContent"
   )
 
-  parent?.children.splice(index, 1, {
-    type: "mdxJsxFlowElement",
-    name: "details",
-    children: [
-      {
-        type: "mdxJsxFlowElement",
-        name: "summary",
-        children: [
-          {
-            type: "text",
-            value: (summary?.value as string) || "Details",
-          },
-        ],
-      },
-      ...(node.children || []),
-    ],
-  })
+  const children: UnistNode[] = []
+
+  if (summary?.value) {
+    children.push({
+      type: "heading",
+      depth: 3,
+      children: [
+        {
+          type: "text",
+          value: (summary?.value as string) || "Details",
+        },
+      ],
+    })
+  }
+
+  children.push(...(node.children || []))
+
+  parent?.children.splice(index, 1, ...children)
   return [SKIP, index]
 }
 
-export const parseNote = (
-  node: UnistNode,
+export const parseNote: ComponentParser = (
+  node: UnistNodeWithData,
   index: number,
   parent: UnistTree
 ): VisitorResult => {
@@ -192,7 +209,7 @@ export const parseNote = (
   return [SKIP, index]
 }
 
-export const parsePrerequisites = (
+export const parsePrerequisites: ComponentParser = (
   node: UnistNodeWithData,
   index: number,
   parent: UnistTree
@@ -265,7 +282,7 @@ export const parsePrerequisites = (
   return [SKIP, index]
 }
 
-export const parseSourceCodeLink = (
+export const parseSourceCodeLink: ComponentParser = (
   node: UnistNodeWithData,
   index: number,
   parent: UnistTree
@@ -293,7 +310,7 @@ export const parseSourceCodeLink = (
   return [SKIP, index]
 }
 
-export const parseTable = (
+export const parseTable: ComponentParser = (
   node: UnistNodeWithData,
   index: number,
   parent: UnistTree
@@ -348,7 +365,7 @@ export const parseTable = (
   })
 }
 
-export const parseTabs = (
+export const parseTabs: ComponentParser = (
   node: UnistNodeWithData,
   index: number,
   parent: UnistTree
@@ -368,23 +385,19 @@ export const parseTabs = (
         return
       }
 
-      tabs.push({
-        type: "mdxJsxFlowElement",
-        name: "details",
-        children: [
-          {
-            type: "mdxJsxFlowElement",
-            name: "summary",
-            children: [
-              {
-                type: "text",
-                value: tabLabel,
-              },
-            ],
-          },
-          ...tabContent,
-        ],
-      })
+      tabs.push(
+        {
+          type: "heading",
+          depth: 3,
+          children: [
+            {
+              type: "text",
+              value: tabLabel,
+            },
+          ],
+        },
+        ...tabContent
+      )
     })
   })
 
@@ -392,7 +405,7 @@ export const parseTabs = (
   return [SKIP, index]
 }
 
-export const parseTypeList = (
+export const parseTypeList: ComponentParser = (
   node: UnistNodeWithData,
   index: number,
   parent: UnistTree
@@ -435,7 +448,7 @@ export const parseTypeList = (
           children: [
             {
               type: "text",
-              value: `${typeName}: (${itemType}) ${itemDescription}`,
+              value: `${typeName}: (${itemType}) ${itemDescription}`.trim(),
             },
           ],
         },
@@ -465,7 +478,7 @@ export const parseTypeList = (
   return [SKIP, index]
 }
 
-export const parseWorkflowDiagram = (
+export const parseWorkflowDiagram: ComponentParser = (
   node: UnistNodeWithData,
   index: number,
   parent: UnistTree
@@ -556,6 +569,321 @@ export const parseWorkflowDiagram = (
     children: listItems,
   })
   return [SKIP, index]
+}
+
+export const parseComponentExample: ComponentParser<{
+  examplesBasePath: string
+}> = (
+  node: UnistNodeWithData,
+  index: number,
+  parent: UnistTree,
+  options
+): VisitorResult => {
+  if (!options?.examplesBasePath) {
+    return
+  }
+
+  const exampleName = node.attributes?.find((attr) => attr.name === "name")
+  if (!exampleName) {
+    return
+  }
+
+  const fileContent = readFileSync(
+    path.join(options.examplesBasePath, `${exampleName.value as string}.tsx`),
+    "utf-8"
+  )
+
+  parent.children?.splice(index, 1, {
+    type: "code",
+    lang: "tsx",
+    value: fileContent,
+  })
+  return [SKIP, index]
+}
+
+export const parseComponentReference: ComponentParser<{ specsPath: string }> = (
+  node: UnistNodeWithData,
+  index: number,
+  parent: UnistTree,
+  options
+): VisitorResult => {
+  if (!options?.specsPath) {
+    return
+  }
+
+  const mainComponent = node.attributes?.find(
+    (attr) => attr.name === "mainComponent"
+  )?.value as string
+  if (!mainComponent) {
+    return
+  }
+
+  const componentNames: string[] = []
+
+  const componentsToShowAttr = node.attributes?.find(
+    (attr) => attr.name === "componentsToShow"
+  )
+
+  if (
+    componentsToShowAttr &&
+    typeof componentsToShowAttr.value !== "string" &&
+    componentsToShowAttr.value.data?.estree
+  ) {
+    const componentsToShowJsVar = estreeToJs(
+      componentsToShowAttr.value.data.estree
+    )
+
+    if (componentsToShowAttr && Array.isArray(componentsToShowJsVar)) {
+      componentNames.push(
+        ...componentsToShowJsVar
+          .map((item) => {
+            return isExpressionJsVarLiteral(item) ? (item.data as string) : ""
+          })
+          .filter((name) => name.length > 0)
+      )
+    }
+  }
+
+  if (!componentNames.length) {
+    componentNames.push(mainComponent)
+  }
+
+  const getComponentNodes = (componentName: string): UnistNode[] => {
+    const componentSpecsFile = path.join(
+      options.specsPath,
+      mainComponent,
+      `${componentName}.json`
+    )
+
+    const componentSpecs: Documentation = JSON.parse(
+      readFileSync(componentSpecsFile, "utf-8")
+    )
+
+    const componentNodes: UnistNode[] = [
+      {
+        type: "heading",
+        depth: 3,
+        children: [
+          {
+            type: "text",
+            value: `${componentName} Props`,
+          },
+        ],
+      },
+    ]
+
+    if (componentSpecs.description) {
+      componentNodes.push({
+        type: "paragraph",
+        children: [
+          {
+            type: "text",
+            value: componentSpecs.description,
+          },
+        ],
+      })
+    }
+
+    if (componentSpecs.props) {
+      const listNode: UnistNode = {
+        type: "list",
+        ordered: false,
+        spread: false,
+        children: [],
+      }
+
+      Object.entries(componentSpecs.props).forEach(([propName, propData]) => {
+        listNode.children?.push({
+          type: "listItem",
+          children: [
+            {
+              type: "paragraph",
+              children: [
+                {
+                  type: "text",
+                  value:
+                    `${propName}: (${propData.type?.name || propData.tsType?.name}) ${propData.description || ""}${propData.defaultValue ? ` Default: ${propData.defaultValue.value}` : ""}`.trim(),
+                },
+              ],
+            },
+          ],
+        })
+      })
+
+      componentNodes.push(listNode)
+    }
+
+    return componentNodes
+  }
+
+  parent.children?.splice(
+    index,
+    1,
+    ...componentNames.flatMap(getComponentNodes)
+  )
+}
+
+export const parsePackageInstall: ComponentParser = (
+  node: UnistNodeWithData,
+  index: number,
+  parent: UnistTree
+): VisitorResult => {
+  const packageName = node.attributes?.find(
+    (attr) => attr.name === "packageName"
+  )
+  if (!packageName) {
+    return
+  }
+
+  parent.children?.splice(index, 1, {
+    type: "code",
+    lang: "bash",
+    value: `npm install ${packageName.value}`,
+  })
+  return [SKIP, index]
+}
+
+export const parseIconSearch: ComponentParser<{ iconNames: string[] }> = (
+  node: UnistNodeWithData,
+  index: number,
+  parent: UnistTree,
+  options
+): VisitorResult => {
+  if (!options?.iconNames) {
+    return
+  }
+
+  parent.children?.splice(index, 1, {
+    type: "list",
+    ordered: false,
+    spread: false,
+    children: options.iconNames.map((iconName) => ({
+      type: "listItem",
+      children: [
+        {
+          type: "paragraph",
+          children: [
+            {
+              type: "text",
+              value: iconName,
+            },
+          ],
+        },
+      ],
+    })),
+  })
+  return [SKIP, index]
+}
+
+export const parseHookValues: ComponentParser<{
+  hooksData: {
+    [k: string]: {
+      value: string
+      type?: {
+        type: string
+      }
+      description?: string
+    }[]
+  }
+}> = (
+  node: UnistNodeWithData,
+  index: number,
+  parent: UnistTree,
+  options
+): VisitorResult => {
+  if (!options?.hooksData) {
+    return
+  }
+
+  const hookName = node.attributes?.find((attr) => attr.name === "hook")
+
+  if (
+    !hookName ||
+    !hookName.value ||
+    typeof hookName.value !== "string" ||
+    !options.hooksData[hookName.value]
+  ) {
+    return
+  }
+
+  const hookData = options.hooksData[hookName.value]
+
+  const listItems = hookData.map((item) => {
+    return {
+      type: "listItem",
+      children: [
+        {
+          type: "paragraph",
+          children: [
+            {
+              type: "text",
+              value:
+                `${item.value}: (${item.type?.type}) ${item.description || ""}`.trim(),
+            },
+          ],
+        },
+      ],
+    }
+  })
+
+  parent.children?.splice(index, 1, {
+    type: "list",
+    ordered: false,
+    spread: false,
+    children: listItems,
+  })
+  return [SKIP, index]
+}
+
+export const parseColors: ComponentParser<{
+  colors: {
+    [k: string]: Record<string, string>
+  }
+}> = (
+  node: UnistNodeWithData,
+  index: number,
+  parent: UnistTree,
+  options
+): VisitorResult => {
+  if (!options?.colors) {
+    return
+  }
+
+  parent.children?.splice(index, 1, {
+    type: "list",
+    ordered: false,
+    spread: false,
+    children: Object.entries(options.colors).flatMap(([section, colors]) => [
+      {
+        type: "heading",
+        depth: 3,
+        children: [
+          {
+            type: "text",
+            value: section,
+          },
+        ],
+      },
+      ...Object.entries(colors).map(([name, value]) => ({
+        type: "listItem",
+        children: [
+          {
+            type: "paragraph",
+            children: [
+              {
+                type: "text",
+                value: name,
+              },
+              {
+                type: "text",
+                value: `: ${value}`,
+              },
+            ],
+          },
+        ],
+      })),
+    ]),
+  })
 }
 
 /**

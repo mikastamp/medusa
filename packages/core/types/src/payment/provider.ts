@@ -420,6 +420,8 @@ export interface IPaymentProvider {
    * @param data - Input data including the details of the account holder to create.
    * @returns The result of creating the account holder. If an error occurs, throw it.
    * 
+   * @version 2.5.0
+   * 
    * @example
    * import { MedusaError } from "@medusajs/framework/utils"
    * 
@@ -463,6 +465,8 @@ export interface IPaymentProvider {
    * @param data - Input data including the details of the account holder to delete.
    * @returns The result of deleting the account holder. If an error occurs, throw it.
    * 
+   * @version 2.5.0
+   * 
    * @example
    * import { MedusaError } from "@medusajs/framework/utils"
    * 
@@ -496,6 +500,8 @@ export interface IPaymentProvider {
    * This method is used to retrieve the list of saved payment methods for an account holder
    * in the third-party payment provider. A payment provider that supports saving payment methods
    * must implement this method.
+   * 
+   * @version 2.5.0
    * 
    * @param data - Input data including the details of the account holder to list payment methods for.
    * @returns The list of payment methods saved for the account holder. If an error occurs, throw it.
@@ -537,6 +543,8 @@ export interface IPaymentProvider {
    * This method is used to save a customer's payment method, such as a credit card, in the
    * third-party payment provider. A payment provider that supports saving payment methods
    * must implement this method.
+   * 
+   * @version 2.5.0
    * 
    * @param data - The details of the payment method to save.
    * @returns The result of saving the payment method. If an error occurs, throw it.

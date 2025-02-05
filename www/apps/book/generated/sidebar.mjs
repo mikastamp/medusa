@@ -793,10 +793,19 @@ export const generatedSidebar = [
             "loaded": true,
             "isPathHref": true,
             "type": "link",
+            "path": "/learn/fundamentals/admin/environment-variables",
+            "title": "Environment Variables",
+            "children": [],
+            "chapterTitle": "3.9.3. Environment Variables"
+          },
+          {
+            "loaded": true,
+            "isPathHref": true,
+            "type": "link",
             "path": "/learn/fundamentals/admin/constraints",
             "title": "Constraints",
             "children": [],
-            "chapterTitle": "3.9.3. Constraints"
+            "chapterTitle": "3.9.4. Constraints"
           },
           {
             "loaded": true,
@@ -805,7 +814,7 @@ export const generatedSidebar = [
             "path": "/learn/fundamentals/admin/tips",
             "title": "Tips",
             "children": [],
-            "chapterTitle": "3.9.4. Tips"
+            "chapterTitle": "3.9.5. Tips"
           }
         ],
         "chapterTitle": "3.9. Admin Development"
