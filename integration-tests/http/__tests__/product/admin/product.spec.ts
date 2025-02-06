@@ -3182,7 +3182,7 @@ medusaIntegrationTestRunner({
           )
         })
 
-        it("tstststs", async () => {
+        it("should preserve variant prices when batch updating variants", async () => {
           const productWithMultipleVariants = getProductFixture({
             title: "Test batch variants",
             handle: "test-batch-variants",
