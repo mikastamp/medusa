@@ -784,6 +784,10 @@ export const filesMap = [
     "pathname": "/events-reference"
   },
   {
+    "filePath": "/www/apps/resources/app/examples/guides/custom-item-price/page.mdx",
+    "pathname": "/examples/guides/custom-item-price"
+  },
+  {
     "filePath": "/www/apps/resources/app/examples/page.mdx",
     "pathname": "/examples"
   },
