@@ -3,10 +3,7 @@ import {
   PricingTypes,
   ProductTypes,
 } from "@medusajs/framework/types"
-import {
-  arrayDifference,
-  ProductVariantWorkflowEvents,
-} from "@medusajs/framework/utils"
+import { ProductVariantWorkflowEvents } from "@medusajs/framework/utils"
 import {
   WorkflowData,
   WorkflowResponse,
