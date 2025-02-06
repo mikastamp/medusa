@@ -1,5 +1,9 @@
 export const cart = [
   {
+    "title": "Implement Custom Line Item Pricing in Medusa",
+    "path": "/examples/guides/custom-item-price"
+  },
+  {
     "title": "Create Cart Context in Storefront",
     "path": "/storefront-development/cart/context"
   },
