@@ -1528,6 +1528,63 @@ medusaIntegrationTestRunner({
           )
         })
 
+        it("updates products with shipping profiles", async () => {
+          const shippingProfile2 = (
+            await api.post(
+              `/admin/shipping-profiles`,
+              { name: "heavy", type: "heavy" },
+              adminHeaders
+            )
+          ).data.shipping_profile
+
+          let fetchProduct = await api.get(
+            `/admin/products/${baseProduct.id}?fields=+shipping_profile.id`,
+            adminHeaders
+          )
+
+          let payload: Record<string, any> = {
+            shipping_profile_id: shippingProfile2.id,
+          }
+
+          let response = await api
+            .post(`/admin/products/${baseProduct.id}`, payload, adminHeaders)
+            .catch((err) => {
+              console.log(err)
+            })
+
+          expect(response.status).toEqual(200)
+
+          fetchProduct = await api.get(
+            `/admin/products/${baseProduct.id}?fields=+shipping_profile.id`,
+            adminHeaders
+          )
+
+          expect(fetchProduct.data.product.shipping_profile.id).toEqual(
+            shippingProfile2.id
+          )
+
+          payload = {
+            subtitle: "new subtitle",
+          }
+
+          response = await api
+            .post(`/admin/products/${baseProduct.id}`, payload, adminHeaders)
+            .catch((err) => {
+              console.log(err)
+            })
+
+          expect(response.status).toEqual(200)
+
+          fetchProduct = await api.get(
+            `/admin/products/${baseProduct.id}?fields=+shipping_profile.id`,
+            adminHeaders
+          )
+
+          expect(fetchProduct.data.product.shipping_profile.id).toEqual(
+            shippingProfile2.id
+          )
+        })
+
         it("updates a product (update prices, tags, update status, delete collection, delete type, replaces images)", async () => {
           const payload = {
             collection_id: null,
