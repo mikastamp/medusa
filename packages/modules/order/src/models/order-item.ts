@@ -21,9 +21,8 @@ const _OrderItem = model
     order: model.belongsTo<() => typeof Order>(() => Order, {
       mappedBy: "items",
     }),
-    item: model.hasOne<() => typeof OrderLineItem>(() => OrderLineItem, {
-      mappedBy: undefined,
-      foreignKey: true,
+    item: model.belongsTo<() => typeof OrderLineItem>(() => OrderLineItem, {
+      mappedBy: "order_item",
     }),
   })
   .indexes([

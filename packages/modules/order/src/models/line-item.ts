@@ -1,6 +1,7 @@
 import { model } from "@medusajs/framework/utils"
 import { OrderLineItemAdjustment } from "./line-item-adjustment"
 import { OrderLineItemTaxLine } from "./line-item-tax-line"
+import { OrderItem } from "./order-item"
 
 const _OrderLineItem = model
   .define("OrderLineItem", {
@@ -28,6 +29,9 @@ const _OrderLineItem = model
     unit_price: model.bigNumber().nullable(),
     is_custom_price: model.boolean().default(false),
     metadata: model.json().nullable(),
+    order_item: model.hasOne<() => typeof OrderItem>(() => OrderItem, {
+      mappedBy: "item",
+    }),
     tax_lines: model.hasMany<() => typeof OrderLineItemTaxLine>(
       () => OrderLineItemTaxLine,
       {
