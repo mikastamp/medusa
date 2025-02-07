@@ -1,5 +1,11 @@
 # @medusajs/admin
 
+## 7.1.18
+
+### Patch Changes
+
+- [#11238](https://github.com/medusajs/medusa/pull/11238) [`a34dddac4f`](https://github.com/medusajs/medusa/commit/a34dddac4f8b3da5aae80b43c047eff57359be95) Thanks [@adevinwild](https://github.com/adevinwild)! - fix(admin): loadConfig does not allow serve to be truly configurable
+
 ## 7.1.17
 
 ### Patch Changes
