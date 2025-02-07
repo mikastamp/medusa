@@ -35,7 +35,6 @@ export const loadConfig = (isDev?: boolean): PluginOptions | null => {
   if (isDev) {
     config = {
       ...config,
-      serve: false,
       path: "/",
       backend: "http://localhost:9000",
     }
@@ -45,7 +44,7 @@ export const loadConfig = (isDev?: boolean): PluginOptions | null => {
     const options = (plugin as { options: PluginOptions }).options ?? {}
 
     config = {
-      serve: isDev ? false : options.serve ?? config.serve,
+      serve: options.serve ?? config.serve,
       autoRebuild: options.autoRebuild ?? config.autoRebuild,
       path: options.path ?? config.path,
       outDir: options.outDir ?? config.outDir,
