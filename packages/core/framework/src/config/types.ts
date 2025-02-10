@@ -4,7 +4,7 @@ import {
 } from "@medusajs/types"
 
 import type { RedisOptions } from "ioredis"
-import { ConnectionOptions } from "tls"
+import { ConnectionOptions } from "node:tls"
 // @ts-expect-error
 import type { InlineConfig } from "vite"
 

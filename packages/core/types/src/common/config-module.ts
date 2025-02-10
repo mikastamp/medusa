@@ -4,7 +4,7 @@ import {
 } from "../modules-sdk"
 
 import type { RedisOptions } from "ioredis"
-import { ConnectionOptions } from "tls"
+import { ConnectionOptions } from "node:tls"
 // @ts-ignore
 import type { InlineConfig } from "vite"
 
