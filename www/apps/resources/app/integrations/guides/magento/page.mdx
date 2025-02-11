@@ -1,0 +1,255 @@
+import { Card, Prerequisites, Details } from "docs-ui"
+import { Github } from "@medusajs/icons"
+
+export const ogImage = "https://res.cloudinary.com/dza7lstvk/image/upload/v1732704590/Medusa%20Resources/Integrations_Resend_pam0nf.jpg"
+
+export const metadata = {
+  title: `Migrate Data from Magento to Medusa`,
+  openGraph: {
+    images: [
+      {
+        url: ogImage,
+        width: 1600,
+        height: 900,
+        type: "image/jpeg"
+      }
+    ],
+  },
+  twitter: {
+    images: [
+      {
+        url: ogImage,
+        width: 1600,
+        height: 900,
+        type: "image/jpeg"
+      }
+    ]
+  }
+}
+
+# {metadata.title}
+
+In this guide, you'll learn how to build a [plugin](!docs!/learn/fundamentals/plugins) that migrates data, such as products, from Magento to Medusa.
+
+While Magento is known for its customization capabilities, its monolithic architecture imposes limitations on business requirements, often forcing development teams to implement hacky workarounds. Over time, these customizations become challenging to maintain, especially as the business scales, leading to increased technical debt and slower feature delivery.
+
+Medusa's modular architecture allows you to build a custom digital commerce platform that meets your business requirements without the limitations of a monolithic system. By migrating from Magento to Medusa, you can take advantage of Medusa's modern technology stack to build a scalable and flexible commerce platform that grows with your business.
+
+## Summary
+
+<Prerequisites
+  items={[
+    {
+      text: "Magento 2.x with admin credentials.",
+    }
+  ]}
+/>
+
+This guide will teach you how to:
+
+- Install and set up a Medusa application project.
+- Install and set up a Medusa plugin.
+- Implement the integration to Magento in the Medusa plugin.
+    - This guide will focus on migrating product data from Magento to Medusa. You can extend the integration to migrate other data, such as customers, orders, and more.
+- Trigger data migration from Magento to Medusa through the Medusa Admin dashboard.
+- Use the Magento plugin in your Medusa application.
+
+You can follow this guide whether you're new to Medusa or an advanced Medusa developer.
+
+![Diagram showcasing the flow of migrating data from Magento to Medusa](https://res.cloudinary.com/dza7lstvk/image/upload/v1739271803/magento-migration-summary_y53d1v.jpg)
+
+<Card
+  title="Example Repository"
+  text="Find the full code of the guide in this repository."
+  href="https://github.com/medusajs/examples/tree/main/migrate-from-magento"
+  icon={Github}
+/>
+
+---
+
+## Step 1: Install a Medusa Application
+
+You'll first install a Medusa application that exposes core commerce features through REST APIs. You'll later install the Magento plugin in this application to test it out.
+
+<Prerequisites items={[
+  {
+    text: "Node.js v20+",
+    link: "https://nodejs.org/en/download"
+  },
+  {
+    text: "Git CLI tool",
+    link: "https://git-scm.com/downloads"
+  },
+  {
+    text: "PostgreSQL",
+    link: "https://www.postgresql.org/download/"
+  }
+]} />
+
+Start by installing the Medusa application on your machine with the following command:
+
+```bash
+npx create-medusa-app@latest
+```
+
+You'll be asked for the project's name. You can also optionally choose to install the [Next.js starter storefront](../../../nextjs-starter/page.mdx).
+
+Afterward, the installation process will start, which will install the Medusa application in a directory with your project's name. If you chose to install the Next.js starter, it'll be installed in a separate directory with the `{project-name}-storefront` name.
+
+<Note title="Why is the storefront installed separately?">
+
+The Medusa application is composed of a headless Node.js server and an admin dashboard. The storefront is installed or custom-built separately and connects to the Medusa application through its REST endpoints, called [API routes](!docs!/learn/fundamentals/api-routes). Learn more about Medusa's architecture in [this documentation](!docs!/learn/introduction/architecture).
+
+</Note>
+
+Once the installation finishes successfully, the Medusa Admin dashboard will open with a form to create a new user. Enter the user's credentials and submit the form. Afterward, you can log in with the new user and explore the dashboard.
+
+<Note title="Ran into Errors?">
+
+Check out the [troubleshooting guides](../../../troubleshooting/create-medusa-app-errors/page.mdx) for help.
+
+</Note>
+
+---
+
+## Step 2: Install a Medusa Plugin Project
+
+A plugin is a package of reusable Medusa customizations that you can install in any Medusa application. You can add in the plugin [API Routes](!docs!/learn/fundamentals/api-routes), [Workflows](!docs!/learn/fundamentals/workflows), and other customizations, as you'll see in this guide. Afterward, you can test it out locally in a Medusa application, then publish it to npm to install and use it in any Medusa application.
+
+<Note>
+
+Learn more about plugins in [this documentation](!docs!/learn/fundamentals/plugins).
+
+</Note>
+
+A Medusa plugin is set up in a different project, giving you the flexibility in building and publishing it, while providing you with the tools to test it out locally in a Medusa application.
+
+To create a new Medusa plugin project, run the following command in a directory different than that of the Medusa application:
+
+```bash npm2yarn
+npx create-medusa-app@latest medusa-plugin-magento --plugin
+```
+
+Where `medusa-plugin-magento` is the name of the plugin's directory and the name set in the plugin's `package.json`. So, if you wish to publish it to NPM later under a different name, you can change it here in the command or later in `package.json`.
+
+Once the installation process is done, a new directory named `medusa-plugin-magento` will be created with the plugin project files.
+
+![Directory structure of a plugin project](https://res.cloudinary.com/dza7lstvk/image/upload/v1737019441/Medusa%20Book/project-dir_q4xtri.jpg)
+
+---
+
+## Step 3: Set up Plugin in Medusa Application
+
+Before you start your development, you'll set up the plugin in the Medusa application you installed in the first step. This will allow you to test the plugin during your development process.
+
+In the plugin's directory, run the following command to publish the plugin to the local package registry:
+
+```bash title="Plugin project"
+npx medusa plugin:publish
+```
+
+This command uses [Yalc](https://github.com/wclr/yalc) under the hood to publish the plugin to a local package registry. The plugin is published locally under the name you specified in `package.json`.
+
+Next, you'll install the plugin in the Medusa application from the local registry.
+
+<Note>
+
+If you've installed your Medusa project before v2.3.1, you must install [yalc](https://github.com/wclr/yalc) as a development dependency first.
+
+</Note>
+
+Run the following command in the Medusa application's directory to install the plugin:
+
+```bash title="Medusa application"
+npx medusa plugin:add medusa-plugin-magento
+```
+
+This command installs the plugin in the Medusa application from the local package registry.
+
+Next, register the plugin in the `medusa-config.ts` file of the Medusa application:
+
+```ts title="medusa-config.ts"
+module.exports = defineConfig({
+  // ...
+  plugins: [
+    {
+      resolve: "medusa-plugin-magento",
+      options: {
+        // TODO add options
+      },
+    },
+  ],
+})
+```
+
+You add the plugin to the array of plugins. Later, you'll pass options useful to retrieve data from Magento.
+
+Finally, to ensure your plugin's changes are constantly published to the local registry, simplifying your testing process, keep the following command running in the plugin project during development:
+
+```bash title="Plugin project"
+npx medusa plugin:develop
+```
+
+---
+
+## Step 4: Implement Magento Module
+
+To connect to external applications in Medusa, you create a custom module. A module is a reusable package with functionalities related to a single feature or domain. Medusa integrates the module into your application without implications or side effects on your setup.
+
+In this step, you'll create a Magento Module in the Magento plugin that connects to a Magento server's REST APIs and retrieve data, such as products.
+
+<Note>
+
+Learn more about modules in [this documentation](!docs!/learn/fundamentals/modules).
+
+</Note>
+
+### Create Module Directory
+
+A module is created under the `src/modules` directory of your plugin. So, create the directory `src/modules/magento`.
+
+![Diagram showcasing the module directory to create](https://res.cloudinary.com/dza7lstvk/image/upload/v1739272368/magento-1_ikev4x.jpg)
+
+### Create Module's Service
+
+You define a module's functionalities in a service. A service is a TypeScript or JavaScript class that the module exports. In the service's methods, you can connect to external systems or the database, which is useful if your module defines tables in the database.
+
+In this section, you'll create the Magento Module's service that connects to Magento's REST APIs and retrieves data.
+
+Start by creating the file `src/modules/magento/service.ts` in the plugin with the following content:
+
+![Diagram showcasing the service file to create](https://res.cloudinary.com/dza7lstvk/image/upload/v1739272483/magento-2_ajetpr.jpg)
+
+```ts title="src/modules/magento/service.ts"
+type Options = {
+  baseUrl: string
+  storeCode?: string
+  username: string
+  password: string
+  migrationOptions?: {
+    imageBaseUrl?: string
+  }
+}
+
+export default class MagentoModuleService {
+  private options: Options
+
+  constructor({}, options: Options) {
+    this.options = {
+      ...options,
+      storeCode: options.storeCode || "default",
+    }
+  }
+}
+```
+
+You create a `MagentoModuleService` that has an `options` property to store the module's options. These options include:
+
+- `baseUrl`: The base URL of the Magento server.
+- `storeCode`: The store code of the Magento store, which is `default` by default.
+- `username`: The username of a Magento admin user to authenticate with the Magento server.
+- `password`: The password of the Magento admin user.
+- `migrationOptions`: Additional options useful for migrating data, such as the base URL to use for product images.
+
+The service's constructor accepts as a first parameter the [Module Container](!docs!/learn/fundamentals/modules/container), which allows you to access resources available for the module. As a second parameter, it accepts the module's options.
+
