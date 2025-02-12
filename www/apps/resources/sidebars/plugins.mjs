@@ -19,7 +19,7 @@ export const pluginsSidebar = [
         type: "link",
         title: "Magento Migration",
         path: "/plugins/guides/magento",
-        description: "Learn how to migrate data from Magento using a plugin.",
+        description: "Migrate data from Magento using a plugin.",
       },
     ],
   },
