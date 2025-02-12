@@ -213,7 +213,7 @@ export interface AdminCreateProduct {
   /**
    * The ID of the product's shipping profile.
    */
-  shipping_profile_id: string
+  shipping_profile_id?: string
   /**
    * The product's categories.
    */

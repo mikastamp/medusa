@@ -36,7 +36,7 @@ export type CreateProductWorkflowInputDTO = Omit<
   /**
    * The product's shipping profile.
    */
-  shipping_profile_id: string
+  shipping_profile_id?: string
   /**
    * The product's variants.
    */
