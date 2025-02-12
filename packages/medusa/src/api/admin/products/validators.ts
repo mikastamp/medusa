@@ -267,7 +267,7 @@ export const UpdateProduct = z
     categories: z.array(IdAssociation).optional(),
     tags: z.array(IdAssociation).optional(),
     sales_channels: z.array(z.object({ id: z.string() })).optional(),
-    shipping_profile_id: z.string().optional(),
+    shipping_profile_id: z.string().nullish(),
     weight: z.number().nullish(),
     length: z.number().nullish(),
     height: z.number().nullish(),
