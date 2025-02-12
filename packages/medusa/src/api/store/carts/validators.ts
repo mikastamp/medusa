@@ -8,6 +8,7 @@ export const StoreGetCartsCart = createSelectParams()
 const ItemSchema = z.object({
   variant_id: z.string(),
   quantity: z.number(),
+  requires_shipping: z.boolean().optional(),
   metadata: z.record(z.unknown()).nullish(),
 })
 
@@ -66,6 +67,7 @@ export type StoreAddCartLineItemType = z.infer<typeof StoreAddCartLineItem>
 export const StoreAddCartLineItem = z.object({
   variant_id: z.string(),
   quantity: z.number(),
+  requires_shipping: z.boolean().optional(),
   metadata: z.record(z.unknown()).nullish(),
 })
 

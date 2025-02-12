@@ -83,6 +83,11 @@ export interface StoreAddCartLineItem {
    */
   quantity: number
   /**
+   * Whether the line item requires shipping.
+   * Overrides the flag from inventory item if the product has managed inventory.
+   */
+  requires_shipping?: boolean
+  /**
    * Key-value pairs of custom data.
    */
   metadata?: Record<string, unknown>
