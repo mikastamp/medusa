@@ -4,7 +4,7 @@ import { Github } from "@medusajs/icons"
 export const ogImage = "https://res.cloudinary.com/dza7lstvk/image/upload/v1732704590/Medusa%20Resources/Integrations_Resend_pam0nf.jpg"
 
 export const metadata = {
-  title: `Migrate Data from Magento to Medusa`,
+  title: `How to Build Magento Data Migration Plugin`,
   openGraph: {
     images: [
       {
@@ -31,11 +31,11 @@ export const metadata = {
 
 In this guide, you'll learn how to build a [plugin](!docs!/learn/fundamentals/plugins) that migrates data, such as products, from Magento to Medusa.
 
-While Magento is known for its customization capabilities, its monolithic architecture imposes limitations on business requirements, often forcing development teams to implement hacky workarounds. Over time, these customizations become challenging to maintain, especially as the business scales, leading to increased technical debt and slower feature delivery.
+Magento is known for its customization capabilities. However, its monolithic architecture imposes limitations on business requirements, often forcing development teams to implement hacky workarounds. Over time, these customizations become challenging to maintain, especially as the business scales, leading to increased technical debt and slower feature delivery.
 
 Medusa's modular architecture allows you to build a custom digital commerce platform that meets your business requirements without the limitations of a monolithic system. By migrating from Magento to Medusa, you can take advantage of Medusa's modern technology stack to build a scalable and flexible commerce platform that grows with your business.
 
-## Summary
+## Guide Summary
 
 <Prerequisites
   items={[
@@ -49,8 +49,8 @@ This guide will teach you how to:
 
 - Install and set up a Medusa application project.
 - Install and set up a Medusa plugin.
-- Implement the integration to Magento in the Medusa plugin.
-    - This guide will focus on migrating product data from Magento to Medusa. You can extend the integration to migrate other data, such as customers, orders, and more.
+- Implement a Magento Module in the plugin to connect to Magento's APIs and retrieve products.
+    - This guide will only focus on migrating product data from Magento to Medusa. You can extend the implementation to migrate other data, such as customers, orders, and more.
 - Trigger data migration from Magento to Medusa in a scheduled job.
 
 You can follow this guide whether you're new to Medusa or an advanced Medusa developer.
@@ -195,7 +195,7 @@ npx medusa plugin:develop
 
 To connect to external applications in Medusa, you create a custom module. A module is a reusable package with functionalities related to a single feature or domain. Medusa integrates the module into your application without implications or side effects on your setup.
 
-In this step, you'll create a Magento Module in the Magento plugin that connects to a Magento server's REST APIs and retrieve data, such as products.
+In this step, you'll create a Magento Module in the Magento plugin that connects to a Magento server's REST APIs and retrieves data, such as products.
 
 <Note>
 
@@ -254,7 +254,7 @@ The service's constructor accepts as a first parameter the [Module Container](!d
 
 ### Add Authentication Logic
 
-To authenticate with the Magento server, you'll add a method to the service that retrieves an access token from the Magento server using the username and password provided in the options. This access token is used in subsequent requests to the Magento server.
+To authenticate with the Magento server, you'll add a method to the service that retrieves an access token from Magento using the username and password in the options. This access token is used in subsequent requests to the Magento server.
 
 First, add the following property to the `MagentoModuleService` class:
 
@@ -319,9 +319,9 @@ In the `isAccessTokenExpired` method, you return a boolean indicating whether th
 
 ### Retrieve Products from Magento
 
-Next, you'll add a method that retrieves products from Magento. Due to limitations in Magento's API that makes it difficult to differentiate between simple products that don't belong to a configurable product and those that do, you'll only retrieve configurble products and their children. You'll also retrieve the configurable attributes of the product, such as color and size.
+Next, you'll add a method that retrieves products from Magento. Due to limitations in Magento's API that makes it difficult to differentiate between simple products that don't belong to a configurable product and those that do, you'll only retrieve configurable products and their children. You'll also retrieve the configurable attributes of the product, such as color and size.
 
-First, you'll add some types to represent the product and its attributes. Create the file `src/modules/magento/types.ts` in the plugin with the following content:
+First, you'll add some types to represent a Magento product and its attributes. Create the file `src/modules/magento/types.ts` in the plugin with the following content:
 
 ![Diagram showcasing the types file to create](https://res.cloudinary.com/dza7lstvk/image/upload/v1739346287/Medusa%20Resources/magento-3_fpghog.jpg)
 
@@ -425,23 +425,38 @@ export default class MagentoModuleService {
 
 The `getProducts` method receives an optional `options` object with the `currentPage` and `pageSize` properties. So far, you check if the access token has expired and, if so, retrieve a new one using the `authenticate` method.
 
-Next, you'll prepare the query parameters to pass in the request to retrieve products. Replace the `TODO` with the following:
+Next, you'll prepare the query parameters to pass in the request that retrieves products. Replace the `TODO` with the following:
 
 ```ts title="src/modules/magento/service.ts"
 const searchQuery = new URLSearchParams()
 // pass pagination parameters
-searchQuery.append("searchCriteria[currentPage]", currentPage?.toString() || "1")
-searchQuery.append("searchCriteria[pageSize]", pageSize?.toString() || "100")
+searchQuery.append(
+  "searchCriteria[currentPage]", 
+  currentPage?.toString() || "1"
+)
+searchQuery.append(
+  "searchCriteria[pageSize]", 
+  pageSize?.toString() || "100"
+)
 
-// retrieve only configurable produts
-searchQuery.append("searchCriteria[filter_groups][1][filters][0][field]", "type_id")
-searchQuery.append("searchCriteria[filter_groups][1][filters][0][value]", "configurable")
-searchQuery.append("searchCriteria[filter_groups][1][filters][0][condition_type]", "in")
+// retrieve only configurable products
+searchQuery.append(
+  "searchCriteria[filter_groups][1][filters][0][field]", 
+  "type_id"
+)
+searchQuery.append(
+  "searchCriteria[filter_groups][1][filters][0][value]", 
+  "configurable"
+)
+searchQuery.append(
+  "searchCriteria[filter_groups][1][filters][0][condition_type]", 
+  "in"
+)
 
 // TODO send request to retrieve products
 ```
 
-You create a `searchQuery` object to store the query parameters to pass in the request. Then, you add the pagination parameters, and the filter to retrieve only configurable products.
+You create a `searchQuery` object to store the query parameters to pass in the request. Then, you add the pagination parameters and the filter to retrieve only configurable products.
 
 Next, you'll send the request to retrieve products from Magento. Replace the `TODO` with the following:
 
@@ -456,13 +471,16 @@ const { items: products, ...pagination }: MagentoPaginatedResponse<MagentoProduc
 ).then(res => res.json())
 .catch(err => {
   console.log(err)
-  throw new MedusaError(MedusaError.Types.INVALID_DATA, `Failed to get products from Magento: ${err.message}`)
+  throw new MedusaError(
+    MedusaError.Types.INVALID_DATA, 
+    `Failed to get products from Magento: ${err.message}`
+  )
 })
 
 // TODO prepare products
 ```
 
-You send a GET request to the Magento server's `/rest/{storeCode}/V1/products` endpoint, passing the query parameters in the URL. You also pass the access token in the `Authorization` header.
+You send a `GET` request to the Magento server's `/rest/{storeCode}/V1/products` endpoint, passing the query parameters in the URL. You also pass the access token in the `Authorization` header.
 
 Next, you'll prepare the retrieved products by retrieving their children, configurable attributes, and modifying their image URLs. Replace the `TODO` with the following:
 
@@ -481,15 +499,24 @@ await promiseAll(
       }
     ).then(res => res.json())
     .catch(err => {
-      throw new MedusaError(MedusaError.Types.INVALID_DATA, `Failed to get product children from Magento: ${err.message}`)
+      throw new MedusaError(
+        MedusaError.Types.INVALID_DATA, 
+        `Failed to get product children from Magento: ${err.message}`
+      )
     })
 
-    product.media_gallery_entries = product.media_gallery_entries.map((entry) => ({
-      ...entry,
-      file: `${this.options.migrationOptions?.imageBaseUrl}${entry.file}`
-    }))
+    product.media_gallery_entries = product.media_gallery_entries.map(
+      (entry) => ({
+        ...entry,
+        file: `${this.options.migrationOptions?.imageBaseUrl}${entry.file}`
+      }
+    ))
 
-    attributeIds.push(...(product.extension_attributes.configurable_product_options?.map((option) => option.attribute_id) || []))
+    attributeIds.push(...(
+      product.extension_attributes.configurable_product_options?.map(
+        (option) => option.attribute_id) || []
+      )
+    )
   })
 )
 
@@ -515,12 +542,24 @@ export default class MagentoModuleService {
       await this.authenticate()
     }
 
+    // filter by attribute IDs
     const searchQuery = new URLSearchParams()
-    searchQuery.append("searchCriteria[filter_groups][0][filters][0][field]", "attribute_id")
-    searchQuery.append("searchCriteria[filter_groups][0][filters][0][value]", ids.join(","))
-    searchQuery.append("searchCriteria[filter_groups][0][filters][0][condition_type]", "in")
+    searchQuery.append(
+      "searchCriteria[filter_groups][0][filters][0][field]", 
+      "attribute_id"
+    )
+    searchQuery.append(
+      "searchCriteria[filter_groups][0][filters][0][value]", 
+      ids.join(",")
+    )
+    searchQuery.append(
+      "searchCriteria[filter_groups][0][filters][0][condition_type]", 
+      "in"
+    )
 
-    const { items: attributes }: MagentoPaginatedResponse<MagentoAttribute> = await fetch(
+    const { 
+      items: attributes
+    }: MagentoPaginatedResponse<MagentoAttribute> = await fetch(
       `${this.options.baseUrl}/rest/${this.options.storeCode}/V1/products/attributes?${searchQuery}`, 
       {
         headers: {
@@ -529,7 +568,10 @@ export default class MagentoModuleService {
       }
     ).then(res => res.json())
     .catch(err => {
-      throw new MedusaError(MedusaError.Types.INVALID_DATA, `Failed to get attributes from Magento: ${err.message}`)
+      throw new MedusaError(
+        MedusaError.Types.INVALID_DATA, 
+        `Failed to get attributes from Magento: ${err.message}`
+      )
     })
 
     return attributes
@@ -539,7 +581,7 @@ export default class MagentoModuleService {
 
 The `getAttributes` method receives an object with the `ids` property, which is an array of attribute IDs. You check if the access token has expired and, if so, retrieve a new one using the `authenticate` method.
 
-Next, you prepare the query parameters to pass in the request to retrieve attributes. You send a GET request to the Magento server's `/rest/{storeCode}/V1/products/attributes` endpoint, passing the query parameters in the URL. You also pass the access token in the `Authorization` header.
+Next, you prepare the query parameters to pass in the request to retrieve attributes. You send a `GET` request to the Magento server's `/rest/{storeCode}/V1/products/attributes` endpoint, passing the query parameters in the URL. You also pass the access token in the `Authorization` header.
 
 Finally, you return the retrieved attributes.
 
@@ -559,7 +601,7 @@ You'll use this method in a later step to retrieve products from Magento.
 
 The final piece to a module is its definition, which you export in an `index.ts` file at its root directory. This definition tells Medusa the name of the module and its service.
 
-So, create the file `src/modules/wishlist/index.ts` with the following content:
+So, create the file `src/modules/magento/index.ts` with the following content:
 
 ![Diagram showcasing the module definition file to create](https://res.cloudinary.com/dza7lstvk/image/upload/v1739348316/Medusa%20Resources/magento-4_bmepvh.jpg)
 
@@ -583,7 +625,7 @@ You'll later use the module's service to retrieve products from Magento.
 
 ### Pass Options to Plugin
 
-As mentioned earlier when you registered the plugin in the `medusa-config.ts` file, you can pass options to the plugin that are passed to the modules in the plugin.
+As mentioned earlier when you registered the plugin in the Medusa Application's `medusa-config.ts` file, you can pass options to the plugin. These options are then passed to the modules in the plugin.
 
 So, add the following options to the plugin's registration in the `medusa-config.ts` file of the Medusa application:
 
@@ -622,6 +664,12 @@ Where:
 - `MAGENTO_PASSWORD`: The password of the Magento admin user.
 - `MAGENTO_IMAGE_BASE_URL`: The base URL to use for product images. Magento stores product images in the `pub/media/catalog/product` directory, so you can reference them directly or use a CDN URL. If the URLs of product images in the Medusa server already have a different base URL, you can omit this option.
 
+<Note title="Tip">
+
+Medusa supports integrating third-party services, such as [S3](../../../architectural-modules/file/s3/page.mdx), in a File Module Provider. Find other module providers and how to create a custom provider in [this documentation](../../../architectural-modules/file/page.mdx).
+
+</Note>
+
 You can now use the Magento Module to migrate data, which you'll do in the next steps.
 
 ---
@@ -630,11 +678,9 @@ You can now use the Magento Module to migrate data, which you'll do in the next 
 
 In this section, you'll add the feature to migrate products from Magento to Medusa. To implement this feature, you'll use a workflow.
 
-A workflow is a series of queries and actions, called steps, that complete a task. You construct a workflow like you construct a function, but it's a special function that allows you to track its executions' progress, define roll-back logic, and configure other advanced features. Then, you execute the workflow from other customizations, such as in an endpoint.
+A workflow is a series of queries and actions, called steps, that complete a task. You construct a workflow like you construct a function, but it's a special function that allows you to track its executions' progress, define roll-back logic, and configure other advanced features. Then, you execute the workflow from other customizations, such as in an API route or a scheduled job.
 
-A workflow ensures that the data remains consistent and that the migration process can be rolled back if an error occurs.
-
-In this section, you'll create the workflow that retrieves the products from Magento and creates them in the Medusa application. You'll execute it later when the migration is triggered.
+By implementing the migration feature in a workflow, you ensure that the data remains consistent and that the migration process can be rolled back if an error occurs.
 
 <Note>
 
@@ -693,6 +739,7 @@ The workflow you'll create will have the following steps:
       }
     ]
   }}
+  hideLegend
 />
 
 You only need to implement the `getMagentoProductsStep` step, which retrieves the products from Magento. The other steps and workflows are provided by Medusa's `@medusajs/medusa/core-flows` package.
@@ -718,7 +765,8 @@ type GetMagentoProductsInput = {
 export const getMagentoProductsStep = createStep(
   "get-magento-products",
   async ({ currentPage, pageSize }: GetMagentoProductsInput, { container }) => {
-    const magentoModuleService: MagentoModuleService = container.resolve(MAGENTO_MODULE)
+    const magentoModuleService: MagentoModuleService = 
+      container.resolve(MAGENTO_MODULE)
 
     const response = await magentoModuleService.getProducts({
       currentPage,
@@ -750,9 +798,17 @@ In your plugin, create the file `src/workflows/migrate-products-from-magento.ts`
 ![Diagram showcasing the migrate-products-from-magento file to create](https://res.cloudinary.com/dza7lstvk/image/upload/v1739349820/Medusa%20Resources/magento-6_jjdaxj.jpg)
 
 ```ts title="src/workflows/migrate-products-from-magento.ts"
-import { createWorkflow, transform, WorkflowResponse } from "@medusajs/framework/workflows-sdk"
-import { CreateProductWorkflowInputDTO, UpsertProductDTO } from "@medusajs/framework/types"
-import { createProductsWorkflow, updateProductsWorkflow, useQueryGraphStep } from "@medusajs/medusa/core-flows"
+import { 
+  createWorkflow, transform, WorkflowResponse
+} from "@medusajs/framework/workflows-sdk"
+import { 
+  CreateProductWorkflowInputDTO, UpsertProductDTO
+} from "@medusajs/framework/types"
+import { 
+  createProductsWorkflow, 
+  updateProductsWorkflow, 
+  useQueryGraphStep
+} from "@medusajs/medusa/core-flows"
 import { getMagentoProductsStep } from "./steps/get-magento-products"
 
 type MigrateProductsFromMagentoWorkflowInput = {
@@ -760,7 +816,8 @@ type MigrateProductsFromMagentoWorkflowInput = {
   pageSize: number
 }
 
-export const migrateProductsFromMagentoWorkflowId = "migrate-products-from-magento"
+export const migrateProductsFromMagentoWorkflowId = 
+  "migrate-products-from-magento"
 
 export const migrateProductsFromMagentoWorkflow = createWorkflow(
   {
@@ -807,46 +864,89 @@ const { data: shippingProfiles } = useQueryGraphStep({
   }
 }).config({ name: "get-shipping-profiles" })
 
-// TODO prepare data to create and update products
+// TODO retrieve existing products
 ```
 
-You use the `useQueryGraphStep` step to retrieve the store details and shipping profiles. `useQueryGraphStep` is a Medusa step that wraps [Query](!docs!/learn/fundamentals/module-links/query), allowing you to use it in a workflow.
+You use the `useQueryGraphStep` step to retrieve the store details and shipping profiles. `useQueryGraphStep` is a Medusa step that wraps [Query](!docs!/learn/fundamentals/module-links/query), allowing you to use it in a workflow. Query is a tool that retrieves data across modules.
 
-Whe retrieving the store details, you specifically retrieve its supported currencies and default sales channel ID. You'll associate the products with the store's default sales channel, and set their variant prices in the supported currencies. You'll also associte the products with a shipping profile.
+Whe retrieving the store details, you specifically retrieve its supported currencies and default sales channel ID. You'll associate the products with the store's default sales channel, and set their variant prices in the supported currencies. You'll also associate the products with a shipping profile.
+
+Next, you'll retrieve products that were previously migrated from Magento to determine which products to create or update. Replace the `TODO` with the following:
+
+```ts title="src/workflows/migrate-products-from-magento.ts"
+const externalIdFilters = transform({
+  products
+}, (data) => {
+  return data.products.map((product) => product.id.toString())
+})
+
+const { data: existingProducts } = useQueryGraphStep({
+  entity: "product",
+  fields: ["id", "external_id", "variants.id", "variants.metadata"],
+  filters: {
+    external_id: externalIdFilters
+  }
+}).config({ name: "get-existing-products" })
+
+// TODO prepare products to create or update
+```
+
+Since the Medusa application creates an internal representation of the workflow's constructor function, you can't manipulate data directly, as variables have no value while creating the internal representation.
+
+<Note>
+
+Learn more about the workflow constructor function's constraints in [this documentation](!docs!/learn/fundamentals/workflows/constructor-constraints).
+
+</Note>
+
+Instead, you can manipulate data in a workflow's constructor function using `transform` from the Workflows SDK. `transform` is a function that accepts two parameters:
+
+- The data to transform, which in this case is the Magento products.
+- A function that transforms the data. The function receives the data passed in the first parameter and returns the transformed data.
+
+In the transformation function, you return the IDs of the Magento products. Then, you use the `useQueryGraphStep` to retrieve products in the Medusa application that have an `external_id` property matching the IDs of the Magento products. You'll use this property to store the IDs of the products in Magento.
 
 Next, you'll prepare the data to create and update the products. Replace the `TODO` in the workflow function with the following:
 
 export const prepareHighlights = [
-  ["2", "initialProductsToCreate", "The prepared product data."],
-  ["3", "externalIdFilters", "The external IDs of the products to create, which you'll use to filter products to update."],
+  ["2", "productsToCreate", "The products to create."],
+  ["3", "productsToUpdate", "The products to update."],
   ["4", "transform", "Prepare the product data."],
-  ["15", "description", "Try to retrieve description from the Magento product's custom attributes."],
-  ["19", "handle", "Try to retrieve the product's handle from the Magento product's custom attributes."],
-  ["22", "external_id", "Set the Magento product's ID in the Medusa product's `external_id` property."],
-  ["23", "thumbnail", "Try to retrieve the product's thumbnail from the Magento product's media gallery entries."],
-  ["26", "sales_channels", "Associate the product with the default sales channel."],
-  ["29", "shipping_profile_id", "Associate the product with a shipping profile."],
-  ["32", "options", "Map the Magento product's configurable product options to Medusa product options."],
-  ["48", "variants", "Map the Magento product's children to Medusa product variants."],
+  ["11", "productsToCreate", "Create a map to store the products to create."],
+  ["12", "productsToUpdate", "Create a map to store the products to update."],
+  ["17", "description", "Try to retrieve description from the Magento product's custom attributes."],
+  ["21", "handle", "Try to retrieve the product's handle from the Magento product's custom attributes."],
+  ["24", "external_id", "Set the Magento product's ID in the Medusa product's `external_id` property."],
+  ["25", "thumbnail", "Try to retrieve the product's thumbnail from the Magento product's media gallery entries."],
+  ["28", "sales_channels", "Associate the product with the default sales channel."],
+  ["31", "shipping_profile_id", "Associate the product with a shipping profile."],
+  ["33", "existingProduct", "Find the existing product in Medusa that matches the Magento product's ID."],
+  ["39", "options", "Map the Magento product's configurable product options to Medusa product options."],
+  ["49", "variants", "Map the Magento product's children to Medusa product variants."],
+  ["62", "existingVariant", "Find the existing variant in the existing product, if set."],
   ["68", "prices", "Set the variant's prices based on the Magento child's price for every supported currency in the Medusa store."],
-  ["80", "images", "Map the Magento product's media gallery entries to Medusa product images."],
-  ["91", "externalIds", "Add the Magento product's ID to the external IDs."],
+  ["77", "id", "Set the ID of the existing variant, if available."],
+  ["81", "images", "Map the Magento product's media gallery entries to Medusa product images."],
+  ["91", "set", "Add to the products to update."],
+  ["93", "set", "Add to the products to create."],
 ]
 
 ```ts title="src/workflows/migrate-products-from-magento.ts" highlights={prepareHighlights}
 const { 
-  productsToCreate: initialProductsToCreate,
-  externalIds: externalIdFilters
+  productsToCreate,
+  productsToUpdate
 } = transform({
   products,
   attributes,
   stores,
-  shippingProfiles
+  shippingProfiles,
+  existingProducts
 }, (data) => {
-  const externalIds: string[] = []
+  const productsToCreate = new Map<string, CreateProductWorkflowInputDTO>()
+  const productsToUpdate = new Map<string, UpsertProductDTO>()
 
-  const productsToCreate = data.products.map((magentoProduct) => {
-    const productData: CreateProductWorkflowInputDTO = {
+  data.products.forEach((magentoProduct) => {
+    const productData: CreateProductWorkflowInputDTO | UpsertProductDTO = {
       title: magentoProduct.name,
       description: magentoProduct.custom_attributes.find(
         (attr) => attr.attribute_code === "description"
@@ -862,40 +962,38 @@ const {
       sales_channels: [{
         id: data.stores[0].default_sales_channel_id
       }],
-      shipping_profile_id: data.shippingProfiles[0].id
+      shipping_profile_id: data.shippingProfiles[0].id,
+    }
+    const existingProduct = data.existingProducts.find((p) => p.external_id === productData.external_id)
+
+    if (existingProduct) {
+      productData.id = existingProduct.id
     }
 
-    productData.options = magentoProduct.extension_attributes.configurable_product_options?.map(
-      (option) => {
-        const attribute = data.attributes.find(
-          (attr) => attr.attribute_id === parseInt(option.attribute_id)
-        )
-        return {
-          title: option.label,
-          values: attribute?.options.filter((opt) => {
-            return option.values.find(
-              (v) => v.value_index === parseInt(opt.value)
-            )
-          }).map((opt) => opt.label) || []
-        }
+    productData.options = magentoProduct.extension_attributes.configurable_product_options?.map((option) => {
+      const attribute = data.attributes.find((attr) => attr.attribute_id === parseInt(option.attribute_id))
+      return {
+        title: option.label,
+        values: attribute?.options.filter((opt) => {
+          return option.values.find((v) => v.value_index === parseInt(opt.value))
+        }).map((opt) => opt.label) || []
       }
-    ) || []
+    }) || []
 
     productData.variants = magentoProduct.children?.map((child) => {
       const childOptions: Record<string, string> = {}
 
       child.custom_attributes.forEach((attr) => {
-        const attrData = data.attributes.find(
-          (a) => a.attribute_code === attr.attribute_code
-        )
+        const attrData = data.attributes.find((a) => a.attribute_code === attr.attribute_code)
         if (!attrData) {
           return
         }
 
-        childOptions[attrData.default_frontend_label] = attrData.options.find(
-          (opt) => opt.value === attr.value
-        )?.label || ""
+        childOptions[attrData.default_frontend_label] = attrData.options.find((opt) => opt.value === attr.value)?.label || ""
       })
+
+      const variantExternalId = child.id.toString()
+      const existingVariant = existingProduct.variants.find((v) => v.metadata.external_id === variantExternalId)
 
       return {
         title: child.name,
@@ -908,14 +1006,13 @@ const {
           }
         }),
         metadata: {
-          external_id: child.id.toString()
-        }
+          external_id: variantExternalId
+        },
+        id: existingVariant?.id
       }
     })
 
-    productData.images = magentoProduct.media_gallery_entries.filter(
-      (entry) => !entry.types.includes("thumbnail")
-    ).map((entry) => {
+    productData.images = magentoProduct.media_gallery_entries.filter((entry) => !entry.types.includes("thumbnail")).map((entry) => {
       return {
         url: entry.file,
         metadata: {
@@ -924,97 +1021,10 @@ const {
       }
     })
 
-    externalIds.push(magentoProduct.id.toString())
-
-    return productData
-  }).filter(Boolean) as CreateProductWorkflowInputDTO[]
-
-  return {
-    productsToCreate,
-    externalIds
-  }
-})
-
-// TODO retrieve exiting products
-```
-
-Since the Medusa application creates an internal representation of the workflow's constructor function, you can't manipulate data directly, as variables have no value while creating the internal representation.
-
-<Note>
-
-Learn more about the workflow constructor function's constraints in [this documentation](!docs!/learn/fundamentals/workflows/constructor-constraints).
-
-</Note>
-
-Instead, you can manipulate data in a workflow's constructor function using `transform` from the Workflows SDK. `transform` is a function that accepts two parameters:
-
-- The data to transform, which in this case is the products and attributes retrieved from Magento, the store details, and shipping profiles.
-- A function that transforms the data. The function receives the data passed in the first parameter and returns the transformed data.
-
-In the transformation function, you prepare the data to create the products in the Medusa application. For each Magento product, you map its equivalent Medusa product's data:
-
-- You set the product's general details, such as the title, description, status, handle, external ID, and thumbnail using the Magento product's data and custom attributes.
-- You associate the product with the default sales channel and shipping profile retrieved previously.
-- You map the Magento product's configurable product options to Medusa product options. In Medusa, a product's option has a label, such as "Color", and values, such as "Red". To map the option values, you use the attributes retrieved from Magento.
-- You map the Magento product's children to Medusa product variants. For the variant options, you pass an object whose keys is the option's label, such as "Color", and values is the option's value, such as "Red". For the prices, you set the variant's price based on the Magento child's price for every supported currency in the Medusa store. Also, you set the Magento child product's ID in the Medusa variant's `metadata.external_id` property.
-- You map the Magento product's media gallery entries to Medusa product images. You filter out the thumbnail image and set the URL and the Magento image's ID in the Medusa image's `metadata.external_id` property.
-
-Finally, you return the products to create and the external IDs of the Magento products.
-
-Next, you'll use the external IDs to filter products to update in the Medusa application. Replace the `TODO` in the workflow function with the following:
-
-```ts title="src/workflows/migrate-products-from-magento.ts"
-const { data: existingProducts } = useQueryGraphStep({
-  entity: "product",
-  fields: ["id", "external_id", "variants.id", "variants.metadata"],
-  filters: {
-    external_id: externalIdFilters
-  }
-}).config({ name: "get-existing-products" })
-
-// TODO determine products to update
-```
-
-You use the `useQueryGraphStep` step to retrieve products in the Medusa application who have the same external IDs as the Magento products. You'll use these products to segment the prepared product data into products to create and products to update.
-
-So, replace the `TODO` in the workflow function with the following:
-
-export const segmentHighlights = [
-  ["1", "productsToCreate", "The products to create in the Medusa application."],
-  ["1", "productsToUpdate", "The products in the Medusa application to update."],
-  ["9", "existingProducts", "Retrieve the product in the Medusa application, if it exists."],
-  ["10", "set", "Add the existing product as a product to update, passing the IDs within the product and variant data."],
-  ["26", "set", "Add the product data as a product to be created."]
-]
-
-```ts title="src/workflows/migrate-products-from-magento.ts" highlights={segmentHighlights}
-const { productsToCreate, productsToUpdate } = transform({
-  initialProductsToCreate,
-  existingProducts
-}, (data) => {
-  const productsToCreate = new Map<string, CreateProductWorkflowInputDTO>()
-  const productsToUpdate = new Map<string, UpsertProductDTO>()
-
-  data.initialProductsToCreate.forEach((product) => {
-    const existingProduct = data.existingProducts.find((p) => p.external_id === product.external_id)
-    if (existingProduct) {
-      productsToUpdate.set(existingProduct.id, {
-        ...product,
-        id: existingProduct.id,
-        variants: product.variants?.map((variant) => {
-          const existingVariant = existingProduct.variants.find((v) => v.metadata.external_id === variant.metadata?.external_id)
-          if (existingVariant) {
-            return {
-              ...variant,
-              id: existingVariant.id
-            }
-          } else {
-            return variant
-          }
-        })
-      })
+    if (productData.id) {
+      productsToUpdate.set(existingProduct.id, productData)
     } else {
-      productsToCreate.set(product.external_id!, product)
+      productsToCreate.set(productData.external_id!, productData)
     }
   })
 
@@ -1027,9 +1037,15 @@ const { productsToCreate, productsToUpdate } = transform({
 // TODO create and update products
 ```
 
-You use `transform` again to determine which products should be created and updated in the Medusa application. In the transformation function, you iterate over the products prepared by the first transform. If a product exists in Medusa with the same `external_id`, you add it to the products to update, passing the product's ID and variant IDs in the object.
+You use `transform` again to prepare the data to create and update the products in the Medusa application. For each Magento product, you map its equivalent Medusa product's data:
 
-If the product doesn't exist in Medusa, you add it to the products to create.
+- You set the product's general details, such as the title, description, status, handle, external ID, and thumbnail using the Magento product's data and custom attributes.
+- You associate the product with the default sales channel and shipping profile retrieved previously.
+- You map the Magento product's configurable product options to Medusa product options. In Medusa, a product's option has a label, such as "Color", and values, such as "Red". To map the option values, you use the attributes retrieved from Magento.
+- You map the Magento product's children to Medusa product variants. For the variant options, you pass an object whose keys is the option's label, such as "Color", and values is the option's value, such as "Red". For the prices, you set the variant's price based on the Magento child's price for every supported currency in the Medusa store. Also, you set the Magento child product's ID in the Medusa variant's `metadata.external_id` property.
+- You map the Magento product's media gallery entries to Medusa product images. You filter out the thumbnail image and set the URL and the Magento image's ID in the Medusa image's `metadata.external_id` property.
+
+In addition, you use the existing products retrieved in the previous step to determine whether a product should be created or updated. If there's an existing product whose `external_id` matches the ID of the magento product, you set the existing product's ID in the `id` property of the product to be updated. You also do the same for its variants.
 
 Finally, you return the products to create and update.
 
@@ -1092,7 +1108,9 @@ export default async function migrateMagentoJob(
     do {
       currentPage++
   
-      const { result: pagination } = await migrateProductsFromMagentoWorkflow(container).run({
+      const { 
+        result: pagination
+      } = await migrateProductsFromMagentoWorkflow(container).run({
         input: {
           currentPage,
           pageSize
@@ -1139,25 +1157,25 @@ npx medusa plugin:develop
 
 This ensures that the plugin's latest changes are reflected in the Medusa application.
 
-Next, start the Medusa application that the plugin is installed in:
+Finally, start the Medusa application that the plugin is installed in:
 
 ```bash npm2yarn
 npm run dev
 ```
 
-After a minute, you'll see a message indicating that the migration started:
+After a minute, you'll see a message in the terminal indicating that the migration started:
 
-```
+```plain title="Terminal"
 info: Migrating products from Magento...
 ```
 
 Once the migration is done, you'll see the following message:
 
-```
+```plain title="Terminal"
 info: Finished migrating products from Magento
 ```
 
-To confirm that the products were migrated, open the Medusa Admin dashboard at `http://localhost:9000` and log in. Then, click on Products in the sidebar. You'll see your magento products in the list of products.
+To confirm that the products were migrated, open the Medusa Admin dashboard at `http://localhost:9000/app` and log in. Then, click on Products in the sidebar. You'll see your magento products in the list of products.
 
 ![Click on products at the sidebar on the right, then view the products in the table in the middle.](https://res.cloudinary.com/dza7lstvk/image/upload/v1739359394/Medusa%20Resources/Screenshot_2025-02-12_at_1.22.44_PM_uva98i.png)
 

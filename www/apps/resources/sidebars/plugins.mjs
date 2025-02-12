@@ -15,6 +15,12 @@ export const pluginsSidebar = [
         path: "/plugins/guides/wishlist",
         description: "Learn how to build a wishlist plugin.",
       },
+      {
+        type: "link",
+        title: "Magento Migration",
+        path: "/plugins/guides/magento",
+        description: "Learn how to migrate data from Magento using a plugin.",
+      },
     ],
   },
 ]

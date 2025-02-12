@@ -16096,6 +16096,15 @@ export const generatedSidebar = [
             "path": "/plugins/guides/wishlist",
             "description": "Learn how to build a wishlist plugin.",
             "children": []
+          },
+          {
+            "loaded": true,
+            "isPathHref": true,
+            "type": "link",
+            "title": "Magento Migration",
+            "path": "/plugins/guides/magento",
+            "description": "Learn how to migrate data from Magento using a plugin.",
+            "children": []
           }
         ]
       }

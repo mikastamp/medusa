@@ -876,6 +876,10 @@ export const filesMap = [
     "pathname": "/"
   },
   {
+    "filePath": "/www/apps/resources/app/plugins/guides/magento/page.mdx",
+    "pathname": "/plugins/guides/magento"
+  },
+  {
     "filePath": "/www/apps/resources/app/plugins/guides/wishlist/page.mdx",
     "pathname": "/plugins/guides/wishlist"
   },

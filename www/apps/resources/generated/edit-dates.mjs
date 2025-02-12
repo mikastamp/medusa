@@ -5904,5 +5904,6 @@ export const generatedEditDates = {
   "references/core_flows/Order/Steps_Order/variables/core_flows.Order.Steps_Order.updateOrderChangesStepId/page.mdx": "2025-01-27T11:43:49.278Z",
   "app/troubleshooting/test-errors/page.mdx": "2025-01-31T13:08:42.639Z",
   "app/commerce-modules/product/variant-inventory/page.mdx": "2025-02-03T12:19:45.706Z",
-  "app/examples/guides/custom-item-price/page.mdx": "2025-02-07T09:21:11.170Z"
+  "app/examples/guides/custom-item-price/page.mdx": "2025-02-07T09:21:11.170Z",
+  "app/plugins/guides/magento/page.mdx": "2025-02-12T13:16:00.862Z"
 }
