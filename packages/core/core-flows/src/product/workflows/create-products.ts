@@ -150,7 +150,7 @@ export const createProductsWorkflowId = "create-products"
  *
  * Create one or more products with options and variants.
  *
- * @property hooks.productCreated - This hook is executed after the products are created. You can consume this hook to perform custom actions on the created products.
+ * @property hooks.productsCreated - This hook is executed after the products are created. You can consume this hook to perform custom actions on the created products.
  */
 export const createProductsWorkflow = createWorkflow(
   createProductsWorkflowId,

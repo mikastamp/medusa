@@ -38,7 +38,7 @@ In the example above, you pass the `user_id` property when creating or updating 
 
 ### HasOne Side
 
-When you create a record of a data model that has one of another, pass the ID of the other data model's record in the `{relation}_id` property, where `{relation}` is the name of the relation property.
+When you create a record of a data model that has one of another, pass the ID of the other data model's record in the relation property.
 
 For example, assuming you have the [User and Email data models from the previous chapter](../relationships/page.mdx#one-to-one-relationship), set a user's email ID as follows:
 
@@ -51,18 +51,18 @@ export const hasOneHighlights = [
 // when creating a user
 const user = await helloModuleService.createUsers({
   // other properties...
-  email_id: "123",
+  email: "123",
 })
 
 // when updating a user
 const user = await helloModuleService.updateUsers({
   id: "321",
   // other properties...
-  email_id: "123",
+  email: "123",
 })
 ```
 
-In the example above, you pass the `email_id` property when creating or updating a user to specify the email it has.
+In the example above, you pass the `email` property when creating or updating a user to specify the email it has.
 
 ---
 

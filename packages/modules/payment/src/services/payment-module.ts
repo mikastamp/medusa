@@ -415,18 +415,21 @@ export default class PaymentModuleService
       sharedContext
     )
 
-    await this.paymentProviderService_.updateSession(session.provider_id, {
-      data: data.data,
-      amount: data.amount,
-      currency_code: data.currency_code,
-    })
+    const providerData = await this.paymentProviderService_.updateSession(
+      session.provider_id,
+      {
+        data: data.data,
+        amount: data.amount,
+        currency_code: data.currency_code,
+      }
+    )
 
     const updated = await this.paymentSessionService_.update(
       {
         id: session.id,
         amount: data.amount,
         currency_code: data.currency_code,
-        data: data.data,
+        data: providerData.data,
       },
       sharedContext
     )
