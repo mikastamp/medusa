@@ -352,27 +352,22 @@ const filters = [
 
 const commandHelper = createDataTableCommandHelper()
 
-const useCommands = () => {
-  return React.useMemo(
-    () => [
-      commandHelper.command({
-        label: "Archive",
-        action: (selection) => {
-          alert(`Archive ${Object.keys(selection).length} items`)
-        },
-        shortcut: "A",
-      }),
-      commandHelper.command({
-        label: "Delete",
-        action: (selection) => {
-          alert(`Delete ${Object.keys(selection).length} items`)
-        },
-        shortcut: "D",
-      }),
-    ],
-    []
-  )
-}
+const commands = [
+  commandHelper.command({
+    label: "Archive",
+    action: (selection) => {
+      alert(`Archive ${Object.keys(selection).length} items`)
+    },
+    shortcut: "A",
+  }),
+  commandHelper.command({
+    label: "Delete",
+    action: (selection) => {
+      alert(`Delete ${Object.keys(selection).length} items`)
+    },
+    shortcut: "D",
+  }),
+]
 
 const KitchenSinkDemo = () => {
   const [search, setSearch] = React.useState("")
@@ -403,8 +398,6 @@ const KitchenSinkDemo = () => {
     limit: pagination.pageSize,
   })
 
-  const commands = useCommands()
-
   const table = useDataTable({
     data,
     columns,
@@ -426,7 +419,7 @@ const KitchenSinkDemo = () => {
     rowSelection: {
       state: rowSelection,
       onRowSelectionChange: setRowSelection,
-      // enableRowSelection: (row) => Number(row.original.id) > 9,
+      enableRowSelection: (row) => Number(row.original.id) > 4,
     },
     sorting: {
       state: sorting,
