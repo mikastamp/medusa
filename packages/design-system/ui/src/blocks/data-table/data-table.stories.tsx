@@ -247,29 +247,29 @@ const columns = [
       const actions = [
         [
           {
-          label: "Edit",
-          onClick: () => {},
-          icon: <PencilSquare />,
-        },
-        {
-          label: "Edit",
-          onClick: () => {},
-          icon: <PencilSquare />,
-        },
-        {
-          label: "Edit",
-          onClick: () => {},
-          icon: <PencilSquare />,
-        },
-      ],
-      [
-        {
-          label: "Delete",
-          onClick: () => {},
-          icon: <Trash />,
-        },
-      ],
-    ]
+            label: "Edit",
+            onClick: () => {},
+            icon: <PencilSquare />,
+          },
+          {
+            label: "Edit",
+            onClick: () => {},
+            icon: <PencilSquare />,
+          },
+          {
+            label: "Edit",
+            onClick: () => {},
+            icon: <PencilSquare />,
+          },
+        ],
+        [
+          {
+            label: "Delete",
+            onClick: () => {},
+            icon: <Trash />,
+          },
+        ],
+      ]
 
       return actions
     },
@@ -419,6 +419,7 @@ const KitchenSinkDemo = () => {
     rowSelection: {
       state: rowSelection,
       onRowSelectionChange: setRowSelection,
+      enableRowSelection: (row) => row.original.id !== "1",
     },
     sorting: {
       state: sorting,
