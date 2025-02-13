@@ -16,6 +16,13 @@ export const CustomDirectives = {
     directive: "@Listeners",
     definition: "directive @Listeners (values: [String!]) on OBJECT",
   },
+  ManyToMany: {
+    configurationPropertyName: "ManyToMany",
+    isRequired: false,
+    name: "ManyToMany",
+    directive: "@ManyToMany",
+    definition: "directive @ManyToMany on FIELD_DEFINITION",
+  },
 }
 
 export function makeSchemaExecutable(inputSchema: string) {
@@ -264,6 +271,7 @@ function getObjectRepresentationRef(
   return (objectRepresentationRef[entityName] ??= {
     entity: entityName,
     parents: [],
+    children: [],
     alias: "",
     listeners: [],
     moduleConfig: null,
@@ -297,10 +305,12 @@ function processEntity(
     entitiesMap,
     moduleJoinerConfigs,
     objectRepresentationRef,
+    isManyToMany,
   }: {
     entitiesMap: any
     moduleJoinerConfigs: ModuleJoinerConfig[]
     objectRepresentationRef: IndexTypes.SchemaObjectRepresentation
+    isManyToMany?: boolean
   }
 ) {
   /**
@@ -379,6 +389,35 @@ function processEntity(
     )
   })
 
+  /**
+   * Retrieve many to many child entities
+   */
+  const manyToManyChildFields =
+    entitiesMap[entityName].astNode?.fields?.filter((value) => {
+      return value.directives?.some((directive) => {
+        return directive.name.value === exports.CustomDirectives.ManyToMany.name
+      })
+    }) ?? []
+
+  for (const manyToManyChildField of manyToManyChildFields) {
+    processEntity(manyToManyChildField.type.type.name.value, {
+      entitiesMap,
+      moduleJoinerConfigs,
+      objectRepresentationRef,
+      isManyToMany: true,
+    })
+    const childRef =
+      objectRepresentationRef[manyToManyChildField.type.type.name.value]
+    currentObjectRepresentationRef.children.push({
+      ref: childRef,
+      isManyToMany: true,
+      targetProp: manyToManyChildField.name.value,
+      isList: true,
+    })
+  }
+
+  console.log(currentObjectRepresentationRef)
+
   if (!schemaParentEntity.length) {
     return
   }
@@ -444,9 +483,11 @@ function processEntity(
         isList: isEntityListInParent,
       })
 
-      currentObjectRepresentationRef.fields.push(
-        parentObjectRepresentationRef.alias + ".id"
-      )
+      if (!isManyToMany) {
+        currentObjectRepresentationRef.fields.push(
+          parentObjectRepresentationRef.alias + ".id"
+        )
+      }
     } else {
       /**
        * If the parent entity and the current entity are not part of the same service then we need to
@@ -712,7 +753,7 @@ export function buildSchemaObjectRepresentation(
   } as IndexTypes.SchemaObjectRepresentation
 
   Object.entries(entitiesMap).forEach(([entityName, entityMapValue]) => {
-    if (!entityMapValue.astNode) {
+    if (!entityMapValue.astNode || objectRepresentation[entityName]) {
       return
     }
 

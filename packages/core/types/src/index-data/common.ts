@@ -37,6 +37,26 @@ export type SchemaObjectEntityRepresentation = {
     isList?: boolean
   }[]
 
+  children: {
+    /**
+     * The reference to the schema object representation
+     * of the child
+     */
+    ref: SchemaObjectEntityRepresentation
+
+    isManyToMany: boolean
+
+    /**
+     * The property the data should be assigned to in the parent
+     */
+    targetProp: string
+
+    /**
+     * Are the data expected to be a list or not
+     */
+    isList?: boolean
+  }[]
+
   /**
    * The default fields to query for the type/entity
    */
