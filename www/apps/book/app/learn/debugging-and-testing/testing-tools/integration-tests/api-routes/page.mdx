@@ -376,9 +376,10 @@ If your custom route is accessible by authenticated users only, such as routes p
 
 For example:
 
-<Note title="Tip">
+<Note title="Tips">
 
-For custom actor types, you only need to change the `actorType` value in the `jwt.sign` method.
+- The `jsonwebtoken` is available in your application by default.
+- For custom actor types, you only need to change the `actorType` value in the `jwt.sign` method.
 
 </Note>
 
@@ -563,3 +564,68 @@ jest.setTimeout(60 * 1000)
 In the test suite, you add a `beforeEach` hook that creates a user or customer, an auth identity, and generates a JWT token for them. The JWT token is then set in the `Authorization` header of the request.
 
 You also create and pass a publishable API key in the header for the customer as it's required for requests to `/store` routes. Learn more in [this section](#pass-publishable-api-key).
+
+---
+
+## Upload Files in Test Requests
+
+If your API route requires uploading a file, create a `FormData` object imported from the `form-data` object, then pass the form data headers in the request.
+
+For example:
+
+<Note title="Tip">
+
+The `form-data` package is available by default.
+
+</Note>
+
+```ts title="integration-tests/http/custom-routes.spec.ts"
+import { medusaIntegrationTestRunner } from "@medusajs/test-utils"
+import FormData from "form-data"
+
+medusaIntegrationTestRunner({
+  testSuite: ({ api, getContainer }) => {
+    describe("Custom endpoints", () => {
+      describe("GET /custom", () => {
+        it("upload file", async () => {
+          const form = new FormData()
+          form.append("files", Buffer.from("content 1"), "image1.jpg")
+          form.append("files", Buffer.from("content 2"), "image2.jpg")
+
+          const response = await api.post(`/custom`, form, {
+            headers: form.getHeaders(),
+          })
+  
+          expect(response.status).toEqual(200)
+          expect(response.data).toHaveProperty("files")
+          expect(response.data.files).toEqual(
+            expect.arrayContaining([
+              expect.objectContaining({
+                id: expect.any(String),
+                url: expect.any(String),
+              })
+            ])
+          )
+        })
+      })
+    })
+  },
+})
+
+jest.setTimeout(60 * 1000)
+```
+
+You don't have to actually upload a file, you use the `form.append` method to append to a `files` field in the form data object, and you pass random content using the `Buffer.from` method.
+
+Then, you pass to the `api.post` method the form data object as a second parameter, and an object with the `headers` property set to the form data object's headers as a third parameter.
+
+If you're passing authentication or other headers, you can pass both the form data headers and the authentication headers in the same object:
+
+```ts title="integration-tests/http/custom-routes.spec.ts"
+const response = await api.post(`/custom`, form, {
+  headers: {
+    ...form.getHeaders(),
+    ...authHeaders,
+  },
+})
+```

@@ -84,7 +84,7 @@ export const MainNav = ({ className, itemsClassName }: MainNavProps) => {
                   {
                     type: "link",
                     title: "Troubleshooting",
-                    link: "/resources/troubleshooting",
+                    link: "https://docs.medusajs.com/resources/troubleshooting",
                   },
                   {
                     type: "link",

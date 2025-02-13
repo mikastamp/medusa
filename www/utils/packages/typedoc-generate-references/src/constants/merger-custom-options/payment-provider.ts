@@ -22,6 +22,12 @@ const paymentProviderOptions: FormattingOptionsType = {
       reflection_typeParameters: false,
     },
     startSections: [
+      `## Understanding Payment Provider Implementation
+
+The Payment Module Provider handles processing payment with a third-party provirder. However, it's not responsible for managing payment concepts within Medusa, such as payment sessions or collections. These concepts are handled by the Payment Module which uses your payment provider within core operations.
+
+For example, when the merchant captures an order's payment, the Payment Module uses the payment provider to capture the payment, the makes updates to the \`Payment\` record associated with the order. So, you only have to implement the third-party payment processing logic in your payment provider.
+`,
       `## 1. Create Module Provider Directory
 
 Start by creating a new directory for your module provider.

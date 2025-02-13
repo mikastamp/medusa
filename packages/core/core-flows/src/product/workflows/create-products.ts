@@ -140,6 +140,7 @@ export const createProductsWorkflowId = "create-products"
  *         ]
  *       }
  *     ],
+ *     shipping_profile_id: "sp_123",
  *     additional_data: {
  *       erp_id: "123"
  *     }
