@@ -3,7 +3,6 @@ import {
   WorkflowData,
   createWorkflow,
   transform,
-  when,
 } from "@medusajs/framework/workflows-sdk"
 import { useRemoteQueryStep } from "../../common"
 import { getItemTaxLinesStep } from "../../tax/steps/get-item-tax-lines"
@@ -58,67 +57,6 @@ const completeOrderFields = [
   "shipping_address.province",
 ]
 
-const orderFields = [
-  "id",
-  "currency_code",
-  "email",
-  "region.id",
-  "region.automatic_taxes",
-  "shipping_methods.tax_lines.id",
-  "shipping_methods.tax_lines.description",
-  "shipping_methods.tax_lines.code",
-  "shipping_methods.tax_lines.rate",
-  "shipping_methods.tax_lines.provider_id",
-  "shipping_methods.shipping_option_id",
-  "shipping_methods.amount",
-  "customer.id",
-  "customer.email",
-  "customer.groups.id",
-  "shipping_address.id",
-  "shipping_address.address_1",
-  "shipping_address.address_2",
-  "shipping_address.city",
-  "shipping_address.postal_code",
-  "shipping_address.country_code",
-  "shipping_address.region_code",
-  "shipping_address.province",
-]
-
-const shippingMethodFields = [
-  "id",
-  "shipping_option_id",
-  "is_tax_inclusive",
-  "amount",
-  "tax_lines.id",
-  "tax_lines.description",
-  "tax_lines.code",
-  "tax_lines.rate",
-  "tax_lines.provider_id",
-]
-
-const lineItemFields = [
-  "id",
-  "variant_id",
-  "product_id",
-  "is_tax_inclusive",
-  "product_title",
-  "product_description",
-  "product_subtitle",
-  "product_type",
-  "product_collection",
-  "product_handle",
-  "variant_sku",
-  "variant_barcode",
-  "variant_title",
-  "title",
-  "quantity",
-  "unit_price",
-  "tax_lines.id",
-  "tax_lines.description",
-  "tax_lines.code",
-  "tax_lines.rate",
-  "tax_lines.provider_id",
-]
 /**
  * The data to update the order's tax lines.
  */
@@ -137,7 +75,7 @@ export type UpdateOrderTaxLinesWorkflowInput = {
   shipping_method_ids?: string[]
   /**
    * Whether to force the tax calculation. If enabled, the tax provider
-   * may send request to a third-party service to retrieve the calculated 
+   * may send request to a third-party service to retrieve the calculated
    * tax rates. This depends on the chosen tax provider in the order's tax region.
    */
   force_tax_calculation?: boolean
@@ -156,10 +94,10 @@ export const updateOrderTaxLinesWorkflowId = "update-order-tax-lines"
  * This workflow updates the tax lines of items and shipping methods in an order. It's used by
  * other order-related workflows, such as the {@link createOrderWorkflow} to set the order's
  * tax lines.
- * 
+ *
  * You can use this workflow within your customizations or your own custom workflows, allowing you to update an
  * order's tax lines in your custom flows.
- * 
+ *
  * @example
  * const { result } = await updateOrderTaxLinesWorkflow(container)
  * .run({
@@ -168,9 +106,9 @@ export const updateOrderTaxLinesWorkflowId = "update-order-tax-lines"
  *     item_ids: ["orli_123", "orli_456"],
  *   }
  * })
- * 
+ *
  * @summary
- * 
+ *
  * Update the tax lines of items and shipping methods in an order.
  */
 export const updateOrderTaxLinesWorkflow = createWorkflow(
@@ -178,63 +116,24 @@ export const updateOrderTaxLinesWorkflow = createWorkflow(
   (
     input: WorkflowData<UpdateOrderTaxLinesWorkflowInput>
   ): WorkflowData<void> => {
-    const isFullOrder = transform(input, (data) => {
-      return !data.item_ids && !data.shipping_method_ids
-    })
-
-    const fetchOrderFields = transform(isFullOrder, (isFullOrder) => {
-      return isFullOrder ? completeOrderFields : orderFields
-    })
-
     const order = useRemoteQueryStep({
       entry_point: "order",
-      fields: fetchOrderFields,
+      fields: completeOrderFields,
       variables: { id: input.order_id },
       list: false,
     })
 
-    const items = when({ input }, ({ input }) => {
-      return input.item_ids!?.length > 0
-    }).then(() => {
-      return useRemoteQueryStep({
-        entry_point: "order_line_item",
-        fields: lineItemFields,
-        variables: { id: input.item_ids },
-      }).config({ name: "query-order-line-items" })
-    })
-
-    const shippingMethods = when({ input }, ({ input }) => {
-      return input.shipping_method_ids!?.length > 0
-    }).then(() => {
-      return useRemoteQueryStep({
-        entry_point: "order_shipping_method",
-        fields: shippingMethodFields,
-        variables: { id: input.shipping_method_ids },
-      }).config({ name: "query-order-shipping-methods" })
-    })
-
     const taxLineItems = getItemTaxLinesStep(
-      transform(
-        { input, order, items, shippingMethods, isFullOrder },
-        (data) => {
-          const shippingMethods = data.isFullOrder
-            ? data.order.shipping_methods
-            : data.shippingMethods ?? []
-
-          const lineItems = data.isFullOrder
-            ? data.order.items
-            : data.items ?? []
-
-          return {
-            orderOrCart: data.order,
-            items: lineItems,
-            shipping_methods: shippingMethods,
-            force_tax_calculation: data.input.force_tax_calculation,
-            is_return: data.input.is_return ?? false,
-            shipping_address: data.input.shipping_address,
-          }
+      transform({ input, order }, (data) => {
+        return {
+          orderOrCart: data.order,
+          items: data.order.items,
+          shipping_methods: data.order.shipping_methods,
+          force_tax_calculation: data.input.force_tax_calculation,
+          is_return: data.input.is_return ?? false,
+          shipping_address: data.input.shipping_address,
         }
-      )
+      })
     )
 
     setOrderTaxLinesForItemsStep({

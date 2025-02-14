@@ -40,17 +40,6 @@ medusaIntegrationTestRunner({
         )
       ).data.region
 
-      const customer = (
-        await api.post(
-          "/admin/customers",
-          {
-            first_name: "joe",
-            email: "joe@admin.com",
-          },
-          adminHeaders
-        )
-      ).data.customer
-
       const taxRegion = (
         await api.post(
           "/admin/tax-regions",
@@ -140,6 +129,17 @@ medusaIntegrationTestRunner({
                   },
                 ],
               },
+              {
+                title: "my other variant",
+                sku: "other-variant-sku",
+                options: { size: "large" },
+                prices: [
+                  {
+                    currency_code: "usd",
+                    amount: 12,
+                  },
+                ],
+              },
             ],
           },
           adminHeaders
@@ -184,7 +184,6 @@ medusaIntegrationTestRunner({
           },
         ],
         currency_code: "usd",
-        customer_id: customer.id,
       })
 
       location = (
@@ -501,6 +500,115 @@ medusaIntegrationTestRunner({
         ).data.order_changes
 
         expect(result[0].actions).toHaveLength(5)
+        expect(result[0].status).toEqual("confirmed")
+        expect(result[0].confirmed_by).toEqual(expect.stringContaining("user_"))
+      })
+
+      it("create new tax lines for added items", async () => {
+        let result = await api.post(
+          "/admin/order-edits",
+          {
+            order_id: order.id,
+            description: "Test",
+          },
+          adminHeaders
+        )
+
+        const orderId = result.data.order_change.order_id
+
+        result = (await api.get(`/admin/orders/${orderId}`, adminHeaders)).data
+          .order
+
+        expect(result.summary.current_order_total).toEqual(60)
+        expect(result.summary.original_order_total).toEqual(60)
+
+        const variantOne = productExtra.variants.find(
+          (variant) => (variant.sku = "variant-sku")
+        )
+
+        // New Items ($12 each)
+        result = (
+          await api.post(
+            `/admin/order-edits/${orderId}/items`,
+            {
+              items: [
+                {
+                  variant_id: variantOne.id,
+                  quantity: 1,
+                },
+              ],
+            },
+            adminHeaders
+          )
+        ).data.order_preview
+
+        expect(result.summary.current_order_total).toEqual(72)
+        expect(result.summary.original_order_total).toEqual(60)
+
+        const variantTwo = productExtra.variants.find(
+          (variant) => (variant.sku = "other-variant-sku")
+        )
+
+        result = (
+          await api.post(
+            `/admin/order-edits/${orderId}/items`,
+            {
+              items: [
+                {
+                  variant_id: variantTwo.id,
+                  quantity: 1,
+                },
+              ],
+            },
+            adminHeaders
+          )
+        ).data.order_preview
+
+        result = (
+          await api.post(
+            `/admin/order-edits/${orderId}/request`,
+            {},
+            adminHeaders
+          )
+        ).data.order_preview
+
+        expect(result.order_change.status).toEqual(OrderChangeStatus.REQUESTED)
+        expect(result.summary.current_order_total).toEqual(84)
+        expect(result.summary.original_order_total).toEqual(60)
+        expect(result.items.length).toEqual(3)
+
+        result = (
+          await api.post(
+            `/admin/order-edits/${orderId}/confirm`,
+            {},
+            adminHeaders
+          )
+        ).data.order_preview
+
+        result = (await api.get(`/admin/orders/${orderId}`, adminHeaders)).data
+          .order
+
+        expect(result.total).toEqual(86.4)
+        expect(result.items.length).toEqual(3)
+
+        // ASSERT TAX LINES
+
+        const taxLines = result.items
+          .map((i) => i.tax_lines)
+          .reduce((acc, curr) => acc.concat(curr), [])
+
+        // Order has three items in total
+        //  The two added items have tax lines, while as the original item does not
+        expect(taxLines.length).toEqual(2)
+
+        result = (
+          await api.get(
+            `/admin/orders/${orderId}/changes?change_type=edit`,
+            adminHeaders
+          )
+        ).data.order_changes
+
+        expect(result[0].actions).toHaveLength(2)
         expect(result[0].status).toEqual("confirmed")
         expect(result[0].confirmed_by).toEqual(expect.stringContaining("user_"))
       })
