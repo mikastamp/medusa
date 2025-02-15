@@ -1,7 +1,7 @@
 import {
   BigNumberInput,
   CalculateShippingOptionPriceDTO,
-  OrderPreviewDTO,
+  ShippingOptionDTO,
 } from "@medusajs/framework/types"
 import {
   WorkflowResponse,
@@ -9,7 +9,7 @@ import {
   transform,
   when,
 } from "@medusajs/framework/workflows-sdk"
-import { ShippingOptionPriceType } from "@medusajs/framework/utils"
+import { BigNumber, ShippingOptionPriceType } from "@medusajs/framework/utils"
 import { calculateShippingOptionsPricesStep } from "../../../fulfillment/steps"
 import { useRemoteQueryStep } from "../../../common"
 
@@ -42,7 +42,7 @@ const COMMON_OPTIONS_FIELDS = [
 /**
  * The data to create a shipping method for an order edit.
  */
-export type CreateOrderEditShippingMethodWorkflowInput = {
+export type FetchShippingOptionForOrderWorkflowInput = {
   /**
    * The ID of the shipping option to create the shipping method from.
    */
@@ -62,6 +62,15 @@ export type CreateOrderEditShippingMethodWorkflowInput = {
   order_id: string
 }
 
+/**
+ * The output of the fetch shipping option for order workflow.
+ */
+export type FetchShippingOptionForOrderWorkflowOutput = ShippingOptionDTO & {
+  calculated_price: {
+    calculated_amount: BigNumber
+    is_calculated_price_tax_inclusive: boolean
+  }
+}
 export const createOrderEditShippingMethodWorkflowId = "fetch-shipping-option"
 /**
  * This workflows fetches a shipping option for an order (used in RMA flows).
@@ -77,8 +86,8 @@ export const createOrderEditShippingMethodWorkflowId = "fetch-shipping-option"
 export const fetchShippingOptionForOrderWorkflow = createWorkflow(
   createOrderEditShippingMethodWorkflowId,
   function (
-    input: CreateOrderEditShippingMethodWorkflowInput
-  ): WorkflowResponse<OrderPreviewDTO> {
+    input: FetchShippingOptionForOrderWorkflowInput
+  ): WorkflowResponse<FetchShippingOptionForOrderWorkflowOutput> {
     const initialOption = useRemoteQueryStep({
       entry_point: "shipping_option",
       variables: { id: input.shipping_option_id },
