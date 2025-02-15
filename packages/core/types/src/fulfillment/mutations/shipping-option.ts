@@ -149,9 +149,15 @@ export interface CalculateShippingOptionPriceDTO {
    */
   context: CartPropsForFulfillment & {
     /**
-     * The location that the items will be shipped from.
+     * The location that the items will be shipped from (or to if it is a return - see `is_return` flag).
      */
     from_location?: StockLocationDTO
+
+    /**
+     * Whether the shipping option is for a return.
+     */
+    is_return?: boolean
+
     [k: string]: unknown
   }
 }
