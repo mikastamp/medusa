@@ -111,31 +111,32 @@ export const fetchShippingOptionForOrderWorkflow = createWorkflow(
         throw_if_key_not_found: true,
       }).config({ name: "order-query" })
 
-      const shippingOptions = useRemoteQueryStep({
+      const shippingOption = useRemoteQueryStep({
         entry_point: "shipping_option",
         fields: [...COMMON_OPTIONS_FIELDS],
         variables: { id: input.shipping_option_id },
-      }).config({ name: "shipping-option-query" })
+        list: false,
+      }).config({ name: "calculated-option" })
 
       const calculateShippingOptionsPricesData = transform(
         {
-          shippingOptions,
+          shippingOption,
           order,
           input,
         },
-        ({ shippingOptions, order, input }) => {
-          const so = shippingOptions[0]
+        ({ shippingOption, order, input }) => {
           return [
             {
-              id: so.id as string,
-              optionData: so.data,
+              id: shippingOption.id as string,
+              optionData: shippingOption.data,
               context: {
                 ...order,
-                from_location: so.service_zone.fulfillment_set.location,
+                from_location:
+                  shippingOption.service_zone.fulfillment_set.location,
                 is_return: true,
               },
               // data: {}, // TODO: add data
-              provider_id: so.provider_id,
+              provider_id: shippingOption.provider_id,
             } as CalculateShippingOptionPriceDTO,
           ]
         }
@@ -147,13 +148,13 @@ export const fetchShippingOptionForOrderWorkflow = createWorkflow(
 
       const shippingOptionsWithPrice = transform(
         {
-          shippingOptions,
+          shippingOption,
           prices,
         },
-        ({ shippingOptions, prices }) => {
+        ({ shippingOption, prices }) => {
           return {
-            id: shippingOptions.id,
-            name: shippingOptions.name,
+            id: shippingOption.id,
+            name: shippingOption.name,
             calculated_price: prices[0],
           }
         }
@@ -166,7 +167,7 @@ export const fetchShippingOptionForOrderWorkflow = createWorkflow(
       { isCalculatedPriceShippingOption },
       ({ isCalculatedPriceShippingOption }) => !isCalculatedPriceShippingOption
     ).then(() => {
-      const shippingOptions = useRemoteQueryStep({
+      const shippingOption = useRemoteQueryStep({
         entry_point: "shipping_option",
         fields: [
           "id",
@@ -180,9 +181,10 @@ export const fetchShippingOptionForOrderWorkflow = createWorkflow(
             context: { currency_code: input.currency_code },
           },
         },
-      }).config({ name: "fetch-shipping-option" })
+        list: false,
+      }).config({ name: "flat-reate-option" })
 
-      return shippingOptions[0]
+      return shippingOption
     })
 
     const result = transform(
