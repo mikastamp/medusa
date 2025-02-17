@@ -310,6 +310,11 @@ export const sidebar = sidebarAttachHrefCommonOptions([
           },
           {
             type: "link",
+            path: "/learn/fundamentals/api-routes/parse-body",
+            title: "Body Parsing",
+          },
+          {
+            type: "link",
             path: "/learn/fundamentals/api-routes/validation",
             title: "Validation",
           },

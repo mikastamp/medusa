@@ -148,14 +148,17 @@ export function instrumentRemoteQuery() {
         span.setAttributes({
           "query.fields": queryOptions.fields,
         })
-        return await queryFn()
-          .catch((error) => {
-            span.setStatus({
-              code: SpanStatusCode.ERROR,
-              message: error.message,
-            })
+        try {
+          return await queryFn()
+        } catch (err) {
+          span.setStatus({
+            code: SpanStatusCode.ERROR,
+            message: err.message,
           })
-          .finally(() => span.end())
+          throw err
+        } finally {
+          span.end()
+        }
       }
     )
   })
@@ -176,14 +179,18 @@ export function instrumentRemoteQuery() {
         span.setAttributes({
           "query.fields": "fields" in queryOptions ? queryOptions.fields : [],
         })
-        return await queryFn()
-          .catch((error) => {
-            span.setStatus({
-              code: SpanStatusCode.ERROR,
-              message: error.message,
-            })
+
+        try {
+          return await queryFn()
+        } catch (error) {
+          span.setStatus({
+            code: SpanStatusCode.ERROR,
+            message: error.message,
           })
-          .finally(() => span.end())
+          throw error
+        } finally {
+          span.end()
+        }
       }
     )
   })
@@ -201,14 +208,18 @@ export function instrumentRemoteQuery() {
           "fetch.select": options.select,
           "fetch.relations": options.relations,
         })
-        return await fetchFn()
-          .catch((error) => {
-            span.setStatus({
-              code: SpanStatusCode.ERROR,
-              message: error.message,
-            })
+
+        try {
+          return await fetchFn()
+        } catch (error) {
+          span.setStatus({
+            code: SpanStatusCode.ERROR,
+            message: error.message,
           })
-          .finally(() => span.end())
+          throw error
+        } finally {
+          span.end()
+        }
       }
     )
   })
@@ -251,6 +262,7 @@ export function instrumentWorkflows() {
           span.setAttribute(`workflow.step.${key}`, value)
         })
 
+        // TODO: should we report error and re throw it?
         return await stepHandler().finally(() => span.end())
       }
     )

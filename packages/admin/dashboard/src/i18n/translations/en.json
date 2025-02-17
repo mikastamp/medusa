@@ -1281,6 +1281,7 @@
       "available": "Available",
       "inStock": "In stock",
       "markAsShipped": "Mark as shipped",
+      "markAsPickedUp": "Mark as picked up",
       "markAsDelivered": "Mark as delivered",
       "itemsToFulfillDesc": "Choose items and quantities to fulfill",
       "locationDescription": "Choose which location you want to fulfill items from.",
@@ -1310,7 +1311,8 @@
         "created": "Fulfillment created successfully",
         "canceled": "Fulfillment successfully canceled",
         "fulfillmentShipped": "Cannot cancel an already shipped fulfillment",
-        "fulfillmentDelivered": "Fulfillment marked as delivered successfully"
+        "fulfillmentDelivered": "Fulfillment marked as delivered successfully",
+        "fulfillmentPickedUp": "Fulfillment marked as picked up successfully"
       },
       "trackingLabel": "Tracking",
       "shippingFromLabel": "Shipping from",
@@ -1520,6 +1522,11 @@
       "action": "Connect sales channels",
       "successToast": "Sales channels were successfully updated."
     },
+    "pickupOptions": {
+      "edit": {
+        "header": "Edit Pickup Option"
+      }
+    },
     "shippingOptions": {
       "create": {
         "shipping": {
@@ -1527,6 +1534,12 @@
           "hint": "Create a new shipping option to define how products are shipped from this location.",
           "label": "Shipping options",
           "successToast": "Shipping option {{name}} was successfully created."
+        },
+        "pickup": {
+          "header": "Create Pickup Option for {{zone}}",
+          "hint": "Create a new pickup option to define how products are picked up from this location.",
+          "label": "Pickup options",
+          "successToast": "Pickup option {{name}} was successfully created."
         },
         "returns": {
           "header": "Create a Return Option for {{zone}}",
@@ -1591,6 +1604,8 @@
         "count": {
           "shipping_one": "{{count}} shipping option",
           "shipping_other": "{{count}} shipping options",
+          "pickup_one": "{{count}} pickup option",
+          "pickup_other": "{{count}} pickup options",
           "returns_one": "{{count}} return option",
           "returns_other": "{{count}} return options"
         },
