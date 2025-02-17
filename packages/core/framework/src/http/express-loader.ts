@@ -68,7 +68,9 @@ export async function expressLoader({ app }: { app: Express }): Promise<{
    */
   function shouldSkipHttpLog(req: MedusaRequest, res: MedusaResponse) {
     return (
-      isTest || NOISY_ENDPOINTS_CHUNKS.some((chunk) => req.url.includes(chunk))
+      isTest ||
+      NOISY_ENDPOINTS_CHUNKS.some((chunk) => req.url.includes(chunk)) ||
+      !logger.shouldLog("http")
     )
   }
 
@@ -110,7 +112,7 @@ export async function expressLoader({ app }: { app: Express }): Promise<{
     }
 
     loggingMiddleware = morgan(jsonFormat, {
-      skip: shouldSkipHttpLog || logger.shouldLog("http"),
+      skip: shouldSkipHttpLog,
     })
   } else {
     loggingMiddleware = morgan(
