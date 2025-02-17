@@ -537,10 +537,19 @@ export const generatedSidebar = [
             "loaded": true,
             "isPathHref": true,
             "type": "link",
+            "path": "/learn/fundamentals/api-routes/parse-body",
+            "title": "Body Parsing",
+            "children": [],
+            "chapterTitle": "3.5.5. Body Parsing"
+          },
+          {
+            "loaded": true,
+            "isPathHref": true,
+            "type": "link",
             "path": "/learn/fundamentals/api-routes/validation",
             "title": "Validation",
             "children": [],
-            "chapterTitle": "3.5.5. Validation"
+            "chapterTitle": "3.5.6. Validation"
           },
           {
             "loaded": true,
@@ -549,7 +558,7 @@ export const generatedSidebar = [
             "path": "/learn/fundamentals/api-routes/protected-routes",
             "title": "Protected Routes",
             "children": [],
-            "chapterTitle": "3.5.6. Protected Routes"
+            "chapterTitle": "3.5.7. Protected Routes"
           },
           {
             "loaded": true,
@@ -558,7 +567,7 @@ export const generatedSidebar = [
             "path": "/learn/fundamentals/api-routes/errors",
             "title": "Errors",
             "children": [],
-            "chapterTitle": "3.5.7. Errors"
+            "chapterTitle": "3.5.8. Errors"
           },
           {
             "loaded": true,
@@ -567,7 +576,7 @@ export const generatedSidebar = [
             "path": "/learn/fundamentals/api-routes/cors",
             "title": "Handling CORS",
             "children": [],
-            "chapterTitle": "3.5.8. Handling CORS"
+            "chapterTitle": "3.5.9. Handling CORS"
           },
           {
             "loaded": true,
@@ -576,7 +585,7 @@ export const generatedSidebar = [
             "path": "/learn/fundamentals/api-routes/additional-data",
             "title": "Additional Data",
             "children": [],
-            "chapterTitle": "3.5.9. Additional Data"
+            "chapterTitle": "3.5.10. Additional Data"
           }
         ],
         "chapterTitle": "3.5. API Routes"

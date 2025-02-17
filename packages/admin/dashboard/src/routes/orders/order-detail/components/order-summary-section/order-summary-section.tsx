@@ -1,6 +1,6 @@
 import { ReactNode, useMemo, useState } from "react"
 import { useTranslation } from "react-i18next"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 import {
   ArrowDownRightMini,
@@ -18,9 +18,9 @@ import {
   AdminOrder,
   AdminOrderLineItem,
   AdminOrderPreview,
+  AdminPaymentCollection,
   AdminRegion,
   AdminReturn,
-  AdminPaymentCollection,
 } from "@medusajs/types"
 import {
   Badge,
@@ -188,16 +188,12 @@ export const OrderSummarySection = ({ order }: OrderSummarySectionProps) => {
         <div className="bg-ui-bg-subtle flex items-center justify-end gap-x-2 rounded-b-xl px-4 py-4">
           {showReturns &&
             (receivableReturns.length === 1 ? (
-              <Button
-                onClick={() =>
-                  navigate(
-                    `/orders/${order.id}/returns/${receivableReturns[0].id}/receive`
-                  )
-                }
-                variant="secondary"
-                size="small"
-              >
-                {t("orders.returns.receive.action")}
+              <Button asChild variant="secondary" size="small">
+                <Link
+                  to={`/orders/${order.id}/returns/${receivableReturns[0].id}/receive`}
+                >
+                  {t("orders.returns.receive.action")}
+                </Link>
               </Button>
             ) : (
               <ActionMenu
@@ -236,11 +232,10 @@ export const OrderSummarySection = ({ order }: OrderSummarySectionProps) => {
             ))}
 
           {showAllocateButton && (
-            <Button
-              onClick={() => navigate(`./allocate-items`)}
-              variant="secondary"
-            >
-              {t("orders.allocateItems.action")}
+            <Button asChild variant="secondary" size="small">
+              <Link to="allocate-items">
+                {t("orders.allocateItems.action")}
+              </Link>
             </Button>
           )}
 
@@ -262,17 +257,15 @@ export const OrderSummarySection = ({ order }: OrderSummarySectionProps) => {
           )}
 
           {showRefund && (
-            <Button
-              size="small"
-              variant="secondary"
-              onClick={() => navigate(`/orders/${order.id}/refund`)}
-            >
-              {t("orders.payment.refundAmount", {
-                amount: getStylizedAmount(
-                  pendingDifference * -1,
-                  order?.currency_code
-                ),
-              })}
+            <Button size="small" variant="secondary" asChild>
+              <Link to={`/orders/${order.id}/refund`}>
+                {t("orders.payment.refundAmount", {
+                  amount: getStylizedAmount(
+                    pendingDifference * -1,
+                    order?.currency_code
+                  ),
+                })}
+              </Link>
             </Button>
           )}
         </div>
