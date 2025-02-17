@@ -91,7 +91,7 @@ export async function expressLoader({ app }: { app: Express }): Promise<{
         request_id: req.requestId || "-",
 
         // Standard HTTP request properties
-        http_verion: tokens["http-version"](req, res),
+        http_version: tokens["http-version"](req, res),
         method: tokens.method(req, res),
         path: tokens.url(req, res),
 
