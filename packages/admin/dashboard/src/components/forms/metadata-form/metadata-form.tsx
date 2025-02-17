@@ -4,6 +4,7 @@ import {
   DropdownMenu,
   Heading,
   IconButton,
+  InlineTip,
   clx,
   toast,
 } from "@medusajs/ui"
@@ -21,7 +22,6 @@ import { FetchError } from "@medusajs/js-sdk"
 import { ComponentPropsWithoutRef, forwardRef } from "react"
 import { ConditionalTooltip } from "../../common/conditional-tooltip"
 import { Form } from "../../common/form"
-import { InlineTip } from "../../common/inline-tip"
 import { Skeleton } from "../../common/skeleton"
 import { RouteDrawer, useRouteModal } from "../../modals"
 import { KeyboundForm } from "../../utilities/keybound-form"

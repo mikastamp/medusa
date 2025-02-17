@@ -1,14 +1,15 @@
+import { glob } from "glob"
 import { logger } from "@medusajs/framework/logger"
 import {
-  defineMikroOrmCliConfig,
+  toUnixSlash,
   DmlEntity,
   dynamicImport,
+  defineMikroOrmCliConfig,
 } from "@medusajs/framework/utils"
 import { dirname, join } from "path"
 
 import { MetadataStorage } from "@mikro-orm/core"
 import { MikroORM } from "@mikro-orm/postgresql"
-import { glob } from "glob"
 
 const TERMINAL_SIZE = process.stdout.columns
 
@@ -24,7 +25,7 @@ const main = async function ({ directory }) {
     }[]
 
     const modulePaths = glob.sync(
-      join(directory, "src", "modules", "*", "index.ts")
+      toUnixSlash(join(directory, "src", "modules", "*", "index.ts"))
     )
 
     for (const path of modulePaths) {
@@ -61,7 +62,7 @@ const main = async function ({ directory }) {
 async function getEntitiesForModule(path: string) {
   const entities = [] as any[]
 
-  const entityPaths = glob.sync(join(path, "models", "*.ts"), {
+  const entityPaths = glob.sync(toUnixSlash(join(path, "models", "*.ts")), {
     ignore: ["**/index.{js,ts}", "**/*.d.ts"],
   })
 

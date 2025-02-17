@@ -15,11 +15,15 @@ import { useComboboxData } from "../../../../../hooks/use-combobox-data"
 import { sdk } from "../../../../../lib/client"
 import { pick } from "../../../../../lib/common"
 import { isOptionEnabledInStore } from "../../../../../lib/shipping-options"
-import { ShippingOptionPriceType } from "../../../common/constants"
+import {
+  FulfillmentSetType,
+  ShippingOptionPriceType,
+} from "../../../common/constants"
 
 type EditShippingOptionFormProps = {
   locationId: string
   shippingOption: HttpTypes.AdminShippingOption
+  type: FulfillmentSetType
 }
 
 const EditShippingOptionSchema = zod.object({
@@ -32,9 +36,12 @@ const EditShippingOptionSchema = zod.object({
 export const EditShippingOptionForm = ({
   locationId,
   shippingOption,
+  type,
 }: EditShippingOptionFormProps) => {
   const { t } = useTranslation()
   const { handleSuccess } = useRouteModal()
+
+  const isPickup = type === FulfillmentSetType.Pickup
 
   const shippingProfiles = useComboboxData({
     queryFn: (params) => sdk.admin.shippingProfile.list(params),
@@ -108,46 +115,48 @@ export const EditShippingOptionForm = ({
         <RouteDrawer.Body>
           <div className="flex flex-col gap-y-8">
             <div className="flex flex-col gap-y-8">
-              <Form.Field
-                control={form.control}
-                name="price_type"
-                render={({ field }) => {
-                  return (
-                    <Form.Item>
-                      <Form.Label>
-                        {t(
-                          "stockLocations.shippingOptions.fields.priceType.label"
-                        )}
-                      </Form.Label>
-                      <Form.Control>
-                        <RadioGroup {...field} onValueChange={field.onChange}>
-                          <RadioGroup.ChoiceBox
-                            className="flex-1"
-                            value={ShippingOptionPriceType.FlatRate}
-                            label={t(
-                              "stockLocations.shippingOptions.fields.priceType.options.fixed.label"
-                            )}
-                            description={t(
-                              "stockLocations.shippingOptions.fields.priceType.options.fixed.hint"
-                            )}
-                          />
-                          <RadioGroup.ChoiceBox
-                            className="flex-1"
-                            value={ShippingOptionPriceType.Calculated}
-                            label={t(
-                              "stockLocations.shippingOptions.fields.priceType.options.calculated.label"
-                            )}
-                            description={t(
-                              "stockLocations.shippingOptions.fields.priceType.options.calculated.hint"
-                            )}
-                          />
-                        </RadioGroup>
-                      </Form.Control>
-                      <Form.ErrorMessage />
-                    </Form.Item>
-                  )
-                }}
-              />
+              {!isPickup && (
+                <Form.Field
+                  control={form.control}
+                  name="price_type"
+                  render={({ field }) => {
+                    return (
+                      <Form.Item>
+                        <Form.Label>
+                          {t(
+                            "stockLocations.shippingOptions.fields.priceType.label"
+                          )}
+                        </Form.Label>
+                        <Form.Control>
+                          <RadioGroup {...field} onValueChange={field.onChange}>
+                            <RadioGroup.ChoiceBox
+                              className="flex-1"
+                              value={ShippingOptionPriceType.FlatRate}
+                              label={t(
+                                "stockLocations.shippingOptions.fields.priceType.options.fixed.label"
+                              )}
+                              description={t(
+                                "stockLocations.shippingOptions.fields.priceType.options.fixed.hint"
+                              )}
+                            />
+                            <RadioGroup.ChoiceBox
+                              className="flex-1"
+                              value={ShippingOptionPriceType.Calculated}
+                              label={t(
+                                "stockLocations.shippingOptions.fields.priceType.options.calculated.label"
+                              )}
+                              description={t(
+                                "stockLocations.shippingOptions.fields.priceType.options.calculated.hint"
+                              )}
+                            />
+                          </RadioGroup>
+                        </Form.Control>
+                        <Form.ErrorMessage />
+                      </Form.Item>
+                    )
+                  }}
+                />
+              )}
 
               <div className="grid gap-y-4">
                 <Form.Field
@@ -193,18 +202,21 @@ export const EditShippingOptionForm = ({
                 />
               </div>
 
-              <Divider />
-
-              <SwitchBox
-                control={form.control}
-                name="enabled_in_store"
-                label={t(
-                  "stockLocations.shippingOptions.fields.enableInStore.label"
-                )}
-                description={t(
-                  "stockLocations.shippingOptions.fields.enableInStore.hint"
-                )}
-              />
+              {!isPickup && (
+                <>
+                  <Divider />
+                  <SwitchBox
+                    control={form.control}
+                    name="enabled_in_store"
+                    label={t(
+                      "stockLocations.shippingOptions.fields.enableInStore.label"
+                    )}
+                    description={t(
+                      "stockLocations.shippingOptions.fields.enableInStore.hint"
+                    )}
+                  />
+                </>
+              )}
             </div>
           </div>
         </RouteDrawer.Body>
