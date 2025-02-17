@@ -60,7 +60,7 @@ export async function expressLoader({ app }: { app: Express }): Promise<{
     })
   }
 
-  app.set("trust proxy", 1)
+  app.set("trust proxy", true)
 
   /**
    * Method to skip logging HTTP requests. We skip in test environment
