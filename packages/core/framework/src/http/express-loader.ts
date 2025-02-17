@@ -95,9 +95,9 @@ export async function expressLoader({ app }: { app: Express }): Promise<{
 
         // Response details
         status: Number(tokens.status(req, res)),
-        res_content_length: tokens.res(req, res, "content-length") || 0,
-        req_content_length: tokens.req(req, res, "content-length") || 0,
-        response_time: `${tokens["response-time"](req, res)} ms`,
+        response_size: tokens.res(req, res, "content-length") || 0,
+        request_size: tokens.req(req, res, "content-length") || 0,
+        duration: Number(tokens["response-time"](req, res)),
 
         // Useful headers that might help in debugging or tracing
         referrer: tokens.referrer(req, res) || "-",
@@ -110,7 +110,7 @@ export async function expressLoader({ app }: { app: Express }): Promise<{
     }
 
     loggingMiddleware = morgan(jsonFormat, {
-      skip: shouldSkipHttpLog,
+      skip: shouldSkipHttpLog || logger.shouldLog("http"),
     })
   } else {
     loggingMiddleware = morgan(
