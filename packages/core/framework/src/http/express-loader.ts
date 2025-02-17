@@ -82,17 +82,21 @@ export async function expressLoader({ app }: { app: Express }): Promise<{
     const jsonFormat = (tokens, req, res) => {
       const result = {
         level: "http",
+        // client ip
+        client_ip: req.ip || "-",
+
         // Request ID can be correlated with other logs (like error reports)
         request_id: req.requestId || "-",
 
         // Standard HTTP request properties
         http_verion: tokens["http-version"](req, res),
         method: tokens.method(req, res),
-        url: tokens.url(req, res),
+        path: tokens.url(req, res),
 
         // Response details
         status: Number(tokens.status(req, res)),
-        content_length: tokens.res(req, res, "content-length") || 0,
+        res_content_length: tokens.res(req, res, "content-length") || 0,
+        req_content_length: tokens.req(req, res, "content-length") || 0,
         response_time: `${tokens["response-time"](req, res)} ms`,
 
         // Useful headers that might help in debugging or tracing
