@@ -2,7 +2,12 @@ import {
   BigNumberInput,
   ConfirmVariantInventoryWorkflowInputDTO,
 } from "@medusajs/framework/types"
-import { MedusaError, deepFlatMap } from "@medusajs/framework/utils"
+import {
+  BigNumber,
+  MathBN,
+  MedusaError,
+  deepFlatMap,
+} from "@medusajs/framework/utils"
 
 interface ConfirmInventoryPreparationInput {
   product_variant_inventory_items: {
@@ -21,6 +26,7 @@ interface ConfirmInventoryPreparationInput {
     allow_backorder?: boolean
   }[]
   location_ids: string[]
+  stockAvailability: Map<string, BigNumberInput>
 }
 
 interface ConfirmInventoryItem {
@@ -38,6 +44,7 @@ export const prepareConfirmInventoryInput = (data: {
   const productVariantInventoryItems = new Map<string, any>()
   const stockLocationIds = new Set<string>()
   const allVariants = new Map<string, any>()
+  const mapLocationAvailability = new Map<string, BigNumberInput>()
   let hasSalesChannelStockLocation = false
   let hasManagedInventory = false
 
@@ -55,7 +62,13 @@ export const prepareConfirmInventoryInput = (data: {
   deepFlatMap(
     data.input,
     "variants.inventory_items.inventory.location_levels.stock_locations.sales_channels",
-    ({ variants, inventory_items, stock_locations, sales_channels }) => {
+    ({
+      variants,
+      inventory_items,
+      location_levels,
+      stock_locations,
+      sales_channels,
+    }) => {
       if (!variants) {
         return
       }
@@ -65,6 +78,22 @@ export const prepareConfirmInventoryInput = (data: {
         sales_channels?.id === salesChannelId
       ) {
         hasSalesChannelStockLocation = true
+      }
+
+      if (location_levels) {
+        const availabilty = MathBN.sub(
+          location_levels.raw_stocked_quantity ??
+            location_levels.stocked_quantity ??
+            0,
+          location_levels.raw_reserved_quantity ??
+            location_levels.reserved_quantity ??
+            0
+        )
+
+        mapLocationAvailability.set(
+          location_levels.location_id,
+          new BigNumber(availabilty)
+        )
       }
 
       if (stock_locations && sales_channels?.id === salesChannelId) {
@@ -114,6 +143,7 @@ export const prepareConfirmInventoryInput = (data: {
       productVariantInventoryItems.values()
     ),
     location_ids: Array.from(stockLocationIds),
+    stockAvailability: mapLocationAvailability,
     items: data.input.items,
     variants: Array.from(allVariants.values()),
   })
@@ -125,6 +155,7 @@ const formatInventoryInput = ({
   product_variant_inventory_items,
   location_ids,
   items,
+  stockAvailability,
   variants,
 }: ConfirmInventoryPreparationInput) => {
   if (!product_variant_inventory_items.length) {
@@ -156,16 +187,25 @@ const formatInventoryInput = ({
       )
     }
 
-    variantInventoryItems.forEach((variantInventoryItem) =>
+    variantInventoryItems.forEach((variantInventoryItem) => {
+      const locationsWithAvailability = location_ids.filter((locId) =>
+        MathBN.gte(
+          stockAvailability.get(locId) ?? 0,
+          variantInventoryItem.required_quantity
+        )
+      )
+
       itemsToConfirm.push({
         id: item.id,
         inventory_item_id: variantInventoryItem.inventory_item_id,
         required_quantity: variantInventoryItem.required_quantity,
         allow_backorder: !!variant.allow_backorder,
         quantity: item.quantity,
-        location_ids: location_ids,
+        location_ids: locationsWithAvailability.length
+          ? locationsWithAvailability
+          : location_ids,
       })
-    )
+    })
   })
 
   return itemsToConfirm
