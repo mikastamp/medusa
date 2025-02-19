@@ -191,7 +191,7 @@ const formatInventoryInput = ({
       const locationsWithAvailability = location_ids.filter((locId) =>
         MathBN.gte(
           stockAvailability.get(locId) ?? 0,
-          variantInventoryItem.required_quantity
+          MathBN.mult(variantInventoryItem.required_quantity, item.quantity)
         )
       )
 
