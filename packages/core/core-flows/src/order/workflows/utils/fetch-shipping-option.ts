@@ -1,6 +1,7 @@
 import {
   BigNumberInput,
   CalculateShippingOptionPriceDTO,
+  ReturnDTO,
   ShippingOptionDTO,
 } from "@medusajs/framework/types"
 import {
@@ -60,6 +61,12 @@ export type FetchShippingOptionForOrderWorkflowInput = {
    * The ID of the order.
    */
   order_id: string
+  /**
+   * The context of the order.
+   */
+  context?: {
+    orderReturn?: ReturnDTO
+  }
 }
 
 /**
@@ -92,6 +99,7 @@ export const fetchShippingOptionForOrderWorkflow = createWorkflow(
       entry_point: "shipping_option",
       variables: { id: input.shipping_option_id },
       fields: ["id", "price_type"],
+      list: false,
     }).config({ name: "shipping-option-query" })
 
     const isCalculatedPriceShippingOption = transform(
@@ -100,6 +108,7 @@ export const fetchShippingOptionForOrderWorkflow = createWorkflow(
     )
 
     const calculatedPriceShippingOption = when(
+      "option-calculated",
       { isCalculatedPriceShippingOption },
       ({ isCalculatedPriceShippingOption }) => isCalculatedPriceShippingOption
     ).then(() => {
@@ -131,6 +140,7 @@ export const fetchShippingOptionForOrderWorkflow = createWorkflow(
               optionData: shippingOption.data,
               context: {
                 ...order,
+                ...(input.context ?? {}),
                 from_location:
                   shippingOption.service_zone.fulfillment_set.location,
                 is_return: true,
@@ -164,6 +174,7 @@ export const fetchShippingOptionForOrderWorkflow = createWorkflow(
     })
 
     const flatRateShippingOption = when(
+      "option-flat",
       { isCalculatedPriceShippingOption },
       ({ isCalculatedPriceShippingOption }) => !isCalculatedPriceShippingOption
     ).then(() => {

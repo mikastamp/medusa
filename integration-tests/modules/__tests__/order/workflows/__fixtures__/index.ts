@@ -13,6 +13,8 @@ import {
 } from "@medusajs/utils"
 
 const providerId = "manual_test-provider"
+const providerIdCalculated = "manual-calculated_test-provider-calculated"
+
 export async function prepareDataFixtures({ container }) {
   const fulfillmentService = container.resolve(Modules.FULFILLMENT)
   const salesChannelService = container.resolve(Modules.SALES_CHANNEL)
@@ -131,7 +133,16 @@ export async function prepareDataFixtures({ container }) {
         stock_location_id: location.id,
       },
       [Modules.FULFILLMENT]: {
-        fulfillment_provider_id: "manual_test-provider",
+        fulfillment_provider_id: providerId,
+      },
+    },
+
+    {
+      [Modules.STOCK_LOCATION]: {
+        stock_location_id: location.id,
+      },
+      [Modules.FULFILLMENT]: {
+        fulfillment_provider_id: providerIdCalculated,
       },
     },
   ])
@@ -160,14 +171,29 @@ export async function prepareDataFixtures({ container }) {
       ],
     }
 
+  const shippingOptionCalculatedData: FulfillmentWorkflow.CreateShippingOptionsWorkflowInput =
+    {
+      name: "Calculated shipping option",
+      service_zone_id: serviceZone.id,
+      shipping_profile_id: shippingProfile.id,
+      provider_id: providerIdCalculated,
+      price_type: "calculated",
+      type: {
+        label: "Test type",
+        description: "Test description",
+        code: "test-code",
+      },
+      rules: [],
+    }
+
   const { result } = await createShippingOptionsWorkflow(container).run({
-    input: [shippingOptionData],
+    input: [shippingOptionData, shippingOptionCalculatedData],
   })
 
   const remoteQueryObject = remoteQueryObjectFromString({
     entryPoint: "shipping_option",
     variables: {
-      id: result[0].id,
+      id: result.map((r) => r.id),
     },
     fields: [
       "id",
@@ -189,9 +215,12 @@ export async function prepareDataFixtures({ container }) {
 
   const remoteQuery = container.resolve(ContainerRegistrationKeys.REMOTE_QUERY)
 
-  const [createdShippingOption] = await remoteQuery(remoteQueryObject)
+  const shippingOptions = await remoteQuery(remoteQueryObject)
   return {
-    shippingOption: createdShippingOption,
+    shippingOption: shippingOptions.find((s) => s.price_type === "flat"),
+    shippingOptionCalculated: shippingOptions.find(
+      (s) => s.price_type === "calculated"
+    ),
     region,
     salesChannel,
     location,
