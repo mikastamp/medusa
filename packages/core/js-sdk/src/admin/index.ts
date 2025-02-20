@@ -237,6 +237,7 @@ export class Admin {
     this.orderEdit = new OrderEdit(client)
     this.return = new Return(client)
     this.claim = new Claim(client)
+    this.draftOrder = new DraftOrder(client)
     this.taxRate = new TaxRate(client)
     this.taxRegion = new TaxRegion(client)
     this.store = new Store(client)
