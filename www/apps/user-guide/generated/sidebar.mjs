@@ -371,7 +371,16 @@ export const generatedSidebar = [
         "type": "link",
         "title": "Users",
         "path": "/settings/users",
-        "children": []
+        "children": [
+          {
+            "loaded": true,
+            "isPathHref": true,
+            "type": "link",
+            "title": "Invites",
+            "path": "/settings/users/invites",
+            "children": []
+          }
+        ]
       },
       {
         "loaded": true,
@@ -386,7 +395,7 @@ export const generatedSidebar = [
         "isPathHref": true,
         "type": "link",
         "title": "Tax Regions",
-        "path": "#",
+        "path": "/settings/tax-regions",
         "children": []
       },
       {
@@ -410,7 +419,7 @@ export const generatedSidebar = [
         "isPathHref": true,
         "type": "link",
         "title": "Product Types",
-        "path": "#",
+        "path": "/settings/product-types",
         "children": []
       },
       {
@@ -418,7 +427,7 @@ export const generatedSidebar = [
         "isPathHref": true,
         "type": "link",
         "title": "Product Tags",
-        "path": "#",
+        "path": "/settings/product-tags",
         "children": []
       },
       {
@@ -426,8 +435,25 @@ export const generatedSidebar = [
         "isPathHref": true,
         "type": "link",
         "title": "Location & Shipping",
-        "path": "/settings/locations",
-        "children": []
+        "path": "/settings/locations-and-shipping",
+        "children": [
+          {
+            "loaded": true,
+            "isPathHref": true,
+            "type": "link",
+            "title": "Locations",
+            "path": "/settings/locations-and-shipping/locations",
+            "children": []
+          },
+          {
+            "loaded": true,
+            "isPathHref": true,
+            "type": "link",
+            "title": "Shipping Profiles",
+            "path": "/settings/locations-and-shipping/shipping-profiles",
+            "children": []
+          }
+        ]
       },
       {
         "loaded": true,
