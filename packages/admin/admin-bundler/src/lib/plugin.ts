@@ -26,7 +26,7 @@ export async function plugin(options: PluginOptions) {
 
     const outPath = relativePath
       .replace(/^src\//, "")
-      .replace(/\.(ts|tsx|js|jsx|mjs)$/, "")
+      .replace(/\.(ts|tsx|js|jsx|mjs|cjs)$/, "")
 
     // Still use absolute path as the value
     acc[outPath] = path.resolve(options.root, entry)
