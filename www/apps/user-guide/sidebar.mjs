@@ -228,6 +228,13 @@ export const sidebar = sidebarAttachHrefCommonOptions([
         type: "link",
         title: "Users",
         path: "/settings/users",
+        children: [
+          {
+            type: "link",
+            title: "Invites",
+            path: "/settings/users/invites",
+          },
+        ],
       },
       {
         type: "link",
@@ -237,7 +244,7 @@ export const sidebar = sidebarAttachHrefCommonOptions([
       {
         type: "link",
         title: "Tax Regions",
-        path: "#",
+        path: "/settings/tax-regions",
       },
       {
         type: "link",
@@ -252,17 +259,29 @@ export const sidebar = sidebarAttachHrefCommonOptions([
       {
         type: "link",
         title: "Product Types",
-        path: "#",
+        path: "/settings/product-types",
       },
       {
         type: "link",
         title: "Product Tags",
-        path: "#",
+        path: "/settings/product-tags",
       },
       {
         type: "link",
         title: "Location & Shipping",
-        path: "/settings/locations",
+        path: "/settings/locations-and-shipping",
+        children: [
+          {
+            type: "link",
+            title: "Locations",
+            path: "/settings/locations-and-shipping/locations",
+          },
+          {
+            type: "link",
+            title: "Shipping Profiles",
+            path: "/settings/locations-and-shipping/shipping-profiles",
+          },
+        ],
       },
       {
         type: "category",
