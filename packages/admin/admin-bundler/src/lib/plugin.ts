@@ -1,9 +1,9 @@
 import { readFileSync } from "fs"
 import { rm } from "fs/promises"
 import { glob } from "glob"
+import { builtinModules } from "node:module"
 import path from "path"
-import type { UserConfig } from "vite"
-
+import type { InlineConfig } from "vite"
 interface PluginOptions {
   root: string
   outDir: string
@@ -12,7 +12,6 @@ interface PluginOptions {
 export async function plugin(options: PluginOptions) {
   const vite = await import("vite")
   const react = (await import("@vitejs/plugin-react")).default
-  const { nodeResolve } = await import("@rollup/plugin-node-resolve")
   const entries = await glob(`${options.root}/src/admin/**/*.{ts,tsx,js,jsx}`)
 
   /**
@@ -21,12 +20,15 @@ export async function plugin(options: PluginOptions) {
   if (entries.length === 0) {
     return
   }
-
   const entryPoints = entries.reduce((acc, entry) => {
-    const outPath = entry
-      .replace(/^src\//, "")
-      .replace(/\.(ts|tsx|js|jsx)$/, "")
+    // Get the relative path from options.root
+    const relativePath = path.relative(options.root, entry)
 
+    const outPath = relativePath
+      .replace(/^src\//, "")
+      .replace(/\.(ts|tsx|js|jsx|mjs)$/, "")
+
+    // Still use absolute path as the value
     acc[outPath] = path.resolve(options.root, entry)
     return acc
   }, {} as Record<string, string>)
@@ -37,43 +39,85 @@ export async function plugin(options: PluginOptions) {
   const external = new Set([
     ...Object.keys(pkg.dependencies || {}),
     ...Object.keys(pkg.peerDependencies || {}),
-    ...Object.keys(pkg.devDependencies || {}),
     "react",
-    "react-dom",
+    "react-dom/client",
     "react/jsx-runtime",
     "react-router-dom",
     "@medusajs/admin-sdk",
     "@tanstack/react-query",
   ])
 
+  const outDir = path.join(options.outDir, "src")
+
   /**
-   * We need to ensure that the NODE_ENV is set to production,
-   * otherwise Vite will build the dev version of React.
+   * Some dependencies use process.env.NODE_ENV to conditionally load code.
+   * We need to ensure that the NODE_ENV is set to production.
    */
-  const originalNodeEnv = process.env.NODE_ENV
   process.env.NODE_ENV = "production"
 
-  const pluginConfig: UserConfig = {
+  const pluginConfig = {
+    configFile: false,
+    mode: "production",
+    root: options.root,
+    logLevel: "silent",
+    clearScreen: false,
     build: {
+      minify: false,
+      target: [
+        "chrome131",
+        "edge130",
+        "firefox128",
+        "ios16",
+        "node18.0",
+        "safari16",
+      ],
+      outDir,
+      // The `clear-admin-plugin` will handle this for us
+      emptyOutDir: false,
       lib: {
         entry: entryPoints,
         formats: ["es"],
+        fileName: undefined,
       },
-      emptyOutDir: false,
-      minify: false,
-      outDir: path.resolve(options.root, options.outDir),
+      commonjsOptions: {
+        include: [/node_modules/],
+        extensions: [".js", ".jsx", ".cjs"],
+      },
       rollupOptions: {
-        plugins: [nodeResolve() as any],
-        external: [...external, /node_modules/],
+        external: (id, importer) => {
+          // If there's no importer, it's a direct dependency
+          // Keep the existing external behavior
+          if (!importer) {
+            const idParts = id.split("/")
+            const name = idParts[0]?.startsWith("@")
+              ? `${idParts[0]}/${idParts[1]}`
+              : idParts[0]
+
+            const builtinModulesWithNodePrefix = [
+              ...builtinModules,
+              ...builtinModules.map((modName) => `node:${modName}`),
+            ]
+
+            return Boolean(
+              (name && external.has(name)) ||
+                (name && builtinModulesWithNodePrefix.includes(name))
+            )
+          }
+
+          // For transient dependencies (those with importers),
+          // bundle them if they're not in our external set
+          const idParts = id.split("/")
+          const name = idParts[0]?.startsWith("@")
+            ? `${idParts[0]}/${idParts[1]}`
+            : idParts[0]
+
+          return Boolean(name && external.has(name))
+        },
         output: {
-          globals: {
-            react: "React",
-            "react-dom": "React-dom",
-            "react/jsx-runtime": "react/jsx-runtime",
-          },
-          preserveModules: true,
-          entryFileNames: (chunkInfo) => {
-            return `${chunkInfo.name.replace(`${options.root}/`, "")}.js`
+          preserveModules: false,
+          interop: "auto",
+          chunkFileNames: () => {
+            return `_chunks/[name]-[hash].mjs`
           },
         },
       },
@@ -92,14 +136,7 @@ export async function plugin(options: PluginOptions) {
         },
       },
     ],
-    logLevel: "silent",
-    clearScreen: false,
-  }
+  } satisfies InlineConfig
 
   await vite.build(pluginConfig)
-
-  /**
-   * Restore the original NODE_ENV
-   */
-  process.env.NODE_ENV = originalNodeEnv
 }

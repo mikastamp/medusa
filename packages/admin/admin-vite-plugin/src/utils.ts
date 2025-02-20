@@ -49,7 +49,7 @@ export function generateModule(code: string) {
   }
 }
 
-export const VALID_FILE_EXTENSIONS = [".tsx", ".jsx", ".js"]
+export const VALID_FILE_EXTENSIONS = [".tsx", ".jsx", ".js", ".mjs", ".cjs"]
 
 /**
  * Crawls a directory and returns all files that match the criteria.

@@ -1,9 +1,9 @@
-import path from "path"
-import chokidar from "chokidar"
-import type tsStatic from "typescript"
-import { FileSystem, getConfigFile } from "@medusajs/utils"
-import { rm, access, constants, copyFile } from "fs/promises"
 import type { AdminOptions, ConfigModule, Logger } from "@medusajs/types"
+import { FileSystem, getConfigFile, isString } from "@medusajs/utils"
+import chokidar from "chokidar"
+import { access, constants, copyFile, rm } from "fs/promises"
+import path from "path"
+import type tsStatic from "typescript"
 
 /**
  * The compiler exposes the opinionated APIs for compiling Medusa
@@ -324,6 +324,44 @@ export class Compiler {
     return true
   }
 
+  async #resolvePluginPath(plugin: string) {
+    try {
+      const pkgJSONPath = require.resolve(path.join(plugin, "package.json"), {
+        paths: [this.#projectRoot],
+      })
+
+      return path.dirname(pkgJSONPath)
+    } catch (error) {
+      if (error.code === "MODULE_NOT_FOUND" || error.code === "ENOENT") {
+        throw new Error(
+          `Unable to resolve plugin "${plugin}". Make sure the plugin directory has a package.json file`
+        )
+      }
+      throw error
+    }
+  }
+
+  async #resolvePluginSources(configModule: ConfigModule) {
+    const plugins = configModule.plugins
+    const pluginPaths: string[] = [this.#adminSourceFolder]
+
+    for (const plugin of plugins) {
+      if (isString(plugin)) {
+        const pluginPath = await this.#resolvePluginPath(plugin)
+        pluginPaths.push(pluginPath)
+      } else {
+        const pluginPath = await this.#resolvePluginPath(plugin.resolve)
+        pluginPaths.push(pluginPath)
+      }
+    }
+
+    const sources = pluginPaths.map((pluginPath) => {
+      return path.join(pluginPath, ".medusa/server/src/admin")
+    })
+
+    return sources
+  }
+
   /**
    * Builds the frontend source code of a Medusa application
    * using the "@medusajs/admin-bundler" package.
@@ -372,11 +410,13 @@ export class Compiler {
       )
     }
 
+    const sources = await this.#resolvePluginSources(configFile.configModule)
+
     try {
       this.#logger.info("Compiling frontend source...")
       await adminBundler.build({
         disable: false,
-        sources: [this.#adminSourceFolder],
+        sources: [this.#adminSourceFolder, ...sources],
         ...configFile.configModule.admin,
         outDir: adminOnly
           ? this.#adminOnlyDistFolder
