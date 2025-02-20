@@ -37,6 +37,10 @@ export async function getViteConfig(
         "@medusajs/js-sdk",
         "@tanstack/react-query",
       ],
+      force: true,
+      esbuildOptions: {
+        format: "cjs",
+      },
       exclude: [...VIRTUAL_MODULES],
     },
     define: {
@@ -103,7 +107,9 @@ function createTailwindConfig(entry: string, sources: string[] = []) {
     // ignore
   }
 
-  const extensions = sources.map((s) => path.join(s, "**/*.{js,ts,jsx,tsx}"))
+  const extensions = sources.map((s) =>
+    path.join(s, "**/*.{js,ts,jsx,tsx,mjs,cjs}")
+  )
 
   const config: Config = {
     presets: [require("@medusajs/ui-preset")],
