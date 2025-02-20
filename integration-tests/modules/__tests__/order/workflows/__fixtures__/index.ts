@@ -93,7 +93,7 @@ export async function prepareDataFixtures({ container }) {
     {
       inventory_item_id: inventoryItem.id,
       location_id: location.id,
-      stocked_quantity: 2,
+      stocked_quantity: 10,
       reserved_quantity: 0,
     },
   ])
@@ -234,6 +234,13 @@ export async function createOrderFixture({
   product,
   location,
   inventoryItem,
+  overrides,
+}: {
+  container: any
+  product: any
+  location: any
+  inventoryItem: any
+  overrides?: { quantity?: number }
 }) {
   const orderService: IOrderModuleService = container.resolve(Modules.ORDER)
 
@@ -245,7 +252,7 @@ export async function createOrderFixture({
         title: "Custom Item 2",
         variant_sku: product.variants[0].sku,
         variant_title: product.variants[0].title,
-        quantity: 1,
+        quantity: overrides?.quantity ?? 1,
         unit_price: 50,
         adjustments: [
           {

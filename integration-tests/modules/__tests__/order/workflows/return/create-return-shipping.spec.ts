@@ -3,6 +3,7 @@ import {
   createOrderFulfillmentWorkflow,
   createReturnShippingMethodWorkflow,
   requestItemReturnWorkflow,
+  updateRequestItemReturnWorkflow,
 } from "@medusajs/core-flows"
 import { IFulfillmentModuleService, OrderDTO, ReturnDTO } from "@medusajs/types"
 import {
@@ -38,6 +39,7 @@ medusaIntegrationTestRunner({
           product: fixtures.product,
           location: fixtures.location,
           inventoryItem: fixtures.inventoryItem,
+          overrides: { quantity: 2 },
         })
 
         await createOrderFulfillmentWorkflow(container).run({
@@ -45,7 +47,7 @@ medusaIntegrationTestRunner({
             order_id: order.id,
             items: [
               {
-                quantity: 1,
+                quantity: 2,
                 id: order.items![0].id,
               },
             ],
@@ -174,7 +176,9 @@ medusaIntegrationTestRunner({
             },
           })
 
-          const updatedShippingMethod = result.shipping_methods?.find(
+          console.log(result.items[0].actions)
+
+          let updatedShippingMethod = result.shipping_methods?.find(
             (sm) => sm.shipping_option_id === shippingOptionId
           )
 
@@ -195,6 +199,47 @@ medusaIntegrationTestRunner({
                   applied: false,
                   action: "SHIPPING_ADD",
                   amount: 2,
+                }),
+              ]),
+            })
+          )
+          /**
+           * Update the return item quantity to 2.
+           */
+
+          const { result: updatedResult } =
+            await updateRequestItemReturnWorkflow(container).run({
+              input: {
+                return_id: returnOrder.id,
+                action_id: result.items
+                  .find((i) =>
+                    i.actions?.find((a) => a.action === "RETURN_ITEM")
+                  )
+                  ?.actions?.find((a) => a.action === "RETURN_ITEM")?.id!,
+                data: {
+                  quantity: 2,
+                },
+              },
+            })
+
+          updatedShippingMethod = updatedResult.shipping_methods?.find(
+            (sm) => sm.shipping_option_id === shippingOptionId
+          )
+
+          expect(updatedShippingMethod).toEqual(
+            expect.objectContaining({
+              id: expect.any(String),
+              shipping_option_id: shippingOptionId,
+              amount: 4,
+              actions: expect.arrayContaining([
+                expect.objectContaining({
+                  id: expect.any(String),
+                  reference: "order_shipping_method",
+                  reference_id: expect.any(String),
+                  raw_amount: { value: "4", precision: 20 },
+                  applied: false,
+                  action: "SHIPPING_ADD",
+                  amount: 4,
                 }),
               ]),
             })
