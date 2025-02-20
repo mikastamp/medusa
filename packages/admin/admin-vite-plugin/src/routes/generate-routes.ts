@@ -79,6 +79,7 @@ async function getFilesFromSources(sources: Set<string>): Promise<string[]> {
       )
     )
   ).flat()
+
   return files
 }
 

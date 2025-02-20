@@ -61,12 +61,9 @@ export async function crawl(
 ) {
   const dirDepth = dir.split(path.sep).length
 
-  const crawler = new fdir()
-    .withBasePath()
-    .exclude((dirName) => dirName.startsWith("_"))
-    .filter((path) => {
-      return VALID_FILE_EXTENSIONS.some((ext) => path.endsWith(ext))
-    })
+  const crawler = new fdir().withBasePath().filter((path) => {
+    return VALID_FILE_EXTENSIONS.some((ext) => path.endsWith(ext))
+  })
 
   if (file) {
     crawler.filter((path) => {
