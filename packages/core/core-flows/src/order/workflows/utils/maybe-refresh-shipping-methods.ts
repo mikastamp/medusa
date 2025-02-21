@@ -129,7 +129,6 @@ export const maybeRefreshShippingMethodsWorkflow = createWorkflow(
                 ...(input.context ?? {}),
                 from_location:
                   shippingOption.service_zone.fulfillment_set.location,
-                is_return: true,
               },
               // data: {}, // TODO: add data
               provider_id: shippingOption.provider_id,
@@ -157,7 +156,7 @@ export const maybeRefreshShippingMethodsWorkflow = createWorkflow(
             {
               id: input.shipping_method_id,
               amount: prices[0].calculated_amount,
-              is_custom_amount: false, // TODO: check this
+              is_custom_amount: false,
             },
           ]
         }
