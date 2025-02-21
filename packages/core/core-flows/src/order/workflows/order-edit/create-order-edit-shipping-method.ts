@@ -125,17 +125,21 @@ export const createOrderEditShippingMethodWorkflow = createWorkflow(
       throw_if_key_not_found: true,
     }).config({ name: "order-query" })
 
-    const shippingOption = fetchShippingOptionForOrderWorkflow.runAsStep({
-      input: {
-        order_id: input.order_id,
-        shipping_option_id: input.shipping_option_id,
-        currency_code: order.currency_code,
+    const shippingOptions = useRemoteQueryStep({
+      entry_point: "shipping_option",
+      fields: [
+        "id",
+        "name",
+        "calculated_price.calculated_amount",
+        "calculated_price.is_calculated_price_tax_inclusive",
+      ],
+      variables: {
+        id: input.shipping_option_id,
+        calculated_price: {
+          context: { currency_code: order.currency_code },
+        },
       },
-    })
-
-    const shippingOptions = transform(shippingOption, (shippingOption) => {
-      return [shippingOption]
-    })
+    }).config({ name: "fetch-shipping-option" })
 
     const orderChange: OrderChangeDTO = useRemoteQueryStep({
       entry_point: "order_change",
