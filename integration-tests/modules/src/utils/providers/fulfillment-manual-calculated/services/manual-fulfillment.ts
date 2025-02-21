@@ -24,8 +24,6 @@ export class ManualFulfillmentService extends AbstractFulfillmentProviderService
   }
 
   async calculatePrice(optionData, data, context) {
-    console.log("Calc price ctx:", context)
-
     if (context.orderReturn) {
       return {
         calculated_amount:
