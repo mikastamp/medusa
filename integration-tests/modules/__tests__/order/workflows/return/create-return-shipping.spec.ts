@@ -176,8 +176,6 @@ medusaIntegrationTestRunner({
             },
           })
 
-          console.log(result.items[0].actions)
-
           let updatedShippingMethod = result.shipping_methods?.find(
             (sm) => sm.shipping_option_id === shippingOptionId
           )
