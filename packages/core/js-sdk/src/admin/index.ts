@@ -5,6 +5,7 @@ import { Claim } from "./claim"
 import { Currency } from "./currency"
 import { Customer } from "./customer"
 import { CustomerGroup } from "./customer-group"
+import { DraftOrder } from "./draft-order"
 import { Exchange } from "./exchange"
 import { Fulfillment } from "./fulfillment"
 import { FulfillmentProvider } from "./fulfillment-provider"
@@ -126,6 +127,10 @@ export class Admin {
    * @tags order
    */
   public order: Order
+  /**
+   * @tags draft order
+   */
+  public draftOrder: DraftOrder
   /**
    * @tags order
    */
