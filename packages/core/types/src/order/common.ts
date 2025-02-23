@@ -2971,6 +2971,11 @@ export interface OrderChangeReturn {
    * The list of shipping methods created or updated.
    */
   shippingMethods: any[]
+
+  /**
+   * The list of credit lines created or updated.
+   */
+  credit_lines: OrderCreditLineDTO[]
 }
 
 /**
@@ -3018,6 +3023,11 @@ export interface OrderCreditLineDTO {
    * @expandable
    */
   order: OrderDTO
+
+  /**
+   * The amount of the credit line.
+   */
+  amount: BigNumberValue
 
   /**
    * The reference model name that the credit line is generated from

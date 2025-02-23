@@ -2263,3 +2263,33 @@ export interface UpdateOrderReturnReasonWithSelectorDTO {
    */
   data: Partial<UpdateOrderReturnReasonDTO>
 }
+
+/**
+ * The order credit line details.
+ */
+export interface CreateOrderCreditLineDTO {
+  /**
+   * The ID of the order that the credit line belongs to.
+   */
+  order_id: string
+
+  /**
+   * The amount of the credit line.
+   */
+  amount: BigNumberInput
+
+  /**
+   * The reference model name that the credit line is generated from
+   */
+  reference: string | null
+
+  /**
+   * The reference model id that the credit line is generated from
+   */
+  reference_id: string | null
+
+  /**
+   * The metadata of the order detail
+   */
+  metadata?: Record<string, unknown> | null
+}

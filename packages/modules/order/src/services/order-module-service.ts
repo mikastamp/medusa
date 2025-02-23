@@ -1,6 +1,7 @@
 import {
   BigNumberInput,
   Context,
+  CreateOrderCreditLineDTO,
   DAL,
   FilterableOrderReturnReasonProps,
   FindConfig,
@@ -111,6 +112,7 @@ type InjectedDependencies = {
   returnItemService: ModulesSdkTypes.IMedusaInternalService<any>
   orderClaimService: ModulesSdkTypes.IMedusaInternalService<any>
   orderExchangeService: ModulesSdkTypes.IMedusaInternalService<any>
+  orderCreditLineService: ModulesSdkTypes.IMedusaInternalService<any>
 }
 
 const generateMethodForModels = {
@@ -285,6 +287,9 @@ export default class OrderModuleService
   protected orderExchangeItemService_: ModulesSdkTypes.IMedusaInternalService<
     InferEntityType<typeof OrderExchangeItem>
   >
+  protected orderCreditLineService_: ModulesSdkTypes.IMedusaInternalService<
+    InferEntityType<typeof OrderCreditLine>
+  >
 
   constructor(
     {
@@ -308,6 +313,7 @@ export default class OrderModuleService
       returnItemService,
       orderClaimService,
       orderExchangeService,
+      orderCreditLineService,
     }: InjectedDependencies,
     protected readonly moduleDeclaration: InternalModuleDeclaration
   ) {
@@ -335,6 +341,7 @@ export default class OrderModuleService
     this.returnItemService_ = returnItemService
     this.orderClaimService_ = orderClaimService
     this.orderExchangeService_ = orderExchangeService
+    this.orderCreditLineService_ = orderCreditLineService
   }
 
   __joinerConfig(): ModuleJoinerConfig {
@@ -362,6 +369,9 @@ export default class OrderModuleService
       "original_shipping_tax_total",
       "original_shipping_subtotal",
       "original_shipping_total",
+      "credit_lines_total",
+      "credit_lines_tax_total",
+      "credit_lines_subtotal",
     ]
 
     const includeTotals = (config?.select ?? []).some((field) =>
@@ -380,6 +390,7 @@ export default class OrderModuleService
     config.select ??= []
 
     const requiredRelationsForTotals = [
+      "credit_lines",
       "items",
       "items.tax_lines",
       "items.adjustments",
@@ -713,7 +724,7 @@ export default class OrderModuleService
     await this.createOrderAddresses_(data, sharedContext)
 
     const lineItemsToCreate: CreateOrderLineItemDTO[] = []
-
+    const creditLinesToCreate: CreateOrderCreditLineDTO[] = []
     const createdOrders: InferEntityType<typeof Order>[] = []
     for (const { items, shipping_methods, ...order } of data) {
       const ord = order as any
@@ -746,6 +757,16 @@ export default class OrderModuleService
 
       const created = await this.orderService_.create(ord, sharedContext)
 
+      creditLinesToCreate.push(
+        ...(ord.credit_lines ?? []).map((creditLine) => ({
+          amount: MathBN.convert(creditLine.amount),
+          reference: creditLine.reference,
+          reference_id: creditLine.reference_id,
+          metadata: creditLine.metadata,
+          order_id: created.id,
+        }))
+      )
+
       createdOrders.push(created)
 
       if (items?.length) {
@@ -762,6 +783,13 @@ export default class OrderModuleService
 
     if (lineItemsToCreate.length) {
       await this.createOrderLineItemsBulk_(lineItemsToCreate, sharedContext)
+    }
+
+    if (creditLinesToCreate.length) {
+      await this.orderCreditLineService_.create(
+        creditLinesToCreate,
+        sharedContext
+      )
     }
 
     return createdOrders
@@ -2248,6 +2276,7 @@ export default class OrderModuleService
   ) {
     const addedItems = {}
     const addedShippingMethods = {}
+
     for (const item of order.items) {
       const isExistingItem = item.id === item.detail?.item_id
       if (!isExistingItem) {
@@ -3073,6 +3102,7 @@ export default class OrderModuleService
       return {
         items: [],
         shippingMethods: [],
+        credit_lines: [],
       }
     }
 
@@ -3090,6 +3120,7 @@ export default class OrderModuleService
       shippingMethodsToUpsert,
       summariesToUpsert,
       orderToUpdate,
+      creditLinesToUpsert,
     } = await applyChangesToOrder(orders, actionsMap, {
       addActionReferenceToObject: true,
       includeTaxLinesAndAdjustementsToPreview: async (...args) => {
@@ -3120,11 +3151,18 @@ export default class OrderModuleService
             sharedContext
           )
         : null,
+      creditLinesToUpsert.length
+        ? this.orderCreditLineService_.upsert(
+            creditLinesToUpsert,
+            sharedContext
+          )
+        : null,
     ])
 
     return {
       items: itemsToUpsert as any,
       shippingMethods: shippingMethodsToUpsert as any,
+      credit_lines: creditLinesToUpsert as any,
     }
   }
 
