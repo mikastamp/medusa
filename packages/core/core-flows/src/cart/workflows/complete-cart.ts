@@ -1,5 +1,4 @@
 import {
-  CartCreditLineDTO,
   CartWorkflowDTO,
   UsageComputedActions,
 } from "@medusajs/framework/types"
@@ -91,6 +90,8 @@ export const completeCartWorkflow = createWorkflow(
     retentionTime: THREE_DAYS,
   },
   (input: WorkflowData<CompleteCartWorkflowInput>) => {
+    let beforePaymentAuthorization
+
     const orderCart = useQueryGraphStep({
       entity: "order_cart",
       fields: ["cart_id", "order_id"],
@@ -135,6 +136,10 @@ export const completeCartWorkflow = createWorkflow(
       validateShippingStep({ cart, shippingOptions })
 
       const paymentSessions = validateCartPaymentsStep({ cart })
+
+      beforePaymentAuthorization = createHook("beforePaymentAuthorization", {
+        input,
+      })
 
       const payment = authorizePaymentSessionStep({
         // We choose the first payment session, as there will only be one active payment session
@@ -211,18 +216,6 @@ export const completeCartWorkflow = createWorkflow(
           .map((adjustment) => adjustment.code)
           .filter(Boolean)
 
-        const creditLines = (cart.credit_lines ?? []).map(
-          (creditLine: CartCreditLineDTO) => {
-            return {
-              amount: creditLine.amount,
-              raw_amount: creditLine.raw_amount,
-              reference: creditLine.reference,
-              reference_id: creditLine.reference_id,
-              metadata: creditLine.metadata,
-            }
-          }
-        )
-
         return {
           region_id: cart.region?.id,
           customer_id: cart.customer?.id,
@@ -235,7 +228,6 @@ export const completeCartWorkflow = createWorkflow(
           no_notification: false,
           items: allItems,
           shipping_methods: shippingMethods,
-          credit_lines: creditLines,
           metadata: cart.metadata,
           promo_codes: promoCodes,
           transactions,
@@ -338,7 +330,7 @@ export const completeCartWorkflow = createWorkflow(
     })
 
     return new WorkflowResponse(result, {
-      hooks: [validate],
+      hooks: [validate, beforePaymentAuthorization],
     })
   }
 )
