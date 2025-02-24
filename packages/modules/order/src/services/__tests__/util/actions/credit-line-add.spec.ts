@@ -1,4 +1,4 @@
-import { ChangeActionType } from "@medusajs/framework/utils"
+import { ChangeActionType, decorateCartTotals } from "@medusajs/framework/utils"
 import { VirtualOrder } from "@types"
 import { calculateOrderChange } from "../../../../utils"
 
@@ -100,7 +100,6 @@ describe("Action: Credit Line Add", function () {
     })
 
     const sumToJSON = JSON.parse(JSON.stringify(changes.summary))
-
     expect(sumToJSON).toEqual({
       transaction_total: 0,
       original_order_total: 30,
@@ -129,8 +128,10 @@ describe("Action: Credit Line Add", function () {
       },
     ]
 
+    const order = decorateCartTotals(originalOrder) as any
+
     const changesSecond = calculateOrderChange({
-      order: originalOrder,
+      order,
       actions: actionsSecond,
       options: { addActionReferenceToObject: true },
     })
@@ -139,12 +140,12 @@ describe("Action: Credit Line Add", function () {
 
     expect(sumToJSONSecond).toEqual({
       transaction_total: 0,
-      original_order_total: 30,
+      original_order_total: 20,
       current_order_total: -10,
       pending_difference: -10,
       paid_total: 0,
       refunded_total: 0,
-      credit_line_total: 40,
+      credit_line_total: 30,
       accounting_total: -10,
     })
   })

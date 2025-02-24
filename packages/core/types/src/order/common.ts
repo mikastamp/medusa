@@ -3020,6 +3020,11 @@ export interface OrderCreditLineDTO {
   order: OrderDTO
 
   /**
+   * The amount of the credit line.
+   */
+  amount: BigNumberValue
+
+  /**
    * The reference model name that the credit line is generated from
    */
   reference: string | null

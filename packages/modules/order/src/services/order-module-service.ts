@@ -1,6 +1,7 @@
 import {
   BigNumberInput,
   Context,
+  CreateOrderCreditLineDTO,
   DAL,
   FilterableOrderReturnReasonProps,
   FindConfig,
@@ -689,6 +690,7 @@ export default class OrderModuleService
           "billing_address",
           "summary",
           "items",
+          "credit_lines",
           "items.tax_lines",
           "items.adjustments",
           "shipping_methods",
@@ -713,9 +715,10 @@ export default class OrderModuleService
     await this.createOrderAddresses_(data, sharedContext)
 
     const lineItemsToCreate: CreateOrderLineItemDTO[] = []
-
+    const creditLinesToCreate: CreateOrderCreditLineDTO[] = []
     const createdOrders: InferEntityType<typeof Order>[] = []
-    for (const { items, shipping_methods, ...order } of data) {
+
+    for (const { items, shipping_methods, credit_lines, ...order } of data) {
       const ord = order as any
 
       const shippingMethods = shipping_methods?.map((sm: any) => {
@@ -746,6 +749,16 @@ export default class OrderModuleService
 
       const created = await this.orderService_.create(ord, sharedContext)
 
+      creditLinesToCreate.push(
+        ...(credit_lines || []).map((creditLine) => ({
+          amount: creditLine.amount,
+          reference: creditLine.reference,
+          reference_id: creditLine.reference_id,
+          metadata: creditLine.metadata,
+          order_id: created.id,
+        }))
+      )
+
       createdOrders.push(created)
 
       if (items?.length) {
@@ -762,6 +775,10 @@ export default class OrderModuleService
 
     if (lineItemsToCreate.length) {
       await this.createOrderLineItemsBulk_(lineItemsToCreate, sharedContext)
+    }
+
+    if (creditLinesToCreate.length) {
+      await super.createOrderCreditLines(creditLinesToCreate, sharedContext)
     }
 
     return createdOrders
