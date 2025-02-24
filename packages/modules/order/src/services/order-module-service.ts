@@ -760,7 +760,7 @@ export default class OrderModuleService
       const created = await this.orderService_.create(ord, sharedContext)
 
       creditLinesToCreate.push(
-        ...(ord.credit_lines ?? []).map((creditLine) => ({
+        ...(credit_lines ?? []).map((creditLine) => ({
           amount: MathBN.convert(creditLine.amount),
           reference: creditLine.reference,
           reference_id: creditLine.reference_id,
