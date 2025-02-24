@@ -10,12 +10,12 @@ import {
   when,
 } from "@medusajs/framework/workflows-sdk"
 import { ShippingOptionPriceType } from "@medusajs/framework/utils"
-import { calculateShippingOptionsPricesStep } from "../../../fulfillment/steps"
+import { calculateShippingOptionsPricesStep } from "../../fulfillment/steps"
 import {
   updateOrderChangeActionsStep,
   updateOrderShippingMethodsStep,
-} from "../../steps"
-import { useRemoteQueryStep } from "../../../common"
+} from "../steps"
+import { useRemoteQueryStep } from "../../common"
 
 const COMMON_OPTIONS_FIELDS = [
   "id",
@@ -55,7 +55,6 @@ export type MaybeRefreshShippingMethodsWorkflowInput = {
    * The ID of the order.
    */
   order_id: string
-
   /**
    * The ID of the ADD SHIPPING action to update.
    */

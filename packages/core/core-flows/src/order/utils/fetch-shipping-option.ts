@@ -11,8 +11,8 @@ import {
   when,
 } from "@medusajs/framework/workflows-sdk"
 import { BigNumber, ShippingOptionPriceType } from "@medusajs/framework/utils"
-import { calculateShippingOptionsPricesStep } from "../../../fulfillment/steps"
-import { useRemoteQueryStep } from "../../../common"
+import { calculateShippingOptionsPricesStep } from "../../fulfillment/steps"
+import { useRemoteQueryStep } from "../../common"
 
 const COMMON_OPTIONS_FIELDS = [
   "id",

@@ -23,7 +23,7 @@ import {
 import { prepareShippingMethod } from "../../utils/prepare-shipping-method"
 import { createOrderChangeActionsWorkflow } from "../create-order-change-actions"
 import { updateOrderTaxLinesWorkflow } from "../update-tax-lines"
-import { fetchShippingOptionForOrderWorkflow } from "../utils/fetch-shipping-option"
+import { fetchShippingOptionForOrderWorkflow } from "../../utils/fetch-shipping-option"
 
 /**
  * The data to validate that a shipping method can be created for an exchange.

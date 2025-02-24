@@ -8,7 +8,7 @@ import {
   when,
 } from "@medusajs/framework/workflows-sdk"
 
-import { maybeRefreshShippingMethodsWorkflow } from "../utils/maybe-refresh-shipping-methods"
+import { maybeRefreshShippingMethodsWorkflow } from "../../utils/maybe-refresh-shipping-methods"
 import { useRemoteQueryStep } from "../../../common"
 
 /**
@@ -58,7 +58,6 @@ export const refreshReturnShippingWorkflow = createWorkflow(
     const refreshArgs = transform(
       { input, orderChange },
       ({ input, orderChange }) => {
-        console.log("03 -- REFRESHING 03")
         const shippingAction = orderChange.actions.find(
           (action) => action.action === ChangeActionType.SHIPPING_ADD
         )
