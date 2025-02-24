@@ -1,10 +1,10 @@
 import express, { RequestHandler } from "express"
 import fs from "fs"
 import path from "path"
-import type { InlineConfig, ViteDevServer } from "vite"
+import type { ViteDevServer } from "vite"
 
 import { BundlerOptions } from "../types"
-import { getViteConfig } from "./config"
+import { getDevelopmentConfig, mergeConfigWithUserConfig } from "./config"
 
 const router = express.Router()
 
@@ -68,22 +68,13 @@ async function injectHtmlMiddleware(
 }
 
 export async function develop(options: BundlerOptions) {
-  const vite = await import("vite")
+  const { createServer } = await import("vite")
 
   try {
-    const viteConfig = await getViteConfig(options)
+    const viteConfig = await getDevelopmentConfig(options)
+    const finalConfig = await mergeConfigWithUserConfig(viteConfig, options)
 
-    const developConfig: InlineConfig = {
-      mode: "development",
-      logLevel: "error",
-      appType: "spa",
-      server: {
-        middlewareMode: true,
-      },
-    }
-
-    const mergedConfig = vite.mergeConfig(viteConfig, developConfig)
-    const server = await vite.createServer(mergedConfig)
+    const server = await createServer(finalConfig)
 
     await injectViteMiddleware(router, server.middlewares)
     await injectHtmlMiddleware(router, server)

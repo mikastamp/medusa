@@ -1,15 +1,11 @@
-import type { InlineConfig } from "vite"
 import { BundlerOptions } from "../types"
-import { getViteConfig } from "./config"
+import { getProductionConfig, mergeConfigWithUserConfig } from "./config"
 
 export async function build(options: BundlerOptions) {
-  const vite = await import("vite")
+  const { build: viteBuild } = await import("vite")
 
-  const viteConfig = await getViteConfig(options)
-  const buildConfig: InlineConfig = {
-    mode: "production",
-    logLevel: "error",
-  }
+  const viteConfig = await getProductionConfig(options)
+  const finalConfig = await mergeConfigWithUserConfig(viteConfig, options)
 
-  await vite.build(vite.mergeConfig(viteConfig, buildConfig))
+  await viteBuild(finalConfig)
 }

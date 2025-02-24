@@ -4,15 +4,11 @@ import { Config } from "tailwindcss"
 import type { InlineConfig } from "vite"
 import { BundlerOptions } from "../types"
 
-export async function getViteConfig(
+export async function getBaseConfig(
   options: BundlerOptions
 ): Promise<InlineConfig> {
-  const { searchForWorkspaceRoot, mergeConfig } = await import("vite")
   const { default: react } = await import("@vitejs/plugin-react")
   const { default: medusa } = await import("@medusajs/admin-vite-plugin")
-
-  const getPort = await import("get-port")
-  const hmrPort = await getPort.default()
 
   const root = path.resolve(__dirname, "./")
 
@@ -26,35 +22,29 @@ export async function getViteConfig(
       emptyOutDir: true,
       outDir: path.resolve(process.cwd(), options.outDir),
     },
+    cacheDir: path.resolve(process.cwd(), "node_modules/.medusa/vite"),
     optimizeDeps: {
       include: [
         "react",
         "react/jsx-runtime",
         "react-dom/client",
         "react-router-dom",
-        "@medusajs/ui",
-        "@medusajs/dashboard",
-        "@medusajs/js-sdk",
         "@tanstack/react-query",
       ],
-      force: true,
-      esbuildOptions: {
-        format: "cjs",
-      },
       exclude: [...VIRTUAL_MODULES],
+    },
+    resolve: {
+      dedupe: [
+        "react",
+        "react-dom",
+        "react-router-dom",
+        "@tanstack/react-query",
+      ],
     },
     define: {
       __BASE__: JSON.stringify(options.path),
       __BACKEND_URL__: JSON.stringify(backendUrl),
       __STOREFRONT_URL__: JSON.stringify(storefrontUrl),
-    },
-    server: {
-      fs: {
-        allow: [searchForWorkspaceRoot(process.cwd())],
-      },
-      hmr: {
-        port: hmrPort,
-      },
     },
     css: {
       postcss: {
@@ -73,12 +63,57 @@ export async function getViteConfig(
     ],
   }
 
-  if (options.vite) {
-    const customConfig = options.vite(baseConfig)
-    return mergeConfig(baseConfig, customConfig)
+  return baseConfig
+}
+
+const HMR_DEFAULT_PORT = 5173
+
+export async function getDevelopmentConfig(
+  options: BundlerOptions
+): Promise<InlineConfig> {
+  const baseConfig = await getBaseConfig(options)
+
+  return {
+    ...baseConfig,
+    mode: "development",
+    resolve: {
+      ...baseConfig.resolve,
+    },
+    server: {
+      cors: false,
+      middlewareMode: true,
+      open: true,
+      hmr: {
+        clientPort: HMR_DEFAULT_PORT,
+      },
+    },
+    appType: "custom",
+  } satisfies InlineConfig
+}
+
+export async function getProductionConfig(
+  options: BundlerOptions
+): Promise<InlineConfig> {
+  const baseConfig = await getBaseConfig(options)
+
+  return {
+    ...baseConfig,
+    mode: "production",
+  }
+}
+
+export async function mergeConfigWithUserConfig(
+  config: InlineConfig,
+  ctx: BundlerOptions
+) {
+  const { mergeConfig } = await import("vite")
+  const { vite: userConfig } = ctx
+
+  if (userConfig) {
+    return mergeConfig(config, userConfig(config))
   }
 
-  return baseConfig
+  return config
 }
 
 function createTailwindConfig(entry: string, sources: string[] = []) {
