@@ -45,21 +45,18 @@ describe("Action: Credit Line Add", function () {
       "original_order_total": 30,
       "current_order_total": 30,
       "pending_difference": 30,
-      "difference_sum": 0,
       "paid_total": 0,
       "refunded_total": 0,
       "credit_line_total": 0
     }
 
-    Upon adding a credit line, the current order total will decrease with the difference_sum going in
-    the negatives making it possible for the merchant to balance the order to then enable a refund.
+    Upon adding a credit line, the current order total will decrease making it possible for the merchant to balance the order to then enable a refund.
 
     {
       "transaction_total": 0,
       "original_order_total": 30,
       "current_order_total": 60,
       "pending_difference": 0,
-      "difference_sum": -30,
       "paid_total": 0,
       "refunded_total": 0,
       "credit_line_total": 30
@@ -81,7 +78,6 @@ describe("Action: Credit Line Add", function () {
       original_order_total: 30,
       current_order_total: 30,
       pending_difference: 30,
-      difference_sum: 0,
       paid_total: 0,
       refunded_total: 0,
       credit_line_total: 0,
@@ -110,7 +106,6 @@ describe("Action: Credit Line Add", function () {
       original_order_total: 30,
       current_order_total: 0,
       pending_difference: 0,
-      difference_sum: 0,
       paid_total: 0,
       refunded_total: 0,
       credit_line_total: 30,
@@ -147,7 +142,6 @@ describe("Action: Credit Line Add", function () {
       original_order_total: 30,
       current_order_total: -10,
       pending_difference: -10,
-      difference_sum: 0,
       paid_total: 0,
       refunded_total: 0,
       credit_line_total: 40,

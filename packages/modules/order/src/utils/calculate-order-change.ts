@@ -1,4 +1,8 @@
-import { BigNumberInput, OrderSummaryDTO } from "@medusajs/framework/types"
+import {
+  BigNumberInput,
+  OrderDTO,
+  OrderSummaryDTO,
+} from "@medusajs/framework/types"
 import {
   BigNumber,
   ChangeActionType,
@@ -77,7 +81,6 @@ export class OrderChangeProcessing {
 
     this.summary = {
       pending_difference: 0,
-      difference_sum: 0,
       current_order_total: this.order.total ?? 0,
       original_order_total: this.order.total ?? 0,
       transaction_total: transactionTotal,
@@ -95,10 +98,6 @@ export class OrderChangeProcessing {
       status === EVENT_STATUS.PENDING ||
       status === EVENT_STATUS.DONE
     )
-  }
-  private isEventDone(action: InternalOrderChangeEvent): boolean {
-    const status = action.status
-    return status === EVENT_STATUS.DONE
   }
 
   public processActions() {
@@ -136,10 +135,6 @@ export class OrderChangeProcessing {
       if (action.action === ChangeActionType.CREDIT_LINE_ADD) {
         creditLineTotal = MathBN.add(creditLineTotal, amount)
       } else {
-        if (!this.isEventDone(action) && !action.change_id) {
-          summary.difference_sum = MathBN.add(summary.difference_sum, amount)
-        }
-
         summary.current_order_total = MathBN.add(
           summary.current_order_total,
           amount
@@ -147,8 +142,6 @@ export class OrderChangeProcessing {
       }
     }
 
-    const groupSum = MathBN.add(...Object.values(this.groupTotal))
-    summary.difference_sum = MathBN.add(summary.difference_sum, groupSum)
     summary.credit_line_total = creditLineTotal
     summary.accounting_total = MathBN.sub(
       summary.current_order_total,
@@ -224,12 +217,63 @@ export class OrderChangeProcessing {
       original_order_total: new BigNumber(summary.original_order_total),
       current_order_total: new BigNumber(summary.current_order_total),
       pending_difference: new BigNumber(summary.pending_difference),
-      difference_sum: new BigNumber(summary.difference_sum),
       paid_total: new BigNumber(summary.paid_total),
       refunded_total: new BigNumber(summary.refunded_total),
       credit_line_total: new BigNumber(summary.credit_line_total),
       accounting_total: new BigNumber(summary.accounting_total),
     } as unknown as OrderSummaryDTO
+
+    return orderSummary
+  }
+
+  // Calculate the order summary from a calculated order including taxes
+  public getSummaryFromOrder(order: OrderDTO): OrderSummaryDTO {
+    const summary_ = this.summary
+    const total = order.total
+    const orderSummary = {
+      transaction_total: new BigNumber(summary_.transaction_total),
+      original_order_total: new BigNumber(summary_.original_order_total),
+      current_order_total: new BigNumber(total),
+      pending_difference: new BigNumber(summary_.pending_difference),
+      paid_total: new BigNumber(summary_.paid_total),
+      refunded_total: new BigNumber(summary_.refunded_total),
+      credit_line_total: new BigNumber(summary_.credit_line_total),
+      accounting_total: new BigNumber(summary_.accounting_total),
+    } as any
+
+    orderSummary.accounting_total = new BigNumber(
+      MathBN.sub(
+        orderSummary.current_order_total,
+        orderSummary.credit_line_total
+      )
+    )
+
+    orderSummary.current_order_total = new BigNumber(
+      MathBN.sub(
+        orderSummary.current_order_total,
+        orderSummary.credit_line_total
+      )
+    )
+
+    orderSummary.pending_difference = MathBN.sub(
+      orderSummary.current_order_total,
+      orderSummary.transaction_total
+    )
+
+    // return requested becomes pending difference
+    for (const item of order.items ?? []) {
+      const item_ = item as any
+
+      if (MathBN.gt(item_.return_requested_total, 0)) {
+        orderSummary.pending_difference = MathBN.sub(
+          orderSummary.pending_difference,
+          item_.return_requested_total
+        )
+      }
+    }
+    orderSummary.pending_difference = new BigNumber(
+      orderSummary.pending_difference
+    )
 
     return orderSummary
   }
@@ -259,7 +303,9 @@ export function calculateOrderChange({
   calc.processActions()
 
   return {
+    instance: calc,
     summary: calc.getSummary(),
+    getSummaryFromOrder: (order: OrderDTO) => calc.getSummaryFromOrder(order),
     order: calc.getCurrentOrder(),
   }
 }
