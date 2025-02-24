@@ -128,17 +128,21 @@ export const refreshExchangeShippingWorkflow = createWorkflow(
     // Refresh inbound shipping method
     when({ refreshArgs }, ({ refreshArgs }) => refreshArgs[0] !== null).then(
       () =>
-        maybeRefreshShippingMethodsWorkflow.runAsStep({
-          input: refreshArgs[0],
-        })
+        maybeRefreshShippingMethodsWorkflow
+          .runAsStep({
+            input: refreshArgs[0],
+          })
+          .config({ name: "refresh-inbound-shipping-method" })
     )
 
     // Refresh outbound shipping method
     when({ refreshArgs }, ({ refreshArgs }) => refreshArgs[1] !== null).then(
       () =>
-        maybeRefreshShippingMethodsWorkflow.runAsStep({
-          input: refreshArgs[1],
-        })
+        maybeRefreshShippingMethodsWorkflow
+          .runAsStep({
+            input: refreshArgs[1],
+          })
+          .config({ name: "refresh-outbound-shipping-method" })
     )
 
     return new WorkflowResponse(void 0)

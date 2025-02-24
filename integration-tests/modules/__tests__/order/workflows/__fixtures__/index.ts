@@ -21,8 +21,14 @@ export async function prepareDataFixtures({ container }) {
   const stockLocationModule: IStockLocationService = container.resolve(
     Modules.STOCK_LOCATION
   )
+  const pricingModule = container.resolve(Modules.PRICING)
   const productModule = container.resolve(Modules.PRODUCT)
   const inventoryModule = container.resolve(Modules.INVENTORY)
+  const customerService = container.resolve(Modules.CUSTOMER)
+
+  const customer = await customerService.createCustomers({
+    email: "foo@bar.com",
+  })
 
   const shippingProfile = await fulfillmentService.createShippingProfiles({
     name: "test",
@@ -72,6 +78,18 @@ export async function prepareDataFixtures({ container }) {
         phone: "12345",
       },
     })
+
+  const priceSets = await pricingModule.createPriceSets([
+    {
+      prices: [
+        {
+          amount: 10,
+          region_id: region.id,
+          currency_code: "usd",
+        },
+      ],
+    },
+  ])
 
   const [product] = await productModule.createProducts([
     {
@@ -123,6 +141,14 @@ export async function prepareDataFixtures({ container }) {
       },
       [Modules.INVENTORY]: {
         inventory_item_id: inventoryItem.id,
+      },
+    },
+    {
+      [Modules.PRODUCT]: {
+        variant_id: product.variants[0].id,
+      },
+      [Modules.PRICING]: {
+        price_set_id: priceSets[0].id,
       },
     },
   ])
@@ -225,6 +251,7 @@ export async function prepareDataFixtures({ container }) {
     salesChannel,
     location,
     product,
+    customer,
     inventoryItem,
   }
 }
@@ -234,19 +261,25 @@ export async function createOrderFixture({
   product,
   location,
   inventoryItem,
+  region,
+  salesChannel,
+  customer,
   overrides,
 }: {
   container: any
   product: any
   location: any
   inventoryItem: any
+  salesChannel?: any
+  customer?: any
+  region?: any
   overrides?: { quantity?: number }
 }) {
   const orderService: IOrderModuleService = container.resolve(Modules.ORDER)
 
   let order = await orderService.createOrders({
-    region_id: "test_region_id",
-    email: "foo@bar.com",
+    region_id: region?.id || "test_region_id",
+    email: customer?.email || "foo@bar.com",
     items: [
       {
         title: "Custom Item 2",
@@ -271,7 +304,7 @@ export async function createOrderFixture({
         currency_code: "usd",
       },
     ],
-    sales_channel_id: "test",
+    sales_channel_id: salesChannel?.id || "test",
     shipping_address: {
       first_name: "Test",
       last_name: "Test",
@@ -313,7 +346,7 @@ export async function createOrderFixture({
       },
     ],
     currency_code: "usd",
-    customer_id: "joe",
+    customer_id: customer?.id || "joe",
   })
 
   const inventoryModule = container.resolve(Modules.INVENTORY)
