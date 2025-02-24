@@ -700,6 +700,7 @@ export default class OrderModuleService
           "billing_address",
           "summary",
           "items",
+          "credit_lines",
           "items.tax_lines",
           "items.adjustments",
           "shipping_methods",
@@ -726,7 +727,8 @@ export default class OrderModuleService
     const lineItemsToCreate: CreateOrderLineItemDTO[] = []
     const creditLinesToCreate: CreateOrderCreditLineDTO[] = []
     const createdOrders: InferEntityType<typeof Order>[] = []
-    for (const { items, shipping_methods, ...order } of data) {
+
+    for (const { items, shipping_methods, credit_lines, ...order } of data) {
       const ord = order as any
 
       const shippingMethods = shipping_methods?.map((sm: any) => {

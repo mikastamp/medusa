@@ -45,6 +45,7 @@ export const defaultStoreRetrieveOrderFields = [
   "credit_lines_tax_total",
   "created_at",
   "updated_at",
+  "*credit_lines",
   "*items",
   "*items.tax_lines",
   "*items.adjustments",

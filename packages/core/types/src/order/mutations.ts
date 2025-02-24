@@ -158,6 +158,11 @@ export interface CreateOrderDTO {
   billing_address?: CreateOrderAddressDTO | UpdateOrderAddressDTO
 
   /**
+   * The credit lines of the order.
+   */
+  credit_lines?: CreateOrderCreditLineDTO[]
+
+  /**
    * Whether the customer should receive notifications about
    * order updates.
    */

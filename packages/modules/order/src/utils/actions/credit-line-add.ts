@@ -1,4 +1,8 @@
-import { ChangeActionType, MedusaError } from "@medusajs/framework/utils"
+import {
+  ChangeActionType,
+  MathBN,
+  MedusaError,
+} from "@medusajs/framework/utils"
 import { CreateOrderCreditLineDTO, OrderCreditLineDTO } from "@medusajs/types"
 import { OrderChangeProcessing } from "../calculate-order-change"
 import { setActionReference } from "../set-action-reference"
@@ -17,7 +21,7 @@ OrderChangeProcessing.registerActionType(ChangeActionType.CREDIT_LINE_ADD, {
 
     const newCreditLine = {
       order_id: currentOrder.id,
-      amount: action.amount!,
+      amount: MathBN.convert(action.amount!),
       reference: action.reference!,
       reference_id: action.reference_id!,
     }

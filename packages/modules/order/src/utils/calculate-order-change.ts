@@ -7,6 +7,7 @@ import {
   BigNumber,
   ChangeActionType,
   MathBN,
+  isDefined,
   isPresent,
   transformPropertiesToBigNumber,
 } from "@medusajs/framework/utils"
@@ -101,10 +102,12 @@ export class OrderChangeProcessing {
   }
 
   public processActions() {
-    let creditLineTotal = (this.order.credit_lines || []).reduce(
-      (acc, creditLine) => MathBN.add(acc, creditLine.amount),
-      MathBN.convert(0)
-    )
+    let newCreditLineTotal = (this.order.credit_lines || [])
+      .filter((cl) => "id" in cl && !isDefined(cl.id))
+      .reduce(
+        (acc, creditLine) => MathBN.add(acc, creditLine.amount),
+        MathBN.convert(0)
+      )
 
     for (const action of this.actions) {
       this.processAction_(action)
@@ -133,7 +136,11 @@ export class OrderChangeProcessing {
       }
 
       if (action.action === ChangeActionType.CREDIT_LINE_ADD) {
-        creditLineTotal = MathBN.add(creditLineTotal, amount)
+        newCreditLineTotal = MathBN.add(newCreditLineTotal, amount)
+        summary.current_order_total = MathBN.sub(
+          summary.current_order_total,
+          amount
+        )
       } else {
         summary.current_order_total = MathBN.add(
           summary.current_order_total,
@@ -142,19 +149,11 @@ export class OrderChangeProcessing {
       }
     }
 
-    summary.credit_line_total = creditLineTotal
-    summary.accounting_total = MathBN.sub(
-      summary.current_order_total,
-      creditLineTotal
-    )
+    summary.credit_line_total = newCreditLineTotal
+    summary.accounting_total = summary.current_order_total
 
     summary.transaction_total = MathBN.sum(
       ...this.transactions.map((tr) => tr.amount)
-    )
-
-    summary.current_order_total = MathBN.sub(
-      summary.current_order_total,
-      creditLineTotal
     )
 
     summary.pending_difference = MathBN.sub(
@@ -241,19 +240,7 @@ export class OrderChangeProcessing {
       accounting_total: new BigNumber(summary_.accounting_total),
     } as any
 
-    orderSummary.accounting_total = new BigNumber(
-      MathBN.sub(
-        orderSummary.current_order_total,
-        orderSummary.credit_line_total
-      )
-    )
-
-    orderSummary.current_order_total = new BigNumber(
-      MathBN.sub(
-        orderSummary.current_order_total,
-        orderSummary.credit_line_total
-      )
-    )
+    orderSummary.accounting_total = orderSummary.current_order_total
 
     orderSummary.pending_difference = MathBN.sub(
       orderSummary.current_order_total,

@@ -234,6 +234,7 @@ export class Admin {
     this.inventoryItem = new InventoryItem(client)
     this.notification = new Notification(client)
     this.order = new Order(client)
+    this.draftOrder = new DraftOrder(client)
     this.orderEdit = new OrderEdit(client)
     this.return = new Return(client)
     this.claim = new Claim(client)
