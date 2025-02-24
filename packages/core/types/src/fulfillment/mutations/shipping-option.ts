@@ -120,6 +120,22 @@ export interface UpdateShippingOptionDTO {
  */
 export interface UpsertShippingOptionDTO extends UpdateShippingOptionDTO {}
 
+type CalculateShippingItems = {
+  /**
+   * The ID of the order item. Lookup in context.items for the details about variant / product.
+   */
+  id: string
+  /**
+   * The quantity to ship.
+   */
+  quantity: number
+}
+
+export type CalculatedRMAShippingContext =
+  | { return_id: string; return_items: CalculateShippingItems[] }
+  | { exchange_id: string; exchange_items: CalculateShippingItems[] }
+  | { claim_id: string; claim_items: CalculateShippingItems[] }
+
 /**
  * The data needed for the associated fulfillment provider to calculate the price of a shipping option.
  */
@@ -153,27 +169,8 @@ export interface CalculateShippingOptionPriceDTO {
      */
     from_location?: StockLocationDTO
 
-    /**
-     * The return details - if present, the return shipping needs to be calculated.
-     */
-    orderReturn?: {
-      /**
-       * The items to be returned.
-       */
-      items: {
-        /**
-         * The ID of the order item. Lookup in context.items for the details about variant / product.
-         */
-        id: string
-        /**
-         * The quantity quantity to return.
-         */
-        quantity: number
-      }[]
-    }
-
     [k: string]: unknown
-  }
+  } & CalculatedRMAShippingContext
 }
 
 /**

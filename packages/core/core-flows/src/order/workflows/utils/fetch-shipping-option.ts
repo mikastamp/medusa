@@ -1,7 +1,7 @@
 import {
   BigNumberInput,
+  CalculatedRMAShippingContext,
   CalculateShippingOptionPriceDTO,
-  ReturnDTO,
   ShippingOptionDTO,
 } from "@medusajs/framework/types"
 import {
@@ -64,9 +64,7 @@ export type FetchShippingOptionForOrderWorkflowInput = {
   /**
    * The context of the order.
    */
-  context?: {
-    orderReturn?: ReturnDTO
-  }
+  context: CalculatedRMAShippingContext
 }
 
 /**
@@ -140,10 +138,9 @@ export const fetchShippingOptionForOrderWorkflow = createWorkflow(
               optionData: shippingOption.data,
               context: {
                 ...order,
-                ...(input.context ?? {}),
+                ...input.context,
                 from_location:
                   shippingOption.service_zone.fulfillment_set.location,
-                is_return: true,
               },
               // data: {}, // TODO: add data
               provider_id: shippingOption.provider_id,

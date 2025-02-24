@@ -24,10 +24,12 @@ export class ManualFulfillmentService extends AbstractFulfillmentProviderService
   }
 
   async calculatePrice(optionData, data, context) {
-    if (context.orderReturn) {
+    console.log("Calc price ctx:", context)
+
+    if (context.return_id) {
       return {
         calculated_amount:
-          context.orderReturn.items.reduce((acc, i) => acc + i.quantity, 0) * 2, // mock return cost as 2 per item
+          context.return_items.reduce((acc, i) => acc + i.quantity, 0) * 2, // mock return cost as 2 per item
         is_calculated_price_tax_inclusive: false,
       }
     }

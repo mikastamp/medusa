@@ -1,6 +1,6 @@
 import {
+  CalculatedRMAShippingContext,
   CalculateShippingOptionPriceDTO,
-  ReturnDTO,
 } from "@medusajs/framework/types"
 import {
   WorkflowResponse,
@@ -63,9 +63,7 @@ export type MaybeRefreshShippingMethodsWorkflowInput = {
   /**
    * Data to pass for the shipping calculation.
    */
-  context?: {
-    orderReturn?: ReturnDTO
-  }
+  context: CalculatedRMAShippingContext
 }
 
 export const maybeRefreshShippingMethodsWorkflowId =
@@ -126,7 +124,7 @@ export const maybeRefreshShippingMethodsWorkflow = createWorkflow(
               optionData: shippingOption.data,
               context: {
                 ...order,
-                ...(input.context ?? {}),
+                ...input.context,
                 from_location:
                   shippingOption.service_zone.fulfillment_set.location,
               },

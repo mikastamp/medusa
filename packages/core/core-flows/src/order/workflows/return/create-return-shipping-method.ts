@@ -146,7 +146,6 @@ export const createReturnShippingMethodWorkflow = createWorkflow(
         "exchange_id",
         "canceled_at",
         "items.*",
-        "items.variant.*",
       ],
       variables: { id: input.return_id },
       list: false,
@@ -161,24 +160,9 @@ export const createReturnShippingMethodWorkflow = createWorkflow(
       throw_if_key_not_found: true,
     }).config({ name: "order-query" })
 
-    const shippingOption = fetchShippingOptionForOrderWorkflow.runAsStep({
-      input: {
-        order_id: order.id,
-        shipping_option_id: input.shipping_option_id,
-        currency_code: order.currency_code,
-        context: {
-          orderReturn,
-        },
-      },
-    })
-
-    const shippingOptions = transform(shippingOption, (shippingOption) => {
-      return [shippingOption]
-    })
-
     const orderChange: OrderChangeDTO = useRemoteQueryStep({
       entry_point: "order_change",
-      fields: ["id", "status", "version"],
+      fields: ["id", "status", "version", "actions.*"],
       variables: {
         filters: {
           order_id: orderReturn.order_id,
@@ -188,6 +172,36 @@ export const createReturnShippingMethodWorkflow = createWorkflow(
       },
       list: false,
     }).config({ name: "order-change-query" })
+
+    const shippingOptionFetchInput = transform(
+      { orderChange, input, order, orderReturn },
+      ({ orderChange, input, order, orderReturn }) => {
+        return {
+          order_id: order.id,
+          shipping_option_id: input.shipping_option_id,
+          currency_code: order.currency_code,
+          context: {
+            return_id: orderReturn.id,
+            return_items: orderChange.actions
+              .filter(
+                (action) => action.action === ChangeActionType.RETURN_ITEM
+              )
+              .map((a) => ({
+                id: a.details?.reference_id as string,
+                quantity: a.details?.quantity as number,
+              })),
+          },
+        }
+      }
+    )
+
+    const shippingOption = fetchShippingOptionForOrderWorkflow.runAsStep({
+      input: shippingOptionFetchInput,
+    })
+
+    const shippingOptions = transform(shippingOption, (shippingOption) => {
+      return [shippingOption]
+    })
 
     createReturnShippingMethodValidationStep({
       order,

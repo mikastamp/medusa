@@ -1,4 +1,4 @@
-import { OrderChangeDTO, ReturnDTO } from "@medusajs/framework/types"
+import { OrderChangeDTO } from "@medusajs/framework/types"
 import { ChangeActionType, OrderChangeStatus } from "@medusajs/framework/utils"
 import {
   WorkflowData,
@@ -23,6 +23,10 @@ export type RequestItemReturnValidationStepInput = {
    * The return's details.
    */
   return_id: string
+  /**
+   * The order's ID.
+   */
+  order_id: string
 }
 
 export const refreshReturnShippingWorkflowId = "refresh-return-shipping"
@@ -38,21 +42,13 @@ export const refreshReturnShippingWorkflow = createWorkflow(
   function (
     input: WorkflowData<RequestItemReturnValidationStepInput>
   ): WorkflowResponse<void> {
-    const orderReturn: ReturnDTO = useRemoteQueryStep({
-      entry_point: "return",
-      fields: ["id", "status", "order_id", "canceled_at", "items.*"],
-      variables: { id: input.return_id },
-      list: false,
-      throw_if_key_not_found: true,
-    })
-
     const orderChange: OrderChangeDTO = useRemoteQueryStep({
       entry_point: "order_change",
       fields: ["id", "status", "order_id", "return_id", "actions.*"],
       variables: {
         filters: {
-          order_id: orderReturn.order_id,
-          return_id: orderReturn.id,
+          order_id: input.order_id,
+          return_id: input.return_id,
           status: [OrderChangeStatus.PENDING, OrderChangeStatus.REQUESTED],
         },
       },
@@ -60,8 +56,9 @@ export const refreshReturnShippingWorkflow = createWorkflow(
     }).config({ name: "order-change-query" })
 
     const refreshArgs = transform(
-      { input, orderChange, orderReturn },
-      ({ input, orderChange, orderReturn }) => {
+      { input, orderChange },
+      ({ input, orderChange }) => {
+        console.log("03 -- REFRESHING 03")
         const shippingAction = orderChange.actions.find(
           (action) => action.action === ChangeActionType.SHIPPING_ADD
         )
@@ -69,8 +66,8 @@ export const refreshReturnShippingWorkflow = createWorkflow(
         const items = orderChange.actions
           .filter((action) => action.action === ChangeActionType.RETURN_ITEM)
           .map((a) => ({
-            id: a.details?.reference_id,
-            quantity: a.details?.quantity,
+            id: a.details?.reference_id as string,
+            quantity: a.details?.quantity as number,
           }))
 
         if (shippingAction) {
@@ -79,7 +76,8 @@ export const refreshReturnShippingWorkflow = createWorkflow(
             order_id: orderChange.order_id,
             action_id: shippingAction.id,
             context: {
-              orderReturn: { items } as ReturnDTO,
+              return_id: input.return_id,
+              return_items: items,
             },
           }
         }

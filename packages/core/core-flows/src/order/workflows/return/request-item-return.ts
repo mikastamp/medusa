@@ -204,7 +204,11 @@ export const requestItemReturnWorkflow = createWorkflow(
     const refreshArgs = transform(
       { orderChange, orderReturn },
       ({ orderChange, orderReturn }) => {
-        return { order_change_id: orderChange.id, return_id: orderReturn.id }
+        return {
+          order_change_id: orderChange.id,
+          return_id: orderReturn.id,
+          order_id: orderReturn.order_id,
+        }
       }
     )
 
