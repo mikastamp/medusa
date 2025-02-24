@@ -492,6 +492,10 @@ medusaIntegrationTestRunner({
               },
             }),
           ],
+          credit_lines: [],
+          credit_lines_subtotal: 0,
+          credit_lines_tax_total: 0,
+          credit_lines_total: 0,
         })
       })
     })
