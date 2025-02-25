@@ -420,21 +420,6 @@ export function MedusaInternalService<
       }
 
       if (isObject(idOrSelector) && "selector" in idOrSelector) {
-        // const entitiesToDelete = await this.list(
-        //   idOrSelector.selector as FilterQuery<any>,
-        //   {
-        //     select: primaryKeys,
-        //   },
-        //   sharedContext
-        // )
-
-        // for (const entity of entitiesToDelete) {
-        //   const criteria = {}
-        //   primaryKeys.forEach((key) => {
-        //     criteria[key] = entity[key]
-        //   })
-        //   deleteCriteria.$or.push(criteria)
-        // }
         deleteCriteria.$or.push(idOrSelector.selector)
       } else {
         const primaryKeysValues = Array.isArray(idOrSelector)
@@ -452,25 +437,6 @@ export function MedusaInternalService<
             criteria[primaryKeys[0]] = primaryKeyValue
           }
 
-          // TODO: Revisit
-          /*primaryKeys.forEach((key) => {
-            /!*if (
-              isObject(primaryKeyValue) &&
-              !isDefined(primaryKeyValue[key]) &&
-              // primaryKeys.length > 1
-            ) {
-              throw new MedusaError(
-                MedusaError.Types.INVALID_DATA,
-                `Composite key must contain all primary key fields: ${primaryKeys.join(
-                  ", "
-                )}. Found: ${Object.keys(primaryKeyValue)}`
-              )
-            }*!/
-
-            criteria[key] = isObject(primaryKeyValue)
-              ? primaryKeyValue[key]
-              : primaryKeyValue
-          })*/
           return criteria
         })
       }
