@@ -154,6 +154,7 @@ export const createOrderEditShippingMethodWorkflow = createWorkflow(
 
     const shippingMethodInput = transform(
       {
+        relatedEntity: { order_id: order.id },
         shippingOptions,
         customPrice: input.custom_amount,
         orderChange,
