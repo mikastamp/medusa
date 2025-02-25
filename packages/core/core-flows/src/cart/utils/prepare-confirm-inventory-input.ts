@@ -26,7 +26,7 @@ interface ConfirmInventoryPreparationInput {
     allow_backorder?: boolean
   }[]
   location_ids: string[]
-  stockAvailability: Map<string, BigNumberInput>
+  stockAvailability: Map<string, Map<string, BigNumberInput>>
 }
 
 interface ConfirmInventoryItem {
@@ -44,7 +44,7 @@ export const prepareConfirmInventoryInput = (data: {
   const productVariantInventoryItems = new Map<string, any>()
   const stockLocationIds = new Set<string>()
   const allVariants = new Map<string, any>()
-  const mapLocationAvailability = new Map<string, BigNumberInput>()
+  const mapLocationAvailability = new Map<string, Map<string, BigNumberInput>>()
   let hasSalesChannelStockLocation = false
   let hasManagedInventory = false
 
@@ -80,8 +80,8 @@ export const prepareConfirmInventoryInput = (data: {
         hasSalesChannelStockLocation = true
       }
 
-      if (location_levels) {
-        const availabilty = MathBN.sub(
+      if (location_levels && inventory_items) {
+        const availability = MathBN.sub(
           location_levels.raw_stocked_quantity ??
             location_levels.stocked_quantity ??
             0,
@@ -90,9 +90,16 @@ export const prepareConfirmInventoryInput = (data: {
             0
         )
 
-        mapLocationAvailability.set(
-          location_levels.location_id,
-          new BigNumber(availabilty)
+        if (!mapLocationAvailability.has(location_levels.location_id)) {
+          mapLocationAvailability.set(location_levels.location_id, new Map())
+        }
+
+        const locationMap = mapLocationAvailability.get(
+          location_levels.location_id
+        )!
+        locationMap.set(
+          inventory_items.inventory_item_id,
+          new BigNumber(availability)
         )
       }
 
@@ -190,7 +197,9 @@ const formatInventoryInput = ({
     variantInventoryItems.forEach((variantInventoryItem) => {
       const locationsWithAvailability = location_ids.filter((locId) =>
         MathBN.gte(
-          stockAvailability.get(locId) ?? 0,
+          stockAvailability
+            .get(locId)
+            ?.get(variantInventoryItem.inventory_item_id) ?? 0,
           MathBN.mult(variantInventoryItem.required_quantity, item.quantity)
         )
       )

@@ -949,8 +949,6 @@ medusaIntegrationTestRunner({
               sales_channel_id: salesChannel.id,
             })
 
-            console.log(`Cart ${i}`, cart.id)
-
             await addToCartWorkflow(appContainer).run({
               input: {
                 items: [
