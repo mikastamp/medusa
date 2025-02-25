@@ -556,6 +556,10 @@ export const filesMap = [
     "pathname": "/commerce-modules/product"
   },
   {
+    "filePath": "/www/apps/resources/app/commerce-modules/product/selling-products/page.mdx",
+    "pathname": "/commerce-modules/product/selling-products"
+  },
+  {
     "filePath": "/www/apps/resources/app/commerce-modules/product/variant-inventory/page.mdx",
     "pathname": "/commerce-modules/product/variant-inventory"
   },

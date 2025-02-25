@@ -1,5 +1,9 @@
 export const fulfillment = [
   {
+    "title": "Product Shipping Requirement",
+    "path": "/commerce-modules/product/selling-products"
+  },
+  {
     "title": "Checkout Step 3: Choose Shipping Method",
     "path": "/storefront-development/checkout/shipping"
   },
