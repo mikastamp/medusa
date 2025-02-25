@@ -1312,12 +1312,15 @@ moduleIntegrationTestRunner<IProductModuleService>({
             relations: ["images"],
           })
 
-          const retrievedProductAgain = await service.retrieveProduct(product.id, {
-            relations: ["images"],
-          })
+          const retrievedProductAgain = await service.retrieveProduct(
+            product.id,
+            {
+              relations: ["images"],
+            }
+          )
 
           expect(retrievedProduct.images).toEqual(retrievedProductAgain.images)
-          
+
           expect(retrievedProduct.images).toEqual(
             Array.from({ length: 1000 }, (_, i) =>
               expect.objectContaining({
@@ -1332,7 +1335,9 @@ moduleIntegrationTestRunner<IProductModuleService>({
           // Explicitly verify sequential order
           retrievedProduct.images.forEach((img, idx) => {
             if (idx > 0) {
-              expect(img.rank).toBeGreaterThan(retrievedProduct.images[idx - 1].rank)
+              expect(img.rank).toBeGreaterThan(
+                retrievedProduct.images[idx - 1].rank
+              )
             }
           })
         })

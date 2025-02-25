@@ -162,7 +162,10 @@ export class MikroOrmBaseRepository<const T extends object = object>
     throw new Error("Method not implemented.")
   }
 
-  delete(idsOrPKs: FindOptions<T>["where"], context?: Context): Promise<void> {
+  delete(
+    idsOrPKs: FindOptions<T>["where"],
+    context?: Context
+  ): Promise<string[]> {
     throw new Error("Method not implemented.")
   }
 
@@ -285,7 +288,7 @@ export class MikroOrmBaseTreeRepository<
     throw new Error("Method not implemented.")
   }
 
-  delete(ids: string[], context?: Context): Promise<void> {
+  delete(ids: string[], context?: Context): Promise<string[]> {
     throw new Error("Method not implemented.")
   }
 }
@@ -301,6 +304,10 @@ export function mikroOrmBaseRepositoryFactory<const T extends object>(
 
   class MikroOrmAbstractBaseRepository_ extends MikroOrmBaseRepository<T> {
     entity = mikroOrmEntity
+    tableName = (
+      (mikroOrmEntity as unknown as EntitySchema).meta ??
+      (mikroOrmEntity as EntityClass<any>).prototype.__meta
+    ).collection
 
     // @ts-ignore
     constructor(...args: any[]) {
@@ -428,9 +435,29 @@ export function mikroOrmBaseRepositoryFactory<const T extends object>(
     async delete(
       filters: FindOptions<T>["where"],
       context?: Context
-    ): Promise<void> {
-      const manager = this.getActiveManager<EntityManager>(context)
-      await manager.nativeDelete<T>(this.entity, filters)
+    ): Promise<string[]> {
+      const manager = this.getActiveManager<SqlEntityManager>(context)
+
+      const whereSqlInfo = manager
+        .createQueryBuilder(this.entity.name, this.tableName)
+        .where(filters)
+        .getKnexQuery()
+        .toSQL()
+
+      const where = [
+        whereSqlInfo.sql.split("where ")[1],
+        whereSqlInfo.bindings,
+      ] as [string, any[]]
+
+      return await (manager.getTransactionContext() ?? manager.getKnex())
+        .queryBuilder()
+        .from(this.tableName)
+        .delete()
+        .where(manager.getKnex().raw(...where))
+        .returning("id")
+        .then((rows: { id: string }[]) => {
+          return rows.map((row: { id: string }) => row.id)
+        })
     }
 
     async find(
