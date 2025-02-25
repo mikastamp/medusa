@@ -1,4 +1,5 @@
 import {
+  CreateOrderCreditLineDTO,
   InferEntityType,
   OrderChangeActionDTO,
   OrderDTO,
@@ -10,7 +11,7 @@ import {
   decorateCartTotals,
   isDefined,
 } from "@medusajs/framework/utils"
-import { OrderCreditLine, OrderItem, OrderShippingMethod } from "@models"
+import { OrderItem, OrderShippingMethod } from "@models"
 import { calculateOrderChange } from "./calculate-order-change"
 
 export interface ApplyOrderChangeDTO extends OrderChangeActionDTO {
@@ -29,7 +30,7 @@ export async function applyChangesToOrder(
   }
 ) {
   const itemsToUpsert: InferEntityType<typeof OrderItem>[] = []
-  const creditLinesToUpsert: InferEntityType<typeof OrderCreditLine>[] = []
+  const creditLinesToUpsert: CreateOrderCreditLineDTO[] = []
   const shippingMethodsToUpsert: InferEntityType<typeof OrderShippingMethod>[] =
     []
   const summariesToUpsert: any[] = []
@@ -105,7 +106,7 @@ export async function applyChangesToOrder(
         reference: creditLine.reference,
         reference_id: creditLine.reference_id,
         metadata: creditLine.metadata,
-      } as any
+      }
 
       creditLinesToUpsert.push(creditLineToUpsert)
     }
@@ -157,7 +158,7 @@ export async function applyChangesToOrder(
       decorateCartTotals(calculated.order)
     }
 
-    const orderSummary = order.summary as any
+    const orderSummary = order.summary
     summariesToUpsert.push({
       id: orderSummary?.version === version ? orderSummary.id : undefined,
       order_id: order.id,
