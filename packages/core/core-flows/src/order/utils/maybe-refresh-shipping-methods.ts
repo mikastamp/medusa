@@ -94,7 +94,7 @@ export const maybeRefreshShippingMethodsWorkflow = createWorkflow(
 
     const isCalculatedPriceShippingOption = transform(
       shippingOption,
-      (option) => option.price_type === ShippingOptionPriceType.CALCULATED
+      (option) => option?.price_type === ShippingOptionPriceType.CALCULATED
     )
 
     when(
@@ -145,6 +145,8 @@ export const maybeRefreshShippingMethodsWorkflow = createWorkflow(
           input,
         },
         ({ prices, input }) => {
+          console.log("Updating: ", prices[0].calculated_amount)
+
           return [
             {
               id: input.action_id,
