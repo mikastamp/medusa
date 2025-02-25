@@ -27,6 +27,11 @@ export const productSidebar = [
           },
           {
             type: "link",
+            path: "/commerce-modules/product/selling-products",
+            title: "Selling Use Cases",
+          },
+          {
+            type: "link",
             path: "/commerce-modules/product/links-to-other-modules",
             title: "Links to Other Modules",
           },

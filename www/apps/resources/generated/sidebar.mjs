@@ -3225,6 +3225,8 @@ export const generatedSidebar = [
             "type": "category",
             "title": "Concepts",
             "initialOpen": false,
+            "autogenerate_tags": "concept+fulfillment",
+            "autogenerate_as_ref": true,
             "children": [
               {
                 "loaded": true,
@@ -3264,6 +3266,14 @@ export const generatedSidebar = [
                 "type": "link",
                 "path": "/commerce-modules/fulfillment/links-to-other-modules",
                 "title": "Links to Other Modules",
+                "children": []
+              },
+              {
+                "loaded": true,
+                "isPathHref": true,
+                "type": "ref",
+                "title": "Product Shipping Requirement",
+                "path": "/commerce-modules/product/selling-products",
                 "children": []
               }
             ]
@@ -10586,6 +10596,14 @@ export const generatedSidebar = [
                 "type": "link",
                 "path": "/commerce-modules/product/variant-inventory",
                 "title": "Variant Inventory",
+                "children": []
+              },
+              {
+                "loaded": true,
+                "isPathHref": true,
+                "type": "link",
+                "path": "/commerce-modules/product/selling-products",
+                "title": "Selling Use Cases",
                 "children": []
               },
               {
