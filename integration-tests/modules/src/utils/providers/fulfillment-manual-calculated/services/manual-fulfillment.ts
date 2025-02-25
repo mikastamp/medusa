@@ -31,6 +31,13 @@ export class ManualFulfillmentService extends AbstractFulfillmentProviderService
         is_calculated_price_tax_inclusive: false,
       }
     }
+    if (context.claim_id) {
+      return {
+        calculated_amount:
+          context.claim_items.reduce((acc, i) => acc + i.quantity, 0) * 2.5, // mock return cost as 2 per item
+        is_calculated_price_tax_inclusive: false,
+      }
+    }
 
     if (context.return_id) {
       return {

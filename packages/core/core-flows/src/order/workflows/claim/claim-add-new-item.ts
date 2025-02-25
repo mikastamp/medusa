@@ -22,6 +22,7 @@ import {
 import { addOrderLineItemsWorkflow } from "../add-line-items"
 import { createOrderChangeActionsWorkflow } from "../create-order-change-actions"
 import { updateOrderTaxLinesWorkflow } from "../update-tax-lines"
+import { refreshClaimShippingWorkflow } from "./refresh-shipping"
 
 /**
  * The data to validate adding new items to a claim.
@@ -42,16 +43,16 @@ export type OrderClaimAddNewItemValidationStepInput = {
 }
 
 /**
- * This step validates that new items can be added to the claim. If the 
+ * This step validates that new items can be added to the claim. If the
  * order or claim is canceled, or the order change is not active, the step will throw an error.
- * 
+ *
  * :::note
- * 
+ *
  * You can retrieve an order, order claim, and order change details using [Query](https://docs.medusajs.com/learn/fundamentals/module-links/query),
  * or [useQueryGraphStep](https://docs.medusajs.com/resources/references/medusa-workflows/steps/useQueryGraphStep).
- * 
+ *
  * :::
- * 
+ *
  * @example
  * const data = orderClaimAddNewItemValidationStep({
  *   order: {
@@ -85,10 +86,10 @@ export const orderClaimAddNewItemWorkflowId = "claim-add-new-item"
 /**
  * This workflow adds outbound (or new) items to a claim. It's used by the
  * [Add Outbound Items Admin API Route](https://docs.medusajs.com/api/admin#claims_postclaimsidoutbounditems).
- * 
+ *
  * You can use this workflow within your customizations or your own custom workflows, allowing you to add outbound items to a claim
  * in your custom flows.
- * 
+ *
  * @example
  * const { result } = await orderClaimAddNewItemWorkflow(container)
  * .run({
@@ -102,9 +103,9 @@ export const orderClaimAddNewItemWorkflowId = "claim-add-new-item"
  *     ]
  *   }
  * })
- * 
+ *
  * @summary
- * 
+ *
  * Add outbound or new items to a claim.
  */
 export const orderClaimAddNewItemWorkflow = createWorkflow(
@@ -189,6 +190,21 @@ export const orderClaimAddNewItemWorkflow = createWorkflow(
 
     createOrderChangeActionsWorkflow.runAsStep({
       input: orderChangeActionInput,
+    })
+
+    const refreshArgs = transform(
+      { orderChange, orderClaim },
+      ({ orderChange, orderClaim }) => {
+        return {
+          order_change_id: orderChange.id,
+          claim_id: orderClaim.id,
+          order_id: orderClaim.order_id,
+        }
+      }
+    )
+
+    refreshClaimShippingWorkflow.runAsStep({
+      input: refreshArgs,
     })
 
     return new WorkflowResponse(previewOrderChangeStep(orderClaim.order_id))
