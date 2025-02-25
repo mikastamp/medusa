@@ -4,6 +4,7 @@ import {
   createOrderFulfillmentWorkflow,
   orderExchangeAddNewItemWorkflow,
   orderExchangeRequestItemReturnWorkflow,
+  updateExchangeAddItemWorkflow,
 } from "@medusajs/core-flows"
 import { IFulfillmentModuleService, OrderDTO } from "@medusajs/types"
 import {
@@ -172,6 +173,40 @@ medusaIntegrationTestRunner({
               amount: 2,
             })
           )
+
+          // Update outbound quantity to test refresh caluclation
+
+          const { result: orderChangePreview4 } =
+            await updateExchangeAddItemWorkflow(container).run({
+              input: {
+                exchange_id: exchangeOrder.id,
+                action_id: result.items.find(
+                  (i) => i.variant_id === fixtures.product.variants[0].id
+                )?.actions?.[0]?.id as string,
+                data: {
+                  quantity: 2,
+                },
+              },
+            })
+
+          const outboundShippingMethod2 =
+            orderChangePreview4.shipping_methods?.find(
+              (sm) => sm.shipping_option_id === shippingOptionId
+            )
+
+          expect((outboundShippingMethod2 as any).actions).toEqual([
+            expect.objectContaining({
+              id: expect.any(String),
+              reference: "order_shipping_method",
+              reference_id: expect.any(String),
+              raw_amount: { value: "5", precision: 20 },
+              return_id: null,
+              exchange_id: exchangeOrder.id,
+              applied: false,
+              action: "SHIPPING_ADD",
+              amount: 5,
+            }),
+          ])
         })
       })
     })
