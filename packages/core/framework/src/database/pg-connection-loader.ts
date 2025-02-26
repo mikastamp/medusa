@@ -25,6 +25,9 @@ export function pgConnectionLoader(): ReturnType<
   const idleTimeoutMillis = driverOptions.pool?.idleTimeoutMillis ?? undefined // prevent null to be passed
   const poolMin = driverOptions.pool?.min ?? 2
   const poolMax = driverOptions.pool?.max
+  const reapIntervalMillis = driverOptions.pool?.reapIntervalMillis ?? undefined
+  const createRetryIntervalMillis =
+    driverOptions.pool?.createRetryIntervalMillis ?? undefined
 
   delete driverOptions.pool
 
@@ -36,6 +39,8 @@ export function pgConnectionLoader(): ReturnType<
       min: poolMin,
       max: poolMax,
       idleTimeoutMillis,
+      reapIntervalMillis,
+      createRetryIntervalMillis,
     },
   })
 
