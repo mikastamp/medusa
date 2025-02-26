@@ -277,18 +277,16 @@ export function MedusaService<
             ? primaryKeyValues
             : [primaryKeyValues]
 
-          await this.__container__[serviceRegistrationName].delete(
+          const ids = await this.__container__[serviceRegistrationName].delete(
             primaryKeyValues_,
             sharedContext
           )
 
-          primaryKeyValues_.map((primaryKeyValue) =>
+          ids.map((id) =>
             klassPrototype.aggregatedEvents.bind(this)({
               action: CommonEvents.DELETED,
               object: camelToSnakeCase(modelName).toLowerCase(),
-              data: isString(primaryKeyValue)
-                ? { id: primaryKeyValue }
-                : primaryKeyValue,
+              data: isString(id) ? { id: id } : id,
               context: sharedContext,
             })
           )

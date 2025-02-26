@@ -284,23 +284,24 @@ export const sidebar = sidebarAttachHrefCommonOptions([
         ],
       },
       {
-        type: "category",
+        type: "link",
         title: "Developer Settings",
+        path: "/settings/developer",
         children: [
           {
             type: "link",
             title: "Publishable API Keys",
-            path: "#",
+            path: "/settings/developer/publishable-api-keys",
           },
           {
             type: "link",
             title: "Secret API Keys",
-            path: "#",
+            path: "/settings/developer/secret-api-keys",
           },
           {
             type: "link",
             title: "Workflows",
-            path: "/settings/executions",
+            path: "/settings/developer/workflows",
           },
         ],
       },

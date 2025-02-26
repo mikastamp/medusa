@@ -458,15 +458,16 @@ export const generatedSidebar = [
       {
         "loaded": true,
         "isPathHref": true,
-        "type": "category",
+        "type": "link",
         "title": "Developer Settings",
+        "path": "/settings/developer",
         "children": [
           {
             "loaded": true,
             "isPathHref": true,
             "type": "link",
             "title": "Publishable API Keys",
-            "path": "#",
+            "path": "/settings/developer/publishable-api-keys",
             "children": []
           },
           {
@@ -474,7 +475,7 @@ export const generatedSidebar = [
             "isPathHref": true,
             "type": "link",
             "title": "Secret API Keys",
-            "path": "#",
+            "path": "/settings/developer/secret-api-keys",
             "children": []
           },
           {
@@ -482,7 +483,7 @@ export const generatedSidebar = [
             "isPathHref": true,
             "type": "link",
             "title": "Workflows",
-            "path": "/settings/executions",
+            "path": "/settings/developer/workflows",
             "children": []
           }
         ]

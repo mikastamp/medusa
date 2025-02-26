@@ -1,6 +1,6 @@
 export const currency = [
   {
     "title": "currency",
-    "path": "/references/js-sdk/admin/currency"
+    "path": "https://docs.medusajs.com/resources/references/js-sdk/admin/currency"
   }
 ]

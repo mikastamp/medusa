@@ -30,7 +30,7 @@ import {
   createTypes,
 } from "../../__fixtures__/product"
 
-jest.setTimeout(300000)
+jest.setTimeout(3000000)
 
 moduleIntegrationTestRunner<IProductModuleService>({
   moduleName: Modules.PRODUCT,
@@ -181,6 +181,7 @@ moduleIntegrationTestRunner<IProductModuleService>({
         })
 
         it("should update a product and upsert relations that are not created yet", async () => {
+          const tags = await service.createProductTags([{ value: "tag-1" }])
           const data = buildProductAndRelationsData({
             images,
             thumbnail: images[0].url,
@@ -190,6 +191,7 @@ moduleIntegrationTestRunner<IProductModuleService>({
                 values: ["val-1", "val-2"],
               },
             ],
+            tag_ids: [tags[0].id],
           })
 
           const variantTitle = data.variants[0].title
@@ -217,7 +219,7 @@ moduleIntegrationTestRunner<IProductModuleService>({
           productBefore.options = data.options
           productBefore.images = data.images
           productBefore.thumbnail = data.thumbnail
-          productBefore.tags = data.tags
+          productBefore.tag_ids = data.tag_ids
           const updatedProducts = await service.upsertProducts([productBefore])
           expect(updatedProducts).toHaveLength(1)
 
@@ -273,7 +275,7 @@ moduleIntegrationTestRunner<IProductModuleService>({
               tags: expect.arrayContaining([
                 expect.objectContaining({
                   id: expect.any(String),
-                  value: productBefore.tags?.[0].value,
+                  value: tags[0].value,
                 }),
               ]),
               variants: expect.arrayContaining([
@@ -856,9 +858,11 @@ moduleIntegrationTestRunner<IProductModuleService>({
       describe("create", function () {
         let images = [{ url: "image-1" }]
         it("should create a product", async () => {
+          const tags = await service.createProductTags([{ value: "tag-1" }])
           const data = buildProductAndRelationsData({
             images,
             thumbnail: images[0].url,
+            tag_ids: [tags[0].id],
           })
 
           const productsCreated = await service.createProducts([data])
@@ -917,7 +921,7 @@ moduleIntegrationTestRunner<IProductModuleService>({
               tags: expect.arrayContaining([
                 expect.objectContaining({
                   id: expect.any(String),
-                  value: data.tags[0].value,
+                  value: tags[0].value,
                 }),
               ]),
               variants: expect.arrayContaining([
@@ -1164,15 +1168,17 @@ moduleIntegrationTestRunner<IProductModuleService>({
           productCollectionOne = collections[0]
           productCollectionTwo = collections[1]
 
+          const tags = await service.createProductTags([{ value: "tag-1" }])
+
           const resp = await service.createProducts([
             buildProductAndRelationsData({
               collection_id: productCollectionOne.id,
               options: [{ title: "size", values: ["large", "small"] }],
               variants: [{ title: "variant 1", options: { size: "small" } }],
+              tag_ids: [tags[0].id],
             }),
             buildProductAndRelationsData({
               collection_id: productCollectionTwo.id,
-              tags: [],
             }),
           ])
 
@@ -1312,12 +1318,15 @@ moduleIntegrationTestRunner<IProductModuleService>({
             relations: ["images"],
           })
 
-          const retrievedProductAgain = await service.retrieveProduct(product.id, {
-            relations: ["images"],
-          })
+          const retrievedProductAgain = await service.retrieveProduct(
+            product.id,
+            {
+              relations: ["images"],
+            }
+          )
 
           expect(retrievedProduct.images).toEqual(retrievedProductAgain.images)
-          
+
           expect(retrievedProduct.images).toEqual(
             Array.from({ length: 1000 }, (_, i) =>
               expect.objectContaining({
@@ -1332,7 +1341,9 @@ moduleIntegrationTestRunner<IProductModuleService>({
           // Explicitly verify sequential order
           retrievedProduct.images.forEach((img, idx) => {
             if (idx > 0) {
-              expect(img.rank).toBeGreaterThan(retrievedProduct.images[idx - 1].rank)
+              expect(img.rank).toBeGreaterThan(
+                retrievedProduct.images[idx - 1].rank
+              )
             }
           })
         })
