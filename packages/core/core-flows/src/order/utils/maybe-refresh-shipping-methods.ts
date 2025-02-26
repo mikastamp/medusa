@@ -68,8 +68,8 @@ export type MaybeRefreshShippingMethodsWorkflowInput = {
 export const maybeRefreshShippingMethodsWorkflowId =
   "maybe-refresh-shipping-methods"
 /**
- * This workflows fetches a shipping option for an order (used in RMA flows).
- *
+ * This workflows refreshes shipping method an order (used in RMA flows).
+ * The shipping method and the action is updated if the shipping option is calculated.
  */
 export const maybeRefreshShippingMethodsWorkflow = createWorkflow(
   maybeRefreshShippingMethodsWorkflowId,
