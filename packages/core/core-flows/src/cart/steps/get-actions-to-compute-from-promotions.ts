@@ -41,10 +41,6 @@ export const getActionsToComputeFromPromotionsStep = createStep(
   async (data: GetActionsToComputeFromPromotionsStepInput, { container }) => {
     const { cart, promotionCodesToApply = [] } = data
 
-    if (!promotionCodesToApply?.length) {
-      return new StepResponse([])
-    }
-
     const promotionService = container.resolve<IPromotionModuleService>(
       Modules.PROMOTION
     )

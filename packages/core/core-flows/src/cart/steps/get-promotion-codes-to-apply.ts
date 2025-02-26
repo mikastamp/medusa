@@ -83,17 +83,15 @@ export const getPromotionCodesToApply = createStep(
       })
     })
 
-    if (!adjustmentCodes.length) {
-      return new StepResponse([])
-    }
-
     const promotionCodesToApply: Set<string> = new Set(
-      (
-        await promotionService.listPromotions(
-          { code: adjustmentCodes },
-          { select: ["code"] }
-        )
-      ).map((p) => p.code!)
+      adjustmentCodes.length
+        ? (
+            await promotionService.listPromotions(
+              { code: adjustmentCodes },
+              { select: ["code"] }
+            )
+          ).map((p) => p.code!)
+        : []
     )
 
     if (action === PromotionActions.ADD) {
