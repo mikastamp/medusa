@@ -1075,5 +1075,52 @@ medusaIntegrationTestRunner({
         })
       })
     })
+
+    describe("POST /orders/:id/credit-lines", () => {
+      beforeEach(async () => {
+        const inventoryItemOverride = (
+          await api.post(
+            `/admin/inventory-items`,
+            { sku: "test-variant", requires_shipping: false },
+            adminHeaders
+          )
+        ).data.inventory_item
+
+        seeder = await createOrderSeeder({
+          api,
+          container: getContainer(),
+          inventoryItemOverride,
+          withoutShipping: true,
+        })
+        order = seeder.order
+
+        order = (await api.get(`/admin/orders/${order.id}`, adminHeaders)).data
+          .order
+      })
+
+      it.only("should successfully cancel an order and its authorized but not captured payments", async () => {
+        const response = await api.post(
+          `/admin/orders/${order.id}/credit-lines`,
+          {
+            amount: 100,
+            reference: "order",
+            reference_id: order.id,
+          },
+          adminHeaders
+        )
+
+        expect(response.status).toBe(200)
+        expect(response.data.order).toEqual(
+          expect.objectContaining({
+            id: order.id,
+
+            summary: expect.objectContaining({
+              current_order_total: 0,
+              accounting_total: 0,
+            }),
+          })
+        )
+      })
+    })
   },
 })
