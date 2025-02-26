@@ -149,11 +149,11 @@ export const refreshCartItemsWorkflow = createWorkflow(
     }).config({ name: "refetch–cart" })
 
     refreshCartShippingMethodsWorkflow.runAsStep({
-      input: { cart_id: input.cart_id },
+      input: { cart: refetchedCart },
     })
 
     updateTaxLinesWorkflow.runAsStep({
-      input: { cart_id: input.cart_id },
+      input: { cart: refetchedCart },
     })
 
     const cartPromoCodes = transform(
@@ -176,7 +176,7 @@ export const refreshCartItemsWorkflow = createWorkflow(
     })
 
     refreshPaymentCollectionForCartWorkflow.runAsStep({
-      input: { cart: refetchedCart },
+      input: { cart_id: input.cart_id },
     })
 
     return new WorkflowResponse(refetchedCart)

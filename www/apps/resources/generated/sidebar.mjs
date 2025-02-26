@@ -164,7 +164,7 @@ export const generatedSidebar = [
             "isPathHref": true,
             "type": "link",
             "path": "/recipes/erp/odoo",
-            "title": "Odoo Integration",
+            "title": "Example: Odoo Integration",
             "children": []
           }
         ]
