@@ -8,6 +8,14 @@ export const generatedSidebar = [
     "children": []
   },
   {
+    "loaded": true,
+    "isPathHref": true,
+    "type": "link",
+    "path": "/reset-password",
+    "title": "Reset Password",
+    "children": []
+  },
+  {
     "type": "separator"
   },
   {
@@ -22,7 +30,7 @@ export const generatedSidebar = [
         "isPathHref": true,
         "type": "link",
         "path": "/tips/bulk-editor",
-        "title": "Bulk Editor",
+        "title": "Bulk Editor in Medusa Admin",
         "description": "",
         "children": []
       },
@@ -31,7 +39,7 @@ export const generatedSidebar = [
         "isPathHref": true,
         "type": "link",
         "path": "/tips/languages",
-        "title": "Admin Languages",
+        "title": "Languages in Medusa Admin",
         "description": "",
         "children": []
       },
@@ -170,7 +178,7 @@ export const generatedSidebar = [
         "isPathHref": true,
         "type": "link",
         "title": "Manage Variants",
-        "path": "/proucts/variants",
+        "path": "/products/variants",
         "children": []
       },
       {

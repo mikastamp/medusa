@@ -788,6 +788,26 @@ export const generatedSidebar = [
             "loaded": true,
             "isPathHref": true,
             "type": "category",
+            "title": "Admin User Guides",
+            "autogenerate_tags": "userGuide+auth",
+            "initialOpen": false,
+            "autogenerate_as_ref": true,
+            "description": "Learn how to utilize and manage Auth features in the Medusa Admin dashboard.",
+            "children": [
+              {
+                "loaded": true,
+                "isPathHref": true,
+                "type": "ref",
+                "title": "Reset Password",
+                "path": "https://docs.medusajs.com/user-guide/reset-password",
+                "children": []
+              }
+            ]
+          },
+          {
+            "loaded": true,
+            "isPathHref": true,
+            "type": "category",
             "title": "Providers",
             "initialOpen": false,
             "children": [
@@ -2276,6 +2296,26 @@ export const generatedSidebar = [
                 "type": "link",
                 "path": "/commerce-modules/currency/links-to-other-modules",
                 "title": "Link to Modules",
+                "children": []
+              }
+            ]
+          },
+          {
+            "loaded": true,
+            "isPathHref": true,
+            "type": "category",
+            "title": "Admin User Guides",
+            "autogenerate_tags": "userGuide+currency",
+            "initialOpen": false,
+            "autogenerate_as_ref": true,
+            "description": "Learn how to utilize and manage Currency features in the Medusa Admin dashboard.",
+            "children": [
+              {
+                "loaded": true,
+                "isPathHref": true,
+                "type": "ref",
+                "title": "Manage Store",
+                "path": "https://docs.medusajs.com/user-guide/settings/store",
                 "children": []
               }
             ]
@@ -16033,6 +16073,14 @@ export const generatedSidebar = [
             "autogenerate_as_ref": true,
             "description": "Learn how to utilize and manage User features in the Medusa Admin dashboard.",
             "children": [
+              {
+                "loaded": true,
+                "isPathHref": true,
+                "type": "ref",
+                "title": "Reset Password",
+                "path": "https://docs.medusajs.com/user-guide/reset-password",
+                "children": []
+              },
               {
                 "loaded": true,
                 "isPathHref": true,
