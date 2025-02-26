@@ -148,12 +148,22 @@ export const refreshCartItemsWorkflow = createWorkflow(
       list: false,
     }).config({ name: "refetch–cart" })
 
+    const refreshCartInput = transform(
+      { refetchedCart, input },
+      ({ refetchedCart, input }) => {
+        return {
+          cart: !input.force_refresh ? refetchedCart : undefined,
+          cart_id: !!input.force_refresh ? input.cart_id : undefined,
+        }
+      }
+    )
+
     refreshCartShippingMethodsWorkflow.runAsStep({
-      input: { cart: refetchedCart },
+      input: refreshCartInput,
     })
 
     updateTaxLinesWorkflow.runAsStep({
-      input: { cart: refetchedCart },
+      input: refreshCartInput,
     })
 
     const cartPromoCodes = transform(

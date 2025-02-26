@@ -193,7 +193,7 @@ export const generatedSidebar = [
         "loaded": true,
         "isPathHref": true,
         "type": "link",
-        "title": "Categories",
+        "title": "Manage Categories",
         "path": "/products/categories",
         "children": []
       },
@@ -384,7 +384,7 @@ export const generatedSidebar = [
             "loaded": true,
             "isPathHref": true,
             "type": "link",
-            "title": "Invites",
+            "title": "Manage Invites",
             "path": "/settings/users/invites",
             "children": []
           }
@@ -449,7 +449,7 @@ export const generatedSidebar = [
             "loaded": true,
             "isPathHref": true,
             "type": "link",
-            "title": "Locations",
+            "title": "Manage Locations",
             "path": "/settings/locations-and-shipping/locations",
             "children": []
           },
@@ -457,7 +457,7 @@ export const generatedSidebar = [
             "loaded": true,
             "isPathHref": true,
             "type": "link",
-            "title": "Shipping Profiles",
+            "title": "Manage Shipping Profiles",
             "path": "/settings/locations-and-shipping/shipping-profiles",
             "children": []
           }
