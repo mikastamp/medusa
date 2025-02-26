@@ -37,6 +37,7 @@ moduleIntegrationTestRunner<IProductModuleService>({
   injectedDependencies: {
     [Modules.EVENT_BUS]: new MockEventBusService(),
   },
+  debug: true,
   testSuite: ({ MikroOrmWrapper, service }) => {
     describe("ProductModuleService products", function () {
       let productCollectionOne: ProductCollection
@@ -965,12 +966,91 @@ moduleIntegrationTestRunner<IProductModuleService>({
         })
       })
 
-      describe("softDelete", function () {
+      describe.only("softDelete", function () {
         let images = [{ url: "image-1" }]
         it("should soft delete a product and its cascaded relations", async () => {
           const data = buildProductAndRelationsData({
             images,
             thumbnail: images[0].url,
+            options: [
+              { title: "size", values: ["large", "small"] },
+              { title: "color", values: ["red", "blue"] },
+              { title: "material", values: ["cotton", "polyester"] },
+            ],
+            variants: [
+              {
+                title: "Large Red Cotton",
+                sku: "LRG-RED-CTN",
+                options: {
+                  size: "large",
+                  color: "red",
+                  material: "cotton",
+                },
+              },
+              {
+                title: "Large Red Polyester",
+                sku: "LRG-RED-PLY",
+                options: {
+                  size: "large",
+                  color: "red",
+                  material: "polyester",
+                },
+              },
+              {
+                title: "Large Blue Cotton",
+                sku: "LRG-BLU-CTN",
+                options: {
+                  size: "large",
+                  color: "blue",
+                  material: "cotton",
+                },
+              },
+              {
+                title: "Large Blue Polyester",
+                sku: "LRG-BLU-PLY",
+                options: {
+                  size: "large",
+                  color: "blue",
+                  material: "polyester",
+                },
+              },
+              {
+                title: "Small Red Cotton",
+                sku: "SML-RED-CTN",
+                options: {
+                  size: "small",
+                  color: "red",
+                  material: "cotton",
+                },
+              },
+              {
+                title: "Small Red Polyester",
+                sku: "SML-RED-PLY",
+                options: {
+                  size: "small",
+                  color: "red",
+                  material: "polyester",
+                },
+              },
+              {
+                title: "Small Blue Cotton",
+                sku: "SML-BLU-CTN",
+                options: {
+                  size: "small",
+                  color: "blue",
+                  material: "cotton",
+                },
+              },
+              {
+                title: "Small Blue Polyester",
+                sku: "SML-BLU-PLY",
+                options: {
+                  size: "small",
+                  color: "blue",
+                  material: "polyester",
+                },
+              },
+            ],
           })
 
           const products = await service.createProducts([data])

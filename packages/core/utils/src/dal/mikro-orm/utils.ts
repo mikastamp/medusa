@@ -1,7 +1,7 @@
-import { Collection, EntityMetadata, FindOptions, wrap } from "@mikro-orm/core"
+import { EntityMetadata, FindOptions } from "@mikro-orm/core"
 import { SqlEntityManager } from "@mikro-orm/postgresql"
-import { buildQuery } from "../../modules-sdk/build-query"
 import { isString } from "../../common/is-string"
+import { buildQuery } from "../../modules-sdk/build-query"
 
 function detectCircularDependency(
   manager: SqlEntityManager,
@@ -67,40 +67,51 @@ async function performCascadingSoftDeletion<T>(
   entity.deleted_at = value
 
   const entityName = entity.constructor.name
-
-  const relations = manager.getDriver().getMetadata().get(entityName).relations
+  const entityMetadata = manager.getDriver().getMetadata().get(entityName)
+  const relations = entityMetadata.relations
 
   const relationsToCascade = relations.filter((relation) =>
     relation.cascade?.includes("soft-remove" as any)
   )
 
+  // If there are no relations to cascade, just persist the entity and return
+  if (!relationsToCascade.length) {
+    manager.persist(entity)
+    return
+  }
+
+  // Fetch the entity with all cascading relations in a single query
+  const relationNames = relationsToCascade.map((r) => r.name)
+
+  const query = buildQuery(
+    {
+      id: entity.id,
+    },
+    {
+      relations: relationNames,
+      withDeleted: true,
+    }
+  )
+
+  const entityWithRelations = await manager.findOne(
+    entityName,
+    query.where,
+    query.options as FindOptions<any>
+  )
+
+  if (!entityWithRelations) {
+    manager.persist(entity)
+    return
+  }
+
+  // Create a map to group related entities by their type
+  const relatedEntitiesByType = new Map<string, any[]>()
+
+  // Collect all related entities by type
   for (const relation of relationsToCascade) {
-    let entityRelation = entity[relation.name]
+    const entityRelation = entityWithRelations[relation.name]
 
-    // Handle optional relationships
-    if (relation.nullable && !entityRelation) {
-      continue
-    }
-
-    const retrieveEntity = async () => {
-      const query = buildQuery(
-        {
-          id: entity.id,
-        },
-        {
-          relations: [relation.name],
-          withDeleted: true,
-        }
-      )
-      return await manager.findOne(
-        entity.constructor.name,
-        query.where,
-        query.options as FindOptions<any>
-      )
-    }
-
-    entityRelation = await retrieveEntity()
-    entityRelation = entityRelation[relation.name]
+    // Skip if relation is null or undefined
     if (!entityRelation) {
       continue
     }
@@ -109,30 +120,31 @@ async function performCascadingSoftDeletion<T>(
     let relationEntities: any[] = []
 
     if (isCollection) {
-      if (!(entityRelation as Collection<any, any>).isInitialized()) {
-        entityRelation = await retrieveEntity()
-        entityRelation = entityRelation[relation.name]
-      }
       relationEntities = entityRelation.getItems()
     } else {
-      const wrappedEntity = wrap(entityRelation)
-
-      let initializedEntityRelation = entityRelation
-      if (!wrappedEntity.isInitialized()) {
-        initializedEntityRelation = await wrap(entityRelation).init()
-      }
-
-      relationEntities = [initializedEntityRelation]
+      relationEntities = [entityRelation]
     }
 
     if (!relationEntities.length) {
       continue
     }
 
-    await mikroOrmUpdateDeletedAtRecursively(manager, relationEntities, value)
+    // Add to the map of entities by type
+    if (!relatedEntitiesByType.has(relation.type)) {
+      relatedEntitiesByType.set(relation.type, [])
+    }
+    relatedEntitiesByType.get(relation.type)!.push(...relationEntities)
   }
 
-  await manager.persist(entity)
+  // Process each type of related entity in batch
+  for (const [, entities] of relatedEntitiesByType.entries()) {
+    if (entities.length === 0) continue
+
+    // Process cascading relations for these entities
+    await mikroOrmUpdateDeletedAtRecursively(manager, entities, value)
+  }
+
+  manager.persist(entity)
 }
 
 export const mikroOrmUpdateDeletedAtRecursively = async <
@@ -142,12 +154,16 @@ export const mikroOrmUpdateDeletedAtRecursively = async <
   entities: (T & { id: string; deleted_at?: string | Date | null })[],
   value: Date | null
 ) => {
+  if (!entities.length) return
+
+  const entityMetadata = manager
+    .getDriver()
+    .getMetadata()
+    .get(entities[0].constructor.name)
+  detectCircularDependency(manager, entityMetadata)
+
+  // Process each entity type
   for (const entity of entities) {
-    const entityMetadata = manager
-      .getDriver()
-      .getMetadata()
-      .get(entity.constructor.name)
-    detectCircularDependency(manager, entityMetadata)
     await performCascadingSoftDeletion(manager, entity, value)
   }
 }

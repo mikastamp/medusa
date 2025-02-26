@@ -398,38 +398,41 @@ export function mikroOrmBaseRepositoryFactory<const T extends object>(
         descriptor,
       ] of collectionsToRemoveAllFrom) {
         await promiseAll(
-          data.map(async ({ entity }) => {
+          data.flatMap(async ({ entity }) => {
             if (!descriptor.mappedBy) {
               return await entity[collectionToRemoveAllFrom].init()
             }
 
+            const promises: Promise<any>[] = []
             await entity[collectionToRemoveAllFrom].init()
             const items = entity[collectionToRemoveAllFrom]
 
             for (const item of items) {
-              await item[descriptor.mappedBy!].init()
+              promises.push(item[descriptor.mappedBy!].init())
             }
+
+            return promises
           })
         )
       }
     }
 
     async update(
-      data: { entity; update }[],
+      data: { entity: any; update: any }[],
       context?: Context
     ): Promise<InferRepositoryReturnType<T>[]> {
       const manager = this.getActiveManager<EntityManager>(context)
 
       await this.initManyToManyToDetachAllItemsIfNeeded(data, context)
 
-      data.map((_, index) => {
-        manager.assign(data[index].entity, data[index].update, {
+      data.forEach(({ entity, update }) => {
+        manager.assign(entity, update, {
           mergeObjectProperties: true,
         })
-        manager.persist(data[index].entity)
+        manager.persist(entity)
       })
 
-      return data.map((d) => d.entity)
+      return data.map((d) => d.entity) as InferRepositoryReturnType<T>[]
     }
 
     async delete(
