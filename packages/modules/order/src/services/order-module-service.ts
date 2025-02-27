@@ -743,6 +743,7 @@ export default class OrderModuleService
         ...ord,
         shipping_methods,
         items,
+        credit_lines,
       }) as any
 
       const calculated = calculateOrderChange({
