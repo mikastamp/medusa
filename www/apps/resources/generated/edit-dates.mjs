@@ -122,7 +122,7 @@ export const generatedEditDates = {
   "app/recipes/oms/page.mdx": "2025-02-26T12:41:00.030Z",
   "app/recipes/personalized-products/page.mdx": "2025-02-26T12:41:48.547Z",
   "app/recipes/pos/page.mdx": "2025-02-26T12:42:52.949Z",
-  "app/recipes/subscriptions/examples/standard/page.mdx": "2025-02-11T14:21:09.533Z",
+  "app/recipes/subscriptions/examples/standard/page.mdx": "2025-02-27T13:43:37.201Z",
   "app/recipes/subscriptions/page.mdx": "2025-02-26T12:31:49.933Z",
   "app/recipes/page.mdx": "2024-07-11T15:56:41+00:00",
   "app/service-factory-reference/methods/create/page.mdx": "2024-07-31T17:01:33+03:00",
