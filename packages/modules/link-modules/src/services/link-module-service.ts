@@ -135,7 +135,7 @@ export default class LinkModuleService implements ILinkModule {
       )
     }
 
-    return entry[0]
+    return await this.baseRepository_.serialize(entry[0])
   }
 
   @InjectManager()
@@ -150,7 +150,7 @@ export default class LinkModuleService implements ILinkModule {
 
     const rows = await this.linkService_.list(filters, config, sharedContext)
 
-    return rows.map((row) => row.toJSON())
+    return await this.baseRepository_.serialize(rows)
   }
 
   @InjectManager()
@@ -163,13 +163,15 @@ export default class LinkModuleService implements ILinkModule {
       config.take = null
     }
 
-    const [rows, count] = await this.linkService_.listAndCount(
+    let [rows, count] = await this.linkService_.listAndCount(
       filters,
       config,
       sharedContext
     )
 
-    return [rows.map((row) => row.toJSON()), count]
+    rows = await this.baseRepository_.serialize(rows)
+
+    return [rows, count]
   }
 
   @InjectTransactionManager()
@@ -218,7 +220,7 @@ export default class LinkModuleService implements ILinkModule {
       }))
     )
 
-    return links.map((row) => row.toJSON())
+    return await this.baseRepository_.serialize(links)
   }
 
   @InjectTransactionManager()
