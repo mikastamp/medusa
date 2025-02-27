@@ -161,6 +161,7 @@ export const createOrderCreditLinesWorkflow = createWorkflow(
     })
 
     const creditLinesCreated = createHook("creditLinesCreated", {
+      order_id: input.id,
       credit_lines: orderChanges.credit_lines,
     })
 
