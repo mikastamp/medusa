@@ -981,6 +981,10 @@
     }
   },
   "orders": {
+    "creditLines": {
+      "title": "Credit lines",
+      "total": "Sum of all credit lines"
+    },
     "domain": "Orders",
     "claim": "Claim",
     "exchange": "Exchange",
@@ -2890,7 +2894,8 @@
     "orders": "Orders",
     "account": "Account",
     "total": "Order Total",
-    "paidTotal": "Total captured",
+    "paidTotal": "Total payment captured",
+    "creditTotal": "Total credit lines registered",
     "totalExclTax": "Total excl. tax",
     "subtotal": "Subtotal",
     "shipping": "Shipping",

@@ -1,5 +1,5 @@
 import { FetchError } from "@medusajs/js-sdk"
-import { HttpTypes } from "@medusajs/types"
+import { CreateOrderCreditLineDTO, HttpTypes } from "@medusajs/types"
 import {
   QueryKey,
   useMutation,
@@ -339,6 +339,31 @@ export const useCancelOrderTransfer = (
 
       queryClient.invalidateQueries({
         queryKey: ordersQueryKeys.changes(orderId),
+      })
+
+      options?.onSuccess?.(data, variables, context)
+    },
+    ...options,
+  })
+}
+
+export const useCreateOrderCreditLine = (
+  orderId: string,
+  options?: UseMutationOptions<
+    HttpTypes.AdminOrderResponse,
+    FetchError,
+    Omit<CreateOrderCreditLineDTO, "order_id">
+  >
+) => {
+  return useMutation({
+    mutationFn: (payload) => sdk.admin.order.createCreditLine(orderId, payload),
+    onSuccess: (data, variables, context) => {
+      queryClient.invalidateQueries({
+        queryKey: ordersQueryKeys.details(),
+      })
+
+      queryClient.invalidateQueries({
+        queryKey: ordersQueryKeys.preview(orderId),
       })
 
       options?.onSuccess?.(data, variables, context)

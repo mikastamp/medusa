@@ -3676,6 +3676,17 @@
     "orders": {
       "type": "object",
       "properties": {
+        "creditLines": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "total": {
+              "type": "string"
+            }
+          }
+        },
         "domain": {
           "type": "string"
         },
@@ -10704,6 +10715,9 @@
           "type": "string"
         },
         "paidTotal": {
+          "type": "string"
+        },
+        "creditTotal": {
           "type": "string"
         },
         "totalExclTax": {

@@ -36,6 +36,7 @@ const DEFAULT_RELATIONS = [
   "*sales_channel",
   "*promotion",
   "*shipping_methods",
+  "*credit_lines",
   "*fulfillments",
   "+fulfillments.shipping_option.service_zone.fulfillment_set.type",
   "*fulfillments.items",

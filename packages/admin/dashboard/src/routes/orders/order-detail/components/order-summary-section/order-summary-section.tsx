@@ -46,6 +46,7 @@ import { useMarkPaymentCollectionAsPaid } from "../../../../../hooks/api/payment
 import { useReservationItems } from "../../../../../hooks/api/reservations"
 import { useReturns } from "../../../../../hooks/api/returns"
 import { useDate } from "../../../../../hooks/use-date"
+import { getTotalCreditLines } from "../../../../../lib/credit-line"
 import { formatCurrency } from "../../../../../lib/format-currency"
 import {
   getLocaleAmount,
@@ -1063,6 +1064,29 @@ const Total = ({ order }: { order: AdminOrder }) => {
         >
           {getStylizedAmount(
             getTotalCaptured(order.payment_collections || []),
+            order.currency_code
+          )}
+        </Text>
+      </div>
+
+      <div className="text-ui-fg-base flex items-center justify-between">
+        <Text
+          weight="plus"
+          className="text-ui-fg-subtle"
+          size="small"
+          leading="compact"
+        >
+          {t("fields.creditTotal")}
+        </Text>
+
+        <Text
+          weight="plus"
+          className="text-ui-fg-subtle"
+          size="small"
+          leading="compact"
+        >
+          {getStylizedAmount(
+            getTotalCreditLines(order.credit_lines ?? []),
             order.currency_code
           )}
         </Text>
