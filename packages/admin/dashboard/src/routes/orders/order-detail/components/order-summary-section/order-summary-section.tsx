@@ -134,8 +134,7 @@ export const OrderSummarySection = ({ order }: OrderSummarySectionProps) => {
 
   const showPayment =
     unpaidPaymentCollection && pendingDifference > 0 && isAmountSignificant
-  const showRefund =
-    unpaidPaymentCollection && pendingDifference < 0 && isAmountSignificant
+  const showRefund = pendingDifference < 0 && isAmountSignificant
 
   const handleMarkAsPaid = async (
     paymentCollection: AdminPaymentCollection
