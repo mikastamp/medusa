@@ -6,7 +6,6 @@ import {
   BorderedIcon,
   Button,
   GITHUB_ISSUES_LINK,
-  LinkButton,
   SearchModalOpener,
   useLayout,
   useMainNav,

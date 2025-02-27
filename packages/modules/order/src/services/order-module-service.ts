@@ -3122,7 +3122,7 @@ export default class OrderModuleService
       shippingMethodsToUpsert,
       summariesToUpsert,
       orderToUpdate,
-      creditLinesToUpsert,
+      creditLinesToCreate,
     } = await applyChangesToOrder(orders, actionsMap, {
       addActionReferenceToObject: true,
       includeTaxLinesAndAdjustementsToPreview: async (...args) => {
@@ -3134,7 +3134,14 @@ export default class OrderModuleService
       },
     })
 
-    await promiseAll([
+    const [
+      _orderUpdate,
+      _orderChangeActionUpdate,
+      orderItems,
+      _orderSummaryUpdate,
+      orderShippingMethods,
+      createdOrderCreditLines,
+    ] = await promiseAll([
       orderToUpdate.length
         ? this.orderService_.update(orderToUpdate, sharedContext)
         : null,
@@ -3153,18 +3160,18 @@ export default class OrderModuleService
             sharedContext
           )
         : null,
-      creditLinesToUpsert.length
-        ? this.orderCreditLineService_.upsert(
-            creditLinesToUpsert,
+      creditLinesToCreate.length
+        ? this.orderCreditLineService_.create(
+            creditLinesToCreate,
             sharedContext
           )
         : null,
     ])
 
     return {
-      items: itemsToUpsert as any,
-      shippingMethods: shippingMethodsToUpsert as any,
-      credit_lines: creditLinesToUpsert as any,
+      items: orderItems ?? [],
+      shippingMethods: orderShippingMethods ?? [],
+      credit_lines: createdOrderCreditLines ?? ([] as any),
     }
   }
 

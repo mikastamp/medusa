@@ -1098,11 +1098,45 @@ medusaIntegrationTestRunner({
           .order
       })
 
-      it.only("should successfully cancel an order and its authorized but not captured payments", async () => {
+      it("should successfully create credit lines", async () => {
+        const error = await api
+          .post(
+            `/admin/orders/${order.id}/credit-lines`,
+            {
+              amount: -106,
+              reference: "order",
+              reference_id: order.id,
+            },
+            adminHeaders
+          )
+          .catch((e) => e)
+
+        expect(error.response.status).toBe(400)
+        expect(error.response.data.message).toBe(
+          "Can only create positive credit lines if the order has a positive pending difference"
+        )
+
+        const error2 = await api
+          .post(
+            `/admin/orders/${order.id}/credit-lines`,
+            {
+              amount: 10000,
+              reference: "order",
+              reference_id: order.id,
+            },
+            adminHeaders
+          )
+          .catch((e) => e)
+
+        expect(error2.response.status).toBe(400)
+        expect(error2.response.data.message).toBe(
+          "Cannot create more positive credit lines with amount more than the pending difference"
+        )
+
         const response = await api.post(
           `/admin/orders/${order.id}/credit-lines`,
           {
-            amount: 100,
+            amount: 106,
             reference: "order",
             reference_id: order.id,
           },
@@ -1113,12 +1147,115 @@ medusaIntegrationTestRunner({
         expect(response.data.order).toEqual(
           expect.objectContaining({
             id: order.id,
-
+            total: 0,
+            subtotal: -6,
             summary: expect.objectContaining({
               current_order_total: 0,
               accounting_total: 0,
+              pending_difference: 0,
             }),
           })
+        )
+
+        await api.post(
+          "/admin/order-edits",
+          {
+            order_id: order.id,
+            description: "Test",
+          },
+          adminHeaders
+        )
+
+        const item = order.items[0]
+
+        let result = (
+          await api.post(
+            `/admin/order-edits/${order.id}/items/item/${item.id}`,
+            { quantity: 0 },
+            adminHeaders
+          )
+        ).data.order_preview
+
+        result = (
+          await api.post(
+            `/admin/order-edits/${order.id}/request`,
+            {},
+            adminHeaders
+          )
+        ).data.order_preview
+
+        result = (
+          await api.post(
+            `/admin/order-edits/${order.id}/confirm`,
+            {},
+            adminHeaders
+          )
+        ).data.order_preview
+
+        result = (await api.get(`/admin/orders/${order.id}`, adminHeaders)).data
+          .order
+
+        const errorResponse = await api
+          .post(
+            `/admin/orders/${order.id}/credit-lines`,
+            {
+              amount: 106,
+              reference: "order",
+              reference_id: order.id,
+            },
+            adminHeaders
+          )
+          .catch((e) => e)
+
+        expect(errorResponse.response.status).toBe(400)
+        expect(errorResponse.response.data.message).toBe(
+          "Can only create negative credit lines if the order has a negative pending difference"
+        )
+
+        const error3 = await api
+          .post(
+            `/admin/orders/${order.id}/credit-lines`,
+            {
+              amount: -10000,
+              reference: "order",
+              reference_id: order.id,
+            },
+            adminHeaders
+          )
+          .catch((e) => e)
+
+        expect(error3.response.status).toBe(400)
+        expect(error3.response.data.message).toBe(
+          "Cannot create more negative credit lines with amount more than the pending difference"
+        )
+
+        const response2 = await api.post(
+          `/admin/orders/${order.id}/credit-lines`,
+          {
+            amount: -106,
+            reference: "order",
+            reference_id: order.id,
+          },
+          adminHeaders
+        )
+
+        expect(response2.data.order.summary.pending_difference).toEqual(0)
+
+        const response3 = await api
+          .post(
+            `/admin/orders/${order.id}/credit-lines`,
+            {
+              amount: -106,
+              reference: "order",
+              reference_id: order.id,
+            },
+            adminHeaders
+          )
+          .catch((e) => e)
+
+        expect(response3.response.status).toBe(400)
+        expect(response3.response.data.message).toBe(
+          "Can only create credit lines if the order has a positive or negative pending difference"
         )
       })
     })

@@ -41,6 +41,10 @@ export type RefreshCartItemsWorkflowInput = {
    * These promotion codes will replace previously applied codes.
    */
   promo_codes?: string[]
+  /**
+   * Force refresh the cart items
+   */
+  force_refresh?: boolean
 }
 
 export const refreshCartItemsWorkflowId = "refresh-cart-items"
@@ -66,30 +70,29 @@ export const refreshCartItemsWorkflowId = "refresh-cart-items"
  *
  * Refresh a cart's details after an update.
  *
- * @property hooks.validate - This hook is executed before all operations. You can consume this hook to perform any custom validation. If validation fails, you can throw an error to stop the workflow execution.
  */
 export const refreshCartItemsWorkflow = createWorkflow(
   refreshCartItemsWorkflowId,
   (input: WorkflowData<RefreshCartItemsWorkflowInput>) => {
-    const cart = useRemoteQueryStep({
-      entry_point: "cart",
-      fields: cartFieldsForRefreshSteps,
-      variables: { id: input.cart_id },
-      list: false,
-    })
-
-    const variantIds = transform({ cart }, (data) => {
-      return (data.cart.items ?? []).map((i) => i.variant_id).filter(Boolean)
-    })
-
-    const cartPricingContext = transform({ cart }, ({ cart }) => {
-      return filterObjectByKeys(cart, cartFieldsForPricingContext)
-    })
-
-    const variants = when({ variantIds }, ({ variantIds }) => {
-      return !!variantIds.length
+    when({ input }, ({ input }) => {
+      return !!input.force_refresh
     }).then(() => {
-      return useRemoteQueryStep({
+      const cart = useRemoteQueryStep({
+        entry_point: "cart",
+        fields: cartFieldsForRefreshSteps,
+        variables: { id: input.cart_id },
+        list: false,
+      })
+
+      const variantIds = transform({ cart }, (data) => {
+        return (data.cart.items ?? []).map((i) => i.variant_id).filter(Boolean)
+      })
+
+      const cartPricingContext = transform({ cart }, ({ cart }) => {
+        return filterObjectByKeys(cart, cartFieldsForPricingContext)
+      })
+
+      const variants = useRemoteQueryStep({
         entry_point: "variants",
         fields: productVariantsFields,
         variables: {
@@ -99,62 +102,69 @@ export const refreshCartItemsWorkflow = createWorkflow(
           },
         },
       }).config({ name: "fetch-variants" })
-    })
 
-    validateVariantPricesStep({ variants })
+      validateVariantPricesStep({ variants })
 
-    const validate = createHook("validate", {
-      input,
-      cart,
-    })
+      const lineItems = transform({ cart, variants }, ({ cart, variants }) => {
+        const items = cart.items.map((item) => {
+          const variant = (variants ?? []).find(
+            (v) => v.id === item.variant_id
+          )!
 
-    const lineItems = transform({ cart, variants }, ({ cart, variants }) => {
-      const items = cart.items.map((item) => {
-        const variant = (variants ?? []).find((v) => v.id === item.variant_id)!
+          const input: PrepareLineItemDataInput = {
+            item,
+            variant: variant,
+            cartId: cart.id,
+            unitPrice: item.unit_price,
+            isTaxInclusive: item.is_tax_inclusive,
+          }
 
-        const input: PrepareLineItemDataInput = {
-          item,
-          variant: variant,
-          cartId: cart.id,
-          unitPrice: item.unit_price,
-          isTaxInclusive: item.is_tax_inclusive,
-        }
+          if (variant && !item.is_custom_price) {
+            input.unitPrice = variant.calculated_price?.calculated_amount
+            input.isTaxInclusive =
+              variant.calculated_price?.is_calculated_price_tax_inclusive
+          }
 
-        if (variant && !item.is_custom_price) {
-          input.unitPrice = variant.calculated_price?.calculated_amount
-          input.isTaxInclusive =
-            variant.calculated_price?.is_calculated_price_tax_inclusive
-        }
+          const preparedItem = prepareLineItemData(input)
 
-        const preparedItem = prepareLineItemData(input)
+          return {
+            selector: { id: item.id },
+            data: preparedItem,
+          }
+        })
 
-        return {
-          selector: { id: item.id },
-          data: preparedItem,
-        }
+        return items
       })
 
-      return items
-    })
-
-    updateLineItemsStep({
-      id: cart.id,
-      items: lineItems,
+      updateLineItemsStep({
+        id: cart.id,
+        items: lineItems,
+      })
     })
 
     const refetchedCart = useRemoteQueryStep({
       entry_point: "cart",
       fields: cartFieldsForRefreshSteps,
-      variables: { id: cart.id },
+      variables: { id: input.cart_id },
       list: false,
     }).config({ name: "refetch–cart" })
 
+    const refreshCartInput = transform(
+      { refetchedCart, input },
+      ({ refetchedCart, input }) => {
+        return {
+          cart: !input.force_refresh ? refetchedCart : undefined,
+          cart_id: !!input.force_refresh ? input.cart_id : undefined,
+        }
+      }
+    )
+
     refreshCartShippingMethodsWorkflow.runAsStep({
-      input: { cart_id: cart.id },
+      input: refreshCartInput,
     })
 
     updateTaxLinesWorkflow.runAsStep({
-      input: { cart_id: cart.id },
+      input: refreshCartInput,
     })
 
     const cartPromoCodes = transform(
@@ -170,7 +180,7 @@ export const refreshCartItemsWorkflow = createWorkflow(
 
     updateCartPromotionsWorkflow.runAsStep({
       input: {
-        cart_id: cart.id,
+        cart_id: input.cart_id,
         promo_codes: cartPromoCodes,
         action: PromotionActions.REPLACE,
       },
@@ -182,11 +192,11 @@ export const refreshCartItemsWorkflow = createWorkflow(
     )
 
     refreshPaymentCollectionForCartWorkflow.runAsStep({
-      input: { cart_id: cart.id },
+      input: { cart_id: input.cart_id },
     })
 
     return new WorkflowResponse(refetchedCart, {
-      hooks: [validate, beforeRefreshingPaymentCollection],
+      hooks: [beforeRefreshingPaymentCollection],
     })
   }
 )
