@@ -49,7 +49,7 @@ export function generateModule(code: string) {
   }
 }
 
-export const VALID_FILE_EXTENSIONS = [".tsx", ".jsx", ".js"]
+export const VALID_FILE_EXTENSIONS = [".tsx", ".jsx", ".js", ".mjs", ".cjs"]
 
 /**
  * Crawls a directory and returns all files that match the criteria.
@@ -61,12 +61,9 @@ export async function crawl(
 ) {
   const dirDepth = dir.split(path.sep).length
 
-  const crawler = new fdir()
-    .withBasePath()
-    .exclude((dirName) => dirName.startsWith("_"))
-    .filter((path) => {
-      return VALID_FILE_EXTENSIONS.some((ext) => path.endsWith(ext))
-    })
+  const crawler = new fdir().withBasePath().filter((path) => {
+    return VALID_FILE_EXTENSIONS.some((ext) => path.endsWith(ext))
+  })
 
   if (file) {
     crawler.filter((path) => {
@@ -147,8 +144,13 @@ export async function hasDefaultExport(
     AssignmentExpression(path) {
       if (
         path.node.left.type === "MemberExpression" &&
-        path.node.left.object.type === "Identifier" &&
-        path.node.left.object.name === "exports" &&
+        ((path.node.left.object.type === "Identifier" &&
+          path.node.left.object.name === "exports") ||
+          (path.node.left.object.type === "MemberExpression" &&
+            path.node.left.object.object.type === "Identifier" &&
+            path.node.left.object.object.name === "Object" &&
+            path.node.left.object.property.type === "Identifier" &&
+            path.node.left.object.property.name === "exports")) &&
         path.node.left.property.type === "Identifier" &&
         path.node.left.property.name === "default"
       ) {
