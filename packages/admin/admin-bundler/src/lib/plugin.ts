@@ -1,6 +1,7 @@
 import { readFileSync } from "fs"
 import { rm } from "fs/promises"
 import { glob } from "glob"
+import { builtinModules } from "node:module"
 import path from "path"
 import type { UserConfig } from "vite"
 
@@ -12,7 +13,6 @@ interface PluginOptions {
 export async function plugin(options: PluginOptions) {
   const vite = await import("vite")
   const react = (await import("@vitejs/plugin-react")).default
-  const { nodeResolve } = await import("@rollup/plugin-node-resolve")
   const entries = await glob(`${options.root}/src/admin/**/*.{ts,tsx,js,jsx}`)
 
   /**
@@ -23,9 +23,11 @@ export async function plugin(options: PluginOptions) {
   }
 
   const entryPoints = entries.reduce((acc, entry) => {
-    const outPath = entry
+    const relativePath = path.relative(options.root, entry)
+
+    const outPath = relativePath
       .replace(/^src\//, "")
-      .replace(/\.(ts|tsx|js|jsx)$/, "")
+      .replace(/\.(ts|tsx|js|jsx|mjs|cjs)$/, "")
 
     acc[outPath] = path.resolve(options.root, entry)
     return acc
@@ -39,9 +41,9 @@ export async function plugin(options: PluginOptions) {
     ...Object.keys(pkg.peerDependencies || {}),
     ...Object.keys(pkg.devDependencies || {}),
     "react",
-    "react-dom",
     "react/jsx-runtime",
     "react-router-dom",
+    "@medusajs/js-sdk",
     "@medusajs/admin-sdk",
     "@tanstack/react-query",
   ])
@@ -63,17 +65,40 @@ export async function plugin(options: PluginOptions) {
       minify: false,
       outDir: path.resolve(options.root, options.outDir),
       rollupOptions: {
-        plugins: [nodeResolve() as any],
-        external: [...external, /node_modules/],
+        external: (id, importer) => {
+          // If there's no importer, it's a direct dependency
+          // Keep the existing external behavior
+          if (!importer) {
+            const idParts = id.split("/")
+            const name = idParts[0]?.startsWith("@")
+              ? `${idParts[0]}/${idParts[1]}`
+              : idParts[0]
+
+            const builtinModulesWithNodePrefix = [
+              ...builtinModules,
+              ...builtinModules.map((modName) => `node:${modName}`),
+            ]
+
+            return Boolean(
+              (name && external.has(name)) ||
+                (name && builtinModulesWithNodePrefix.includes(name))
+            )
+          }
+
+          // For transient dependencies (those with importers),
+          // bundle them if they're not in our external set
+          const idParts = id.split("/")
+          const name = idParts[0]?.startsWith("@")
+            ? `${idParts[0]}/${idParts[1]}`
+            : idParts[0]
+
+          return Boolean(name && external.has(name))
+        },
         output: {
-          globals: {
-            react: "React",
-            "react-dom": "React-dom",
-            "react/jsx-runtime": "react/jsx-runtime",
-          },
-          preserveModules: true,
-          entryFileNames: (chunkInfo) => {
-            return `${chunkInfo.name.replace(`${options.root}/`, "")}.js`
+          preserveModules: false,
+          interop: "auto",
+          chunkFileNames: () => {
+            return `_chunks/[name]-[hash].mjs`
           },
         },
       },
