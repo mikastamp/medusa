@@ -48,6 +48,8 @@ export async function plugin(options: PluginOptions) {
     "@tanstack/react-query",
   ])
 
+  const outDir = path.resolve(options.root, options.outDir, "src")
+
   /**
    * We need to ensure that the NODE_ENV is set to production,
    * otherwise Vite will build the dev version of React.
@@ -63,7 +65,7 @@ export async function plugin(options: PluginOptions) {
       },
       emptyOutDir: false,
       minify: false,
-      outDir: path.resolve(options.root, options.outDir),
+      outDir,
       rollupOptions: {
         external: (id, importer) => {
           // If there's no importer, it's a direct dependency
@@ -108,7 +110,7 @@ export async function plugin(options: PluginOptions) {
       {
         name: "clear-admin-plugin",
         buildStart: async () => {
-          const adminDir = path.join(options.root, options.outDir, "admin")
+          const adminDir = path.join(outDir, "admin")
           try {
             await rm(adminDir, { recursive: true, force: true })
           } catch (e) {
