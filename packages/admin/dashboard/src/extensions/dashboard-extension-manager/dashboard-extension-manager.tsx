@@ -312,6 +312,8 @@ export class DashboardExtensionManager {
     return this.widgets.get(zone) || []
   }
 
+  private getRoutes() {}
+
   private getFormFields(
     model: CustomFieldModel,
     zone: CustomFieldFormZone,

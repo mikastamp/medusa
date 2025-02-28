@@ -1,8 +1,8 @@
-import { readFileSync } from "fs"
-import { rm } from "fs/promises"
 import { glob } from "glob"
+import { readFileSync } from "node:fs"
+import { rm } from "node:fs/promises"
 import { builtinModules } from "node:module"
-import path from "path"
+import path from "node:path"
 import type { UserConfig } from "vite"
 
 interface PluginOptions {
@@ -13,6 +13,8 @@ interface PluginOptions {
 export async function plugin(options: PluginOptions) {
   const vite = await import("vite")
   const react = (await import("@vitejs/plugin-react")).default
+  const { default: medusa } = await import("@medusajs/admin-vite-plugin")
+
   const entries = await glob(`${options.root}/src/admin/**/*.{ts,tsx,js,jsx}`)
 
   /**
@@ -22,16 +24,16 @@ export async function plugin(options: PluginOptions) {
     return
   }
 
-  const entryPoints = entries.reduce((acc, entry) => {
-    const relativePath = path.relative(options.root, entry)
+  // const entryPoints = entries.reduce((acc, entry) => {
+  //   const relativePath = path.relative(options.root, entry)
 
-    const outPath = relativePath
-      .replace(/^src\//, "")
-      .replace(/\.(ts|tsx|js|jsx|mjs|cjs)$/, "")
+  //   const outPath = relativePath
+  //     .replace(/^src\//, "")
+  //     .replace(/\.(ts|tsx|js|jsx|mjs|cjs)$/, "")
 
-    acc[outPath] = path.resolve(options.root, entry)
-    return acc
-  }, {} as Record<string, string>)
+  //   acc[outPath] = path.resolve(options.root, entry)
+  //   return acc
+  // }, {} as Record<string, string>)
 
   const pkg = JSON.parse(
     readFileSync(path.resolve(options.root, "package.json"), "utf-8")
@@ -48,6 +50,12 @@ export async function plugin(options: PluginOptions) {
     "@tanstack/react-query",
   ])
 
+  const outDir = path.resolve(options.root, options.outDir, "src")
+  const entryFile = path.resolve(
+    options.root,
+    "src/admin/__admin-extensions__.js"
+  )
+
   /**
    * We need to ensure that the NODE_ENV is set to production,
    * otherwise Vite will build the dev version of React.
@@ -58,12 +66,13 @@ export async function plugin(options: PluginOptions) {
   const pluginConfig: UserConfig = {
     build: {
       lib: {
-        entry: entryPoints,
-        formats: ["es"],
+        entry: entryFile,
+        formats: ["es", "cjs"],
+        fileName: "index",
       },
       emptyOutDir: false,
       minify: false,
-      outDir: path.resolve(options.root, options.outDir),
+      outDir,
       rollupOptions: {
         external: (id, importer) => {
           // If there's no importer, it's a direct dependency
@@ -98,19 +107,22 @@ export async function plugin(options: PluginOptions) {
           preserveModules: false,
           interop: "auto",
           chunkFileNames: () => {
-            return `_chunks/[name]-[hash].mjs`
+            return `_chunks/[name]-[hash]`
           },
         },
       },
     },
     plugins: [
       react(),
+      medusa({
+        sources: [path.resolve(options.root, "src/admin")],
+        plugin: true,
+      }),
       {
         name: "clear-admin-plugin",
         buildStart: async () => {
-          const adminDir = path.join(options.root, options.outDir, "admin")
           try {
-            await rm(adminDir, { recursive: true, force: true })
+            await rm(outDir, { recursive: true, force: true })
           } catch (e) {
             // Directory might not exist, ignore
           }

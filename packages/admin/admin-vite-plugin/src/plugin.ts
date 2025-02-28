@@ -1,5 +1,6 @@
 import { SourceMap } from "magic-string"
-import path from "path"
+import { rm, writeFile } from "node:fs/promises"
+import path from "node:path"
 import type * as Vite from "vite"
 import { generateCustomFieldHashes } from "./custom-fields"
 import { generateRouteHashes } from "./routes"
@@ -25,6 +26,8 @@ import { generateWidgetHash } from "./widgets"
 export const medusaVitePlugin: MedusaVitePlugin = (options) => {
   const hashMap = new Map<VirtualModule, string>()
   const _sources = new Set<string>(options?.sources ?? [])
+
+  const isPluginMode = options?.plugin ?? false
 
   let watcher: Vite.FSWatcher | undefined
 
@@ -66,9 +69,61 @@ export const medusaVitePlugin: MedusaVitePlugin = (options) => {
     }
   }
 
+  // Function to generate the index.js file
+  async function generatePluginEntryModule(
+    sources: Set<string>
+  ): Promise<string> {
+    // Generate all the module content
+    const widgetModule = await generateVirtualWidgetModule(sources, true)
+    const routeModule = await generateVirtualRouteModule(sources, true)
+    const menuItemModule = await generateVirtualMenuItemModule(sources, true)
+
+    // Create the index.js content that re-exports everything
+    return `
+      // Auto-generated index file for Medusa Admin UI extensions
+    ${widgetModule.code}
+    ${routeModule.code}
+    ${menuItemModule.code}
+
+    const plugin = {
+      widgets: widgetModules,
+      routes: routeModules,
+      menuItems: menuItemModules,
+    }
+
+    export default plugin
+    `
+  }
+
+  const pluginEntryFile = path.resolve(
+    process.cwd(),
+    "src/admin/__admin-extensions__.js"
+  )
+
   return {
     name: "@medusajs/admin-vite-plugin",
     enforce: "pre",
+    async buildStart() {
+      /**
+       * Generate the plugin entry file if we're in plugin mode
+       */
+      if (isPluginMode) {
+        const code = await generatePluginEntryModule(_sources)
+        await writeFile(pluginEntryFile, code, "utf-8")
+      }
+    },
+    async buildEnd() {
+      /**
+       * Clean up the plugin entry file after the build
+       */
+      if (isPluginMode) {
+        try {
+          await rm(pluginEntryFile, { force: true })
+        } catch (error) {
+          // Ignore the error if the file doesn't exist
+        }
+      }
+    },
     configureServer(server) {
       watcher = server.watcher
       watcher?.add(Array.from(_sources))
@@ -90,11 +145,19 @@ export const medusaVitePlugin: MedusaVitePlugin = (options) => {
         return null
       }
 
+      if (id === vmod.virtual.pluginEntry && isPluginMode) {
+        return vmod.resolved.pluginEntry
+      }
+
       return resolveVirtualId(id)
     },
     async load(id) {
       if (!isResolvedVirtualModuleId(id)) {
         return null
+      }
+
+      if (id === vmod.resolved.pluginEntry && isPluginMode) {
+        return generatePluginEntryModule(_sources)
       }
 
       const config = loadConfigs[id]
