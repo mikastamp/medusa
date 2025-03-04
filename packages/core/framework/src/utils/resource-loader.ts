@@ -1,7 +1,7 @@
 import { dynamicImport, promiseAll, readDirRecursive } from "@medusajs/utils"
 import { Dirent } from "fs"
 import { access } from "fs/promises"
-import { join } from "path"
+import { join, parse } from "path"
 import { logger } from "../logger"
 
 export abstract class ResourceLoader {
@@ -20,18 +20,24 @@ export abstract class ResourceLoader {
    * The list of file names to exclude from the subscriber scan
    * @private
    */
-  #excludes: RegExp[] = [
-    /index\.js/,
-    /index\.ts/,
-    /^_[^/\\]*(\.[^/\\]+)?$/,
-    /^(?!.*\.(js|ts)$|.*\.d\.ts$).+$|.*\.d\.ts$/, // Ignore all files that don't end in .js or .ts, or are .d.ts files
-  ]
+  #excludes: RegExp[] = [/^_[^/\\]*(\.[^/\\]+)?$/]
 
   constructor(sourceDir: string | string[]) {
     this.#sourceDir = sourceDir
   }
 
-  protected async discoverResources(): Promise<Record<string, unknown>[]> {
+  /**
+   * Discover resources from the source directory
+   * @param exclude - custom exclusion regexes
+   * @returns The resources discovered
+   */
+  protected async discoverResources({
+    exclude,
+  }: {
+    exclude?: RegExp[]
+  } = {}): Promise<Record<string, unknown>[]> {
+    exclude ??= []
+
     const normalizedSourcePath = Array.isArray(this.#sourceDir)
       ? this.#sourceDir
       : [this.#sourceDir]
@@ -48,9 +54,15 @@ export abstract class ResourceLoader {
 
       return await readDirRecursive(sourcePath).then(async (entries) => {
         const fileEntries = entries.filter((entry: Dirent) => {
+          const parsedName = parse(entry.name)
+
           return (
             !entry.isDirectory() &&
-            !this.#excludes.some((exclude) => exclude.test(entry.name))
+            parsedName.name !== "index" &&
+            !parsedName.base.endsWith(".d.ts") &&
+            [".js", ".ts"].includes(parsedName.ext) &&
+            !this.#excludes.some((exclude) => exclude.test(parsedName.base)) &&
+            !exclude.some((exclude) => exclude.test(parsedName.base))
           )
         })
 
