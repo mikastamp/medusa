@@ -33,10 +33,24 @@ export abstract class ResourceLoader {
    */
   protected async discoverResources({
     exclude,
+    customFiltering,
   }: {
     exclude?: RegExp[]
+    customFiltering?: (entry: Dirent) => boolean
   } = {}): Promise<Record<string, unknown>[]> {
     exclude ??= []
+    customFiltering ??= (entry: Dirent) => {
+      const parsedName = parse(entry.name)
+
+      return (
+        !entry.isDirectory() &&
+        parsedName.name !== "index" &&
+        !parsedName.base.endsWith(".d.ts") &&
+        [".js", ".ts"].includes(parsedName.ext) &&
+        !this.#excludes.some((exclude) => exclude.test(parsedName.base)) &&
+        !exclude.some((exclude) => exclude.test(parsedName.base))
+      )
+    }
 
     const normalizedSourcePath = Array.isArray(this.#sourceDir)
       ? this.#sourceDir
@@ -53,18 +67,9 @@ export abstract class ResourceLoader {
       }
 
       return await readDirRecursive(sourcePath).then(async (entries) => {
-        const fileEntries = entries.filter((entry: Dirent) => {
-          const parsedName = parse(entry.name)
-
-          return (
-            !entry.isDirectory() &&
-            parsedName.name !== "index" &&
-            !parsedName.base.endsWith(".d.ts") &&
-            [".js", ".ts"].includes(parsedName.ext) &&
-            !this.#excludes.some((exclude) => exclude.test(parsedName.base)) &&
-            !exclude.some((exclude) => exclude.test(parsedName.base))
-          )
-        })
+        const fileEntries = entries.filter((entry: Dirent) =>
+          customFiltering(entry)
+        )
 
         return await promiseAll(
           fileEntries.map(async (entry: Dirent) => {
