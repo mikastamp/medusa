@@ -2008,13 +2008,15 @@ export default class FulfillmentModuleService
 
     // Make this action idempotent
     if (!fulfillment.canceled_at) {
-      try {
-        await this.fulfillmentProviderService_.cancelFulfillment(
-          fulfillment.provider_id!, // TODO: should we add a runtime check on provider_id being provided?,
-          fulfillment.data ?? {}
-        )
-      } catch (error) {
-        throw error
+      if (fulfillment.provider_id) {
+        try {
+          await this.fulfillmentProviderService_.cancelFulfillment(
+            fulfillment.provider_id!,
+            fulfillment.data ?? {}
+          )
+        } catch (error) {
+          throw error
+        }
       }
 
       fulfillment = await this.fulfillmentService_.update(
