@@ -121,6 +121,6 @@ export class JobLoader extends ResourceLoader {
   async load() {
     await super.discoverResources()
 
-    logger.debug(`Job registered.`)
+    logger.debug(`Jobs registered.`)
   }
 }

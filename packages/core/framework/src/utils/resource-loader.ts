@@ -29,6 +29,7 @@ export abstract class ResourceLoader {
   /**
    * Discover resources from the source directory
    * @param exclude - custom exclusion regexes
+   * @param customFiltering - custom filtering function
    * @returns The resources discovered
    */
   protected async discoverResources({
