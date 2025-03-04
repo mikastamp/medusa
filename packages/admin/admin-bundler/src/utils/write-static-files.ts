@@ -36,7 +36,7 @@ async function writeEntryFile(outDir: string, plugins?: string[]) {
     import "./index.css";
 
     ${plugins
-      ?.map((plugin, idx) => `import plugin${idx} from "${plugin}/admin"`)
+      ?.map((plugin, idx) => `import plugin${idx} from "${plugin}"`)
       .join("\n")}
 
     render(document.getElementById("medusa"), [

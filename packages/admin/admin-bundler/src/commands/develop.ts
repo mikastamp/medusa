@@ -68,11 +68,11 @@ async function injectHtmlMiddleware(
   })
 }
 
-export async function develop({ plugins, ...options }: BundlerOptions) {
+export async function develop(options: BundlerOptions) {
   const vite = await import("vite")
 
   try {
-    await writeStaticFiles(plugins)
+    await writeStaticFiles(options.plugins)
   } catch (error) {
     console.error(error)
     throw new Error("Failed to write static files. See error above.")

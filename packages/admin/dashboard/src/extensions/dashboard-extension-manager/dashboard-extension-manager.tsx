@@ -79,11 +79,14 @@ export class DashboardApp {
     const settingsRoutes: RouteObject[] = []
 
     for (const plugin of plugins) {
-      const coreRoutes = getRouteExtensions(plugin.routeModule, "core")
-      const settingsRoutes = getRouteExtensions(plugin.routeModule, "settings")
+      const coreRoutesResults = getRouteExtensions(plugin.routeModule, "core")
+      const settingsRoutesResults = getRouteExtensions(
+        plugin.routeModule,
+        "settings"
+      )
 
-      coreRoutes.push(...coreRoutes)
-      settingsRoutes.push(...settingsRoutes)
+      coreRoutes.push(...coreRoutesResults)
+      settingsRoutes.push(...settingsRoutesResults)
     }
 
     return { coreRoutes, settingsRoutes }
@@ -452,6 +455,8 @@ export class DashboardApp {
       settingsRoutes: this.settingsRoutes,
       coreRoutes: this.coreRoutes,
     })
+
+    console.log("Routes", routes)
 
     const router = createBrowserRouter(routes, {
       basename: __BASE__ || "/",

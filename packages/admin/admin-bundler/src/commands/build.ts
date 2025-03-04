@@ -3,11 +3,11 @@ import { BundlerOptions } from "../types"
 import { getViteConfig } from "../utils/config"
 import { writeStaticFiles } from "../utils/write-static-files"
 
-export async function build({ plugins, ...options }: BundlerOptions) {
+export async function build(options: BundlerOptions) {
   const vite = await import("vite")
 
   try {
-    await writeStaticFiles(plugins)
+    await writeStaticFiles(options.plugins)
   } catch (error) {
     console.error(error)
     throw new Error("Failed to write static files. See error above.")

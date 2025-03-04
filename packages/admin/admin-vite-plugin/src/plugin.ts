@@ -82,6 +82,8 @@ export const medusaVitePlugin: MedusaVitePlugin = (options) => {
     const widgetModule = await generateVirtualWidgetModule(sources, true)
     const routeModule = await generateVirtualRouteModule(sources, true)
     const menuItemModule = await generateVirtualMenuItemModule(sources, true)
+    const formModule = await generateVirtualFormModule(sources, true)
+    const displayModule = await generateVirtualDisplayModule(sources, true)
 
     // Create the index.js content that re-exports everything
     return `
@@ -89,11 +91,15 @@ export const medusaVitePlugin: MedusaVitePlugin = (options) => {
     ${widgetModule.code}
     ${routeModule.code}
     ${menuItemModule.code}
+    ${formModule.code}
+    ${displayModule.code}
     
     const plugin = {
       widgetModule,
       routeModule,
       menuItemModule,
+      formModule,
+      displayModule
     }
 
     export default plugin

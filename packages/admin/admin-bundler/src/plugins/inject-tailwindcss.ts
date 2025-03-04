@@ -5,6 +5,7 @@ import type { Plugin } from "vite"
 interface InjectTailwindCSSOptions {
   entry: string
   sources?: string[]
+  plugins?: string[]
 }
 
 export const injectTailwindCSS = (
@@ -17,7 +18,11 @@ export const injectTailwindCSS = (
         postcss: {
           plugins: [
             require("tailwindcss")({
-              config: createTailwindConfig(options.entry, options.sources),
+              config: createTailwindConfig(
+                options.entry,
+                options.sources,
+                options.plugins
+              ),
             }),
           ],
         },
@@ -26,7 +31,11 @@ export const injectTailwindCSS = (
   }
 }
 
-function createTailwindConfig(entry: string, sources: string[] = []) {
+function createTailwindConfig(
+  entry: string,
+  sources: string[] = [],
+  plugins: string[] = []
+) {
   const root = path.join(entry, "**/*.{js,ts,jsx,tsx}")
   const html = path.join(entry, "index.html")
 
@@ -52,11 +61,34 @@ function createTailwindConfig(entry: string, sources: string[] = []) {
     // ignore
   }
 
-  const extensions = sources.map((s) => path.join(s, "**/*.{js,ts,jsx,tsx}"))
+  const sourceExtensions = sources.map((s) =>
+    path.join(s, "**/*.{js,ts,jsx,tsx}")
+  )
+  const pluginExtensions: string[] = []
+
+  for (const plugin of plugins) {
+    try {
+      const pluginPath = path.join(
+        path.dirname(require.resolve(plugin)),
+        "**/*.{js,ts,jsx,tsx}"
+      )
+
+      pluginExtensions.push(pluginPath)
+    } catch (_e) {
+      // ignore
+    }
+  }
 
   const config: Config = {
     presets: [require("@medusajs/ui-preset")],
-    content: [html, root, dashboard, ui, ...extensions],
+    content: [
+      html,
+      root,
+      dashboard,
+      ui,
+      ...sourceExtensions,
+      ...pluginExtensions,
+    ],
     darkMode: "class",
   }
 

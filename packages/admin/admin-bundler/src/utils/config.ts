@@ -56,6 +56,7 @@ export async function getViteConfig(
       injectTailwindCSS({
         entry: root,
         sources: options.sources,
+        plugins: options.plugins,
       }),
       react(),
       medusa({

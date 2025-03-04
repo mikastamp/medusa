@@ -15,7 +15,7 @@ export async function generateVirtualFormModule(
 
     ${
       pluginMode
-        ? `const customFieldModule = { ${customFields.code} }`
+        ? `const formModule = { ${customFields.code} }`
         : `export default { ${customFields.code} }`
     }
   `
