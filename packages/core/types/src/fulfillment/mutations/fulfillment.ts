@@ -11,12 +11,12 @@ export interface CreateFulfillmentDTO {
   /**
    * The associated location's ID.
    */
-  location_id: string
+  location_id?: string
 
   /**
    * The associated location's data.
    */
-  location?: StockLocationDTO
+  location?: StockLocationDTO | null
 
   /**
    * The date the fulfillment was packed.
@@ -51,7 +51,7 @@ export interface CreateFulfillmentDTO {
   /**
    * The associated fulfillment provider's ID.
    */
-  provider_id: string
+  provider_id?: string
 
   /**
    * The associated shipping option's ID.

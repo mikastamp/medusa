@@ -9,7 +9,7 @@ import { ShippingOption } from "./shipping-option"
 export const Fulfillment = model
   .define("fulfillment", {
     id: model.id({ prefix: "ful" }).primaryKey(),
-    location_id: model.text(),
+    location_id: model.text().nullable(),
     packed_at: model.dateTime().nullable(),
     shipped_at: model.dateTime().nullable(),
     marked_shipped_by: model.text().nullable(),

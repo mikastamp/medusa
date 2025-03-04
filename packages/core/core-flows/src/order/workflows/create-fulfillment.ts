@@ -21,6 +21,7 @@ import {
   createWorkflow,
   parallelize,
   transform,
+  when,
 } from "@medusajs/framework/workflows-sdk"
 import {
   createRemoteLinkStep,
@@ -121,7 +122,7 @@ function prepareFulfillmentData({
 }: {
   order: OrderDTO
   input: OrderWorkflow.CreateOrderFulfillmentWorkflowInput
-  shippingOption: {
+  shippingOption?: {
     id: string
     provider_id: string
     service_zone: { fulfillment_set: { location?: { id: string } } }
@@ -158,11 +159,11 @@ function prepareFulfillmentData({
       orderItem.requires_shipping &&
       (orderItem as any).variant?.product &&
       (orderItem as any).variant?.product.shipping_profile?.id !==
-        shippingOption.shipping_profile_id
+        shippingOption?.shipping_profile_id
     ) {
       throw new MedusaError(
         MedusaError.Types.INVALID_DATA,
-        `Shipping profile ${shippingOption.shipping_profile_id} does not match the shipping profile of the order item ${orderItem.id}`
+        `Shipping profile ${shippingOption?.shipping_profile_id} does not match the shipping profile of the order item ${orderItem.id}`
       )
     }
 
@@ -179,13 +180,13 @@ function prepareFulfillmentData({
   let locationId: string | undefined | null = input.location_id
 
   if (!locationId) {
-    locationId = shippingOption.service_zone.fulfillment_set.location?.id
+    locationId = shippingOption?.service_zone.fulfillment_set.location?.id
   }
 
-  if (!locationId) {
+  if (someItemsRequireShipping && !locationId) {
     throw new MedusaError(
       MedusaError.Types.INVALID_DATA,
-      `Cannot create fulfillment without stock location, either provide a location or you should link the shipping option ${shippingOption.id} to a stock location.`
+      `Cannot create a fulfillment that requires shipping without a stock location, either provide a location or you should link the shipping option ${shippingOption?.id} to a stock location.`
     )
   }
 
@@ -195,8 +196,8 @@ function prepareFulfillmentData({
   return {
     input: {
       location_id: locationId,
-      provider_id: shippingOption.provider_id,
-      shipping_option_id: shippingOption.id,
+      provider_id: shippingOption?.provider_id,
+      shipping_option_id: shippingOption?.id,
       order: order,
       data: shippingMethod.data,
       items: fulfillmentItems,
@@ -358,10 +359,11 @@ export const createOrderFulfillmentWorkflow = createWorkflow(
     })
 
     const shippingOptionId = transform({ order, input }, (data) => {
-      return (
-        data.input.shipping_option_id ??
-        data.order.shipping_methods?.[0]?.shipping_option_id
-      )
+      return undefined
+      // return (
+      //   data.input.shipping_option_id ??
+      //   data.order.shipping_methods?.[0]?.shipping_option_id
+      // )
     })
 
     const shippingMethod = transform({ order, shippingOptionId }, (data) => {
@@ -372,19 +374,24 @@ export const createOrderFulfillmentWorkflow = createWorkflow(
       }
     })
 
-    const shippingOption = useRemoteQueryStep({
-      entry_point: "shipping_options",
-      fields: [
-        "id",
-        "provider_id",
-        "service_zone.fulfillment_set.location.id",
-        "shipping_profile_id",
-      ],
-      variables: {
-        id: shippingOptionId,
-      },
-      list: false,
-    }).config({ name: "get-shipping-option" })
+    const shippingOption = when(
+      { shippingOptionId },
+      ({ shippingOptionId }) => !!shippingOptionId
+    ).then(() =>
+      useRemoteQueryStep({
+        entry_point: "shipping_options",
+        fields: [
+          "id",
+          "provider_id",
+          "service_zone.fulfillment_set.location.id",
+          "shipping_profile_id",
+        ],
+        variables: {
+          id: shippingOptionId,
+        },
+        list: false,
+      }).config({ name: "get-shipping-option" })
+    )
 
     const lineItemIds = transform(
       { order, itemsList: input.items_list },

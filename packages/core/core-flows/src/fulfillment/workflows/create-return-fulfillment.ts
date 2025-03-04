@@ -8,6 +8,7 @@ import {
   WorkflowResponse,
   createWorkflow,
   transform,
+  when,
 } from "@medusajs/framework/workflows-sdk"
 import { createReturnFulfillmentStep } from "../steps"
 import { useRemoteQueryStep } from "../../common"
@@ -17,17 +18,17 @@ export const createReturnFulfillmentWorkflowId =
 /**
  * This workflow creates a fulfillment for a return. It's used by other return-related workflows,
  * such as {@link createAndCompleteReturnOrderWorkflow}.
- * 
+ *
  * You can use this workflow within your own customizations or custom workflows, allowing you to
  * create a fulfillment for a return within your custom flows.
- * 
+ *
  * :::note
- * 
+ *
  * You can retrieve an order's details using [Query](https://docs.medusajs.com/learn/fundamentals/module-links/query),
  * or [useQueryGraphStep](https://docs.medusajs.com/resources/references/medusa-workflows/steps/useQueryGraphStep).
- * 
+ *
  * :::
- * 
+ *
  * @example
  * const { result } = await createReturnFulfillmentWorkflow(container)
  * .run({
@@ -57,9 +58,9 @@ export const createReturnFulfillmentWorkflowId =
  *     }
  *   }
  * })
- * 
+ *
  * @summary
- * 
+ *
  * Create a fulfillment for a return.
  */
 export const createReturnFulfillmentWorkflow = createWorkflow(
@@ -67,28 +68,32 @@ export const createReturnFulfillmentWorkflow = createWorkflow(
   (
     input: WorkflowData<FulfillmentWorkflow.CreateFulfillmentWorkflowInput>
   ): WorkflowResponse<FulfillmentDTO> => {
-    const location: StockLocationDTO = useRemoteQueryStep({
-      entry_point: "stock_location",
-      fields: [
-        "id",
-        "name",
-        "metadata",
-        "created_at",
-        "updated_at",
-        "address.id",
-        "address.address_1",
-        "address.address_2",
-        "address.city",
-        "address.country_code",
-        "address.phone",
-        "address.province",
-        "address.postal_code",
-        "address.metadata",
-      ],
-      variables: { id: input.location_id },
-      list: false,
-      throw_if_key_not_found: true,
-    }).config({ name: "get-location" })
+    const location: StockLocationDTO | undefined = when(
+      { location_id: input.location_id },
+      ({ location_id }) => !!location_id
+    ).then(() => {
+      return useRemoteQueryStep({
+        entry_point: "stock_location",
+        fields: [
+          "id",
+          "name",
+          "metadata",
+          "created_at",
+          "updated_at",
+          "address.id",
+          "address.address_1",
+          "address.address_2",
+          "address.city",
+          "address.country_code",
+          "address.phone",
+          "address.province",
+          "address.postal_code",
+          "address.metadata",
+        ],
+        variables: { id: input.location_id },
+        list: false,
+      }).config({ name: "get-location" })
+    })
 
     const stepInput = transform({ input, location }, ({ input, location }) => {
       return {

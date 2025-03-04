@@ -122,7 +122,7 @@ export type CreateFulfillmentWorkflowInput = {
   /**
    * The associated location's ID.
    */
-  location_id: string
+  location_id?: string
 
   /**
    * The date the fulfillment was packed.
@@ -157,7 +157,7 @@ export type CreateFulfillmentWorkflowInput = {
   /**
    * The associated fulfillment provider's ID.
    */
-  provider_id: string
+  provider_id?: string
 
   /**
    * The associated shipping option's ID.
