@@ -143,7 +143,7 @@ export function OrderCreateFulfillmentForm({
 
     if (!requiresShipping) {
       delete payload.location_id
-      delete payload.shipping_option_id
+      payload.shipping_option_id = null
     }
 
     try {

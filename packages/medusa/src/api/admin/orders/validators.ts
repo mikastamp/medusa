@@ -73,7 +73,7 @@ export type AdminOrderCreateFulfillmentType = z.infer<
 export const OrderCreateFulfillment = z.object({
   items: z.array(Item),
   location_id: z.string().nullish(),
-  shipping_option_id: z.string().optional(),
+  shipping_option_id: z.string().nullish(),
   no_notification: z.boolean().optional(),
   metadata: z.record(z.unknown()).nullish(),
 })

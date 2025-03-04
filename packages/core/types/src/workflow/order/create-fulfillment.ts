@@ -64,8 +64,10 @@ export interface CreateOrderFulfillmentWorkflowInput {
 
   /**
    * Shipping option to be used for the fulfillment.
+   * If not provided, the workflow uses the ID of the first shipping method from the order.
+   * If `null` is provided, shipping option wont be used for the fulfillment (e.g. for creating a fulfillment of a digital product).
    */
-  shipping_option_id?: string
+  shipping_option_id?: string | null
 
   /**
    * Whether the fulfillment should be shipped.

@@ -39,8 +39,11 @@ export interface AdminCreateOrderFulfillment {
   /**
    * The ID of the shipping option to use for the fulfillment.
    * Overrides the shipping option selected by the customer.
+   *
+   * If not set, first shipping method from the order is used.
+   * To not use a shipping option for fulfillment, set the value to `null`.
    */
-  shipping_option_id?: string
+  shipping_option_id?: string | null
   /**
    * Whether to notify the customer about this change.
    */
