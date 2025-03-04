@@ -7,7 +7,15 @@ import {
   NESTED_ROUTE_POSITIONS,
 } from "@medusajs/admin-shared"
 import * as React from "react"
+import {
+  createBrowserRouter,
+  RouteObject,
+  RouterProvider,
+} from "react-router-dom"
 import { INavItem } from "../../components/layout/nav-item"
+import { Providers } from "../../providers"
+import { getRouteMap } from "../../providers/router-provider/route-map"
+import { getRouteExtensions } from "../routes/utils"
 import {
   ConfigExtension,
   ConfigField,
@@ -24,70 +32,104 @@ import {
   MenuItemExtension,
   MenuItemKey,
   MenuItemModule,
-  WidgetExtension,
+  MenuMap,
+  RouteModule,
+  WidgetMap,
   WidgetModule,
   ZoneStructure,
 } from "../types"
 
-export type DashboardExtensionManagerProps = {
+export type DashboardPlugin = {
   formModule: FormModule
   displayModule: DisplayModule
   menuItemModule: MenuItemModule
   widgetModule: WidgetModule
+  routeModule: RouteModule
 }
 
-export class DashboardExtensionManager {
-  private widgets: Map<InjectionZone, React.ComponentType[]>
-  private menus: Map<MenuItemKey, INavItem[]>
+export type DashboardAppProps = {
+  plugins: DashboardPlugin[]
+}
+
+export class DashboardApp {
+  private widgets: WidgetMap
+  private menus: MenuMap
   private fields: FormFieldMap
   private configs: ConfigFieldMap
   private displays: DisplayMap
+  private coreRoutes: RouteObject[]
+  private settingsRoutes: RouteObject[]
 
-  constructor({
-    widgetModule,
-    menuItemModule,
-    displayModule,
-    formModule,
-  }: DashboardExtensionManagerProps) {
-    this.widgets = this.populateWidgets(widgetModule.widgets)
-    this.menus = this.populateMenus(menuItemModule.menuItems)
+  constructor({ plugins }: DashboardAppProps) {
+    this.widgets = this.populateWidgets(plugins)
+    this.menus = this.populateMenus(plugins)
 
-    const { fields, configs } = this.populateForm(formModule)
+    const { coreRoutes, settingsRoutes } = this.populateRoutes(plugins)
+    this.coreRoutes = coreRoutes
+    this.settingsRoutes = settingsRoutes
+
+    const { fields, configs } = this.populateForm(plugins)
     this.fields = fields
     this.configs = configs
-    this.displays = this.populateDisplays(displayModule)
+    this.displays = this.populateDisplays(plugins)
   }
 
-  private populateWidgets(widgets: WidgetExtension[] | undefined) {
-    const registry = new Map<InjectionZone, React.ComponentType[]>()
+  private populateRoutes(plugins: DashboardPlugin[]) {
+    const coreRoutes: RouteObject[] = []
+    const settingsRoutes: RouteObject[] = []
 
-    if (!widgets) {
-      return registry
+    for (const plugin of plugins) {
+      const coreRoutes = getRouteExtensions(plugin.routeModule, "core")
+      const settingsRoutes = getRouteExtensions(plugin.routeModule, "settings")
+
+      coreRoutes.push(...coreRoutes)
+      settingsRoutes.push(...settingsRoutes)
     }
 
-    widgets.forEach((widget) => {
-      widget.zone.forEach((zone) => {
-        if (!registry.has(zone)) {
-          registry.set(zone, [])
-        }
-        registry.get(zone)!.push(widget.Component)
+    return { coreRoutes, settingsRoutes }
+  }
+
+  private populateWidgets(plugins: DashboardPlugin[]) {
+    const registry = new Map<InjectionZone, React.ComponentType[]>()
+
+    plugins.forEach((plugin) => {
+      const widgets = plugin.widgetModule.widgets
+      if (!widgets) {
+        return
+      }
+
+      widgets.forEach((widget) => {
+        widget.zone.forEach((zone) => {
+          if (!registry.has(zone)) {
+            registry.set(zone, [])
+          }
+          registry.get(zone)!.push(widget.Component)
+        })
       })
     })
 
     return registry
   }
 
-  private populateMenus(menuItems: MenuItemExtension[] | undefined) {
+  private populateMenus(plugins: DashboardPlugin[]) {
     const registry = new Map<MenuItemKey, INavItem[]>()
     const tempRegistry: Record<string, INavItem> = {}
 
-    if (!menuItems) {
+    // Collect all menu items from all plugins
+    const allMenuItems: MenuItemExtension[] = []
+    plugins.forEach((plugin) => {
+      if (plugin.menuItemModule.menuItems) {
+        allMenuItems.push(...plugin.menuItemModule.menuItems)
+      }
+    })
+
+    if (allMenuItems.length === 0) {
       return registry
     }
 
-    menuItems.sort((a, b) => a.path.length - b.path.length)
+    allMenuItems.sort((a, b) => a.path.length - b.path.length)
 
-    menuItems.forEach((item) => {
+    allMenuItems.forEach((item) => {
       if (item.path.includes("/:")) {
         if (process.env.NODE_ENV === "development") {
           console.warn(
@@ -114,7 +156,7 @@ export class DashboardExtensionManager {
       }
 
       // Find the parent item if it exists
-      const parentItem = menuItems.find(
+      const parentItem = allMenuItems.find(
         (menuItem) => menuItem.path === parentPath
       )
 
@@ -158,25 +200,62 @@ export class DashboardExtensionManager {
     return registry
   }
 
-  private populateForm(formModule: FormModule): {
+  private populateForm(plugins: DashboardPlugin[]): {
     fields: FormFieldMap
     configs: ConfigFieldMap
   } {
     const fields: FormFieldMap = new Map()
     const configs: ConfigFieldMap = new Map()
 
-    Object.entries(formModule.customFields).forEach(
-      ([model, customization]) => {
-        fields.set(
-          model as CustomFieldModel,
-          this.processFields(customization.forms)
-        )
-        configs.set(
-          model as CustomFieldModel,
-          this.processConfigs(customization.configs)
-        )
-      }
-    )
+    plugins.forEach((plugin) => {
+      Object.entries(plugin.formModule.customFields).forEach(
+        ([model, customization]) => {
+          // Initialize maps if they don't exist for this model
+          if (!fields.has(model as CustomFieldModel)) {
+            fields.set(model as CustomFieldModel, new Map())
+          }
+          if (!configs.has(model as CustomFieldModel)) {
+            configs.set(model as CustomFieldModel, new Map())
+          }
+
+          // Process forms
+          const modelFields = this.processFields(customization.forms)
+          const existingModelFields = fields.get(model as CustomFieldModel)!
+
+          // Merge the maps
+          modelFields.forEach((zoneStructure, zone) => {
+            if (!existingModelFields.has(zone)) {
+              existingModelFields.set(zone, { components: [], tabs: new Map() })
+            }
+
+            const existingZoneStructure = existingModelFields.get(zone)!
+
+            // Merge components
+            existingZoneStructure.components.push(...zoneStructure.components)
+
+            // Merge tabs
+            zoneStructure.tabs.forEach((fields, tab) => {
+              if (!existingZoneStructure.tabs.has(tab)) {
+                existingZoneStructure.tabs.set(tab, [])
+              }
+              existingZoneStructure.tabs.get(tab)!.push(...fields)
+            })
+          })
+
+          // Process configs
+          const modelConfigs = this.processConfigs(customization.configs)
+          const existingModelConfigs = configs.get(model as CustomFieldModel)!
+
+          // Merge the config maps
+          modelConfigs.forEach((configFields, zone) => {
+            if (!existingModelConfigs.has(zone)) {
+              existingModelConfigs.set(zone, [])
+            }
+            existingModelConfigs.get(zone)!.push(...configFields)
+          })
+        }
+      )
+    })
 
     return { fields, configs }
   }
@@ -269,16 +348,36 @@ export class DashboardExtensionManager {
     }
   }
 
-  private populateDisplays(displayModule: DisplayModule): DisplayMap {
+  private populateDisplays(plugins: DashboardPlugin[]): DisplayMap {
     const displays = new Map<
       CustomFieldModel,
       Map<CustomFieldContainerZone, React.ComponentType<{ data: any }>[]>
     >()
 
-    Object.entries(displayModule.displays).forEach(([model, customization]) => {
-      displays.set(
-        model as CustomFieldModel,
-        this.processDisplays(customization)
+    plugins.forEach((plugin) => {
+      Object.entries(plugin.displayModule.displays).forEach(
+        ([model, customization]) => {
+          if (!displays.has(model as CustomFieldModel)) {
+            displays.set(
+              model as CustomFieldModel,
+              new Map<
+                CustomFieldContainerZone,
+                React.ComponentType<{ data: any }>[]
+              >()
+            )
+          }
+
+          const modelDisplays = displays.get(model as CustomFieldModel)!
+          const processedDisplays = this.processDisplays(customization)
+
+          // Merge the displays
+          processedDisplays.forEach((components, zone) => {
+            if (!modelDisplays.has(zone)) {
+              modelDisplays.set(zone, [])
+            }
+            modelDisplays.get(zone)!.push(...components)
+          })
+        }
       )
     })
 
@@ -346,5 +445,22 @@ export class DashboardExtensionManager {
       getFormConfigs: this.getFormConfigs.bind(this),
       getDisplays: this.getDisplays.bind(this),
     }
+  }
+
+  render() {
+    const routes = getRouteMap({
+      settingsRoutes: this.settingsRoutes,
+      coreRoutes: this.coreRoutes,
+    })
+
+    const router = createBrowserRouter(routes, {
+      basename: __BASE__ || "/",
+    })
+
+    return (
+      <Providers api={this.api}>
+        <RouterProvider router={router} />
+      </Providers>
+    )
   }
 }

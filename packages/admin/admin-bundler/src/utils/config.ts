@@ -1,7 +1,7 @@
 import { VIRTUAL_MODULES } from "@medusajs/admin-shared"
 import path from "path"
-import { Config } from "tailwindcss"
 import type { InlineConfig } from "vite"
+import { injectTailwindCSS } from "../plugins/inject-tailwindcss"
 import { BundlerOptions } from "../types"
 
 export async function getViteConfig(
@@ -14,7 +14,7 @@ export async function getViteConfig(
   const getPort = await import("get-port")
   const hmrPort = await getPort.default()
 
-  const root = path.resolve(__dirname, "./")
+  const root = path.resolve(process.cwd(), ".medusa/client")
 
   const backendUrl = options.backendUrl ?? ""
   const storefrontUrl = options.storefrontUrl ?? ""
@@ -52,16 +52,11 @@ export async function getViteConfig(
         port: hmrPort,
       },
     },
-    css: {
-      postcss: {
-        plugins: [
-          require("tailwindcss")({
-            config: createTailwindConfig(root, options.sources),
-          }),
-        ],
-      },
-    },
     plugins: [
+      injectTailwindCSS({
+        entry: root,
+        sources: options.sources,
+      }),
       react(),
       medusa({
         sources: options.sources,
@@ -75,41 +70,4 @@ export async function getViteConfig(
   }
 
   return baseConfig
-}
-
-function createTailwindConfig(entry: string, sources: string[] = []) {
-  const root = path.join(entry, "**/*.{js,ts,jsx,tsx}")
-  const html = path.join(entry, "index.html")
-
-  let dashboard = ""
-
-  try {
-    dashboard = path.join(
-      path.dirname(require.resolve("@medusajs/dashboard")),
-      "**/*.{js,ts,jsx,tsx}"
-    )
-  } catch (_e) {
-    // ignore
-  }
-
-  let ui: string = ""
-
-  try {
-    ui = path.join(
-      path.dirname(require.resolve("@medusajs/ui")),
-      "**/*.{js,ts,jsx,tsx}"
-    )
-  } catch (_e) {
-    // ignore
-  }
-
-  const extensions = sources.map((s) => path.join(s, "**/*.{js,ts,jsx,tsx}"))
-
-  const config: Config = {
-    presets: [require("@medusajs/ui-preset")],
-    content: [html, root, dashboard, ui, ...extensions],
-    darkMode: "class",
-  }
-
-  return config
 }

@@ -1,9 +1,9 @@
 import { PropsWithChildren } from "react"
-import { DashboardExtensionManager } from "../dashboard-extension-manager/dashboard-extension-manager"
+import { DashboardApp } from "../dashboard-extension-manager/dashboard-extension-manager"
 import { DashboardExtensionContext } from "./dashboard-extension-context"
 
 type DashboardExtensionProviderProps = PropsWithChildren<{
-  api: DashboardExtensionManager["api"]
+  api: DashboardApp["api"]
 }>
 
 export const DashboardExtensionProvider = ({

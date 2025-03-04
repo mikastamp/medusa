@@ -17,13 +17,13 @@
   "types": "dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/app.mjs",
-      "require": "./dist/app.js",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
       "types": "./dist/index.d.ts"
     },
     "./css": {
-      "import": "./dist/app.css",
-      "require": "./dist/app.css"
+      "import": "./dist/index.css",
+      "require": "./dist/index.css"
     },
     "./root": "./",
     "./package.json": "./package.json"
@@ -36,7 +36,6 @@
   "files": [
     "package.json",
     "src",
-    "index.html",
     "dist"
   ],
   "dependencies": {

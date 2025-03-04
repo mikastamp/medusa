@@ -1,6 +1,7 @@
 import path from "path"
-import { defineConfig, FileSystem } from "@medusajs/framework/utils"
-import { getResolvedPlugins } from "../helpers/resolve-plugins"
+import { defineConfig } from "../define-config"
+import { FileSystem } from "../file-system"
+import { getResolvedPlugins } from "../get-resolved-plugins"
 
 const BASE_DIR = path.join(__dirname, "sample-proj")
 const fs = new FileSystem(BASE_DIR)
@@ -34,10 +35,7 @@ describe("getResolvedPlugins | relative paths", () => {
     expect(plugins).toEqual([
       {
         resolve: path.join(fs.basePath, "./plugins/dummy/.medusa/server/src"),
-        adminResolve: path.join(
-          fs.basePath,
-          "./plugins/dummy/.medusa/server/src/admin"
-        ),
+        admin: undefined,
         name: "my-dummy-plugin",
         id: "my-dummy-plugin",
         options: { apiKey: "asecret" },
@@ -75,10 +73,7 @@ describe("getResolvedPlugins | relative paths", () => {
     expect(plugins).toEqual([
       {
         resolve: path.join(fs.basePath, "./plugins/dummy/.medusa/server/src"),
-        adminResolve: path.join(
-          fs.basePath,
-          "./plugins/dummy/.medusa/server/src/admin"
-        ),
+        admin: undefined,
         name: "my-dummy-plugin",
         id: "my-dummy-plugin",
         options: { apiKey: "asecret" },
@@ -151,7 +146,10 @@ describe("getResolvedPlugins | relative paths", () => {
     expect(plugins).toEqual([
       {
         resolve: path.join(fs.basePath, "./plugins/dummy/.medusa/server/src"),
-        adminResolve: path.join(fs.basePath, "./plugins/dummy/src/admin"),
+        admin: {
+          type: "local",
+          resolve: path.join(fs.basePath, "./plugins/dummy/src/admin"),
+        },
         name: "my-dummy-plugin",
         id: "my-dummy-plugin",
         options: { apiKey: "asecret" },
@@ -198,10 +196,7 @@ describe("getResolvedPlugins | package reference", () => {
           fs.basePath,
           "node_modules/@plugins/dummy/.medusa/server/src"
         ),
-        adminResolve: path.join(
-          fs.basePath,
-          "node_modules/@plugins/dummy/.medusa/server/src/admin"
-        ),
+        admin: undefined,
         name: "my-dummy-plugin",
         id: "my-dummy-plugin",
         options: { apiKey: "asecret" },
@@ -243,10 +238,7 @@ describe("getResolvedPlugins | package reference", () => {
           fs.basePath,
           "node_modules/@plugins/dummy/.medusa/server/src"
         ),
-        adminResolve: path.join(
-          fs.basePath,
-          "node_modules/@plugins/dummy/.medusa/server/src/admin"
-        ),
+        admin: undefined,
         name: "my-dummy-plugin",
         id: "my-dummy-plugin",
         options: { apiKey: "asecret" },

@@ -1,7 +1,7 @@
 import { defineConfig } from "tsup"
 
 export default defineConfig({
-  entry: ["./src/app.tsx"],
+  entry: ["./src/index.ts"],
   format: ["cjs", "esm"],
   external: [
     "virtual:medusa/forms",

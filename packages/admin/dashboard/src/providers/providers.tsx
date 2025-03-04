@@ -3,16 +3,13 @@ import { QueryClientProvider } from "@tanstack/react-query"
 import type { PropsWithChildren } from "react"
 import { HelmetProvider } from "react-helmet-async"
 import { I18n } from "../components/utilities/i18n"
-import {
-  DashboardExtensionManager,
-  DashboardExtensionProvider,
-} from "../extensions"
+import { DashboardApp, DashboardExtensionProvider } from "../extensions"
 import { queryClient } from "../lib/query-client"
 import { I18nProvider } from "./i18n-provider"
 import { ThemeProvider } from "./theme-provider"
 
 type ProvidersProps = PropsWithChildren<{
-  api: DashboardExtensionManager["api"]
+  api: DashboardApp["api"]
 }>
 
 export const Providers = ({ api, children }: ProvidersProps) => {

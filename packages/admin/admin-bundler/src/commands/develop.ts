@@ -4,7 +4,8 @@ import path from "path"
 import type { InlineConfig, ViteDevServer } from "vite"
 
 import { BundlerOptions } from "../types"
-import { getViteConfig } from "./config"
+import { getViteConfig } from "../utils/config"
+import { writeStaticFiles } from "../utils/write-static-files"
 
 const router = express.Router()
 
@@ -67,8 +68,15 @@ async function injectHtmlMiddleware(
   })
 }
 
-export async function develop(options: BundlerOptions) {
+export async function develop({ plugins, ...options }: BundlerOptions) {
   const vite = await import("vite")
+
+  try {
+    await writeStaticFiles(plugins)
+  } catch (error) {
+    console.error(error)
+    throw new Error("Failed to write static files. See error above.")
+  }
 
   try {
     const viteConfig = await getViteConfig(options)
