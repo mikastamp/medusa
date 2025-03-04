@@ -657,14 +657,18 @@ export default class FulfillmentModuleService
     } = fulfillment
 
     try {
-      const providerResult =
-        await this.fulfillmentProviderService_.createFulfillment(
-          provider_id!, // TODO: should we add a runtime check on provider_id being provided?
-          fulfillmentData || {},
-          items.map((i) => i),
-          order,
-          fulfillmentRest as unknown as Partial<FulfillmentDTO>
-        )
+      let providerResult: Record<string, unknown> = {}
+      if (provider_id) {
+        providerResult =
+          await this.fulfillmentProviderService_.createFulfillment(
+            provider_id!,
+            fulfillmentData || {},
+            items.map((i) => i),
+            order,
+            fulfillmentRest as unknown as Partial<FulfillmentDTO>
+          )
+      }
+
       await this.fulfillmentService_.update(
         {
           id: fulfillment.id,
@@ -723,23 +727,29 @@ export default class FulfillmentModuleService
       sharedContext
     )
 
-    const shippingOption = await this.shippingOptionService_.retrieve(
-      fulfillment.shipping_option_id!,
-      {
-        select: ["id", "name", "data", "metadata"],
-      },
-      sharedContext
-    )
-
     try {
-      const providerResult =
-        await this.fulfillmentProviderService_.createReturn(
-          fulfillment.provider_id!, // TODO: should we add a runtime check on provider_id being provided?,
+      let shippingOption
+      let providerResult: Record<string, unknown> = {}
+      if (fulfillment.shipping_option_id) {
+        shippingOption = await this.shippingOptionService_.retrieve(
+          fulfillment.shipping_option_id!,
+          {
+            select: ["id", "name", "data", "metadata"],
+          },
+          sharedContext
+        )
+      }
+
+      if (fulfillment.provider_id) {
+        providerResult = await this.fulfillmentProviderService_.createReturn(
+          fulfillment.provider_id!,
           {
             ...fulfillment,
             shipping_option: shippingOption,
           } as Record<any, any>
         )
+      }
+
       await this.fulfillmentService_.update(
         {
           id: fulfillment.id,

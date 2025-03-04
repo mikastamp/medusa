@@ -96,7 +96,7 @@ export interface UpdateFulfillmentDTO {
   /**
    * The associated location's ID.
    */
-  location_id?: string
+  location_id?: string | null
 
   /**
    * The date the fulfillment was packed.

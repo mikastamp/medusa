@@ -396,9 +396,11 @@ const Fulfillment = ({
           {t("fields.provider")}
         </Text>
 
-        <Text size="small" leading="compact">
-          {formatProvider(fulfillment.provider_id)}
-        </Text>
+        {fulfillment.provider_id && (
+          <Text size="small" leading="compact">
+            {formatProvider(fulfillment.provider_id)}
+          </Text>
+        )}
       </div>
       <div className="text-ui-fg-subtle grid grid-cols-2 items-start px-6 py-4">
         <Text size="small" leading="compact" weight="plus">

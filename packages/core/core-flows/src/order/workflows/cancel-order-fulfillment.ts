@@ -140,7 +140,7 @@ function prepareInventoryUpdate({
   }[] = []
   for (const item of fulfillment.items) {
     // if this is `null` this means that item is from variant that has `manage_inventory` false
-    if (!item.inventory_item_id) {
+    if (!item.inventory_item_id || !fulfillment.location_id) {
       continue
     }
 
