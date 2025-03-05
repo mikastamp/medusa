@@ -331,7 +331,7 @@ medusaIntegrationTestRunner({
         },
       ])
 
-      // create reservation for inventory item
+      // create reservation for inventory item that is initially on the order
 
       const inventoryModule = container.resolve(Modules.INVENTORY)
       await inventoryModule.createReservationItems([
@@ -952,7 +952,7 @@ medusaIntegrationTestRunner({
           )
         })
 
-        it("should complete flow with fulfilled items successfully", async () => {
+        it("should complete flow with fulfilled items successfully 2", async () => {
           await api.post(`/admin/claims/${claimId}/request`, {}, adminHeaders)
 
           const claim = (
