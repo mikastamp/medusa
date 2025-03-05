@@ -10,6 +10,18 @@ describe("Routes loader", () => {
     expect(loader.getRoutes()).toMatchInlineSnapshot(`
       [
         {
+          "absolutePath": "${BASE_DIR}/admin/fail/route.ts",
+          "handler": [Function],
+          "isRoute": true,
+          "matcher": "/admin/fail",
+          "method": "GET",
+          "optedOutOfAuth": false,
+          "relativePath": "/admin/fail/route.ts",
+          "shouldAppendAdminCors": true,
+          "shouldAppendAuthCors": false,
+          "shouldAppendStoreCors": false,
+        },
+        {
           "absolutePath": "${BASE_DIR}/admin/orders/[id]/route.ts",
           "handler": [Function],
           "isRoute": true,
@@ -205,6 +217,18 @@ describe("Routes loader", () => {
 
     expect(loader.getRoutes()).toMatchInlineSnapshot(`
       [
+        {
+          "absolutePath": "${BASE_DIR}/admin/fail/route.ts",
+          "handler": [Function],
+          "isRoute": true,
+          "matcher": "/admin/fail",
+          "method": "GET",
+          "optedOutOfAuth": false,
+          "relativePath": "/admin/fail/route.ts",
+          "shouldAppendAdminCors": true,
+          "shouldAppendAuthCors": false,
+          "shouldAppendStoreCors": false,
+        },
         {
           "absolutePath": "${BASE_DIR}/admin/orders/[id]/route.ts",
           "handler": [Function],

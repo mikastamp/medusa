@@ -6152,6 +6152,7 @@ __metadata:
     request-ip: ^3.3.0
     rimraf: ^5.0.1
     slugify: ^1.6.6
+    supertest: ^4.0.2
     typescript: ^5.6.2
     uuid: ^9.0.0
     yalc: 1.0.0-pre.53
