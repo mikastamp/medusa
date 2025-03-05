@@ -11,7 +11,8 @@ import { useUpdateProduct } from "../../../../../hooks/api/products"
 import { transformNullableFormData } from "../../../../../lib/form-helpers"
 
 import { KeyboundForm } from "../../../../../components/utilities/keybound-form"
-import { FormExtensionZone, useExtension } from "../../../../../dashboard-app"
+import { FormExtensionZone } from "../../../../../dashboard-app"
+import { useExtension } from "../../../../../providers/extension-provider"
 
 type EditProductFormProps = {
   product: HttpTypes.AdminProduct

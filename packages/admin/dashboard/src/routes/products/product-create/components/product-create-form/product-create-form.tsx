@@ -8,9 +8,10 @@ import {
   useRouteModal,
 } from "../../../../../components/modals"
 import { KeyboundForm } from "../../../../../components/utilities/keybound-form"
-import { useExtendableForm, useExtension } from "../../../../../dashboard-app"
+import { useExtendableForm } from "../../../../../dashboard-app/forms/hooks"
 import { useCreateProduct } from "../../../../../hooks/api/products"
 import { sdk } from "../../../../../lib/client"
+import { useExtension } from "../../../../../providers/extension-provider"
 import {
   PRODUCT_CREATE_FORM_DEFAULTS,
   ProductCreateSchema,

@@ -9,9 +9,9 @@ import { KeyboundForm } from "../../../../../components/utilities/keybound-form"
 import {
   FormExtensionZone,
   useExtendableForm,
-  useExtension,
 } from "../../../../../dashboard-app"
 import { useUpdateProduct } from "../../../../../hooks/api/products"
+import { useExtension } from "../../../../../providers/extension-provider"
 
 type ProductAttributesFormProps = {
   product: HttpTypes.AdminProduct

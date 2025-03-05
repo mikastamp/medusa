@@ -10,11 +10,11 @@ import { KeyboundForm } from "../../../../../components/utilities/keybound-form"
 import {
   FormExtensionZone,
   useExtendableForm,
-  useExtension,
 } from "../../../../../dashboard-app"
 import { useUpdateProduct } from "../../../../../hooks/api/products"
 import { useComboboxData } from "../../../../../hooks/use-combobox-data"
 import { sdk } from "../../../../../lib/client"
+import { useExtension } from "../../../../../providers/extension-provider"
 import { CategoryCombobox } from "../../../common/components/category-combobox"
 
 type ProductOrganizationFormProps = {
