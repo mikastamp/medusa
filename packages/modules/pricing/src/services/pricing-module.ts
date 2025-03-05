@@ -563,12 +563,19 @@ export default class PricingModuleService
     })
 
     const prices = normalizedData.flatMap((priceSet) => priceSet.prices || [])
-    const { entities: upsertedPrices } =
+    const { entities: upsertedPrices, performedActions } =
       await this.priceService_.upsertWithReplace(
         prices,
         { relations: ["price_rules"] },
         sharedContext
       )
+
+    composeAllEvents({
+      eventBuilders,
+      performedActions,
+      entities: [Price, PriceRule],
+      sharedContext,
+    })
 
     const priceSetsToUpsert = normalizedData.map((priceSet) => {
       const { prices, ...rest } = priceSet
@@ -594,12 +601,19 @@ export default class PricingModuleService
       }
     })
 
-    const { entities: priceSets } =
+    const { entities: priceSets, performedActions: priceSetPerformedActions } =
       await this.priceSetService_.upsertWithReplace(
         priceSetsToUpsert,
         { relations: ["prices"] },
         sharedContext
       )
+
+    composeAllEvents({
+      eventBuilders,
+      performedActions: priceSetPerformedActions,
+      entities: [PriceSet],
+      sharedContext,
+    })
 
     return priceSets.map((ps) => {
       if (ps.prices) {
@@ -1081,29 +1095,11 @@ export default class PricingModuleService
         { relations: ["price_rules"] },
         sharedContext
       )
-    eventBuilders.createdPrice({
-      data: performedActions.created[Price.name] ?? [],
-      sharedContext,
-    })
-    eventBuilders.updatedPrice({
-      data: performedActions.updated[Price.name] ?? [],
-      sharedContext,
-    })
-    eventBuilders.deletedPrice({
-      data: performedActions.deleted[Price.name] ?? [],
-      sharedContext,
-    })
 
-    eventBuilders.createdPriceRule({
-      data: performedActions.created[PriceRule.name] ?? [],
-      sharedContext,
-    })
-    eventBuilders.updatedPriceRule({
-      data: performedActions.updated[PriceRule.name] ?? [],
-      sharedContext,
-    })
-    eventBuilders.deletedPriceRule({
-      data: performedActions.deleted[PriceRule.name] ?? [],
+    composeAllEvents({
+      eventBuilders,
+      performedActions,
+      entities: [Price, PriceRule],
       sharedContext,
     })
 
@@ -1277,12 +1273,17 @@ export default class PricingModuleService
       }
     )
 
-    const { entities } = await this.priceListService_.upsertWithReplace(
-      normalizedData,
-      {
+    const { entities, performedActions } =
+      await this.priceListService_.upsertWithReplace(normalizedData, {
         relations: ["price_list_rules"],
-      }
-    )
+      })
+
+    composeAllEvents({
+      eventBuilders,
+      performedActions,
+      entities: [PriceList, PriceListRule],
+      sharedContext,
+    })
 
     return entities
   }
@@ -1326,11 +1327,19 @@ export default class PricingModuleService
       }
     }
 
-    const { entities } = await this.priceService_.upsertWithReplace(
-      pricesToUpsert,
-      { relations: ["price_rules"] },
-      sharedContext
-    )
+    const { entities, performedActions } =
+      await this.priceService_.upsertWithReplace(
+        pricesToUpsert,
+        { relations: ["price_rules"] },
+        sharedContext
+      )
+
+    composeAllEvents({
+      eventBuilders,
+      performedActions,
+      entities: [Price, PriceRule],
+      sharedContext,
+    })
 
     return entities
   }
@@ -1388,29 +1397,10 @@ export default class PricingModuleService
         sharedContext
       )
 
-    eventBuilders.createdPrice({
-      data: performedActions.created[Price.name] ?? [],
-      sharedContext,
-    })
-    eventBuilders.updatedPrice({
-      data: performedActions.updated[Price.name] ?? [],
-      sharedContext,
-    })
-    eventBuilders.deletedPrice({
-      data: performedActions.deleted[Price.name] ?? [],
-      sharedContext,
-    })
-
-    eventBuilders.createdPriceRule({
-      data: performedActions.created[PriceRule.name] ?? [],
-      sharedContext,
-    })
-    eventBuilders.updatedPriceRule({
-      data: performedActions.updated[PriceRule.name] ?? [],
-      sharedContext,
-    })
-    eventBuilders.deletedPriceRule({
-      data: performedActions.deleted[PriceRule.name] ?? [],
+    composeAllEvents({
+      eventBuilders,
+      performedActions,
+      entities: [Price, PriceRule],
       sharedContext,
     })
 
@@ -1472,11 +1462,19 @@ export default class PricingModuleService
       })
       .filter(Boolean)
 
-    const { entities } = await this.priceListService_.upsertWithReplace(
-      priceListsUpsert,
-      { relations: ["price_list_rules"] },
-      sharedContext
-    )
+    const { entities, performedActions } =
+      await this.priceListService_.upsertWithReplace(
+        priceListsUpsert,
+        { relations: ["price_list_rules"] },
+        sharedContext
+      )
+
+    composeAllEvents({
+      eventBuilders,
+      performedActions,
+      entities: [PriceList, PriceListRule],
+      sharedContext,
+    })
 
     return entities
   }
@@ -1539,11 +1537,19 @@ export default class PricingModuleService
       })
       .filter(Boolean)
 
-    const { entities } = await this.priceListService_.upsertWithReplace(
-      priceListsUpsert,
-      { relations: ["price_list_rules"] },
-      sharedContext
-    )
+    const { entities, performedActions } =
+      await this.priceListService_.upsertWithReplace(
+        priceListsUpsert,
+        { relations: ["price_list_rules"] },
+        sharedContext
+      )
+
+    composeAllEvents({
+      eventBuilders,
+      performedActions,
+      entities: [PriceList, PriceListRule],
+      sharedContext,
+    })
 
     return entities
   }
@@ -1578,6 +1584,22 @@ export default class PricingModuleService
         populateWhere: { prices: { price_list_id: null } },
       },
       ...config,
+    }
+  }
+}
+
+const composeAllEvents = ({
+  eventBuilders,
+  performedActions,
+  entities,
+  sharedContext,
+}) => {
+  for (const entity of entities) {
+    for (const action of Object.keys(performedActions)) {
+      eventBuilders.createdPrice({
+        data: performedActions[action][entity.name] ?? [],
+        sharedContext,
+      })
     }
   }
 }
