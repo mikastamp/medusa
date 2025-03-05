@@ -1,6 +1,6 @@
 import * as React from "react"
 import type { IconProps } from "../types"
-const ArrowUpTray = React.forwardRef<SVGSVGElement, IconProps>(
+const CodeMerge = React.forwardRef<SVGSVGElement, IconProps>(
   ({ color = "currentColor", ...props }, ref) => {
     return (
       <svg
@@ -16,11 +16,18 @@ const ArrowUpTray = React.forwardRef<SVGSVGElement, IconProps>(
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeWidth={1.5}
-          d="M13.056 9.944v1.334c0 .982-.796 1.778-1.778 1.778H3.722a1.777 1.777 0 0 1-1.778-1.778V9.944M10.611 5.056 7.5 1.944 4.389 5.056M7.5 1.944v6.667"
+          d="M3.722 5.056v8.889M9.278 10.611a5.555 5.555 0 0 1-5.556-5.555M3.722 5.056a2 2 0 1 0 0-4 2 2 0 0 0 0 4"
+        />
+        <path
+          stroke={color}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={1.5}
+          d="M11.278 12.61a2 2 0 1 0 0-4 2 2 0 0 0 0 4"
         />
       </svg>
     )
   }
 )
-ArrowUpTray.displayName = "ArrowUpTray"
-export default ArrowUpTray
+CodeMerge.displayName = "CodeMerge"
+export default CodeMerge

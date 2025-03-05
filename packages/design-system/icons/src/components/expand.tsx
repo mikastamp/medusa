@@ -1,6 +1,6 @@
 import * as React from "react"
 import type { IconProps } from "../types"
-const ArrowUpTray = React.forwardRef<SVGSVGElement, IconProps>(
+const Expand = React.forwardRef<SVGSVGElement, IconProps>(
   ({ color = "currentColor", ...props }, ref) => {
     return (
       <svg
@@ -16,11 +16,11 @@ const ArrowUpTray = React.forwardRef<SVGSVGElement, IconProps>(
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeWidth={1.5}
-          d="M13.056 9.944v1.334c0 .982-.796 1.778-1.778 1.778H3.722a1.777 1.777 0 0 1-1.778-1.778V9.944M10.611 5.056 7.5 1.944 4.389 5.056M7.5 1.944v6.667"
+          d="M9.5 1.944h1.778c.982 0 1.778.796 1.778 1.778V5.5M5.5 13.056H3.722a1.777 1.777 0 0 1-1.778-1.778V9.5M1.944 5.5V3.722c0-.982.796-1.778 1.778-1.778H5.5M13.056 9.5v1.778c0 .982-.796 1.778-1.778 1.778H9.5"
         />
       </svg>
     )
   }
 )
-ArrowUpTray.displayName = "ArrowUpTray"
-export default ArrowUpTray
+Expand.displayName = "Expand"
+export default Expand

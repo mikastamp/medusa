@@ -1,6 +1,6 @@
 import * as React from "react"
 import type { IconProps } from "../types"
-const AiAssistent = React.forwardRef<SVGSVGElement, IconProps>(
+const AiAssistentLuminosity = React.forwardRef<SVGSVGElement, IconProps>(
   ({ color = "currentColor", ...props }, ref) => {
     return (
       <svg
@@ -68,6 +68,15 @@ const AiAssistent = React.forwardRef<SVGSVGElement, IconProps>(
           <circle cx={4} cy={4} r={4} fill="url(#q)" />
           <circle cx={4} cy={4} r={3.9} stroke="url(#r)" strokeWidth={0.2} />
         </g>
+        <circle
+          cx={7.5}
+          cy={7.5}
+          r={7.11}
+          fill={color}
+          style={{
+            mixBlendMode: "color",
+          }}
+        />
         <defs>
           <linearGradient
             id="b"
@@ -222,11 +231,11 @@ const AiAssistent = React.forwardRef<SVGSVGElement, IconProps>(
             <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.12 0" />
             <feBlend
               in2="BackgroundImageFix"
-              result="effect1_dropShadow_7446_46535"
+              result="effect1_dropShadow_9187_11750"
             />
             <feBlend
               in="SourceGraphic"
-              in2="effect1_dropShadow_7446_46535"
+              in2="effect1_dropShadow_9187_11750"
               result="shape"
             />
             <feColorMatrix
@@ -237,7 +246,7 @@ const AiAssistent = React.forwardRef<SVGSVGElement, IconProps>(
             <feOffset dx={-0.25} dy={-0.25} />
             <feComposite in2="hardAlpha" k2={-1} k3={1} operator="arithmetic" />
             <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0" />
-            <feBlend in2="shape" result="effect2_innerShadow_7446_46535" />
+            <feBlend in2="shape" result="effect2_innerShadow_9187_11750" />
             <feColorMatrix
               in="SourceAlpha"
               result="hardAlpha"
@@ -247,8 +256,8 @@ const AiAssistent = React.forwardRef<SVGSVGElement, IconProps>(
             <feComposite in2="hardAlpha" k2={-1} k3={1} operator="arithmetic" />
             <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.4 0" />
             <feBlend
-              in2="effect2_innerShadow_7446_46535"
-              result="effect3_innerShadow_7446_46535"
+              in2="effect2_innerShadow_9187_11750"
+              result="effect3_innerShadow_9187_11750"
             />
             <feColorMatrix
               in="SourceAlpha"
@@ -260,8 +269,8 @@ const AiAssistent = React.forwardRef<SVGSVGElement, IconProps>(
             <feComposite in2="hardAlpha" k2={-1} k3={1} operator="arithmetic" />
             <feColorMatrix values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.6 0" />
             <feBlend
-              in2="effect3_innerShadow_7446_46535"
-              result="effect4_innerShadow_7446_46535"
+              in2="effect3_innerShadow_9187_11750"
+              result="effect4_innerShadow_9187_11750"
             />
           </filter>
           <filter
@@ -280,7 +289,7 @@ const AiAssistent = React.forwardRef<SVGSVGElement, IconProps>(
               result="shape"
             />
             <feGaussianBlur
-              result="effect1_foregroundBlur_7446_46535"
+              result="effect1_foregroundBlur_9187_11750"
               stdDeviation={0.25}
             />
           </filter>
@@ -300,7 +309,7 @@ const AiAssistent = React.forwardRef<SVGSVGElement, IconProps>(
               result="shape"
             />
             <feGaussianBlur
-              result="effect1_foregroundBlur_7446_46535"
+              result="effect1_foregroundBlur_9187_11750"
               stdDeviation={0.25}
             />
           </filter>
@@ -320,7 +329,7 @@ const AiAssistent = React.forwardRef<SVGSVGElement, IconProps>(
               result="shape"
             />
             <feGaussianBlur
-              result="effect1_foregroundBlur_7446_46535"
+              result="effect1_foregroundBlur_9187_11750"
               stdDeviation={0.25}
             />
           </filter>
@@ -340,7 +349,7 @@ const AiAssistent = React.forwardRef<SVGSVGElement, IconProps>(
               result="shape"
             />
             <feGaussianBlur
-              result="effect1_foregroundBlur_7446_46535"
+              result="effect1_foregroundBlur_9187_11750"
               stdDeviation={0.25}
             />
           </filter>
@@ -360,7 +369,7 @@ const AiAssistent = React.forwardRef<SVGSVGElement, IconProps>(
               result="shape"
             />
             <feGaussianBlur
-              result="effect1_foregroundBlur_7446_46535"
+              result="effect1_foregroundBlur_9187_11750"
               stdDeviation={0.25}
             />
           </filter>
@@ -369,5 +378,5 @@ const AiAssistent = React.forwardRef<SVGSVGElement, IconProps>(
     )
   }
 )
-AiAssistent.displayName = "AiAssistent"
-export default AiAssistent
+AiAssistentLuminosity.displayName = "AiAssistentLuminosity"
+export default AiAssistentLuminosity
