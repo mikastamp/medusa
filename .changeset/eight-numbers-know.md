@@ -1,6 +1,7 @@
 ---
 "@medusajs/ui-preset": patch
 "@medusajs/icons": patch
+"@medusajs/dashboard": patch
 ---
 
-chore(ui-preset,icons): Sync with Figma 5/3/2025
+chore(ui-preset,icons,dashboard): Sync with Figma, and update ArrowRight import
