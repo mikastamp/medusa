@@ -40,6 +40,7 @@ import {
   promiseAll,
   removeNullish,
   simpleHash,
+  upperCaseFirst,
 } from "@medusajs/framework/utils"
 
 import {
@@ -164,6 +165,7 @@ export default class PricingModuleService
   }
 
   @InjectManager()
+  @EmitEvents()
   // @ts-expect-error
   async retrievePriceSet(
     id: string,
@@ -573,7 +575,6 @@ export default class PricingModuleService
     composeAllEvents({
       eventBuilders,
       performedActions,
-      entities: [Price, PriceRule],
       sharedContext,
     })
 
@@ -611,7 +612,6 @@ export default class PricingModuleService
     composeAllEvents({
       eventBuilders,
       performedActions: priceSetPerformedActions,
-      entities: [PriceSet],
       sharedContext,
     })
 
@@ -761,6 +761,7 @@ export default class PricingModuleService
   }
 
   @InjectTransactionManager()
+  @EmitEvents()
   // @ts-ignore
   async updatePriceLists(
     data: PricingTypes.UpdatePriceListDTO[],
@@ -774,6 +775,7 @@ export default class PricingModuleService
   }
 
   @InjectManager()
+  @EmitEvents()
   async updatePriceListPrices(
     data: PricingTypes.UpdatePriceListPricesDTO[],
     @MedusaContext() sharedContext: Context = {}
@@ -784,6 +786,7 @@ export default class PricingModuleService
   }
 
   @InjectManager()
+  @EmitEvents()
   async removePrices(
     ids: string[],
     @MedusaContext() sharedContext: Context = {}
@@ -803,6 +806,7 @@ export default class PricingModuleService
   }
 
   @InjectManager()
+  @EmitEvents()
   async setPriceListRules(
     data: PricingTypes.SetPriceListRulesDTO,
     @MedusaContext() sharedContext: Context = {}
@@ -815,6 +819,7 @@ export default class PricingModuleService
   }
 
   @InjectManager()
+  @EmitEvents()
   async removePriceListRules(
     data: PricingTypes.RemovePriceListRulesDTO,
     @MedusaContext() sharedContext: Context = {}
@@ -866,6 +871,7 @@ export default class PricingModuleService
   ): Promise<PricePreferenceDTO>
 
   @InjectManager()
+  @EmitEvents()
   async upsertPricePreferences(
     data: UpsertPricePreferenceDTO | UpsertPricePreferenceDTO[],
     @MedusaContext() sharedContext: Context = {}
@@ -1099,7 +1105,6 @@ export default class PricingModuleService
     composeAllEvents({
       eventBuilders,
       performedActions,
-      entities: [Price, PriceRule],
       sharedContext,
     })
 
@@ -1281,7 +1286,6 @@ export default class PricingModuleService
     composeAllEvents({
       eventBuilders,
       performedActions,
-      entities: [PriceList, PriceListRule],
       sharedContext,
     })
 
@@ -1337,7 +1341,6 @@ export default class PricingModuleService
     composeAllEvents({
       eventBuilders,
       performedActions,
-      entities: [Price, PriceRule],
       sharedContext,
     })
 
@@ -1400,7 +1403,6 @@ export default class PricingModuleService
     composeAllEvents({
       eventBuilders,
       performedActions,
-      entities: [Price, PriceRule],
       sharedContext,
     })
 
@@ -1472,7 +1474,6 @@ export default class PricingModuleService
     composeAllEvents({
       eventBuilders,
       performedActions,
-      entities: [PriceList, PriceListRule],
       sharedContext,
     })
 
@@ -1547,7 +1548,6 @@ export default class PricingModuleService
     composeAllEvents({
       eventBuilders,
       performedActions,
-      entities: [PriceList, PriceListRule],
       sharedContext,
     })
 
@@ -1591,13 +1591,17 @@ export default class PricingModuleService
 const composeAllEvents = ({
   eventBuilders,
   performedActions,
-  entities,
   sharedContext,
 }) => {
-  for (const entity of entities) {
-    for (const action of Object.keys(performedActions)) {
-      eventBuilders.createdPrice({
-        data: performedActions[action][entity.name] ?? [],
+  for (const action of Object.keys(performedActions)) {
+    for (const entity of Object.keys(performedActions[action])) {
+      const eventName = action + upperCaseFirst(entity)
+      if (!eventBuilders[eventName]) {
+        continue
+      }
+
+      eventBuilders[eventName]({
+        data: performedActions[action][entity] ?? [],
         sharedContext,
       })
     }
