@@ -1,4 +1,5 @@
 import { DashboardApp } from "./dashboard-app"
+import { DashboardPlugin } from "./dashboard-app/types"
 
 import displayModule from "virtual:medusa/displays"
 import formModule from "virtual:medusa/forms"
@@ -16,12 +17,16 @@ const localPlugin = {
   menuItemModule,
 }
 
-function App() {
+interface AppProps {
+  plugins?: DashboardPlugin[]
+}
+
+function App({ plugins = [] }: AppProps) {
   const app = new DashboardApp({
-    plugins: [localPlugin],
+    plugins: [localPlugin, ...plugins],
   })
 
-  return app.render()
+  return <div>{app.render()}</div>
 }
 
 export default App

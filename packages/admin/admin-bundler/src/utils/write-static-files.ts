@@ -28,20 +28,34 @@ async function writeCSSFile(outDir: string) {
   await writeFile(join(outDir, "index.css"), css)
 }
 
+function getPluginName(index: number) {
+  return `plugin${index}`
+}
+
 async function writeEntryFile(outDir: string, plugins?: string[]) {
   const entry = outdent`
-    import { render } from "@medusajs/dashboard";
+    import App from "@medusajs/dashboard";
     import React from "react";
     import ReactDOM from "react-dom/client";
     import "./index.css";
 
     ${plugins
-      ?.map((plugin, idx) => `import plugin${idx} from "${plugin}"`)
+      ?.map((plugin, idx) => `import ${getPluginName(idx)} from "${plugin}"`)
       .join("\n")}
 
-    render(document.getElementById("medusa"), [
-      ${plugins?.map((plugin, idx) => `plugin${idx}`).join(", ")}
-    ])
+    
+    ReactDOM.createRoot(document.getElementById("medusa")).render(
+      <React.StrictMode>
+        <App plugins={[${plugins
+          ?.map((_, idx) => getPluginName(idx))
+          .join(", ")}]} />
+      </React.StrictMode>
+    )
+
+
+    if (import.meta.hot) {
+        import.meta.hot.accept()
+    }
   `
 
   await writeFile(join(outDir, "entry.jsx"), entry)

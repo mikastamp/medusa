@@ -444,8 +444,6 @@ export class DashboardApp {
       coreRoutes: this.coreRoutes,
     })
 
-    console.log("Routes", routes)
-
     const router = createBrowserRouter(routes, {
       basename: __BASE__ || "/",
     })

@@ -11,11 +11,12 @@ async function generateTypes() {
   const filePath = path.join(distDir, "index.d.ts")
 
   const fileContent = `
-export declare function render(
-  mountNode: HTMLElement | null, 
-  plugins?: any[]
-): void
-`
+    declare function App(props: {
+      plugins?: any[]
+    }): JSX.Element
+
+    export default App
+  `
 
   // Ensure the dist directory exists
   if (!fs.existsSync(distDir)) {
