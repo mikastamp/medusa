@@ -245,7 +245,7 @@ function prepareInventoryUpdate({
     const reservation = reservationMap[item.id]
 
     if (!reservation) {
-      if (item.variant.manage_inventory) {
+      if (item.variant?.manage_inventory) {
         throw new Error(
           `No stock reservation found for item ${item.id} - ${item.title} (${item.variant_title})`
         )
