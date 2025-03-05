@@ -43,8 +43,14 @@ async function writeEntryFile(outDir: string, plugins?: string[]) {
       ?.map((plugin, idx) => `import ${getPluginName(idx)} from "${plugin}"`)
       .join("\n")}
 
+    let root = null
+
+    if (!root) {
+      root = ReactDOM.createRoot(document.getElementById("medusa"))
+    }
+
     
-    ReactDOM.createRoot(document.getElementById("medusa")).render(
+    root.render(
       <React.StrictMode>
         <App plugins={[${plugins
           ?.map((_, idx) => getPluginName(idx))
