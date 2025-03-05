@@ -1,11 +1,17 @@
 import type { Plugin } from "vite"
 import { writeStaticFiles as writeStaticFilesUtils } from "../utils/write-static-files"
 
-export const writeStaticFiles = (): Plugin => {
+interface WriteStaticFilesPluginOptions {
+  plugins?: string[]
+}
+
+export const writeStaticFiles = (
+  options: WriteStaticFilesPluginOptions
+): Plugin => {
   return {
     name: "medusa:write-static-files",
-    buildStart: async () => {
-      await writeStaticFilesUtils()
+    buildStart: async (ctx) => {
+      await writeStaticFilesUtils(options.plugins)
     },
   }
 }

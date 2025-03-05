@@ -2,6 +2,7 @@ import { VIRTUAL_MODULES } from "@medusajs/admin-shared"
 import path from "path"
 import type { InlineConfig } from "vite"
 import { injectTailwindCSS } from "../plugins/inject-tailwindcss"
+import { writeStaticFiles } from "../plugins/write-static-files"
 import { BundlerOptions } from "../types"
 
 export async function getViteConfig(
@@ -53,6 +54,9 @@ export async function getViteConfig(
       },
     },
     plugins: [
+      writeStaticFiles({
+        plugins: options.plugins,
+      }),
       injectTailwindCSS({
         entry: root,
         sources: options.sources,
