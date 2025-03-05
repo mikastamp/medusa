@@ -165,7 +165,6 @@ export default class PricingModuleService
   }
 
   @InjectManager()
-  @EmitEvents()
   // @ts-expect-error
   async retrievePriceSet(
     id: string,
@@ -474,6 +473,7 @@ export default class PricingModuleService
   ): Promise<PriceSetDTO>
 
   @InjectManager()
+  @EmitEvents()
   async upsertPriceSets(
     data: UpsertPriceSetDTO | UpsertPriceSetDTO[],
     @MedusaContext() sharedContext: Context = {}
@@ -515,6 +515,7 @@ export default class PricingModuleService
   ): Promise<PriceSetDTO[]>
 
   @InjectManager()
+  @EmitEvents()
   // @ts-expect-error
   async updatePriceSets(
     idOrSelector: string | PricingTypes.FilterablePriceSetProps,
