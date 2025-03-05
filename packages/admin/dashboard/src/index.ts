@@ -1,2 +1,2 @@
-export type { DashboardPlugin } from "./extensions/dashboard-extension-manager/dashboard-extension-manager"
+export type { DashboardPlugin } from "./dashboard-app/dashboard-app"
 export * from "./render"

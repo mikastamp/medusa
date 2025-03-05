@@ -1,5 +1,5 @@
 import { createRoot } from "react-dom/client"
-import { DashboardApp, DashboardPlugin } from "./extensions"
+import { DashboardApp, DashboardPlugin } from "./dashboard-app"
 
 import displayModule from "virtual:medusa/displays"
 import formModule from "virtual:medusa/forms"

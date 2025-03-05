@@ -12,42 +12,30 @@ import {
   RouteObject,
   RouterProvider,
 } from "react-router-dom"
-import { INavItem } from "../../components/layout/nav-item"
-import { Providers } from "../../providers"
-import { getRouteMap } from "../../providers/router-provider/route-map"
-import { getRouteExtensions } from "../routes/utils"
+import { INavItem } from "../components/layout/nav-item"
+import { Providers } from "../providers"
+import { getRouteMap } from "./routes/get-route.map"
+import { getRouteExtensions } from "./routes/utils"
 import {
   ConfigExtension,
   ConfigField,
   ConfigFieldMap,
+  DashboardPlugin,
   DisplayExtension,
   DisplayMap,
-  DisplayModule,
   FormExtension,
   FormField,
   FormFieldExtension,
   FormFieldMap,
-  FormModule,
   FormZoneMap,
   MenuItemExtension,
   MenuItemKey,
-  MenuItemModule,
   MenuMap,
-  RouteModule,
   WidgetMap,
-  WidgetModule,
   ZoneStructure,
-} from "../types"
+} from "./types"
 
-export type DashboardPlugin = {
-  formModule: FormModule
-  displayModule: DisplayModule
-  menuItemModule: MenuItemModule
-  widgetModule: WidgetModule
-  routeModule: RouteModule
-}
-
-export type DashboardAppProps = {
+type DashboardAppProps = {
   plugins: DashboardPlugin[]
 }
 

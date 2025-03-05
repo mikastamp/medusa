@@ -9,9 +9,9 @@ import { RouteDrawer, useRouteModal } from "../../../../../components/modals"
 import { KeyboundForm } from "../../../../../components/utilities/keybound-form"
 import {
   FormExtensionZone,
-  useDashboardExtension,
   useExtendableForm,
-} from "../../../../../extensions"
+  useExtension,
+} from "../../../../../dashboard-app"
 import { useUpdateProduct } from "../../../../../hooks/api/products"
 import { useComboboxData } from "../../../../../hooks/use-combobox-data"
 import { sdk } from "../../../../../lib/client"
@@ -33,7 +33,7 @@ export const ProductOrganizationForm = ({
 }: ProductOrganizationFormProps) => {
   const { t } = useTranslation()
   const { handleSuccess } = useRouteModal()
-  const { getFormConfigs, getFormFields } = useDashboardExtension()
+  const { getFormConfigs, getFormFields } = useExtension()
 
   const configs = getFormConfigs("product", "organize")
   const fields = getFormFields("product", "organize")

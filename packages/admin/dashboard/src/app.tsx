@@ -1,4 +1,4 @@
-import { DashboardApp } from "./extensions"
+import { DashboardApp } from "./dashboard-app"
 
 import displayModule from "virtual:medusa/displays"
 import formModule from "virtual:medusa/forms"

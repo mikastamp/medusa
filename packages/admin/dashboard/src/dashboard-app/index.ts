@@ -1,5 +1,4 @@
-export * from "./dashboard-extension-manager"
-export * from "./dashboard-extension-provider"
+export * from "./dashboard-app"
 export * from "./forms"
 export * from "./links/utils"
 export * from "./routes/utils"

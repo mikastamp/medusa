@@ -1,10 +1,7 @@
 import { UseFormReturn } from "react-hook-form"
 
 import { StackedFocusModal } from "../../../../../components/modals"
-import {
-  FormExtensionZone,
-  useDashboardExtension,
-} from "../../../../../extensions"
+import { FormExtensionZone, useExtension } from "../../../../../dashboard-app"
 import { ProductCreateSchemaType } from "../../types"
 import { ProductCreateOrganizationSection } from "./components/product-create-organize-section"
 import { ProductCreateSalesChannelStackedModal } from "./components/product-create-sales-channel-stacked-modal"
@@ -15,7 +12,7 @@ type ProductAttributesProps = {
 }
 
 export const ProductCreateOrganizeForm = ({ form }: ProductAttributesProps) => {
-  const { getFormFields } = useDashboardExtension()
+  const { getFormFields } = useExtension()
   const fields = getFormFields("product", "create", "organize")
 
   return (

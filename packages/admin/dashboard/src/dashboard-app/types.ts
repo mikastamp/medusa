@@ -124,3 +124,11 @@ export type DisplayMap = Map<
 export type MenuMap = Map<MenuItemKey, INavItem[]>
 
 export type WidgetMap = Map<InjectionZone, React.ComponentType[]>
+
+export type DashboardPlugin = {
+  formModule: FormModule
+  displayModule: DisplayModule
+  menuItemModule: MenuItemModule
+  widgetModule: WidgetModule
+  routeModule: RouteModule
+}

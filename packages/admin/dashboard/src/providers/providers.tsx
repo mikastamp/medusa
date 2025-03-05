@@ -3,8 +3,9 @@ import { QueryClientProvider } from "@tanstack/react-query"
 import type { PropsWithChildren } from "react"
 import { HelmetProvider } from "react-helmet-async"
 import { I18n } from "../components/utilities/i18n"
-import { DashboardApp, DashboardExtensionProvider } from "../extensions"
+import { DashboardApp } from "../dashboard-app"
 import { queryClient } from "../lib/query-client"
+import { ExtensionProvider } from "./extension-provider"
 import { I18nProvider } from "./i18n-provider"
 import { ThemeProvider } from "./theme-provider"
 
@@ -15,7 +16,7 @@ type ProvidersProps = PropsWithChildren<{
 export const Providers = ({ api, children }: ProvidersProps) => {
   return (
     <TooltipProvider>
-      <DashboardExtensionProvider api={api}>
+      <ExtensionProvider api={api}>
         <HelmetProvider>
           <QueryClientProvider client={queryClient}>
             <ThemeProvider>
@@ -25,7 +26,7 @@ export const Providers = ({ api, children }: ProvidersProps) => {
             </ThemeProvider>
           </QueryClientProvider>
         </HelmetProvider>
-      </DashboardExtensionProvider>
+      </ExtensionProvider>
     </TooltipProvider>
   )
 }
