@@ -14,9 +14,11 @@ import {
   PluginDetails,
 } from "@medusajs/framework/types"
 import {
+  CacheDecorator,
   ContainerRegistrationKeys,
   GraphQLSchema,
   mergePluginModules,
+  Modules,
   promiseAll,
 } from "@medusajs/framework/utils"
 import { WorkflowLoader } from "@medusajs/framework/workflows"
@@ -173,6 +175,9 @@ export default async ({
     expressApp,
     rootDirectory
   )
+
+  // TODO: POC
+  CacheDecorator.cacheServiceInstance = container.resolve(Modules.CACHE)
 
   const { createDefaultsWorkflow } = await import("@medusajs/core-flows")
   await createDefaultsWorkflow(container).run()

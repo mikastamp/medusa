@@ -21,7 +21,12 @@ import {
 } from "../common"
 import { DmlEntity } from "../dml"
 import { CommonEvents } from "../event-bus"
-import { EmitEvents, InjectManager, MedusaContext } from "./decorators"
+import {
+  CacheDecorator,
+  EmitEvents,
+  InjectManager,
+  MedusaContext,
+} from "./decorators"
 import { Modules } from "./definition"
 import { moduleEventBuilderFactory } from "./event-builder-factory"
 import { buildModelsNameToLinkableKeysMap } from "./joiner-config-builder"
@@ -174,9 +179,23 @@ export function MedusaService<
     methodName: string,
     modelName: string
   ): void {
+    const cachedServices = [
+      "Region",
+      "Currency",
+      "SalesChannel",
+      "Store",
+      "Country",
+    ] as string[]
+
+    const canApplyCache = cachedServices.includes(modelName)
+
     const serviceRegistrationName = `${lowerCaseFirst(modelName)}Service`
 
-    const applyMethod = function (impl: Function, contextIndex) {
+    const applyMethod = function (
+      impl: Function,
+      contextIndex,
+      useCache = false
+    ) {
       klassPrototype[methodName] = impl
 
       const descriptorMockRef = {
@@ -185,6 +204,9 @@ export function MedusaService<
 
       // The order of the decorators is important, do not change it
       MedusaContext()(klassPrototype, methodName, contextIndex)
+      if (useCache && canApplyCache) {
+        CacheDecorator.decorate()(klassPrototype, methodName, descriptorMockRef)
+      }
       EmitEvents()(klassPrototype, methodName, descriptorMockRef)
       InjectManager()(klassPrototype, methodName, descriptorMockRef)
 
@@ -210,7 +232,7 @@ export function MedusaService<
           return await this.baseRepository_.serialize<T>(models)
         }
 
-        applyMethod(methodImplementation, 2)
+        applyMethod(methodImplementation, 2, true)
 
         break
       case "create":
@@ -278,7 +300,7 @@ export function MedusaService<
           return await this.baseRepository_.serialize<T[]>(models)
         }
 
-        applyMethod(methodImplementation, 2)
+        applyMethod(methodImplementation, 2, true)
 
         break
       case "listAndCount":
@@ -295,7 +317,7 @@ export function MedusaService<
           return [await this.baseRepository_.serialize<T[]>(models), count]
         }
 
-        applyMethod(methodImplementation, 2)
+        applyMethod(methodImplementation, 2, true)
 
         break
       case "delete":
