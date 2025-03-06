@@ -59,24 +59,3 @@ const CacheDecorator = {
 global.CacheDecorator ??= CacheDecorator
 const cacheDecoratorToExport = global.CacheDecorator
 export { cacheDecoratorToExport as CacheDecorator }
-
-
-key | value
-input_1 | data
-tag_1 | input_1
-tag_2 | input_1
-input_2 | data
-tag_3 | input_2
-tag_4 | input_2, input_1
-
-
-create something
-tag_4 -> input_1, input_2
-invalidate input_1, input_2
-
-
-
-
-
-
-
