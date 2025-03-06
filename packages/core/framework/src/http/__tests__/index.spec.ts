@@ -36,6 +36,22 @@ describe("RoutesLoader", function () {
       request = request_
     })
 
+    it("should be handled by the error handler when a route handler fails", async function () {
+      const res = await request("GET", "/admin/fail", {
+        adminSession: {
+          jwt: {
+            userId: "admin_user",
+          },
+        },
+      })
+
+      expect(res.status).toBe(500)
+      console.log(res)
+      expect(res.text).toBe(
+        '{"code":"unknown_error","type":"unknown_error","message":"An unknown error occurred."}'
+      )
+    })
+
     it("should return a status 200 on GET admin/order/:id", async function () {
       const res = await request("GET", "/admin/orders/1000", {
         adminSession: {
