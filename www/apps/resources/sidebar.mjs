@@ -128,7 +128,7 @@ export const sidebar = sidebarAttachHrefCommonOptions([
           {
             type: "link",
             title: "Medusa Cloud",
-            path: "https://medusajs.com/contact",
+            path: "https://medusajs.com/pricing",
           },
           {
             type: "separator",

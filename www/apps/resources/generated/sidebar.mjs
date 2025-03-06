@@ -18285,7 +18285,7 @@ export const generatedSidebar = [
             "isPathHref": true,
             "type": "link",
             "title": "Medusa Cloud",
-            "path": "https://medusajs.com/contact",
+            "path": "https://medusajs.com/pricing",
             "children": []
           },
           {
