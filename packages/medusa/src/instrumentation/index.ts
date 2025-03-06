@@ -5,7 +5,7 @@ import {
   MedusaResponse,
   Query,
 } from "@medusajs/framework"
-import { ApiRoutesLoader } from "@medusajs/framework/http"
+import { ApiLoader } from "@medusajs/framework/http"
 import { Tracer } from "@medusajs/framework/telemetry"
 import type { SpanExporter } from "@opentelemetry/sdk-trace-node"
 import type { NodeSDKConfiguration } from "@opentelemetry/sdk-node"
@@ -66,7 +66,7 @@ export function instrumentHttpLayer() {
    * Instrumenting the route handler to report traces to
    * OpenTelemetry
    */
-  ApiRoutesLoader.traceRoute = (handler) => {
+  ApiLoader.traceRoute = (handler) => {
     return async (req, res) => {
       if (shouldExcludeResource(req.originalUrl)) {
         return await handler(req, res)
@@ -95,7 +95,7 @@ export function instrumentHttpLayer() {
    * Instrumenting the middleware handler to report traces to
    * OpenTelemetry
    */
-  ApiRoutesLoader.traceMiddleware = (handler) => {
+  ApiLoader.traceMiddleware = (handler) => {
     return async (
       req: MedusaRequest<any>,
       res: MedusaResponse,
@@ -110,26 +110,18 @@ export function instrumentHttpLayer() {
       }`
 
       await HTTPTracer.trace(traceName, async (span) => {
-        return new Promise<void>((resolve, reject) => {
-          const _next = (error?: any) => {
-            if (error) {
-              span.setStatus({
-                code: SpanStatusCode.ERROR,
-                message: error.message || "Failed",
-              })
-              span.end()
-              reject(error)
-            } else {
-              span.end()
-              resolve()
-            }
-          }
-
-          handler(req, res, _next)
-        })
+        try {
+          await handler(req, res, next)
+        } catch (error) {
+          span.setStatus({
+            code: SpanStatusCode.ERROR,
+            message: error.message || "Failed",
+          })
+          throw error
+        } finally {
+          span.end()
+        }
       })
-        .catch(next)
-        .then(next)
     }
   }
 }

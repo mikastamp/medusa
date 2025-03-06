@@ -32,10 +32,6 @@ export const jsSdk = [
     "path": "https://docs.medusajs.com/resources/references/js-sdk/admin/draftOrder"
   },
   {
-    "title": "draftOrder",
-    "path": "/references/js-sdk/admin/draftOrder"
-  },
-  {
     "title": "exchange",
     "path": "https://docs.medusajs.com/resources/references/js-sdk/admin/exchange"
   },

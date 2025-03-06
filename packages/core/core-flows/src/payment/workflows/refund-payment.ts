@@ -57,7 +57,10 @@ export type ValidateRefundStepInput = {
 export const validateRefundStep = createStep(
   "validate-refund-step",
   async function ({ order, payment, amount }: ValidateRefundStepInput) {
-    const pendingDifference = order.summary?.pending_difference!
+    const pendingDifference =
+      order.summary?.raw_pending_difference! ??
+      order.summary?.pending_difference! ??
+      0
 
     if (MathBN.gte(pendingDifference, 0)) {
       throw new MedusaError(

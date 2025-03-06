@@ -212,31 +212,4 @@ export const sidebar = sidebarAttachHrefCommonOptions([
     title: "References",
     children: referencesSidebar,
   },
-  {
-    type: "category",
-    title: "Other",
-    children: [
-      {
-        type: "sub-category",
-        title: "Contribution Guidelines",
-        children: [
-          {
-            type: "link",
-            path: "/contribution-guidelines/docs",
-            title: "Docs",
-          },
-          {
-            type: "link",
-            path: "/contribution-guidelines/admin-translations",
-            title: "Admin Translations",
-          },
-        ],
-      },
-      {
-        type: "link",
-        path: "/usage",
-        title: "Usage",
-      },
-    ],
-  },
 ])
