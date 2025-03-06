@@ -1,7 +1,9 @@
 export const generatedSidebar = [
   {
+    "loaded": true,
+    "isPathHref": true,
     "type": "category",
-    "title": "1. Introduction",
+    "title": "1. Get Started",
     "children": [
       {
         "loaded": true,
@@ -9,38 +11,35 @@ export const generatedSidebar = [
         "type": "link",
         "path": "/learn",
         "title": "Introduction",
-        "children": [
-          {
-            "loaded": true,
-            "isPathHref": true,
-            "type": "link",
-            "path": "/learn/installation",
-            "title": "Installation",
-            "children": [],
-            "chapterTitle": "1.1. Installation"
-          },
-          {
-            "loaded": true,
-            "isPathHref": true,
-            "type": "link",
-            "title": "Architecture",
-            "path": "/learn/introduction/architecture",
-            "children": [],
-            "chapterTitle": "1.2. Architecture"
-          }
-        ],
-        "childrenSameLevel": true,
-        "chapterTitle": "1. Introduction"
+        "children": [],
+        "chapterTitle": "1.1. Introduction"
+      },
+      {
+        "loaded": true,
+        "isPathHref": true,
+        "type": "link",
+        "path": "/learn/installation",
+        "title": "Installation",
+        "children": [],
+        "chapterTitle": "1.2. Installation"
+      },
+      {
+        "loaded": true,
+        "isPathHref": true,
+        "type": "link",
+        "title": "Architecture",
+        "path": "/learn/introduction/architecture",
+        "children": [],
+        "chapterTitle": "1.3. Architecture"
       }
     ],
-    "loaded": true,
-    "initialOpen": false
+    "chapterTitle": "1. Get Started"
   },
   {
     "loaded": true,
     "isPathHref": true,
     "type": "category",
-    "title": "2. Customize",
+    "title": "2. Customization Tutorial",
     "children": [
       {
         "loaded": true,
@@ -200,13 +199,13 @@ export const generatedSidebar = [
         "chapterTitle": "2.6. Next Steps"
       }
     ],
-    "chapterTitle": "2. Customize"
+    "chapterTitle": "2. Customization Tutorial"
   },
   {
     "loaded": true,
     "isPathHref": true,
     "type": "category",
-    "title": "3. Fundamentals",
+    "title": "3. Framework",
     "children": [
       {
         "loaded": true,
@@ -777,70 +776,6 @@ export const generatedSidebar = [
         "loaded": true,
         "isPathHref": true,
         "type": "link",
-        "path": "/learn/fundamentals/admin",
-        "title": "Admin Development",
-        "children": [
-          {
-            "loaded": true,
-            "isPathHref": true,
-            "type": "link",
-            "path": "/learn/fundamentals/admin/widgets",
-            "title": "Admin Widgets",
-            "children": [],
-            "chapterTitle": "3.9.1. Admin Widgets"
-          },
-          {
-            "loaded": true,
-            "isPathHref": true,
-            "type": "link",
-            "path": "/learn/fundamentals/admin/ui-routes",
-            "title": "Admin UI Routes",
-            "children": [],
-            "chapterTitle": "3.9.2. Admin UI Routes"
-          },
-          {
-            "loaded": true,
-            "isPathHref": true,
-            "type": "link",
-            "path": "/learn/fundamentals/admin/environment-variables",
-            "title": "Environment Variables",
-            "children": [],
-            "chapterTitle": "3.9.3. Environment Variables"
-          },
-          {
-            "loaded": true,
-            "isPathHref": true,
-            "type": "link",
-            "path": "/learn/fundamentals/admin/routing",
-            "title": "Routing Customizations",
-            "children": [],
-            "chapterTitle": "3.9.4. Routing Customizations"
-          },
-          {
-            "loaded": true,
-            "isPathHref": true,
-            "type": "link",
-            "path": "/learn/fundamentals/admin/constraints",
-            "title": "Constraints",
-            "children": [],
-            "chapterTitle": "3.9.5. Constraints"
-          },
-          {
-            "loaded": true,
-            "isPathHref": true,
-            "type": "link",
-            "path": "/learn/fundamentals/admin/tips",
-            "title": "Tips",
-            "children": [],
-            "chapterTitle": "3.9.6. Tips"
-          }
-        ],
-        "chapterTitle": "3.9. Admin Development"
-      },
-      {
-        "loaded": true,
-        "isPathHref": true,
-        "type": "link",
         "path": "/learn/fundamentals/plugins",
         "title": "Plugins",
         "children": [
@@ -851,10 +786,10 @@ export const generatedSidebar = [
             "path": "/learn/fundamentals/plugins/create",
             "title": "Create Plugin",
             "children": [],
-            "chapterTitle": "3.10.1. Create Plugin"
+            "chapterTitle": "3.9.1. Create Plugin"
           }
         ],
-        "chapterTitle": "3.10. Plugins"
+        "chapterTitle": "3.9. Plugins"
       },
       {
         "loaded": true,
@@ -870,26 +805,89 @@ export const generatedSidebar = [
             "path": "/learn/fundamentals/custom-cli-scripts/seed-data",
             "title": "Seed Data",
             "children": [],
-            "chapterTitle": "3.11.1. Seed Data"
+            "chapterTitle": "3.10.1. Seed Data"
           }
         ],
-        "chapterTitle": "3.11. Custom CLI Scripts"
+        "chapterTitle": "3.10. Custom CLI Scripts"
+      }
+    ],
+    "chapterTitle": "3. Framework"
+  },
+  {
+    "loaded": true,
+    "isPathHref": true,
+    "type": "category",
+    "title": "4. Admin Development",
+    "children": [
+      {
+        "loaded": true,
+        "isPathHref": true,
+        "type": "link",
+        "path": "/learn/fundamentals/admin",
+        "title": "Overview",
+        "children": [],
+        "chapterTitle": "4.1. Overview"
       },
       {
         "loaded": true,
         "isPathHref": true,
         "type": "link",
-        "title": "Environment Variables",
-        "path": "/learn/fundamentals/environment-variables",
+        "path": "/learn/fundamentals/admin/widgets",
+        "title": "Admin Widgets",
         "children": [],
-        "chapterTitle": "3.12. Environment Variables"
+        "chapterTitle": "4.2. Admin Widgets"
+      },
+      {
+        "loaded": true,
+        "isPathHref": true,
+        "type": "link",
+        "path": "/learn/fundamentals/admin/ui-routes",
+        "title": "Admin UI Routes",
+        "children": [],
+        "chapterTitle": "4.3. Admin UI Routes"
+      },
+      {
+        "loaded": true,
+        "isPathHref": true,
+        "type": "link",
+        "path": "/learn/fundamentals/admin/environment-variables",
+        "title": "Environment Variables",
+        "children": [],
+        "chapterTitle": "4.4. Environment Variables"
+      },
+      {
+        "loaded": true,
+        "isPathHref": true,
+        "type": "link",
+        "path": "/learn/fundamentals/admin/routing",
+        "title": "Routing Customizations",
+        "children": [],
+        "chapterTitle": "4.5. Routing Customizations"
+      },
+      {
+        "loaded": true,
+        "isPathHref": true,
+        "type": "link",
+        "path": "/learn/fundamentals/admin/constraints",
+        "title": "Constraints",
+        "children": [],
+        "chapterTitle": "4.6. Constraints"
+      },
+      {
+        "loaded": true,
+        "isPathHref": true,
+        "type": "link",
+        "path": "/learn/fundamentals/admin/tips",
+        "title": "Tips",
+        "children": [],
+        "chapterTitle": "4.7. Tips"
       }
     ],
-    "chapterTitle": "3. Fundamentals"
+    "chapterTitle": "4. Admin Development"
   },
   {
     "type": "category",
-    "title": "4. Storefront",
+    "title": "5. Storefront",
     "children": [
       {
         "loaded": true,
@@ -897,7 +895,7 @@ export const generatedSidebar = [
         "type": "link",
         "path": "/learn/storefront-development",
         "title": "Storefront Development",
-        "chapterTitle": "4. Storefront",
+        "chapterTitle": "5. Storefront",
         "children": [],
         "childrenSameLevel": true
       }
@@ -909,8 +907,17 @@ export const generatedSidebar = [
     "loaded": true,
     "isPathHref": true,
     "type": "category",
-    "title": "5. Conventions",
+    "title": "6. Configurations",
     "children": [
+      {
+        "loaded": true,
+        "isPathHref": true,
+        "type": "link",
+        "title": "Environment Variables",
+        "path": "/learn/fundamentals/environment-variables",
+        "children": [],
+        "chapterTitle": "6.1. Environment Variables"
+      },
       {
         "loaded": true,
         "isPathHref": true,
@@ -918,107 +925,97 @@ export const generatedSidebar = [
         "title": "Type Aliases",
         "path": "/learn/conventions/ts-aliases",
         "children": [],
-        "chapterTitle": "5.1. Type Aliases"
+        "chapterTitle": "6.2. Type Aliases"
       }
     ],
-    "chapterTitle": "5. Conventions"
+    "chapterTitle": "6. Configurations"
   },
   {
+    "loaded": true,
+    "isPathHref": true,
     "type": "category",
-    "title": "6. Debugging & Testing",
+    "title": "7. Debugging & Testing",
     "children": [
       {
         "loaded": true,
         "isPathHref": true,
         "type": "link",
-        "path": "/learn/debugging-and-testing",
-        "title": "Debugging and Testing",
-        "chapterTitle": "6. Debugging & Testing",
+        "path": "/learn/debugging-and-testing/testing-tools",
+        "title": "Testing Tools",
+        "children": [],
+        "chapterTitle": "7.1. Testing Tools"
+      },
+      {
+        "loaded": true,
+        "isPathHref": true,
+        "type": "link",
+        "path": "/learn/debugging-and-testing/testing-tools/integration-tests",
+        "title": "Integration Tests",
         "children": [
           {
             "loaded": true,
             "isPathHref": true,
             "type": "link",
-            "path": "/learn/debugging-and-testing/testing-tools",
-            "title": "Testing Tools",
+            "path": "/learn/debugging-and-testing/testing-tools/integration-tests/api-routes",
+            "title": "Example: API Routes Tests",
             "children": [],
-            "chapterTitle": "6.1. Testing Tools"
+            "chapterTitle": "7.2.1. Example: API Routes Tests"
           },
           {
             "loaded": true,
             "isPathHref": true,
             "type": "link",
-            "path": "/learn/debugging-and-testing/testing-tools/integration-tests",
-            "title": "Integration Tests",
-            "children": [
-              {
-                "loaded": true,
-                "isPathHref": true,
-                "type": "link",
-                "path": "/learn/debugging-and-testing/testing-tools/integration-tests/api-routes",
-                "title": "Example: API Routes Tests",
-                "children": [],
-                "chapterTitle": "6.2.1. Example: API Routes Tests"
-              },
-              {
-                "loaded": true,
-                "isPathHref": true,
-                "type": "link",
-                "path": "/learn/debugging-and-testing/testing-tools/integration-tests/workflows",
-                "title": "Example: Workflows Tests",
-                "children": [],
-                "chapterTitle": "6.2.2. Example: Workflows Tests"
-              }
-            ],
-            "chapterTitle": "6.2. Integration Tests"
-          },
-          {
-            "loaded": true,
-            "isPathHref": true,
-            "type": "link",
-            "path": "/learn/debugging-and-testing/testing-tools/modules-tests",
-            "title": "Modules Tests",
-            "children": [
-              {
-                "loaded": true,
-                "isPathHref": true,
-                "type": "link",
-                "path": "/learn/debugging-and-testing/testing-tools/modules-tests/module-example",
-                "title": "Example",
-                "children": [],
-                "chapterTitle": "6.3.1. Example"
-              }
-            ],
-            "chapterTitle": "6.3. Modules Tests"
-          },
-          {
-            "loaded": true,
-            "isPathHref": true,
-            "type": "link",
-            "path": "/learn/debugging-and-testing/instrumentation",
-            "title": "Instrumentation",
+            "path": "/learn/debugging-and-testing/testing-tools/integration-tests/workflows",
+            "title": "Example: Workflows Tests",
             "children": [],
-            "chapterTitle": "6.4. Instrumentation"
-          },
-          {
-            "loaded": true,
-            "isPathHref": true,
-            "type": "link",
-            "path": "/learn/debugging-and-testing/logging",
-            "title": "Logging",
-            "children": [],
-            "chapterTitle": "6.5. Logging"
+            "chapterTitle": "7.2.2. Example: Workflows Tests"
           }
         ],
-        "childrenSameLevel": true
+        "chapterTitle": "7.2. Integration Tests"
+      },
+      {
+        "loaded": true,
+        "isPathHref": true,
+        "type": "link",
+        "path": "/learn/debugging-and-testing/testing-tools/modules-tests",
+        "title": "Modules Tests",
+        "children": [
+          {
+            "loaded": true,
+            "isPathHref": true,
+            "type": "link",
+            "path": "/learn/debugging-and-testing/testing-tools/modules-tests/module-example",
+            "title": "Example",
+            "children": [],
+            "chapterTitle": "7.3.1. Example"
+          }
+        ],
+        "chapterTitle": "7.3. Modules Tests"
+      },
+      {
+        "loaded": true,
+        "isPathHref": true,
+        "type": "link",
+        "path": "/learn/debugging-and-testing/instrumentation",
+        "title": "Instrumentation",
+        "children": [],
+        "chapterTitle": "7.4. Instrumentation"
+      },
+      {
+        "loaded": true,
+        "isPathHref": true,
+        "type": "link",
+        "path": "/learn/debugging-and-testing/logging",
+        "title": "Logging",
+        "children": [],
+        "chapterTitle": "7.5. Logging"
       }
     ],
-    "loaded": true,
-    "initialOpen": false
+    "chapterTitle": "7. Debugging & Testing"
   },
   {
     "type": "category",
-    "title": "7. Production",
+    "title": "8. Production",
     "children": [
       {
         "loaded": true,
@@ -1026,7 +1023,7 @@ export const generatedSidebar = [
         "type": "link",
         "path": "/learn/build",
         "title": "Build",
-        "chapterTitle": "7. Production",
+        "chapterTitle": "8. Production",
         "children": [
           {
             "loaded": true,
@@ -1035,7 +1032,7 @@ export const generatedSidebar = [
             "path": "/learn/deployment",
             "title": "Deployment Overview",
             "children": [],
-            "chapterTitle": "7.1. Deployment Overview"
+            "chapterTitle": "8.1. Deployment Overview"
           },
           {
             "loaded": true,
@@ -1044,7 +1041,7 @@ export const generatedSidebar = [
             "path": "/learn/deployment/general",
             "title": "General Deployment",
             "children": [],
-            "chapterTitle": "7.2. General Deployment"
+            "chapterTitle": "8.2. General Deployment"
           }
         ],
         "childrenSameLevel": true
@@ -1054,39 +1051,75 @@ export const generatedSidebar = [
     "initialOpen": false
   },
   {
+    "loaded": true,
+    "isPathHref": true,
     "type": "category",
-    "title": "8. Updates",
+    "title": "9. Upgrade",
     "children": [
       {
         "loaded": true,
         "isPathHref": true,
         "type": "link",
         "path": "/learn/update",
-        "title": "Updating Medusa",
-        "chapterTitle": "8. Updates",
+        "title": "Update Medusa",
         "children": [],
-        "childrenSameLevel": true
+        "chapterTitle": "9.1. Update Medusa"
+      },
+      {
+        "loaded": true,
+        "isPathHref": true,
+        "type": "external",
+        "path": "https://github.com/medusajs/medusa/releases",
+        "title": "Release Notes",
+        "children": [],
+        "chapterTitle": "9.2. Release Notes"
       }
     ],
-    "loaded": true,
-    "initialOpen": false
+    "chapterTitle": "9. Upgrade"
   },
   {
+    "loaded": true,
+    "isPathHref": true,
     "type": "category",
-    "title": "9. More Resources",
+    "title": "10. Resources",
     "children": [
       {
         "loaded": true,
         "isPathHref": true,
+        "type": "sub-category",
+        "title": "Contribution Guidelines",
+        "children": [
+          {
+            "loaded": true,
+            "isPathHref": true,
+            "type": "link",
+            "path": "/resources/contribution-guidelines/docs",
+            "title": "Docs",
+            "children": [],
+            "chapterTitle": "10.1.1. Docs"
+          },
+          {
+            "loaded": true,
+            "isPathHref": true,
+            "type": "link",
+            "path": "/resources//contribution-guidelines/admin-translations",
+            "title": "Admin Translations",
+            "children": [],
+            "chapterTitle": "10.1.2. Admin Translations"
+          }
+        ],
+        "chapterTitle": "10.1. Contribution Guidelines"
+      },
+      {
+        "loaded": true,
+        "isPathHref": true,
         "type": "link",
-        "path": "/learn/more-resources",
-        "title": "More Resources",
+        "path": "/resources/usage",
+        "title": "Usage",
         "children": [],
-        "childrenSameLevel": true,
-        "chapterTitle": "9. More Resources"
+        "chapterTitle": "10.2. Usage"
       }
     ],
-    "loaded": true,
-    "initialOpen": false
+    "chapterTitle": "10. Resources"
   }
 ]
