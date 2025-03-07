@@ -373,6 +373,7 @@ ${serviceBObj.module}: {
             methodSuffix: serviceAMethodSuffix,
           },
           deleteCascade: serviceAObj.deleteCascade,
+          isList: serviceAObj.isList,
         },
         {
           serviceName: serviceBObj.module,
@@ -384,6 +385,7 @@ ${serviceBObj.module}: {
             methodSuffix: serviceBMethodSuffix,
           },
           deleteCascade: serviceBObj.deleteCascade,
+          isList: serviceAObj.isList,
         },
       ],
       extends: [
