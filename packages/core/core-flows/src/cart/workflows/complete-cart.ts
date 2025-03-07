@@ -23,7 +23,7 @@ import {
   useQueryGraphStep,
   useRemoteQueryStep,
 } from "../../common"
-import { createOrderWorkflow } from "../../order/workflows/create-order"
+import { createOrdersStep } from "../../order/steps/create-orders"
 import { authorizePaymentSessionStep } from "../../payment/steps/authorize-payment-session"
 import { registerUsageStep } from "../../promotion/steps/register-usage"
 import {
@@ -248,8 +248,10 @@ export const completeCartWorkflow = createWorkflow(
         }
       })
 
-      const createdOrder = createOrderWorkflow.runAsStep({
-        input: cartToOrder,
+      const createdOrders = createOrdersStep([cartToOrder])
+
+      const createdOrder = transform({ createdOrders }, ({ createdOrders }) => {
+        return createdOrders?.[0] ?? undefined
       })
 
       const reservationItemsData = transform(
