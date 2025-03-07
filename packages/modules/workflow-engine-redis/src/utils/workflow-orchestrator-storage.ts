@@ -279,38 +279,6 @@ export class RedisDistributedTransactionStorage
 
     const stringifiedData = JSON.stringify(data)
 
-    /**
-     * In case many execution can succeed simultaneously, we need to ensure that the latest
-     * execution does continue if a previous execution is considered finished
-     */
-    const currentFlow = data.flow
-    const { flow: latestUpdatedFlow } =
-      (await this.get(key)) ?? ({ flow: {} } as { flow: TransactionFlow })
-
-    const currentFlowLastInvokingStepIndex = Object.values(
-      currentFlow.steps
-    ).findIndex((step) => {
-      return [
-        TransactionStepState.INVOKING,
-        TransactionStepState.NOT_STARTED,
-      ].includes(step.invoke?.state)
-    })
-
-    const latestUpdatedFlowLastInvokingStepIndex = Object.values(
-      (latestUpdatedFlow.steps as Record<string, TransactionStep>) ?? {}
-    ).findIndex((step) => {
-      return [
-        TransactionStepState.INVOKING,
-        TransactionStepState.NOT_STARTED,
-      ].includes(step.invoke?.state)
-    })
-
-    if (
-      currentFlowLastInvokingStepIndex < latestUpdatedFlowLastInvokingStepIndex
-    ) {
-      throw new SkipExecutionError("already finished by another execution")
-    }
-
     if (!hasFinished) {
       if (ttl) {
         await this.redisClient.set(key, stringifiedData, "EX", ttl)
@@ -566,12 +534,11 @@ export class RedisDistributedTransactionStorage
       currentFlowLastInvokingStepIndex !== isLatestExecutionFinishedIndex
 
     const compensateShouldBeSkipped =
-      latestUpdatedFlowLastCompensatingStepIndex ===
+      (latestUpdatedFlowLastCompensatingStepIndex ===
         isLatestExecutionFinishedIndex ||
-      (currentFlowLastCompensatingStepIndex <
-        latestUpdatedFlowLastCompensatingStepIndex &&
-        latestUpdatedFlowLastCompensatingStepIndex !==
-          isLatestExecutionFinishedIndex)
+        currentFlowLastCompensatingStepIndex <
+          latestUpdatedFlowLastCompensatingStepIndex) &&
+      currentFlowLastCompensatingStepIndex !== isLatestExecutionFinishedIndex
 
     if (
       (data.flow.state !== TransactionState.COMPENSATING &&
@@ -581,11 +548,6 @@ export class RedisDistributedTransactionStorage
       (latestUpdatedFlow.state === TransactionState.COMPENSATING &&
         currentFlow.state !== latestUpdatedFlow.state)
     ) {
-      /**
-       * If the latest execution is ahead of the current execution in terms of completion then we
-       * should skip to prevent multiple completion/execution of the same step. The same goes for
-       * compensating steps but in the opposite direction.
-       */
       throw new SkipExecutionError("already finished by another execution")
     }
   }

@@ -189,8 +189,6 @@ export class WorkflowOrchestratorService {
     options?: WorkflowOrchestratorRunOptions<T>,
     @MedusaContext() sharedContext: Context = {}
   ) {
-    console.log("RUN", workflowIdOrWorkflow)
-
     const {
       input,
       transactionId,
@@ -228,7 +226,6 @@ export class WorkflowOrchestratorService {
     const originalOnFinishHandler = events.onFinish!
     delete events.onFinish
 
-    console.log(" Before original RUN")
     const ret = await exportedWorkflow.run({
       input,
       throwOnError: false,
