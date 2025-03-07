@@ -135,7 +135,7 @@ export const OrderSummarySection = ({ order }: OrderSummarySectionProps) => {
 
   const showPayment =
     unpaidPaymentCollection && pendingDifference > 0 && isAmountSignificant
-  const showRefund = pendingDifference < 0 && isAmountSignificant
+  const showBalanceSettlement = pendingDifference < 0 && isAmountSignificant
 
   const handleMarkAsPaid = async (
     paymentCollection: AdminPaymentCollection
@@ -184,7 +184,10 @@ export const OrderSummarySection = ({ order }: OrderSummarySectionProps) => {
       <CostBreakdown order={order} />
       <Total order={order} />
 
-      {(showAllocateButton || showReturns || showPayment || showRefund) && (
+      {(showAllocateButton ||
+        showReturns ||
+        showPayment ||
+        showBalanceSettlement) && (
         <div className="bg-ui-bg-subtle flex items-center justify-end gap-x-2 rounded-b-xl px-4 py-4">
           {showReturns &&
             (receivableReturns.length === 1 ? (
@@ -256,10 +259,10 @@ export const OrderSummarySection = ({ order }: OrderSummarySectionProps) => {
             </Button>
           )}
 
-          {showRefund && (
+          {showBalanceSettlement && (
             <Button size="small" variant="secondary" asChild>
-              <Link to={`/orders/${order.id}/refund`}>
-                {t("orders.payment.refundAmount", {
+              <Link to={`/orders/${order.id}/balance-settlement`}>
+                {t("orders.balanceSettlement.action", {
                   amount: getStylizedAmount(
                     pendingDifference * -1,
                     order?.currency_code

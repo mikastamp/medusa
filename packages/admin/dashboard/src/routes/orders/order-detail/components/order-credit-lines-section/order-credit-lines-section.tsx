@@ -93,6 +93,7 @@ const CreditLine = ({
           >
             <DisplayId id={creditLine.id} />
           </Text>
+
           <Text size="small" leading="compact">
             {format(new Date(creditLine.created_at), "dd MMM, yyyy, HH:mm:ss")}
           </Text>

@@ -3687,6 +3687,14 @@
             }
           }
         },
+        "balanceSettlement": {
+          "type": "object",
+          "properties": {
+            "action": {
+              "type": "string"
+            }
+          }
+        },
         "domain": {
           "type": "string"
         },

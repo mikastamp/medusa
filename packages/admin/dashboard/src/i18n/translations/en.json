@@ -995,6 +995,17 @@
       "debit": "Debit",
       "debitDescription": "Subtracts a negative sum from the order"
     },
+    "balanceSettlement": {
+      "title": "Balance settlement",
+      "action": "Settle balance: {{amount}}",
+      "settlementType": "Settlement type",
+      "settlementTypes": {
+        "paymentMethod": "Payment method",
+        "paymentMethodDescription": "Settle the balance by refunding to the payment method",
+        "creditLine": "Credit line",
+        "creditLineDescription": "Settle the balance by adding a credit line to the order"
+      }
+    },
     "domain": "Orders",
     "claim": "Claim",
     "exchange": "Exchange",

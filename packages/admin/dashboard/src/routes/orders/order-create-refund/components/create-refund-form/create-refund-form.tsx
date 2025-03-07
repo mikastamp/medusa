@@ -24,19 +24,14 @@ import { getPaymentsFromOrder } from "../../../order-detail/components/order-pay
 
 type CreateRefundFormProps = {
   order: HttpTypes.AdminOrder
-  refundReasons: HttpTypes.AdminRefundReason[]
 }
 
 const CreateRefundSchema = zod.object({
   amount: zod.number(),
-  refund_reason_id: zod.string().nullish(),
   note: zod.string().optional(),
 })
 
-export const CreateRefundForm = ({
-  order,
-  refundReasons,
-}: CreateRefundFormProps) => {
+export const CreateRefundForm = ({ order }: CreateRefundFormProps) => {
   const { t } = useTranslation()
   const { handleSuccess } = useRouteModal()
   const navigate = useNavigate()
@@ -73,7 +68,6 @@ export const CreateRefundForm = ({
     await mutateAsync(
       {
         amount: data.amount,
-        refund_reason_id: data.refund_reason_id,
         note: data.note,
       },
       {
@@ -196,30 +190,6 @@ export const CreateRefundForm = ({
                 )
               }}
             />
-
-            {/* TODO: Bring this back when we have a refund reason management UI */}
-            {/* <Form.Field
-              control={form.control}
-              name="refund_reason_id"
-              render={({ field }) => {
-                return (
-                  <Form.Item>
-                    <Form.Label>{t("fields.refundReason")}</Form.Label>
-
-                    <Form.Control>
-                      <Combobox
-                        {...field}
-                        options={refundReasons.map((pp) => ({
-                          label: upperCaseFirst(pp.label),
-                          value: pp.id,
-                        }))}
-                      />
-                    </Form.Control>
-                    <Form.ErrorMessage />
-                  </Form.Item>
-                )
-              }}
-            /> */}
 
             <Form.Field
               control={form.control}
