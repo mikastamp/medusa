@@ -67,10 +67,13 @@ export type SidebarSectionItems = {
   parentItem?: InteractiveSidebarItem
 }
 
+export type SidebarSortType = "none" | "alphabetize"
+
 export type RawSidebarItem = SidebarItem & {
   autogenerate_path?: string
   autogenerate_tags?: string
   autogenerate_as_ref?: boolean
+  sort_sidebar?: SidebarSortType
   custom_autogenerate?: string
   number?: string
 } & (

@@ -50,6 +50,7 @@ export const sidebar = sidebarAttachHrefCommonOptions([
     path: "/commerce-modules",
     title: "Commerce Modules",
     hideChildren: true,
+    sort_sidebar: "alphabetize",
     children: [
       ...apiKeySidebar,
       ...authSidebar,
@@ -76,6 +77,7 @@ export const sidebar = sidebarAttachHrefCommonOptions([
     path: "/architectural-modules",
     title: "Architectural Modules",
     isChildSidebar: true,
+    sort_sidebar: "alphabetize",
     children: architecturalModulesSidebar,
   },
   {
@@ -83,6 +85,7 @@ export const sidebar = sidebarAttachHrefCommonOptions([
     path: "/integrations",
     title: "Integrations",
     isChildSidebar: true,
+    sort_sidebar: "alphabetize",
     children: integrationsSidebar,
   },
   {
@@ -125,7 +128,7 @@ export const sidebar = sidebarAttachHrefCommonOptions([
           {
             type: "link",
             title: "Medusa Cloud",
-            path: "https://medusajs.com/contact",
+            path: "https://medusajs.com/pricing",
           },
           {
             type: "separator",

@@ -46,9 +46,80 @@ describe("RoutesLoader", function () {
       })
 
       expect(res.status).toBe(500)
-      console.log(res)
       expect(res.text).toBe(
         '{"code":"unknown_error","type":"unknown_error","message":"An unknown error occurred."}'
+      )
+    })
+
+    it("should not succeed on cors preflight admin request failing", async function () {
+      const res = await request("OPTIONS", "/admin/orders", {
+        headers: {
+          origin: "http://localhost:3000",
+          "access-control-request-method": "GET",
+        },
+        adminSession: {
+          jwt: {
+            userId: "admin_user",
+          },
+        },
+      })
+
+      expect(res.status).toBe(204)
+      expect(res.headers["access-control-allow-origin"]).not.toBeTruthy()
+    })
+
+    it("should not succeed on cors preflight store request failing", async function () {
+      const res = await request("OPTIONS", "/store/custom", {
+        headers: {
+          origin: "http://localhost:3000",
+          "access-control-request-method": "GET",
+        },
+        adminSession: {
+          jwt: {
+            userId: "admin_user",
+          },
+        },
+      })
+
+      expect(res.status).toBe(204)
+      expect(res.headers["access-control-allow-origin"]).not.toBeTruthy()
+    })
+
+    it("should succeed on cors preflight admin request", async function () {
+      const res = await request("OPTIONS", "/admin/orders", {
+        headers: {
+          origin: "http://localhost:7001",
+          "access-control-request-method": "GET",
+        },
+        adminSession: {
+          jwt: {
+            userId: "admin_user",
+          },
+        },
+      })
+
+      expect(res.status).toBe(204)
+      expect(res.headers["access-control-allow-origin"]).toBe(
+        "http://localhost:7001"
+      )
+    })
+
+    it("should succeed on cors preflight store request", async function () {
+      const res = await request("OPTIONS", "/store/custom", {
+        headers: {
+          origin: "http://localhost:8000",
+          "access-control-request-method": "GET",
+        },
+        adminSession: {
+          jwt: {
+            userId: "admin_user",
+          },
+        },
+      })
+
+      expect(res.status).toBe(204)
+      expect(res.headers["access-control-allow-origin"]).toBe(
+        "http://localhost:8000"
       )
     })
 
