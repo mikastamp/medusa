@@ -201,6 +201,18 @@ describe("Routes loader", () => {
           "shouldAppendAuthCors": false,
           "shouldAppendStoreCors": false,
         },
+        {
+          "absolutePath": "${BASE_DIR}/store/custom/route.ts",
+          "handler": [Function],
+          "isRoute": true,
+          "matcher": "/store/custom",
+          "method": "GET",
+          "optedOutOfAuth": false,
+          "relativePath": "/store/custom/route.ts",
+          "shouldAppendAdminCors": false,
+          "shouldAppendAuthCors": false,
+          "shouldAppendStoreCors": true,
+        },
       ]
     `)
   })
@@ -408,6 +420,18 @@ describe("Routes loader", () => {
           "shouldAppendAdminCors": false,
           "shouldAppendAuthCors": false,
           "shouldAppendStoreCors": false,
+        },
+        {
+          "absolutePath": "${BASE_DIR}/store/custom/route.ts",
+          "handler": [Function],
+          "isRoute": true,
+          "matcher": "/store/custom",
+          "method": "GET",
+          "optedOutOfAuth": false,
+          "relativePath": "/store/custom/route.ts",
+          "shouldAppendAdminCors": false,
+          "shouldAppendAuthCors": false,
+          "shouldAppendStoreCors": true,
         },
         {
           "absolutePath": "${BASE_DIR_2}/store/[customer_id]/orders/[order_id]/route.ts",
