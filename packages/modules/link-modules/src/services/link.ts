@@ -3,11 +3,12 @@ import {
   InjectManager,
   InjectTransactionManager,
   MedusaContext,
+  MikroOrmBaseRepository,
   ModulesSdkUtils,
 } from "@medusajs/framework/utils"
 
 type InjectedDependencies = {
-  linkRepository: any
+  linkRepository: MikroOrmBaseRepository
 }
 
 export default class LinkService<TEntity> {
@@ -28,6 +29,16 @@ export default class LinkService<TEntity> {
       config
     )
     return await this.linkRepository_.find(queryOptions, sharedContext)
+  }
+
+  @InjectManager("linkRepository_")
+  async count(
+    filters = {},
+    config: FindConfig<unknown> = {},
+    @MedusaContext() sharedContext: Context = {}
+  ): Promise<number> {
+    const queryOptions = ModulesSdkUtils.buildQuery<unknown>(filters, config)
+    return await this.linkRepository_.count(queryOptions, sharedContext)
   }
 
   @InjectManager("linkRepository_")

@@ -173,6 +173,10 @@ export class MikroOrmBaseRepository<const T extends object = object>
     throw new Error("Method not implemented.")
   }
 
+  count(options?: DAL.FindOptions<T>, context?: Context): Promise<number> {
+    throw new Error("Method not implemented.")
+  }
+
   findAndCount(
     options?: DAL.FindOptions<T>,
     context?: Context
@@ -255,6 +259,14 @@ export class MikroOrmBaseTreeRepository<
     transformOptions?: RepositoryTransformOptions,
     context?: Context
   ): Promise<InferRepositoryReturnType<T>[]> {
+    throw new Error("Method not implemented.")
+  }
+
+  count(
+    options?: DAL.FindOptions,
+    transformOptions?: RepositoryTransformOptions,
+    context?: Context
+  ): Promise<number> {
     throw new Error("Method not implemented.")
   }
 
@@ -485,6 +497,30 @@ export function mikroOrmBaseRepositoryFactory<const T extends object>(
         findOptions_.where as MikroFilterQuery<T>,
         findOptions_.options as MikroOptions<T>
       )) as InferRepositoryReturnType<T>[]
+    }
+
+    async count(
+      findOptions: DAL.FindOptions<T> = { where: {} } as DAL.FindOptions<T>,
+      context: Context = {}
+    ): Promise<number> {
+      const manager = this.getActiveManager<EntityManager>(context)
+
+      const findOptions_ = { ...findOptions }
+      findOptions_.options ??= {}
+
+      Object.assign(findOptions_.options, {
+        strategy: LoadStrategy.SELECT_IN,
+      })
+
+      MikroOrmBaseRepository.compensateRelationFieldsSelectionFromLoadStrategy({
+        findOptions: findOptions_,
+      })
+
+      return await manager.count(
+        this.entity,
+        findOptions_.where,
+        findOptions_.options as any // MikroOptions<T>
+      )
     }
 
     async findAndCount(

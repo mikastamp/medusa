@@ -10,6 +10,12 @@ export interface ILinkModule extends IModuleService {
     sharedContext?: Context
   ): Promise<unknown[]>
 
+  count(
+    filters?: Record<string, unknown>,
+    config?: FindConfig<unknown>,
+    sharedContext?: Context
+  ): Promise<number>
+
   listAndCount(
     filters?: Record<string, unknown>,
     config?: FindConfig<unknown>,

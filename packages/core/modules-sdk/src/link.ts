@@ -5,7 +5,13 @@ import {
   ModuleJoinerRelationship,
 } from "@medusajs/types"
 
-import { isObject, Modules, promiseAll, toPascalCase } from "@medusajs/utils"
+import {
+  isObject,
+  MedusaError,
+  Modules,
+  promiseAll,
+  toPascalCase,
+} from "@medusajs/utils"
 import { MedusaModule } from "./medusa-module"
 import { convertRecordsToLinkDefinition } from "./utils/convert-data-to-link-definition"
 import { linkingErrorMessage } from "./utils/linking-error"
@@ -380,17 +386,79 @@ export class Link {
     const allLinks = Array.isArray(link) ? link : [link]
     const serviceLinks = new Map<
       string,
-      [string | string[], string, Record<string, unknown>?][]
+      {
+        linksToCreate: [string | string[], string, Record<string, unknown>?][]
+        linksToValidateForUniqueness: { [key: string]: string }[]
+      }
     >()
 
     for (const link of allLinks) {
       const service = this.getLinkModuleOrThrow(link)
+      const relationships = service.__joinerConfig.relationships
       const { moduleA, moduleB, moduleBKey, primaryKeys } =
         this.getLinkDataConfig(link)
 
       if (!serviceLinks.has(service.__definition.key)) {
-        serviceLinks.set(service.__definition.key, [])
+        serviceLinks.set(service.__definition.key, {
+          /**
+           * Tuple of foreign key and the primary keys that must be
+           * persisted to the pivot table for representing the
+           * link
+           */
+          linksToCreate: [],
+
+          /**
+           * An array of objects to validate for uniqueness before persisting
+           * data to the pivot table. When a link uses "isList: false", we
+           * have to limit a relationship with this entity to be a one-to-one
+           * or one-to-many
+           */
+          linksToValidateForUniqueness: [],
+        })
       }
+
+      relationships?.forEach((relationship) => {
+        /**
+         * When isList is set on false on the relationship, then it means
+         * we have a one-to-one or many-to-one relationship with the
+         * other side and we have limit duplicate entries from other
+         * entity. For example:
+         *
+         * - A brand has a many to one relationship with a product.
+         * - A product can have only one brand. Aka (brand.isList = false)
+         * - A brand can have multiple products. Aka (products.isList = true)
+         *
+         * A result of this, we have to ensure that a product_id can only appear
+         * once in the pivot table that is used for tracking "brand<>products"
+         * relationship.
+         */
+        if (relationship.isList === false) {
+          const otherSide = relationships.find(
+            (other) => other.foreignKey !== relationship.foreignKey
+          )
+          if (!otherSide) {
+            return
+          }
+
+          const linksToValidateForUniqueness = serviceLinks.get(
+            service.__definition.key
+          )!.linksToValidateForUniqueness!
+
+          if (moduleBKey === otherSide.foreignKey) {
+            linksToValidateForUniqueness.push({
+              [otherSide.foreignKey]: link[moduleB][moduleBKey],
+            })
+          } else {
+            primaryKeys.forEach((pk) => {
+              if (pk === otherSide.foreignKey) {
+                linksToValidateForUniqueness.push({
+                  [otherSide.foreignKey]: link[moduleA][pk],
+                })
+              }
+            })
+          }
+        }
+      })
 
       const pkValue =
         primaryKeys.length === 1
@@ -403,15 +471,30 @@ export class Link {
         fields.push(link.data)
       }
 
-      serviceLinks.get(service.__definition.key)?.push(fields as any)
+      serviceLinks
+        .get(service.__definition.key)
+        ?.linksToCreate.push(fields as any)
+    }
+
+    for (const [serviceName, data] of serviceLinks) {
+      if (data.linksToValidateForUniqueness.length) {
+        const service = this.modulesMap.get(serviceName)!
+        const existingLinks = await service.count({
+          $or: data.linksToValidateForUniqueness,
+        })
+        if (existingLinks > 0) {
+          throw new MedusaError(
+            MedusaError.Types.INVALID_DATA,
+            "Uniqueness constraint failed"
+          )
+        }
+      }
     }
 
     const promises: Promise<unknown[]>[] = []
-
-    for (const [serviceName, links] of serviceLinks) {
+    for (const [serviceName, data] of serviceLinks) {
       const service = this.modulesMap.get(serviceName)!
-
-      promises.push(service.create(links))
+      promises.push(service.create(data.linksToCreate))
     }
 
     return (await promiseAll(promises)).flat()
