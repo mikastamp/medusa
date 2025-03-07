@@ -472,9 +472,6 @@ export class TransactionOrchestrator extends EventEmitter {
       )
     }
 
-    const flow = transaction.getFlow()
-    const options = TransactionOrchestrator.getWorkflowOptions(flow.modelId)
-
     if (!hasStepTimedOut) {
       step.changeStatus(TransactionStepStatus.OK)
     }
@@ -485,8 +482,15 @@ export class TransactionOrchestrator extends EventEmitter {
       step.changeState(TransactionStepState.DONE)
     }
 
-    if (step.definition.async || options?.storeExecution) {
+    let shouldEmit = true
+    try {
       await transaction.saveCheckpoint()
+    } catch (error) {
+      if (SkipExecutionError.isSkipExecutionError(error)) {
+        shouldEmit = false
+      } else {
+        throw error
+      }
     }
 
     const cleaningUp: Promise<unknown>[] = []
@@ -499,10 +503,12 @@ export class TransactionOrchestrator extends EventEmitter {
 
     await promiseAll(cleaningUp)
 
-    const eventName = step.isCompensating()
-      ? DistributedTransactionEvent.COMPENSATE_STEP_SUCCESS
-      : DistributedTransactionEvent.STEP_SUCCESS
-    transaction.emit(eventName, { step, transaction })
+    if (shouldEmit) {
+      const eventName = step.isCompensating()
+        ? DistributedTransactionEvent.COMPENSATE_STEP_SUCCESS
+        : DistributedTransactionEvent.STEP_SUCCESS
+      transaction.emit(eventName, { step, transaction })
+    }
   }
 
   private static async skipStep(
@@ -605,7 +611,6 @@ export class TransactionOrchestrator extends EventEmitter {
     }
 
     const flow = transaction.getFlow()
-    const options = TransactionOrchestrator.getWorkflowOptions(flow.modelId)
 
     const cleaningUp: Promise<unknown>[] = []
 
@@ -654,8 +659,15 @@ export class TransactionOrchestrator extends EventEmitter {
       }
     }
 
-    if (step.definition.async || options?.storeExecution) {
+    let shouldEmit = true
+    try {
       await transaction.saveCheckpoint()
+    } catch (error) {
+      if (SkipExecutionError.isSkipExecutionError(error)) {
+        shouldEmit = false
+      } else {
+        throw error
+      }
     }
 
     if (step.hasRetryScheduled()) {
@@ -664,10 +676,12 @@ export class TransactionOrchestrator extends EventEmitter {
 
     await promiseAll(cleaningUp)
 
-    const eventName = step.isCompensating()
-      ? DistributedTransactionEvent.COMPENSATE_STEP_FAILURE
-      : DistributedTransactionEvent.STEP_FAILURE
-    transaction.emit(eventName, { step, transaction })
+    if (shouldEmit) {
+      const eventName = step.isCompensating()
+        ? DistributedTransactionEvent.COMPENSATE_STEP_FAILURE
+        : DistributedTransactionEvent.STEP_FAILURE
+      transaction.emit(eventName, { step, transaction })
+    }
   }
 
   private async executeNext(
@@ -696,17 +710,27 @@ export class TransactionOrchestrator extends EventEmitter {
         continue
       }
 
-      console.log("Remaining STEPS", nextSteps.remaining)
+      console.log(
+        "Remaining STEPS",
+        transaction.getFlow().modelId,
+        nextSteps.remaining,
+        nextSteps.next.map((step) => step.id),
+        nextSteps.current ?? "nothing"
+      )
 
       if (nextSteps.remaining === 0) {
         if (transaction.hasTimeout()) {
           void transaction.clearTransactionTimeout()
         }
 
-        await transaction.saveCheckpoint()
+        // let shouldStop = false
+        // await transaction.saveCheckpoint()
 
         console.log("FINISH", transaction.getFlow().transactionId)
         this.emit(DistributedTransactionEvent.FINISH, { transaction })
+        // if (shouldStop) {
+        //     return
+        //   }
       }
 
       let hasSyncSteps = false
@@ -827,14 +851,15 @@ export class TransactionOrchestrator extends EventEmitter {
         ] as Parameters<TransactionStepHandler>
 
         if (!isAsync) {
-          try {
-            await transaction.saveCheckpoint()
-          } catch (error) {
-            if (SkipExecutionError.isSkipExecutionError(error)) {
-              continueExecution = false
-              continue
-            }
-          }
+          // try {
+          //   await transaction.saveCheckpoint()
+          // } catch (error) {
+          //   if (SkipExecutionError.isSkipExecutionError(error)) {
+          //     await transaction.clearStepTimeout(step)
+          //     continueExecution = false
+          //     continue
+          //   }
+          // }
 
           hasSyncSteps = true
 
@@ -873,8 +898,8 @@ export class TransactionOrchestrator extends EventEmitter {
                 )
               })
               .catch(async (error) => {
-                console.log("ON Failure SYNC", error)
                 if (SkipExecutionError.isSkipExecutionError(error)) {
+                  await transaction.clearStepTimeout(step)
                   continueExecution = false
                   return
                 }
@@ -963,6 +988,7 @@ export class TransactionOrchestrator extends EventEmitter {
                   console.log("ON Failure", error)
 
                   if (SkipExecutionError.isSkipExecutionError(error)) {
+                    await transaction.clearStepTimeout(step)
                     continueExecution = false
                     return
                   }

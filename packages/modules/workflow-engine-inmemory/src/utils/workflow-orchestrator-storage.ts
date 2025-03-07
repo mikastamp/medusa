@@ -231,12 +231,11 @@ export class InMemoryDistributedTransactionStorage
       currentFlowLastInvokingStepIndex !== isLatestExecutionFinishedIndex
 
     const compensateShouldBeSkipped =
-      latestUpdatedFlowLastCompensatingStepIndex ===
+      (latestUpdatedFlowLastCompensatingStepIndex ===
         isLatestExecutionFinishedIndex ||
-      (currentFlowLastCompensatingStepIndex <
-        latestUpdatedFlowLastCompensatingStepIndex &&
-        latestUpdatedFlowLastCompensatingStepIndex !==
-          isLatestExecutionFinishedIndex)
+        currentFlowLastCompensatingStepIndex <
+          latestUpdatedFlowLastCompensatingStepIndex) &&
+      currentFlowLastCompensatingStepIndex !== isLatestExecutionFinishedIndex
 
     if (
       (data.flow.state !== TransactionState.COMPENSATING &&
@@ -246,6 +245,14 @@ export class InMemoryDistributedTransactionStorage
       (latestUpdatedFlow.state === TransactionState.COMPENSATING &&
         currentFlow.state !== latestUpdatedFlow.state)
     ) {
+      console.log("skipping execution", {
+        currentState: data.flow.state,
+        latestUpdatedState: latestUpdatedFlow.state,
+        latestUpdatedFlowLastCompensatingStepIndex,
+        currentFlowLastCompensatingStepIndex,
+        currentFlowLastInvokingStepIndex,
+        latestUpdatedFlowLastInvokingStepIndex,
+      })
       /**
        * If the latest execution is ahead of the current execution in terms of completion then we
        * should skip to prevent multiple completion/execution of the same step. The same goes for
