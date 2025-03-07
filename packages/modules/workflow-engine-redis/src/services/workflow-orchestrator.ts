@@ -189,6 +189,8 @@ export class WorkflowOrchestratorService {
     options?: WorkflowOrchestratorRunOptions<T>,
     @MedusaContext() sharedContext: Context = {}
   ) {
+    console.log("RUN", workflowIdOrWorkflow)
+
     const {
       input,
       transactionId,
@@ -226,6 +228,7 @@ export class WorkflowOrchestratorService {
     const originalOnFinishHandler = events.onFinish!
     delete events.onFinish
 
+    console.log(" Before original RUN")
     const ret = await exportedWorkflow.run({
       input,
       throwOnError: false,
@@ -239,6 +242,7 @@ export class WorkflowOrchestratorService {
     const hasFinished = ret.transaction.hasFinished()
     const metadata = ret.transaction.getFlow().metadata
     const { parentStepIdempotencyKey } = metadata ?? {}
+
     const hasFailed = [
       TransactionState.REVERTED,
       TransactionState.FAILED,
@@ -251,6 +255,8 @@ export class WorkflowOrchestratorService {
       hasFinished,
       hasFailed,
     }
+
+    console.log({ acknowledgement })
 
     if (hasFinished) {
       const { result, errors } = ret

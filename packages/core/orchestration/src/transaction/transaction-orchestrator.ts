@@ -676,6 +676,8 @@ export class TransactionOrchestrator extends EventEmitter {
     let continueExecution = true
 
     while (continueExecution) {
+      console.log("FLOW", transaction.modelId)
+
       if (transaction.hasFinished()) {
         return
       }
@@ -694,7 +696,7 @@ export class TransactionOrchestrator extends EventEmitter {
         continue
       }
 
-      console.log("nextSteps", JSON.stringify(nextSteps, null, 2))
+      console.log("Remaining STEPS", nextSteps.remaining)
 
       if (nextSteps.remaining === 0) {
         if (transaction.hasTimeout()) {
@@ -709,7 +711,6 @@ export class TransactionOrchestrator extends EventEmitter {
 
       let hasSyncSteps = false
       for (const step of nextSteps.next) {
-        console.log("step", step.id)
         const curState = step.getStates()
         const type = step.isCompensating()
           ? TransactionHandlerType.COMPENSATE
@@ -717,8 +718,6 @@ export class TransactionOrchestrator extends EventEmitter {
 
         step.lastAttempt = Date.now()
         step.attempts++
-
-        console.log("step current state", curState)
 
         if (curState.state === TransactionStepState.NOT_STARTED) {
           if (!step.startedAt) {
@@ -874,6 +873,7 @@ export class TransactionOrchestrator extends EventEmitter {
                 )
               })
               .catch(async (error) => {
+                console.log("ON Failure SYNC", error)
                 if (SkipExecutionError.isSkipExecutionError(error)) {
                   continueExecution = false
                   return
@@ -960,6 +960,8 @@ export class TransactionOrchestrator extends EventEmitter {
                   )
                 })
                 .catch(async (error) => {
+                  console.log("ON Failure", error)
+
                   if (SkipExecutionError.isSkipExecutionError(error)) {
                     continueExecution = false
                     return
@@ -978,6 +980,8 @@ export class TransactionOrchestrator extends EventEmitter {
                   }
 
                   await setStepFailure(error, { response })
+
+                  console.log("ON Failure")
                 })
             })
           )

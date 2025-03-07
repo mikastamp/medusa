@@ -334,11 +334,11 @@ function wrapConditionalStep(
  *   createStep,
  *   StepResponse
  * } from "@medusajs/framework/workflows-sdk"
- * 
+ *
  * interface CreateProductInput {
  *   title: string
  * }
- * 
+ *
  * export const createProductStep = createStep(
  *   "createProductStep",
  *   async function (

@@ -12,10 +12,17 @@ import {
   Modules,
   TransactionHandlerType,
 } from "@medusajs/framework/utils"
+import {
+  createStep,
+  createWorkflow,
+  StepResponse,
+  transform,
+  WorkflowResponse,
+} from "@medusajs/framework/workflows-sdk"
 import { moduleIntegrationTestRunner } from "@medusajs/test-utils"
 import { WorkflowsModuleService } from "@services"
 import { asFunction } from "awilix"
-import { setTimeout as setTimeoutPromise } from "timers/promises"
+import { setTimeout, setTimeout as setTimeoutPromise } from "timers/promises"
 import "../__fixtures__"
 import {
   conditionalStep2Invoke,
@@ -29,14 +36,6 @@ import {
   workflowEventGroupIdStep2Mock,
 } from "../__fixtures__/workflow_event_group_id"
 import { createScheduled } from "../__fixtures__/workflow_scheduled"
-import {
-  createStep,
-  createWorkflow,
-  StepResponse,
-  transform,
-  WorkflowResponse,
-} from "@medusajs/framework/workflows-sdk"
-import { setTimeout } from "timers/promises"
 
 jest.setTimeout(3000000)
 
@@ -126,8 +125,9 @@ moduleIntegrationTestRunner<IWorkflowEngineService>({
       const transformMock = jest.fn()
 
       const step0 = createStep(
-        "step0",
+        "RACE_step0",
         async (_) => {
+          console.log("step0")
           step0InvokeMock()
           return new StepResponse("result from step 0")
         },
@@ -137,8 +137,9 @@ moduleIntegrationTestRunner<IWorkflowEngineService>({
       )
 
       const step1 = createStep(
-        "step1",
+        "RACE_step1",
         async (_) => {
+          console.log("step1")
           step1InvokeMock()
           await setTimeout(2000)
           throw new Error("error from step 1")
@@ -148,17 +149,18 @@ moduleIntegrationTestRunner<IWorkflowEngineService>({
         }
       )
 
-      const step2 = createStep("step2", async (input: any) => {
+      const step2 = createStep("RACE_step2", async (input: any) => {
+        console.log("step2")
         step2InvokeMock()
         return new StepResponse({ result: input })
       })
 
-      const subWorkflow = createWorkflow("sub-workflow-1", function () {
+      const subWorkflow = createWorkflow("RACE_sub-workflow-1", function () {
         const status = step1()
         return new WorkflowResponse(status)
       })
 
-      createWorkflow("workflow-1", function () {
+      createWorkflow("RACE_workflow-1", function () {
         const build = step0()
 
         const status = subWorkflow.runAsStep({} as any).config({

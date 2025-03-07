@@ -47,22 +47,22 @@ global[OrchestrationUtils.SymbolMedusaWorkflowComposerContext] = null
  *   createProductStep,
  *   getProductStep,
  * } from "./steps"
- * 
+ *
  * interface WorkflowInput {
  *  title: string
  * }
- * 
+ *
  * const myWorkflow = createWorkflow(
  *   "my-workflow",
  *   (input: WorkflowInput) => {
  *    // Everything here will be executed and resolved later
  *    // during the execution. Including the data access.
- * 
+ *
  *     const product = createProductStep(input)
  *     return new WorkflowResponse(getProductStep(product.id))
  *   }
  * )
- * 
+ *
  * export async function GET(
  *   req: MedusaRequest,
  *   res: MedusaResponse
@@ -73,7 +73,7 @@ global[OrchestrationUtils.SymbolMedusaWorkflowComposerContext] = null
  *         title: "Shirt"
  *       }
  *     })
- * 
+ *
  *   res.json({
  *     product
  *   })
@@ -207,6 +207,11 @@ export function createWorkflow<TData, TResult, THooks extends any[]>(
         )
       },
       async (transaction, stepContext) => {
+        console.log(
+          "BEFORE SUB WORKFLOW COMPENSATION",
+          stepContext.idempotencyKey
+        )
+
         if (!transaction) {
           return
         }
@@ -221,6 +226,10 @@ export function createWorkflow<TData, TResult, THooks extends any[]>(
             ...sharedContext,
             parentStepIdempotencyKey: stepContext.idempotencyKey,
           },
+        })
+
+        console.log("RESPONSE FROM SUB WORKFLOW COMPENSATION", {
+          transaction,
         })
       }
     )(input) as ReturnType<StepFunction<TData, TResult>>
