@@ -137,7 +137,6 @@ const addRoute = (
 
   if (!route) {
     route = createBranchRoute(currentSegment)
-    currentLevel.push(route)
   }
 
   const currentFullPath = fullPath
@@ -157,8 +156,14 @@ const addRoute = (
       route.handle = handle
     }
 
+    if (loader) {
+      route.loader = loader
+    }
+
     leaf.children = processParallelRoutes(parallelRoutes, currentFullPath)
     route.children.push(leaf)
+
+    currentLevel.push(route)
   } else {
     route.children ||= []
     addRoute(

@@ -15,7 +15,7 @@ import {
 import { INavItem } from "../components/layout/nav-item"
 import { Providers } from "../providers"
 import { getRouteMap } from "./routes/get-route.map"
-import { getRouteExtensions } from "./routes/utils"
+import { createRouteMap, getRouteExtensions } from "./routes/utils"
 import {
   ConfigExtension,
   ConfigField,
@@ -67,14 +67,17 @@ export class DashboardApp {
     const settingsRoutes: RouteObject[] = []
 
     for (const plugin of plugins) {
-      const coreRoutesResults = getRouteExtensions(plugin.routeModule, "core")
-      const settingsRoutesResults = getRouteExtensions(
+      const filteredCoreRoutes = getRouteExtensions(plugin.routeModule, "core")
+      const filteredSettingsRoutes = getRouteExtensions(
         plugin.routeModule,
         "settings"
       )
 
-      coreRoutes.push(...coreRoutesResults)
-      settingsRoutes.push(...settingsRoutesResults)
+      const coreRoutesMap = createRouteMap(filteredCoreRoutes)
+      const settingsRoutesMap = createRouteMap(filteredSettingsRoutes)
+
+      coreRoutes.push(...coreRoutesMap)
+      settingsRoutes.push(...settingsRoutesMap)
     }
 
     return { coreRoutes, settingsRoutes }
