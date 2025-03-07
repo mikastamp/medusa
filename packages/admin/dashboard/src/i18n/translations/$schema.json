@@ -3676,6 +3676,17 @@
     "orders": {
       "type": "object",
       "properties": {
+        "creditLines": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "total": {
+              "type": "string"
+            }
+          }
+        },
         "domain": {
           "type": "string"
         },
@@ -10448,6 +10459,12 @@
         "amount": {
           "type": "string"
         },
+        "reference": {
+          "type": "string"
+        },
+        "reference_id": {
+          "type": "string"
+        },
         "refundAmount": {
           "type": "string"
         },
@@ -10704,6 +10721,9 @@
           "type": "string"
         },
         "paidTotal": {
+          "type": "string"
+        },
+        "creditTotal": {
           "type": "string"
         },
         "totalExclTax": {

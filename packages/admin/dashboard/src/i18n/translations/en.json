@@ -981,6 +981,20 @@
     }
   },
   "orders": {
+    "creditLines": {
+      "title": "Credit lines",
+      "total": "Sum of all credit lines",
+      "creditOrDebit": "Credit / Debit",
+      "createCreditLine": "Create credit line",
+      "createCreditLineSuccess": "Credit line created successfully",
+      "createCreditLineError": "Error creating credit line",
+      "createCreditLineDescription": "Create a credit line for amount {{amount}}",
+      "operation": "Operation",
+      "credit": "Credit",
+      "creditDescription": "Adds a positive sum to the order",
+      "debit": "Debit",
+      "debitDescription": "Subtracts a negative sum from the order"
+    },
     "domain": "Orders",
     "claim": "Claim",
     "exchange": "Exchange",
@@ -2805,6 +2819,8 @@
   },
   "fields": {
     "amount": "Amount",
+    "reference": "Reference",
+    "reference_id": "Reference ID",
     "refundAmount": "Refund amount",
     "name": "Name",
     "default": "Default",
@@ -2890,7 +2906,8 @@
     "orders": "Orders",
     "account": "Account",
     "total": "Order Total",
-    "paidTotal": "Total captured",
+    "paidTotal": "Paid Total",
+    "creditTotal": "Credit Lines Total",
     "totalExclTax": "Total excl. tax",
     "subtotal": "Subtotal",
     "shipping": "Shipping",

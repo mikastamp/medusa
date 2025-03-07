@@ -46,6 +46,7 @@ import { useMarkPaymentCollectionAsPaid } from "../../../../../hooks/api/payment
 import { useReservationItems } from "../../../../../hooks/api/reservations"
 import { useReturns } from "../../../../../hooks/api/returns"
 import { useDate } from "../../../../../hooks/use-date"
+import { getTotalCreditLines } from "../../../../../lib/credit-line"
 import { formatCurrency } from "../../../../../lib/format-currency"
 import {
   getLocaleAmount,
@@ -134,8 +135,7 @@ export const OrderSummarySection = ({ order }: OrderSummarySectionProps) => {
 
   const showPayment =
     unpaidPaymentCollection && pendingDifference > 0 && isAmountSignificant
-  const showRefund =
-    unpaidPaymentCollection && pendingDifference < 0 && isAmountSignificant
+  const showRefund = pendingDifference < 0 && isAmountSignificant
 
   const handleMarkAsPaid = async (
     paymentCollection: AdminPaymentCollection
@@ -399,12 +399,7 @@ const Item = ({
         <div className="flex items-start gap-x-4">
           <Thumbnail src={item.thumbnail} />
           <div>
-            <Text
-              size="small"
-              leading="compact"
-              weight="plus"
-              className="text-ui-fg-base"
-            >
+            <Text size="small" leading="compact" className="text-ui-fg-base">
               {item.title}
             </Text>
 
@@ -1029,41 +1024,34 @@ const Total = ({ order }: { order: AdminOrder }) => {
   return (
     <div className=" flex flex-col gap-y-2 px-6 py-4">
       <div className="text-ui-fg-base flex items-center justify-between">
-        <Text
-          weight="plus"
-          className="text-ui-fg-subtle"
-          size="small"
-          leading="compact"
-        >
+        <Text className="text-ui-fg-subtle" size="small" leading="compact">
           {t("fields.total")}
         </Text>
-        <Text
-          weight="plus"
-          className="text-ui-fg-subtle"
-          size="small"
-          leading="compact"
-        >
-          {getStylizedAmount(order.total, order.currency_code)}
+        <Text className="text-ui-fg-subtle" size="small" leading="compact">
+          {getStylizedAmount(order.original_total, order.currency_code)}
         </Text>
       </div>
 
       <div className="text-ui-fg-base flex items-center justify-between">
-        <Text
-          weight="plus"
-          className="text-ui-fg-subtle"
-          size="small"
-          leading="compact"
-        >
+        <Text className="text-ui-fg-subtle" size="small" leading="compact">
           {t("fields.paidTotal")}
         </Text>
-        <Text
-          weight="plus"
-          className="text-ui-fg-subtle"
-          size="small"
-          leading="compact"
-        >
+        <Text className="text-ui-fg-subtle" size="small" leading="compact">
           {getStylizedAmount(
             getTotalCaptured(order.payment_collections || []),
+            order.currency_code
+          )}
+        </Text>
+      </div>
+
+      <div className="text-ui-fg-base flex items-center justify-between">
+        <Text className="text-ui-fg-subtle" size="small" leading="compact">
+          {t("fields.creditTotal")}
+        </Text>
+
+        <Text className="text-ui-fg-subtle" size="small" leading="compact">
+          {getStylizedAmount(
+            getTotalCreditLines(order.credit_lines ?? []),
             order.currency_code
           )}
         </Text>
@@ -1074,7 +1062,6 @@ const Total = ({ order }: { order: AdminOrder }) => {
           className="text-ui-fg-subtle text-semibold"
           size="small"
           leading="compact"
-          weight="plus"
         >
           {t("orders.returns.outstandingAmount")}
         </Text>
@@ -1082,7 +1069,6 @@ const Total = ({ order }: { order: AdminOrder }) => {
           className="text-ui-fg-subtle text-bold"
           size="small"
           leading="compact"
-          weight="plus"
         >
           {getStylizedAmount(
             order.summary.pending_difference || 0,
