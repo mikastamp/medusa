@@ -28,6 +28,7 @@ import {
 import { EventEmitter } from "events"
 import {
   PermanentStepFailureError,
+  SkipExecutionError,
   SkipStepResponse,
   TransactionStepTimeoutError,
   TransactionTimeoutError,
@@ -821,6 +822,14 @@ export class TransactionOrchestrator extends EventEmitter {
         ] as Parameters<TransactionStepHandler>
 
         if (!isAsync) {
+          try {
+            await transaction.saveCheckpoint()
+          } catch (error) {
+            if (SkipExecutionError.isSkipExecutionError(error)) {
+              return
+            }
+          }
+
           hasSyncSteps = true
 
           const stepHandler = async () => {
@@ -858,6 +867,11 @@ export class TransactionOrchestrator extends EventEmitter {
                 )
               })
               .catch(async (error) => {
+                if (SkipExecutionError.isSkipExecutionError(error)) {
+                  continueExecution = false
+                  return
+                }
+
                 const response = error?.getStepResponse?.()
 
                 if (this.hasExpired({ transaction, step }, Date.now())) {
@@ -939,6 +953,11 @@ export class TransactionOrchestrator extends EventEmitter {
                   )
                 })
                 .catch(async (error) => {
+                  if (SkipExecutionError.isSkipExecutionError(error)) {
+                    continueExecution = false
+                    return
+                  }
+
                   const response = error?.getStepResponse?.()
 
                   if (

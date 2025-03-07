@@ -4,7 +4,9 @@ import {
   IDistributedSchedulerStorage,
   IDistributedTransactionStorage,
   SchedulerOptions,
+  SkipExecutionError,
   TransactionCheckpoint,
+  TransactionFlow,
   TransactionOptions,
   TransactionStep,
 } from "@medusajs/framework/orchestration"
@@ -13,6 +15,7 @@ import {
   MedusaError,
   promiseAll,
   TransactionState,
+  TransactionStepState,
 } from "@medusajs/framework/utils"
 import { WorkflowOrchestratorService } from "@services"
 import { Queue, Worker } from "bullmq"
@@ -263,6 +266,11 @@ export class RedisDistributedTransactionStorage
 
     const { retentionTime, idempotent } = options ?? {}
 
+    await this.#preventRaceConditionExecutionIfNecessary({
+      data,
+      key,
+    })
+
     if (hasFinished) {
       Object.assign(data, {
         retention_time: retentionTime,
@@ -270,6 +278,38 @@ export class RedisDistributedTransactionStorage
     }
 
     const stringifiedData = JSON.stringify(data)
+
+    /**
+     * In case many execution can succeed simultaneously, we need to ensure that the latest
+     * execution does continue if a previous execution is considered finished
+     */
+    const currentFlow = data.flow
+    const { flow: latestUpdatedFlow } =
+      (await this.get(key)) ?? ({ flow: {} } as { flow: TransactionFlow })
+
+    const currentFlowLastInvokingStepIndex = Object.values(
+      currentFlow.steps
+    ).findIndex((step) => {
+      return [
+        TransactionStepState.INVOKING,
+        TransactionStepState.NOT_STARTED,
+      ].includes(step.invoke?.state)
+    })
+
+    const latestUpdatedFlowLastInvokingStepIndex = Object.values(
+      (latestUpdatedFlow.steps as Record<string, TransactionStep>) ?? {}
+    ).findIndex((step) => {
+      return [
+        TransactionStepState.INVOKING,
+        TransactionStepState.NOT_STARTED,
+      ].includes(step.invoke?.state)
+    })
+
+    if (
+      currentFlowLastInvokingStepIndex < latestUpdatedFlowLastInvokingStepIndex
+    ) {
+      throw new SkipExecutionError("already finished by another execution")
+    }
 
     if (!hasFinished) {
       if (ttl) {
@@ -456,5 +496,97 @@ export class RedisDistributedTransactionStorage
     await promiseAll(
       repeatableJobs.map((job) => this.jobQueue?.removeRepeatableByKey(job.key))
     )
+  }
+
+  async #preventRaceConditionExecutionIfNecessary({
+    data,
+    key,
+  }: {
+    data: TransactionCheckpoint
+    key: string
+  }) {
+    /**
+     * In case many execution can succeed simultaneously, we need to ensure that the latest
+     * execution does continue if a previous execution is considered finished
+     */
+    const currentFlow = data.flow
+    const { flow: latestUpdatedFlow } =
+      (await this.get(key)) ?? ({ flow: {} } as { flow: TransactionFlow })
+
+    const currentFlowLastInvokingStepIndex = Object.values(
+      currentFlow.steps
+    ).findIndex((step) => {
+      return [
+        TransactionStepState.INVOKING,
+        TransactionStepState.NOT_STARTED,
+      ].includes(step.invoke?.state)
+    })
+
+    const latestUpdatedFlowLastInvokingStepIndex = !latestUpdatedFlow.steps
+      ? 1 // There is no other execution, so the current execution is the latest
+      : Object.values(
+          (latestUpdatedFlow.steps as Record<string, TransactionStep>) ?? {}
+        ).findIndex((step) => {
+          return [
+            TransactionStepState.INVOKING,
+            TransactionStepState.NOT_STARTED,
+          ].includes(step.invoke?.state)
+        })
+
+    const currentFlowLastCompensatingStepIndex = Object.values(
+      currentFlow.steps
+    )
+      .reverse()
+      .findIndex((step) => {
+        return [
+          TransactionStepState.COMPENSATING,
+          TransactionStepState.NOT_STARTED,
+        ].includes(step.compensate?.state)
+      })
+
+    const latestUpdatedFlowLastCompensatingStepIndex = !latestUpdatedFlow.steps
+      ? 1 // There is no other execution, so the current execution is the latest
+      : Object.values(
+          (latestUpdatedFlow.steps as Record<string, TransactionStep>) ?? {}
+        )
+          .reverse()
+          .findIndex((step) => {
+            return [
+              TransactionStepState.COMPENSATING,
+              TransactionStepState.NOT_STARTED,
+            ].includes(step.compensate?.state)
+          })
+
+    const isLatestExecutionFinishedIndex = -1
+    const invokeShouldBeSkipped =
+      (latestUpdatedFlowLastInvokingStepIndex ===
+        isLatestExecutionFinishedIndex ||
+        currentFlowLastInvokingStepIndex <
+          latestUpdatedFlowLastInvokingStepIndex) &&
+      currentFlowLastInvokingStepIndex !== isLatestExecutionFinishedIndex
+
+    const compensateShouldBeSkipped =
+      latestUpdatedFlowLastCompensatingStepIndex ===
+        isLatestExecutionFinishedIndex ||
+      (currentFlowLastCompensatingStepIndex <
+        latestUpdatedFlowLastCompensatingStepIndex &&
+        latestUpdatedFlowLastCompensatingStepIndex !==
+          isLatestExecutionFinishedIndex)
+
+    if (
+      (data.flow.state !== TransactionState.COMPENSATING &&
+        invokeShouldBeSkipped) ||
+      (data.flow.state === TransactionState.COMPENSATING &&
+        compensateShouldBeSkipped) ||
+      (latestUpdatedFlow.state === TransactionState.COMPENSATING &&
+        currentFlow.state !== latestUpdatedFlow.state)
+    ) {
+      /**
+       * If the latest execution is ahead of the current execution in terms of completion then we
+       * should skip to prevent multiple completion/execution of the same step. The same goes for
+       * compensating steps but in the opposite direction.
+       */
+      throw new SkipExecutionError("already finished by another execution")
+    }
   }
 }
