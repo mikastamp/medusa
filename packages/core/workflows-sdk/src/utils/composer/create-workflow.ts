@@ -207,11 +207,6 @@ export function createWorkflow<TData, TResult, THooks extends any[]>(
         )
       },
       async (transaction, stepContext) => {
-        console.log(
-          "BEFORE SUB WORKFLOW COMPENSATION",
-          stepContext.idempotencyKey
-        )
-
         if (!transaction) {
           return
         }
@@ -226,10 +221,6 @@ export function createWorkflow<TData, TResult, THooks extends any[]>(
             ...sharedContext,
             parentStepIdempotencyKey: stepContext.idempotencyKey,
           },
-        })
-
-        console.log("RESPONSE FROM SUB WORKFLOW COMPENSATION", {
-          transaction,
         })
       }
     )(input) as ReturnType<StepFunction<TData, TResult>>

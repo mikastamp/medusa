@@ -114,7 +114,7 @@ moduleIntegrationTestRunner<IWorkflowEngineService>({
         })
     })
 
-    it.only("should prevent race continuation of the workflow compensation during retryIntervalAwaiting in background execution", (done) => {
+    it("should prevent race continuation of the workflow compensation during retryIntervalAwaiting in background execution", (done) => {
       const transactionId = "transaction_id"
       const workflowId = "RACE_workflow-1"
 
@@ -128,7 +128,6 @@ moduleIntegrationTestRunner<IWorkflowEngineService>({
       const step0 = createStep(
         "RACE_step0",
         async (_) => {
-          console.log("step0")
           step0InvokeMock()
           return new StepResponse("result from step 0")
         },
@@ -143,7 +142,7 @@ moduleIntegrationTestRunner<IWorkflowEngineService>({
         async (_) => {
           console.log("step1")
           step1InvokeMock()
-          await setTimeout(2000)
+          await setTimeout(500)
           throw new Error("error from step 1")
         },
         () => {
@@ -153,7 +152,6 @@ moduleIntegrationTestRunner<IWorkflowEngineService>({
       )
 
       const step2 = createStep("RACE_step2", async (input: any) => {
-        console.log("step2")
         step2InvokeMock()
         return new StepResponse({ result: input })
       })
@@ -170,7 +168,7 @@ moduleIntegrationTestRunner<IWorkflowEngineService>({
           async: true,
           compensateAsync: true,
           backgroundExecution: true,
-          // retryIntervalAwaiting: 1,
+          retryIntervalAwaiting: 0.1,
         })
 
         const transformedResult = transform({ status }, (data) => {
@@ -191,7 +189,7 @@ moduleIntegrationTestRunner<IWorkflowEngineService>({
           if (event.eventType === "onFinish") {
             expect(step0InvokeMock).toHaveBeenCalledTimes(1)
             expect(step0CompensateMock).toHaveBeenCalledTimes(1)
-            expect(step1InvokeMock).toHaveBeenCalledTimes(1)
+            expect(step1InvokeMock.mock.calls.length).toBeGreaterThan(2)
             expect(step1CompensateMock).toHaveBeenCalledTimes(1)
             expect(step2InvokeMock).toHaveBeenCalledTimes(0)
             expect(transformMock).toHaveBeenCalledTimes(0)
