@@ -10,6 +10,8 @@ const ORDER_INJECTION_ZONES = [
 const CUSTOMER_INJECTION_ZONES = [
   "customer.details.before",
   "customer.details.after",
+  "customer.details.side.before",
+  "customer.details.side.after",
   "customer.list.before",
   "customer.list.after",
 ] as const

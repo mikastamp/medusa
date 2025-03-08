@@ -43,6 +43,7 @@
     "plusCount": "+ {{count}}",
     "plusCountMore": "+ {{count}} more",
     "areYouSure": "Are you sure?",
+    "areYouSureDescription": "You are about to delete the {{entity}} {{title}}. This action cannot be undone.",
     "noRecordsFound": "No records found",
     "typeToConfirm": "Please type {val} to confirm:",
     "noResultsTitle": "No results",
@@ -349,6 +350,11 @@
     "backToDashboard": "Back to dashboard"
   },
   "addresses": {
+    "title": "Addresses",
+    "addressTypes": {
+      "shipping": "Shipping",
+      "billing": "Billing"
+    },
     "shippingAddress": {
       "header": "Shipping Address",
       "editHeader": "Edit Shipping Address",
@@ -931,7 +937,28 @@
     },
     "registered": "Registered",
     "guest": "Guest",
-    "hasAccount": "Has account"
+    "hasAccount": "Has account",
+    "addresses": {
+      "title": "Addresses",
+      "fields": {
+        "addressName": "Address name",
+        "address1": "Address 1",
+        "address2": "Address 2",
+        "city": "City",
+        "province": "Province",
+        "postalCode": "Postal code",
+        "country": "Country",
+        "phone": "Phone",
+        "company": "Company",
+        "countryCode": "Country code",
+        "provinceCode": "Province code"
+      },
+      "create": {
+        "header": "Create Address",
+        "hint": "Create a new address for the customer.",
+        "successToast": "Address was successfully created."
+      }
+    }
   },
   "customerGroups": {
     "domain": "Customer Groups",
