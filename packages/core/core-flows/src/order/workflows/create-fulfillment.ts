@@ -188,14 +188,17 @@ function prepareFulfillmentData({
 
       // if line item is from a managed variant, create a fulfillment item for each reservation item
       return reservations.map((r) => {
-        const iItem = (orderItem as any).variant.inventory_items.find(
+        const iItem = (orderItem as any)?.variant?.inventory_items.find(
           (ii) => ii.inventory.id === r.inventory_item_id
         )
 
         return {
           line_item_id: i.id,
           inventory_item_id: r.inventory_item_id,
-          quantity: MathBN.mult(iItem.required_quantity, i.quantity).toNumber(), // TODO: type
+          quantity: MathBN.mult(
+            iItem?.required_quantity ?? 1,
+            i.quantity
+          ).toNumber(), // TODO: type
           title:
             iItem?.inventory.title ||
             orderItem.variant_title ||
@@ -292,13 +295,13 @@ function prepareInventoryUpdate({
         )
       }
 
-      const iItem = (orderItem as any).variant.inventory_items.find(
+      const iItem = (orderItem as any)?.variant?.inventory_items.find(
         (ii) => ii.inventory.id === reservation.inventory_item_id
       )
 
       const adjustemntQuantity = MathBN.mult(
         inputQuantity,
-        iItem.required_quantity
+        iItem?.required_quantity ?? 1
       )
 
       const remainingReservationQuantity = MathBN.sub(
