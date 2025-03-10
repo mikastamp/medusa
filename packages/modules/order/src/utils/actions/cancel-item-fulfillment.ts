@@ -55,16 +55,16 @@ OrderChangeProcessing.registerActionType(
         )
       }
 
-      const greater = MathBN.gt(
-        action.details?.quantity,
-        existing.detail?.fulfilled_quantity
-      )
-      if (greater) {
-        throw new MedusaError(
-          MedusaError.Types.INVALID_DATA,
-          `Cannot cancel more items than what was fulfilled for item ${refId}.`
-        )
-      }
+      // const greater = MathBN.gt(
+      //   action.details?.quantity,
+      //   existing.detail?.fulfilled_quantity
+      // )
+      // if (greater) {
+      //   throw new MedusaError(
+      //     MedusaError.Types.INVALID_DATA,
+      //     `Cannot cancel more items than what was fulfilled for item ${refId}.`
+      //   )
+      // }
     },
   }
 )
