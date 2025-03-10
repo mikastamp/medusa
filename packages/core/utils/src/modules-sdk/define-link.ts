@@ -385,7 +385,7 @@ ${serviceBObj.module}: {
             methodSuffix: serviceBMethodSuffix,
           },
           deleteCascade: serviceBObj.deleteCascade,
-          isList: serviceAObj.isList,
+          isList: serviceBObj.isList,
         },
       ],
       extends: [
