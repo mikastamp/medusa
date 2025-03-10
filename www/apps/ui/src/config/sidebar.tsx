@@ -1,12 +1,10 @@
-import { SidebarSectionItems } from "types"
+import { Sidebar } from "types"
 
-type DocsConfig = {
-  sidebar: SidebarSectionItems
-}
-
-export const docsConfig: DocsConfig = {
-  sidebar: {
-    default: [
+export const sidebars: Sidebar.Sidebar[] = [
+  {
+    sidebar_id: "ui",
+    title: "Medusa UI",
+    items: [
       {
         type: "link",
         title: "Introduction",
@@ -364,6 +362,5 @@ export const docsConfig: DocsConfig = {
         ],
       },
     ],
-    mobile: [],
   },
-}
+]

@@ -1,9 +1,9 @@
-/** @type {import('types').RawSidebarItem[]} */
+/** @type {import('types').Sidebar.SidebarItem[]} */
 export const stockLocationSidebar = [
   {
-    type: "category",
+    type: "sidebar",
+    sidebar_id: "stock-location",
     title: "Stock Location Module",
-    isChildSidebar: true,
     children: [
       {
         type: "link",
@@ -133,12 +133,19 @@ export const stockLocationSidebar = [
             title: "Admin Widget Zones",
           },
           {
-            type: "link",
-            path: "/references/stock-location-next",
+            type: "sidebar",
+            sidebar_id: "stock-location-service-reference",
             title: "Main Service Reference",
-            isChildSidebar: true,
             childSidebarTitle: "Stock Location Module's Main Service Reference",
             children: [
+              {
+                type: "link",
+                path: "/references/stock-location-next",
+                title: "Reference Overview",
+              },
+              {
+                type: "separator",
+              },
               {
                 type: "category",
                 title: "Methods",
@@ -148,12 +155,19 @@ export const stockLocationSidebar = [
             ],
           },
           {
-            type: "link",
-            path: "/references/stock-location-next/models",
+            type: "sidebar",
+            sidebar_id: "stock-location-models-reference",
             title: "Data Models Reference",
-            isChildSidebar: true,
             childSidebarTitle: "Stock Location Module Data Models Reference",
             children: [
+              {
+                type: "link",
+                path: "/references/stock-location-next/models",
+                title: "Reference Overview",
+              },
+              {
+                type: "separator",
+              },
               {
                 type: "category",
                 title: "Data Models",

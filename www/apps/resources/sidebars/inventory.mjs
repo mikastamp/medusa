@@ -1,9 +1,9 @@
-/** @type {import('types').RawSidebarItem[]} */
+/** @type {import('types').Sidebar.SidebarItem[]} */
 export const inventorySidebar = [
   {
-    type: "category",
+    type: "sidebar",
+    sidebar_id: "inventory",
     title: "Inventory Module",
-    isChildSidebar: true,
     children: [
       {
         type: "link",
@@ -143,12 +143,19 @@ export const inventorySidebar = [
             title: "Admin Widget Zones",
           },
           {
-            type: "link",
-            path: "/references/inventory-next",
+            type: "sidebar",
+            sidebar_id: "inventory-service-reference",
             title: "Main Service Reference",
-            isChildSidebar: true,
             childSidebarTitle: "Inventory Module's Main Service Reference",
             children: [
+              {
+                type: "link",
+                path: "/references/inventory-next",
+                title: "Reference Overview",
+              },
+              {
+                type: "separator",
+              },
               {
                 type: "category",
                 title: "Methods",
@@ -158,12 +165,19 @@ export const inventorySidebar = [
             ],
           },
           {
-            type: "link",
-            path: "/references/inventory-next/models",
+            type: "sidebar",
+            sidebar_id: "inventory-models-reference",
             title: "Data Models Reference",
-            isChildSidebar: true,
             childSidebarTitle: "Inventory Module Data Models Reference",
             children: [
+              {
+                type: "link",
+                path: "/references/inventory-next/models",
+                title: "Reference Overview",
+              },
+              {
+                type: "separator",
+              },
               {
                 type: "category",
                 title: "Data Models",

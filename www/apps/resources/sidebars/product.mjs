@@ -1,9 +1,9 @@
-/** @type {import('types').RawSidebarItem[]} */
+/** @type {import('types').Sidebar.SidebarItem[]} */
 export const productSidebar = [
   {
-    type: "category",
+    type: "sidebar",
+    sidebar_id: "product",
     title: "Product Module",
-    isChildSidebar: true,
     children: [
       {
         type: "link",
@@ -160,12 +160,19 @@ export const productSidebar = [
             title: "Admin Widget Zones",
           },
           {
-            type: "link",
-            path: "/references/product",
+            type: "sidebar",
+            sidebar_id: "product-service-reference",
             title: "Main Service Reference",
-            isChildSidebar: true,
             childSidebarTitle: "Product Module's Main Service Reference",
             children: [
+              {
+                type: "link",
+                path: "/references/product",
+                title: "Reference Overview",
+              },
+              {
+                type: "separator",
+              },
               {
                 type: "category",
                 title: "Methods",
@@ -175,12 +182,19 @@ export const productSidebar = [
             ],
           },
           {
-            type: "link",
-            path: "/references/product/models",
+            type: "sidebar",
+            sidebar_id: "product-models-reference",
             title: "Data Models Reference",
-            isChildSidebar: true,
             childSidebarTitle: "Product Module Data Models Reference",
             children: [
+              {
+                type: "link",
+                path: "/references/product/models",
+                title: "Reference Overview",
+              },
+              {
+                type: "separator",
+              },
               {
                 type: "category",
                 title: "Data Models",

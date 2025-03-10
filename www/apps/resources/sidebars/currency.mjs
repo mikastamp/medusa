@@ -1,9 +1,9 @@
-/** @type {import('types').RawSidebarItem[]} */
+/** @type {import('types').Sidebar.SidebarItem[]} */
 export const currencySidebar = [
   {
-    type: "category",
+    type: "sidebar",
+    sidebar_id: "currency",
     title: "Currency Module",
-    isChildSidebar: true,
     children: [
       {
         type: "link",
@@ -99,12 +99,19 @@ export const currencySidebar = [
             ],
           },
           {
-            type: "link",
-            path: "/references/currency",
+            type: "sidebar",
+            sidebar_id: "currency-service-reference",
             title: "Main Service Reference",
-            isChildSidebar: true,
             childSidebarTitle: "Currency Module's Main Service Reference",
             children: [
+              {
+                type: "link",
+                path: "/references/currency",
+                title: "Reference Overview",
+              },
+              {
+                type: "separator",
+              },
               {
                 type: "category",
                 title: "Methods",
@@ -114,12 +121,19 @@ export const currencySidebar = [
             ],
           },
           {
-            type: "link",
-            path: "/references/currency/models",
+            type: "sidebar",
+            sidebar_id: "currency-models-reference",
             title: "Data Models Reference",
-            isChildSidebar: true,
             childSidebarTitle: "Currency Module Data Models Reference",
             children: [
+              {
+                type: "link",
+                path: "/references/currency/models",
+                title: "Reference Overview",
+              },
+              {
+                type: "separator",
+              },
               {
                 type: "category",
                 title: "Data Models",

@@ -1,9 +1,9 @@
-/** @type {import('types').RawSidebarItem[]} */
+/** @type {import('types').Sidebar.SidebarItem[]} */
 export const cartSidebar = [
   {
-    type: "category",
+    type: "sidebar",
+    sidebar_id: "cart",
     title: "Cart Module",
-    isChildSidebar: true,
     children: [
       {
         type: "link",
@@ -148,12 +148,19 @@ export const cartSidebar = [
             title: "Events Reference",
           },
           {
-            type: "link",
-            path: "/references/cart",
+            type: "sidebar",
+            sidebar_id: "cart-service-reference",
             title: "Main Service Reference",
-            isChildSidebar: true,
             childSidebarTitle: "Cart Module's Main Service Reference",
             children: [
+              {
+                type: "link",
+                path: "/references/cart",
+                title: "Reference Overview",
+              },
+              {
+                type: "separator",
+              },
               {
                 type: "category",
                 title: "Methods",
@@ -163,12 +170,19 @@ export const cartSidebar = [
             ],
           },
           {
-            type: "link",
-            path: "/references/cart/models",
+            type: "sidebar",
+            sidebar_id: "cart-models-reference",
             title: "Data Models Reference",
-            isChildSidebar: true,
             childSidebarTitle: "Cart Module Data Models Reference",
             children: [
+              {
+                type: "link",
+                path: "/references/cart/models",
+                title: "Reference Overview",
+              },
+              {
+                type: "separator",
+              },
               {
                 type: "category",
                 title: "Data Models",

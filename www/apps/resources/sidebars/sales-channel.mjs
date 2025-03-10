@@ -1,9 +1,9 @@
-/** @type {import('types').RawSidebarItem[]} */
+/** @type {import('types').Sidebar.SidebarItem[]} */
 export const salesChannelSidebar = [
   {
-    type: "category",
+    type: "sidebar",
+    sidebar_id: "sales-channel",
     title: "Sales Channel Module",
-    isChildSidebar: true,
     children: [
       {
         type: "link",
@@ -138,12 +138,16 @@ export const salesChannelSidebar = [
             title: "Admin Widget Zones",
           },
           {
-            type: "link",
-            path: "/references/sales-channel",
+            type: "sidebar",
+            sidebar_id: "sales-channel-service-reference",
             title: "Main Service Reference",
-            isChildSidebar: true,
             childSidebarTitle: "Sales Channel Module's Main Service Reference",
             children: [
+              {
+                type: "link",
+                path: "/references/sales-channel",
+                title: "Reference Overview",
+              },
               {
                 type: "category",
                 title: "Methods",
@@ -153,12 +157,19 @@ export const salesChannelSidebar = [
             ],
           },
           {
-            type: "link",
-            path: "/references/sales-channel/models",
+            type: "sidebar",
+            sidebar_id: "sales-channel-models-reference",
             title: "Data Models Reference",
-            isChildSidebar: true,
             childSidebarTitle: "Sales Channel Module Data Models Reference",
             children: [
+              {
+                type: "link",
+                path: "/references/sales-channel/models",
+                title: "Reference Overview",
+              },
+              {
+                type: "separator",
+              },
               {
                 type: "category",
                 title: "Data Models",

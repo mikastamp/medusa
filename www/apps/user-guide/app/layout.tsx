@@ -64,13 +64,7 @@ export default function RootLayout({
       htmlClassName={clsx(inter.variable, robotoMono.variable)}
       gaId={process.env.NEXT_PUBLIC_GA_ID}
     >
-      <TightLayout
-        sidebarProps={{
-          expandItems: true,
-        }}
-        ProvidersComponent={Providers}
-        footerComponent={<Footer />}
-      >
+      <TightLayout ProvidersComponent={Providers} footerComponent={<Footer />}>
         {children}
         <Feedback className="my-2" />
         <EditButton />

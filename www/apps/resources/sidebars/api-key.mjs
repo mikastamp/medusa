@@ -1,9 +1,9 @@
-/** @type {import('types').RawSidebarItem[]} */
+/** @type {import('types').Sidebar.SidebarItem[]} */
 export const apiKeySidebar = [
   {
-    type: "category",
+    type: "sidebar",
+    sidebar_id: "api-key",
     title: "API Key Module",
-    isChildSidebar: true,
     children: [
       {
         type: "link",
@@ -131,12 +131,19 @@ export const apiKeySidebar = [
             title: "Admin Widget Zones",
           },
           {
-            type: "link",
-            path: "/references/api-key",
+            type: "sidebar",
+            sidebar_id: "api-key-service-reference",
             title: "Main Service Reference",
-            isChildSidebar: true,
             childSidebarTitle: "API Key Module's Main Service Reference",
             children: [
+              {
+                type: "link",
+                path: "/references/api-key",
+                title: "Reference Overview",
+              },
+              {
+                type: "separator",
+              },
               {
                 type: "category",
                 title: "Methods",
@@ -147,12 +154,19 @@ export const apiKeySidebar = [
             ],
           },
           {
-            type: "link",
-            path: "/references/api-key/models",
+            type: "sidebar",
+            sidebar_id: "api-key-models-reference",
             title: "Data Models Reference",
-            isChildSidebar: true,
             childSidebarTitle: "API Key Module Data Models Reference",
             children: [
+              {
+                type: "link",
+                path: "/references/api-key/models",
+                title: "Reference Overview",
+              },
+              {
+                type: "separator",
+              },
               {
                 type: "category",
                 title: "Data Models",
