@@ -46,6 +46,7 @@ medusaIntegrationTestRunner({
               entity: "Currency",
               primaryKey: "code",
               foreignKey: "currency_code",
+              isList: false,
               alias: "currency",
               args: {
                 methodSuffix: "Currencies",
@@ -58,6 +59,7 @@ medusaIntegrationTestRunner({
               primaryKey: "id",
               foreignKey: "region_id",
               alias: "region",
+              isList: false,
               args: {
                 methodSuffix: "Regions",
               },
@@ -145,6 +147,7 @@ medusaIntegrationTestRunner({
               entity: "ProductVariant",
               primaryKey: "id",
               foreignKey: "product_variant_id",
+              isList: false,
               alias: "product_variant",
               args: {
                 methodSuffix: "ProductVariants",
@@ -156,6 +159,7 @@ medusaIntegrationTestRunner({
               entity: "Region",
               primaryKey: "id",
               foreignKey: "region_id",
+              isList: false,
               alias: "region",
               args: {
                 methodSuffix: "Regions",
@@ -249,6 +253,7 @@ medusaIntegrationTestRunner({
               entity: "Currency",
               primaryKey: "code",
               foreignKey: "currency_code",
+              isList: false,
               alias: "currency",
               args: {
                 methodSuffix: "Currencies",
@@ -260,6 +265,7 @@ medusaIntegrationTestRunner({
               entity: "Region",
               primaryKey: "id",
               foreignKey: "region_id",
+              isList: false,
               alias: "region",
               args: {
                 methodSuffix: "Regions",
@@ -347,6 +353,7 @@ medusaIntegrationTestRunner({
               entity: "Currency",
               primaryKey: "code",
               foreignKey: "currency_code",
+              isList: false,
               alias: "currency",
               args: {
                 methodSuffix: "Currencies",
@@ -358,6 +365,7 @@ medusaIntegrationTestRunner({
               entity: "Region",
               primaryKey: "id",
               foreignKey: "region_id",
+              isList: false,
               alias: "region",
               args: {
                 methodSuffix: "Regions",

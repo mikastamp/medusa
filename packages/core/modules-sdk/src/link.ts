@@ -388,7 +388,10 @@ export class Link {
       string,
       {
         linksToCreate: [string | string[], string, Record<string, unknown>?][]
-        linksToValidateForUniqueness: { [key: string]: string }[]
+        linksToValidateForUniqueness: {
+          filters: { [key: string]: string }[]
+          services: string[]
+        }
       }
     >()
 
@@ -413,11 +416,20 @@ export class Link {
            * have to limit a relationship with this entity to be a one-to-one
            * or one-to-many
            */
-          linksToValidateForUniqueness: [],
+          linksToValidateForUniqueness: {
+            filters: [],
+            services: [],
+          },
         })
       }
 
       relationships?.forEach((relationship) => {
+        const linksToValidateForUniqueness = serviceLinks.get(
+          service.__definition.key
+        )!.linksToValidateForUniqueness!
+
+        linksToValidateForUniqueness.services.push(relationship.serviceName)
+
         /**
          * When isList is set on false on the relationship, then it means
          * we have a one-to-one or many-to-one relationship with the
@@ -440,18 +452,14 @@ export class Link {
             return
           }
 
-          const linksToValidateForUniqueness = serviceLinks.get(
-            service.__definition.key
-          )!.linksToValidateForUniqueness!
-
           if (moduleBKey === otherSide.foreignKey) {
-            linksToValidateForUniqueness.push({
+            linksToValidateForUniqueness.filters.push({
               [otherSide.foreignKey]: link[moduleB][moduleBKey],
             })
           } else {
             primaryKeys.forEach((pk) => {
               if (pk === otherSide.foreignKey) {
-                linksToValidateForUniqueness.push({
+                linksToValidateForUniqueness.filters.push({
                   [otherSide.foreignKey]: link[moduleA][pk],
                 })
               }
@@ -477,15 +485,19 @@ export class Link {
     }
 
     for (const [serviceName, data] of serviceLinks) {
-      if (data.linksToValidateForUniqueness.length) {
+      if (data.linksToValidateForUniqueness.filters.length) {
         const service = this.modulesMap.get(serviceName)!
         const existingLinks = await service.count({
           $or: data.linksToValidateForUniqueness,
         })
+
         if (existingLinks > 0) {
+          const serviceA = data.linksToValidateForUniqueness.services[0]
+          const serviceB = data.linksToValidateForUniqueness.services[1]
+
           throw new MedusaError(
             MedusaError.Types.INVALID_DATA,
-            "Uniqueness constraint failed"
+            `Cannot create multiple links between "${serviceA}" and "${serviceB}"`
           )
         }
       }
