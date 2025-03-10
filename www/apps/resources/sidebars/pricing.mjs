@@ -1,9 +1,9 @@
-/** @type {import('types').RawSidebarItem[]} */
+/** @type {import('types').Sidebar.SidebarItem[]} */
 export const pricingSidebar = [
   {
-    type: "category",
+    type: "sidebar",
+    sidebar_id: "pricing",
     title: "Pricing Module",
-    isChildSidebar: true,
     children: [
       {
         type: "link",
@@ -51,6 +51,7 @@ export const pricingSidebar = [
         autogenerate_tags: "server+pricing",
         initialOpen: false,
         autogenerate_as_ref: true,
+        sort_sidebar: "alphabetize",
         description:
           "Learn how to use the Pricing Module in your customizations on the Medusa application server.",
       },
@@ -60,6 +61,7 @@ export const pricingSidebar = [
         autogenerate_tags: "storefront+pricing,-jsSdk",
         initialOpen: false,
         autogenerate_as_ref: true,
+        sort_sidebar: "alphabetize",
         description:
           "Learn how to integrate the Pricing Module's features into your storefront.",
       },
@@ -69,6 +71,7 @@ export const pricingSidebar = [
         autogenerate_tags: "admin+pricing,-jsSdk",
         initialOpen: false,
         autogenerate_as_ref: true,
+        sort_sidebar: "alphabetize",
         description:
           "Learn how to utilize administative features of the Pricing Module.",
       },
@@ -78,6 +81,7 @@ export const pricingSidebar = [
         autogenerate_tags: "userGuide+pricing",
         initialOpen: false,
         autogenerate_as_ref: true,
+        sort_sidebar: "alphabetize",
         description:
           "Learn how to utilize and manage Pricing features in the Medusa Admin dashboard.",
       },
@@ -99,12 +103,14 @@ export const pricingSidebar = [
                 title: "Workflows",
                 autogenerate_tags: "workflow+pricing",
                 autogenerate_as_ref: true,
+                sort_sidebar: "alphabetize",
               },
               {
                 type: "category",
                 title: "Steps",
                 autogenerate_tags: "step+pricing",
                 autogenerate_as_ref: true,
+                sort_sidebar: "alphabetize",
               },
             ],
           },
@@ -121,6 +127,7 @@ export const pricingSidebar = [
                 description:
                   "The following methods or properties are used to send requests to Store API Routes related to the Pricing Module.",
                 autogenerate_as_ref: true,
+                sort_sidebar: "alphabetize",
               },
               {
                 type: "sub-category",
@@ -129,6 +136,7 @@ export const pricingSidebar = [
                 description:
                   "The following methods or properties are used to send requests to Admin API Routes related to the Pricing Module.",
                 autogenerate_as_ref: true,
+                sort_sidebar: "alphabetize",
               },
             ],
           },
@@ -138,12 +146,19 @@ export const pricingSidebar = [
             title: "Admin Widget Zones",
           },
           {
-            type: "link",
-            path: "/references/pricing",
+            type: "sidebar",
+            sidebar_id: "pricing-service-reference",
             title: "Main Service Reference",
-            isChildSidebar: true,
             childSidebarTitle: "Pricing Module's Main Service Reference",
             children: [
+              {
+                type: "link",
+                path: "/references/pricing",
+                title: "Reference Overview",
+              },
+              {
+                type: "separator",
+              },
               {
                 type: "category",
                 title: "Methods",
@@ -153,12 +168,19 @@ export const pricingSidebar = [
             ],
           },
           {
-            type: "link",
-            path: "/references/pricing/models",
+            type: "sidebar",
+            sidebar_id: "pricing-models-reference",
             title: "Data Models Reference",
-            isChildSidebar: true,
             childSidebarTitle: "Pricing Module Data Models Reference",
             children: [
+              {
+                type: "link",
+                path: "/references/pricing/models",
+                title: "Reference Overview",
+              },
+              {
+                type: "separator",
+              },
               {
                 type: "category",
                 title: "Data Models",

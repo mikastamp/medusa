@@ -1,15 +1,15 @@
-import { InteractiveSidebarItem, SidebarItem, SidebarItemCategory } from "types"
+import { Sidebar } from "types"
 
 export default function numberSidebarItems(
-  sidebarItems: SidebarItem[],
+  sidebarItems: Sidebar.SidebarItem[],
   numbering = [1]
-): SidebarItem[] {
+): Sidebar.SidebarItem[] {
   if (!numbering.length) {
     numbering.push(1)
   }
   const isTopItems = numbering.length === 1
-  const numberedItems: SidebarItem[] = []
-  let parentItem: InteractiveSidebarItem | undefined
+  const numberedItems: Sidebar.SidebarItem[] = []
+  let parentItem: Sidebar.InteractiveSidebarItem | undefined
   sidebarItems.forEach((item) => {
     if (item.type === "separator") {
       ;(parentItem?.children || numberedItems).push(item)
@@ -17,16 +17,19 @@ export default function numberSidebarItems(
     }
 
     // append current number to the item's title
-    item.chapterTitle = `${numbering.join(".")}. ${
+    const currentNumbering = `${numbering.join(".")}.`
+    item.chapterTitle = `${currentNumbering} ${
       item.chapterTitle?.trim() || item.title?.trim()
     }`
     item.title = item.title.trim()
+    item.number = currentNumbering
 
     if (isTopItems) {
       // Add chapter category
       numberedItems.push(
         item.type === "category"
           ? {
+              initialOpen: false,
               ...item,
               title: item.chapterTitle,
             }
@@ -41,7 +44,7 @@ export default function numberSidebarItems(
 
       parentItem = numberedItems[
         numberedItems.length - 1
-      ] as SidebarItemCategory
+      ] as Sidebar.SidebarItemCategory
     }
 
     if (item.children) {

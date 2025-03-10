@@ -1,9 +1,9 @@
-/** @type {import('types').RawSidebarItem[]} */
+/** @type {import('types').Sidebar.SidebarItem[]} */
 export const apiKeySidebar = [
   {
-    type: "category",
+    type: "sidebar",
+    sidebar_id: "api-key",
     title: "API Key Module",
-    isChildSidebar: true,
     children: [
       {
         type: "link",
@@ -36,6 +36,7 @@ export const apiKeySidebar = [
         autogenerate_tags: "server+auth",
         initialOpen: false,
         autogenerate_as_ref: true,
+        sort_sidebar: "alphabetize",
         description:
           "Learn how to use the API Key Module in your customizations on the Medusa application server.",
       },
@@ -45,6 +46,7 @@ export const apiKeySidebar = [
         initialOpen: false,
         autogenerate_tags: "storefront+apiKey,-jsSdk",
         autogenerate_as_ref: true,
+        sort_sidebar: "alphabetize",
         description:
           "Learn how to integrate the API Key Module's features into your storefront.",
       },
@@ -54,6 +56,7 @@ export const apiKeySidebar = [
         initialOpen: false,
         autogenerate_tags: "admin+apiKey,-jsSdk",
         autogenerate_as_ref: true,
+        sort_sidebar: "alphabetize",
         description:
           "Learn how to utilize administative features of the API Key Module.",
       },
@@ -63,6 +66,7 @@ export const apiKeySidebar = [
         initialOpen: false,
         autogenerate_tags: "userGuide+apiKey",
         autogenerate_as_ref: true,
+        sort_sidebar: "alphabetize",
         description:
           "Learn how to utilize and manage API Key features in the Medusa Admin dashboard.",
       },
@@ -84,12 +88,14 @@ export const apiKeySidebar = [
                 title: "Workflows",
                 autogenerate_tags: "workflow+apiKey",
                 autogenerate_as_ref: true,
+                sort_sidebar: "alphabetize",
               },
               {
                 type: "category",
                 title: "Steps",
                 autogenerate_tags: "step+apiKey",
                 autogenerate_as_ref: true,
+                sort_sidebar: "alphabetize",
               },
             ],
           },
@@ -106,6 +112,7 @@ export const apiKeySidebar = [
                 description:
                   "The following methods or properties are used to send requests to Store API Routes related to the API Key Module.",
                 autogenerate_as_ref: true,
+                sort_sidebar: "alphabetize",
               },
               {
                 type: "sub-category",
@@ -114,6 +121,7 @@ export const apiKeySidebar = [
                 description:
                   "The following methods or properties are used to send requests to Admin API Routes related to the API Key Module.",
                 autogenerate_as_ref: true,
+                sort_sidebar: "alphabetize",
               },
             ],
           },
@@ -123,12 +131,19 @@ export const apiKeySidebar = [
             title: "Admin Widget Zones",
           },
           {
-            type: "link",
-            path: "/references/api-key",
+            type: "sidebar",
+            sidebar_id: "api-key-service-reference",
             title: "Main Service Reference",
-            isChildSidebar: true,
             childSidebarTitle: "API Key Module's Main Service Reference",
             children: [
+              {
+                type: "link",
+                path: "/references/api-key",
+                title: "Reference Overview",
+              },
+              {
+                type: "separator",
+              },
               {
                 type: "category",
                 title: "Methods",
@@ -139,12 +154,19 @@ export const apiKeySidebar = [
             ],
           },
           {
-            type: "link",
-            path: "/references/api-key/models",
+            type: "sidebar",
+            sidebar_id: "api-key-models-reference",
             title: "Data Models Reference",
-            isChildSidebar: true,
             childSidebarTitle: "API Key Module Data Models Reference",
             children: [
+              {
+                type: "link",
+                path: "/references/api-key/models",
+                title: "Reference Overview",
+              },
+              {
+                type: "separator",
+              },
               {
                 type: "category",
                 title: "Data Models",

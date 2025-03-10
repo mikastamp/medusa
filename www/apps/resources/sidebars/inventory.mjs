@@ -1,9 +1,9 @@
-/** @type {import('types').RawSidebarItem[]} */
+/** @type {import('types').Sidebar.SidebarItem[]} */
 export const inventorySidebar = [
   {
-    type: "category",
+    type: "sidebar",
+    sidebar_id: "inventory",
     title: "Inventory Module",
-    isChildSidebar: true,
     children: [
       {
         type: "link",
@@ -48,6 +48,7 @@ export const inventorySidebar = [
         autogenerate_tags: "server+inventory",
         initialOpen: false,
         autogenerate_as_ref: true,
+        sort_sidebar: "alphabetize",
         description:
           "Learn how to use the Inventory Module in your customizations on the Medusa application server.",
       },
@@ -57,6 +58,7 @@ export const inventorySidebar = [
         autogenerate_tags: "storefront+inventory,-jsSdk",
         initialOpen: false,
         autogenerate_as_ref: true,
+        sort_sidebar: "alphabetize",
         description:
           "Learn how to integrate the Inventory Module's features into your storefront.",
       },
@@ -66,6 +68,7 @@ export const inventorySidebar = [
         autogenerate_tags: "admin+inventory,-jsSdk",
         initialOpen: false,
         autogenerate_as_ref: true,
+        sort_sidebar: "alphabetize",
         description:
           "Learn how to utilize administative features of the Inventory Module.",
       },
@@ -75,6 +78,7 @@ export const inventorySidebar = [
         autogenerate_tags: "userGuide+inventory",
         initialOpen: false,
         autogenerate_as_ref: true,
+        sort_sidebar: "alphabetize",
         description:
           "Learn how to utilize and manage Inventory features in the Medusa Admin dashboard.",
       },
@@ -96,12 +100,14 @@ export const inventorySidebar = [
                 title: "Workflows",
                 autogenerate_tags: "workflow+inventory",
                 autogenerate_as_ref: true,
+                sort_sidebar: "alphabetize",
               },
               {
                 type: "category",
                 title: "Steps",
                 autogenerate_tags: "step+inventory",
                 autogenerate_as_ref: true,
+                sort_sidebar: "alphabetize",
               },
             ],
           },
@@ -118,6 +124,7 @@ export const inventorySidebar = [
                 description:
                   "The following methods or properties are used to send requests to Store API Routes related to the Inventory Module.",
                 autogenerate_as_ref: true,
+                sort_sidebar: "alphabetize",
               },
               {
                 type: "sub-category",
@@ -126,6 +133,7 @@ export const inventorySidebar = [
                 description:
                   "The following methods or properties are used to send requests to Admin API Routes related to the Inventory Module.",
                 autogenerate_as_ref: true,
+                sort_sidebar: "alphabetize",
               },
             ],
           },
@@ -135,12 +143,19 @@ export const inventorySidebar = [
             title: "Admin Widget Zones",
           },
           {
-            type: "link",
-            path: "/references/inventory-next",
+            type: "sidebar",
+            sidebar_id: "inventory-service-reference",
             title: "Main Service Reference",
-            isChildSidebar: true,
             childSidebarTitle: "Inventory Module's Main Service Reference",
             children: [
+              {
+                type: "link",
+                path: "/references/inventory-next",
+                title: "Reference Overview",
+              },
+              {
+                type: "separator",
+              },
               {
                 type: "category",
                 title: "Methods",
@@ -150,12 +165,19 @@ export const inventorySidebar = [
             ],
           },
           {
-            type: "link",
-            path: "/references/inventory-next/models",
+            type: "sidebar",
+            sidebar_id: "inventory-models-reference",
             title: "Data Models Reference",
-            isChildSidebar: true,
             childSidebarTitle: "Inventory Module Data Models Reference",
             children: [
+              {
+                type: "link",
+                path: "/references/inventory-next/models",
+                title: "Reference Overview",
+              },
+              {
+                type: "separator",
+              },
               {
                 type: "category",
                 title: "Data Models",

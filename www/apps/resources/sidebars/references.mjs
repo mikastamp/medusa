@@ -1,12 +1,19 @@
-/** @type {import('types').RawSidebarItem[]} */
+/** @type {import('types').Sidebar.SidebarItem[]} */
 export const referencesSidebar = [
   {
-    type: "link",
-    path: "/references/workflows",
+    type: "sidebar",
+    sidebar_id: "workflows-sdk-reference",
     title: "Workflows SDK",
     childSidebarTitle: "Workflows SDK Reference",
-    isChildSidebar: true,
     children: [
+      {
+        type: "link",
+        path: "/references/workflows",
+        title: "Reference Overview",
+      },
+      {
+        type: "separator",
+      },
       {
         type: "category",
         title: "Functions",
@@ -15,12 +22,19 @@ export const referencesSidebar = [
     ],
   },
   {
-    type: "link",
-    path: "/references/data-model",
+    type: "sidebar",
+    sidebar_id: "dml-reference",
     title: "Data Model Language",
     childSidebarTitle: "Data Model Language Reference",
-    isChildSidebar: true,
     children: [
+      {
+        type: "link",
+        path: "/references/data-model",
+        title: "Reference Overview",
+      },
+      {
+        type: "separator",
+      },
       {
         type: "link",
         path: "/references/data-model/define",
@@ -53,11 +67,18 @@ export const referencesSidebar = [
     ],
   },
   {
-    type: "link",
-    path: "/service-factory-reference",
+    type: "sidebar",
+    sidebar_id: "service-factory-reference",
     title: "Service Factory",
-    isChildSidebar: true,
     children: [
+      {
+        type: "link",
+        path: "/service-factory-reference",
+        title: "Reference Overview",
+      },
+      {
+        type: "separator",
+      },
       {
         type: "category",
         title: "Methods",
@@ -71,25 +92,44 @@ export const referencesSidebar = [
     ],
   },
   {
-    type: "link",
-    path: "/references/helper-steps",
+    type: "sidebar",
+    sidebar_id: "helper-steps-reference",
     title: "Helper Steps",
-    isChildSidebar: true,
-    autogenerate_path: "/references/helper_steps/functions",
+    children: [
+      {
+        type: "link",
+        path: "/references/helper-steps",
+        title: "Reference Overview",
+      },
+      {
+        type: "separator",
+      },
+      {
+        type: "category",
+        title: "Steps",
+        autogenerate_path: "/references/helper_steps/functions",
+      },
+    ],
   },
   {
-    type: "link",
+    type: "sidebar",
+    sidebar_id: "core-flows",
     title: "Core Workflows",
-    path: "/medusa-workflows-reference",
-    isChildSidebar: true,
     custom_autogenerate: "core-flows",
   },
   {
-    type: "link",
+    type: "sidebar",
+    sidebar_id: "test-tools-reference",
     title: "Testing Framework",
-    path: "/test-tools-reference",
-    isChildSidebar: true,
     children: [
+      {
+        type: "link",
+        path: "/test-tools-reference",
+        title: "Reference Overview",
+      },
+      {
+        type: "separator",
+      },
       {
         type: "category",
         title: "Functions",

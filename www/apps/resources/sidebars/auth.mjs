@@ -1,9 +1,9 @@
-/** @type {import('types').RawSidebarItem[]} */
+/** @type {import('types').Sidebar.SidebarItem[]} */
 export const authSidebar = [
   {
-    type: "category",
+    type: "sidebar",
+    sidebar_id: "auth",
     title: "Auth Module",
-    isChildSidebar: true,
     children: [
       {
         type: "link",
@@ -51,6 +51,7 @@ export const authSidebar = [
         autogenerate_tags: "server+auth",
         initialOpen: false,
         autogenerate_as_ref: true,
+        sort_sidebar: "alphabetize",
         description:
           "Learn how to use the Auth Module in your customizations on the Medusa application server.",
         children: [
@@ -77,6 +78,7 @@ export const authSidebar = [
         autogenerate_tags: "storefront+auth,-jsSdk",
         initialOpen: false,
         autogenerate_as_ref: true,
+        sort_sidebar: "alphabetize",
         description:
           "Learn how to integrate the Auth Module's features into your storefront.",
       },
@@ -86,6 +88,7 @@ export const authSidebar = [
         autogenerate_tags: "admin+auth,-jsSdk",
         initialOpen: false,
         autogenerate_as_ref: true,
+        sort_sidebar: "alphabetize",
         description:
           "Learn how to utilize administative features of the Auth Module.",
       },
@@ -95,6 +98,7 @@ export const authSidebar = [
         autogenerate_tags: "userGuide+auth",
         initialOpen: false,
         autogenerate_as_ref: true,
+        sort_sidebar: "alphabetize",
         description:
           "Learn how to utilize and manage Auth features in the Medusa Admin dashboard.",
       },
@@ -138,12 +142,14 @@ export const authSidebar = [
                 title: "Workflows",
                 autogenerate_tags: "workflow+auth",
                 autogenerate_as_ref: true,
+                sort_sidebar: "alphabetize",
               },
               {
                 type: "category",
                 title: "Steps",
                 autogenerate_tags: "step+auth",
                 autogenerate_as_ref: true,
+                sort_sidebar: "alphabetize",
               },
             ],
           },
@@ -154,6 +160,7 @@ export const authSidebar = [
             hideChildren: true,
             autogenerate_tags: "jsSdk+auth",
             autogenerate_as_ref: true,
+            sort_sidebar: "alphabetize",
           },
           {
             type: "link",
@@ -166,12 +173,19 @@ export const authSidebar = [
             title: "Admin Widget Zones",
           },
           {
-            type: "link",
-            path: "/references/auth",
+            type: "sidebar",
+            sidebar_id: "auth-service-reference",
             title: "Main Service Reference",
-            isChildSidebar: true,
             childSidebarTitle: "Auth Module's Main Service Reference",
             children: [
+              {
+                type: "link",
+                path: "/references/auth",
+                title: "Reference Overview",
+              },
+              {
+                type: "separator",
+              },
               {
                 type: "category",
                 title: "Methods",
@@ -181,12 +195,19 @@ export const authSidebar = [
             ],
           },
           {
-            type: "link",
-            path: "/references/auth/models",
+            type: "sidebar",
+            sidebar_id: "auth-models-reference",
             title: "Data Models Reference",
-            isChildSidebar: true,
             childSidebarTitle: "Auth Module Data Models Reference",
             children: [
+              {
+                type: "link",
+                path: "/references/auth/models",
+                title: "Reference Overview",
+              },
+              {
+                type: "separator",
+              },
               {
                 type: "category",
                 title: "Data Models",

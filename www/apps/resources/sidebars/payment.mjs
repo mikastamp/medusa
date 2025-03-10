@@ -1,9 +1,9 @@
-/** @type {import('types').RawSidebarItem[]} */
+/** @type {import('types').Sidebar.SidebarItem[]} */
 export const paymentSidebar = [
   {
-    type: "category",
+    type: "sidebar",
+    sidebar_id: "payment",
     title: "Payment Module",
-    isChildSidebar: true,
     children: [
       {
         type: "link",
@@ -66,6 +66,7 @@ export const paymentSidebar = [
         autogenerate_tags: "server+payment",
         initialOpen: false,
         autogenerate_as_ref: true,
+        sort_sidebar: "alphabetize",
         description:
           "Learn how to use the Payment Module in your customizations on the Medusa application server.",
         children: [
@@ -87,6 +88,7 @@ export const paymentSidebar = [
         autogenerate_tags: "storefront+payment,-jsSdk",
         initialOpen: false,
         autogenerate_as_ref: true,
+        sort_sidebar: "alphabetize",
         description:
           "Learn how to integrate the Payment Module's features into your storefront.",
       },
@@ -96,6 +98,7 @@ export const paymentSidebar = [
         autogenerate_tags: "admin+payment,-jsSdk",
         initialOpen: false,
         autogenerate_as_ref: true,
+        sort_sidebar: "alphabetize",
         description:
           "Learn how to utilize administative features of the Payment Module.",
       },
@@ -105,6 +108,7 @@ export const paymentSidebar = [
         autogenerate_tags: "userGuide+payment",
         initialOpen: false,
         autogenerate_as_ref: true,
+        sort_sidebar: "alphabetize",
         description:
           "Learn how to utilize and manage Payment features in the Medusa Admin dashboard.",
       },
@@ -138,12 +142,14 @@ export const paymentSidebar = [
                 title: "Workflows",
                 autogenerate_tags: "workflow+payment",
                 autogenerate_as_ref: true,
+                sort_sidebar: "alphabetize",
               },
               {
                 type: "category",
                 title: "Steps",
                 autogenerate_tags: "step+payment",
                 autogenerate_as_ref: true,
+                sort_sidebar: "alphabetize",
               },
             ],
           },
@@ -160,6 +166,7 @@ export const paymentSidebar = [
                 description:
                   "The following methods or properties are used to send requests to Store API Routes related to the Payment Module.",
                 autogenerate_as_ref: true,
+                sort_sidebar: "alphabetize",
               },
               {
                 type: "sub-category",
@@ -168,6 +175,7 @@ export const paymentSidebar = [
                 description:
                   "The following methods or properties are used to send requests to Admin API Routes related to the Payment Module.",
                 autogenerate_as_ref: true,
+                sort_sidebar: "alphabetize",
               },
             ],
           },
@@ -177,12 +185,19 @@ export const paymentSidebar = [
             title: "Events Reference",
           },
           {
-            type: "link",
-            path: "/references/payment",
+            type: "sidebar",
+            sidebar_id: "payment-service-reference",
             title: "Main Service Reference",
-            isChildSidebar: true,
             childSidebarTitle: "Payment Module's Main Service Reference",
             children: [
+              {
+                type: "link",
+                path: "/references/payment",
+                title: "Reference Overview",
+              },
+              {
+                type: "separator",
+              },
               {
                 type: "category",
                 title: "Methods",
@@ -192,12 +207,19 @@ export const paymentSidebar = [
             ],
           },
           {
-            type: "link",
-            path: "/references/payment/models",
+            type: "sidebar",
+            sidebar_id: "payment-models-reference",
             title: "Data Models Reference",
-            isChildSidebar: true,
             childSidebarTitle: "Payment Module Data Models Reference",
             children: [
+              {
+                type: "link",
+                path: "/references/payment/models",
+                title: "Reference Overview",
+              },
+              {
+                type: "separator",
+              },
               {
                 type: "category",
                 title: "Data Models",

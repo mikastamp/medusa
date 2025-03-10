@@ -1,161 +1,176 @@
-/** @type {import('types').RawSidebarItem[]} */
+/** @type {import('types').Sidebar.SidebarItem[]} */
 export const architecturalModulesSidebar = [
   {
-    type: "category",
-    title: "Cache Modules",
+    type: "sidebar",
+    sidebar_id: "architectural-modules",
+    title: "Architectural Modules",
     children: [
       {
         type: "link",
-        path: "/architectural-modules/cache",
+        path: "/architectural-modules",
         title: "Overview",
       },
       {
-        type: "link",
-        path: "/architectural-modules/cache/in-memory",
-        title: "In-Memory",
+        type: "separator",
       },
       {
-        type: "link",
-        path: "/architectural-modules/cache/redis",
-        title: "Redis",
-      },
-      {
-        type: "sub-category",
-        title: "Guides",
+        type: "category",
+        title: "Cache Modules",
         children: [
           {
             type: "link",
-            path: "/architectural-modules/cache/create",
-            title: "Create Cache Module",
+            path: "/architectural-modules/cache",
+            title: "Overview",
+          },
+          {
+            type: "link",
+            path: "/architectural-modules/cache/in-memory",
+            title: "In-Memory",
+          },
+          {
+            type: "link",
+            path: "/architectural-modules/cache/redis",
+            title: "Redis",
+          },
+          {
+            type: "sub-category",
+            title: "Guides",
+            children: [
+              {
+                type: "link",
+                path: "/architectural-modules/cache/create",
+                title: "Create Cache Module",
+              },
+            ],
           },
         ],
       },
-    ],
-  },
-  {
-    type: "category",
-    title: "Event Modules",
-    children: [
       {
-        type: "link",
-        path: "/architectural-modules/event",
-        title: "Overview",
-      },
-      {
-        type: "link",
-        path: "/architectural-modules/event/local",
-        title: "Local",
-      },
-      {
-        type: "link",
-        path: "/architectural-modules/event/redis",
-        title: "Redis",
-      },
-      {
-        type: "sub-category",
-        title: "Guides",
+        type: "category",
+        title: "Event Modules",
         children: [
           {
             type: "link",
-            path: "/architectural-modules/event/create",
-            title: "Create Event Module",
+            path: "/architectural-modules/event",
+            title: "Overview",
+          },
+          {
+            type: "link",
+            path: "/architectural-modules/event/local",
+            title: "Local",
+          },
+          {
+            type: "link",
+            path: "/architectural-modules/event/redis",
+            title: "Redis",
+          },
+          {
+            type: "sub-category",
+            title: "Guides",
+            children: [
+              {
+                type: "link",
+                path: "/architectural-modules/event/create",
+                title: "Create Event Module",
+              },
+            ],
           },
         ],
       },
-    ],
-  },
-  {
-    type: "category",
-    title: "File Module Providers",
-    children: [
       {
-        type: "link",
-        path: "/architectural-modules/file",
-        title: "Overview",
-      },
-      {
-        type: "link",
-        path: "/architectural-modules/file/local",
-        title: "Local",
-      },
-      {
-        type: "link",
-        path: "/architectural-modules/file/s3",
-        title: "AWS S3 (and Compatible APIs)",
-      },
-      {
-        type: "sub-category",
-        title: "Guides",
+        type: "category",
+        title: "File Module Providers",
         children: [
           {
             type: "link",
-            path: "/references/file-provider-module",
-            title: "Create File Provider",
+            path: "/architectural-modules/file",
+            title: "Overview",
+          },
+          {
+            type: "link",
+            path: "/architectural-modules/file/local",
+            title: "Local",
+          },
+          {
+            type: "link",
+            path: "/architectural-modules/file/s3",
+            title: "AWS S3 (and Compatible APIs)",
+          },
+          {
+            type: "sub-category",
+            title: "Guides",
+            children: [
+              {
+                type: "link",
+                path: "/references/file-provider-module",
+                title: "Create File Provider",
+              },
+            ],
           },
         ],
       },
-    ],
-  },
-  {
-    type: "category",
-    title: "Notification Module Providers",
-    children: [
       {
-        type: "link",
-        path: "/architectural-modules/notification",
-        title: "Overview",
-      },
-      {
-        type: "link",
-        path: "/architectural-modules/notification/local",
-        title: "Local",
-      },
-      {
-        type: "link",
-        path: "/architectural-modules/notification/sendgrid",
-        title: "SendGrid",
-      },
-      {
-        type: "sub-category",
-        title: "Guides",
+        type: "category",
+        title: "Notification Module Providers",
         children: [
           {
             type: "link",
-            path: "/architectural-modules/notification/send-notification",
-            title: "Send Notification",
+            path: "/architectural-modules/notification",
+            title: "Overview",
           },
           {
             type: "link",
-            path: "/references/notification-provider-module",
-            title: "Create Notification Provider",
+            path: "/architectural-modules/notification/local",
+            title: "Local",
           },
           {
             type: "link",
-            path: "/integrations/guides/resend",
-            title: "Integrate Resend",
+            path: "/architectural-modules/notification/sendgrid",
+            title: "SendGrid",
+          },
+          {
+            type: "sub-category",
+            title: "Guides",
+            children: [
+              {
+                type: "link",
+                path: "/references/notification-provider-module",
+                title: "Create Notification Provider",
+              },
+              {
+                type: "link",
+                path: "/integrations/guides/resend",
+                title: "Integrate Resend",
+              },
+              {
+                type: "link",
+                path: "/architectural-modules/notification/send-notification",
+                title: "Send Notification",
+              },
+            ],
           },
         ],
       },
-    ],
-  },
-  {
-    type: "category",
-    title: "Workflow Engine Modules",
-    children: [
       {
-        type: "link",
-        path: "/architectural-modules/workflow-engine",
-        title: "Overview",
-      },
-      {
-        type: "link",
-        path: "/architectural-modules/workflow-engine/in-memory",
-        title: "In-Memory",
-      },
-      {
-        type: "link",
-        path: "/architectural-modules/workflow-engine/redis",
-        title: "Redis",
+        type: "category",
+        title: "Workflow Engine Modules",
+        children: [
+          {
+            type: "link",
+            path: "/architectural-modules/workflow-engine",
+            title: "Overview",
+          },
+          {
+            type: "link",
+            path: "/architectural-modules/workflow-engine/in-memory",
+            title: "In-Memory",
+          },
+          {
+            type: "link",
+            path: "/architectural-modules/workflow-engine/redis",
+            title: "Redis",
+          },
+        ],
       },
     ],
   },

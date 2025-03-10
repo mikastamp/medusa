@@ -8,9 +8,9 @@ import {
   pageNumberRehypePlugin,
   crossProjectLinksPlugin,
 } from "remark-rehype-plugins"
-import { sidebar } from "./sidebar.mjs"
 import path from "path"
 import redirects from "./utils/redirects.mjs"
+import { generatedSidebars } from "./generated/sidebar.mjs"
 
 const withMDX = mdx({
   extension: /\.mdx?$/,
@@ -82,7 +82,7 @@ const withMDX = mdx({
       [
         pageNumberRehypePlugin,
         {
-          sidebar: sidebar,
+          sidebar: generatedSidebars[0].items,
         },
       ],
     ],

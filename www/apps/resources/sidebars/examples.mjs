@@ -1,13 +1,12 @@
-/** @type {import('types').RawSidebarItem[]} */
+/** @type {import('types').Sidebar.SidebarItem[]} */
 export const examplesSidebar = [
   {
-    type: "link",
-    path: "/examples",
+    type: "sidebar",
+    sidebar_id: "examples",
     title: "Examples",
-    isChildSidebar: true,
     children: [
       {
-        type: "ref",
+        type: "link",
         path: "/examples",
         title: "Example Snippets",
       },
@@ -31,19 +30,14 @@ export const examplesSidebar = [
         title: "Server Examples",
         autogenerate_tags: "example+server",
         autogenerate_as_ref: true,
-        children: [
-          {
-            type: "link",
-            title: "Custom Item Price",
-            path: "/examples/guides/custom-item-price",
-          },
-        ],
+        sort_sidebar: "alphabetize",
       },
       {
         type: "category",
         title: "Admin Examples",
         autogenerate_tags: "example+admin",
         autogenerate_as_ref: true,
+        sort_sidebar: "alphabetize",
         children: [],
       },
       {
@@ -51,6 +45,7 @@ export const examplesSidebar = [
         title: "Storefront Examples",
         autogenerate_tags: "example+storefront",
         autogenerate_as_ref: true,
+        sort_sidebar: "alphabetize",
         children: [],
       },
     ],
