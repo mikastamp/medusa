@@ -1,9 +1,9 @@
-/** @type {import('types').RawSidebarItem[]} */
+/** @type {import('types').Sidebar.SidebarItem[]} */
 export const authSidebar = [
   {
-    type: "category",
+    type: "sidebar",
+    sidebar_id: "auth",
     title: "Auth Module",
-    isChildSidebar: true,
     children: [
       {
         type: "link",
@@ -173,12 +173,19 @@ export const authSidebar = [
             title: "Admin Widget Zones",
           },
           {
-            type: "link",
-            path: "/references/auth",
+            type: "sidebar",
+            sidebar_id: "auth-service-reference",
             title: "Main Service Reference",
-            isChildSidebar: true,
             childSidebarTitle: "Auth Module's Main Service Reference",
             children: [
+              {
+                type: "link",
+                path: "/references/auth",
+                title: "Reference Overview",
+              },
+              {
+                type: "separator",
+              },
               {
                 type: "category",
                 title: "Methods",
@@ -188,12 +195,19 @@ export const authSidebar = [
             ],
           },
           {
-            type: "link",
-            path: "/references/auth/models",
+            type: "sidebar",
+            sidebar_id: "auth-models-reference",
             title: "Data Models Reference",
-            isChildSidebar: true,
             childSidebarTitle: "Auth Module Data Models Reference",
             children: [
+              {
+                type: "link",
+                path: "/references/auth/models",
+                title: "Reference Overview",
+              },
+              {
+                type: "separator",
+              },
               {
                 type: "category",
                 title: "Data Models",

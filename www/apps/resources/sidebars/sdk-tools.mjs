@@ -1,4 +1,4 @@
-/** @type {import('types').RawSidebarItem[]} */
+/** @type {import('types').Sidebar.SidebarItem[]} */
 export const sdkToolsSidebar = [
   {
     type: "link",
@@ -6,10 +6,9 @@ export const sdkToolsSidebar = [
     title: "create-medusa-app",
   },
   {
-    type: "link",
-    path: "/medusa-cli",
+    type: "sidebar",
+    sidebar_id: "medusa-cli",
     title: "Medusa CLI",
-    isChildSidebar: true,
     childSidebarTitle: "Medusa CLI Reference",
     children: [
       {
@@ -28,12 +27,19 @@ export const sdkToolsSidebar = [
     ],
   },
   {
-    type: "link",
-    path: "/js-sdk",
+    type: "sidebar",
+    sidebar_id: "js-sdk",
     title: "JS SDK",
-    isChildSidebar: true,
     childSidebarTitle: "JS SDK Reference",
     children: [
+      {
+        type: "link",
+        path: "/js-sdk",
+        title: "Overview",
+      },
+      {
+        type: "separator",
+      },
       {
         type: "category",
         title: "Auth",
@@ -55,10 +61,9 @@ export const sdkToolsSidebar = [
     ],
   },
   {
-    type: "link",
-    path: "/nextjs-starter",
+    type: "sidebar",
+    sidebar_id: "nextjs-starter",
     title: "Next.js Starter Storefront",
-    isChildSidebar: true,
     children: [
       {
         type: "link",

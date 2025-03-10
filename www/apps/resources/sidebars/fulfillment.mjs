@@ -1,9 +1,9 @@
-/** @type {import('types').RawSidebarItem[]} */
+/** @type {import('types').Sidebar.SidebarItem[]} */
 export const fulfillmentSidebar = [
   {
-    type: "category",
+    type: "sidebar",
+    sidebar_id: "fulfillment",
     title: "Fulfillment Module",
-    isChildSidebar: true,
     children: [
       {
         type: "link",
@@ -170,12 +170,19 @@ export const fulfillmentSidebar = [
             title: "Admin Widget Zones",
           },
           {
-            type: "link",
-            path: "/references/fulfillment",
+            type: "sidebar",
+            sidebar_id: "fulfillment-service-reference",
             title: "Main Service Reference",
-            isChildSidebar: true,
             childSidebarTitle: "Fulfillment Module's Main Service Reference",
             children: [
+              {
+                type: "link",
+                path: "/references/fulfillment",
+                title: "Reference Overview",
+              },
+              {
+                type: "separator",
+              },
               {
                 type: "category",
                 title: "Methods",
@@ -185,12 +192,19 @@ export const fulfillmentSidebar = [
             ],
           },
           {
-            type: "link",
-            path: "/references/fulfillment/models",
+            type: "sidebar",
+            sidebar_id: "fulfillment-models-reference",
             title: "Data Models Reference",
-            isChildSidebar: true,
             childSidebarTitle: "Fulfillment Module Data Models Reference",
             children: [
+              {
+                type: "link",
+                path: "/references/fulfillment/models",
+                title: "Reference Overview",
+              },
+              {
+                type: "separator",
+              },
               {
                 type: "category",
                 title: "Data Models",

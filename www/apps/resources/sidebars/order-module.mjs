@@ -1,9 +1,9 @@
-/** @type {import('types').RawSidebarItem[]} */
+/** @type {import('types').Sidebar.SidebarItem[]} */
 export const orderSidebar = [
   {
-    type: "category",
+    type: "sidebar",
+    sidebar_id: "order",
     title: "Order Module",
-    isChildSidebar: true,
     children: [
       {
         type: "link",
@@ -181,12 +181,19 @@ export const orderSidebar = [
             title: "Admin Widget Zones",
           },
           {
-            type: "link",
-            path: "/references/order",
+            type: "sidebar",
+            sidebar_id: "order-service-reference",
             title: "Main Service Reference",
-            isChildSidebar: true,
             childSidebarTitle: "Order Module's Main Service Reference",
             children: [
+              {
+                type: "link",
+                path: "/references/order",
+                title: "Reference Overview",
+              },
+              {
+                type: "separator",
+              },
               {
                 type: "category",
                 title: "Methods",
@@ -196,12 +203,19 @@ export const orderSidebar = [
             ],
           },
           {
-            type: "link",
-            path: "/references/order/models",
+            type: "sidebar",
+            sidebar_id: "order-models-reference",
             title: "Data Models Reference",
-            isChildSidebar: true,
             childSidebarTitle: "Order Module Data Models Reference",
             children: [
+              {
+                type: "link",
+                path: "/references/order/models",
+                title: "Reference Overview",
+              },
+              {
+                type: "separator",
+              },
               {
                 type: "category",
                 title: "Data Models",
