@@ -4,17 +4,18 @@ import {
   AdminCreateCustomer,
   AdminCreateCustomerAddress,
   AdminCustomerAddressesParams,
+  AdminCustomerAddressParams,
   AdminCustomerParams,
   AdminCustomersParams,
   AdminUpdateCustomer,
   AdminUpdateCustomerAddress,
 } from "./validators"
 
-import { MiddlewareRoute } from "@medusajs/framework/http"
 import {
   validateAndTransformBody,
   validateAndTransformQuery,
 } from "@medusajs/framework"
+import { MiddlewareRoute } from "@medusajs/framework/http"
 import { createLinkBody } from "../../utils/validators"
 
 export const adminCustomerRoutesMiddlewares: MiddlewareRoute[] = [
@@ -67,6 +68,16 @@ export const adminCustomerRoutesMiddlewares: MiddlewareRoute[] = [
       validateAndTransformBody(AdminCreateCustomerAddress),
       validateAndTransformQuery(
         AdminCustomerParams,
+        QueryConfig.retrieveTransformQueryConfig
+      ),
+    ],
+  },
+  {
+    method: ["GET"],
+    matcher: "/admin/customers/:id/addresses/:address_id",
+    middlewares: [
+      validateAndTransformQuery(
+        AdminCustomerAddressParams,
         QueryConfig.retrieveTransformQueryConfig
       ),
     ],
