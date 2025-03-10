@@ -1,9 +1,9 @@
-/** @type {import('types').RawSidebarItem[]} */
+/** @type {import('types').Sidebar.SidebarItem[]} */
 export const paymentSidebar = [
   {
-    type: "category",
+    type: "sidebar",
+    sidebar_id: "payment",
     title: "Payment Module",
-    isChildSidebar: true,
     children: [
       {
         type: "link",
@@ -185,12 +185,19 @@ export const paymentSidebar = [
             title: "Events Reference",
           },
           {
-            type: "link",
-            path: "/references/payment",
+            type: "sidebar",
+            sidebar_id: "payment-service-reference",
             title: "Main Service Reference",
-            isChildSidebar: true,
             childSidebarTitle: "Payment Module's Main Service Reference",
             children: [
+              {
+                type: "link",
+                path: "/references/payment",
+                title: "Reference Overview",
+              },
+              {
+                type: "separator",
+              },
               {
                 type: "category",
                 title: "Methods",
@@ -200,12 +207,19 @@ export const paymentSidebar = [
             ],
           },
           {
-            type: "link",
-            path: "/references/payment/models",
+            type: "sidebar",
+            sidebar_id: "payment-models-reference",
             title: "Data Models Reference",
-            isChildSidebar: true,
             childSidebarTitle: "Payment Module Data Models Reference",
             children: [
+              {
+                type: "link",
+                path: "/references/payment/models",
+                title: "Reference Overview",
+              },
+              {
+                type: "separator",
+              },
               {
                 type: "category",
                 title: "Data Models",

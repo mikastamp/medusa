@@ -5,9 +5,9 @@ import { sidebar } from "../sidebar.mjs"
 
 async function main() {
   await generateSidebar(sidebar)
-  await generateSlugChanges()
-  await generateFilesMap()
-  await generateEditedDates()
+  // await generateSlugChanges()
+  // await generateFilesMap()
+  // await generateEditedDates()
 }
 
 void main()

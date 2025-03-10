@@ -1,9 +1,9 @@
-/** @type {import('types').RawSidebarItem[]} */
+/** @type {import('types').Sidebar.SidebarItem[]} */
 export const promotionSidebar = [
   {
-    type: "category",
+    type: "sidebar",
+    sidebar_id: "promotion",
     title: "Promotion Module",
-    isChildSidebar: true,
     children: [
       {
         type: "link",
@@ -153,12 +153,19 @@ export const promotionSidebar = [
             title: "Admin Widget Zones",
           },
           {
-            type: "link",
-            path: "/references/promotion",
+            type: "sidebar",
+            sidebar_id: "promotion-service-reference",
             title: "Main Service Reference",
-            isChildSidebar: true,
             childSidebarTitle: "Promotion Module's Main Service Reference",
             children: [
+              {
+                type: "link",
+                path: "/references/promotion",
+                title: "Reference Overview",
+              },
+              {
+                type: "separator",
+              },
               {
                 type: "category",
                 title: "Methods",
@@ -169,12 +176,19 @@ export const promotionSidebar = [
             ],
           },
           {
-            type: "link",
-            path: "/references/promotion/models",
+            type: "sidebar",
+            sidebar_id: "promotion-models-reference",
             title: "Data Models Reference",
-            isChildSidebar: true,
             childSidebarTitle: "Promotion Module Data Models Reference",
             children: [
+              {
+                type: "link",
+                path: "/references/promotion/models",
+                title: "Reference Overview",
+              },
+              {
+                type: "separator",
+              },
               {
                 type: "category",
                 title: "Data Models",

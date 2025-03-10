@@ -24,195 +24,171 @@ import { storefrontGuidesSidebar } from "./sidebars/storefront.mjs"
 import { taxSidebar } from "./sidebars/tax.mjs"
 import { troubleshootingSidebar } from "./sidebars/troubleshooting.mjs"
 import { userSidebar } from "./sidebars/user.mjs"
-import { sidebarAttachHrefCommonOptions } from "./utils/sidebar-attach-common-options.mjs"
 import { examplesSidebar } from "./sidebars/examples.mjs"
 
-/** @type {import('types').RawSidebarItem[]} */
-export const sidebar = sidebarAttachHrefCommonOptions([
+/** @type {import("types").Sidebar.RawSidebar[]} */
+export const sidebar = [
   {
-    type: "link",
-    path: "/",
-    title: "Overview",
-  },
-  ...examplesSidebar,
-  {
-    type: "link",
-    path: "/recipes",
-    title: "Recipes",
-    isChildSidebar: true,
-    children: recipesSidebar,
-  },
-  {
-    type: "separator",
-  },
-  {
-    type: "link",
-    path: "/commerce-modules",
-    title: "Commerce Modules",
-    hideChildren: true,
-    sort_sidebar: "alphabetize",
-    children: [
-      ...apiKeySidebar,
-      ...authSidebar,
-      ...cartSidebar,
-      ...currencySidebar,
-      ...customerSidebar,
-      ...fulfillmentSidebar,
-      ...inventorySidebar,
-      ...orderSidebar,
-      ...paymentSidebar,
-      ...pricingSidebar,
-      ...productSidebar,
-      ...promotionSidebar,
-      ...regionSidebar,
-      ...salesChannelSidebar,
-      ...stockLocationSidebar,
-      ...storeSidebar,
-      ...taxSidebar,
-      ...userSidebar,
-    ],
-  },
-  {
-    type: "link",
-    path: "/architectural-modules",
-    title: "Architectural Modules",
-    isChildSidebar: true,
-    sort_sidebar: "alphabetize",
-    children: architecturalModulesSidebar,
-  },
-  {
-    type: "link",
-    path: "/integrations",
-    title: "Integrations",
-    isChildSidebar: true,
-    sort_sidebar: "alphabetize",
-    children: integrationsSidebar,
-  },
-  {
-    type: "ref",
-    path: "/plugins",
-    title: "Plugins",
-    isChildSidebar: true,
-    children: pluginsSidebar,
-  },
-  {
-    type: "link",
-    path: "/storefront-development",
-    title: "Storefront Development",
-    isChildSidebar: true,
-    children: storefrontGuidesSidebar,
-  },
-  {
-    type: "separator",
-  },
-  {
-    type: "category",
-    title: "SDKs and Tools",
-    children: sdkToolsSidebar,
-  },
-  {
-    type: "category",
-    title: "General",
-    children: [
+    sidebar_id: "resources",
+    title: "Development Resources",
+    items: [
       {
         type: "link",
-        path: "/references/medusa-config",
-        title: "Medusa Configurations",
+        path: "/",
+        title: "Overview",
+      },
+      ...examplesSidebar,
+      ...recipesSidebar,
+      {
+        type: "separator",
       },
       {
         type: "link",
-        path: "/deployment",
-        title: "Deployment Guides",
-        isChildSidebar: true,
+        path: "/commerce-modules",
+        title: "Commerce Modules",
+        hideChildren: true,
+        sort_sidebar: "alphabetize",
+        children: [
+          ...apiKeySidebar,
+          ...authSidebar,
+          ...cartSidebar,
+          ...currencySidebar,
+          ...customerSidebar,
+          ...fulfillmentSidebar,
+          ...inventorySidebar,
+          ...orderSidebar,
+          ...paymentSidebar,
+          ...pricingSidebar,
+          ...productSidebar,
+          ...promotionSidebar,
+          ...regionSidebar,
+          ...salesChannelSidebar,
+          ...stockLocationSidebar,
+          ...storeSidebar,
+          ...taxSidebar,
+          ...userSidebar,
+        ],
+      },
+      ...architecturalModulesSidebar,
+      ...integrationsSidebar,
+      ...pluginsSidebar,
+      ...storefrontGuidesSidebar,
+      {
+        type: "separator",
+      },
+      {
+        type: "category",
+        title: "SDKs and Tools",
+        children: sdkToolsSidebar,
+      },
+      {
+        type: "category",
+        title: "General",
         children: [
           {
-            type: "link",
-            title: "Medusa Cloud",
-            path: "https://medusajs.com/pricing",
-          },
-          {
-            type: "separator",
-          },
-          {
-            type: "category",
-            title: "Self-Hosting",
+            type: "sidebar",
+            sidebar_id: "deployment-guides",
+            title: "Deployment Guides",
             children: [
               {
                 type: "link",
-                path: "https://docs.medusajs.com/learn/deployment/general",
-                title: "General",
+                path: "/deployment",
+                title: "Overview",
+              },
+              {
+                type: "separator",
               },
               {
                 type: "link",
-                path: "/deployment/medusa-application/railway",
-                title: "Railway",
+                title: "Medusa Cloud",
+                path: "https://medusajs.com/pricing",
+              },
+              {
+                type: "separator",
+              },
+              {
+                type: "category",
+                title: "Self-Hosting",
+                children: [
+                  {
+                    type: "link",
+                    path: "https://docs.medusajs.com/learn/deployment/general",
+                    title: "General",
+                  },
+                  {
+                    type: "link",
+                    path: "/deployment/medusa-application/railway",
+                    title: "Railway",
+                  },
+                ],
+              },
+              {
+                type: "category",
+                title: "Next.js Starter",
+                autogenerate_path: "/deployment/storefront",
               },
             ],
           },
-          {
-            type: "category",
-            title: "Next.js Starter",
-            autogenerate_path: "/deployment/storefront",
-          },
+          ...troubleshootingSidebar,
         ],
       },
       {
-        type: "link",
-        path: "/troubleshooting",
-        title: "Troubleshooting Guides",
-        isChildSidebar: true,
-        children: troubleshootingSidebar,
-      },
-    ],
-  },
-  {
-    type: "category",
-    title: "Admin",
-    children: [
-      {
-        type: "link",
-        path: "/admin-widget-injection-zones",
-        title: "Admin Widget Injection Zones",
-      },
-      {
-        type: "link",
-        path: "/admin-components",
-        title: "Admin Components",
-        isChildSidebar: true,
+        type: "category",
+        title: "Admin",
         children: [
           {
-            type: "category",
-            title: "Layouts",
-            autogenerate_path: "/admin-components/layouts",
+            type: "link",
+            path: "/admin-widget-injection-zones",
+            title: "Admin Widget Injection Zones",
           },
           {
-            type: "category",
-            title: "Components",
-            autogenerate_path: "/admin-components/components",
+            type: "sidebar",
+            sidebar_id: "admin-components",
+            title: "Admin Components",
+            children: [
+              {
+                type: "link",
+                path: "/admin-components",
+                title: "Overview",
+              },
+              {
+                type: "separator",
+              },
+              {
+                type: "category",
+                title: "Layouts",
+                autogenerate_path: "/admin-components/layouts",
+              },
+              {
+                type: "category",
+                title: "Components",
+                autogenerate_path: "/admin-components/components",
+              },
+            ],
           },
         ],
       },
-    ],
-  },
-  {
-    type: "category",
-    title: "Lists",
-    children: [
       {
-        type: "link",
-        path: "/medusa-container-resources",
-        title: "Container Dependencies",
+        type: "category",
+        title: "Lists",
+        children: [
+          {
+            type: "link",
+            path: "/medusa-container-resources",
+            title: "Container Dependencies",
+          },
+          {
+            type: "link",
+            path: "/events-reference",
+            title: "Events List",
+          },
+        ],
       },
       {
-        type: "link",
-        path: "/events-reference",
-        title: "Events List",
+        type: "category",
+        title: "References",
+        children: referencesSidebar,
       },
     ],
   },
-  {
-    type: "category",
-    title: "References",
-    children: referencesSidebar,
-  },
-])
+]

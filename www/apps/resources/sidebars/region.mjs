@@ -1,9 +1,9 @@
-/** @type {import('types').RawSidebarItem[]} */
+/** @type {import('types').Sidebar.SidebarItem[]} */
 export const regionSidebar = [
   {
-    type: "category",
+    type: "sidebar",
+    sidebar_id: "region",
     title: "Region Module",
-    isChildSidebar: true,
     children: [
       {
         type: "link",
@@ -131,12 +131,19 @@ export const regionSidebar = [
             title: "Admin Widget Zones",
           },
           {
-            type: "link",
-            path: "/references/region",
+            type: "sidebar",
+            sidebar_id: "region-service-reference",
             title: "Main Service Reference",
-            isChildSidebar: true,
             childSidebarTitle: "Region Module's Main Service Reference",
             children: [
+              {
+                type: "link",
+                path: "/references/region",
+                title: "Reference Overview",
+              },
+              {
+                type: "separator",
+              },
               {
                 type: "category",
                 title: "Methods",
@@ -146,12 +153,19 @@ export const regionSidebar = [
             ],
           },
           {
-            type: "link",
-            path: "/references/region/models",
+            type: "sidebar",
+            sidebar_id: "region-models-reference",
             title: "Data Models Reference",
-            isChildSidebar: true,
             childSidebarTitle: "Region Module Data Models Reference",
             children: [
+              {
+                type: "link",
+                path: "/references/region/models",
+                title: "Reference Overview",
+              },
+              {
+                type: "separator",
+              },
               {
                 type: "category",
                 title: "Data Models",
