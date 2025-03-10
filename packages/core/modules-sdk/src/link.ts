@@ -488,7 +488,7 @@ export class Link {
       if (data.linksToValidateForUniqueness.filters.length) {
         const service = this.modulesMap.get(serviceName)!
         const existingLinks = await service.count({
-          $or: data.linksToValidateForUniqueness,
+          $or: data.linksToValidateForUniqueness.filters,
         })
 
         if (existingLinks > 0) {
@@ -497,7 +497,7 @@ export class Link {
 
           throw new MedusaError(
             MedusaError.Types.INVALID_DATA,
-            `Cannot create multiple links between "${serviceA}" and "${serviceB}"`
+            `Cannot create multiple links between '${serviceA}' and '${serviceB}'`
           )
         }
       }
