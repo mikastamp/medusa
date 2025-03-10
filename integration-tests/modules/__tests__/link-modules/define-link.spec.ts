@@ -365,7 +365,7 @@ medusaIntegrationTestRunner({
               entity: "Region",
               primaryKey: "id",
               foreignKey: "region_id",
-              isList: false,
+              isList: true,
               alias: "region",
               args: {
                 methodSuffix: "Regions",
